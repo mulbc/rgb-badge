@@ -1,0 +1,17 @@
+SPDX-License-Identifier: CERN-OHL-S-2.0
+
+RGB Badge
+
+This project is an original hardware, firmware and mechanical design inspired by
+the FOSSASIA Badge Magic Hardware Board:
+
+    https://github.com/fossasia/badgemagic-hardware
+
+The FOSSASIA repository is used as an attributed reference for its wearable
+badge concept, approximate form factor and pixel pitch. No FOSSASIA PCB layout
+or design-source file has been copied into this repository.
+
+At the time this notice was created, the referenced FOSSASIA repository stated
+that its hardware sources were available under the Apache License 2.0. Any
+third-party material added later must retain its own copyright, attribution and
+licensing notices.

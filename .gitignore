@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: Apache-2.0
+
+# KiCad local state and backups
+*-backups/
+_autosave-*
+*.bak
+*.bck
+*.kicad_pcb-bak
+*.kicad_prl
+*.kicad_sch-bak
+*.lck
+fp-info-cache
+
+# Local/generated electronics output. Signed release artifacts are tracked
+# explicitly below manufacturing/.
+hardware/**/build/
+manufacturing/**/generated/
+
+# ESP-IDF and CMake output
+firmware/build/
+firmware/sdkconfig
+firmware/sdkconfig.old
+CMakeFiles/
+CMakeCache.txt
+
+# Python/CadQuery tooling
+__pycache__/
+*.py[cod]
+.venv/
+mechanical/build/
+
+# Editor and operating-system state
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

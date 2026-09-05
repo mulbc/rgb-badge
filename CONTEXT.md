@@ -1,0 +1,84 @@
+<!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
+
+# Project context
+
+## Purpose
+
+Create a small, manufacturable 48 × 16 RGB wearable badge that preserves the 1.95 mm pixel pitch of the referenced FOSSASIA Badge Magic board. The owner intends to develop the electronics, firmware and enclosure with AI assistance, then have a turnkey PCBA supplier assemble the SMT hardware.
+
+## Current state
+
+- Requirements interview: complete.
+- Architecture: accepted baseline, subject to coupon measurements.
+- Coupon schematic: not started.
+- Hardware testing: none.
+- Current safe action: documentation, exact-part research, calculations and coupon design.
+- Current stop condition: do not order a PCB or battery until the Gate A engineering review is complete.
+
+## Non-negotiable constraints
+
+| Area | Constraint |
+|---|---|
+| Matrix | 48 × 16 true RGB; pixel pitch must not exceed 1.95 mm |
+| Size | Complete case no larger than 110 × 35 × 11 mm |
+| Weight | Aim ≤75 g; never exceed 100 g including cell, case and magnets |
+| Runtime | Roughly 6 h for the published reference workload; no automatic brightness reduction |
+| Charging | USB-C at 5 V; correct A-to-C/C-to-C behaviour; charge while operating |
+| Radio | BLE only in explicit programming mode |
+| Controls | One momentary mode button and one latching on/off slide switch |
+| OFF state | Application electronics and display off; autonomous charging and gauging remain available |
+| Assembly | Turnkey PCBA; user plugs in the protected battery and assembles the case |
+| Quantity | Five assembled full badges after coupon validation |
+| Budget | USD 500–800 for coupon, five badges, cells, basic test tools and shipping; case filament/design and independent review excluded |
+
+## Accepted architecture baseline
+
+- Three TLC59581 constant-current drivers, one per 16-column RGB block.
+- Discrete four-pad common-anode RGB LEDs in a 1:16 multiplexed matrix.
+- Sixteen level-shifted P-channel MOSFET high-side row switches.
+- ESP32-S3-WROOM-1U-N16R8 with an external 2.4 GHz FPC antenna.
+- BQ25616J standalone switching charger and NVDC power path.
+- TUSB320LAI sink/current-advertisement detection with a passive 500 mA input-limit state.
+- TPS631000-class 3.3 V rail and TPS63020-class approximately 3.9 V LED rail.
+- MAX17048 fuel gauge and INA232 bidirectional battery-current monitor.
+- Protected, NTC-equipped, connectorized 750–900 mAh LiPo; 900 mAh is preferred if the 11 mm stack closes safely.
+
+## Power states
+
+| Switch | USB | Application and USB data | Charging | Display |
+|---|---|---|---|---|
+| OFF | Absent | Off | No | Off |
+| OFF | Present | Off | Autonomous | Off |
+| ON | Absent | Playback | No | Firmware-controlled |
+| ON | Present | Playback/USB data | Active with load priority | Firmware-controlled |
+
+## Development stages
+
+1. **Documentation:** requirements, ADRs and candidate-part evidence.
+2. **Coupon design:** production-intent 16 × 16 mixed-LED test board.
+3. **Gate A review:** completed schematic plus preliminary layout reviewed independently.
+4. **Coupon fabrication and bring-up:** five PCBs, three assembled.
+5. **Gate B:** measured optical, electrical, thermal, runtime, RF and storage results.
+6. **Full badge:** final six-layer PCB and enclosure.
+7. **Gate C:** second review, frozen BOM and three comparable assembly quotes.
+8. **Pilot:** five fully assembled badges.
+
+## Open engineering decisions
+
+- Exact 1010 and 1515 coupon LEDs, footprints and optical bins.
+- Exact protected/terminated cell and connector.
+- Final charger `ICHG` and USB `ILIM` resistor networks.
+- Validation or replacement of the provisional isolated charger D+/D− approach.
+- Exact row MOSFETs, gate drivers and active-high decoder.
+- Final converter component values and layout.
+- Coupon and final PCB stack-ups.
+- External antenna part and validated placement.
+- Winning LED, diffuser, current correction and GCLK timing after coupon tests.
+
+## Language
+
+- **Coupon:** the first 16 × 16 production-intent validation PCB.
+- **Reference workload:** representative text/icons/animations with approximately 35% lit pixels at 25% fixed brightness.
+- **Fixed brightness:** user-selected during programming; it is not changed automatically during playback.
+- **Programming mode:** mode entered by holding the single button for about three seconds; BLE is enabled only in this state.
+- **Release:** an immutable, hashed fabrication/assembly package tied to a tagged repository revision.
