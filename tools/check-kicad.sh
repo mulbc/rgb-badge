@@ -66,31 +66,43 @@ else
 fi
 
 symbol_svg_dir="${check_tmp_dir}/symbols"
-footprint_svg_dir="${check_tmp_dir}/footprints"
-mkdir -p -- "${symbol_svg_dir}" "${footprint_svg_dir}"
+footprint_fab_dir="${check_tmp_dir}/footprints/fabrication"
+footprint_copper_dir="${check_tmp_dir}/footprints/copper"
+mkdir -p -- "${symbol_svg_dir}" "${footprint_fab_dir}" "${footprint_copper_dir}"
 
 "${kicad_cli}" sym export svg \
     --black-and-white \
     --output "${symbol_svg_dir}" \
     "${symbol_library}"
 
+# Sketch pad outlines/numbers without solid copper, mask or paste hiding them.
 "${kicad_cli}" fp export svg \
     --black-and-white \
     --sketch-pads-on-fab-layers \
-    --layers "F.Cu,F.Mask,F.Paste,F.SilkS,F.Fab,F.CrtYd" \
-    --output "${footprint_svg_dir}" \
+    --layers "F.Fab,F.SilkS,F.CrtYd" \
+    --output "${footprint_fab_dir}" \
     "${footprint_library}"
 
-symbol_svg_count="$(find "${symbol_svg_dir}" -type f -name '*.svg' | wc -l | tr -d '[:space:]')"
-footprint_svg_count="$(find "${footprint_svg_dir}" -type f -name '*.svg' | wc -l | tr -d '[:space:]')"
-if (( symbol_svg_count < 2 )); then
-    echo "Expected at least 2 exported symbol SVGs; found ${symbol_svg_count}." >&2
-    exit 1
-fi
-if (( footprint_svg_count < 2 )); then
-    echo "Expected exported SVGs for both LED footprints; found ${footprint_svg_count}." >&2
-    exit 1
-fi
+# Only this view represents copper; fab outlines are not electrical connections.
+"${kicad_cli}" fp export svg \
+    --black-and-white \
+    --layers "F.Cu" \
+    --output "${footprint_copper_dir}" \
+    "${footprint_library}"
+
+for expected_svg in \
+    "${symbol_svg_dir}/EAST10105RGBA0_unit1.svg" \
+    "${symbol_svg_dir}/QBLP1515A-RGB2A_unit1.svg" \
+    "${footprint_fab_dir}/LED_Everlight_EAST10105RGBA0.svg" \
+    "${footprint_fab_dir}/LED_QTBrightek_QBLP1515A-RGB2A.svg" \
+    "${footprint_copper_dir}/LED_Everlight_EAST10105RGBA0.svg" \
+    "${footprint_copper_dir}/LED_QTBrightek_QBLP1515A-RGB2A.svg"
+do
+    if [[ ! -s "${expected_svg}" ]]; then
+        echo "Expected non-empty SVG was not exported: ${expected_svg}" >&2
+        exit 1
+    fi
+done
 
 "${kicad_cli}" sch erc \
     --severity-all \

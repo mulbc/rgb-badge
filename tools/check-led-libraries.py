@@ -245,10 +245,36 @@ def check_symbols() -> None:
 
         pins: dict[str, str] = {}
         for unit in children(symbol, "symbol"):
+            # Keep the intentionally simple, spacious block drawing. This is a
+            # source-layout regression check, not a replacement for rendering.
+            assert_equal(children(unit, "text"), [], f"{mpn} redundant body text")
+            for rectangle in children(unit, "rectangle"):
+                for corner, position in {
+                    "start": [Decimal("-5.08"), Decimal("3.81")],
+                    "end": [Decimal("5.08"), Decimal("-3.81")],
+                }.items():
+                    actual = only_child(rectangle, corner, f"{mpn} body")
+                    assert_equal(
+                        [Decimal(value) for value in actual[1:]],
+                        position,
+                        f"{mpn} body {corner}",
+                    )
             for pin in children(unit, "pin"):
                 assert_equal(atom_at(pin, 1, f"{mpn} pin type"), "passive", f"{mpn} pin type")
                 pin_name = atom_at(only_child(pin, "name", f"{mpn} pin"), 1, f"{mpn} pin name")
                 pin_number = atom_at(only_child(pin, "number", f"{mpn} pin"), 1, f"{mpn} pin number")
+                expected_position = {
+                    "A": [Decimal("7.62"), Decimal("0"), Decimal("180")],
+                    "R_K": [Decimal("-7.62"), Decimal("2.54"), Decimal("0")],
+                    "G_K": [Decimal("-7.62"), Decimal("0"), Decimal("0")],
+                    "B_K": [Decimal("-7.62"), Decimal("-2.54"), Decimal("0")],
+                }
+                actual_position = only_child(pin, "at", f"{mpn} pin {pin_name}")
+                assert_equal(
+                    [Decimal(value) for value in actual_position[1:]],
+                    expected_position.get(pin_name),
+                    f"{mpn} pin {pin_name} drawing position",
+                )
                 if pin_name in pins:
                     abort(f"{mpn}: duplicate pin name '{pin_name}'")
                 pins[pin_name] = pin_number

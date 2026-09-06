@@ -59,6 +59,13 @@ Assumptions: exact nominal rectangular QBLP1515 pads, 1.95 mm square centre pitc
 
 This calculation proves only nominal pad geometry. It does not cover manufacturing tolerances, solder-mask registration, paste behaviour, body clearance, pick-and-place accuracy or optical performance.
 
+## KiCad rendering review
+
+- Owner-reported check at `cccb65c8b1e8d7060252b9af014dd14caf550c5c`: KiCad 10.0.6 on macOS exported both symbols and both footprints, the static audit passed, blank-sheet ERC reported zero violations, and no tracked files changed.
+- The four attached SVGs were inspected in the project conversation. The symbol pin labels overlapped, and the combined all-black footprint export obscured the pad numbers. Parsing success was therefore not treated as visual approval or independent engineering review.
+- The readability correction removes redundant symbol body text, widens the schematic boxes while retaining pin names/numbers/types and MPN-to-footprint links, and separates numbered fabrication and copper-only exports. The two physical footprint source files are unchanged.
+- The corrected files still require an actual KiCad export and visual check. Local wrapper tests use a stub CLI and cannot provide that evidence. See the [macOS review instructions](../../../../docs/development/kicad-macos.md).
+
 ## Open verification items
 
 - A second reviewer must independently compare every symbol pin, footprint pad and polarity marker to both controlled drawings.
