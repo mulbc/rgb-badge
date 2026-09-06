@@ -23,7 +23,7 @@ On first opening the project, do not accept a migration to a newer KiCad major r
 2. Open the Schematic Editor from the project manager.
 3. Confirm that a blank A4 root sheet opens without a missing-library or rescue-symbol dialog.
 4. Press `Command-S` once so KiCad 10.0.6 performs a real save-format round trip, then close the Schematic Editor and project manager. Do not add parts or create a PCB yet.
-5. Run `git status --short` and report any changed or untracked files. Changes to the project or schematic are useful round-trip evidence, but do not commit them yet. Local state such as `.kicad_prl`, lock files and backups must never be committed.
+5. Run `git status --short` and report any changed or untracked files. Changes to the project or schematic are useful round-trip evidence, but do not commit them yet. Local state such as KiCad's `.history/` directory, `.kicad_prl` files, lock files and backups must never be committed.
 
 The schematic is intentionally blank at this stage. Passing this check proves only that the project container and local-library paths load; it does not validate any circuit.
 
