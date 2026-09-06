@@ -2,7 +2,7 @@
 
 # Coupon Rev A
 
-Status: requirements complete, LED pair selected and first-pass core candidates recorded; schematic not started; not safe to fabricate
+Status: KiCad 10 project and blank schematic scaffold created; GUI round-trip and component capture pending; not safe to fabricate
 
 ## Purpose
 
@@ -18,6 +18,12 @@ Validate the production electrical architecture and compare 1010 versus 1515 RGB
 - Native USB diagnostics and hidden factory programming/test pads.
 
 The exact draft candidates and open circuit risks are tracked in the [Coupon Rev A sourcing record](../../../docs/sourcing/coupon-rev-a-core-candidates.md). A candidate in that record is not an approved purchase or fabrication BOM line.
+
+## Open and validate
+
+Follow the [macOS KiCad setup and round-trip check](../../../docs/development/kicad-macos.md). The canonical project entry point is `rgb-badge-coupon.kicad_pro`. Run `../../../tools/check-kicad.sh` from this directory, or `./tools/check-kicad.sh` from the repository root.
+
+The current blank schematic is only a format and library-path scaffold. No circuit, footprint or PCB has been implemented or validated.
 
 ## Release blockers
 

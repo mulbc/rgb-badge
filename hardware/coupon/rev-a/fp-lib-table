@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name "rgb-badge-coupon")(type "KiCad")(uri "${KIPRJMOD}/footprints/rgb-badge-coupon.pretty")(options "")(descr "RGB Badge Coupon Rev A project-local footprints"))
+)

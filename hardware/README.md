@@ -16,7 +16,7 @@ Each revision will use this structure when capture begins:
 ├── sym-lib-table
 ├── fp-lib-table
 ├── symbols/
-├── footprints.pretty/
+├── footprints/<project>.pretty/
 └── 3dmodels/
 ```
 
