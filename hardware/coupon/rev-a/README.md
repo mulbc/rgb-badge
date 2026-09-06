@@ -2,7 +2,7 @@
 
 # Coupon Rev A
 
-Status: KiCad 10 project and blank schematic scaffold created; GUI round-trip and component capture pending; not safe to fabricate
+Status: KiCad 10 project and blank schematic scaffold created; macOS GUI round-trip passed; component capture pending; not safe to fabricate
 
 ## Purpose
 
