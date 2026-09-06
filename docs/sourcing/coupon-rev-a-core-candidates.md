@@ -55,10 +55,12 @@ The current Taoglas revision F datasheet specifies 0.84 dBi peak gain at 2.4 GHz
 | Candidate | Package and optics | Electrical headline | Evidence | Role |
 |---|---|---|---|---|
 | `EAST10105RGBA0` by Everlight | 1.0 × 1.0 mm, clear, common anode | 5 mA test current; typical forward voltages 1.95/2.95/2.95 V R/G/B | [Datasheet copy at Mouser](https://www.mouser.com/datasheet/2/143/EAST10105RGBA0-1709851.pdf), [DigiKey](https://www.digikey.com/en/products/detail/everlight-electronics-co-ltd/EAST10105RGBA0/8510358) | Locked for columns 0–7 |
-| `QBLP1515A-RGB2A` by QT Brightek | 1.55 × 1.50 mm, white diffused, common anode | 10 mA test current; typical forward voltages 2.0/2.8/2.8 V R/G/B | [Manufacturer datasheet](https://www.qt-brightek.com/datasheet/QBLP1515A-RGB2A.pdf), [DigiKey](https://www.digikey.com/en/products/detail/qt-brightek-qtb/QBLP1515A-RGB2A/29450018) | Locked for columns 8–15 |
+| `QBLP1515A-RGB2A` by QT Brightek | 1.55 × 1.50 mm, white diffused, common anode | 10 mA test current; typical forward voltages 2.0/2.8/2.8 V R/G/B | [Manufacturer datasheet](https://www.qt-brightek.com/datasheet/QBLP1515A-RGB2A.pdf), [DigiKey](https://www.digikey.com/en/products/detail/qt-brightek-qtb/QBLP1515A-RGB2A/29450018) | Locked for columns 8–15; exact pads with ADR 0008 checkerboard rotation |
 | `EAST1616RGBA3` by Everlight | 1.6 × 1.6 mm, clear, common anode | 5 mA test current; typical forward voltages 1.95/2.8/2.8 V R/G/B | [Datasheet copy at Mouser](https://www.mouser.com/datasheet/2/143/EAST1616RGBA3-1594303.pdf), [DigiKey](https://www.digikey.com/en/products/detail/everlight-electronics-co-ltd/EAST1616RGBA3/8510359) | Not populated; retained alternative |
 
 The selected pair compares the most promising end-product systems, including their real lens differences. It therefore does not isolate package size as the only variable. The assembler must confirm reel bin codes, moisture handling, tape orientation and no mixed optical lots.
+
+The QBLP1515 recommended land pattern is nominally 2.00 mm wide, which cannot be repeated in one orientation on a 1.95 mm grid without copper overlap. [ADR 0008](../decisions/0008-qblp1515-checkerboard-placement.md) retains the exact pads and alternates component rotation by 0°/90°. The calculated 0.35 mm minimum copper clearance still requires PCB DRC and assembler DFM.
 
 ## Preliminary charge and USB-current calculations
 

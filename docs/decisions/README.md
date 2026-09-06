@@ -13,3 +13,4 @@ Decision records explain choices that materially constrain later work. Accepted 
 | [0005](0005-project-licensing.md) | Use CERN-OHL-S for hardware and Apache-2.0 for software | Accepted |
 | [0006](0006-kicad-10-workflow.md) | Target KiCad 10 stable with controlled upgrades | Accepted |
 | [0007](0007-coupon-led-finalist-pair.md) | Populate the coupon with two final-product LED candidates | Accepted |
+| [0008](0008-qblp1515-checkerboard-placement.md) | Preserve the QBLP1515 land pattern with checkerboard rotation | Accepted |

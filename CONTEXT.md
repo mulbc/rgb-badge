@@ -12,6 +12,7 @@ Create a small, manufacturable 48 × 16 RGB wearable badge that preserves the 1.
 - Architecture: accepted baseline, subject to coupon measurements.
 - KiCad workflow: 10.0.6 stable baseline accepted; Coupon Rev A project and blank schematic scaffold created; the first macOS GUI round-trip opened and saved without errors, and CLI ERC reported zero violations.
 - Coupon LED pair: `EAST10105RGBA0` in columns 0–7 and `QBLP1515A-RGB2A` in columns 8–15.
+- Coupon LED libraries: first-author exact-MPN symbol and footprint transcription complete; KiCad SVG inspection and independent Gate A verification pending.
 - Coupon schematic: blank root sheet only; no circuit captured.
 - Hardware testing: none.
 - Current safe action: documentation, exact-part research, calculations and coupon design.
@@ -38,6 +39,7 @@ Create a small, manufacturable 48 × 16 RGB wearable badge that preserves the 1.
 - Three TLC59581 constant-current drivers, one per 16-column RGB block.
 - Discrete four-pad common-anode RGB LEDs in a 1:16 multiplexed matrix.
 - Coupon Rev A compares exact `EAST10105RGBA0` and `QBLP1515A-RGB2A` finalists at 1.95 mm pitch.
+- The QBLP1515 coupon half preserves the manufacturer land pattern and alternates 0°/90° placement on a checkerboard under ADR 0008.
 - Sixteen level-shifted P-channel MOSFET high-side row switches.
 - ESP32-S3-WROOM-1U-N16R8 with an external 2.4 GHz FPC antenna.
 - BQ25616J standalone switching charger and NVDC power path.

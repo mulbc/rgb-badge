@@ -35,4 +35,13 @@ Run this after every schematic change:
 ./tools/check-kicad.sh
 ```
 
-The script requires stable KiCad 10.0.x, loads the schematic through `kicad-cli`, and runs ERC with violations treated as a failure. It uses the application-bundle CLI automatically on macOS. Set `RGB_BADGE_KICAD_CLI` only when testing a specific alternate executable.
+The script requires stable KiCad 10.0.x, checks the controlled LED pin/pad geometry, exports the project-local symbol and footprint libraries through `kicad-cli`, and runs ERC with violations treated as a failure. It uses the application-bundle CLI automatically on macOS. Set `RGB_BADGE_KICAD_CLI` only when testing a specific alternate executable.
+
+To retain SVGs for human inspection, give the check a new output path that does not already exist:
+
+```bash
+RGB_BADGE_KICAD_CHECK_OUTPUT=hardware/coupon/rev-a/build/led-library-review ./tools/check-kicad.sh
+open hardware/coupon/rev-a/build/led-library-review
+```
+
+The `build` directory is ignored by Git. Compare the symbol pin names/numbers, footprint pad numbers and pin-1 marks with the controlled drawings in the [LED audit](../../hardware/coupon/rev-a/footprints/led-audit.md). A successful export checks KiCad parsing; it does not replace that drawing comparison or the independent Gate A review.
