@@ -7,6 +7,22 @@ from pathlib import Path
 import sys
 
 
+def fabrication_svg():
+    # Minimal KiCad-shaped text structure for wrapper/overlay tests. The paths
+    # are deliberately dummy strokes, not a real LED footprint or digit font.
+    groups = "".join(
+        f'<g style="fill:none;stroke:#000000;stroke-width:0.012500;stroke-linecap:round">'
+        f'<g class="stroked-text"><desc>{number}</desc>'
+        f'<path d="M{x} {y} L{x + 0.1} {y + 0.15}"/></g></g>'
+        for number, x, y in ((1, 1.3, 0.4), (2, 1.3, 1.3), (3, 0.4, 1.3), (4, 0.4, 0.4))
+    )
+    return (
+        '<svg xmlns="http://www.w3.org/2000/svg" width="2.000000mm" '
+        'height="2.000000mm" viewBox="0.000000 0.000000 2.000000 2.000000">'
+        '<title>Stub only, not a KiCad render</title>' + groups + '</svg>\n'
+    )
+
+
 def main():
     args = sys.argv[1:]
     if args == ["version"]:
@@ -47,6 +63,10 @@ def main():
         if target and os.environ.get("RGB_BADGE_TEST_MISSING") == "1":
             continue
         svg = '<svg xmlns="http://www.w3.org/2000/svg"><desc>Test stub, not a KiCad render</desc></svg>\n'
+        if stage == "fabrication":
+            svg = fabrication_svg()
+            if os.environ.get("RGB_BADGE_TEST_BAD_LABELS") == "1":
+                svg = svg.replace('<desc>4</desc>', '<desc>3</desc>')
         if target and os.environ.get("RGB_BADGE_TEST_EMPTY") == "1":
             svg = ""
         file.write_text(svg, encoding="utf-8")

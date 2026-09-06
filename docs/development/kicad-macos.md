@@ -44,15 +44,16 @@ RGB_BADGE_KICAD_CHECK_OUTPUT=hardware/coupon/rev-a/build/led-library-review ./to
 open hardware/coupon/rev-a/build/led-library-review
 ```
 
-The `build` directory is ignored by Git. The check requires six non-empty SVGs:
+The `build` directory is ignored by Git. The check requires six non-empty raw SVGs and creates two derived numbered review copies:
 
 | Output folder | What to look for |
 |---|---|
 | `symbols/` | Two symbols with readable, separated `R_K`, `G_K`, `B_K` and `A` labels. `D?` is an unassigned component reference, not an error. |
-| `footprints/fabrication/` | Two assembly-reference views: outlined pads with numbers, body outline with pin-1 chamfer, silkscreen marker and outer courtyard. These outlines are not copper connections. |
-| `footprints/copper/` | Two copper-only views, each with four separate solid pads and no connecting lines. Pad numbers are intentionally absent; identify them in the fabrication views. |
+| `footprints/fabrication/` | Two unchanged raw KiCad views: outlined pads, body outline with pin-1 chamfer, silkscreen marker and outer courtyard. Body strokes may cross the small pad numbers. These outlines are not copper connections. |
+| `footprints/numbered/` | Two derived review copies with the original pad-number glyphs overlaid on white halos. Use these for readable pad identification; use the raw views and source files for geometry inspection. |
+| `footprints/copper/` | Two copper-only views, each with four separate solid pads and no connecting lines. Pad numbers are intentionally absent; identify them in the numbered views. |
 
-The fabrication export uses `F.Fab,F.SilkS,F.CrtYd` and `--sketch-pads-on-fab-layers`. Copper is exported separately with `F.Cu`, so black fills cannot obscure the fabrication-view pad numbers. These are [KiCad 10 CLI export options](https://docs.kicad.org/10.0/en/cli/cli.html). Mask and paste are deliberately absent from these readability views; their review remains a separate DFM task.
+The fabrication export uses `F.Fab,F.SilkS,F.CrtYd` and `--sketch-pads-on-fab-layers`. Copper is exported separately with `F.Cu`. These are [KiCad 10 CLI export options](https://docs.kicad.org/10.0/en/cli/cli.html). `number-footprint-review.py` then copies the existing numbered glyphs over a white halo and adds a small viewing margin. It preserves the raw exports, records each source SVG's SHA-256 in the derived copy, and rejects unexpected or missing labels. The derived view is not a manufacturing drawing. Mask and paste are deliberately absent from these readability views; their review remains a separate DFM task.
 
 For the unrotated footprint top views, confirm this corner-to-pad mapping against the controlled drawings:
 
@@ -61,6 +62,6 @@ For the unrotated footprint top views, confirm this corner-to-pad mapping agains
 | `EAST10105RGBA0` | 4 / green | 1 / common anode | 3 / blue | 2 / red |
 | `QBLP1515A-RGB2A` | 3 / green | 4 / red | 2 / blue | 1 / common anode |
 
-The pin-1 chamfer and marker must identify the common-anode corner. `REF**` belongs to the fabrication layer, not the physical front silkscreen. If you are unsure, upload the six SVGs together with the command output for review; do not treat uncertainty as approval.
+The pin-1 chamfer and marker must identify the common-anode corner. `REF**` belongs to the fabrication layer, not the physical front silkscreen. If you are unsure, upload the complete output folder as a ZIP together with the command output for review; do not treat uncertainty as approval. The [reviewed examples](led-library-review-27c01b4.md) show the two numbered views and their expected mapping.
 
 Compare with the [LED audit](../../hardware/coupon/rev-a/footprints/led-audit.md). A successful export checks KiCad parsing; it does not replace that drawing comparison or the independent Gate A review. ERC still runs on a blank schematic and therefore does not validate the eventual circuit.

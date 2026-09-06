@@ -12,7 +12,7 @@ Create a small, manufacturable 48 × 16 RGB wearable badge that preserves the 1.
 - Architecture: accepted baseline, subject to coupon measurements.
 - KiCad workflow: 10.0.6 stable baseline accepted; Coupon Rev A project and blank schematic scaffold created; the first macOS GUI round-trip opened and saved without errors, and CLI ERC reported zero violations.
 - Coupon LED pair: `EAST10105RGBA0` in columns 0–7 and `QBLP1515A-RGB2A` in columns 8–15.
-- Coupon LED libraries: first-author exact-MPN transcription complete. Owner-reported KiCad 10.0.6 export and blank-sheet ERC passed at `cccb65c`; SVG inspection found symbol-label overlap and obscured footprint pad numbers. Readability corrections await a fresh KiCad render; independent Gate A verification remains pending.
+- Coupon LED libraries: first-author exact-MPN transcription and rendering review complete. Owner KiCad 10.0.6 exports at `27c01b4` passed pin/pad comparison; separate derived numbered views resolve body-outline/label overlap. The [review record](docs/development/led-library-review-27c01b4.md) preserves evidence and limits; independent Gate A verification remains pending.
 - Coupon schematic: blank root sheet only; no circuit captured.
 - Hardware testing: none.
 - Current safe action: documentation, exact-part research, calculations and coupon design.

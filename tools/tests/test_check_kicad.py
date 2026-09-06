@@ -39,13 +39,19 @@ class CheckKiCadWrapperTests(unittest.TestCase):
             timeout=30,
         )
 
-    def test_separate_views_and_six_required_files(self):
+    def test_separate_raw_views_and_numbered_copies(self):
         result = self.run_check()
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         self.assertEqual(len(list((self.output / "symbols").glob("*.svg"))), 2)
-        for view in ("fabrication", "copper"):
+        for view in ("fabrication", "copper", "numbered"):
             self.assertEqual(len(list((self.output / "footprints" / view).glob("*.svg"))), 2)
         self.assertTrue((self.output / "coupon-erc.rpt").is_file())
+
+    def test_numbering_failure_is_not_hidden(self):
+        result = self.run_check(RGB_BADGE_TEST_BAD_LABELS="1")
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("Numbered footprint review failed", result.stderr)
+        self.assertFalse((self.output / "coupon-erc.rpt").exists())
 
     def test_missing_specific_copper_file_is_rejected(self):
         result = self.run_check(RGB_BADGE_TEST_MISSING="1")

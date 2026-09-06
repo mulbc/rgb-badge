@@ -11,6 +11,7 @@ schematic_file="${project_dir}/rgb-badge-coupon.kicad_sch"
 symbol_library="${project_dir}/symbols/rgb-badge-coupon.kicad_sym"
 footprint_library="${project_dir}/footprints/rgb-badge-coupon.pretty"
 led_library_check="${repo_root}/tools/check-led-libraries.py"
+numbered_review="${repo_root}/tools/number-footprint-review.py"
 
 if [[ -n "${RGB_BADGE_KICAD_CLI:-}" ]]; then
     kicad_cli="${RGB_BADGE_KICAD_CLI}"
@@ -30,7 +31,8 @@ for required_path in \
     "${project_dir}/fp-lib-table" \
     "${symbol_library}" \
     "${footprint_library}" \
-    "${led_library_check}"
+    "${led_library_check}" \
+    "${numbered_review}"
 do
     if [[ ! -e "${required_path}" ]]; then
         echo "Required project path is missing: ${required_path}" >&2
@@ -68,14 +70,15 @@ fi
 symbol_svg_dir="${check_tmp_dir}/symbols"
 footprint_fab_dir="${check_tmp_dir}/footprints/fabrication"
 footprint_copper_dir="${check_tmp_dir}/footprints/copper"
-mkdir -p -- "${symbol_svg_dir}" "${footprint_fab_dir}" "${footprint_copper_dir}"
+footprint_numbered_dir="${check_tmp_dir}/footprints/numbered"
+mkdir -p -- "${symbol_svg_dir}" "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_numbered_dir}"
 
 "${kicad_cli}" sym export svg \
     --black-and-white \
     --output "${symbol_svg_dir}" \
     "${symbol_library}"
 
-# Sketch pad outlines/numbers without solid copper, mask or paste hiding them.
+# Preserve the raw fabrication export; body outlines may cross tiny numbers.
 "${kicad_cli}" fp export svg \
     --black-and-white \
     --sketch-pads-on-fab-layers \
@@ -102,6 +105,12 @@ do
         echo "Expected non-empty SVG was not exported: ${expected_svg}" >&2
         exit 1
     fi
+done
+
+for footprint_name in LED_Everlight_EAST10105RGBA0 LED_QTBrightek_QBLP1515A-RGB2A; do
+    python3 "${numbered_review}" \
+        "${footprint_fab_dir}/${footprint_name}.svg" \
+        "${footprint_numbered_dir}/${footprint_name}.svg"
 done
 
 "${kicad_cli}" sch erc \
