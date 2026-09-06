@@ -296,8 +296,8 @@ The first production-intent hardware is not an off-the-shelf HUB75 panel. It is 
 ### 6.1 Coupon contents
 
 - 16 × 16 RGB pixels at 1.95 mm pitch.
-- Left eight columns populated with a 1010 common-anode LED candidate.
-- Right eight columns populated with a 1515 common-anode LED candidate.
+- Columns 0–7 populated with Everlight `EAST10105RGBA0`, a clear 1010 common-anode LED.
+- Columns 8–15 populated with QT Brightek `QBLP1515A-RGB2A`, a white-diffused 1515 common-anode LED.
 - One TLC59581, all 16 level-shifted row switches and the production row decoder/inhibit circuit.
 - ESP32-S3-WROOM-1U-N16R8 and external FPC antenna.
 - Production-intent USB-C, Type-C detection, ESD, charger, fuel gauge, 3V3/VLED converters, NTC interfaces, slide switch and mode button.
@@ -314,9 +314,9 @@ Before releasing the coupon:
 
 1. Obtain datasheets and enough same-lot parts for assembly plus attrition.
 2. Lock common-anode pinout, polarity mark, land pattern, reflow profile and moisture sensitivity.
-3. Prefer black-face/diffused display parts with intensity and wavelength bins specified at low or pulsed current.
-4. Use Harvatek HT-B3053FCH-E7 as the proven 1 mm reference candidate from TI's BOM, subject to present availability.
-5. Use [QT Brightek QBLP1515A-RGB2A](https://www.qt-brightek.com/datasheet/QBLP1515A-RGB2A.pdf) as a documented 1.55 × 1.5 mm common-anode 1515 candidate, while also sampling a black-face display-grade 1515 part from Alibaba.
+3. Populate columns 0–7 with [Everlight EAST10105RGBA0](https://www.mouser.com/datasheet/2/143/EAST10105RGBA0-1709851.pdf).
+4. Populate columns 8–15 with [QT Brightek QBLP1515A-RGB2A](https://www.qt-brightek.com/datasheet/QBLP1515A-RGB2A.pdf).
+5. Verify both exact footprints, pad numbering, polarity marks, tape orientation, reflow requirements and controlled optical bins against manufacturer documentation.
 6. Never change LED manufacturer, package, pinout or optical bin during PCBA quoting without regenerating the BOM and approving a new coupon population.
 
 Coupon tests compare brightness per watt, off-state contrast, diffuser uniformity, colour balance, viewing angle, camera banding, solder yield and routing margin. The winner becomes the single final-badge LED; the split arrangement is not carried into production.
@@ -557,7 +557,7 @@ Keep the independent review outside this build allocation, as agreed. Obtain its
 
 ### Gate A — before coupon quotation
 
-- Exact 1010 and 1515 parts and footprints locked.
+- Exact 1010 and 1515 MPNs locked; project-local footprints, polarity, tape orientation and optical bins independently checked.
 - Battery cell/terminated-pack drawing and electrical limits obtained.
 - Schematic ERC clean and power tree reviewed.
 - USB-C default-current behaviour, isolated charger data pins and TUSB320-to-`ILIM` hardware truth table proven by design review.

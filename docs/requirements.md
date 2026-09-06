@@ -15,6 +15,7 @@ Source: requirements interview completed 2026-09-05
 | DSP-004 | Support 60 content-frame updates per second and at least 1 kHz visual refresh. | Logic trace and camera test | Coupon/final |
 | DSP-005 | Brightness shall remain at the user-programmed fixed value during normal playback. | Runtime state/telemetry test | Coupon/final |
 | DSP-006 | Safety logic may disable the display on an electrical or thermal fault, but shall not silently dim it. | Fault-injection test | Coupon/final |
+| DSP-007 | Coupon columns 0–7 shall use `EAST10105RGBA0` and columns 8–15 shall use `QBLP1515A-RGB2A`, both at 1.95 mm pitch; substitutions require written design review. | BOM, placement and incoming-part inspection | Coupon |
 | MEC-001 | Complete case shall not exceed 110 × 35 × 11 mm, excluding attachment thickness. | Caliper inspection | Final |
 | MEC-002 | Complete badge shall aim for ≤75 g and shall never exceed 100 g, including cell, case and magnetic attachment. | Calibrated scale | Final |
 | MEC-003 | Development case shall use two M2 screws plus tabs and support a replaceable diffuser. | Fit inspection | Coupon/final prototype |

@@ -48,17 +48,17 @@ The current Taoglas revision F datasheet specifies 0.84 dBi peak gain at 2.4 GHz
 
 `FXP840.07.0055B` is rejected for this design because its manufacturer currently specifies 2.5 dBi peak gain at 2.4 GHz, above the module datasheet's 2.33 dBi limit. Its convenient outline is not sufficient reason to inherit avoidable certification uncertainty.
 
-## LED comparison candidates
+## LED comparison selection
 
-The coupon still reserves eight 16-pixel columns for a 1010 part and eight for a nominal 1515/1616 part. The exact pair is an owner decision before symbols and footprints are committed.
+[ADR 0007](../decisions/0007-coupon-led-finalist-pair.md) locks Coupon Rev A to the first two parts below: eight 16-pixel columns of the 1010 Everlight and eight columns of the diffused 1515 QT Brightek. Exact footprints, optical bins and procurement lots remain Gate A work.
 
 | Candidate | Package and optics | Electrical headline | Evidence | Role |
 |---|---|---|---|---|
-| `EAST10105RGBA0` by Everlight | 1.0 × 1.0 mm, clear, common anode | 5 mA test current; typical forward voltages 1.95/2.95/2.95 V R/G/B | [Datasheet copy at Mouser](https://www.mouser.com/datasheet/2/143/EAST10105RGBA0-1709851.pdf), [DigiKey](https://www.digikey.com/en/products/detail/everlight-electronics-co-ltd/EAST10105RGBA0/8510358) | Recommended 1010 finalist |
-| `QBLP1515A-RGB2A` by QT Brightek | 1.55 × 1.50 mm, white diffused, common anode | 10 mA test current; typical forward voltages 2.0/2.8/2.8 V R/G/B | [Manufacturer datasheet](https://www.qt-brightek.com/datasheet/QBLP1515A-RGB2A.pdf), [DigiKey](https://www.digikey.com/en/products/detail/qt-brightek-qtb/QBLP1515A-RGB2A/29450018) | Recommended 1515 finalist |
-| `EAST1616RGBA3` by Everlight | 1.6 × 1.6 mm, clear, common anode | 5 mA test current; typical forward voltages 1.95/2.8/2.8 V R/G/B | [Datasheet copy at Mouser](https://www.mouser.com/datasheet/2/143/EAST1616RGBA3-1594303.pdf), [DigiKey](https://www.digikey.com/en/products/detail/everlight-electronics-co-ltd/EAST1616RGBA3/8510359) | Same-vendor/clear-lens alternative |
+| `EAST10105RGBA0` by Everlight | 1.0 × 1.0 mm, clear, common anode | 5 mA test current; typical forward voltages 1.95/2.95/2.95 V R/G/B | [Datasheet copy at Mouser](https://www.mouser.com/datasheet/2/143/EAST10105RGBA0-1709851.pdf), [DigiKey](https://www.digikey.com/en/products/detail/everlight-electronics-co-ltd/EAST10105RGBA0/8510358) | Locked for columns 0–7 |
+| `QBLP1515A-RGB2A` by QT Brightek | 1.55 × 1.50 mm, white diffused, common anode | 10 mA test current; typical forward voltages 2.0/2.8/2.8 V R/G/B | [Manufacturer datasheet](https://www.qt-brightek.com/datasheet/QBLP1515A-RGB2A.pdf), [DigiKey](https://www.digikey.com/en/products/detail/qt-brightek-qtb/QBLP1515A-RGB2A/29450018) | Locked for columns 8–15 |
+| `EAST1616RGBA3` by Everlight | 1.6 × 1.6 mm, clear, common anode | 5 mA test current; typical forward voltages 1.95/2.8/2.8 V R/G/B | [Datasheet copy at Mouser](https://www.mouser.com/datasheet/2/143/EAST1616RGBA3-1594303.pdf), [DigiKey](https://www.digikey.com/en/products/detail/everlight-electronics-co-ltd/EAST1616RGBA3/8510359) | Not populated; retained alternative |
 
-Using the first two parts compares the most promising end-product systems, including their real lens differences. Using the two Everlight parts makes package size the cleaner experimental variable but replaces the true 1515 diffused candidate with a 1616 clear package. In either case the assembler must confirm reel bin codes, moisture handling, tape orientation and no mixed optical lots.
+The selected pair compares the most promising end-product systems, including their real lens differences. It therefore does not isolate package size as the only variable. The assembler must confirm reel bin codes, moisture handling, tape orientation and no mixed optical lots.
 
 ## Preliminary charge and USB-current calculations
 
@@ -132,7 +132,7 @@ AliExpress remains acceptable for development-only ESP32 boards, USB cables, jum
 
 ## Gate A blockers carried forward
 
-- Owner chooses the LED comparison strategy and exact two LED MPNs.
+- Exact project-local LED footprints, pad numbering, polarity marks, tape orientation and controlled optical bins are checked against manufacturer documentation.
 - Battery vendor supplies one exact protected-pack drawing, ratings, NTC curve, harness and safety documentation.
 - Engineer resolves the complete USB-C/default-current/BC1.2/data topology and verifies that every current-limit state fails safely without application-firmware assistance.
 - Converter calculations select inductors, capacitors, compensation/layout and worst-case thermal limits.

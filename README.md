@@ -24,7 +24,7 @@ Six hours is not a maximum-brightness guarantee. The initial model predicts abou
 
 ## Development strategy
 
-The first physical board is a production-intent 16 × 16 coupon. It compares 1010 and 1515 common-anode RGB LEDs while exercising the intended controller, matrix driver, USB-C, charger, battery gauge, power converters, antenna and controls. The full 48 × 16 badge will not be ordered until the coupon passes its electrical, optical, thermal, runtime and RF acceptance tests.
+The first physical board is a production-intent 16 × 16 coupon. It compares Everlight `EAST10105RGBA0` 1010 and QT Brightek `QBLP1515A-RGB2A` 1515 common-anode RGB LEDs while exercising the intended controller, matrix driver, USB-C, charger, battery gauge, power converters, antenna and controls. The full 48 × 16 badge will not be ordered until the coupon passes its electrical, optical, thermal, runtime and RF acceptance tests.
 
 Start with:
 

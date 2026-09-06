@@ -12,3 +12,4 @@ Decision records explain choices that materially constrain later work. Accepted 
 | [0004](0004-standalone-charging-and-hard-off-state.md) | Use standalone charging and switched application rails | Accepted |
 | [0005](0005-project-licensing.md) | Use CERN-OHL-S for hardware and Apache-2.0 for software | Accepted |
 | [0006](0006-kicad-10-workflow.md) | Target KiCad 10 stable with controlled upgrades | Accepted |
+| [0007](0007-coupon-led-finalist-pair.md) | Populate the coupon with two final-product LED candidates | Accepted |
