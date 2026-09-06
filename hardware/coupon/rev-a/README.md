@@ -2,7 +2,7 @@
 
 # Coupon Rev A
 
-Status: requirements only; schematic not started; not safe to fabricate
+Status: requirements complete and first-pass core candidates recorded; LED pair decision and schematic not started; not safe to fabricate
 
 ## Purpose
 
@@ -17,9 +17,12 @@ Validate the production electrical architecture and compare 1010 versus 1515 RGB
 - Production 3.3 V/VLED converters, fuel gauge, battery-current monitor, NTC interfaces and controls.
 - Native USB diagnostics and hidden factory programming/test pads.
 
+The exact draft candidates and open circuit risks are tracked in the [Coupon Rev A sourcing record](../../../docs/sourcing/coupon-rev-a-core-candidates.md). A candidate in that record is not an approved purchase or fabrication BOM line.
+
 ## Release blockers
 
 - Exact LED and battery-pack documentation.
+- Reviewed resolution of USB default-current, BC1.2 and native-data coexistence in switch-ON and switch-OFF states.
 - Completed calculations, schematic and ERC.
 - Preliminary placement/routing and DRC/DFM.
 - Independent engineer review with every finding resolved or explicitly accepted.

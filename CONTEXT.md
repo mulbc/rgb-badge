@@ -10,6 +10,7 @@ Create a small, manufacturable 48 × 16 RGB wearable badge that preserves the 1.
 
 - Requirements interview: complete.
 - Architecture: accepted baseline, subject to coupon measurements.
+- KiCad workflow: 10.0.6 stable baseline accepted; no electronics files created yet.
 - Coupon schematic: not started.
 - Hardware testing: none.
 - Current safe action: documentation, exact-part research, calculations and coupon design.
@@ -42,6 +43,7 @@ Create a small, manufacturable 48 × 16 RGB wearable badge that preserves the 1.
 - TPS631000-class 3.3 V rail and TPS63020-class approximately 3.9 V LED rail.
 - MAX17048 fuel gauge and INA232 bidirectional battery-current monitor.
 - Protected, NTC-equipped, connectorized 750–900 mAh LiPo; 900 mAh is preferred if the 11 mm stack closes safely.
+- KiCad 10.0.6 stable with project-local symbols, footprints and 3D models.
 
 ## Power states
 
@@ -65,14 +67,15 @@ Create a small, manufacturable 48 × 16 RGB wearable badge that preserves the 1.
 
 ## Open engineering decisions
 
-- Exact 1010 and 1515 coupon LEDs, footprints and optical bins.
+- Final choice of the 1010/1515 coupon comparison pair, footprints and optical bins.
 - Exact protected/terminated cell and connector.
 - Final charger `ICHG` and USB `ILIM` resistor networks.
-- Validation or replacement of the provisional isolated charger D+/D− approach.
-- Exact row MOSFETs, gate drivers and active-high decoder.
+- Validation or replacement of the provisional isolated charger D+/D− approach, including default-current behaviour before USB enumeration.
+- Validation of the candidate `74HC4514PW,118`, `DMP2066LSN-7` and `2N7002K-7` row chain under real multiplex timing and current.
+- Final USB ESD/VBUS protection topology.
 - Final converter component values and layout.
 - Coupon and final PCB stack-ups.
-- External antenna part and validated placement.
+- Validation of the candidate external antenna's current gain documentation, case placement and worn RF performance.
 - Winning LED, diffuser, current correction and GCLK timing after coupon tests.
 
 ## Language

@@ -32,7 +32,8 @@ Start with:
 2. [Requirements](docs/requirements.md)
 3. [Full project plan](docs/project-plan.md)
 4. [Accepted decisions](docs/decisions/README.md)
-5. [Contributor and agent rules](AGENTS.md)
+5. [Coupon core component candidates](docs/sourcing/coupon-rev-a-core-candidates.md)
+6. [Contributor and agent rules](AGENTS.md)
 
 ## Repository layout
 

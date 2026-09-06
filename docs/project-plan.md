@@ -4,7 +4,7 @@
 
 Status: agreed design baseline and staged execution plan
 Date: 2026-09-05
-Project phase: requirements complete; schematic/layout work not yet started
+Project phase: requirements and KiCad workflow complete; exact-part research in progress; schematic/layout work not yet started
 
 ## 1. Outcome
 
@@ -65,6 +65,7 @@ This is feasible, with one qualification: six hours cannot apply to arbitrary co
 - Attachment is a dual-magnet back, kept outside the battery and RF antenna zones.
 - The design aims for sweat and incidental-splash resistance, but makes no IP-rating claim.
 - Manufacturing files stay vendor-neutral: KiCad sources, Gerbers, drill files, BOM and component-placement file.
+- Canonical electronics are authored with KiCad 10.0.6 stable; patch and major upgrades follow [ADR 0006](decisions/0006-kicad-10-workflow.md).
 - JLCPCB is the quotation baseline; PCBWay and at least one vetted Alibaba turnkey PCBA supplier receive the identical package.
 - Critical part substitutions are forbidden without a written engineering review.
 - This is a non-commercial small batch. Formal product certification is out of scope, but the design still uses a pre-certified ESP32 module within its approved external-antenna conditions, a documented/protected battery pack, compliant USB-C behaviour and conservative electrical/mechanical safeguards.
