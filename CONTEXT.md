@@ -10,7 +10,7 @@ Create a small, manufacturable 48 × 16 RGB wearable badge that preserves the 1.
 
 - Requirements interview: complete.
 - Architecture: accepted baseline, subject to coupon measurements.
-- KiCad workflow: 10.0.6 stable baseline accepted; Coupon Rev A project and blank schematic scaffold created, with first macOS GUI round-trip pending.
+- KiCad workflow: 10.0.6 stable baseline accepted; Coupon Rev A project and blank schematic scaffold created; the first macOS GUI round-trip opened and saved without errors, and CLI ERC reported zero violations.
 - Coupon LED pair: `EAST10105RGBA0` in columns 0–7 and `QBLP1515A-RGB2A` in columns 8–15.
 - Coupon schematic: blank root sheet only; no circuit captured.
 - Hardware testing: none.
