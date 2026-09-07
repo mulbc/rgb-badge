@@ -21,3 +21,11 @@ python3 -m unittest discover -s tools/tests -p 'test_*.py' -v
 The wrapper tests use a stub executable to check CLI arguments, output separation and failure handling. SVG-helper tests check original-geometry and glyph preservation, rejection of missing/duplicate/transformed labels, and protection against overwriting evidence. They do not render KiCad files, run real ERC, prove legibility or approve hardware. Actual KiCad output and human inspection remain required.
 
 Matrix regression tests deliberately inject a colour swap with unchanged net sizes, a missing LED, a short between columns, a duplicated pin, a wire endpoint that misses its LED pin, and a global label facing into its wire. The label-direction check came from actual PDF review at `7120e93`. Synthetic XML tests prove checker behaviour; only a real KiCad-exported netlist can verify KiCad's interpretation of the new schematic.
+
+## Driver increment
+
+`python3 tools/check-coupon-driver.py` checks the controlled driver/support library, footprint geometry and simple source wiring. `--netlist <path>` requires the complete captured population and all 1,093 physical pin assignments. The matrix checker retains its LED-only contract and delegates U1/R1–R5/C1 to the driver checker; always use `check-kicad.sh` to run both for the full project.
+
+The wrapper now exports driver/support symbols and footprints, including a separate paste view, and requires their files to be nonempty. `coupon-matrix.xml` retains its historical filename but contains the whole captured schematic. Local fixture tests do not run KiCad. The current [driver review instructions](../hardware/coupon/rev-a/driver-capture.md#macos-validation) require a new native run and six-page PDF review.
+
+`generate-coupon-matrix.py` is the historical one-time matrix-only capture helper. It must not replace the current root schematic: that would remove the driver sheet. The current KiCad files are canonical.

@@ -53,6 +53,34 @@ def matrix_netlist():
     return root
 
 
+def coupon_netlist():
+    root = matrix_netlist()
+    components = root.find('components')
+    for ref, value, footprint in [
+        ('U1','TLC59581RTQT','QFN_TI_RTQ0056E_8x8mm_P0.5mm_EP5.7mm'),
+        ('R1','39.2k 1%','R_Panasonic_ERJ2_0402'),
+        ('C1','100n 16V X7R','C_Murata_GRM15_0402'),
+        *[(f'R{i}', '100k 1%', 'R_Panasonic_ERJ2_0402') for i in range(2,6)],
+    ]:
+        comp=ET.SubElement(components,'comp',ref=ref)
+        ET.SubElement(comp,'value').text=value
+        ET.SubElement(comp,'footprint').text='rgb-badge-coupon:'+footprint
+    nets={n.get('name'):n for n in root.findall('./nets/net')}
+    # Test fixture transcription, not a native exporter or production checker.
+    triples=[(8,9,10),(11,12,13),(14,15,16),(17,18,19),(20,21,22),(23,24,25),(30,31,32),(33,34,35),(36,37,38),(39,40,41),(44,45,46),(47,48,49),(50,51,52),(53,54,55),(2,3,4),(5,6,7)]
+    extra=[]
+    for col,group in enumerate(triples):
+        for color,pin in zip('RGB',group):extra.append(('U1',str(pin),f'COL_{col:02d}_{color}'))
+    extra += [('U1',str(pin),net) for pin,net in [(1,'LED_IREF'),(26,'LED_SIN'),(27,'LED_LAT'),(28,'LED_SCLK'),(29,'LED_GCLK'),(42,'LED_SOUT'),(43,'+3V3_APP'),(56,'GND'),(57,'GND')]]
+    extra += [('R1','1','LED_IREF'),('R1','2','GND'),('C1','1','+3V3_APP'),('C1','2','GND')]
+    for i,net in enumerate(('LED_SIN','LED_SCLK','LED_LAT','LED_GCLK'),2):
+        extra += [(f'R{i}','1',net),(f'R{i}','2','GND')]
+    for ref,pin,name in extra:
+        if name not in nets:nets[name]=ET.SubElement(root.find('nets'),'net',name=name)
+        ET.SubElement(nets[name],'node',ref=ref,pin=pin)
+    return root
+
+
 def main():
     args = sys.argv[1:]
     if args == ["version"]:
@@ -65,9 +93,11 @@ def main():
         assert args[args.index('--format') + 1] == 'kicadxml'
         if os.environ.get('RGB_BADGE_TEST_FAIL') == 'netlist':
             return 7
-        root = matrix_netlist()
+        root = coupon_netlist()
         if os.environ.get('RGB_BADGE_TEST_BAD_MATRIX') == '1':
             root.find('./nets/net/node').set('pin', '99')
+        if os.environ.get('RGB_BADGE_TEST_BAD_DRIVER') == '1':
+            root.find("./nets/net/node[@ref='U1'][@pin='57']").set('pin','58')
         output.write_bytes(ET.tostring(root))
         return 0
     elif args[:3] == ["sch", "export", "pdf"]:
@@ -77,7 +107,7 @@ def main():
         output.write_text('Stub only: not a PDF or KiCad render.\n')
         return 0
     elif args[:3] == ["sym", "export", "svg"]:
-        names = ["EAST10105RGBA0_unit1.svg", "QBLP1515A-RGB2A_unit1.svg"]
+        names = [n + "_unit1.svg" for n in ("EAST10105RGBA0", "QBLP1515A-RGB2A", "TLC59581RTQT", "ERJ-2RKF3922X", "ERJ-2RKF1003X", "GRM155R71C104KA88D", "PWR_FLAG")]
     elif args[:3] == ["fp", "export", "svg"]:
         layers = args[args.index("--layers") + 1]
         if output.name == "fabrication":
@@ -86,10 +116,12 @@ def main():
         elif output.name == "copper":
             assert layers == "F.Cu", "Copper view must exclude non-copper outlines"
             assert "--sketch-pads-on-fab-layers" not in args
+        elif output.name == "paste":
+            assert layers == "F.Paste"
         else:
             raise AssertionError(f"Unexpected footprint export destination: {output}")
         stage = output.name
-        names = ["LED_Everlight_EAST10105RGBA0.svg", "LED_QTBrightek_QBLP1515A-RGB2A.svg"]
+        names = [n + ".svg" for n in ("LED_Everlight_EAST10105RGBA0", "LED_QTBrightek_QBLP1515A-RGB2A", "QFN_TI_RTQ0056E_8x8mm_P0.5mm_EP5.7mm", "R_Panasonic_ERJ2_0402", "C_Murata_GRM15_0402")]
     elif args[:2] == ["sch", "erc"]:
         assert "--severity-all" in args and "--exit-code-violations" in args
         if os.environ.get("RGB_BADGE_TEST_FAIL") == stage:
@@ -103,6 +135,8 @@ def main():
         return 7
     for name in names:
         file = output / name
+        if "QFN_TI" in name and stage == "paste" and os.environ.get("RGB_BADGE_TEST_MISSING_PASTE") == "1":
+            continue
         # Always exercise a missing/empty export of the second copper part.
         target = stage == "copper" and "QTBrightek" in name
         if target and os.environ.get("RGB_BADGE_TEST_MISSING") == "1":

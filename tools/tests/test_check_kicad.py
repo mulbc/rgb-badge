@@ -42,9 +42,9 @@ class CheckKiCadWrapperTests(unittest.TestCase):
     def test_separate_raw_views_and_numbered_copies(self):
         result = self.run_check()
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertEqual(len(list((self.output / "symbols").glob("*.svg"))), 2)
-        for view in ("fabrication", "copper", "numbered"):
-            self.assertEqual(len(list((self.output / "footprints" / view).glob("*.svg"))), 2)
+        self.assertEqual(len(list((self.output / "symbols").glob("*.svg"))), 7)
+        for view in ("fabrication", "copper", "paste", "numbered"):
+            self.assertEqual(len(list((self.output / "footprints" / view).glob("*.svg"))), 2 if view == "numbered" else 5)
         self.assertTrue((self.output / "coupon-erc.rpt").is_file())
         self.assertTrue((self.output / "coupon-matrix.xml").is_file())
         self.assertTrue((self.output / "coupon-schematic.pdf").is_file())
@@ -90,6 +90,18 @@ class CheckKiCadWrapperTests(unittest.TestCase):
                 result = self.run_check(RGB_BADGE_TEST_FAIL=stage)
                 self.assertEqual(result.returncode, 7)
                 self.assertNotIn('matrix connectivity and Coupon Rev A ERC passed', result.stdout)
+
+    def test_bad_driver_netlist_is_not_hidden(self):
+        result = self.run_check(RGB_BADGE_TEST_BAD_DRIVER="1")
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("Driver check failed", result.stderr)
+        self.assertFalse((self.output / "coupon-schematic.pdf").exists())
+
+    def test_missing_driver_paste_export_is_rejected(self):
+        result = self.run_check(RGB_BADGE_TEST_MISSING_PASTE="1")
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("driver footprint SVG", result.stderr)
+        self.assertFalse((self.output / "coupon-erc.rpt").exists())
 
     def test_wrong_kicad_version_is_rejected(self):
         result = self.run_check(RGB_BADGE_TEST_VERSION="9.0.0")
