@@ -128,7 +128,22 @@ def read_sources(project_dir):
             graph[a].add(b)
             graph[b].add(a)
         for label in children(source, 'global_label'):
-            labels[position(label)].add(label[1])
+            anchor = position(label)
+            labels[anchor].add(label[1])
+            angle = one(label, 'at', 'global label')[3]
+            justification = one(one(label, 'effects', 'global label'), 'justify', 'global label')[1:]
+            # In the actual KiCad PDF, angle 0 puts text to the right of its
+            # anchor; angle 180 puts it to the left. The attached wire must
+            # approach from the other side or it strikes through the text.
+            valid = {'0': ('left', -1), '180': ('right', 1)}
+            if angle not in valid or justification != [valid[angle][0]]:
+                raise ValueError(f'{filename}: unsupported global-label orientation')
+            neighbours = graph[anchor]
+            if len(neighbours) != 1 or any(
+                end[1] != anchor[1] or (end[0]-anchor[0])*valid[angle][1] <= 0
+                for end in neighbours
+            ):
+                raise ValueError(f'{filename}: wire runs through global-label text: {label[1]}')
 
         for symbol in children(source, 'symbol'):
             props = properties(symbol)

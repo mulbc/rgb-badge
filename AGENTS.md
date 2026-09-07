@@ -4,6 +4,10 @@
 
 These instructions apply to the complete repository.
 
+## Repository workflow
+
+The owner authorized the assistant on 2026-09-07 to act as the sole developer and merge pull requests once their applicable checks pass, without requesting merge permission again. Record validation evidence and unresolved findings. Independent Gate A engineering review is still required before fabrication; a source-code merge is not a fabrication release.
+
 ## Read before changing the project
 
 1. Read `CONTEXT.md`.

@@ -2,7 +2,7 @@
 
 # Coupon Rev A matrix capture
 
-Status: first-author matrix-only schematic draft; source checks pass; real KiCad validation pending
+Status: matrix-only KiCad 10.0.6 ERC/netlist checks passed at `7120e93`; corrected drawing review pending
 
 ## Circuit included
 
@@ -38,10 +38,33 @@ All schematic symbols are unrotated for readability. No PCB exists. The required
 - Every cached symbol matches the controlled project-local library.
 - Unique references, UUIDs and hierarchy instance paths are checked.
 - Source graph tracing finds the expected net at every one of 1,024 LED pins: 16 row nets and 48 colour-column nets, each joining 16 pins.
-- Eighteen local regression tests pass. They include deliberate colour swaps, missing LEDs, column shorts, duplicate pins and disconnected wire endpoints, plus wrapper/export failure handling.
+- Nineteen local regression tests pass. They include deliberate colour swaps, missing LEDs, column shorts, duplicate pins, disconnected wire endpoints and labels facing into their wires, plus wrapper/export failure handling.
 - `git diff --check` passes. No physical footprint or current-setting circuit changed.
 
-These are source/software checks, not KiCad ERC, native rendering, a simulation or a bench measurement. The previous blank-sheet ERC does not cover this increment. Real KiCad 10 loading, ERC, exported netlist validation and PDF inspection are pending because the authoring environment has no KiCad executable.
+These local checks are source/software checks, not KiCad ERC, native rendering, a simulation or a bench measurement. The owner supplied actual KiCad evidence for the initial matrix below. The authoring environment still has no KiCad executable.
+
+## Owner KiCad run and PDF review at 7120e93
+
+On 2026-09-07 the owner uploaded `matrix-review-7120e93.zip` from commit `7120e93d52876e33144678a6729feb112536b4c5`, reporting a clean working tree and a successful KiCad 10.0.6 run.
+
+| Evidence | SHA-256 |
+|---|---|
+| Uploaded ZIP | `06f64b3160fb608e9988c1df4bac78de4f190fdf0921a1b14e494ba1eda168ae` |
+| `coupon-erc.rpt` | `09c26d7c9fa935d96a25780553ae4fcdea9a0486039a6e1624ae6d355a80b9f3` |
+| `coupon-matrix.xml` | `0dbd2af4cdc4d1e1b8ed35788de910498e97fe4f35ff129f45af2fe65276bafe` |
+| `coupon-schematic.pdf` | `99a6bdc8d492a79e0d8076adf3d35bbd76bd554539b302d39d66058ad6063ba8` |
+
+The actual ERC report covers the root and all four matrix sheets, with zero errors and warnings under the project's configured checks. The uploaded XML was checked again locally: all 256 components, 1,024 pins and 64 nets match the exact matrix contract. This is native connectivity evidence, not a synthetic fixture.
+
+All five PDF pages were rendered and inspected, with enlarged examples of both LED types. Population, pin labels and row/column grouping were correct, but wires ran through the global-label text. The root revision field also extended beyond its allotted title-block space. The six raw library SVG drawing groups matched the previously reviewed exports, and both numbered copies exactly reproduced the review helper's output.
+
+### Presentation correction
+
+For KiCad's horizontal global labels, angle 0 places text to the right of the anchor and angle 180 places it to the left. Cathode labels now use 180 degrees with right justification; anode labels use 0 degrees with left justification. The attached wires therefore approach from the side opposite the text. The revision field is shortened to `A-draft`.
+
+An S-expression comparison against `7120e93` confirmed that the five schematic files differ only in those label angles/justifications and the revision text. Symbol data, references, pin numbers, net names, UUIDs, wire coordinates and label anchor coordinates are unchanged. A source regression check rejects a label facing into its wire.
+
+The corrected revision still needs a fresh KiCad export and visual inspection before PR #3 is merged. No claim of a successful corrected native render is made here. The owner has granted standing permission to merge once applicable checks pass; library PR #2 has already been merged. Independent Gate A review remains required before fabrication.
 
 ## macOS validation
 

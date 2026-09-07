@@ -45,7 +45,7 @@ def header(identifier, title, paper):
     return [
         '(kicad_sch', '(version 20260306)', '(generator "rgb_badge_matrix")',
         '(generator_version "1.0")', f'(uuid {quote(identifier)})', f'(paper {quote(paper)})',
-        f'(title_block (title {quote(title)}) (rev "A - matrix draft") '
+        f'(title_block (title {quote(title)}) (rev "A-draft") '
         '(comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") '
         '(comment 2 "Matrix only: driver, row stages and power circuits pending"))',
     ]
@@ -85,10 +85,10 @@ def pixel(row, column, x, y, sheet_id):
     # Explicit short wires attach each pin to a global row/colour-column net.
     # Y is inverted relative to the library symbol's Cartesian coordinates.
     terminals = [
-        ('A', f'ROW_{row:02d}_A', x + 7.62, y, x + 17.78, 180),
-        ('R_K', f'COL_{column:02d}_R', x - 7.62, y - 2.54, x - 17.78, 0),
-        ('G_K', f'COL_{column:02d}_G', x - 7.62, y, x - 17.78, 0),
-        ('B_K', f'COL_{column:02d}_B', x - 7.62, y + 2.54, x - 17.78, 0),
+        ('A', f'ROW_{row:02d}_A', x + 7.62, y, x + 17.78, 0),
+        ('R_K', f'COL_{column:02d}_R', x - 7.62, y - 2.54, x - 17.78, 180),
+        ('G_K', f'COL_{column:02d}_G', x - 7.62, y, x - 17.78, 180),
+        ('B_K', f'COL_{column:02d}_B', x - 7.62, y + 2.54, x - 17.78, 180),
     ]
     for function, net, pin_x, pin_y, end_x, angle in terminals:
         items.append(

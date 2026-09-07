@@ -2,7 +2,7 @@
 
 # Coupon Rev A
 
-Status: KiCad 10 matrix-only schematic draft captured; source checks pass; real KiCad validation of the new circuit and independent Gate A verification pending; not safe to fabricate
+Status: matrix-only KiCad 10.0.6 ERC/netlist checks passed at `7120e93`; presentation corrections await a fresh native render; independent Gate A verification pending; not safe to fabricate
 
 ## Purpose
 

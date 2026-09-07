@@ -62,6 +62,25 @@ class CouponMatrixTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'D1.1: expected one connected global net'):
                 CHECK['read_sources'](target)
 
+    def test_label_facing_the_wire_is_rejected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            target = Path(directory)
+            for source in PROJECT.glob('*.kicad_sch'):
+                shutil.copyfile(source, target / source.name)
+            sheet = target / 'matrix-r00-c00.kicad_sch'
+            original = sheet.read_text()
+            # Restore the orientation observed to strike through ROW_00_A
+            # in the owner's KiCad PDF while keeping its net and anchor fixed.
+            bad = original.replace(
+                '(global_label "ROW_00_A" (shape passive) (at 58.42 60.96 0) (effects (font (size 1.016 1.016)) (justify left))',
+                '(global_label "ROW_00_A" (shape passive) (at 58.42 60.96 180) (effects (font (size 1.016 1.016)) (justify right))',
+                1,
+            )
+            self.assertNotEqual(original, bad)
+            sheet.write_text(bad)
+            with self.assertRaisesRegex(ValueError, 'wire runs through global-label text'):
+                CHECK['read_sources'](target)
+
 
 if __name__ == '__main__':
     unittest.main()

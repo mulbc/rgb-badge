@@ -4,7 +4,7 @@
 (generator_version "1.0")
 (uuid "207fb68e-2ddb-46bb-8712-eba2f8c5eef6")
 (paper "A4")
-(title_block (title "Coupon Rev A - matrix capture") (rev "A - matrix draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "Matrix only: driver, row stages and power circuits pending"))
+(title_block (title "Coupon Rev A - matrix capture") (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "Matrix only: driver, row stages and power circuits pending"))
 (lib_symbols)
 (text "16 x 16 RGB matrix - initial circuit capture" (at 20.32 20.32 0) (effects (font (size 2.0 2.0)) (justify left)) (uuid "9ddd7885-1765-5b94-866a-ea6dd26eb6e9"))
 (text "Four sheets use global nets: ROW_00_A..ROW_15_A and COL_00_R/G/B..COL_15_R/G/B." (at 20.32 30.48 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "9f746ba8-e946-56f6-99ff-3a973cd30611"))
