@@ -8,6 +8,10 @@ Host-side utilities will include the deterministic content compiler, schema vali
 
 `number-footprint-review.py SOURCE.svg NEW_OUTPUT.svg` creates a separate numbered review copy of a four-pad KiCad 10 fabrication export. It overlays KiCad's own glyph paths on white halos so body lines do not obscure the pad numbers. It preserves source evidence and geometry, adds a viewing margin, records the source SHA-256, and fails if the expected label structure changes. The wrapper places these derived files in `footprints/numbered/`; they are not manufacturing outputs. The [recorded review](../docs/development/led-library-review-27c01b4.md) used the owner's actual KiCad exports.
 
+`check-coupon-matrix.py` checks the matrix-only draft in two modes. Without arguments it parses the canonical KiCad source, verifies cached symbols against the library, traces short wires to global labels, and checks all 256 LEDs and 1,024 pin-to-net assignments. This source subset checker is not KiCad ERC and does not support arbitrary buses, rotations, mid-wire junctions or later circuitry. With `--netlist PATH.xml`, it checks the actual KiCad XML netlist against the same electrical contract. At this increment it requires the complete circuit to be exactly the matrix; later circuit additions must extend that scope explicitly. `check-kicad.sh` runs both modes around the real KiCad ERC/netlist export and also exports `coupon-schematic.pdf`.
+
+`generate-coupon-matrix.py --output NEW_DIRECTORY` reproduces the initial matrix capture with stable UUIDs. It writes only a new directory and refuses existing paths. The generated draft was reviewed before its files were copied into the canonical project. Do not regenerate over subsequent KiCad edits; compare a temporary regeneration and integrate deliberate changes. Schematic orientation does not set PCB placement rotation.
+
 Run the wrapper regression tests without KiCad:
 
 ```bash
@@ -15,3 +19,5 @@ python3 -m unittest discover -s tools/tests -p 'test_*.py' -v
 ```
 
 The wrapper tests use a stub executable to check CLI arguments, output separation and failure handling. SVG-helper tests check original-geometry and glyph preservation, rejection of missing/duplicate/transformed labels, and protection against overwriting evidence. They do not render KiCad files, run real ERC, prove legibility or approve hardware. Actual KiCad output and human inspection remain required.
+
+Matrix regression tests deliberately inject a colour swap with unchanged net sizes, a missing LED, a short between columns, a duplicated pin, and a wire endpoint that misses its LED pin. Synthetic XML tests prove checker behaviour; only a real KiCad-exported netlist can verify KiCad's interpretation of the new schematic.

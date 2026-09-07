@@ -12,6 +12,7 @@ symbol_library="${project_dir}/symbols/rgb-badge-coupon.kicad_sym"
 footprint_library="${project_dir}/footprints/rgb-badge-coupon.pretty"
 led_library_check="${repo_root}/tools/check-led-libraries.py"
 numbered_review="${repo_root}/tools/number-footprint-review.py"
+matrix_check="${repo_root}/tools/check-coupon-matrix.py"
 
 if [[ -n "${RGB_BADGE_KICAD_CLI:-}" ]]; then
     kicad_cli="${RGB_BADGE_KICAD_CLI}"
@@ -32,7 +33,8 @@ for required_path in \
     "${symbol_library}" \
     "${footprint_library}" \
     "${led_library_check}" \
-    "${numbered_review}"
+    "${numbered_review}" \
+    "${matrix_check}"
 do
     if [[ ! -e "${required_path}" ]]; then
         echo "Required project path is missing: ${required_path}" >&2
@@ -41,6 +43,7 @@ do
 done
 
 python3 "${led_library_check}"
+python3 "${matrix_check}"
 
 kicad_version="$("${kicad_cli}" version)"
 
@@ -119,7 +122,23 @@ done
     --output "${check_tmp_dir}/coupon-erc.rpt" \
     "${schematic_file}"
 
-echo "KiCad ${kicad_version}: LED libraries loaded/exported and Coupon Rev A ERC passed."
+"${kicad_cli}" sch export netlist \
+    --format kicadxml \
+    --output "${check_tmp_dir}/coupon-matrix.xml" \
+    "${schematic_file}"
+python3 "${matrix_check}" --netlist "${check_tmp_dir}/coupon-matrix.xml"
+
+"${kicad_cli}" sch export pdf \
+    --black-and-white \
+    --output "${check_tmp_dir}/coupon-schematic.pdf" \
+    "${schematic_file}"
+if [[ ! -s "${check_tmp_dir}/coupon-schematic.pdf" ]]; then
+    echo "Expected non-empty schematic PDF was not exported." >&2
+    exit 1
+fi
+
+echo "KiCad ${kicad_version}: libraries exported, matrix connectivity and Coupon Rev A ERC passed."
+echo "Matrix-only draft: driver, row stages, controller and power circuits remain uncaptured."
 if [[ "${keep_check_output}" == yes ]]; then
-    echo "Review SVG output in: ${check_tmp_dir}"
+    echo "Review SVG/PDF output and netlist in: ${check_tmp_dir}"
 fi

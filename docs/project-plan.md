@@ -4,7 +4,7 @@
 
 Status: agreed design baseline and staged execution plan
 Date: 2026-09-05
-Project phase: requirements and KiCad workflow complete; exact-part research in progress; schematic/layout work not yet started
+Project phase: requirements and KiCad workflow complete; first matrix-only schematic draft captured; real KiCad validation and remaining circuit capture pending; layout not started
 
 ## 1. Outcome
 

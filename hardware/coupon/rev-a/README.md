@@ -2,7 +2,7 @@
 
 # Coupon Rev A
 
-Status: KiCad 10 project and blank schematic scaffold created; macOS GUI round-trip passed; first-author LED libraries captured but not independently verified; not safe to fabricate
+Status: KiCad 10 matrix-only schematic draft captured; source checks pass; real KiCad validation of the new circuit and independent Gate A verification pending; not safe to fabricate
 
 ## Purpose
 
@@ -23,7 +23,9 @@ The exact draft candidates and open circuit risks are tracked in the [Coupon Rev
 
 Follow the [macOS KiCad setup and round-trip check](../../../docs/development/kicad-macos.md). The canonical project entry point is `rgb-badge-coupon.kicad_pro`. Run `../../../tools/check-kicad.sh` from this directory, or `./tools/check-kicad.sh` from the repository root.
 
-The current blank schematic is only a format and library-path scaffold. The two project-local LED symbols and footprints are first-author transcriptions recorded in the [LED audit](footprints/led-audit.md); they have not completed independent verification. No circuit or PCB has been implemented or validated.
+The root now links four matrix sheets, each containing 64 LEDs. Together they capture all 256 LEDs and their row/colour-column connections. The [matrix capture record](matrix-capture.md) defines the reference/net contract, completed source checks and remaining real KiCad validation. Driver, row stages, controller and power circuitry are not captured yet; no PCB exists.
+
+The two project-local LED symbols and footprints completed the first-author [LED audit](footprints/led-audit.md) and rendering review. Independent verification remains pending. The earlier macOS blank-sheet ERC result does not validate this new circuit.
 
 ## Release blockers
 

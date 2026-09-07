@@ -17,7 +17,9 @@ open hardware/coupon/rev-a/rgb-badge-coupon.kicad_pro
 
 On first opening the project, do not accept a migration to a newer KiCad major release. Project-specific symbol and footprint tables use `${KIPRJMOD}`, so no personal library paths should be added.
 
-## First GUI round-trip check
+## Initial blank-project GUI round-trip (completed history)
+
+This check was completed on the original blank project. The matrix draft now contains a root and four child sheets; use the validation command and [matrix review steps](../../hardware/coupon/rev-a/matrix-capture.md#macos-validation) for the current circuit.
 
 1. Open `rgb-badge-coupon.kicad_pro` from the command above.
 2. Open the Schematic Editor from the project manager.
@@ -35,7 +37,7 @@ Run this after every schematic change:
 ./tools/check-kicad.sh
 ```
 
-The script requires stable KiCad 10.0.x, checks the controlled LED pin/pad geometry, exports the project-local symbol and footprint libraries through `kicad-cli`, and runs ERC with violations treated as a failure. It uses the application-bundle CLI automatically on macOS. Set `RGB_BADGE_KICAD_CLI` only when testing a specific alternate executable.
+The script requires stable KiCad 10.0.x, checks the controlled LED pin/pad geometry and matrix source wiring, exports the project-local libraries, and runs ERC with violations treated as a failure. It then exports KiCad's XML netlist, verifies every LED pin's row/colour net, and exports the complete schematic to PDF. It uses the application-bundle CLI automatically on macOS. Set `RGB_BADGE_KICAD_CLI` only when testing a specific alternate executable.
 
 To retain SVGs for human inspection, give the check a new output path that does not already exist:
 
@@ -52,6 +54,8 @@ The `build` directory is ignored by Git. The check requires six non-empty raw SV
 | `footprints/fabrication/` | Two unchanged raw KiCad views: outlined pads, body outline with pin-1 chamfer, silkscreen marker and outer courtyard. Body strokes may cross the small pad numbers. These outlines are not copper connections. |
 | `footprints/numbered/` | Two derived review copies with the original pad-number glyphs overlaid on white halos. Use these for readable pad identification; use the raw views and source files for geometry inspection. |
 | `footprints/copper/` | Two copper-only views, each with four separate solid pads and no connecting lines. Pad numbers are intentionally absent; identify them in the numbered views. |
+| `coupon-schematic.pdf` | Root page plus four matrix pages, each containing 64 LEDs. We will inspect the actual KiCad rendering for label collisions and wiring clarity. |
+| `coupon-matrix.xml` | KiCad's connectivity result, checked against the exact 256-LED population and 1,024 pin-to-net assignments. |
 
 The fabrication export uses `F.Fab,F.SilkS,F.CrtYd` and `--sketch-pads-on-fab-layers`. Copper is exported separately with `F.Cu`. These are [KiCad 10 CLI export options](https://docs.kicad.org/10.0/en/cli/cli.html). `number-footprint-review.py` then copies the existing numbered glyphs over a white halo and adds a small viewing margin. It preserves the raw exports, records each source SVG's SHA-256 in the derived copy, and rejects unexpected or missing labels. The derived view is not a manufacturing drawing. Mask and paste are deliberately absent from these readability views; their review remains a separate DFM task.
 
@@ -64,4 +68,4 @@ For the unrotated footprint top views, confirm this corner-to-pad mapping agains
 
 The pin-1 chamfer and marker must identify the common-anode corner. `REF**` belongs to the fabrication layer, not the physical front silkscreen. If you are unsure, upload the complete output folder as a ZIP together with the command output for review; do not treat uncertainty as approval. The [reviewed examples](led-library-review-27c01b4.md) show the two numbered views and their expected mapping.
 
-Compare with the [LED audit](../../hardware/coupon/rev-a/footprints/led-audit.md). A successful export checks KiCad parsing; it does not replace that drawing comparison or the independent Gate A review. ERC still runs on a blank schematic and therefore does not validate the eventual circuit.
+Compare with the [LED audit](../../hardware/coupon/rev-a/footprints/led-audit.md). A successful export checks KiCad parsing; it does not replace drawing comparison or independent Gate A review. ERC now runs on the matrix-only circuit. Passing it and the pin-to-net check does not validate the uncaptured driver, row stages, controller or power circuitry.
