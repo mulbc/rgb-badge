@@ -2,7 +2,7 @@
 
 # Coupon Rev A matrix capture
 
-Status: matrix-only KiCad 10.0.6 ERC/netlist checks passed at `7120e93`; corrected drawing review pending
+Status: matrix-only KiCad 10.0.6 ERC/netlist checks and corrected drawing review passed at `63afa77`
 
 ## Circuit included
 
@@ -41,7 +41,7 @@ All schematic symbols are unrotated for readability. No PCB exists. The required
 - Nineteen local regression tests pass. They include deliberate colour swaps, missing LEDs, column shorts, duplicate pins, disconnected wire endpoints and labels facing into their wires, plus wrapper/export failure handling.
 - `git diff --check` passes. No physical footprint or current-setting circuit changed.
 
-These local checks are source/software checks, not KiCad ERC, native rendering, a simulation or a bench measurement. The owner supplied actual KiCad evidence for the initial matrix below. The authoring environment still has no KiCad executable.
+These local checks are source/software checks, not KiCad ERC, native rendering, a simulation or a bench measurement. The owner supplied actual KiCad evidence for both matrix revisions below. The authoring environment still has no KiCad executable.
 
 ## Owner KiCad run and PDF review at 7120e93
 
@@ -64,7 +64,24 @@ For KiCad's horizontal global labels, angle 0 places text to the right of the an
 
 An S-expression comparison against `7120e93` confirmed that the five schematic files differ only in those label angles/justifications and the revision text. Symbol data, references, pin numbers, net names, UUIDs, wire coordinates and label anchor coordinates are unchanged. A source regression check rejects a label facing into its wire.
 
-The corrected revision still needs a fresh KiCad export and visual inspection before PR #3 is merged. No claim of a successful corrected native render is made here. The owner has granted standing permission to merge once applicable checks pass; library PR #2 has already been merged. Independent Gate A review remains required before fabrication.
+The corrected revision was exported and reviewed as recorded below. The owner has granted standing permission to merge once applicable checks pass; library PR #2 has already been merged. Independent Gate A review remains required before fabrication.
+
+## Corrected native review at 63afa77
+
+On 2026-09-07 the owner uploaded `matrix-review-63afa77.zip` from commit `63afa7786267d07d5e0da7477703e86c3ac8001b`. The terminal output records KiCad 10.0.6, successful library/source checks, native ERC and XML connectivity checks, PDF export and a clean working tree.
+
+| Evidence | SHA-256 |
+|---|---|
+| Uploaded ZIP | `2cec90d0436b9c8a3f241bcc9fa9ddf68e445d9be782c26378e150f66dfb52c8` |
+| `coupon-erc.rpt` | `93b1cb95fb1219c189035a027d8db1a2747ea5d06683591c22690a9f57587f45` |
+| `coupon-matrix.xml` | `6c8605ea4df386d3e86cc80e3a62e43e12be58acacb6a29397b10c058365df34` |
+| `coupon-schematic.pdf` | `b2b3e8ace829eb45918c0534b82c6b1b22c064333bb4687375059b6110380fa1` |
+
+The uploaded ERC report records zero errors and zero warnings across all five sheets under the project configuration. Rechecking the actual exported XML locally passed all 256 LED references, 1,024 pin assignments, 16 row nets and 48 colour-column nets.
+
+All five actual PDF pages were rendered and visually inspected, including enlarged examples of D1 (Everlight) and D9 (QT Brightek). Net-label text is clear of the connecting wires, both LED pin maps remain readable, and the shortened revision fits the title block. The root hierarchy and all four 64-LED pages fit without observed clipping or label collisions. The two presentation findings from `7120e93` are closed.
+
+This completes the applicable matrix-source review for PR #3. The evidence does not validate the uncaptured powered circuitry, PCB layout, runtime or fabricated hardware. The evidence-record update changes documentation only; the reviewed schematic and check tools remain identical to `63afa77`.
 
 ## macOS validation
 
@@ -72,7 +89,7 @@ From the repository root, close KiCad and run:
 
 ```bash
 git fetch origin
-git switch coupon-matrix-rev-a
+git switch main
 git pull --ff-only
 git rev-parse --short HEAD
 review_dir="hardware/coupon/rev-a/build/matrix-review-$(git rev-parse --short HEAD)"
