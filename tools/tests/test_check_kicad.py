@@ -46,6 +46,8 @@ class CheckKiCadWrapperTests(unittest.TestCase):
         for view in ("fabrication", "copper", "numbered"):
             self.assertEqual(len(list((self.output / "footprints" / view).glob("*.svg"))), 2)
         self.assertTrue((self.output / "coupon-erc.rpt").is_file())
+        self.assertTrue((self.output / "coupon-matrix.xml").is_file())
+        self.assertTrue((self.output / "coupon-schematic.pdf").is_file())
 
     def test_numbering_failure_is_not_hidden(self):
         result = self.run_check(RGB_BADGE_TEST_BAD_LABELS="1")
@@ -74,6 +76,20 @@ class CheckKiCadWrapperTests(unittest.TestCase):
         result = self.run_check(RGB_BADGE_TEST_FAIL="sch/erc")
         self.assertEqual(result.returncode, 5)
         self.assertNotIn("ERC passed", result.stdout)
+
+    def test_bad_matrix_netlist_is_not_hidden(self):
+        result = self.run_check(RGB_BADGE_TEST_BAD_MATRIX="1")
+        self.assertEqual(result.returncode, 1)
+        self.assertIn('Matrix check failed', result.stderr)
+        self.assertFalse((self.output / 'coupon-schematic.pdf').exists())
+
+    def test_netlist_and_pdf_export_failures_are_not_hidden(self):
+        for stage in ('netlist', 'pdf'):
+            with self.subTest(stage=stage):
+                self.output = self.directory / stage
+                result = self.run_check(RGB_BADGE_TEST_FAIL=stage)
+                self.assertEqual(result.returncode, 7)
+                self.assertNotIn('matrix connectivity and Coupon Rev A ERC passed', result.stdout)
 
     def test_wrong_kicad_version_is_rejected(self):
         result = self.run_check(RGB_BADGE_TEST_VERSION="9.0.0")

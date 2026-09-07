@@ -5,6 +5,7 @@
 import os
 from pathlib import Path
 import sys
+import xml.etree.ElementTree as ET
 
 
 def fabrication_svg():
@@ -23,6 +24,35 @@ def fabrication_svg():
     )
 
 
+def matrix_netlist():
+    # Synthetic fixture, not an export from KiCad. The validator has separate
+    # fault-injection tests; this fixture exercises wrapper command plumbing.
+    root = ET.Element('export')
+    components = ET.SubElement(root, 'components')
+    nets = {}
+    for number in range(1, 257):
+        row, column = divmod(number-1, 16)
+        ref = f'D{number}'
+        if column < 8:
+            mpn, footprint = 'EAST10105RGBA0', 'LED_Everlight_EAST10105RGBA0'
+            pins = {'A': '1', 'R': '2', 'G': '4', 'B': '3'}
+        else:
+            mpn, footprint = 'QBLP1515A-RGB2A', 'LED_QTBrightek_QBLP1515A-RGB2A'
+            pins = {'A': '1', 'R': '4', 'G': '3', 'B': '2'}
+        comp = ET.SubElement(components, 'comp', ref=ref)
+        ET.SubElement(comp, 'value').text = mpn
+        ET.SubElement(comp, 'footprint').text = 'rgb-badge-coupon:' + footprint
+        for function, pin in pins.items():
+            net = f'ROW_{row:02d}_A' if function == 'A' else f'COL_{column:02d}_{function}'
+            nets.setdefault(net, []).append((ref, pin))
+    net_root = ET.SubElement(root, 'nets')
+    for name, nodes in sorted(nets.items()):
+        net = ET.SubElement(net_root, 'net', name=name)
+        for ref, pin in nodes:
+            ET.SubElement(net, 'node', ref=ref, pin=pin)
+    return root
+
+
 def main():
     args = sys.argv[1:]
     if args == ["version"]:
@@ -31,7 +61,22 @@ def main():
 
     output = Path(args[args.index("--output") + 1])
     stage = "/".join(args[:2])
-    if args[:3] == ["sym", "export", "svg"]:
+    if args[:3] == ["sch", "export", "netlist"]:
+        assert args[args.index('--format') + 1] == 'kicadxml'
+        if os.environ.get('RGB_BADGE_TEST_FAIL') == 'netlist':
+            return 7
+        root = matrix_netlist()
+        if os.environ.get('RGB_BADGE_TEST_BAD_MATRIX') == '1':
+            root.find('./nets/net/node').set('pin', '99')
+        output.write_bytes(ET.tostring(root))
+        return 0
+    elif args[:3] == ["sch", "export", "pdf"]:
+        assert '--black-and-white' in args
+        if os.environ.get('RGB_BADGE_TEST_FAIL') == 'pdf':
+            return 7
+        output.write_text('Stub only: not a PDF or KiCad render.\n')
+        return 0
+    elif args[:3] == ["sym", "export", "svg"]:
         names = ["EAST10105RGBA0_unit1.svg", "QBLP1515A-RGB2A_unit1.svg"]
     elif args[:3] == ["fp", "export", "svg"]:
         layers = args[args.index("--layers") + 1]

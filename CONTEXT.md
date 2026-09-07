@@ -13,7 +13,8 @@ Create a small, manufacturable 48 × 16 RGB wearable badge that preserves the 1.
 - KiCad workflow: 10.0.6 stable baseline accepted; Coupon Rev A project and blank schematic scaffold created; the first macOS GUI round-trip opened and saved without errors, and CLI ERC reported zero violations.
 - Coupon LED pair: `EAST10105RGBA0` in columns 0–7 and `QBLP1515A-RGB2A` in columns 8–15.
 - Coupon LED libraries: first-author exact-MPN transcription and rendering review complete. Owner KiCad 10.0.6 exports at `27c01b4` passed pin/pad comparison; separate derived numbered views resolve body-outline/label overlap. The [review record](docs/development/led-library-review-27c01b4.md) preserves evidence and limits; independent Gate A verification remains pending.
-- Coupon schematic: blank root sheet only; no circuit captured.
+- Coupon schematic: first matrix-only draft captured on four child sheets: 256 LEDs, 16 common-anode row nets and 48 colour-column cathode nets. Owner KiCad 10.0.6 ERC and exported-netlist checks passed at `63afa77`. All five corrected PDF pages passed visual review; net labels are clear and the revision field fits. Driver, row stages, controller and power circuits remain uncaptured. See the [matrix capture record](hardware/coupon/rev-a/matrix-capture.md).
+- Repository workflow: owner granted standing permission on 2026-09-07 to merge PRs after applicable checks pass. Library PR #2 is merged; matrix PR #3 has completed the applicable source, native KiCad and drawing checks.
 - Hardware testing: none.
 - Current safe action: documentation, exact-part research, calculations and coupon design.
 - Current stop condition: do not order a PCB or battery until the Gate A engineering review is complete.
