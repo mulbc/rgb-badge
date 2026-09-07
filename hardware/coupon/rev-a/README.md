@@ -2,7 +2,7 @@
 
 # Coupon Rev A
 
-Status: KiCad 10 project and blank schematic scaffold created; macOS GUI round-trip passed; component capture pending; not safe to fabricate
+Status: KiCad 10 project and blank schematic scaffold created; macOS GUI round-trip passed; first-author LED libraries captured but not independently verified; not safe to fabricate
 
 ## Purpose
 
@@ -23,7 +23,7 @@ The exact draft candidates and open circuit risks are tracked in the [Coupon Rev
 
 Follow the [macOS KiCad setup and round-trip check](../../../docs/development/kicad-macos.md). The canonical project entry point is `rgb-badge-coupon.kicad_pro`. Run `../../../tools/check-kicad.sh` from this directory, or `./tools/check-kicad.sh` from the repository root.
 
-The current blank schematic is only a format and library-path scaffold. No circuit, footprint or PCB has been implemented or validated.
+The current blank schematic is only a format and library-path scaffold. The two project-local LED symbols and footprints are first-author transcriptions recorded in the [LED audit](footprints/led-audit.md); they have not completed independent verification. No circuit or PCB has been implemented or validated.
 
 ## Release blockers
 

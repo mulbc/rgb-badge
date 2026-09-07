@@ -1,0 +1,119 @@
+(footprint "LED_Everlight_EAST10105RGBA0"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "Everlight EAST10105RGBA0 1.0x1.0mm common-anode RGB LED; manufacturer pad pattern from DSE-0014497 Rev.1 page 8; https://www.mouser.com/datasheet/2/143/EAST10105RGBA0-1709851.pdf")
+	(tags "LED RGB common-anode Everlight EAST10105RGBA0 1010")
+	(property "Reference" "REF**"
+		(at 0 -1.15 0)
+		(layer "F.Fab")
+		(uuid "e7c3f5e1-f2c8-5545-84b6-bd2935d41ef1")
+		(effects
+			(font
+				(size 0.35 0.35)
+				(thickness 0.06)
+			)
+		)
+	)
+	(property "Value" "LED_Everlight_EAST10105RGBA0"
+		(at 0 1.15 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "3c6b4fb1-2ffb-5ad3-b890-ff287906a6ce")
+		(effects
+			(font
+				(size 0.35 0.35)
+				(thickness 0.06)
+			)
+		)
+	)
+	(property "Datasheet" "https://www.mouser.com/datasheet/2/143/EAST10105RGBA0-1709851.pdf"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "56978efd-ddac-5da2-a4d7-fc707746b0d9")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" "Everlight EAST10105RGBA0 common-anode RGB LED, 1.0x1.0x0.25mm"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "213d2523-4819-5fa8-a531-0e5d5799f214")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_poly
+		(pts
+			(xy 0.68 -0.82) (xy 0.82 -0.82) (xy 0.82 -0.68) (xy 0.68 -0.82)
+		)
+		(stroke
+			(width 0.08)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.SilkS")
+		(uuid "9b1b9eaa-54c6-563c-a3a1-8ce05ae470ca")
+	)
+	(fp_poly
+		(pts
+			(xy -0.5 -0.5) (xy 0.3 -0.5) (xy 0.5 -0.3) (xy 0.5 0.5) (xy -0.5 0.5) (xy -0.5 -0.5)
+		)
+		(stroke
+			(width 0.08)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "80947f37-124f-580d-98fa-393412f76840")
+	)
+	(fp_rect
+		(start -0.85 -0.85)
+		(end 0.85 0.85)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(fill none)
+		(layer "F.CrtYd")
+		(uuid "47f23624-bdc0-50a8-b047-e616e39fa9ab")
+	)
+	(pad "1" smd rect
+		(at 0.425 -0.425)
+		(size 0.45 0.45)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "ef49c005-9716-5a31-958e-2a8e3a025af2")
+	)
+	(pad "2" smd rect
+		(at 0.425 0.425)
+		(size 0.45 0.45)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "327e3a43-5aad-5840-982e-7d62d68844f5")
+	)
+	(pad "3" smd rect
+		(at -0.425 0.425)
+		(size 0.45 0.45)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "f8baae3c-50fe-5d9b-8ede-b9995ba3c7fa")
+	)
+	(pad "4" smd rect
+		(at -0.425 -0.425)
+		(size 0.45 0.45)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "f1b6dc92-ad18-53c0-a576-61d9e84fa013")
+	)
+	(embedded_fonts no)
+)
