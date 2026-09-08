@@ -2,7 +2,7 @@
 
 # Coupon Rev A row-selection library audit
 
-Status: exact-part KiCad libraries authored; owner KiCad 10.0.6 rendering review passed at `0c71860`; independent Gate A review pending; row circuit not yet captured
+Status: exact-part KiCad libraries authored; owner KiCad 10.0.6 rendering review passed at `0c71860`; row source captured with native circuit review and independent Gate A review pending
 
 ## Selected chain
 
@@ -69,4 +69,4 @@ For the native review, verify:
 - TSSOP pins 1–12 run down the left side and 13–24 run up the right side when viewed from the top;
 - no text hides a pin or pad number in the fabrication view.
 
-The owner KiCad 10.0.6 run at `0c71860` passed all exports, ERC and native XML validation. Full-resolution visual review confirmed the decoder pin map and inversion bubble, both MOSFET pin maps, separate package lands and every pin-1 mark. The [native review record](../../../docs/development/row-library-review-0c71860.md) preserves hashes, findings and limits. The next milestone captures U2, its decoupling/defaults and all sixteen row stages.
+The owner KiCad 10.0.6 run at `0c71860` passed all exports, ERC and native XML validation. Full-resolution visual review confirmed the decoder pin map and inversion bubble, both MOSFET pin maps, separate package lands and every pin-1 mark. The [native review record](../../../docs/development/row-library-review-0c71860.md) preserves hashes, findings and limits. U2, its decoupling/defaults and all sixteen row stages are now present in the [row-capture increment](row-capture.md), which still requires its own native circuit review.

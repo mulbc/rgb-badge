@@ -80,7 +80,7 @@ class CheckKiCadWrapperTests(unittest.TestCase):
     def test_bad_matrix_netlist_is_not_hidden(self):
         result = self.run_check(RGB_BADGE_TEST_BAD_MATRIX="1")
         self.assertEqual(result.returncode, 1)
-        self.assertIn('Matrix check failed', result.stderr)
+        self.assertIn('Row check failed', result.stderr)
         self.assertFalse((self.output / 'coupon-schematic.pdf').exists())
 
     def test_netlist_and_pdf_export_failures_are_not_hidden(self):
@@ -94,7 +94,13 @@ class CheckKiCadWrapperTests(unittest.TestCase):
     def test_bad_driver_netlist_is_not_hidden(self):
         result = self.run_check(RGB_BADGE_TEST_BAD_DRIVER="1")
         self.assertEqual(result.returncode, 1)
-        self.assertIn("Driver check failed", result.stderr)
+        self.assertIn("Row check failed", result.stderr)
+        self.assertFalse((self.output / "coupon-schematic.pdf").exists())
+
+    def test_bad_row_netlist_is_not_hidden(self):
+        result = self.run_check(RGB_BADGE_TEST_BAD_ROWS="1")
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("Row check failed", result.stderr)
         self.assertFalse((self.output / "coupon-schematic.pdf").exists())
 
     def test_missing_driver_paste_export_is_rejected(self):

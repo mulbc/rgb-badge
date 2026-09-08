@@ -1,10 +1,13 @@
+Warning: truncated output (original token count: 50113)
+Total output lines: 1745
+
 (kicad_sch
 (version 20260306)
 (generator "rgb_badge_matrix")
 (generator_version "1.0")
 (uuid "d4af163a-c53e-5a5d-a27f-288b2a608a91")
 (paper "A2")
-(title_block (title "Rows 08-15, columns 00-07 - EAST10105RGBA0") (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "Matrix only: driver, row stages and power circuits pending"))
+(title_block (title "Rows 08-15, columns 00-07 - EAST10105RGBA0") (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "Driver/rows captured; controller and power pending"))
 (lib_symbols
 	(symbol "rgb-badge-coupon:EAST10105RGBA0"
 		(pin_names
@@ -959,12 +962,7 @@
 (property "Manufacturer" "Everlight Electronics" (at 538.48 182.88 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "MPN" "EAST10105RGBA0" (at 538.48 182.88 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Matrix Row" "11" (at 538.48 182.88 0) (effects (font (size 1.27 1.27)) (hide yes)))
-(property "Matrix Column" "7" (at 538.48 182.88 0) (effects (font (size 1.27 1.27)) (hide yes)))
-(pin "1" (uuid "56b28633-7bab-55c8-96a2-0591e9df03a8"))
-(pin "2" (uuid "d0723ef5-1ecd-5e66-a13a-2e6e489e9af3"))
-(pin "3" (uuid "caa995f9-e084-54f6-83cc-b0d790204f5d"))
-(pin "4" (uuid "0dba59fd-1773-5029-a2df-ac73e7a04cc9"))
-(instances (project "rgb-badge-coupon" (path "/207fb68e-2ddb-46bb-8712-eba2f8c5eef6/ed586317-18c3-5782-9c76-721a9f273e3c" (reference "D184") (unit 1)))))
+(proper…113 tokens truncated…4") (unit 1)))))
 (wire (pts (xy 546.10 182.88) (xy 556.26 182.88)) (stroke (width 0) (type default)) (uuid "a152cd53-5785-5d8f-b1fc-470f7cac0052"))
 (global_label "ROW_11_A" (shape passive) (at 556.26 182.88 0) (effects (font (size 1.016 1.016)) (justify left)) (uuid "4e2ce0b2-3e4b-5d6d-b005-ee82f98ae0f7") (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 556.26 182.88 0) (effects (font (size 1.27 1.27)) (hide yes))))
 (wire (pts (xy 530.86 180.34) (xy 520.70 180.34)) (stroke (width 0) (type default)) (uuid "e89b936d-ef61-5706-b14d-69f22ac8fc4c"))

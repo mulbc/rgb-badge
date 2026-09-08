@@ -83,6 +83,59 @@ def coupon_netlist():
     return root
 
 
+def complete_coupon_netlist():
+    """Synthetic matrix + driver + row fixture; never native KiCad evidence."""
+    root = coupon_netlist()
+    components = root.find('components')
+    parts = [
+        ('U2', '74HC4514PW,118', 'TSSOP_Nexperia_SOT355-1_24'),
+        ('C2', '100n 16V X7R', 'C_Murata_GRM15_0402'),
+        *[(f'Q{i + 1}', 'DMP2066LSN-7', 'SC59_Diodes_DMP2066LSN') for i in range(16)],
+        *[(f'Q{i + 17}', '2N7002K-7', 'SOT23_Diodes_2N7002K') for i in range(16)],
+        *[(f'R{i + 6}', '1k 1%', 'R_Panasonic_ERJ2_0402') for i in range(16)],
+        *[(f'R{i + 22}', '100k 1%', 'R_Panasonic_ERJ2_0402') for i in range(16)],
+        *[(f'R{i + 38}', '100k 1%', 'R_Panasonic_ERJ2_0402') for i in range(4)],
+        ('R42', '100k 1%', 'R_Panasonic_ERJ2_0402'),
+    ]
+    for ref, value, footprint in parts:
+        comp = ET.SubElement(components, 'comp', ref=ref)
+        ET.SubElement(comp, 'value').text = value
+        ET.SubElement(comp, 'footprint').text = 'rgb-badge-coupon:' + footprint
+    nets = {net.get('name'): net for net in root.findall('./nets/net')}
+
+    def add(ref, pin, name):
+        if name not in nets:
+            nets[name] = ET.SubElement(root.find('nets'), 'net', name=name)
+        net = nets[name]
+        ET.SubElement(net, 'node', ref=ref, pin=str(pin))
+
+    decoder = {
+        1: '+3V3_APP', 2: 'ROW_A0', 3: 'ROW_A1', 4: 'ROW_SEL_07',
+        5: 'ROW_SEL_06', 6: 'ROW_SEL_05', 7: 'ROW_SEL_04', 8: 'ROW_SEL_03',
+        9: 'ROW_SEL_01', 10: 'ROW_SEL_02', 11: 'ROW_SEL_00', 12: 'GND',
+        13: 'ROW_SEL_13', 14: 'ROW_SEL_12', 15: 'ROW_SEL_15', 16: 'ROW_SEL_14',
+        17: 'ROW_SEL_09', 18: 'ROW_SEL_08', 19: 'ROW_SEL_11', 20: 'ROW_SEL_10',
+        21: 'ROW_A2', 22: 'ROW_A3', 23: 'ROW_ENABLE_N', 24: '+3V3_APP',
+    }
+    for pin, net in decoder.items():
+        add('U2', pin, net)
+    add('C2', 1, '+3V3_APP'); add('C2', 2, 'GND')
+    for i in range(16):
+        row = f'{i:02d}'
+        for ref, pin, net in [
+            (f'Q{i + 1}', 1, f'ROW_GATE_{row}'), (f'Q{i + 1}', 2, 'VLED'),
+            (f'Q{i + 1}', 3, f'ROW_{row}_A'), (f'Q{i + 17}', 1, f'ROW_SEL_{row}'),
+            (f'Q{i + 17}', 2, 'GND'), (f'Q{i + 17}', 3, f'ROW_GATE_{row}'),
+            (f'R{i + 6}', 1, 'VLED'), (f'R{i + 6}', 2, f'ROW_GATE_{row}'),
+            (f'R{i + 22}', 1, f'ROW_SEL_{row}'), (f'R{i + 22}', 2, 'GND'),
+        ]:
+            add(ref, pin, net)
+    for i in range(4):
+        add(f'R{i + 38}', 1, f'ROW_A{i}'); add(f'R{i + 38}', 2, 'GND')
+    add('R42', 1, '+3V3_APP'); add('R42', 2, 'ROW_ENABLE_N')
+    return root
+
+
 def main():
     args = sys.argv[1:]
     if args == ["version"]:
@@ -95,11 +148,13 @@ def main():
         assert args[args.index('--format') + 1] == 'kicadxml'
         if os.environ.get('RGB_BADGE_TEST_FAIL') == 'netlist':
             return 7
-        root = coupon_netlist()
+        root = complete_coupon_netlist()
         if os.environ.get('RGB_BADGE_TEST_BAD_MATRIX') == '1':
             root.find('./nets/net/node').set('pin', '99')
         if os.environ.get('RGB_BADGE_TEST_BAD_DRIVER') == '1':
             root.find("./nets/net/node[@ref='U1'][@pin='57']").set('pin','58')
+        if os.environ.get('RGB_BADGE_TEST_BAD_ROWS') == '1':
+            root.find("./nets/net/node[@ref='U2'][@pin='23']").set('pin', '24')
         output.write_bytes(ET.tostring(root))
         return 0
     elif args[:3] == ["sch", "export", "pdf"]:
