@@ -37,7 +37,7 @@ Run this after every schematic change:
 ./tools/check-kicad.sh
 ```
 
-The script requires stable KiCad 10.0.x, checks the controlled LED and driver pin/pad geometry and source wiring, exports the project-local libraries, and runs ERC with violations treated as a failure. It then exports KiCad's XML netlist, verifies every LED and driver/support pin net, and exports the complete schematic to PDF. It uses the application-bundle CLI automatically on macOS. Set `RGB_BADGE_KICAD_CLI` only when testing a specific alternate executable.
+The script requires stable KiCad 10.0.x, checks the controlled LED, driver and row-selection pin/pad geometry plus the captured source wiring, exports the project-local libraries, and runs ERC with violations treated as a failure. It then exports KiCad's XML netlist, verifies every captured LED and driver/support pin net, and exports the complete schematic to PDF. The row circuit is not yet captured, so its current check is library-only. The script uses the application-bundle CLI automatically on macOS. Set `RGB_BADGE_KICAD_CLI` only when testing a specific alternate executable.
 
 To retain SVGs for human inspection, give the check a new output path that does not already exist:
 
@@ -71,3 +71,5 @@ The pin-1 chamfer and marker must identify the common-anode corner. `REF**` belo
 Compare with the [LED audit](../../hardware/coupon/rev-a/footprints/led-audit.md). A successful export checks KiCad parsing; it does not replace drawing comparison or independent Gate A review. ERC now runs on matrix plus driver/support, with explicit draft supply flags. Passing it and the pin-to-net checks does not validate the uncaptured row stages, controller or power source. See the driver record for the flags and package-variant limitation.
 
 Driver exports add the TLC59581, R1/C1 and virtual power-flag symbols plus three footprints. The `footprints/paste/` view reveals the 16 thermal-pad paste apertures; inspect it together with the copper and fabrication views.
+
+Row-library exports add the `74HC4514PW,118`, `DMP2066LSN-7`, `2N7002K-7` and `ERJ-2RKF1001X` symbols plus TSSOP24, SC-59 and SOT23 footprints. Follow the exact visual checklist and electrical limitations in the [row library audit](../../hardware/coupon/rev-a/row-library-audit.md). A clean render authorizes row-sheet capture, not fabrication.
