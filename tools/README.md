@@ -26,6 +26,8 @@ Matrix regression tests deliberately inject a colour swap with unchanged net siz
 
 `python3 tools/check-coupon-driver.py` checks the controlled driver/support library, footprint geometry and simple source wiring. `--netlist <path>` requires the complete captured population and all 1,094 physical pin assignments. The matrix checker retains its LED-only contract and delegates U1/R1–R5/C1/TP1 to the driver checker; always use `check-kicad.sh` to run both for the full project.
 
+`python3 tools/check-row-libraries.py` independently checks the exact row decoder, P/N MOSFET and 1 kΩ pull-up symbols against their manufacturer pin tables, plus the TSSOP24, SC-59 and SOT23 pad geometry. This milestone intentionally does not claim that the row circuit is captured. The wrapper exports these libraries for native visual review before sixteen repeated stages are added.
+
 The wrapper now exports driver/support symbols and footprints, including a separate paste view, and requires their files to be nonempty. `coupon-matrix.xml` retains its historical filename but contains the whole captured schematic. Local fixture tests do not run KiCad. The current [driver review instructions](../hardware/coupon/rev-a/driver-capture.md#macos-validation) record the completed native run and six-page PDF review at `8e95eb0`, and provide commands for future circuit changes.
 
 `generate-coupon-matrix.py` is the historical one-time matrix-only capture helper. It must not replace the current root schematic: that would remove the driver sheet. The current KiCad files are canonical.

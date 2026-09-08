@@ -14,6 +14,7 @@ led_library_check="${repo_root}/tools/check-led-libraries.py"
 numbered_review="${repo_root}/tools/number-footprint-review.py"
 matrix_check="${repo_root}/tools/check-coupon-matrix.py"
 driver_check="${repo_root}/tools/check-coupon-driver.py"
+row_library_check="${repo_root}/tools/check-row-libraries.py"
 
 if [[ -n "${RGB_BADGE_KICAD_CLI:-}" ]]; then
     kicad_cli="${RGB_BADGE_KICAD_CLI}"
@@ -36,7 +37,8 @@ for required_path in \
     "${led_library_check}" \
     "${numbered_review}" \
     "${matrix_check}" \
-    "${driver_check}"
+    "${driver_check}" \
+    "${row_library_check}"
 do
     if [[ ! -e "${required_path}" ]]; then
         echo "Required project path is missing: ${required_path}" >&2
@@ -47,6 +49,7 @@ done
 python3 "${led_library_check}"
 python3 "${matrix_check}"
 python3 "${driver_check}"
+python3 "${row_library_check}"
 
 kicad_version="$("${kicad_cli}" version)"
 
@@ -121,11 +124,20 @@ do
     fi
 done
 
-for symbol_name in TLC59581RTQT ERJ-2RKF3922X ERJ-2RKF1003X GRM155R71C104KA88D PWR_FLAG TestPoint_Pad; do
+for symbol_name in TLC59581RTQT ERJ-2RKF3922X ERJ-2RKF1003X GRM155R71C104KA88D PWR_FLAG TestPoint_Pad '74HC4514PW,118' DMP2066LSN-7 2N7002K-7 ERJ-2RKF1001X; do
     if [[ ! -s "${symbol_svg_dir}/${symbol_name}_unit1.svg" ]]; then
-        echo "Expected non-empty driver symbol SVG: ${symbol_name}" >&2
+        echo "Expected non-empty controlled symbol SVG: ${symbol_name}" >&2
         exit 1
     fi
+done
+
+for footprint_name in TSSOP_Nexperia_SOT355-1_24 SC59_Diodes_DMP2066LSN SOT23_Diodes_2N7002K; do
+    for view_dir in "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_paste_dir}"; do
+        if [[ ! -s "${view_dir}/${footprint_name}.svg" ]]; then
+            echo "Expected non-empty row-selection footprint SVG: ${view_dir}/${footprint_name}.svg" >&2
+            exit 1
+        fi
+    done
 done
 for footprint_name in QFN_TI_RTQ0056E_8x8mm_P0.5mm_EP5.7mm R_Panasonic_ERJ2_0402 C_Murata_GRM15_0402; do
     for view_dir in "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_paste_dir}"; do
@@ -172,8 +184,8 @@ if [[ ! -s "${check_tmp_dir}/coupon-schematic.pdf" ]]; then
     exit 1
 fi
 
-echo "KiCad ${kicad_version}: libraries exported, complete matrix/driver connectivity and Coupon Rev A ERC passed."
-echo "Matrix/driver draft: row stages, controller and power source remain uncaptured; supply flags are draft boundary assumptions."
+echo "KiCad ${kicad_version}: row libraries exported; complete matrix/driver connectivity and Coupon Rev A ERC passed."
+echo "Matrix/driver draft: row libraries are audited but row stages, controller and power source remain uncaptured; supply flags are draft boundary assumptions."
 if [[ "${keep_check_output}" == yes ]]; then
     echo "Review SVG/PDF output and netlist in: ${check_tmp_dir}"
 fi
