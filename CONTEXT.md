@@ -13,8 +13,8 @@ Create a small, manufacturable 48 × 16 RGB wearable badge that preserves the 1.
 - KiCad workflow: 10.0.6 stable baseline accepted; Coupon Rev A project and blank schematic scaffold created; the first macOS GUI round-trip opened and saved without errors, and CLI ERC reported zero violations.
 - Coupon LED pair: `EAST10105RGBA0` in columns 0–7 and `QBLP1515A-RGB2A` in columns 8–15.
 - Coupon LED libraries: first-author exact-MPN transcription and rendering review complete. Owner KiCad 10.0.6 exports at `27c01b4` passed pin/pad comparison; separate derived numbered views resolve body-outline/label overlap. The [review record](docs/development/led-library-review-27c01b4.md) preserves evidence and limits; independent Gate A verification remains pending.
-- Coupon schematic: first matrix-only draft captured on four child sheets: 256 LEDs, 16 common-anode row nets and 48 colour-column cathode nets. Owner KiCad 10.0.6 ERC and exported-netlist checks passed at `63afa77`. All five corrected PDF pages passed visual review; net labels are clear and the revision field fits. Driver, row stages, controller and power circuits remain uncaptured. See the [matrix capture record](hardware/coupon/rev-a/matrix-capture.md).
-- Repository workflow: owner granted standing permission on 2026-09-07 to merge PRs after applicable checks pass. Library PR #2 is merged; matrix PR #3 has completed the applicable source, native KiCad and drawing checks.
+- Coupon schematic: first matrix-only draft captured on four child sheets: 256 LEDs, 16 common-anode row nets and 48 colour-column cathode nets. Owner KiCad 10.0.6 ERC and exported-netlist checks passed at `63afa77`. All five corrected PDF pages passed visual review; net labels are clear and the revision field fits. The matrix milestone is merged. A fifth child sheet now captures TLC59581 U1, 39.2 kΩ R1, four 100 kΩ logic pull-downs and 100 nF C1, with an audited provisional RTQ0056E footprint and explicit draft supply flags. Owner native run at `8e95eb0` passed ERC (zero messages), complete XML validation (264 PCB items / 1,094 pins) and six-page drawing review. TP1 resolved the earlier isolated `LED_SOUT` warning; corrected support-symbol SVGs are clear. All 27 local tests pass. Row stages, controller and power source remain uncaptured. See the [matrix capture record](hardware/coupon/rev-a/matrix-capture.md) and [driver capture record](hardware/coupon/rev-a/driver-capture.md).
+- Repository workflow: owner granted standing permission on 2026-09-07 to merge PRs after applicable checks pass. Library PR #2 and matrix PR #3 are merged; driver PR #4 has passed its native review and is eligible to merge. Row-stage capture is next.
 - Hardware testing: none.
 - Current safe action: documentation, exact-part research, calculations and coupon design.
 - Current stop condition: do not order a PCB or battery until the Gate A engineering review is complete.
@@ -74,6 +74,7 @@ Create a small, manufacturable 48 × 16 RGB wearable badge that preserves the 1.
 
 - Project-local LED footprints plus pad, polarity, tape-orientation and optical-bin verification.
 - Exact protected/terminated cell and connector.
+- Confirm supplied TLC59581 RTQ0056E versus RTQ0056G package; qualify the nominal 4.85 mA current calculation and TI table discrepancies.
 - Final charger `ICHG` and USB `ILIM` resistor networks.
 - Validation or replacement of the provisional isolated charger D+/D− approach, including default-current behaviour before USB enumeration.
 - Validation of the candidate `74HC4514PW,118`, `DMP2066LSN-7` and `2N7002K-7` row chain under real multiplex timing and current.

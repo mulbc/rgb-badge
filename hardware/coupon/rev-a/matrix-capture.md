@@ -4,6 +4,8 @@
 
 Status: matrix-only KiCad 10.0.6 ERC/netlist checks and corrected drawing review passed at `63afa77`
 
+This record describes the reviewed matrix-only milestone. The current project also includes the [driver draft](driver-capture.md), whose native validation is pending.
+
 ## Circuit included
 
 The first circuit increment contains 256 RGB LEDs and their electrical connections. It implements the already accepted population under ADR 0007; it does not change the architecture or current limits.
@@ -110,7 +112,7 @@ Upload the ZIP and terminal output. We will inspect the PDF's five pages and the
 
 ## Next circuit increment
 
-Capture the exact TLC59581 symbol/footprint, hardware current-reference calculation, decoupling and column-output mapping, then the row-switch/inhibit stages. Those additions require their own controlled datasheet audit and an expanded connectivity check. Independent Gate A review still applies before fabrication.
+The [TLC59581 driver draft](driver-capture.md) now contains the symbol/footprint, current-reference calculation, decoupling and column-output mapping, with expanded connectivity checks. Native KiCad review is pending. Row-switch/inhibit stages follow. Independent Gate A review still applies before fabrication.
 
 ## Format references
 

@@ -13,6 +13,7 @@ footprint_library="${project_dir}/footprints/rgb-badge-coupon.pretty"
 led_library_check="${repo_root}/tools/check-led-libraries.py"
 numbered_review="${repo_root}/tools/number-footprint-review.py"
 matrix_check="${repo_root}/tools/check-coupon-matrix.py"
+driver_check="${repo_root}/tools/check-coupon-driver.py"
 
 if [[ -n "${RGB_BADGE_KICAD_CLI:-}" ]]; then
     kicad_cli="${RGB_BADGE_KICAD_CLI}"
@@ -34,7 +35,8 @@ for required_path in \
     "${footprint_library}" \
     "${led_library_check}" \
     "${numbered_review}" \
-    "${matrix_check}"
+    "${matrix_check}" \
+    "${driver_check}"
 do
     if [[ ! -e "${required_path}" ]]; then
         echo "Required project path is missing: ${required_path}" >&2
@@ -44,6 +46,7 @@ done
 
 python3 "${led_library_check}"
 python3 "${matrix_check}"
+python3 "${driver_check}"
 
 kicad_version="$("${kicad_cli}" version)"
 
@@ -74,7 +77,8 @@ symbol_svg_dir="${check_tmp_dir}/symbols"
 footprint_fab_dir="${check_tmp_dir}/footprints/fabrication"
 footprint_copper_dir="${check_tmp_dir}/footprints/copper"
 footprint_numbered_dir="${check_tmp_dir}/footprints/numbered"
-mkdir -p -- "${symbol_svg_dir}" "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_numbered_dir}"
+footprint_paste_dir="${check_tmp_dir}/footprints/paste"
+mkdir -p -- "${symbol_svg_dir}" "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_numbered_dir}" "${footprint_paste_dir}"
 
 "${kicad_cli}" sym export svg \
     --black-and-white \
@@ -96,6 +100,13 @@ mkdir -p -- "${symbol_svg_dir}" "${footprint_fab_dir}" "${footprint_copper_dir}"
     --output "${footprint_copper_dir}" \
     "${footprint_library}"
 
+# Separate paste view exposes the QFN thermal-pad stencil segmentation.
+"${kicad_cli}" fp export svg \
+    --black-and-white \
+    --layers "F.Paste" \
+    --output "${footprint_paste_dir}" \
+    "${footprint_library}"
+
 for expected_svg in \
     "${symbol_svg_dir}/EAST10105RGBA0_unit1.svg" \
     "${symbol_svg_dir}/QBLP1515A-RGB2A_unit1.svg" \
@@ -106,6 +117,29 @@ for expected_svg in \
 do
     if [[ ! -s "${expected_svg}" ]]; then
         echo "Expected non-empty SVG was not exported: ${expected_svg}" >&2
+        exit 1
+    fi
+done
+
+for symbol_name in TLC59581RTQT ERJ-2RKF3922X ERJ-2RKF1003X GRM155R71C104KA88D PWR_FLAG TestPoint_Pad; do
+    if [[ ! -s "${symbol_svg_dir}/${symbol_name}_unit1.svg" ]]; then
+        echo "Expected non-empty driver symbol SVG: ${symbol_name}" >&2
+        exit 1
+    fi
+done
+for footprint_name in QFN_TI_RTQ0056E_8x8mm_P0.5mm_EP5.7mm R_Panasonic_ERJ2_0402 C_Murata_GRM15_0402; do
+    for view_dir in "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_paste_dir}"; do
+        if [[ ! -s "${view_dir}/${footprint_name}.svg" ]]; then
+            echo "Expected non-empty driver footprint SVG: ${view_dir}/${footprint_name}.svg" >&2
+            exit 1
+        fi
+    done
+done
+
+# The bare copper probe pad intentionally has no paste aperture.
+for view_dir in "${footprint_fab_dir}" "${footprint_copper_dir}"; do
+    if [[ ! -s "${view_dir}/TestPoint_Pad_D1.0mm.svg" ]]; then
+        echo "Expected non-empty test-pad footprint SVG: ${view_dir}" >&2
         exit 1
     fi
 done
@@ -127,6 +161,7 @@ done
     --output "${check_tmp_dir}/coupon-matrix.xml" \
     "${schematic_file}"
 python3 "${matrix_check}" --netlist "${check_tmp_dir}/coupon-matrix.xml"
+python3 "${driver_check}" --netlist "${check_tmp_dir}/coupon-matrix.xml"
 
 "${kicad_cli}" sch export pdf \
     --black-and-white \
@@ -137,8 +172,8 @@ if [[ ! -s "${check_tmp_dir}/coupon-schematic.pdf" ]]; then
     exit 1
 fi
 
-echo "KiCad ${kicad_version}: libraries exported, matrix connectivity and Coupon Rev A ERC passed."
-echo "Matrix-only draft: driver, row stages, controller and power circuits remain uncaptured."
+echo "KiCad ${kicad_version}: libraries exported, complete matrix/driver connectivity and Coupon Rev A ERC passed."
+echo "Matrix/driver draft: row stages, controller and power source remain uncaptured; supply flags are draft boundary assumptions."
 if [[ "${keep_check_output}" == yes ]]; then
     echo "Review SVG/PDF output and netlist in: ${check_tmp_dir}"
 fi
