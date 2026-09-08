@@ -4,7 +4,7 @@
 
 Status: agreed design baseline and staged execution plan
 Date: 2026-09-05
-Project phase: requirements and KiCad workflow complete; matrix and driver native reviews passed; exact row-selection libraries are locally audited and await native rendering; row/controller/power capture and layout remain
+Project phase: requirements and KiCad workflow complete; matrix, driver and row-library native reviews passed; row/controller/power capture and layout remain
 
 ## 1. Outcome
 
