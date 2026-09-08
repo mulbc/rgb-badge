@@ -2,7 +2,7 @@
 
 # Coupon Rev A TLC59581 driver capture
 
-Status: native KiCad 10.0.6 at `55706f0` stopped on one isolated-label warning. TP1 correction and source checks complete; native rerun, XML and six-page rendering review pending. Not a fabrication release.
+Status: native KiCad 10.0.6 ERC, complete exported connectivity and six-page drawing review passed at `8e95eb0`. The earlier isolated-label warning is resolved. Not a fabrication release.
 
 ## Scope and component choices
 
@@ -137,9 +137,9 @@ No TLC59581 /OE pin exists. The future row-inhibit and VLED-enable circuits must
 
 - All 57 U1 pins, all six support components, TP1 probe connection, current value, 48 column assignments, pad numbering/geometry, paste segmentation and pin-1 marker pass source checks.
 - The matrix check retains all 1,024 LED pin assignments. A separate complete-coupon XML check requires all 264 PCB items (263 components plus TP1) and 1,094 physical pin assignments, including U1 exposed ground; it rejects missing or extra components and pins.
-- 27 local regression tests pass, including deliberate output swaps, missing U1, missing exposed-pad connection, IREF shorts, a resistor decade error, mirrored pad placement unsegmented thermal paste and a missing SOUT probe connection.
+- 27 local regression tests pass, including deliberate output swaps, missing U1, missing exposed-pad connection, IREF shorts, a resistor decade error, mirrored pad placement, unsegmented thermal paste and a missing SOUT probe connection.
 - Source-coordinate previews of the new sheet and footprint were inspected for gross placement errors. These use a simple independent drawing tool and are **not native KiCad render evidence**.
-- No KiCad executable is available in the authoring environment. Native validation of the correction, actual XML connectivity and all six PDF pages require the owner's KiCad 10.0.6 rerun. Keep this PR in draft until those results have been inspected.
+- Owner KiCad 10.0.6 at `8e95eb0` passed ERC and complete native XML validation. The uploaded XML was checked again in the authoring environment; all six PDF pages and corrected library SVGs passed first-author visual review. Native evidence is recorded below. No circuit changes were required after this run.
 
 ## Native evidence at `55706f0` and correction
 
@@ -151,7 +151,32 @@ The correction connects TP1 pin 1 to `LED_SOUT`, retaining both diagnostic acces
 
 The uploaded native driver/support symbol SVGs and QFN/resistor/capacitor footprint views were inspected on a white background. U1 labels are legible; copper views show separate perimeter lands and the QFN paste view shows the intended 4 × 4 thermal aperture array. The combined fabrication view overlays the body outline on some pad numbers, so it is not sufficient on its own to read every QFN number; use the source pin/pad audit alongside the separate copper view. Support symbols showed visible placeholder pin names, the flag's pin text overlapped its body, and the capacitor value crowded the plates. The correction hides those non-informative pin names (and the virtual flag pin number) and increases capacitor field spacing, consistently in the library and cached schematic. Pin number/type/net contracts are unchanged by those presentation edits. Symbol visibility syntax follows [KiCad's format documentation](https://dev-docs.kicad.org/en/file-formats/sexpr-intro/index.html#_symbols).
 
-The corrected symbol SVGs, new TP1 footprint, ERC, native XML and complete schematic PDF still need review from the next native run. No hardware has been built or measured.
+The corrected symbol SVGs, new TP1 footprint, ERC, native XML and complete schematic PDF were reviewed in the subsequent `8e95eb0` run below. No hardware has been built or measured.
+
+## Native acceptance at `8e95eb0`
+
+Owner run on 2026-09-08, KiCad 10.0.6 on macOS arm64, source commit `8e95eb0e5106a4431a567d05cac70f105eff25a2`. Terminal output reports successful library exports, zero ERC violations, both native XML checks passing and a complete PDF export; `git status --short` showed no changes. Reviewed upload: `driver-review-8e95eb0.zip`.
+
+| Evidence | SHA-256 |
+|---|---|
+| Uploaded ZIP | `c661b9238ffd99e4f8cdc19b42b71eb982e5c28f37261c396876dfdcd1e70035` |
+| `coupon-erc.rpt` | `1e5ab931d35611653e118ec80ef19bbd101ebe36e323abd42264c6360d175aa3` |
+| `coupon-matrix.xml` | `3dcffc155412eb5c784a0592a48ce2a415cc9606e032a516731b2dc6d2ef9563` |
+| `coupon-schematic.pdf` | `3933f22e17387447f8fc6816eda5b794af77f755cc3a7ccae20e82989803e0bc` |
+
+The report contains **0 errors, 0 warnings, 0 ERC messages**. Its four ignored check categories are unchanged from the prior run: global-label uniqueness, four-way junctions, SPICE models and footprint filters. In particular, `isolated_pin_label` was not disabled. The draft power-boundary assumptions still apply.
+
+Both validators were rerun against the actual uploaded XML and passed: 256 LEDs / 1,024 LED pins, and 264 PCB items / 1,094 total physical pins. This confirms that TP1 remains in the electrical netlist despite being excluded from the purchase BOM.
+
+First-author visual review used Poppler-rendered pages and white-background renders of the native SVG exports:
+
+- Page 1: five child-sheet boxes, filenames and project status fit within the border and title block.
+- Pages 2–5: all four 64-LED matrices retain separated symbol, reference and net-label placement; page numbering and revision fields fit. Their historical matrix-only title-block note still mentions driver capture as pending; the root and driver page carry the current circuit scope. This stale note is cosmetic and should be refreshed with the next schematic increment.
+- Page 6: all U1 output labels, IREF return, decoupling, four logic pull-downs, TP1, exposed-ground connection and explicit draft supply flags are legible without overlapping wiring or notes.
+- Corrected resistor/capacitor/flag SVGs: placeholder names no longer obscure symbol graphics, and the capacitor value clears the plates. TP1's symbol and numbered pad are readable.
+- TP1 footprint: a single round copper pad; its paste export is intentionally blank. The combined fabrication view places the reference close to the courtyard, so final PCB reference placement remains a layout task. The prior QFN combined-view pad-number limitation remains as recorded above; native copper/paste views and the controlled pin/pad audit are the applicable geometry evidence.
+
+Disposition: driver capture passes this source-design milestone and is eligible to merge. The acceptance commit changes documentation only; KiCad sources, libraries and validation tools remain exactly those checked at `8e95eb0`. No further owner rerun is required for this documentation update. Independent Gate A review, package-variant confirmation, current/thermal qualification and all uncaptured circuitry remain open before fabrication.
 
 ## macOS validation
 
