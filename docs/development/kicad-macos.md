@@ -55,7 +55,7 @@ The `build` directory is ignored by Git. The check requires six non-empty raw SV
 | `footprints/numbered/` | Two derived review copies with the original pad-number glyphs overlaid on white halos. Use these for readable pad identification; use the raw views and source files for geometry inspection. |
 | `footprints/copper/` | Two copper-only views, each with four separate solid pads and no connecting lines. Pad numbers are intentionally absent; identify them in the numbered views. |
 | `coupon-schematic.pdf` | Root page, four 64-LED matrix pages and one driver page. We will inspect all six actual KiCad pages for label collisions and wiring clarity. |
-| `coupon-matrix.xml` | KiCad's complete connectivity result, checked against 256 LEDs plus U1/R1–R5/C1 and all 1,093 physical pin assignments. The filename is retained for compatibility. |
+| `coupon-matrix.xml` | KiCad's complete connectivity result, checked against 256 LEDs plus U1/R1–R5/C1/TP1 and all 1,094 physical pin assignments. The filename is retained for compatibility. |
 
 The fabrication export uses `F.Fab,F.SilkS,F.CrtYd` and `--sketch-pads-on-fab-layers`. Copper is exported separately with `F.Cu`. These are [KiCad 10 CLI export options](https://docs.kicad.org/10.0/en/cli/cli.html). `number-footprint-review.py` then copies the existing numbered glyphs over a white halo and adds a small viewing margin. It preserves the raw exports, records each source SVG's SHA-256 in the derived copy, and rejects unexpected or missing labels. The derived view is not a manufacturing drawing. Mask and paste are deliberately absent from these readability views; their review remains a separate DFM task.
 

@@ -2,11 +2,11 @@
 
 # Coupon Rev A TLC59581 driver capture
 
-Status: first-author source/library audit complete; native KiCad 10.0.6 ERC, XML and rendering review pending. Not a fabrication release.
+Status: native KiCad 10.0.6 at `55706f0` stopped on one isolated-label warning. TP1 correction and source checks complete; native rerun, XML and six-page rendering review pending. Not a fabrication release.
 
 ## Scope and component choices
 
-`driver.kicad_sch` adds U1 and six local support components to the previously reviewed matrix. The root now has five child sheets and six pages total. The four matrix sheets are unchanged from `63afa77`.
+`driver.kicad_sch` adds U1, six local support components and one bare PCB test pad to the previously reviewed matrix. The root now has five child sheets and six pages total. The four matrix sheets are unchanged from `63afa77`.
 
 | Reference | Exact MPN | Draft function |
 |---|---|---|
@@ -14,6 +14,7 @@ Status: first-author source/library audit complete; native KiCad 10.0.6 ERC, XML
 | R1 | `ERJ-2RKF3922X` (Panasonic web spelling `ERJ2RKF3922X`) | 39.2 kΩ, ±1%, ±100 ppm/K, 0402; IREF to IREFGND/GND |
 | R2–R5 | `ERJ-2RKF1003X` | 100 kΩ, ±1%, 0402; SIN/SCLK/LAT/GCLK pull-downs |
 | C1 | `GRM155R71C104KA88D` | 100 nF, ±10%, 16 V, X7R, 0402; VCC decoupling |
+| TP1 | No MPN: PCB copper feature, excluded from BOM | 1 mm exposed copper probe pad on `LED_SOUT` |
 
 These are draft exact-part selections, not an approved purchase BOM. TI's [part page](https://www.ti.com/product/TLC59581/part-details/TLC59581RTQT), [Panasonic's exact resistor page](https://industrial.panasonic.com/ww/products/pt/general-purpose-chip-resistors/models/ERJ2RKF3922X) [the pull-down resistor page](https://industrial.panasonic.com/ww/products/pt/general-purpose-chip-resistors/models/ERJ2RKF1003X), and Murata's reference sheet below document the parts. Obtain critical silicon through an authorized distributor or traceable assembler sourcing. Alibaba turnkey quotes must identify the same MPN and supplied package drawing; a marketplace listing alone does not settle the E/G distinction below. Existing AliExpress sourcing for case hardware/test leads remains applicable.
 
@@ -62,7 +63,7 @@ The table is transcribed from TI's pin-function table and top-view drawing. `OUT
 | 27 | LAT | `LED_LAT`, future latch/command signal |
 | 28 | SCLK | `LED_SCLK`, future serial clock |
 | 29 | GCLK | `LED_GCLK`, future grayscale clock |
-| 42 | SOUT | `LED_SOUT`, future controller readback input; retain for diagnostic readback |
+| 42 | SOUT | `LED_SOUT`, TP1 diagnostic probe pad and future controller readback input |
 | 43 | VCC | `+3V3_APP`; C1 close to this pin and GND plane |
 | 56 | IREFGND | `GND`; route R1 return here before joining noisy power return |
 | 57 | GND_EP | Exposed pad, mandatory power ground and thermal connection |
@@ -122,6 +123,10 @@ The resistors and capacitor are nonpolar two-terminal parts, with pin 1 left and
 
 Each footprint has individual copper/paste/mask lands and a 2.0 × 1.0 mm courtyard. Paste, mask and placement remain subject to assembler DFM. C1 is local high-frequency decoupling; it does not replace the regulator output capacitors or VLED bulk capacitance.
 
+### TP1: readback probe pad
+
+`TestPoint_Pad_D1.0mm` is a project-defined PCB feature, not a purchased component. Pad 1 is a 1.0 mm diameter SMD circle at (0, 0), on F.Cu and F.Mask, with no F.Paste aperture and excluded from assembly position files; its circular courtyard is 1.5 mm diameter. The symbol is passive, included on the board and excluded from the BOM, with an intentionally empty MPN. This adds physical probe access to U1 pin 42 without an assembled header. PCB layout must keep the pad accessible and the SOUT route short. The controller readback connection is still to be captured.
+
 ## Incomplete interfaces and ERC meaning
 
 Two explicit **draft boundary PWR_FLAG symbols** declare `+3V3_APP` and `GND` as externally supplied for this circuit increment. They are virtual, excluded from the PCB/BOM, and labelled as assumptions on the sheet. A future successful ERC run verifies the captured circuit under those assumptions; it cannot prove a working power source. Remove/reconcile these flags when the actual source and return are captured. Do not change ERC severities or add blanket exclusions to hide a failure.
@@ -130,11 +135,23 @@ No TLC59581 /OE pin exists. The future row-inhibit and VLED-enable circuits must
 
 ## Validation status
 
-- All 57 U1 pins, all six support components, current value, 48 column assignments, pad numbering/geometry, paste segmentation and pin-1 marker pass source checks.
-- The matrix check retains all 1,024 LED pin assignments. A separate complete-coupon XML check requires all 263 physical components and 1,093 physical pin assignments, including U1 exposed ground; it rejects missing or extra components and pins.
-- 26 local regression tests pass, including deliberate output swaps, missing U1, missing exposed-pad connection, IREF shorts, a resistor decade error, mirrored pad placement and unsegmented thermal paste.
+- All 57 U1 pins, all six support components, TP1 probe connection, current value, 48 column assignments, pad numbering/geometry, paste segmentation and pin-1 marker pass source checks.
+- The matrix check retains all 1,024 LED pin assignments. A separate complete-coupon XML check requires all 264 PCB items (263 components plus TP1) and 1,094 physical pin assignments, including U1 exposed ground; it rejects missing or extra components and pins.
+- 27 local regression tests pass, including deliberate output swaps, missing U1, missing exposed-pad connection, IREF shorts, a resistor decade error, mirrored pad placement unsegmented thermal paste and a missing SOUT probe connection.
 - Source-coordinate previews of the new sheet and footprint were inspected for gross placement errors. These use a simple independent drawing tool and are **not native KiCad render evidence**.
-- No KiCad executable is available in the authoring environment. Native ERC, actual XML connectivity and all six PDF pages/new library SVGs still require the owner's KiCad 10.0.6 run. Keep this PR in draft until those results have been inspected.
+- No KiCad executable is available in the authoring environment. Native validation of the correction, actual XML connectivity and all six PDF pages require the owner's KiCad 10.0.6 rerun. Keep this PR in draft until those results have been inspected.
+
+## Native evidence at `55706f0` and correction
+
+Owner run on 2026-09-08, KiCad 10.0.6 on macOS. The supplied `driver-review-55706f0.zip` has SHA-256 `2f40c7388ebe4d47bf7be9a7d53aee5acbe753c97ff2470635ff607ddd78dbd2`; its `coupon-erc.rpt` has SHA-256 `14e4194be595ae9300ffd45771425f84a31de6fb90e650c7b6cc7e46703b6ff1`.
+
+ERC reported **0 errors and 1 warning**, `isolated_pin_label`, for `LED_SOUT` at (99.06, 116.84) mm. Only U1 pin 42 was on that labelled net; the controller readback input has not yet been captured. The wrapper correctly stopped at ERC, so this archive contains no exported XML or schematic PDF. The Fontconfig message is separate from this electrical warning.
+
+The correction connects TP1 pin 1 to `LED_SOUT`, retaining both diagnostic access and the future controller interface. ERC severity and exclusions are unchanged. A regression first failed for the missing TP1 connection; it now passes and rejects removal of that connection from the synthetic complete netlist. This is source/fixture evidence, not a substitute for a native ERC rerun.
+
+The uploaded native driver/support symbol SVGs and QFN/resistor/capacitor footprint views were inspected on a white background. U1 labels are legible; copper views show separate perimeter lands and the QFN paste view shows the intended 4 × 4 thermal aperture array. The combined fabrication view overlays the body outline on some pad numbers, so it is not sufficient on its own to read every QFN number; use the source pin/pad audit alongside the separate copper view. Support symbols showed visible placeholder pin names, the flag's pin text overlapped its body, and the capacitor value crowded the plates. The correction hides those non-informative pin names (and the virtual flag pin number) and increases capacitor field spacing, consistently in the library and cached schematic. Pin number/type/net contracts are unchanged by those presentation edits. Symbol visibility syntax follows [KiCad's format documentation](https://dev-docs.kicad.org/en/file-formats/sexpr-intro/index.html#_symbols).
+
+The corrected symbol SVGs, new TP1 footprint, ERC, native XML and complete schematic PDF still need review from the next native run. No hardware has been built or measured.
 
 ## macOS validation
 

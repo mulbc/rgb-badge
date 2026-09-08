@@ -24,7 +24,7 @@ Matrix regression tests deliberately inject a colour swap with unchanged net siz
 
 ## Driver increment
 
-`python3 tools/check-coupon-driver.py` checks the controlled driver/support library, footprint geometry and simple source wiring. `--netlist <path>` requires the complete captured population and all 1,093 physical pin assignments. The matrix checker retains its LED-only contract and delegates U1/R1–R5/C1 to the driver checker; always use `check-kicad.sh` to run both for the full project.
+`python3 tools/check-coupon-driver.py` checks the controlled driver/support library, footprint geometry and simple source wiring. `--netlist <path>` requires the complete captured population and all 1,094 physical pin assignments. The matrix checker retains its LED-only contract and delegates U1/R1–R5/C1/TP1 to the driver checker; always use `check-kicad.sh` to run both for the full project.
 
 The wrapper now exports driver/support symbols and footprints, including a separate paste view, and requires their files to be nonempty. `coupon-matrix.xml` retains its historical filename but contains the whole captured schematic. Local fixture tests do not run KiCad. The current [driver review instructions](../hardware/coupon/rev-a/driver-capture.md#macos-validation) require a new native run and six-page PDF review.
 

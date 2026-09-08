@@ -68,12 +68,12 @@ def read_netlist(path):
         raise ValueError('Expected a KiCad XML netlist export')
     components, connections = {}, {}
     for component in root.findall('./components/comp'):
-        if component.get('ref') in {'U1', 'R1', 'R2', 'R3', 'R4', 'R5', 'C1', '#FLG01', '#FLG02'}:
+        if component.get('ref') in {'U1', 'R1', 'R2', 'R3', 'R4', 'R5', 'C1', 'TP1', '#FLG01', '#FLG02'}:
             continue  # Checked by check-coupon-driver.py, including complete population.
         put_unique(components, component.get('ref'), (component.findtext('value'), component.findtext('footprint')), 'component')
     for net in root.findall('./nets/net'):
         for node in net.findall('node'):
-            if node.get('ref') in {'U1', 'R1', 'R2', 'R3', 'R4', 'R5', 'C1', '#FLG01', '#FLG02'}:
+            if node.get('ref') in {'U1', 'R1', 'R2', 'R3', 'R4', 'R5', 'C1', 'TP1', '#FLG01', '#FLG02'}:
                 continue
             put_unique(connections, (node.get('ref'), node.get('pin')), net.get('name'), 'netlist node')
     validate(components, connections)

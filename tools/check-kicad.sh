@@ -121,7 +121,7 @@ do
     fi
 done
 
-for symbol_name in TLC59581RTQT ERJ-2RKF3922X ERJ-2RKF1003X GRM155R71C104KA88D PWR_FLAG; do
+for symbol_name in TLC59581RTQT ERJ-2RKF3922X ERJ-2RKF1003X GRM155R71C104KA88D PWR_FLAG TestPoint_Pad; do
     if [[ ! -s "${symbol_svg_dir}/${symbol_name}_unit1.svg" ]]; then
         echo "Expected non-empty driver symbol SVG: ${symbol_name}" >&2
         exit 1
@@ -134,6 +134,14 @@ for footprint_name in QFN_TI_RTQ0056E_8x8mm_P0.5mm_EP5.7mm R_Panasonic_ERJ2_0402
             exit 1
         fi
     done
+done
+
+# The bare copper probe pad intentionally has no paste aperture.
+for view_dir in "${footprint_fab_dir}" "${footprint_copper_dir}"; do
+    if [[ ! -s "${view_dir}/TestPoint_Pad_D1.0mm.svg" ]]; then
+        echo "Expected non-empty test-pad footprint SVG: ${view_dir}" >&2
+        exit 1
+    fi
 done
 
 for footprint_name in LED_Everlight_EAST10105RGBA0 LED_QTBrightek_QBLP1515A-RGB2A; do

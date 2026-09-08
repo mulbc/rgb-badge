@@ -60,6 +60,7 @@ def coupon_netlist():
         ('U1','TLC59581RTQT','QFN_TI_RTQ0056E_8x8mm_P0.5mm_EP5.7mm'),
         ('R1','39.2k 1%','R_Panasonic_ERJ2_0402'),
         ('C1','100n 16V X7R','C_Murata_GRM15_0402'),
+        ('TP1','LED_SOUT','TestPoint_Pad_D1.0mm'),
         *[(f'R{i}', '100k 1%', 'R_Panasonic_ERJ2_0402') for i in range(2,6)],
     ]:
         comp=ET.SubElement(components,'comp',ref=ref)
@@ -75,6 +76,7 @@ def coupon_netlist():
     extra += [('R1','1','LED_IREF'),('R1','2','GND'),('C1','1','+3V3_APP'),('C1','2','GND')]
     for i,net in enumerate(('LED_SIN','LED_SCLK','LED_LAT','LED_GCLK'),2):
         extra += [(f'R{i}','1',net),(f'R{i}','2','GND')]
+    extra.append(('TP1','1','LED_SOUT'))
     for ref,pin,name in extra:
         if name not in nets:nets[name]=ET.SubElement(root.find('nets'),'net',name=name)
         ET.SubElement(nets[name],'node',ref=ref,pin=pin)
@@ -107,7 +109,7 @@ def main():
         output.write_text('Stub only: not a PDF or KiCad render.\n')
         return 0
     elif args[:3] == ["sym", "export", "svg"]:
-        names = [n + "_unit1.svg" for n in ("EAST10105RGBA0", "QBLP1515A-RGB2A", "TLC59581RTQT", "ERJ-2RKF3922X", "ERJ-2RKF1003X", "GRM155R71C104KA88D", "PWR_FLAG")]
+        names = [n + "_unit1.svg" for n in ("EAST10105RGBA0", "QBLP1515A-RGB2A", "TLC59581RTQT", "ERJ-2RKF3922X", "ERJ-2RKF1003X", "GRM155R71C104KA88D", "PWR_FLAG", "TestPoint_Pad")]
     elif args[:3] == ["fp", "export", "svg"]:
         layers = args[args.index("--layers") + 1]
         if output.name == "fabrication":
@@ -121,7 +123,7 @@ def main():
         else:
             raise AssertionError(f"Unexpected footprint export destination: {output}")
         stage = output.name
-        names = [n + ".svg" for n in ("LED_Everlight_EAST10105RGBA0", "LED_QTBrightek_QBLP1515A-RGB2A", "QFN_TI_RTQ0056E_8x8mm_P0.5mm_EP5.7mm", "R_Panasonic_ERJ2_0402", "C_Murata_GRM15_0402")]
+        names = [n + ".svg" for n in ("LED_Everlight_EAST10105RGBA0", "LED_QTBrightek_QBLP1515A-RGB2A", "QFN_TI_RTQ0056E_8x8mm_P0.5mm_EP5.7mm", "R_Panasonic_ERJ2_0402", "C_Murata_GRM15_0402", "TestPoint_Pad_D1.0mm")]
     elif args[:2] == ["sch", "erc"]:
         assert "--severity-all" in args and "--exit-code-violations" in args
         if os.environ.get("RGB_BADGE_TEST_FAIL") == stage:

@@ -14,6 +14,19 @@ CHECK=runpy.run_path(str(TOOLS/'check-coupon-driver.py'))
 PROJECT=TOOLS.parent/'hardware/coupon/rev-a'
 
 class CouponDriverTests(unittest.TestCase):
+    def test_readback_has_physical_probe_connection(self):
+        # A one-pin labelled net produced native KiCad isolated_pin_label.
+        with tempfile.TemporaryDirectory() as d:
+            p=Path(d)/'probe.xml';p.write_bytes(ET.tostring(coupon_netlist()))
+            CHECK['check_netlist'](p)
+            root=ET.parse(p).getroot()
+            nodes=root.findall("./nets/net[@name='LED_SOUT']/node")
+            self.assertEqual({(n.get('ref'),n.get('pin')) for n in nodes}, {('U1','42'),('TP1','1')})
+            net=root.find("./nets/net[@name='LED_SOUT']")
+            net.remove(net.find("node[@ref='TP1']"))
+            p.write_bytes(ET.tostring(root))
+            with self.assertRaises(ValueError):CHECK['check_netlist'](p)
+
     def test_current_sources(self):
         CHECK['check_sources'](PROJECT)
 

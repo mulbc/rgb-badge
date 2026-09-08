@@ -32,6 +32,7 @@ PARTS = {
     'C1': ('GRM155R71C104KA88D', '100n 16V X7R', 'rgb-badge-coupon:C_Murata_GRM15_0402'),
 }
 PARTS.update({f'R{i}': ('ERJ-2RKF1003X', '100k 1%', 'rgb-badge-coupon:R_Panasonic_ERJ2_0402') for i in range(2, 6)})
+PARTS['TP1'] = ('TestPoint_Pad', 'LED_SOUT', 'rgb-badge-coupon:TestPoint_Pad_D1.0mm')
 FLAGS = {'#FLG01': '+3V3_APP', '#FLG02': 'GND'}
 
 
@@ -50,6 +51,7 @@ def expected_connections():
     for i, net in enumerate(('LED_SIN', 'LED_SCLK', 'LED_LAT', 'LED_GCLK'), 2):
         result[f'R{i}', '1'] = net
         result[f'R{i}', '2'] = 'GND'
+    result['TP1', '1'] = 'LED_SOUT'
     return result
 
 
@@ -65,9 +67,9 @@ def check_libraries(project=PROJECT):
     lib = {s[1]: s for s in children(parse(project / 'symbols/rgb-badge-coupon.kicad_sym'), 'symbol')}
     for ref, (mpn, value, footprint) in PARTS.items():
         s = lib[mpn]
-        require(props(s)['MPN'] == mpn and props(s)['Footprint'] == footprint, f'{ref}: library MPN/footprint mismatch')
+        require(props(s)['MPN'] == ('' if ref == 'TP1' else mpn) and props(s)['Footprint'] == footprint, f'{ref}: library MPN/footprint mismatch')
         pins = library_pins(s)
-        expected_names = dict(enumerate(PIN_NAMES, 1)) if ref == 'U1' else {1: '~', 2: '~'}
+        expected_names = dict(enumerate(PIN_NAMES, 1)) if ref == 'U1' else ({1: '~'} if ref == 'TP1' else {1: '~', 2: '~'})
         require(set(pins) == set(map(str, expected_names)), f'{ref}: library pin count/number mismatch')
         for number, name in expected_names.items():
             pin = pins[str(number)]
@@ -91,11 +93,13 @@ def check_libraries(project=PROJECT):
                     x,y,w,h = 3.9,3.25-(n-29)*.5,.6,.24
                 else:
                     x,y,w,h = 3.25-(n-43)*.5,-3.9,.24,.6
+            elif ref == 'TP1':
+                x,y,w,h = 0,0,1,1
             else:
                 x,y,w,h = (-1 if n == 1 else 1)*(.5 if ref.startswith('R') else .4),0,(.5 if ref.startswith('R') else .4),.5
             actual = one(pad,'at','pad')[1:] + one(pad,'size','pad')[1:]
             require(list(map(D, actual)) == list(map(lambda v:D(str(v)),(x,y,w,h))), f'{ref} pad {n}: position/size differs from audit')
-            expected_layers = ['F.Cu','F.Mask'] if ref == 'U1' and n == 57 else ['F.Cu','F.Paste','F.Mask']
+            expected_layers = ['F.Cu','F.Mask'] if (ref == 'U1' and n == 57) or ref == 'TP1' else ['F.Cu','F.Paste','F.Mask']
             require(one(pad,'layers','pad')[1:] == expected_layers and pad[2] == 'smd', f'{ref} pad {n}: copper/mask/paste mismatch')
         if ref == 'U1':
             windows = [pad for pad in pads if not pad[1]]
@@ -143,10 +147,10 @@ def check_sources(project=PROJECT):
         virtual=ref in FLAGS
         require(ref in PARTS or virtual, f'Unexpected driver component {ref}')
         expected = ('PWR_FLAG','PWR_FLAG','') if virtual else PARTS[ref]
-        require((p['MPN'],p['Value'],p['Footprint']) == (('' if virtual else expected[0]),expected[1],expected[2]),f'{ref}: wrong MPN/value/footprint')
+        require((p['MPN'],p['Value'],p['Footprint']) == (('' if virtual or ref == 'TP1' else expected[0]),expected[1],expected[2]),f'{ref}: wrong MPN/value/footprint')
         require(one(symbol,'lib_id',ref)[1]=='rgb-badge-coupon:'+expected[0], f'{ref}: wrong library ID')
         require(one(symbol,'at',ref)[3]=='0' and not children(symbol,'mirror') and one(symbol,'unit',ref)[1]=='1','Unsupported driver transform')
-        require(one(symbol,'dnp',ref)[1]=='no' and all(one(symbol,k,ref)[1]==('no' if virtual else 'yes') for k in ['in_bom','on_board']), f'{ref}: unintended omission from assembly')
+        require(one(symbol,'dnp',ref)[1]=='no' and all(one(symbol,k,ref)[1]==('no' if virtual or (ref == 'TP1' and k == 'in_bom') else 'yes') for k in ['in_bom','on_board']), f'{ref}: unintended omission from assembly')
         path=one(one(one(symbol,'instances',ref),'project',ref),'path',ref)
         require(path[1]==instance_path and one(path,'reference',ref)[1]==ref,f'{ref}: incorrect hierarchy path')
         x,y=MATRIX['position'](symbol)
@@ -198,7 +202,7 @@ def main():
     try:
         if args.netlist:
             check_netlist(args.netlist)
-            print('KiCad XML complete coupon check passed: 263 components, 1093 physical pins; matrix + driver/support.')
+            print('KiCad XML complete coupon check passed: 264 PCB items, 1094 physical pins; matrix + driver/support.')
         else:
             check_sources(args.project_dir)
             print(f'Driver source/library checks passed: 57 IC pins, 48 outputs, IREF resistor, decoupling, logic defaults, thermal pad; nominal maximum {current_calculation():.3f} mA (not ERC).')
