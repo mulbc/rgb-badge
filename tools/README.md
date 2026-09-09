@@ -35,3 +35,7 @@ Matrix regression tests deliberately inject a colour swap with unchanged net siz
 The wrapper exports all project-local symbols and footprints, including separate paste views, and requires their files to be nonempty. `coupon-matrix.xml` retains its historical filename but contains the whole captured schematic. Local fixture tests do not run KiCad. Follow the [controller review instructions](../hardware/coupon/rev-a/controller-capture.md#native-review-still-required) for the current eight-page circuit.
 
 `generate-coupon-matrix.py` is the historical one-time matrix-only capture helper. It must not replace the current root schematic: that would remove the driver sheet. The current KiCad files are canonical.
+
+## Power pre-capture
+
+`python3 tools/check-power-design.py` freezes the current BQ25616J `ICHG`/unknown-adapter `ILIM` arithmetic, the initial TPS631000/TPS63020 feedback dividers, and the maximum always-on IC allocation within the 50 uA OFF-state budget. It deliberately does not approve the unresolved USB default-current/native-data topology, pack-dependent charge and NTC limits, converter passives, thermal behavior or layout. See the [power/input pre-capture record](../hardware/coupon/rev-a/power-pre-capture.md).

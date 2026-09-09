@@ -4,7 +4,7 @@
 
 Status: researched candidates for schematic capture; **not a frozen BOM and not authorization to buy or fabricate**
 
-Research cut-off: 2026-09-06
+Research cut-off: 2026-09-09 for the power pre-capture sources; 2026-09-06 for other candidates
 
 ## How to read this record
 
@@ -91,20 +91,22 @@ The TUSB320LAI has dead-battery `Rd` terminations, so a source can establish VBU
 
 Because the outputs are open drain, `OUT1` pulled up to the USB-only 3.3 V rail and then inverted can turn on an N-MOSFET only for the 1.5 A and 3.0 A states. A gate pull-down keeps that MOSFET off with USB absent.
 
-A preliminary BQ25616J `ILIM` network uses 1.00 kΩ as the passive branch and 665 Ω in parallel only for the higher-advertisement states:
+A preliminary BQ25616J `ILIM` network uses 1.00 kΩ as the passive branch and 665 Ω in parallel only for the higher-advertisement states. These apply only when the charger's own detection classifies the source as unknown:
 
 | State | Effective resistance | Calculated programmed range from `KILIM`, including 1% resistance tolerance |
 |---|---:|---:|
 | Passive/default | 1.00 kΩ | 0.454–0.505 A |
 | 1.5 A or 3.0 A advertised | 399.4 Ω nominal | 1.138–1.265 A |
 
-This is deliberately below a 1.5 A advertisement even at the calculated maximum. It is **not approved** because all of the following remain unresolved:
+The high state is deliberately below a 1.5 A advertisement even at the calculated maximum. Neither state is **approved** because all of the following remain unresolved:
 
 1. The exact USB 2.0/default-current behaviour before and after enumeration, especially while the badge is switched off and cannot enumerate.
 2. Whether the charger's D+/D− pins can remain isolated while meeting the intended A-to-C, C-to-C, SDP, CDP and dedicated-charger behaviours, or whether a reviewed BC1.2/data-multiplexer solution is required.
 3. The 1.00 kΩ passive setting's tolerance at the nominal 500 mA boundary.
 4. TUSB320LAI VDD ramp, pull-up sequencing, detach behaviour and stale advertisement states.
 5. Dynamic stability when the display operates while the charger reaches input-current or input-voltage regulation.
+
+The [power/input pre-capture record](../../hardware/coupon/rev-a/power-pre-capture.md) freezes these calculations in an executable check and removes any implication that the provisional 500 mA branch is already a fail-safe solution.
 
 The schematic must show this as a review block. It may not be copied into fabrication files merely because the resistor arithmetic is correct.
 

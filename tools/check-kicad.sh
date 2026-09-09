@@ -18,6 +18,7 @@ row_library_check="${repo_root}/tools/check-row-libraries.py"
 row_capture_check="${repo_root}/tools/check-coupon-rows.py"
 controller_library_check="${repo_root}/tools/check-controller-libraries.py"
 controller_capture_check="${repo_root}/tools/check-coupon-controller.py"
+power_design_check="${repo_root}/tools/check-power-design.py"
 
 if [[ -n "${RGB_BADGE_KICAD_CLI:-}" ]]; then
     kicad_cli="${RGB_BADGE_KICAD_CLI}"
@@ -44,7 +45,8 @@ for required_path in \
     "${row_library_check}" \
     "${row_capture_check}" \
     "${controller_library_check}" \
-    "${controller_capture_check}"
+    "${controller_capture_check}" \
+    "${power_design_check}"
 do
     if [[ ! -e "${required_path}" ]]; then
         echo "Required project path is missing: ${required_path}" >&2
@@ -59,6 +61,7 @@ python3 "${row_library_check}"
 python3 "${row_capture_check}"
 python3 "${controller_library_check}"
 python3 "${controller_capture_check}"
+python3 "${power_design_check}"
 
 kicad_version="$("${kicad_cli}" version)"
 
