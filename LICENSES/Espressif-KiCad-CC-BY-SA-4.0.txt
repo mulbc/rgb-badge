@@ -1,0 +1,19 @@
+Espressif KiCad library material used by this project is licensed under the
+Creative Commons Attribution-ShareAlike 4.0 International License:
+
+    https://creativecommons.org/licenses/by-sa/4.0/legalcode
+
+Upstream source:
+
+    https://github.com/espressif/kicad-libraries
+    Release 3.2.1, commit 1dfc3110895c9cd62daf332f49c49ee0ee200831
+
+Upstream KiCad-design exception:
+
+    To the extent that the creation of electronic designs that use "Licensed
+    Material" can be considered to be "Adapted Material", the copyright holder
+    waives article 3 of the license with respect to these designs and any
+    generated files which use data provided as part of the "Licensed Material".
+
+The library is supplied without warranty. See the upstream LICENSE.md for the
+complete notice and the linked legal code for the complete license.

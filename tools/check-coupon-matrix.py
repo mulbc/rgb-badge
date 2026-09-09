@@ -88,10 +88,11 @@ def read_sources(project_dir):
     root = parse(project_dir / 'rgb-badge-coupon.kicad_sch')
     root_uuid = one(root, 'uuid', 'root')[1]
     sheets = children(root, 'sheet')
-    if (len(sheets) != 6 or children(root, 'symbol') or
+    if (len(sheets) != 7 or children(root, 'symbol') or
             sum(properties(s)['Sheetfile'] == 'driver.kicad_sch' for s in sheets) != 1 or
-            sum(properties(s)['Sheetfile'] == 'rows.kicad_sch' for s in sheets) != 1):
-        raise ValueError('Expected four matrix sheets plus driver and row sheets, with no root components')
+            sum(properties(s)['Sheetfile'] == 'rows.kicad_sch' for s in sheets) != 1 or
+            sum(properties(s)['Sheetfile'] == 'controller.kicad_sch' for s in sheets) != 1):
+        raise ValueError('Expected four matrix sheets plus driver, row and controller sheets, with no root components')
     library = {symbol[1]: symbol for symbol in children(parse(AUDIT['SYMBOL_LIBRARY']), 'symbol')}
     components, connections, all_uuids, sheet_files = {}, {}, set(), set()
 
@@ -110,7 +111,7 @@ def read_sources(project_dir):
         if filename in sheet_files or Path(filename).name != filename:
             raise ValueError('Expected four distinct, project-local matrix sheets')
         sheet_files.add(filename)
-        if filename in {'driver.kicad_sch', 'rows.kicad_sch'}:
+        if filename in {'driver.kicad_sch', 'rows.kicad_sch', 'controller.kicad_sch'}:
             check_uuids(parse(project_dir / filename))
             continue  # Dedicated checkers validate these sheets and libraries.
         sheet_uuid = one(sheet, 'uuid', filename)[1]

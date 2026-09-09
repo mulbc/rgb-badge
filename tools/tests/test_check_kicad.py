@@ -42,9 +42,9 @@ class CheckKiCadWrapperTests(unittest.TestCase):
     def test_separate_raw_views_and_numbered_copies(self):
         result = self.run_check()
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertEqual(len(list((self.output / "symbols").glob("*.svg"))), 12)
+        self.assertEqual(len(list((self.output / "symbols").glob("*.svg"))), 19)
         for view in ("fabrication", "copper", "paste", "numbered"):
-            self.assertEqual(len(list((self.output / "footprints" / view).glob("*.svg"))), 2 if view == "numbered" else 9)
+            self.assertEqual(len(list((self.output / "footprints" / view).glob("*.svg"))), 2 if view == "numbered" else 12)
         self.assertTrue((self.output / "coupon-erc.rpt").is_file())
         self.assertTrue((self.output / "coupon-matrix.xml").is_file())
         self.assertTrue((self.output / "coupon-schematic.pdf").is_file())
@@ -77,10 +77,21 @@ class CheckKiCadWrapperTests(unittest.TestCase):
         self.assertEqual(result.returncode, 5)
         self.assertNotIn("ERC passed", result.stdout)
 
+    def test_exact_staged_usb_boundary_warnings_are_accepted(self):
+        result = self.run_check(RGB_BADGE_TEST_USB_BOUNDARY_ERC="1")
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn("temporary USB-boundary warnings", result.stdout)
+
+    def test_unexpected_erc_warning_is_not_hidden(self):
+        result = self.run_check(RGB_BADGE_TEST_UNEXPECTED_ERC="1")
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("Unexpected ERC violation set", result.stderr)
+        self.assertFalse((self.output / "coupon-matrix.xml").exists())
+
     def test_bad_matrix_netlist_is_not_hidden(self):
         result = self.run_check(RGB_BADGE_TEST_BAD_MATRIX="1")
         self.assertEqual(result.returncode, 1)
-        self.assertIn('Row check failed', result.stderr)
+        self.assertIn('Controller check failed', result.stderr)
         self.assertFalse((self.output / 'coupon-schematic.pdf').exists())
 
     def test_netlist_and_pdf_export_failures_are_not_hidden(self):
@@ -94,13 +105,19 @@ class CheckKiCadWrapperTests(unittest.TestCase):
     def test_bad_driver_netlist_is_not_hidden(self):
         result = self.run_check(RGB_BADGE_TEST_BAD_DRIVER="1")
         self.assertEqual(result.returncode, 1)
-        self.assertIn("Row check failed", result.stderr)
+        self.assertIn("Controller check failed", result.stderr)
         self.assertFalse((self.output / "coupon-schematic.pdf").exists())
 
     def test_bad_row_netlist_is_not_hidden(self):
         result = self.run_check(RGB_BADGE_TEST_BAD_ROWS="1")
         self.assertEqual(result.returncode, 1)
-        self.assertIn("Row check failed", result.stderr)
+        self.assertIn("Controller check failed", result.stderr)
+        self.assertFalse((self.output / "coupon-schematic.pdf").exists())
+
+    def test_bad_controller_netlist_is_not_hidden(self):
+        result = self.run_check(RGB_BADGE_TEST_BAD_CONTROLLER="1")
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("Controller check failed", result.stderr)
         self.assertFalse((self.output / "coupon-schematic.pdf").exists())
 
     def test_missing_driver_paste_export_is_rejected(self):
