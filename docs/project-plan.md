@@ -4,7 +4,7 @@
 
 Status: agreed design baseline and staged execution plan
 Date: 2026-09-05
-Project phase: matrix, driver, row-stage and controller native reviews passed; power pre-capture arithmetic recorded; controlled charger/both-converter/Type-C/input-support libraries authored; their native review, remaining power libraries, power capture and layout remain
+Project phase: matrix, driver, row-stage and controller native reviews passed; power pre-capture arithmetic recorded; controlled charger/converter/Type-C/gauge/input-support libraries authored; their native review, connector/control selection, power capture and layout remain
 
 ## 1. Outcome
 

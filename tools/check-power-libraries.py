@@ -116,6 +116,17 @@ PARTS = {
             15: ("PGND_EP", "power_in"),
         },
     },
+    "MAX17048G+T10": {
+        "footprint": "TDFN_Maxim_T822-3_2x2mm_P0.5mm_EP0.7x1.38mm",
+        "datasheet": "https://www.analog.com/media/en/technical-documentation/data-sheets/MAX17048-MAX17049.pdf",
+        "pins": {
+            1: ("CTG", "power_in"), 2: ("CELL", "passive"),
+            3: ("VDD", "power_in"), 4: ("GND", "power_in"),
+            5: ("ALRT", "open_collector"), 6: ("QSTRT", "input"),
+            7: ("SCL", "input"), 8: ("SDA", "bidirectional"),
+            9: ("GND_EP", "power_in"),
+        },
+    },
 }
 
 
@@ -389,6 +400,34 @@ def check_dsj_footprint(project):
             (D("-2.50"), D("-1.75")), "DSJ0014 pin-1 marker mismatch")
 
 
+def check_t822_footprint(project):
+    root = footprint(project, "TDFN_Maxim_T822-3_2x2mm_P0.5mm_EP0.7x1.38mm")
+    pads = children(root, "pad")
+    require(Counter(pad[1] for pad in pads) == Counter(map(str, range(1, 10))),
+            "T822+3 pad numbers mismatch")
+    by_number = {pad[1]: pad for pad in pads}
+    for number in range(1, 9):
+        if number <= 4:
+            position = (D("-0.99"), D("-0.75") + D("0.50") * (number - 1))
+        else:
+            position = (D("0.99"), D("0.75") - D("0.50") * (number - 5))
+        pad = by_number[str(number)]
+        require(pad_position(pad) == position, f"T822+3 pad {number} position mismatch")
+        require(pad_size(pad) == (D("0.80"), D("0.30")),
+                f"T822+3 pad {number} size mismatch")
+        require(pad_layers(pad) == ["F.Cu", "F.Paste", "F.Mask"],
+                f"T822+3 pad {number} layer mismatch")
+    ep = by_number["9"]
+    require(pad_position(ep) == (D("0"), D("0")), "T822+3 exposed-pad position mismatch")
+    require(pad_size(ep) == (D("0.70"), D("1.38")),
+            "T822+3 exposed-pad size mismatch")
+    require(pad_layers(ep) == ["F.Cu", "F.Paste", "F.Mask"],
+            "T822+3 exposed-pad layers mismatch")
+    marker = one(root, "fp_circle", "T822+3 pin-1 marker")
+    require(dec(one(marker, "center", "T822+3 pin-1 marker")[1:]) ==
+            (D("-1.65"), D("-1.05")), "T822+3 pin-1 marker mismatch")
+
+
 def check_libraries(project=PROJECT):
     symbols = check_symbol_libraries(project)
     check_rtw_footprint(project)
@@ -396,6 +435,7 @@ def check_libraries(project=PROJECT):
     check_phase_two_footprints(project)
     check_rwb_footprint(project)
     check_dsj_footprint(project)
+    check_t822_footprint(project)
     return symbols
 
 
@@ -412,7 +452,8 @@ def main():
         print("- DBV, DDF and base-suffix DQA0010A land patterns match current TI drawings")
         print("- 12 TUSB320LAI pins and asymmetric RWB X2QFN copper/stencil maps match TI drawings")
         print("- 15 TPS63020 logical pins and DSJ signal/thermal/stencil maps match TI drawings")
-        print("- blocked USB-C and fuel-gauge footprints were not guessed")
+        print("- 9 MAX17048 logical pins and T822+3 land map match Analog Devices drawings")
+        print("- the blocked USB-C footprint was not guessed")
     except (OSError, ValueError, KeyError, IndexError) as error:
         print(f"Power library check failed: {error}", file=sys.stderr)
         return 1

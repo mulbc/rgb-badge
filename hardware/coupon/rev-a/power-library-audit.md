@@ -2,7 +2,7 @@
 
 # Coupon Rev A power-library audit
 
-Status: controlled charger, both switched converters, USB-only logic, Type-C detector, current-monitor and USB ESD libraries authored; native KiCad 10 render review and independent Gate A review pending; remaining power/input libraries are deliberately blocked or not yet transcribed
+Status: controlled charger, both switched converters, USB-only logic, Type-C detector, fuel/current monitors and USB ESD libraries authored; native KiCad 10 render review and independent Gate A review pending; remaining power/input libraries are deliberately blocked or not yet transcribed
 
 ## Controlled parts
 
@@ -16,6 +16,7 @@ Status: controlled charger, both switched converters, USB-only logic, Type-C det
 | Four-line USB data/CC ESD | `TPD4E05U06DQAR` | TI DQA0010A USON-10 / `USON_TI_DQA0010A` | [TI TPDxE05U06 datasheet](https://www.ti.com/lit/ds/symlink/tpd4e05u06.pdf), SLVSBO7O, revised 2024-08 |
 | USB-C sink/current-state detector | `TUSB320LAIRWBR` | TI RWB0012A X2QFN-12, 1.6 × 1.6 mm, 0.4 mm pitch / `X2QFN_TI_RWB0012A_1.6x1.6mm_P0.4mm` | [TI TUSB320LAI datasheet](https://www.ti.com/lit/ds/symlink/tusb320lai.pdf), SLLSEQ8D, revised 2017-05; [TI RWB package drawing](https://www.ti.com/lit/pdf/MPQF391C) |
 | Switched adjustable LED-rail buck-boost | `TPS63020DSJT` | TI DSJ R-PVSON-N14, 4 × 3 mm, 0.5 mm pitch, exposed thermal pad / `VSON_TI_DSJ0014_4x3mm_P0.5mm_EP2.85x1.58mm` | [TI TPS63020 datasheet](https://www.ti.com/lit/ds/symlink/tps63020.pdf), SLVS916I, revised 2019-10 |
+| Always-on single-cell fuel gauge | `MAX17048G+T10` | Maxim T822+3 TDFN-EP8, 2 × 2 mm, 0.5 mm pitch / `TDFN_Maxim_T822-3_2x2mm_P0.5mm_EP0.7x1.38mm` | [Analog Devices MAX17048/MAX17049 datasheet](https://www.analog.com/media/en/technical-documentation/data-sheets/MAX17048-MAX17049.pdf), Rev. 7, 2016-12; [21-0168 outline](https://mds.analog.com/api/public/content/tdfn-cu_21-0168.pdf); [90-0065 land pattern](https://mds.analog.com/api/public/content/tdfn-cu_90-0065.pdf) |
 
 The manufacturer PDFs downloaded for this transcription hashed as follows. A changed upstream file requires a fresh comparison rather than a blind hash update.
 
@@ -30,6 +31,9 @@ The manufacturer PDFs downloaded for this transcription hashed as follows. A cha
 | `tusb320lai.pdf` | `62f7b3f65338e25ebd6fd46ef04474ba806b06b1cc04bc0b3d7b8191b01ca87d` |
 | `MPQF391C.pdf` (RWB0012A package drawing) | `694ae75d453a97dffa48fa077e392c728dd668f625f1a7112b03b618e4017633` |
 | `tps63020.pdf` | `d117773bb7370fd79377bc70ce987eec3469ea5979547a09df52fca5f95b2e69` |
+| `MAX17048-MAX17049.pdf` | `70dc8eef0e012276dcdc58b6dce64af08258304bcf865ceace64e856b8029330` |
+| `tdfn-cu_21-0168.pdf` | `01e449022cf1c5e20834fcf2c3587e6a8725e707eed1caa000f095e891be9b0f` |
+| `tdfn-cu_90-0065.pdf` | `3448c4e9d300c7b5c2b86d6c67f19fc59c28a91c4b41dfd39fb8cc5a9d4b72eb` |
 
 These are candidate BOM lines, not procurement or fabrication approval. Production lots must use the exact MPN through an authorized distributor or traceable PCBA supply chain. Marketplace listings may be used only for replaceable development samples and must not silently substitute a package or suffix.
 
@@ -56,6 +60,8 @@ The `TUSB320LAIRWBR` symbol maps `CC1`, `CC2`, tri-level `PORT`, `VBUS_DET`, tri
 
 The `TPS63020DSJT` symbol maps `VINA`, control `GND`, `FB`, two `VOUT`, two `L2`, two `L1`, two `VIN`, `EN`, `PS/SYNC`, open-drain `PG` and the exposed `PGND_EP`. The exposed pad is assigned project pad 15 because KiCad requires a pad number even though TI names it separately from pins 1–14; every copper piece carrying 15 represents the one connected exposed thermal pad.
 
+The `MAX17048G+T10` symbol maps `CTG`, `CELL`, `VDD`, `GND`, open-drain `ALRT`, `QSTRT`, `SCL`, `SDA` and exposed `GND_EP`. `CELL` remains passive because it is not internally connected on the one-cell MAX17048 even though the manufacturer application pin table directs it to the positive battery terminal. The exposed pad is assigned project pad 9 and must connect to ground.
+
 ## Land-pattern transcription
 
 The RTW footprint copies TI land-pattern drawing 4211120-3/D:
@@ -81,17 +87,18 @@ The DSJ footprint copies package drawing 4208212-3/C, thermal-pad drawing 420854
 - the thermal pad has no single full-area paste opening. The 0.125 mm stencil example is encoded as four 1.25 × 0.46 mm centre apertures and eight 0.85 × 0.20 mm side apertures, the geometry TI labels as 81% printed-area coverage;
 - the drawing's optional 15-via example is not embedded. Via size, finished drill, fill and capping belong to PCB layout and assembler review.
 
+The T822+3 footprint copies Analog Devices/legacy Maxim land pattern 90-0065: eight 0.80 × 0.30 mm signal lands on 0.50 mm pitch, left/right row centres 1.98 mm apart, and a 0.70 × 1.38 mm exposed land. The package-code table in the MAX17048 datasheet maps the exact TDFN orderable part to `T822+3`, outline 21-0168 and this land pattern. Drawing 90-0065 controls copper but does not specify a reduced stencil aperture; the footprint's full-area exposed-pad paste is a documented provisional default that must be reviewed with the assembler before release.
+
 ## Intentionally unresolved libraries
 
 No unverified footprint is allowed merely to make the power sheet look complete:
 
 - `USB4505-03-0-A`: GCT confirms the active 16-contact mid-mount product, but the exact downloadable PCB drawing was not retrievable in this environment. Connector shell stakes and contact numbering remain blocked on that controlled drawing.
-- `MAX17048G+T10`: the electrical datasheet refers to separate Maxim drawings `21-0168` and `90-0065`; the exact land-pattern document must be obtained before authoring its TDFN footprint.
 - The latching slide switch, remaining converter/charger passives, battery connector and NTC network remain for the next library/capture increments. The switch and battery connector cannot be frozen before exact mechanical parts are selected.
 
 ## Automated and native review
 
-`python3 tools/check-power-libraries.py` independently checks all eight exact MPN properties, all 88 logical pins, seven manufacturer land maps, the BQ and DSJ exposed copper/paste splits, the DQA ground-land distinction, the RWB side-pad paste reduction and pin-1 markers. `tools/check-kicad.sh` also requires KiCad 10 to load and export every controlled symbol and all three footprint views.
+`python3 tools/check-power-libraries.py` independently checks all nine exact MPN properties, all 97 logical pins, eight manufacturer land maps, the BQ and DSJ exposed copper/paste splits, the DQA ground-land distinction, the RWB side-pad paste reduction and pin-1 markers. `tools/check-kicad.sh` also requires KiCad 10 to load and export every controlled symbol and all three footprint views.
 
 For the native render review, verify:
 
@@ -103,6 +110,7 @@ For the native render review, verify:
 - DQA pads 1–5 run down the left and 6–10 run up the right, with wider ground lands only at pins 3 and 8;
 - RWB pins count counter-clockwise from side pad 1; side lands are visibly longer than their paste apertures, while top/bottom lands include paste directly;
 - DSJ pins 1–7 run left-to-right across the top and 8–14 right-to-left across the bottom; copper shows a centre pad with four fingers per side, while paste shows twelve separated thermal apertures;
+- T822+3 pads 1–4 run down the left and 5–8 run up the right around the narrow exposed pad; full-area exposed-pad paste is visible and remains a documented DFM item;
 - no courtyard, body outline, value text or pin-1 marker touches a copper land.
 
 A clean automated run is necessary but is not DRC, thermal analysis, USB compliance, assembler DFM, battery safety review or independent Gate A approval.

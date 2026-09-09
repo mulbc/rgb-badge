@@ -122,6 +122,26 @@ class PowerLibraryTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "pin name mismatch"):
             CHECK["check_libraries"](project)
 
+    def test_fuel_gauge_land_change_is_rejected(self):
+        project = self.project_copy()
+        path = project / "footprints" / "rgb-badge-coupon.pretty" / \
+            "TDFN_Maxim_T822-3_2x2mm_P0.5mm_EP0.7x1.38mm.kicad_mod"
+        text = path.read_text(encoding="utf-8").replace(
+            '(at -0.99 -0.75) (size 0.80 0.30)',
+            '(at -0.95 -0.75) (size 0.80 0.30)', 1)
+        path.write_text(text, encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "pad 1 position mismatch"):
+            CHECK["check_libraries"](project)
+
+    def test_fuel_gauge_pin_swap_is_rejected(self):
+        project = self.project_copy()
+        path = project / "symbols" / "rgb-badge-coupon.kicad_sym"
+        text = path.read_text(encoding="utf-8").replace(
+            '(name "CTG" (effects', '(name "BAD" (effects', 1)
+        path.write_text(text, encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "pin name mismatch"):
+            CHECK["check_libraries"](project)
+
 
 if __name__ == "__main__":
     unittest.main()
