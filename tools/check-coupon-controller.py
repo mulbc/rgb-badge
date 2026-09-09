@@ -84,6 +84,23 @@ def expected_connections():
     return result
 
 
+def expected_native_no_connects():
+    """Return KiCad XML's one-node nets for explicit U3 no-connect markers."""
+    pin_names = LIB["MODULE_PINS"]
+    return {
+        ("U3", pin): f"unconnected-(U3-{pin_names[int(pin)]}-Pad{pin})"
+        for pin in MODULE_NC
+    }
+
+
+def mapping_difference(actual, expected):
+    changed = []
+    for key in sorted(set(actual) | set(expected)):
+        if actual.get(key) != expected.get(key):
+            changed.append(f"{key}: expected {expected.get(key)!r}, got {actual.get(key)!r}")
+    return "; ".join(changed[:8]) + (f"; ... {len(changed) - 8} more" if len(changed) > 8 else "")
+
+
 def check_sources(project=PROJECT):
     LIB["check_libraries"](project)
     root = parse(project / "rgb-badge-coupon.kicad_sch")
@@ -182,8 +199,10 @@ def check_netlist(path):
     expected_nets.update(DRIVER["expected_connections"]())
     expected_nets.update(ROWS["expected_connections"]())
     expected_nets.update(expected_connections())
+    expected_nets.update(expected_native_no_connects())
     require(components == expected_components, "Complete coupon XML population/value/footprint mismatch")
-    require(connections == expected_nets, "Complete coupon XML pin-to-net mismatch")
+    require(connections == expected_nets,
+            "Complete coupon XML pin-to-net mismatch: " + mapping_difference(connections, expected_nets))
 
 
 def main():

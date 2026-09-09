@@ -29,7 +29,8 @@ class CouponControllerTests(unittest.TestCase):
             CHECK["check_netlist"](path)
 
     def test_netlist_faults(self):
-        for fault in ("boot strap swap", "USB resistor bypass", "missing EN capacitor", "extra part", "duplicate pin"):
+        for fault in ("boot strap swap", "USB resistor bypass", "missing EN capacitor", "extra part",
+                      "duplicate pin", "explicit NC connected"):
             with self.subTest(fault=fault), tempfile.TemporaryDirectory() as directory:
                 root = controller_coupon_netlist()
                 if fault == "boot strap swap":
@@ -43,10 +44,15 @@ class CouponControllerTests(unittest.TestCase):
                     root.find("components").remove(root.find("./components/comp[@ref='C5']"))
                 elif fault == "extra part":
                     ET.SubElement(root.find("components"), "comp", ref="U99")
-                else:
+                elif fault == "duplicate pin":
                     node = root.find("./nets/net/node[@ref='U3'][@pin='2']")
                     for net in root.findall("./nets/net"):
                         if node in list(net): net.append(deepcopy(node)); break
+                else:
+                    node = root.find("./nets/net/node[@ref='U3'][@pin='8']")
+                    for net in root.findall("./nets/net"):
+                        if node in list(net): net.remove(node); break
+                    root.find("./nets/net[@name='+3V3_APP']").append(node)
                 path = Path(directory) / "bad.xml"
                 path.write_bytes(ET.tostring(root))
                 with self.assertRaises(ValueError):

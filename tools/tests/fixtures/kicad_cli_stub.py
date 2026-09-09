@@ -173,6 +173,16 @@ def controller_coupon_netlist():
         37: 'UART0_TX_RAW', 40: 'GND', 41: 'GND',
     }
     for pin, net in module.items(): add('U3', pin, net)
+    # KiCad's native XML exporter includes explicitly no-connected pins as
+    # one-node nets. Keep this fixture aligned with the captured native export.
+    unused_module_pins = {
+        8: 'GPIO15', 9: 'GPIO16', 15: 'GPIO3', 16: 'GPIO46', 23: 'GPIO21',
+        24: 'GPIO47', 25: 'GPIO48', 26: 'GPIO45', 28: 'GPIO35/PSRAM',
+        29: 'GPIO36/PSRAM', 30: 'GPIO37/PSRAM', 31: 'GPIO38', 32: 'GPIO39',
+        33: 'GPIO40', 34: 'GPIO41', 35: 'GPIO42', 38: 'GPIO2', 39: 'GPIO1',
+    }
+    for pin, name in unused_module_pins.items():
+        add('U3', pin, f'unconnected-(U3-{name}-Pad{pin})')
     for ref, left, right in (
         ('C3', '+3V3_APP', 'GND'), ('C4', '+3V3_APP', 'GND'), ('C5', 'ESP_EN', 'GND'),
         ('R43', '+3V3_APP', 'ESP_EN'), ('R44', '+3V3_APP', 'MODE_BOOT_N'),
