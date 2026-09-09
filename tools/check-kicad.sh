@@ -139,17 +139,17 @@ do
     fi
 done
 
-for symbol_name in TLC59581RTQT ERJ-2RKF3922X ERJ-2RKF1003X GRM155R71C104KA88D PWR_FLAG TestPoint_Pad '74HC4514PW,118' DMP2066LSN-7 2N7002K-7 ERJ-2RKF1001X ESP32-S3-WROOM-1U-N16R8 ERJ-2RKF1002X ERJ-2RKF22R0X ERJ-2RKF4990X GRM155C71A105KE11D GRM188R60J106ME47D EVQP7J01P BQ25616JRTWT TPS631000DRLR; do
+for symbol_name in TLC59581RTQT ERJ-2RKF3922X ERJ-2RKF1003X GRM155R71C104KA88D PWR_FLAG TestPoint_Pad '74HC4514PW,118' DMP2066LSN-7 2N7002K-7 ERJ-2RKF1001X ESP32-S3-WROOM-1U-N16R8 ERJ-2RKF1002X ERJ-2RKF22R0X ERJ-2RKF4990X GRM155C71A105KE11D GRM188R60J106ME47D EVQP7J01P BQ25616JRTWT TPS631000DRLR TLV75533PDBVR SN74LVC1G04DBVR INA232AIDDFR TPD4E05U06DQAR; do
     if [[ ! -s "${symbol_svg_dir}/${symbol_name}_unit1.svg" ]]; then
         echo "Expected non-empty controlled symbol SVG: ${symbol_name}" >&2
         exit 1
     fi
 done
 
-for footprint_name in QFN_TI_RTW0024A_4x4mm_P0.5mm_EP2.7mm SOT5X3_TI_DRL0008A; do
+for footprint_name in QFN_TI_RTW0024A_4x4mm_P0.5mm_EP2.7mm SOT5X3_TI_DRL0008A SOT23_TI_DBV0005A SOT23_THIN_TI_DDF0008A USON_TI_DQA0010A; do
     for view_dir in "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_paste_dir}"; do
         if [[ ! -s "${view_dir}/${footprint_name}.svg" ]]; then
-            echo "Expected non-empty phase-one power footprint SVG: ${view_dir}/${footprint_name}.svg" >&2
+            echo "Expected non-empty controlled power footprint SVG: ${view_dir}/${footprint_name}.svg" >&2
             exit 1
         fi
     done

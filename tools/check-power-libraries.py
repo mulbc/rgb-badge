@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: Apache-2.0
-"""Audit the first exact Coupon Rev A charger and power-converter libraries.
+"""Audit the controlled Coupon Rev A power/input component libraries.
 
 This checks a controlled transcription of manufacturer pin tables and land
 patterns. It does not approve the power architecture, schematic, PCB layout,
@@ -49,6 +49,45 @@ PARTS = {
             3: ("LX1", "passive"), 4: ("VIN", "power_in"),
             5: ("EN", "input"), 6: ("MODE", "input"),
             7: ("GND", "power_in"), 8: ("FB", "input"),
+        },
+    },
+    "TLV75533PDBVR": {
+        "footprint": "SOT23_TI_DBV0005A",
+        "datasheet": "https://www.ti.com/lit/ds/symlink/tlv755p.pdf",
+        "pins": {
+            1: ("IN", "power_in"), 2: ("GND", "power_in"),
+            3: ("EN", "input"), 4: ("NC", "passive"),
+            5: ("OUT", "power_out"),
+        },
+    },
+    "SN74LVC1G04DBVR": {
+        "footprint": "SOT23_TI_DBV0005A",
+        "datasheet": "https://www.ti.com/lit/ds/symlink/sn74lvc1g04.pdf",
+        "pins": {
+            1: ("NC", "passive"), 2: ("A", "input"),
+            3: ("GND", "power_in"), 4: ("Y", "output"),
+            5: ("VCC", "power_in"),
+        },
+    },
+    "INA232AIDDFR": {
+        "footprint": "SOT23_THIN_TI_DDF0008A",
+        "datasheet": "https://www.ti.com/lit/ds/symlink/ina232.pdf",
+        "pins": {
+            1: ("IN+", "input"), 2: ("IN-", "input"),
+            3: ("GND", "power_in"), 4: ("VS", "power_in"),
+            5: ("SCL", "input"), 6: ("SDA", "bidirectional"),
+            7: ("A0", "input"), 8: ("ALERT", "open_collector"),
+        },
+    },
+    "TPD4E05U06DQAR": {
+        "footprint": "USON_TI_DQA0010A",
+        "datasheet": "https://www.ti.com/lit/ds/symlink/tpd4e05u06.pdf",
+        "pins": {
+            1: ("D1+", "passive"), 2: ("D1-", "passive"),
+            3: ("GND", "power_in"), 4: ("D2+", "passive"),
+            5: ("D2-", "passive"), 6: ("NC", "passive"),
+            7: ("NC", "passive"), 8: ("GND", "power_in"),
+            9: ("NC", "passive"), 10: ("NC", "passive"),
         },
     },
 }
@@ -111,6 +150,8 @@ def check_symbol_libraries(project):
             require(pin[1] == electrical_type, f"{mpn}.{number}: electrical type mismatch")
     require(library_pins(symbols["BQ25616JRTWT"])["9"][2] == "inverted",
             "BQ25616J CE must show active-low inversion")
+    require(library_pins(symbols["SN74LVC1G04DBVR"])["4"][2] == "inverted",
+            "SN74LVC1G04 output must show inversion")
     return symbols
 
 
@@ -177,10 +218,61 @@ def check_drl_footprint(project):
             "DRL pin-1 marker mismatch")
 
 
+def check_simple_gullwing(project, name, expected_positions, expected_size, marker_position):
+    root = footprint(project, name)
+    pads = children(root, "pad")
+    require(Counter(pad[1] for pad in pads) == Counter(expected_positions.keys()),
+            f"{name} pad numbers mismatch")
+    by_number = {pad[1]: pad for pad in pads}
+    for number, position in expected_positions.items():
+        pad = by_number[number]
+        require(pad_position(pad) == dec(position), f"{name} pad {number} position mismatch")
+        require(pad_size(pad) == dec(expected_size), f"{name} pad {number} size mismatch")
+        require(pad_layers(pad) == ["F.Cu", "F.Paste", "F.Mask"],
+                f"{name} pad {number} layer mismatch")
+    marker = one(root, "fp_circle", f"{name} pin-1 marker")
+    require(dec(one(marker, "center", f"{name} pin-1 marker")[1:]) == dec(marker_position),
+            f"{name} pin-1 marker mismatch")
+
+
+def check_phase_two_footprints(project):
+    check_simple_gullwing(project, "SOT23_TI_DBV0005A", {
+        "1": ("-1.3", "-0.95"), "2": ("-1.3", "0"), "3": ("-1.3", "0.95"),
+        "4": ("1.3", "0.95"), "5": ("1.3", "-0.95"),
+    }, ("1.1", "0.6"), ("-2.05", "-1.45"))
+    check_simple_gullwing(project, "SOT23_THIN_TI_DDF0008A", {
+        "1": ("-1.3", "-0.975"), "2": ("-1.3", "-0.325"),
+        "3": ("-1.3", "0.325"), "4": ("-1.3", "0.975"),
+        "5": ("1.3", "0.975"), "6": ("1.3", "0.325"),
+        "7": ("1.3", "-0.325"), "8": ("1.3", "-0.975"),
+    }, ("1.05", "0.45"), ("-2.05", "-1.45"))
+
+    root = footprint(project, "USON_TI_DQA0010A")
+    pads = children(root, "pad")
+    require(Counter(pad[1] for pad in pads) == Counter(map(str, range(1, 11))),
+            "DQA0010A pad numbers mismatch")
+    by_number = {pad[1]: pad for pad in pads}
+    for number in range(1, 11):
+        if number <= 5:
+            position = (D("-0.4175"), D("-1.0") + D("0.5") * (number - 1))
+        else:
+            position = (D("0.4175"), D("1.0") - D("0.5") * (number - 6))
+        pad = by_number[str(number)]
+        size = (D("0.565"), D("0.4") if number in (3, 8) else D("0.2"))
+        require(pad_position(pad) == position, f"DQA0010A pad {number} position mismatch")
+        require(pad_size(pad) == size, f"DQA0010A pad {number} size mismatch")
+        require(pad_layers(pad) == ["F.Cu", "F.Paste", "F.Mask"],
+                f"DQA0010A pad {number} layer mismatch")
+    marker = one(root, "fp_circle", "DQA0010A pin-1 marker")
+    require(dec(one(marker, "center", "DQA0010A pin-1 marker")[1:]) ==
+            (D("-0.95"), D("-1.35")), "DQA0010A pin-1 marker mismatch")
+
+
 def check_libraries(project=PROJECT):
     symbols = check_symbol_libraries(project)
     check_rtw_footprint(project)
     check_drl_footprint(project)
+    check_phase_two_footprints(project)
     return symbols
 
 
@@ -190,10 +282,11 @@ def main():
     args = parser.parse_args()
     try:
         check_libraries(args.project_dir)
-        print("Power library phase-one checks passed:")
+        print("Power library checks passed:")
         print("- 25 BQ25616J pins match the TI RTW pin table and exposed-pad map")
         print("- RTW signal lands and four-way stencil segmentation match TI drawing 4211120-3/D")
         print("- 8 TPS631000 pins and DRL lands match the current TI pin/package drawings")
+        print("- DBV, DDF and base-suffix DQA0010A land patterns match current TI drawings")
         print("- blocked USB-C, tiny X2QFN, LED-rail and fuel-gauge footprints were not guessed")
     except (OSError, ValueError, KeyError, IndexError) as error:
         print(f"Power library check failed: {error}", file=sys.stderr)

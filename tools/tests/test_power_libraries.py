@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: Apache-2.0
-"""Regression tests for the independent phase-one power-library audit."""
+"""Regression tests for the independent power-library audit."""
 
 from pathlib import Path
 import runpy
@@ -50,6 +50,25 @@ class PowerLibraryTests(unittest.TestCase):
         text = path.read_text(encoding="utf-8").replace('(size 0.67 0.3)', '(size 0.60 0.3)', 1)
         path.write_text(text, encoding="utf-8")
         with self.assertRaisesRegex(ValueError, "DRL pad 1 size mismatch"):
+            CHECK["check_libraries"](project)
+
+    def test_esd_ground_land_change_is_rejected(self):
+        project = self.project_copy()
+        path = project / "footprints" / "rgb-badge-coupon.pretty" / "USON_TI_DQA0010A.kicad_mod"
+        text = path.read_text(encoding="utf-8").replace(
+            '(pad "3" smd roundrect (at -0.4175 0) (size 0.565 0.4)',
+            '(pad "3" smd roundrect (at -0.4175 0) (size 0.565 0.2)', 1)
+        path.write_text(text, encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "DQA0010A pad 3 size mismatch"):
+            CHECK["check_libraries"](project)
+
+    def test_current_monitor_pin_swap_is_rejected(self):
+        project = self.project_copy()
+        path = project / "symbols" / "rgb-badge-coupon.kicad_sym"
+        text = path.read_text(encoding="utf-8").replace(
+            '(name "IN+" (effects', '(name "BAD" (effects', 1)
+        path.write_text(text, encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "pin name mismatch"):
             CHECK["check_libraries"](project)
 
 
