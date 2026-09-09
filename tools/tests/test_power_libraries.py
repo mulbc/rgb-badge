@@ -1,0 +1,57 @@
+# SPDX-License-Identifier: Apache-2.0
+"""Regression tests for the independent phase-one power-library audit."""
+
+from pathlib import Path
+import runpy
+import shutil
+import tempfile
+import unittest
+
+
+REPO = Path(__file__).resolve().parents[2]
+CHECK = runpy.run_path(str(REPO / "tools" / "check-power-libraries.py"))
+PROJECT = REPO / "hardware" / "coupon" / "rev-a"
+
+
+class PowerLibraryTests(unittest.TestCase):
+    def test_controlled_libraries_pass(self):
+        CHECK["check_libraries"](PROJECT)
+
+    def project_copy(self):
+        temporary = tempfile.TemporaryDirectory(prefix="rgb-badge-power-library-")
+        self.addCleanup(temporary.cleanup)
+        target = Path(temporary.name)
+        shutil.copytree(PROJECT / "symbols", target / "symbols")
+        shutil.copytree(PROJECT / "footprints", target / "footprints")
+        return target
+
+    def test_charger_pin_swap_is_rejected(self):
+        project = self.project_copy()
+        path = project / "symbols" / "rgb-badge-coupon.kicad_sym"
+        text = path.read_text(encoding="utf-8").replace(
+            '(name "VAC" (effects', '(name "BAD" (effects', 1)
+        path.write_text(text, encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "pin name mismatch"):
+            CHECK["check_libraries"](project)
+
+    def test_charger_stencil_change_is_rejected(self):
+        project = self.project_copy()
+        path = project / "footprints" / "rgb-badge-coupon.pretty" / \
+            "QFN_TI_RTW0024A_4x4mm_P0.5mm_EP2.7mm.kicad_mod"
+        text = path.read_text(encoding="utf-8").replace(
+            '(at -0.7 -0.7) (size 1.1 1.1)', '(at -0.6 -0.7) (size 1.1 1.1)', 1)
+        path.write_text(text, encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "stencil aperture positions mismatch"):
+            CHECK["check_libraries"](project)
+
+    def test_converter_land_change_is_rejected(self):
+        project = self.project_copy()
+        path = project / "footprints" / "rgb-badge-coupon.pretty" / "SOT5X3_TI_DRL0008A.kicad_mod"
+        text = path.read_text(encoding="utf-8").replace('(size 0.67 0.3)', '(size 0.60 0.3)', 1)
+        path.write_text(text, encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "DRL pad 1 size mismatch"):
+            CHECK["check_libraries"](project)
+
+
+if __name__ == "__main__":
+    unittest.main()
