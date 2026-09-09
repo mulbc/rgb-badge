@@ -136,6 +136,57 @@ def complete_coupon_netlist():
     return root
 
 
+def controller_coupon_netlist():
+    """Synthetic complete coupon including the controller; never native evidence."""
+    root = complete_coupon_netlist()
+    components = root.find('components')
+    parts = [
+        ('U3', 'ESP32-S3-WROOM-1U-N16R8', 'ESP32-S3-WROOM-1U'),
+        ('C3', '10u 6.3V X5R', 'C_Murata_GRM18_0603'),
+        ('C4', '100n 16V X7R', 'C_Murata_GRM15_0402'),
+        ('C5', '1u 10V X7S', 'C_Murata_GRM15_0402'),
+        ('R43', '10k 1%', 'R_Panasonic_ERJ2_0402'),
+        ('R44', '10k 1%', 'R_Panasonic_ERJ2_0402'),
+        ('R45', '22R 1%', 'R_Panasonic_ERJ2_0402'),
+        ('R46', '22R 1%', 'R_Panasonic_ERJ2_0402'),
+        ('R47', '499R 1%', 'R_Panasonic_ERJ2_0402'),
+        ('SW1', 'EVQP7J01P', 'SW_Panasonic_EVQP7J01P'),
+        *[(f'TP{i}', 'TestPoint_Pad', 'TestPoint_Pad_D1.0mm') for i in range(2, 13)],
+    ]
+    for ref, value, footprint in parts:
+        comp = ET.SubElement(components, 'comp', ref=ref)
+        ET.SubElement(comp, 'value').text = value
+        ET.SubElement(comp, 'footprint').text = 'rgb-badge-coupon:' + footprint
+    nets = {net.get('name'): net for net in root.findall('./nets/net')}
+
+    def add(ref, pin, name):
+        if name not in nets:
+            nets[name] = ET.SubElement(root.find('nets'), 'net', name=name)
+        ET.SubElement(nets[name], 'node', ref=ref, pin=str(pin))
+
+    module = {
+        1: 'GND', 2: '+3V3_APP', 3: 'ESP_EN', 4: 'ROW_A0', 5: 'ROW_A1',
+        6: 'ROW_A2', 7: 'ROW_A3', 10: 'SYS_I2C_SDA', 11: 'SYS_I2C_SCL',
+        12: 'ROW_ENABLE_N', 13: 'USB_DN_MCU', 14: 'USB_DP_MCU',
+        17: 'DISPLAY_ENABLE', 18: 'LED_LAT', 19: 'LED_SIN', 20: 'LED_SCLK',
+        21: 'LED_GCLK', 22: 'LED_SOUT', 27: 'MODE_BOOT_N', 36: 'UART0_RX',
+        37: 'UART0_TX_RAW', 40: 'GND', 41: 'GND',
+    }
+    for pin, net in module.items(): add('U3', pin, net)
+    for ref, left, right in (
+        ('C3', '+3V3_APP', 'GND'), ('C4', '+3V3_APP', 'GND'), ('C5', 'ESP_EN', 'GND'),
+        ('R43', '+3V3_APP', 'ESP_EN'), ('R44', '+3V3_APP', 'MODE_BOOT_N'),
+        ('R45', 'USB_DN_MCU', 'USB_D-'), ('R46', 'USB_DP_MCU', 'USB_D+'),
+        ('R47', 'UART0_TX_RAW', 'UART0_TX'), ('SW1', 'MODE_BOOT_N', 'GND'),
+    ):
+        add(ref, 1, left); add(ref, 2, right)
+    for i, net in enumerate(('ESP_EN', 'MODE_BOOT_N', 'UART0_TX', 'UART0_RX', 'LED_GCLK',
+                             'ROW_ENABLE_N', '+3V3_APP', 'GND', 'DISPLAY_ENABLE',
+                             'SYS_I2C_SDA', 'SYS_I2C_SCL'), 2):
+        add(f'TP{i}', 1, net)
+    return root
+
+
 def main():
     args = sys.argv[1:]
     if args == ["version"]:
@@ -148,13 +199,15 @@ def main():
         assert args[args.index('--format') + 1] == 'kicadxml'
         if os.environ.get('RGB_BADGE_TEST_FAIL') == 'netlist':
             return 7
-        root = complete_coupon_netlist()
+        root = controller_coupon_netlist()
         if os.environ.get('RGB_BADGE_TEST_BAD_MATRIX') == '1':
             root.find('./nets/net/node').set('pin', '99')
         if os.environ.get('RGB_BADGE_TEST_BAD_DRIVER') == '1':
             root.find("./nets/net/node[@ref='U1'][@pin='57']").set('pin','58')
         if os.environ.get('RGB_BADGE_TEST_BAD_ROWS') == '1':
             root.find("./nets/net/node[@ref='U2'][@pin='23']").set('pin', '24')
+        if os.environ.get('RGB_BADGE_TEST_BAD_CONTROLLER') == '1':
+            root.find("./nets/net/node[@ref='U3'][@pin='27']").set('pin', '26')
         output.write_bytes(ET.tostring(root))
         return 0
     elif args[:3] == ["sch", "export", "pdf"]:
@@ -164,7 +217,7 @@ def main():
         output.write_text('Stub only: not a PDF or KiCad render.\n')
         return 0
     elif args[:3] == ["sym", "export", "svg"]:
-        names = [n + "_unit1.svg" for n in ("EAST10105RGBA0", "QBLP1515A-RGB2A", "TLC59581RTQT", "ERJ-2RKF3922X", "ERJ-2RKF1003X", "GRM155R71C104KA88D", "PWR_FLAG", "TestPoint_Pad", "74HC4514PW,118", "DMP2066LSN-7", "2N7002K-7", "ERJ-2RKF1001X")]
+        names = [n + "_unit1.svg" for n in ("EAST10105RGBA0", "QBLP1515A-RGB2A", "TLC59581RTQT", "ERJ-2RKF3922X", "ERJ-2RKF1003X", "GRM155R71C104KA88D", "PWR_FLAG", "TestPoint_Pad", "74HC4514PW,118", "DMP2066LSN-7", "2N7002K-7", "ERJ-2RKF1001X", "ESP32-S3-WROOM-1U-N16R8", "ERJ-2RKF1002X", "ERJ-2RKF22R0X", "ERJ-2RKF4990X", "GRM155C71A105KE11D", "GRM188R60J106ME47D", "EVQP7J01P")]
     elif args[:3] == ["fp", "export", "svg"]:
         layers = args[args.index("--layers") + 1]
         if output.name == "fabrication":
@@ -178,7 +231,7 @@ def main():
         else:
             raise AssertionError(f"Unexpected footprint export destination: {output}")
         stage = output.name
-        names = [n + ".svg" for n in ("LED_Everlight_EAST10105RGBA0", "LED_QTBrightek_QBLP1515A-RGB2A", "QFN_TI_RTQ0056E_8x8mm_P0.5mm_EP5.7mm", "R_Panasonic_ERJ2_0402", "C_Murata_GRM15_0402", "TestPoint_Pad_D1.0mm", "TSSOP_Nexperia_SOT355-1_24", "SC59_Diodes_DMP2066LSN", "SOT23_Diodes_2N7002K")]
+        names = [n + ".svg" for n in ("LED_Everlight_EAST10105RGBA0", "LED_QTBrightek_QBLP1515A-RGB2A", "QFN_TI_RTQ0056E_8x8mm_P0.5mm_EP5.7mm", "R_Panasonic_ERJ2_0402", "C_Murata_GRM15_0402", "TestPoint_Pad_D1.0mm", "TSSOP_Nexperia_SOT355-1_24", "SC59_Diodes_DMP2066LSN", "SOT23_Diodes_2N7002K", "ESP32-S3-WROOM-1U", "C_Murata_GRM18_0603", "SW_Panasonic_EVQP7J01P")]
     elif args[:2] == ["sch", "erc"]:
         assert "--severity-all" in args and "--exit-code-violations" in args
         if os.environ.get("RGB_BADGE_TEST_FAIL") == stage:

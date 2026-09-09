@@ -15,3 +15,9 @@ At the time this notice was created, the referenced FOSSASIA repository stated
 that its hardware sources were available under the Apache License 2.0. Any
 third-party material added later must retain its own copyright, attribution and
 licensing notices.
+
+The project-local `ESP32-S3-WROOM-1U` footprint adapts pad geometry from
+Espressif's `espressif/kicad-libraries` release 3.2.1. That upstream library is
+CC-BY-SA-4.0 with the KiCad schematic-design exception reproduced in
+`LICENSES/Espressif-KiCad-CC-BY-SA-4.0.txt`. The footprint description also
+records this provenance. No upstream 3D model is included.

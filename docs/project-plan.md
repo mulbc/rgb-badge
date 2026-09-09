@@ -4,7 +4,7 @@
 
 Status: agreed design baseline and staged execution plan
 Date: 2026-09-05
-Project phase: matrix, driver and complete row-stage native reviews passed; controller/power capture and layout remain
+Project phase: matrix, driver and complete row-stage native reviews passed; controller source/checks complete with native review pending; power capture and layout remain
 
 ## 1. Outcome
 
@@ -585,9 +585,9 @@ Keep the independent review outside this build allocation, as agreed. Obtain its
 ### Immediate deliverable sequence
 
 1. Create the repository skeleton, requirements, pin map and decision records.
-2. Draw the coupon power/USB/controller schematic first.
-3. Add one TLC59581, 16 rows and the split 16 × 16 matrix.
-4. Review the schematic and run the power calculations against exact selected parts.
+2. Complete the owner KiCad review of the captured controller increment.
+3. Capture the exact USB-C, charger, gauges and switched 3.3 V/VLED power sheet with hardware-safe defaults.
+4. Review the complete schematic and run the power calculations against exact selected parts.
 5. Lay out the coupon, generate its STEP model and perform DFM.
 6. Produce Gerbers, BOM, placement file, assembly drawing, factory firmware and bring-up checklist.
 7. Obtain independent review and three PCBA quotes.
