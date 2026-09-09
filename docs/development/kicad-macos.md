@@ -37,7 +37,7 @@ Run this after every schematic change:
 ./tools/check-kicad.sh
 ```
 
-The script requires stable KiCad 10.0.x, checks the controlled LED, driver, row-selection and controller pin/pad geometry plus every captured source connection, exports the project-local libraries, and runs ERC with violations treated as a failure. It then exports KiCad's XML netlist, verifies all 356 PCB items / 1,360 logical pins, and exports the complete schematic to PDF. The script uses the application-bundle CLI automatically on macOS. Set `RGB_BADGE_KICAD_CLI` only when testing a specific alternate executable.
+The script requires stable KiCad 10.0.x, checks the controlled LED, driver, row-selection and controller pin/pad geometry plus every captured source connection, exports the project-local libraries, and runs ERC. Every ERC message is a failure except the exact temporary `USB_D-` / `USB_D+` isolated-label pair at the documented controller-to-power-sheet boundary; zero messages are also accepted once the power/input sheet connects them. It then exports KiCad's XML netlist, verifies all 356 PCB items / 1,360 logical pins, and exports the complete schematic to PDF. The script uses the application-bundle CLI automatically on macOS. Set `RGB_BADGE_KICAD_CLI` only when testing a specific alternate executable.
 
 To retain SVGs for human inspection, give the check a new output path that does not already exist:
 

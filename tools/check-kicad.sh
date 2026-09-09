@@ -182,9 +182,9 @@ done
 
 "${kicad_cli}" sch erc \
     --severity-all \
-    --exit-code-violations \
     --output "${check_tmp_dir}/coupon-erc.rpt" \
     "${schematic_file}"
+python3 "${repo_root}/tools/check-erc-report.py" "${check_tmp_dir}/coupon-erc.rpt"
 
 "${kicad_cli}" sch export netlist \
     --format kicadxml \

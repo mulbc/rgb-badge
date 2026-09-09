@@ -77,6 +77,17 @@ class CheckKiCadWrapperTests(unittest.TestCase):
         self.assertEqual(result.returncode, 5)
         self.assertNotIn("ERC passed", result.stdout)
 
+    def test_exact_staged_usb_boundary_warnings_are_accepted(self):
+        result = self.run_check(RGB_BADGE_TEST_USB_BOUNDARY_ERC="1")
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn("temporary USB-boundary warnings", result.stdout)
+
+    def test_unexpected_erc_warning_is_not_hidden(self):
+        result = self.run_check(RGB_BADGE_TEST_UNEXPECTED_ERC="1")
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("Unexpected ERC violation set", result.stderr)
+        self.assertFalse((self.output / "coupon-matrix.xml").exists())
+
     def test_bad_matrix_netlist_is_not_hidden(self):
         result = self.run_check(RGB_BADGE_TEST_BAD_MATRIX="1")
         self.assertEqual(result.returncode, 1)

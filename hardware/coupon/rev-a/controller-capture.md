@@ -56,6 +56,8 @@ The pending power sheet must make `DISPLAY_ENABLE` fail-safe: VLED remains off t
 
 Native USB remains available through the future USB-C receptacle when the application rail is on. R45/R46 belong beside U3 in layout; the receptacle, controlled-impedance pair, ESD array and Type-C circuits remain on the next power/input sheet.
 
+Until that sheet is captured, native ERC correctly reports the single-ended `USB_D-` and `USB_D+` global labels as isolated. The wrapper accepts only that exact two-warning set (or zero warnings after connection); any other ERC message remains fatal. This is a temporary staged-capture exception, not an electrical waiver.
+
 ## Library provenance and checks
 
 The 41-pin symbol is an exact-MPN project-local transcription of Espressif's module pin table. The module footprint reproduces the perimeter and nine same-numbered central-ground lands from Espressif's official KiCad library release 3.2.1, checked against the current module drawing. The adapted footprint retains the upstream CC-BY-SA-4.0 attribution and KiCad-design exception in `NOTICE` and `LICENSES/Espressif-KiCad-CC-BY-SA-4.0.txt`; the schematic using it remains under the repository hardware license.

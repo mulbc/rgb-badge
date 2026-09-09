@@ -233,10 +233,28 @@ def main():
         stage = output.name
         names = [n + ".svg" for n in ("LED_Everlight_EAST10105RGBA0", "LED_QTBrightek_QBLP1515A-RGB2A", "QFN_TI_RTQ0056E_8x8mm_P0.5mm_EP5.7mm", "R_Panasonic_ERJ2_0402", "C_Murata_GRM15_0402", "TestPoint_Pad_D1.0mm", "TSSOP_Nexperia_SOT355-1_24", "SC59_Diodes_DMP2066LSN", "SOT23_Diodes_2N7002K", "ESP32-S3-WROOM-1U", "C_Murata_GRM18_0603", "SW_Panasonic_EVQP7J01P")]
     elif args[:2] == ["sch", "erc"]:
-        assert "--severity-all" in args and "--exit-code-violations" in args
+        assert "--severity-all" in args and "--exit-code-violations" not in args
         if os.environ.get("RGB_BADGE_TEST_FAIL") == stage:
             return 5
-        output.write_text("Stub only: no real ERC was run.\n", encoding="utf-8")
+        if os.environ.get("RGB_BADGE_TEST_UNEXPECTED_ERC") == "1":
+            records = """[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(10.00 mm, 20.00 mm): Global Label 'UNEXPECTED'
+"""
+            summary = " ** ERC messages: 1  Errors 0  Warnings 1\n"
+        elif os.environ.get("RGB_BADGE_TEST_USB_BOUNDARY_ERC") == "1":
+            records = """[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(350.52 mm, 66.04 mm): Global Label 'USB_D-'
+[isolated_pin_label]: Label connected to only one pin
+    ; warning
+    @(350.52 mm, 81.28 mm): Global Label 'USB_D+'
+"""
+            summary = " ** ERC messages: 2  Errors 0  Warnings 2\n"
+        else:
+            records = ""
+            summary = " ** ERC messages: 0  Errors 0  Warnings 0\n"
+        output.write_text("ERC report (stub fixture)\n***** Sheet /\n" + records + summary, encoding="utf-8")
         return 0
     else:
         raise AssertionError(f"Unexpected command: {args}")
