@@ -4,7 +4,7 @@
 
 Status: agreed design baseline and staged execution plan
 Date: 2026-09-05
-Project phase: matrix, driver and complete row-stage native reviews passed; controller source/checks complete with native review pending; power capture and layout remain
+Project phase: matrix, driver, row-stage and controller native reviews passed; power capture and layout remain
 
 ## 1. Outcome
 

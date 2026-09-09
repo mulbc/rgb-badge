@@ -2,7 +2,7 @@
 
 # Coupon Rev A controller capture
 
-Status: exact-part library and generated schematic source complete; automated source checks pass; owner KiCad 10.0.6 ERC/render/netlist review and independent Gate A review pending
+Status: exact-part library, source checks and owner KiCad 10.0.6 ERC/render/netlist review complete; independent Gate A review pending
 
 ## Controlled parts and evidence
 
@@ -64,6 +64,6 @@ The 41-pin symbol is an exact-MPN project-local transcription of Espressif's mod
 
 `python3 tools/check-controller-libraries.py` validates the symbol pin map, module pad coordinates/sizes/layers, central-ground array, capacitor lands and duplicated button contacts. `python3 tools/check-coupon-controller.py` traces every source connection, all explicit no-connects, exact part properties and test-pad nets. Its `--netlist` mode becomes the comprehensive 356-item / 1,360-logical-pin matrix + driver + row + controller contract. These are independent parsing checks, not KiCad ERC, PCB DRC, RF validation, assembly DFM or measurements.
 
-## Native review still required
+## Native review result
 
-Run the macOS command in the project README. In the exported eight-page PDF, inspect page 8 for readable module pins, the two reset/boot networks, USB resistor direction, UART resistor, all eleven test pads and every no-connect marker. In the footprint exports, confirm the module perimeter pads, nine separate pad-41 lands, button duplicate contacts and the 0603 capacitor lands. A clean native run will gate this PR; independent Gate A review still gates fabrication.
+The owner KiCad 10.0.6 run at `d56e1aa` passed the strict staged ERC gate, all 356 PCB items / 1,360 logical pins, footprint exports and eight-page visual review. The [review record](../../../docs/development/controller-review-d56e1aa.md) preserves hashes, findings and limits. Independent Gate A review still gates fabrication.

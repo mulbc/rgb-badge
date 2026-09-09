@@ -19,7 +19,7 @@ On first opening the project, do not accept a migration to a newer KiCad major r
 
 ## Initial blank-project GUI round-trip (completed history)
 
-This check was completed on the original blank project. The current draft contains a root and seven child sheets; its row-capture run passed and is recorded in the [native evidence record](row-capture-review-eb4129b.md), while the new controller page awaits its native run. Use the validation command again after every schematic increment.
+This check was completed on the original blank project. The current draft contains a root and seven child sheets; its controller run passed and is recorded in the [native evidence record](controller-review-d56e1aa.md). Use the validation command again after every schematic increment.
 
 1. Open `rgb-badge-coupon.kicad_pro` from the command above.
 2. Open the Schematic Editor from the project manager.
