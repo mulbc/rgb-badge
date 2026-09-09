@@ -9,6 +9,7 @@ thermal design, assembly process or battery pack.
 
 from collections import Counter
 from decimal import Decimal as D
+from itertools import combinations
 from pathlib import Path
 import argparse
 import runpy
@@ -166,6 +167,47 @@ def pad_layers(pad):
     return one(pad, "layers", "pad")[1:]
 
 
+def check_copper_separation(root):
+    """Conservative bounding-box check, independent of the dimension audit.
+
+    Only current unrotated rectangular/rounded lands are supported. Same-number
+    thermal fingers may intentionally meet. This is not board-level KiCad DRC.
+    """
+    pads = [p for p in children(root, "pad") if "F.Cu" in pad_layers(p)]
+    for pad in pads:
+        require(pad[1] and pad[3] in ("rect", "roundrect"),
+                f"{root[1]}: unsupported copper pad geometry")
+        at = one(pad, "at", "pad")
+        require(len(at) == 3 or D(at[3]) == 0,
+                f"{root[1]}: rotated copper pad needs a geometry-aware check")
+    for a, b in combinations(pads, 2):
+        if a[1] == b[1]:
+            continue
+        ap, bp = pad_position(a), pad_position(b)
+        az, bz = pad_size(a), pad_size(b)
+        gaps = [abs(ap[i] - bp[i]) - (az[i] + bz[i]) / 2 for i in (0, 1)]
+        require(max(gaps) > 0,
+                f"{root[1]}: copper pads {a[1]}/{b[1]} touch or overlap in bounding boxes")
+
+
+def check_symbol_header_clearance(symbol):
+    """Reserve a full text-height above top-facing pin endpoints."""
+    pins = library_pins(symbol)
+    top = [D(one(p, "at", "pin")[2]) for p in pins.values()
+           if D(one(p, "at", "pin")[3]) == 270]
+    if not top:
+        return
+    fields = {p[1]: p for p in children(symbol, "property")}
+    value = fields["Value"]
+    height = D(one(one(one(value, "effects", "value"), "font", "font"), "size", "font")[2])
+    value_y = D(one(value, "at", "value")[2])
+    reference_y = D(one(fields["Reference"], "at", "reference")[2])
+    require(value_y - height / 2 >= max(top) + height,
+            f"{symbol[1]}: header overlaps top-pin keepout")
+    require(reference_y - value_y >= 2 * height,
+            f"{symbol[1]}: reference/value header spacing too small")
+
+
 def check_symbol_libraries(project):
     library = parse(project / "symbols" / "rgb-badge-coupon.kicad_sym")
     symbols = {symbol[1]: symbol for symbol in children(library, "symbol")}
@@ -179,6 +221,7 @@ def check_symbol_libraries(project):
         require(properties.get("Datasheet") == audit["datasheet"],
                 f"{mpn}: datasheet property mismatch")
         pins = library_pins(symbol)
+        check_symbol_header_clearance(symbol)
         require(set(pins) == set(map(str, audit["pins"])), f"{mpn}: pin numbers mismatch")
         for number, (name, electrical_type) in audit["pins"].items():
             pin = pins[str(number)]
@@ -217,9 +260,15 @@ def check_rtw_footprint(project):
         require(pad_size(pad) == size, f"RTW pad {number} size mismatch")
         require(pad_layers(pad) == ["F.Cu", "F.Paste", "F.Mask"],
                 f"RTW pad {number} layer mismatch")
+        require(D(one(pad, "solder_paste_margin", "RTW pad")[1]) == D("-0.025"),
+                f"RTW pad {number} signal paste reduction mismatch")
+        require(D(one(pad, "solder_mask_margin", "RTW pad")[1]) == D("0.07"),
+                f"RTW pad {number} mask margin mismatch")
+        require(D(one(pad, "roundrect_rratio", "RTW pad")[1]) == D("0.5"),
+                f"RTW pad {number} corner radius mismatch")
     ep = numbered["25"]
     require(pad_position(ep) == (D("0"), D("0")), "RTW exposed-pad position mismatch")
-    require(pad_size(ep) == (D("3.1"), D("3.1")), "RTW exposed-pad size mismatch")
+    require(pad_size(ep) == (D("2.7"), D("2.7")), "RTW exposed-pad size mismatch")
     require(pad_layers(ep) == ["F.Cu", "F.Mask"], "RTW exposed-pad layers mismatch")
     paste = [pad for pad in pads if not pad[1]]
     require(len(paste) == 4, "RTW stencil aperture count mismatch")
@@ -381,10 +430,10 @@ def check_dsj_footprint(project):
 
     paste = [pad for pad in pads if not pad[1]]
     require(len(paste) == 12, "DSJ0014 thermal stencil aperture count mismatch")
-    central_paste = [pad for pad in paste if pad_size(pad) == (D("1.25"), D("0.46"))]
+    central_paste = [pad for pad in paste if pad_size(pad) == (D("1.25"), D("0.66"))]
     require({pad_position(pad) for pad in central_paste} == {
-        (D("-0.725"), D("-0.33")), (D("0.725"), D("-0.33")),
-        (D("-0.725"), D("0.33")), (D("0.725"), D("0.33")),
+        (D("-0.725"), D("-0.46")), (D("0.725"), D("-0.46")),
+        (D("-0.725"), D("0.46")), (D("0.725"), D("0.46")),
     }, "DSJ0014 central stencil positions mismatch")
     side_paste = [pad for pad in paste if pad_size(pad) == (D("0.85"), D("0.20"))]
     require({pad_position(pad) for pad in side_paste} == {
@@ -393,6 +442,13 @@ def check_dsj_footprint(project):
     }, "DSJ0014 side stencil positions mismatch")
     require(len(central_paste) == 4 and len(side_paste) == 8,
             "DSJ0014 thermal stencil aperture sizes mismatch")
+    require(all(pad[3] == "rect" for pad in paste), "DSJ0014 thermal stencil shape mismatch")
+    # These rectangles share edges, not area: their sum equals the union area.
+    # An independent coverage sanity check catches a swapped 0.46/0.66 dimension.
+    copper_area = sum(pad_size(p)[0] * pad_size(p)[1] for p in thermal)
+    paste_area = sum(pad_size(p)[0] * pad_size(p)[1] for p in paste)
+    require(D("0.80") < paste_area / copper_area < D("0.82"),
+            "DSJ0014 thermal paste coverage is not approximately 81 percent")
     require(all(pad_layers(pad) == ["F.Paste"] for pad in paste),
             "DSJ0014 thermal stencil aperture layers mismatch")
     marker = one(root, "fp_circle", "DSJ0014 pin-1 marker")
@@ -429,6 +485,8 @@ def check_t822_footprint(project):
 
 
 def check_libraries(project=PROJECT):
+    for name in sorted({part["footprint"] for part in PARTS.values()}):
+        check_copper_separation(footprint(project, name))
     symbols = check_symbol_libraries(project)
     check_rtw_footprint(project)
     check_drl_footprint(project)
@@ -446,6 +504,7 @@ def main():
     try:
         check_libraries(args.project_dir)
         print("Power library checks passed:")
+        print("- distinct power-footprint copper pad bounding boxes are separated")
         print("- 25 BQ25616J pins match the TI RTW pin table and exposed-pad map")
         print("- RTW signal lands and four-way stencil segmentation match TI drawing 4211120-3/D")
         print("- 8 TPS631000 pins and DRL lands match the current TI pin/package drawings")

@@ -2,7 +2,7 @@
 
 # Coupon Rev A power-library audit
 
-Status: controlled charger, both switched converters, USB-only logic, Type-C detector, fuel/current monitors and USB ESD libraries authored; native KiCad 10 render review and independent Gate A review pending; remaining power/input libraries are deliberately blocked or not yet transcribed
+Status: native export at `c84f8ce` completed, but visual/drawing review rejected the charger copper, converter stencil and four symbol headings. Corrections are authored; corrected native rendering and independent Gate A review remain pending. See the [finding record](../../../docs/development/power-library-review-c84f8ce.md). Remaining power/input libraries are deliberately blocked or not yet transcribed.
 
 ## Controlled parts
 
@@ -67,8 +67,9 @@ The `MAX17048G+T10` symbol maps `CTG`, `CELL`, `VDD`, `GND`, open-drain `ALRT`, 
 The RTW footprint copies TI land-pattern drawing 4211120-3/D:
 
 - 24 signal lands are 0.28 × 0.85 mm on 0.5 mm pitch, with the row centres at ±1.975 mm;
-- exposed-pad copper and mask are 3.1 × 3.1 mm and assigned to pin 25;
-- paste is four separate 1.1 × 1.1 mm apertures at `(±0.7, ±0.7)` mm, matching TI's example 66% area coverage;
+- exposed-pad copper and mask are 2.7 × 2.7 mm and assigned to pin 25. The drawing's 3.1 mm dimension is the opening between opposing signal lands, not the exposed land; the resulting copper clearance is 0.20 mm;
+- signal paste is reduced by 0.025 mm per edge to 0.23 × 0.80 mm, and signal mask margin is 0.07 mm. The project uses capsule-ended lands (0.14 mm radius); TI depicts rounded inner ends and square outer ends. This outer-end shape difference remains an explicit assembler/Gate A review item;
+- thermal paste is four separate 1.1 × 1.1 mm apertures at `(±0.7, ±0.7)` mm, approximately TI's example 66% area coverage (the project lightly rounds these aperture corners);
 - the package's optional nine 0.3 mm thermal vias are not embedded in the footprint. They belong in the PCB layout, where finished drill, annular ring and via fill/capping can be agreed with the assembler;
 - courtyard and pin-1 marking are project review geometry, not dimensions copied into the copper pattern.
 
@@ -84,7 +85,7 @@ The DSJ footprint copies package drawing 4208212-3/C, thermal-pad drawing 420854
 
 - pins 1–14 use 0.24 × 0.60 mm rounded lands on 0.50 mm pitch at `y = ±1.40` mm, with the example 0.07 mm solder-mask margin;
 - exposed-pad copper is a 2.85 × 1.58 mm centre rectangle plus eight same-net 0.775 × 0.20 mm board fingers. The fingers extend the example board copper to 4.40 mm and are centred at `x = ±1.8125` mm, `y = ±0.69, ±0.23` mm;
-- the thermal pad has no single full-area paste opening. The 0.125 mm stencil example is encoded as four 1.25 × 0.46 mm centre apertures and eight 0.85 × 0.20 mm side apertures, the geometry TI labels as 81% printed-area coverage;
+- the thermal pad has no single full-area paste opening. The 0.125 mm stencil example is encoded as four 1.25 × 0.66 mm centre rectangles at `(±0.725, ±0.46)` mm and eight 0.85 × 0.20 mm side rectangles. These twelve primitives meet edge-to-edge to form four compound apertures, not twelve separated openings. Their total 4.66 mm² area divided by the 5.743 mm² thermal-copper area is approximately 81.14%, consistent with TI's 81% example;
 - the drawing's optional 15-via example is not embedded. Via size, finished drill, fill and capping belong to PCB layout and assembler review.
 
 The T822+3 footprint copies Analog Devices/legacy Maxim land pattern 90-0065: eight 0.80 × 0.30 mm signal lands on 0.50 mm pitch, left/right row centres 1.98 mm apart, and a 0.70 × 1.38 mm exposed land. The package-code table in the MAX17048 datasheet maps the exact TDFN orderable part to `T822+3`, outline 21-0168 and this land pattern. Drawing 90-0065 controls copper but does not specify a reduced stencil aperture; the footprint's full-area exposed-pad paste is a documented provisional default that must be reviewed with the assembler before release.
@@ -98,7 +99,7 @@ No unverified footprint is allowed merely to make the power sheet look complete:
 
 ## Automated and native review
 
-`python3 tools/check-power-libraries.py` independently checks all nine exact MPN properties, all 97 logical pins, eight manufacturer land maps, the BQ and DSJ exposed copper/paste splits, the DQA ground-land distinction, the RWB side-pad paste reduction and pin-1 markers. `tools/check-kicad.sh` also requires KiCad 10 to load and export every controlled symbol and all three footprint views.
+`python3 tools/check-power-libraries.py` checks all nine exact MPN properties, all 97 logical pins, eight transcribed land maps, the BQ and DSJ exposed copper/paste splits, the DQA ground-land distinction, the RWB side-pad paste reduction and pin-1 markers. Dimension tables can repeat a transcription error: this happened at `c84f8ce`. A separate geometry guard now rejects touching/overlapping bounding boxes of distinct copper-pad numbers, independently of those tables. It is deliberately restricted to the current unrotated rectangular/rounded-rectangle power footprints and allows connected same-number thermal pieces; it is not PCB DRC. Additional checks constrain top-facing symbol headers, BQ paste/mask settings and DSJ nominal paste coverage. `tools/check-kicad.sh` also requires KiCad 10 to load and export every controlled symbol and all three footprint views.
 
 For the native render review, verify:
 
@@ -109,8 +110,8 @@ For the native render review, verify:
 - DBV/DDF pads count counter-clockwise from upper-left; both DBV parts reuse identical copper without sharing their pin names;
 - DQA pads 1–5 run down the left and 6–10 run up the right, with wider ground lands only at pins 3 and 8;
 - RWB pins count counter-clockwise from side pad 1; side lands are visibly longer than their paste apertures, while top/bottom lands include paste directly;
-- DSJ pins 1–7 run left-to-right across the top and 8–14 right-to-left across the bottom; copper shows a centre pad with four fingers per side, while paste shows twelve separated thermal apertures;
+- DSJ pins 1–7 run left-to-right across the top and 8–14 right-to-left across the bottom; copper shows a centre pad with four fingers per side, while paste shows four compound thermal apertures made from twelve rectangular primitives;
 - T822+3 pads 1–4 run down the left and 5–8 run up the right around the narrow exposed pad; full-area exposed-pad paste is visible and remains a documented DFM item;
-- no courtyard, body outline, value text or pin-1 marker touches a copper land.
+- distinct copper pads remain separated, silkscreen avoids lands, and symbol headings clear their pins. Fabrication outlines and fabrication-only text may overlay copper in combined review views; they are not printed silkscreen and must not be mistaken for copper shorts.
 
 A clean automated run is necessary but is not DRC, thermal analysis, USB compliance, assembler DFM, battery safety review or independent Gate A approval.

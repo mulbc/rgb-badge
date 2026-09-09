@@ -751,8 +751,8 @@
 
 	(symbol "BQ25616JRTWT"
 (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
-(property "Reference" "U" (at 0 20.32 0) (effects (font (size 1.27 1.27))))
-(property "Value" "BQ25616JRTWT" (at 0 17.78 0) (effects (font (size 1.27 1.27))))
+(property "Reference" "U" (at 0 24.13 0) (effects (font (size 1.27 1.27))))
+(property "Value" "BQ25616JRTWT" (at 0 21.59 0) (effects (font (size 1.27 1.27))))
 (property "Footprint" "rgb-badge-coupon:QFN_TI_RTW0024A_4x4mm_P0.5mm_EP2.7mm" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Datasheet" "https://www.ti.com/lit/ds/symlink/bq25616.pdf" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Manufacturer" "Texas Instruments" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
@@ -828,8 +828,8 @@
 
 	(symbol "SN74LVC1G04DBVR"
 (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
-(property "Reference" "U" (at 0 8.89 0) (effects (font (size 1.27 1.27))))
-(property "Value" "SN74LVC1G04DBVR" (at 0 6.35 0) (effects (font (size 1.27 1.27))))
+(property "Reference" "U" (at 0 12.70 0) (effects (font (size 1.27 1.27))))
+(property "Value" "SN74LVC1G04DBVR" (at 0 10.16 0) (effects (font (size 1.27 1.27))))
 (property "Footprint" "rgb-badge-coupon:SOT23_TI_DBV0005A" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Datasheet" "https://www.ti.com/lit/ds/symlink/sn74lvc1g04.pdf" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Manufacturer" "Texas Instruments" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
@@ -846,8 +846,8 @@
 
 	(symbol "INA232AIDDFR"
 (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
-(property "Reference" "U" (at 0 11.43 0) (effects (font (size 1.27 1.27))))
-(property "Value" "INA232AIDDFR" (at 0 8.89 0) (effects (font (size 1.27 1.27))))
+(property "Reference" "U" (at 0 15.24 0) (effects (font (size 1.27 1.27))))
+(property "Value" "INA232AIDDFR" (at 0 12.70 0) (effects (font (size 1.27 1.27))))
 (property "Footprint" "rgb-badge-coupon:SOT23_THIN_TI_DDF0008A" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Datasheet" "https://www.ti.com/lit/ds/symlink/ina232.pdf" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Manufacturer" "Texas Instruments" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
@@ -890,8 +890,8 @@
 
 	(symbol "TUSB320LAIRWBR"
 (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
-(property "Reference" "U" (at 0 16.51 0) (effects (font (size 1.27 1.27))))
-(property "Value" "TUSB320LAIRWBR" (at 0 13.97 0) (effects (font (size 1.27 1.27))))
+(property "Reference" "U" (at 0 20.32 0) (effects (font (size 1.27 1.27))))
+(property "Value" "TUSB320LAIRWBR" (at 0 17.78 0) (effects (font (size 1.27 1.27))))
 (property "Footprint" "rgb-badge-coupon:X2QFN_TI_RWB0012A_1.6x1.6mm_P0.4mm" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Datasheet" "https://www.ti.com/lit/ds/symlink/tusb320lai.pdf" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Manufacturer" "Texas Instruments" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))

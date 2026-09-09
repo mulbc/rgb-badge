@@ -2,7 +2,7 @@
 
 # Coupon Rev A
 
-Status: matrix, driver, complete row-stage and controller native reviews passed; controlled charger/converter/Type-C/gauge/input-support libraries authored; native power-library review, remaining power capture and independent Gate A verification pending; not safe to fabricate
+Status: matrix, driver, row-stage and controller staged electrical reviews passed; power-library review at `c84f8ce` found copper/stencil/heading defects, now corrected in source but awaiting native rerun. Existing row-page readability repair, remaining power capture and independent Gate A verification are pending; not safe to fabricate. See the [finding record](../../../docs/development/power-library-review-c84f8ce.md).
 
 ## Purpose
 
