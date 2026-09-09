@@ -227,7 +227,7 @@ def main():
         output.write_text('Stub only: not a PDF or KiCad render.\n')
         return 0
     elif args[:3] == ["sym", "export", "svg"]:
-        names = [n + "_unit1.svg" for n in ("EAST10105RGBA0", "QBLP1515A-RGB2A", "TLC59581RTQT", "ERJ-2RKF3922X", "ERJ-2RKF1003X", "GRM155R71C104KA88D", "PWR_FLAG", "TestPoint_Pad", "74HC4514PW,118", "DMP2066LSN-7", "2N7002K-7", "ERJ-2RKF1001X", "ESP32-S3-WROOM-1U-N16R8", "ERJ-2RKF1002X", "ERJ-2RKF22R0X", "ERJ-2RKF4990X", "GRM155C71A105KE11D", "GRM188R60J106ME47D", "EVQP7J01P", "BQ25616JRTWT", "TPS631000DRLR", "TLV75533PDBVR", "SN74LVC1G04DBVR", "INA232AIDDFR", "TPD4E05U06DQAR")]
+        names = [n + "_unit1.svg" for n in ("EAST10105RGBA0", "QBLP1515A-RGB2A", "TLC59581RTQT", "ERJ-2RKF3922X", "ERJ-2RKF1003X", "GRM155R71C104KA88D", "PWR_FLAG", "TestPoint_Pad", "74HC4514PW,118", "DMP2066LSN-7", "2N7002K-7", "ERJ-2RKF1001X", "ESP32-S3-WROOM-1U-N16R8", "ERJ-2RKF1002X", "ERJ-2RKF22R0X", "ERJ-2RKF4990X", "GRM155C71A105KE11D", "GRM188R60J106ME47D", "EVQP7J01P", "BQ25616JRTWT", "TPS631000DRLR", "TLV75533PDBVR", "SN74LVC1G04DBVR", "INA232AIDDFR", "TPD4E05U06DQAR", "TUSB320LAIRWBR")]
     elif args[:3] == ["fp", "export", "svg"]:
         layers = args[args.index("--layers") + 1]
         if output.name == "fabrication":
@@ -241,7 +241,7 @@ def main():
         else:
             raise AssertionError(f"Unexpected footprint export destination: {output}")
         stage = output.name
-        names = [n + ".svg" for n in ("LED_Everlight_EAST10105RGBA0", "LED_QTBrightek_QBLP1515A-RGB2A", "QFN_TI_RTQ0056E_8x8mm_P0.5mm_EP5.7mm", "R_Panasonic_ERJ2_0402", "C_Murata_GRM15_0402", "TestPoint_Pad_D1.0mm", "TSSOP_Nexperia_SOT355-1_24", "SC59_Diodes_DMP2066LSN", "SOT23_Diodes_2N7002K", "ESP32-S3-WROOM-1U", "C_Murata_GRM18_0603", "SW_Panasonic_EVQP7J01P", "QFN_TI_RTW0024A_4x4mm_P0.5mm_EP2.7mm", "SOT5X3_TI_DRL0008A", "SOT23_TI_DBV0005A", "SOT23_THIN_TI_DDF0008A", "USON_TI_DQA0010A")]
+        names = [n + ".svg" for n in ("LED_Everlight_EAST10105RGBA0", "LED_QTBrightek_QBLP1515A-RGB2A", "QFN_TI_RTQ0056E_8x8mm_P0.5mm_EP5.7mm", "R_Panasonic_ERJ2_0402", "C_Murata_GRM15_0402", "TestPoint_Pad_D1.0mm", "TSSOP_Nexperia_SOT355-1_24", "SC59_Diodes_DMP2066LSN", "SOT23_Diodes_2N7002K", "ESP32-S3-WROOM-1U", "C_Murata_GRM18_0603", "SW_Panasonic_EVQP7J01P", "QFN_TI_RTW0024A_4x4mm_P0.5mm_EP2.7mm", "SOT5X3_TI_DRL0008A", "SOT23_TI_DBV0005A", "SOT23_THIN_TI_DDF0008A", "USON_TI_DQA0010A", "X2QFN_TI_RWB0012A_1.6x1.6mm_P0.4mm")]
     elif args[:2] == ["sch", "erc"]:
         assert "--severity-all" in args and "--exit-code-violations" not in args
         if os.environ.get("RGB_BADGE_TEST_FAIL") == stage:

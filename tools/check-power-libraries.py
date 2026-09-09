@@ -90,6 +90,18 @@ PARTS = {
             9: ("NC", "passive"), 10: ("NC", "passive"),
         },
     },
+    "TUSB320LAIRWBR": {
+        "footprint": "X2QFN_TI_RWB0012A_1.6x1.6mm_P0.4mm",
+        "datasheet": "https://www.ti.com/lit/ds/symlink/tusb320lai.pdf",
+        "pins": {
+            1: ("CC1", "bidirectional"), 2: ("CC2", "bidirectional"),
+            3: ("PORT", "input"), 4: ("VBUS_DET", "input"),
+            5: ("ADDR", "input"), 6: ("INT_N/OUT3", "open_collector"),
+            7: ("SDA/OUT1", "bidirectional"), 8: ("SCL/OUT2", "bidirectional"),
+            9: ("ID", "open_collector"), 10: ("GND", "power_in"),
+            11: ("EN_N", "input"), 12: ("VDD", "power_in"),
+        },
+    },
 }
 
 
@@ -152,6 +164,8 @@ def check_symbol_libraries(project):
             "BQ25616J CE must show active-low inversion")
     require(library_pins(symbols["SN74LVC1G04DBVR"])["4"][2] == "inverted",
             "SN74LVC1G04 output must show inversion")
+    require(library_pins(symbols["TUSB320LAIRWBR"])["11"][2] == "inverted",
+            "TUSB320LAI EN_N must show active-low inversion")
     return symbols
 
 
@@ -268,11 +282,48 @@ def check_phase_two_footprints(project):
             (D("-0.95"), D("-1.35")), "DQA0010A pin-1 marker mismatch")
 
 
+def check_rwb_footprint(project):
+    root = footprint(project, "X2QFN_TI_RWB0012A_1.6x1.6mm_P0.4mm")
+    pads = children(root, "pad")
+    numbered = {pad[1]: pad for pad in pads if pad[1]}
+    require(set(numbered) == set(map(str, range(1, 13))), "RWB0012A pad numbers mismatch")
+    positions = {
+        "1": ("-0.65", "-0.20"), "2": ("-0.65", "0.20"),
+        "3": ("-0.60", "0.75"), "4": ("-0.20", "0.75"),
+        "5": ("0.20", "0.75"), "6": ("0.60", "0.75"),
+        "7": ("0.65", "0.20"), "8": ("0.65", "-0.20"),
+        "9": ("0.60", "-0.75"), "10": ("0.20", "-0.75"),
+        "11": ("-0.20", "-0.75"), "12": ("-0.60", "-0.75"),
+    }
+    side_numbers = {"1", "2", "7", "8"}
+    for number, position in positions.items():
+        pad = numbered[number]
+        require(pad_position(pad) == dec(position), f"RWB0012A pad {number} position mismatch")
+        size = (D("0.70"), D("0.20")) if number in side_numbers else (D("0.20"), D("0.50"))
+        require(pad_size(pad) == size, f"RWB0012A pad {number} size mismatch")
+        layers = ["F.Cu", "F.Mask"] if number in side_numbers else ["F.Cu", "F.Paste", "F.Mask"]
+        require(pad_layers(pad) == layers, f"RWB0012A pad {number} layer mismatch")
+    paste = [pad for pad in pads if not pad[1]]
+    require(len(paste) == 4, "RWB0012A side stencil aperture count mismatch")
+    require({pad_position(pad) for pad in paste} == {
+        (D("-0.65"), D("-0.20")), (D("-0.65"), D("0.20")),
+        (D("0.65"), D("0.20")), (D("0.65"), D("-0.20")),
+    }, "RWB0012A side stencil aperture positions mismatch")
+    require(all(pad_size(pad) == (D("0.67"), D("0.20")) for pad in paste),
+            "RWB0012A side stencil aperture size mismatch")
+    require(all(pad_layers(pad) == ["F.Paste"] for pad in paste),
+            "RWB0012A side stencil aperture layers mismatch")
+    marker = one(root, "fp_circle", "RWB0012A pin-1 marker")
+    require(dec(one(marker, "center", "RWB0012A pin-1 marker")[1:]) ==
+            (D("-1.25"), D("-0.75")), "RWB0012A pin-1 marker mismatch")
+
+
 def check_libraries(project=PROJECT):
     symbols = check_symbol_libraries(project)
     check_rtw_footprint(project)
     check_drl_footprint(project)
     check_phase_two_footprints(project)
+    check_rwb_footprint(project)
     return symbols
 
 
@@ -287,7 +338,8 @@ def main():
         print("- RTW signal lands and four-way stencil segmentation match TI drawing 4211120-3/D")
         print("- 8 TPS631000 pins and DRL lands match the current TI pin/package drawings")
         print("- DBV, DDF and base-suffix DQA0010A land patterns match current TI drawings")
-        print("- blocked USB-C, tiny X2QFN, LED-rail and fuel-gauge footprints were not guessed")
+        print("- 12 TUSB320LAI pins and asymmetric RWB X2QFN copper/stencil maps match TI drawings")
+        print("- blocked USB-C, LED-rail and fuel-gauge footprints were not guessed")
     except (OSError, ValueError, KeyError, IndexError) as error:
         print(f"Power library check failed: {error}", file=sys.stderr)
         return 1

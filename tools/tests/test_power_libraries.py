@@ -71,6 +71,26 @@ class PowerLibraryTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "pin name mismatch"):
             CHECK["check_libraries"](project)
 
+    def test_type_c_detector_side_stencil_change_is_rejected(self):
+        project = self.project_copy()
+        path = project / "footprints" / "rgb-badge-coupon.pretty" / \
+            "X2QFN_TI_RWB0012A_1.6x1.6mm_P0.4mm.kicad_mod"
+        text = path.read_text(encoding="utf-8").replace(
+            '(pad "" smd roundrect (at -0.65 -0.20) (size 0.67 0.20)',
+            '(pad "" smd roundrect (at -0.65 -0.20) (size 0.70 0.20)', 1)
+        path.write_text(text, encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "side stencil aperture size mismatch"):
+            CHECK["check_libraries"](project)
+
+    def test_type_c_detector_pin_swap_is_rejected(self):
+        project = self.project_copy()
+        path = project / "symbols" / "rgb-badge-coupon.kicad_sym"
+        text = path.read_text(encoding="utf-8").replace(
+            '(name "CC1" (effects', '(name "BAD" (effects', 1)
+        path.write_text(text, encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "pin name mismatch"):
+            CHECK["check_libraries"](project)
+
 
 if __name__ == "__main__":
     unittest.main()

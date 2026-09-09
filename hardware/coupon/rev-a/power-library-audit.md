@@ -2,7 +2,7 @@
 
 # Coupon Rev A power-library audit
 
-Status: first controlled charger, application-rail, USB-only logic, current-monitor and USB ESD libraries authored; native KiCad 10 render review and independent Gate A review pending; remaining power/input libraries are deliberately blocked or not yet transcribed
+Status: controlled charger, application-rail, USB-only logic, Type-C detector, current-monitor and USB ESD libraries authored; native KiCad 10 render review and independent Gate A review pending; remaining power/input libraries are deliberately blocked or not yet transcribed
 
 ## Controlled parts
 
@@ -14,6 +14,7 @@ Status: first controlled charger, application-rail, USB-only logic, current-moni
 | USB-current-state inverter | `SN74LVC1G04DBVR` | TI DBV0005A SOT-23-5 / `SOT23_TI_DBV0005A` | [TI SN74LVC1G04 datasheet](https://www.ti.com/lit/ds/symlink/sn74lvc1g04.pdf), SCES214AF, revised 2025-10 |
 | Battery-current monitor | `INA232AIDDFR` | TI DDF0008A SOT-23-THIN-8 / `SOT23_THIN_TI_DDF0008A` | [TI INA232 datasheet](https://www.ti.com/lit/ds/symlink/ina232.pdf), SBOSAA2, 2022-12 |
 | Four-line USB data/CC ESD | `TPD4E05U06DQAR` | TI DQA0010A USON-10 / `USON_TI_DQA0010A` | [TI TPDxE05U06 datasheet](https://www.ti.com/lit/ds/symlink/tpd4e05u06.pdf), SLVSBO7O, revised 2024-08 |
+| USB-C sink/current-state detector | `TUSB320LAIRWBR` | TI RWB0012A X2QFN-12, 1.6 × 1.6 mm, 0.4 mm pitch / `X2QFN_TI_RWB0012A_1.6x1.6mm_P0.4mm` | [TI TUSB320LAI datasheet](https://www.ti.com/lit/ds/symlink/tusb320lai.pdf), SLLSEQ8D, revised 2017-05; [TI RWB package drawing](https://www.ti.com/lit/pdf/MPQF391C) |
 
 The manufacturer PDFs downloaded for this transcription hashed as follows. A changed upstream file requires a fresh comparison rather than a blind hash update.
 
@@ -25,6 +26,8 @@ The manufacturer PDFs downloaded for this transcription hashed as follows. A cha
 | `sn74lvc1g04.pdf` | `ac04a53de979125799e57ea5a6dff4138fe53e0eceebe45c31f57523669887d5` |
 | `ina232.pdf` | `681ab74ffec4b3b19e30363ca9be52adc75fad089d3ddad59204ebfd52574153` |
 | `tpd4e05u06.pdf` | `c167cf1e72a5473a4d2c59b6a3c0251498701da05b7785919b9ceaae3b3e02c6` |
+| `tusb320lai.pdf` | `62f7b3f65338e25ebd6fd46ef04474ba806b06b1cc04bc0b3d7b8191b01ca87d` |
+| `MPQF391C.pdf` (RWB0012A package drawing) | `694ae75d453a97dffa48fa077e392c728dd668f625f1a7112b03b618e4017633` |
 
 These are candidate BOM lines, not procurement or fabrication approval. Production lots must use the exact MPN through an authorized distributor or traceable PCBA supply chain. Marketplace listings may be used only for replaceable development samples and must not silently substitute a package or suffix.
 
@@ -47,6 +50,8 @@ The `TPS631000DRLR` symbol maps pins 1–8 to `VOUT`, `LX2`, `LX1`, `VIN`, `EN`,
 
 The DBV symbols do not pretend their shared five-pin package has a shared function: `TLV75533PDBVR` maps `IN`, `GND`, `EN`, `NC`, `OUT`, while `SN74LVC1G04DBVR` maps `NC`, `A`, `GND`, inverted `Y`, `VCC`. `INA232AIDDFR` preserves `IN+`, `IN-`, `GND`, `VS`, `SCL`, `SDA`, `A0`, open-drain `ALERT`. `TPD4E05U06DQAR` preserves the datasheet's `D1+`, `D1-`, `GND`, `D2+`, `D2-`, four `NC` pins and second `GND`; unused ESD pins remain explicit so a later layout cannot mistake them for protected channels.
 
+The `TUSB320LAIRWBR` symbol maps `CC1`, `CC2`, tri-level `PORT`, `VBUS_DET`, tri-level `ADDR`, `INT_N/OUT3`, `SDA/OUT1`, `SCL/OUT2`, `ID`, `GND`, active-low `EN_N` and `VDD` in manufacturer pin order. The dual-use GPIO/I²C signals remain bidirectional in the symbol; `INT_N/OUT3` and `ID` are open-collector outputs, and `EN_N` carries an inversion bubble. These ERC types describe all supported modes and do not select the later circuit configuration.
+
 ## Land-pattern transcription
 
 The RTW footprint copies TI land-pattern drawing 4211120-3/D:
@@ -63,19 +68,20 @@ The shared DBV footprint copies TI drawing 4214839/K: five 1.10 × 0.60 mm lands
 
 The ESD footprint is specifically the base-suffix DQA0010A drawing 4220328/A used by `TPD4E05U06DQAR`, not the later `.B` orderable variant and its DQA0010B via-in-pad geometry. It uses ten 0.565 mm long lands at ±0.4175 mm row centres; signal/NC lands are 0.20 mm wide and ground pads 3/8 are 0.40 mm wide. Substituting a `.B`-suffixed device requires a new footprint and written review.
 
+The RWB footprint copies TI RWB0012A drawing 4221631/B. Pins 1/2 and 7/8 use 0.70 × 0.20 mm side lands centred at `(±0.65, ±0.20)` mm; their paste-only apertures are separately encoded at 0.67 × 0.20 mm. Pins 3–6 and 9–12 use 0.20 × 0.50 mm lands on 0.40 mm pitch, centred at `y = ±0.75` mm with `x = ±0.60, ±0.20` mm. This asymmetry is intentional; the footprint is not a generic 12-pad QFN approximation.
+
 ## Intentionally unresolved libraries
 
 No unverified footprint is allowed merely to make the power sheet look complete:
 
 - `USB4505-03-0-A`: GCT confirms the active 16-contact mid-mount product, but the exact downloadable PCB drawing was not retrievable in this environment. Connector shell stakes and contact numbering remain blocked on that controlled drawing.
 - `MAX17048G+T10`: the electrical datasheet refers to separate Maxim drawings `21-0168` and `90-0065`; the exact land-pattern document must be obtained before authoring its TDFN footprint.
-- `TUSB320LAIRWBR`: its tiny RWB X2QFN drawing is available, but the corner-land geometry and solder-mask clearances need their own focused transcription/review rather than a rectangular approximation.
 - `TPS63020DSJT`: its DSJ exposed pad has side features, segmented stencil geometry and a thermal-via example. It remains a separate focused transcription.
 - The latching slide switch, remaining converter/charger passives, battery connector and NTC network remain for the next library/capture increments. The switch and battery connector cannot be frozen before exact mechanical parts are selected.
 
 ## Automated and native review
 
-`python3 tools/check-power-libraries.py` independently checks all six exact MPN properties, all 61 logical pins, five manufacturer land maps, the BQ exposed copper/paste split, the DQA ground-land distinction and pin-1 markers. `tools/check-kicad.sh` also requires KiCad 10 to load and export every controlled symbol and all three footprint views.
+`python3 tools/check-power-libraries.py` independently checks all seven exact MPN properties, all 73 logical pins, six manufacturer land maps, the BQ exposed copper/paste split, the DQA ground-land distinction, the RWB side-pad paste reduction and pin-1 markers. `tools/check-kicad.sh` also requires KiCad 10 to load and export every controlled symbol and all three footprint views.
 
 For the native render review, verify:
 
@@ -85,6 +91,7 @@ For the native render review, verify:
 - TPS631000 pad 1 is upper-left, pins 1–4 run down the left, and pins 5–8 run up the right;
 - DBV/DDF pads count counter-clockwise from upper-left; both DBV parts reuse identical copper without sharing their pin names;
 - DQA pads 1–5 run down the left and 6–10 run up the right, with wider ground lands only at pins 3 and 8;
+- RWB pins count counter-clockwise from side pad 1; side lands are visibly longer than their paste apertures, while top/bottom lands include paste directly;
 - no courtyard, body outline, value text or pin-1 marker touches a copper land.
 
 A clean automated run is necessary but is not DRC, thermal analysis, USB compliance, assembler DFM, battery safety review or independent Gate A approval.
