@@ -19,7 +19,7 @@ On first opening the project, do not accept a migration to a newer KiCad major r
 
 ## Initial blank-project GUI round-trip (completed history)
 
-This check was completed on the original blank project. The current draft contains a root and six child sheets; use the validation command and [row-capture review steps](../../hardware/coupon/rev-a/row-capture.md#macos-validation) for the current circuit.
+This check was completed on the original blank project. The current draft contains a root and six child sheets; its row-capture run passed and is recorded in the [native evidence record](row-capture-review-eb4129b.md). Use the validation command again after the next schematic increment.
 
 1. Open `rgb-badge-coupon.kicad_pro` from the command above.
 2. Open the Schematic Editor from the project manager.
@@ -72,4 +72,4 @@ Compare with the [LED audit](../../hardware/coupon/rev-a/footprints/led-audit.md
 
 Driver exports add the TLC59581, R1/C1 and virtual power-flag symbols plus three footprints. The `footprints/paste/` view reveals the 16 thermal-pad paste apertures; inspect it together with the copper and fabrication views.
 
-Row-library exports add the `74HC4514PW,118`, `DMP2066LSN-7`, `2N7002K-7` and `ERJ-2RKF1001X` symbols plus TSSOP24, SC-59 and SOT23 footprints. Their first-author library render already passed. Follow the [row-capture checklist](../../hardware/coupon/rev-a/row-capture.md#macos-validation) for page 7; a clean capture review still does not authorize fabrication.
+Row-library exports add the `74HC4514PW,118`, `DMP2066LSN-7`, `2N7002K-7` and `ERJ-2RKF1001X` symbols plus TSSOP24, SC-59 and SOT23 footprints. Their first-author library render and the complete row-capture review have passed. Neither result authorizes fabrication.

@@ -2,7 +2,7 @@
 
 # Coupon Rev A row-selector capture
 
-Status: source capture and independent connectivity checks pass; native KiCad 10.0.6 ERC/XML/PDF review pending; not a fabrication release
+Status: native KiCad 10.0.6 ERC, complete exported connectivity and seven-page drawing review passed at `eb4129b`; not a fabrication release
 
 ## Scope
 
@@ -64,7 +64,15 @@ The `DMP2066LSN-7` has characterized low-voltage P-channel drive, but the `2N700
 
 Thirty-seven regression tests pass, including injected decoder-output swaps, row-drain swaps, a missing pull-up, an enable pull-up moved to ground, duplicate pins, source-label changes, wrong values and missing hierarchy. `generate-coupon-rows.py` deterministically reproduces the initial row sheet only into a new directory; the canonical KiCad source remains editable and must never be overwritten by regeneration.
 
-Source validation is not native KiCad parsing, ERC, DRC, simulation, drawing review, assembler DFM or measurement. The next required evidence is an owner KiCad 10.0.6 run.
+Source validation is not native KiCad parsing, ERC, DRC, simulation, assembler DFM or measurement. The owner KiCad 10.0.6 run at `eb4129b` passed ERC, complete native connectivity and seven-page visual review. The [native evidence record](../../../docs/development/row-capture-review-eb4129b.md) preserves hashes, findings and limits.
+
+## Native acceptance at `eb4129b`
+
+The owner run on macOS arm64 exported every controlled symbol and footprint, reported zero ERC violations, and produced a complete native XML result with exactly 335 PCB items and 1,290 physical pins. The uploaded XML independently re-passed `check-coupon-rows.py --netlist`.
+
+All seven PDF pages were rendered and inspected. Page 7 contains the decoder, decoupling and five control defaults plus all sixteen stages in the expected reference/net sequence. P-MOSFET sources, drains and gates; 1 kOhm gate pull-ups; N-MOSFET sources, drains and gates; and 100 kOhm pull-downs are readable and match the checked electrical contract. No drawing collision makes a required connection ambiguous. See the evidence record for archive/file hashes and the exact review boundary.
+
+This acceptance changes documentation only and does not alter the checked KiCad source. It closes the first-author native row-capture gate, not Gate A, DFM, layout or bench qualification.
 
 ## macOS validation
 
