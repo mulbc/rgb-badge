@@ -91,6 +91,37 @@ class PowerLibraryTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "pin name mismatch"):
             CHECK["check_libraries"](project)
 
+    def test_led_converter_thermal_finger_change_is_rejected(self):
+        project = self.project_copy()
+        path = project / "footprints" / "rgb-badge-coupon.pretty" / \
+            "VSON_TI_DSJ0014_4x3mm_P0.5mm_EP2.85x1.58mm.kicad_mod"
+        text = path.read_text(encoding="utf-8").replace(
+            '(at -1.8125 -0.69) (size 0.775 0.20)',
+            '(at -1.8125 -0.69) (size 0.700 0.20)', 1)
+        path.write_text(text, encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "thermal-finger size mismatch"):
+            CHECK["check_libraries"](project)
+
+    def test_led_converter_stencil_change_is_rejected(self):
+        project = self.project_copy()
+        path = project / "footprints" / "rgb-badge-coupon.pretty" / \
+            "VSON_TI_DSJ0014_4x3mm_P0.5mm_EP2.85x1.58mm.kicad_mod"
+        text = path.read_text(encoding="utf-8").replace(
+            '(at -0.725 -0.33) (size 1.25 0.46)',
+            '(at -0.725 -0.30) (size 1.25 0.46)', 1)
+        path.write_text(text, encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "central stencil positions mismatch"):
+            CHECK["check_libraries"](project)
+
+    def test_led_converter_pin_swap_is_rejected(self):
+        project = self.project_copy()
+        path = project / "symbols" / "rgb-badge-coupon.kicad_sym"
+        text = path.read_text(encoding="utf-8").replace(
+            '(name "VINA" (effects', '(name "BAD" (effects', 1)
+        path.write_text(text, encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "pin name mismatch"):
+            CHECK["check_libraries"](project)
+
 
 if __name__ == "__main__":
     unittest.main()
