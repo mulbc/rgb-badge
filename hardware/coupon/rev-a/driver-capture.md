@@ -203,4 +203,4 @@ Upload the ZIP and terminal output. The output directory must be new. Despite it
 
 ## Next increment
 
-After native driver review, capture the row decoder, level-shifted MOSFET stages and hardware inhibit/default-off behavior. Then capture the controller and power circuits, replace draft supply assumptions, and complete the timing/current/thermal and Gate A checks before fabrication.
+The row decoder and all level-shifted MOSFET stages are now in the separate [row-capture increment](row-capture.md). After its native review, capture the controller and power circuits, replace draft supply assumptions, and complete the timing/current/thermal and Gate A checks before fabrication.

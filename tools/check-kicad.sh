@@ -15,6 +15,7 @@ numbered_review="${repo_root}/tools/number-footprint-review.py"
 matrix_check="${repo_root}/tools/check-coupon-matrix.py"
 driver_check="${repo_root}/tools/check-coupon-driver.py"
 row_library_check="${repo_root}/tools/check-row-libraries.py"
+row_capture_check="${repo_root}/tools/check-coupon-rows.py"
 
 if [[ -n "${RGB_BADGE_KICAD_CLI:-}" ]]; then
     kicad_cli="${RGB_BADGE_KICAD_CLI}"
@@ -38,7 +39,8 @@ for required_path in \
     "${numbered_review}" \
     "${matrix_check}" \
     "${driver_check}" \
-    "${row_library_check}"
+    "${row_library_check}" \
+    "${row_capture_check}"
 do
     if [[ ! -e "${required_path}" ]]; then
         echo "Required project path is missing: ${required_path}" >&2
@@ -50,6 +52,7 @@ python3 "${led_library_check}"
 python3 "${matrix_check}"
 python3 "${driver_check}"
 python3 "${row_library_check}"
+python3 "${row_capture_check}"
 
 kicad_version="$("${kicad_cli}" version)"
 
@@ -172,8 +175,7 @@ done
     --format kicadxml \
     --output "${check_tmp_dir}/coupon-matrix.xml" \
     "${schematic_file}"
-python3 "${matrix_check}" --netlist "${check_tmp_dir}/coupon-matrix.xml"
-python3 "${driver_check}" --netlist "${check_tmp_dir}/coupon-matrix.xml"
+python3 "${row_capture_check}" --netlist "${check_tmp_dir}/coupon-matrix.xml"
 
 "${kicad_cli}" sch export pdf \
     --black-and-white \
@@ -184,8 +186,8 @@ if [[ ! -s "${check_tmp_dir}/coupon-schematic.pdf" ]]; then
     exit 1
 fi
 
-echo "KiCad ${kicad_version}: row libraries exported; complete matrix/driver connectivity and Coupon Rev A ERC passed."
-echo "Matrix/driver draft: row libraries are audited but row stages, controller and power source remain uncaptured; supply flags are draft boundary assumptions."
+echo "KiCad ${kicad_version}: libraries exported; complete matrix/driver/row connectivity and Coupon Rev A ERC passed."
+echo "Matrix/driver/row draft: controller and power source remain uncaptured; supply flags are draft boundary assumptions."
 if [[ "${keep_check_output}" == yes ]]; then
     echo "Review SVG/PDF output and netlist in: ${check_tmp_dir}"
 fi

@@ -4,7 +4,7 @@
 (generator_version "1.0")
 (uuid "aff93dce-6a65-55dc-952d-ab3c58419abf")
 (paper "A2")
-(title_block (title "Rows 00-07, columns 08-15 - QBLP1515A-RGB2A") (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "Matrix only: driver, row stages and power circuits pending"))
+(title_block (title "Rows 00-07, columns 08-15 - QBLP1515A-RGB2A") (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "Driver/rows captured; controller and power pending"))
 (lib_symbols
 	(symbol "rgb-badge-coupon:QBLP1515A-RGB2A"
 		(pin_names
