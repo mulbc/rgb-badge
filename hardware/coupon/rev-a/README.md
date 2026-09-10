@@ -2,7 +2,7 @@
 
 # Coupon Rev A
 
-Status: matrix, driver, row-stage and controller staged electrical reviews passed; power-library copper/stencil/heading corrections passed native review at `3638b1d`. The row-page readability repair is authored and awaits native verification; remaining power capture and independent Gate A verification are pending; not safe to fabricate. See the [finding record](../../../docs/development/power-library-review-c84f8ce.md).
+Status: matrix, driver, row-stage and controller staged electrical reviews passed; power-library copper/stencil/heading corrections passed native review at `3638b1d`. The row-page readability repair passed [native review at `91ef697`](../../../docs/development/layout-review-91ef697.md); remaining power capture and independent Gate A verification are pending; not safe to fabricate. See the [finding record](../../../docs/development/power-library-review-c84f8ce.md).
 
 ## Purpose
 

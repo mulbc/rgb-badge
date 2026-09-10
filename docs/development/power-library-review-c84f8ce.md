@@ -4,7 +4,7 @@
 
 Disposition: **rejected pending corrections and a new native export**. The owner's KiCad run completed correctly; the design errors described below are first-author transcription/review errors, not an owner setup problem. PR #8 remains draft and is not eligible to merge or fabricate.
 
-Follow-up: corrections to findings 1–3 passed native review at `3638b1d`; see the [correction record](power-library-review-3638b1d.md). Finding 4 is repaired in source but awaits native confirmation. The disposition above records the original run.
+Follow-up: corrections to findings 1–3 passed native review at `3638b1d`; see the [correction record](power-library-review-3638b1d.md). Finding 4 passed [native confirmation at `91ef697`](layout-review-91ef697.md). The disposition above records the original run.
 
 ## Evidence
 

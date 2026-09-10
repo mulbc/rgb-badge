@@ -4,6 +4,8 @@
 
 Status: first-author native review of the copper, stencil and symbol-heading corrections passed. This closes findings 1–3 in the [previous review](power-library-review-c84f8ce.md). It does not close the complete power/input increment or authorize fabrication.
 
+Follow-up: the [native layout review at `91ef697`](layout-review-91ef697.md) passed and closes the follow-on row placement/annotation finding described below.
+
 ## Native evidence
 
 The owner supplied the KiCad 10.0.6 output for commit `3638b1d577c5aa740ee0b76a829a8e4140f898ef`. The transcript ends after the successful wrapper result, with no reported tracked changes. AppleDouble metadata was ignored.
