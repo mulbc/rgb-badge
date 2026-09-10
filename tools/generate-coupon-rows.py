@@ -150,7 +150,7 @@ def generate():
     lines = [
         '(kicad_sch', '(version 20260306)', '(generator "rgb_badge_rows")', '(generator_version "1.0")',
         f'(uuid {quote(FILE_UUID)})', '(paper "A2")',
-        '(title_block (title "Coupon Rev A - 16 row selectors") (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "Draft boundary: controller and VLED source pending"))',
+        '(title_block (title "Coupon Rev A - 16 row selectors") (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "Controller captured; VLED source and interlock pending"))',
         '(lib_symbols\n' + '\n'.join(cached_symbol(name) for name in used_symbols) + '\n)',
         note('16 decoded high-side row selectors', 20.32, 20.32, 'title', 2.0),
         note('E=HIGH blanks every decoder output. Firmware must blank, change A0..A3, wait, then enable.', 20.32, 27.94, 'timing'),
@@ -192,11 +192,12 @@ def generate():
 
     for index in range(16):
         x = 55.88 + (index % 4) * 134.62
-        y = 121.92 + (index // 4) * 71.12
+        # Keep the final stage below y=358 mm, clear of the A2 title block.
+        y = 121.92 + (index // 4) * 63.50
         lines += stage(index, x, y)
     lines += [
         note('One selected row: about 3.9 mA in its 1 kΩ gate pull-up at provisional 3.9 V VLED; value is calculated, not measured.', 20.32, 396.24, 'current-note', 1.016),
-        note('Never fabricate from this sheet alone. Controller, real rails, DRC/DFM, Gate A and coupon timing/ghosting tests remain.', 20.32, 403.86, 'release-note', 1.016),
+        note('Never fabricate from this sheet alone. Real rails, VLED interlock, DRC/DFM, Gate A and timing/ghosting tests remain.', 20.32, 403.86, 'release-note', 1.016),
         '(embedded_fonts no)', ')',
     ]
     return '\n'.join(lines) + '\n'

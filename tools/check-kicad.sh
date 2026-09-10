@@ -18,6 +18,8 @@ row_library_check="${repo_root}/tools/check-row-libraries.py"
 row_capture_check="${repo_root}/tools/check-coupon-rows.py"
 controller_library_check="${repo_root}/tools/check-controller-libraries.py"
 controller_capture_check="${repo_root}/tools/check-coupon-controller.py"
+power_design_check="${repo_root}/tools/check-power-design.py"
+power_library_check="${repo_root}/tools/check-power-libraries.py"
 
 if [[ -n "${RGB_BADGE_KICAD_CLI:-}" ]]; then
     kicad_cli="${RGB_BADGE_KICAD_CLI}"
@@ -44,7 +46,9 @@ for required_path in \
     "${row_library_check}" \
     "${row_capture_check}" \
     "${controller_library_check}" \
-    "${controller_capture_check}"
+    "${controller_capture_check}" \
+    "${power_design_check}" \
+    "${power_library_check}"
 do
     if [[ ! -e "${required_path}" ]]; then
         echo "Required project path is missing: ${required_path}" >&2
@@ -59,6 +63,8 @@ python3 "${row_library_check}"
 python3 "${row_capture_check}"
 python3 "${controller_library_check}"
 python3 "${controller_capture_check}"
+python3 "${power_design_check}"
+python3 "${power_library_check}"
 
 kicad_version="$("${kicad_cli}" version)"
 
@@ -133,11 +139,20 @@ do
     fi
 done
 
-for symbol_name in TLC59581RTQT ERJ-2RKF3922X ERJ-2RKF1003X GRM155R71C104KA88D PWR_FLAG TestPoint_Pad '74HC4514PW,118' DMP2066LSN-7 2N7002K-7 ERJ-2RKF1001X ESP32-S3-WROOM-1U-N16R8 ERJ-2RKF1002X ERJ-2RKF22R0X ERJ-2RKF4990X GRM155C71A105KE11D GRM188R60J106ME47D EVQP7J01P; do
+for symbol_name in TLC59581RTQT ERJ-2RKF3922X ERJ-2RKF1003X GRM155R71C104KA88D PWR_FLAG TestPoint_Pad '74HC4514PW,118' DMP2066LSN-7 2N7002K-7 ERJ-2RKF1001X ESP32-S3-WROOM-1U-N16R8 ERJ-2RKF1002X ERJ-2RKF22R0X ERJ-2RKF4990X GRM155C71A105KE11D GRM188R60J106ME47D EVQP7J01P BQ25616JRTWT TPS631000DRLR TLV75533PDBVR SN74LVC1G04DBVR INA232AIDDFR TPD4E05U06DQAR TUSB320LAIRWBR TPS63020DSJT 'MAX17048G+T10'; do
     if [[ ! -s "${symbol_svg_dir}/${symbol_name}_unit1.svg" ]]; then
         echo "Expected non-empty controlled symbol SVG: ${symbol_name}" >&2
         exit 1
     fi
+done
+
+for footprint_name in QFN_TI_RTW0024A_4x4mm_P0.5mm_EP2.7mm SOT5X3_TI_DRL0008A SOT23_TI_DBV0005A SOT23_THIN_TI_DDF0008A USON_TI_DQA0010A X2QFN_TI_RWB0012A_1.6x1.6mm_P0.4mm VSON_TI_DSJ0014_4x3mm_P0.5mm_EP2.85x1.58mm TDFN_Maxim_T822-3_2x2mm_P0.5mm_EP0.7x1.38mm; do
+    for view_dir in "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_paste_dir}"; do
+        if [[ ! -s "${view_dir}/${footprint_name}.svg" ]]; then
+            echo "Expected non-empty controlled power footprint SVG: ${view_dir}/${footprint_name}.svg" >&2
+            exit 1
+        fi
+    done
 done
 
 for footprint_name in ESP32-S3-WROOM-1U C_Murata_GRM18_0603 SW_Panasonic_EVQP7J01P; do

@@ -46,7 +46,7 @@ RGB_BADGE_KICAD_CHECK_OUTPUT=hardware/coupon/rev-a/build/led-library-review ./to
 open hardware/coupon/rev-a/build/led-library-review
 ```
 
-The `build` directory is ignored by Git. The current check requires 19 controlled-symbol SVGs and 12 footprint SVGs in each raw view, then creates two derived numbered LED review copies:
+The `build` directory is ignored by Git. With the staged power libraries, the current check requires 28 controlled-symbol SVGs and 20 footprint SVGs in each raw view, then creates two derived numbered LED review copies:
 
 | Output folder | What to look for |
 |---|---|

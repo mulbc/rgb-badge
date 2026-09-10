@@ -4,7 +4,7 @@
 
 Status: agreed design baseline and staged execution plan
 Date: 2026-09-05
-Project phase: matrix, driver, row-stage and controller native reviews passed; power capture and layout remain
+Project phase: matrix, driver, row-stage and controller native reviews passed; power pre-capture arithmetic recorded; controlled charger/converter/Type-C/gauge/input-support libraries authored; their native review, connector/control selection, power capture and layout remain
 
 ## 1. Outcome
 
@@ -585,8 +585,8 @@ Keep the independent review outside this build allocation, as agreed. Obtain its
 ### Immediate deliverable sequence
 
 1. Create the repository skeleton, requirements, pin map and decision records.
-2. Complete the owner KiCad review of the captured controller increment.
-3. Capture the exact USB-C, charger, gauges and switched 3.3 V/VLED power sheet with hardware-safe defaults.
+2. Record the completed owner KiCad review of the controller increment.
+3. Capture the exact USB-C, charger, gauge and switched 3.3 V/VLED power sheet with hardware-safe defaults.
 4. Review the complete schematic and run the power calculations against exact selected parts.
 5. Lay out the coupon, generate its STEP model and perform DFM.
 6. Produce Gerbers, BOM, placement file, assembly drawing, factory firmware and bring-up checklist.

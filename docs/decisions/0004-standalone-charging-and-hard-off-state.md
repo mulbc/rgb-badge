@@ -13,10 +13,10 @@ The latching switch must make the application visibly and electrically off, whil
 
 Use a BQ25616J-class standalone switching charger/NVDC power path. The slide switch controls the enables of the 3.3 V and LED converters; it does not carry matrix current. Charging, the fuel gauge and hardware charge indication remain upstream.
 
-Use TUSB320LAI Type-C sink detection and a fail-safe hardware `ILIM` network. The passive/default/unattached state is 500 mA. A higher approximately 1.2 A input limit is allowed only for a valid 1.5 A or 3 A advertisement. Application firmware is not in this safety loop.
+Use TUSB320LAI Type-C sink detection and a hardware-bounded input-current network. The provisional unknown-adapter `ILIM` states are approximately 500 mA and 1.2 A; the higher state is allowed only for a valid 1.5 A or 3 A advertisement. The complete BC1.2/native-data/default-current topology remains a Gate A decision because the TUSB320 Type-C output alone does not establish USB enumeration and the BQ25616J `ILIM` resistor applies only to sources its own `D+`/`D-` detector classifies as unknown. Application firmware is not allowed to raise the safety limit.
 
 ## Consequences
 
 - USB data is available only with the slide switch ON.
 - Charge current is fixed by hardware and bounded by the exact cell specification.
-- The charger's isolated BC1.2 D+/D− behaviour, the TUSB320 truth table and every attach/detach transient require explicit schematic review and bench validation.
+- The charger's isolated-versus-shared BC1.2 D+/D− topology, USB default-current behavior, the TUSB320 truth table and every attach/detach transient require explicit schematic review and bench validation.
