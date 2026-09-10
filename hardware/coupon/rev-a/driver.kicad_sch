@@ -1,5 +1,5 @@
 (kicad_sch (version 20260306) (generator "rgb_badge") (uuid "c0266313-6a60-5879-8718-ed1c0731ea07") (paper "A3")
-(title_block (title "Coupon Rev A - TLC59581 driver") (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "Draft: controller, row inhibit and power source pending"))
+(title_block (title "Coupon Rev A - TLC59581 driver") (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "Controller/rows captured; VLED interlock and power pending"))
 (lib_symbols
 	(symbol "rgb-badge-coupon:TLC59581RTQT"
 (pin_names (offset 1.016))
@@ -383,7 +383,7 @@
 (text "U1 pin 57 is the exposed power-ground pad: solder to GND and provide thermal vias in layout." (at 20.32 221 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "463a0e0e-c863-52f7-992a-267d74ba072a"))
 (text "Footprint uses TI RTQ0056E. Confirm E versus G package from supplied lot before layout release." (at 20.32 228.6 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "40023e6a-def6-50e1-a5e5-7b8db7f519ce"))
 (text "No /OE pin exists. Row inhibit and VLED disable must provide boot/reset/programming darkness." (at 20.32 239 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "1d2667fe-cedc-5c64-aedf-ee87b4b1bf40"))
-(text "LED_SIN/SCLK/LAT/GCLK/SOUT are future controller interfaces; GPIO assignment is still open." (at 20.32 246.62 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "7eb42e28-e69e-5b2a-9deb-90262bf29d80"))
+(text "LED control/readback connect to the controller sheet; GPIO10-14 are assigned there." (at 20.32 246.62 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "7eb42e28-e69e-5b2a-9deb-90262bf29d80"))
 (symbol (lib_id "rgb-badge-coupon:ERJ-2RKF1003X") (at 350.52 66.04 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no) (uuid "55a04555-e454-5bf0-a366-ddf153df2021")
 (property "Reference" "R2" (at 350.520 60.960 0) (effects (font (size 1.27 1.27))))
 (property "Value" "100k 1%" (at 350.520 63.500 0) (effects (font (size 1.27 1.27))))

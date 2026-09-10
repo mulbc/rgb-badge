@@ -2,7 +2,7 @@
 
 # Coupon Rev A power-library audit
 
-Status: native export at `c84f8ce` completed, but visual/drawing review rejected the charger copper, converter stencil and four symbol headings. Corrections are authored; corrected native rendering and independent Gate A review remain pending. See the [finding record](../../../docs/development/power-library-review-c84f8ce.md). Remaining power/input libraries are deliberately blocked or not yet transcribed.
+Status: native export at `c84f8ce` completed, but visual/drawing review rejected the charger copper, converter stencil and four symbol headings. Corrections passed first-author native rendering review at `3638b1d`; independent Gate A and the documented assembler shape/stencil review remain pending. See the [correction review](../../../docs/development/power-library-review-3638b1d.md). See the [finding record](../../../docs/development/power-library-review-c84f8ce.md). Remaining power/input libraries are deliberately blocked or not yet transcribed.
 
 ## Controlled parts
 

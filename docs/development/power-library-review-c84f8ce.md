@@ -4,6 +4,8 @@
 
 Disposition: **rejected pending corrections and a new native export**. The owner's KiCad run completed correctly; the design errors described below are first-author transcription/review errors, not an owner setup problem. PR #8 remains draft and is not eligible to merge or fabricate.
 
+Follow-up: corrections to findings 1–3 passed native review at `3638b1d`; see the [correction record](power-library-review-3638b1d.md). Finding 4 is repaired in source but awaits native confirmation. The disposition above records the original run.
+
 ## Evidence
 
 The owner ran KiCad 10.0.6 at `c84f8ce2c07dfe9080a3c3e7fd757e721ac01882`, supplied the complete output archive and transcript, and reported no tracked changes. AppleDouble metadata was ignored.
