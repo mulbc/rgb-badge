@@ -8,6 +8,8 @@ Status: matrix, driver, row-stage and controller staged electrical reviews passe
 
 Validate the production electrical architecture and compare 1010 versus 1515 RGB LEDs before scaling to the 48 × 16 badge.
 
+The power/input circuit is currently on hold under [ADR 0009](../../../docs/decisions/0009-usb-input-current-closure.md): the provisional direct input-current network is unsuitable. The [assessment](usb-input-assessment.md) records replacement routes and missing proof. Library review acceptance does not freeze the charger selection.
+
 ## Required contents
 
 - 16 × 16 pixels at 1.95 mm pitch: columns 0–7 use Everlight `EAST10105RGBA0`; columns 8–15 use QT Brightek `QBLP1515A-RGB2A`.

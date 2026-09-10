@@ -94,7 +94,7 @@ The T822+3 footprint copies Analog Devices/legacy Maxim land pattern 90-0065: ei
 
 No unverified footprint is allowed merely to make the power sheet look complete:
 
-- `USB4505-03-0-A`: GCT confirms the active 16-contact mid-mount product, but the exact downloadable PCB drawing was not retrievable in this environment. Connector shell stakes and contact numbering remain blocked on that controlled drawing.
+- `USB4505-03-0-A`: GCT drawing A2 is now available as web-extracted text, identifying the 0.80 mm board-thickness constraint. The local PDF and usable diagram render remain unavailable, so shell stakes, cutout and land coordinates are still blocked on visual verification. See the [input assessment](usb-input-assessment.md).
 - The latching slide switch, remaining converter/charger passives, battery connector and NTC network remain for the next library/capture increments. The switch and battery connector cannot be frozen before exact mechanical parts are selected.
 
 ## Automated and native review

@@ -6,12 +6,16 @@ This is a deterministic design calculation, not a simulation, native KiCad ERC,
 USB compliance test, battery qualification, thermal result, or fabrication approval.
 """
 
+import argparse
 from decimal import Decimal as D
 import sys
 
 
 def bounded_ratio(constant_min, constant_max, resistance, tolerance):
-    """Return minimum/nominal/maximum current for I = K/R."""
+    """Return minimum/midpoint/maximum current for I = K/R.
+
+    The midpoint is not necessarily the manufacturer's typical value.
+    """
     k_min, k_max = D(constant_min), D(constant_max)
     resistor, tol = D(resistance), D(tolerance)
     return (
@@ -28,6 +32,37 @@ def parallel(a, b):
 
 def divider(vfb, upper, lower):
     return D(vfb) * (D(1) + D(upper) / D(lower))
+
+
+def validate_bq_unknown_input(resistance, source_limit, *, classification="unknown"):
+    """Check one steady-state ILIM setting, not a complete USB power circuit.
+
+    SLUSDF7A sections 7 and 9.3.5: nominal setting must be 0.5--3.2 A.
+    KILIM min/typ/max is 459/478/500 A-ohm. Only unknown-adapter mode
+    uses this resistor; its bounds do not apply to BC1.2-classified sources.
+    """
+    resistance, source_limit = D(resistance), D(source_limit)
+    if resistance <= 0 or source_limit <= 0:
+        raise ValueError("Resistance and permitted source current must be positive")
+    if classification != "unknown":
+        raise ValueError("ILIM resistor does not bound a BC1.2-classified source")
+    nominal = D("478") / resistance
+    if not D("0.5") <= nominal <= D("3.2"):
+        raise ValueError("Nominal ILIM setting is outside the documented 0.5--3.2 A range")
+    low, _, high = bounded_ratio("459", "500", resistance, "0.01")
+    if high > source_limit:
+        raise ValueError("Worst-case ILIM exceeds the permitted source current")
+    return low, nominal, high
+
+
+def usb_capture_blockers():
+    """Known unresolved circuit findings; never inferred closed from arithmetic."""
+    return (
+        "The historical 1 kohm ILIM setting is nominally 478 mA, below the documented programming range.",
+        "The direct ILIM network cannot provide a USB 2.0 host's 100 mA pre-configuration state.",
+        "ILIM is not an override for BC1.2 detection; CE disables charging, not all system input current.",
+        "Source classification, suspend, attach/detach and total port-current budgets lack a validated circuit.",
+    )
 
 
 def results():
@@ -74,14 +109,24 @@ def check():
 
 
 def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--require-usb-closure", action="store_true",
+                        help="Fail while USB/input circuit blockers remain; arithmetic success is insufficient")
+    args = parser.parse_args()
     try:
         value = check()
         print("Power pre-capture calculations passed:")
         print(f"- BQ25616J 806-ohm charge setting: {value['charge'][0]:.3f} to {value['charge'][2]:.3f} A")
-        print(f"- candidate unknown-adapter ILIM states: {value['input_default'][0]:.3f} to {value['input_default'][2]:.3f} A and {value['input_high'][0]:.3f} to {value['input_high'][2]:.3f} A")
+        print(f"- historical, unaccepted ILIM arithmetic: {value['input_default'][0]:.3f} to {value['input_default'][2]:.3f} A and {value['input_high'][0]:.3f} to {value['input_high'][2]:.3f} A")
         print(f"- nominal rails: {value['rail_3v3']:.3f} V application and {value['rail_vled']:.3f} V LED")
         print(f"- BQ25616J plus hibernating MAX17048 maxima consume {value['always_on_max_uA']:.0f} uA of the 50-uA OFF budget")
         print("- USB default-current, battery/NTC, tolerances, thermal behavior and layout still require review")
+        blockers = usb_capture_blockers()
+        print("USB/input capture remains BLOCKED:")
+        for finding in blockers:
+            print(f"- {finding}")
+        if args.require_usb_closure and blockers:
+            return 1
     except (ArithmeticError, ValueError) as error:
         print(f"Power pre-capture check failed: {error}", file=sys.stderr)
         return 1

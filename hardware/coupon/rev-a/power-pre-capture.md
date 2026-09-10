@@ -2,7 +2,7 @@
 
 # Coupon Rev A power/input pre-capture record
 
-Status: arithmetic and interface boundaries recorded; exact libraries and schematic not yet captured; not approved for fabrication
+Status: historical arithmetic recorded and core IC libraries reviewed; direct input-current proposal rejected by [ADR 0009](../../../docs/decisions/0009-usb-input-current-closure.md). Power/input capture is on hold pending a complete topology; not approved for fabrication.
 
 ## Purpose
 
@@ -31,7 +31,7 @@ The previously proposed unknown-adapter `ILIM` network produces these calculated
 | Passive branch | 1.00 kohm, 1% | 0.454–0.505 A |
 | Higher Type-C advertisement | 1.00 kohm in parallel with 665 ohm, both 1% | 1.138–1.265 A |
 
-These numbers are not approval of the circuit. The BQ25616J datasheet says `ILIM` controls an input classified as unknown; its own BC1.2 `D+`/`D-` detection otherwise selects the limit. The TUSB320LAI reports the Type-C `Rp` advertisement, but its default-current output does not distinguish an unenumerated USB host from every other default-current source. Gate A must therefore choose and verify one complete topology, including A-to-C and C-to-C, switch ON/OFF, SDP/CDP/DCP, attach/detach, and native ESP32 USB enumeration. The schematic must not label the current path “fail-safe” until that review is complete.
+These historical numbers are not approval of the circuit. The 1 kohm nominal setting is 478 mA using TI's typical KILIM, below its documented 500 mA minimum programmable setting; the proposed network also lacks the USB-host low-current and suspend states. See the [input assessment](usb-input-assessment.md). The BQ25616J datasheet says `ILIM` controls an input classified as unknown; its own BC1.2 `D+`/`D-` detection otherwise selects the limit. The TUSB320LAI reports the Type-C `Rp` advertisement, but its default-current output does not distinguish an unenumerated USB host from every other default-current source. Gate A must therefore choose and verify one complete topology, including A-to-C and C-to-C, switch ON/OFF, SDP/CDP/DCP, attach/detach, and native ESP32 USB enumeration. The schematic must not label the current path “fail-safe” until that review is complete.
 
 For the converters, the current draft starts from manufacturer application values:
 

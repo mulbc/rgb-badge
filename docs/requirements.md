@@ -29,7 +29,7 @@ Source: requirements interview completed 2026-09-05
 | PWR-006 | Operation while charging shall remain stable; the charger power path shall respect the input limit. | Load/charge test and USB power log | Coupon/final |
 | USB-001 | Use a USB-C receptacle on the right short edge with 5 V input only; USB PD is not required. | Inspection and source test | Coupon/final |
 | USB-002 | Enumerate native USB in both connector orientations with compliant A-to-C and C-to-C cables while switched ON. | Enumeration matrix | Coupon/final |
-| USB-003 | Hardware shall default to a conservative input limit and shall not depend on application firmware to unlock higher Type-C current. | Unprogrammed-board and attach-state test | Coupon/final |
+| USB-003 | Hardware shall bound total USB input draw for startup, permitted configured operation, suspend and Type-C source changes; higher Type-C current shall not depend on application firmware. | Complete source-state analysis plus unprogrammed-board, configuration, suspend and attach/detach tests (ADR 0009) | Coupon/final |
 | CHG-001 | Target approximately 80% charge in 45–60 min and full charge in 75–100 min with the display off, a capable source and a cell rated for the selected current. | Charge log | Coupon/final |
 | CHG-002 | Charge current shall never exceed the exact terminated-pack rating. | BOM/calculation review and current log | Coupon/final |
 | CHG-003 | A pack NTC and charger safety timer shall qualify charging without MCU assistance. | NTC boundary/fault tests | Coupon/final |
