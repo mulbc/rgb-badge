@@ -22,6 +22,7 @@ The owner authorized the assistant on 2026-09-07 to act as the sole developer an
 - Every measurement must identify hardware revision, firmware revision, setup and raw evidence location.
 - Use exact manufacturer part numbers in the BOM. Never accept or make silent substitutions.
 - Check every symbol pin number, footprint pad, polarity mark and package drawing against the current manufacturer datasheet.
+- If source content is bot-restricted or otherwise blocked, ask the owner to supply it instead of attempting difficult retrieval experiments or access workarounds.
 - Record a material design change in an ADR and update affected requirements before implementation.
 
 ## Electrical safety

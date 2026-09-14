@@ -37,7 +37,7 @@ Source verification for this increment: 79 host tests pass, including rejection 
 
 The public GCT PDF at [USB4505 drawing](https://gct.co/files/drawings/usb4505.pdf) became readable through web text extraction on 2026-09-10. It identifies revision A2 dated 2023-12-18, the `03-0-A` ordering suffix and a component-side recommended layout for **0.80 mm PCB thickness**. This is a mechanical constraint to reconcile with the coupon stack-up.
 
-The text identifies 16 contacts (A1/A4/A5/A6/A7/A8/A9/A12 and B1/B4/B5/B6/B7/B8/B9/B12), including two independent CC contacts, two USB data pairs and SBU contacts. It is insufficient to verify the drawn land/stake/cutout coordinate relationships. Direct PDF download still returned HTTP 403, and the web screenshot response provided no usable image in this environment. Therefore no footprint was inferred. The original PDF is still needed locally for visual dimension verification; the manufacturer drawing is not copied into the public repository.
+The owner subsequently supplied the original PDF and both pages were visually inspected. The [connector drawing review](usb-connector-audit.md) preserves the 16-contact/12-land mapping, shell-slot coordinates and unresolved cutout reliefs. The local library edits had not reached GitHub when checked on 2026-09-14; recover and validate that implementation before counting it as complete. The manufacturer drawing is not redistributed. Document access was resolved; cutout/process qualification and the separate USB input-current hold remain open.
 
 ## Source snapshots
 
