@@ -37,12 +37,13 @@ Source verification for this increment: 79 host tests pass, including rejection 
 
 The public GCT PDF at [USB4505 drawing](https://gct.co/files/drawings/usb4505.pdf) became readable through web text extraction on 2026-09-10. It identifies revision A2 dated 2023-12-18, the `03-0-A` ordering suffix and a component-side recommended layout for **0.80 mm PCB thickness**. This is a mechanical constraint to reconcile with the coupon stack-up.
 
-The owner subsequently supplied the original PDF and both pages were visually inspected. The [connector drawing review](usb-connector-audit.md) preserves the 16-contact/12-land mapping, shell-slot coordinates and unresolved cutout reliefs. The local library edits had not reached GitHub when checked on 2026-09-14; recover and validate that implementation before counting it as complete. The manufacturer drawing is not redistributed. Document access was resolved; cutout/process qualification and the separate USB input-current hold remain open.
+The owner subsequently supplied the original PDF and both pages were visually inspected. The [connector drawing and candidate-library review](usb-connector-audit.md) preserves the 16-contact/12-land mapping, shell-slot coordinates and unresolved cutout reliefs. The previously stranded local symbol, footprint, checker and fault tests were recovered on 2026-09-14 and pass host validation. Native KiCad rendering is still required before the connector library can be accepted. The manufacturer drawing is not redistributed. Document access was resolved; cutout/process qualification and the separate USB input-current hold remain open.
 
 ## Source snapshots
 
 | Primary document | SHA-256 of locally inspected PDF |
 |---|---|
+| Owner-supplied [GCT USB4505 A2](https://gct.co/files/drawings/usb4505.pdf) | `b1ea604d8e579ee60bf3db78fc55a300bc107cb3bdb3ac3e6c881955898b52ad` |
 | [TI BQ25616/J SLUSDF7A](https://www.ti.com/lit/ds/symlink/bq25616.pdf) | `db1c80794273f68d40f13969888a1da6abc08d4a1ea38b68af8b9a09d7c9834a` |
 | [TI BQ24165/166/167 SLUSAP4B](https://www.ti.com/lit/ds/symlink/bq24166.pdf) | `9435ba6f350cac8b67948f15aae807146c9156592b6ff54e1aea19e3dee70260` |
 | [ADI LTC4088 Rev B](https://www.analog.com/media/en/technical-documentation/data-sheets/4088fb.pdf) | `30f0fbb435a3f7644000bffed2d71e7e85164e706e0184eb25087fc9157a90a2` |

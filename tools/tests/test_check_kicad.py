@@ -42,9 +42,9 @@ class CheckKiCadWrapperTests(unittest.TestCase):
     def test_separate_raw_views_and_numbered_copies(self):
         result = self.run_check()
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertEqual(len(list((self.output / "symbols").glob("*.svg"))), 28)
-        for view in ("fabrication", "copper", "paste", "numbered"):
-            self.assertEqual(len(list((self.output / "footprints" / view).glob("*.svg"))), 2 if view == "numbered" else 20)
+        self.assertEqual(len(list((self.output / "symbols").glob("*.svg"))), 29)
+        for view in ("fabrication", "copper", "paste", "numbered", "mechanical"):
+            self.assertEqual(len(list((self.output / "footprints" / view).glob("*.svg"))), 2 if view == "numbered" else 21)
         self.assertTrue((self.output / "coupon-erc.rpt").is_file())
         self.assertTrue((self.output / "coupon-matrix.xml").is_file())
         self.assertTrue((self.output / "coupon-schematic.pdf").is_file())
@@ -68,9 +68,19 @@ class CheckKiCadWrapperTests(unittest.TestCase):
         self.assertIn("Expected non-empty SVG", result.stderr)
 
     def test_export_failure_is_not_hidden(self):
-        result = self.run_check(RGB_BADGE_TEST_FAIL="copper")
-        self.assertEqual(result.returncode, 7)
-        self.assertNotIn("ERC passed", result.stdout)
+        for stage in ("copper", "mechanical"):
+            with self.subTest(stage=stage):
+                self.output = self.directory / stage
+                result = self.run_check(RGB_BADGE_TEST_FAIL=stage)
+                self.assertEqual(result.returncode, 7)
+                self.assertNotIn("ERC passed", result.stdout)
+
+    def test_missing_usb_connector_mechanical_export_is_rejected(self):
+        result = self.run_check(RGB_BADGE_TEST_MISSING_USB_CONNECTOR="1")
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("Expected non-empty USB connector footprint SVG", result.stderr)
+        self.assertIn("footprints/mechanical", result.stderr)
+        self.assertFalse((self.output / "coupon-erc.rpt").exists())
 
     def test_erc_failure_is_not_hidden(self):
         result = self.run_check(RGB_BADGE_TEST_FAIL="sch/erc")

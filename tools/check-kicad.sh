@@ -20,6 +20,7 @@ controller_library_check="${repo_root}/tools/check-controller-libraries.py"
 controller_capture_check="${repo_root}/tools/check-coupon-controller.py"
 power_design_check="${repo_root}/tools/check-power-design.py"
 power_library_check="${repo_root}/tools/check-power-libraries.py"
+usb_connector_check="${repo_root}/tools/check-usb-connector.py"
 
 if [[ -n "${RGB_BADGE_KICAD_CLI:-}" ]]; then
     kicad_cli="${RGB_BADGE_KICAD_CLI}"
@@ -48,7 +49,8 @@ for required_path in \
     "${controller_library_check}" \
     "${controller_capture_check}" \
     "${power_design_check}" \
-    "${power_library_check}"
+    "${power_library_check}" \
+    "${usb_connector_check}"
 do
     if [[ ! -e "${required_path}" ]]; then
         echo "Required project path is missing: ${required_path}" >&2
@@ -65,6 +67,7 @@ python3 "${controller_library_check}"
 python3 "${controller_capture_check}"
 python3 "${power_design_check}"
 python3 "${power_library_check}"
+python3 "${usb_connector_check}"
 
 kicad_version="$("${kicad_cli}" version)"
 
@@ -96,7 +99,8 @@ footprint_fab_dir="${check_tmp_dir}/footprints/fabrication"
 footprint_copper_dir="${check_tmp_dir}/footprints/copper"
 footprint_numbered_dir="${check_tmp_dir}/footprints/numbered"
 footprint_paste_dir="${check_tmp_dir}/footprints/paste"
-mkdir -p -- "${symbol_svg_dir}" "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_numbered_dir}" "${footprint_paste_dir}"
+footprint_mechanical_dir="${check_tmp_dir}/footprints/mechanical"
+mkdir -p -- "${symbol_svg_dir}" "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_numbered_dir}" "${footprint_paste_dir}" "${footprint_mechanical_dir}"
 
 "${kicad_cli}" sym export svg \
     --black-and-white \
@@ -124,6 +128,24 @@ mkdir -p -- "${symbol_svg_dir}" "${footprint_fab_dir}" "${footprint_copper_dir}"
     --layers "F.Paste" \
     --output "${footprint_paste_dir}" \
     "${footprint_library}"
+
+# Mechanical datums are review guides, not a routed board outline.
+"${kicad_cli}" fp export svg \
+    --black-and-white \
+    --layers "F.Fab,Dwgs.User" \
+    --output "${footprint_mechanical_dir}" \
+    "${footprint_library}"
+
+if [[ ! -s "${symbol_svg_dir}/USB4505-03-0-A_unit1.svg" ]]; then
+    echo "Expected non-empty USB connector symbol SVG." >&2
+    exit 1
+fi
+for view_dir in "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_paste_dir}" "${footprint_mechanical_dir}"; do
+    if [[ ! -s "${view_dir}/USB_C_GCT_USB4505-03-0-A_MidMount.svg" ]]; then
+        echo "Expected non-empty USB connector footprint SVG: ${view_dir}" >&2
+        exit 1
+    fi
+done
 
 for expected_svg in \
     "${symbol_svg_dir}/EAST10105RGBA0_unit1.svg" \

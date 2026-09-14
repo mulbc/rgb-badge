@@ -1,14 +1,14 @@
 <!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
 
-# USB4505 drawing review and implementation recovery
+# USB4505 drawing and candidate-library review
 
-Status: first-author drawing findings preserved on 2026-09-14. Connector library implementation is not committed or validated. This record is not fabrication approval.
+Status: first-author drawing inspection and recovered host-validated candidate library complete on 2026-09-14. Native KiCad rendering and independent verification remain pending. This record is not fabrication approval.
 
 ## Evidence
 
 The owner supplied the original GCT USB4505 PDF on 2026-09-10 after direct download was blocked. Both pages and an enlarged recommended-layout view were inspected in the prior development session. Drawing revision A2 is dated 2023-12-18. The recorded SHA-256 is `b1ea604d8e579ee60bf3db78fc55a300bc107cb3bdb3ac3e6c881955898b52ad`. [Manufacturer drawing](https://gct.co/files/drawings/usb4505.pdf).
 
-The document is not redistributed here. This record preserves that prior inspection; the PDF could not be reopened on 2026-09-14 because the development environment was unavailable.
+The document is not redistributed here. After the development environment returned on 2026-09-14, the PDF hash was reconfirmed and both pages were rendered at high resolution and inspected again.
 
 ## Contact and land transcription
 
@@ -57,16 +57,24 @@ Plated shell slots are a proposed interpretation of the surrounding solder lands
 
 ## Recovery and verification boundary
 
-GitHub PR #8 was checked on 2026-09-14: its head was still `833a9e5`. The local connector symbol, footprint, audit script and wrapper/test edits described in the conversation had not been pushed. The previous full test run had started, but its completion result was not available. Do not count those edits as committed or tests as passed.
+GitHub PR #8 was checked on 2026-09-14 at `833a9e5`, when the connector edits had not yet been pushed. The prior worktree was subsequently recovered intact and applied after the documentation checkpoint `28b3f3a`.
 
-The prior standalone connector source check reported success; this was not a native KiCad load/render or independent review. The existing 79-test result belongs to the earlier committed input assessment.
+The recovered increment contains:
+
+- one 13-pin passive symbol representing the 12 physical signal/power lands plus the shared shell connection;
+- one draft footprint with 12 SMT lands, four same-number plated shell slots, a 0.05 mm provisional mask margin and no guessed `Edge.Cuts`;
+- a source checker covering exact MPN/library linkage, functions, land/slot geometry, layer treatment, 0.20 mm minimum nominal copper clearance and datum guides;
+- fault tests for mirrored positions, swapped CC functions, split shared lands, altered slots and premature `Edge.Cuts`;
+- wrapper checks requiring non-empty symbol plus fabrication, copper, paste and mechanical exports.
+
+All 86 host tests passed after recovery. This result checks the source model and wrapper behavior; it is not a native KiCad load/render, assembler process review or independent electrical/mechanical review.
 
 Next implementation steps:
 
-1. Recover the prior worktree if available; otherwise recreate the connector increment from the controlled drawing and this transcription.
-2. Audit shared contacts, slot geometry and guide datums independently. Include fault checks for mirrored land maps, swapped CC functions, duplicated shared lands, incorrect slots and premature Edge.Cuts.
-3. Run host tests and inspect the actual diff before pushing the source increment.
-4. Request one native KiCad export bundle covering symbol, fabrication, copper, paste and mechanical guides. No owner rerun is useful for this documentation-only checkpoint.
-5. Resolve the complete USB source-state/input-current design under ADR 0009, then finish power capture. Connector documentation does not close that electrical hold.
+1. Run the native KiCad export bundle covering symbol, fabrication, copper, paste and mechanical guides.
+2. Inspect the exported symbol and all footprint views against this table and the manufacturer drawing.
+3. Obtain dimensioned cutout relief geometry or manufacturer CAD before adding the board outline.
+4. Confirm the plated-slot, mask and stencil process with the chosen assembler and freeze the 0.80 mm coupon stack-up.
+5. Resolve the complete USB source-state/input-current design under ADR 0009, then finish power capture. Connector library validation does not close that electrical hold.
 
 Independent Gate A remains required before fabrication. No component substitution or purchase is authorized by this record.

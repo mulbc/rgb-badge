@@ -512,7 +512,7 @@ def main():
         print("- 12 TUSB320LAI pins and asymmetric RWB X2QFN copper/stencil maps match TI drawings")
         print("- 15 TPS63020 logical pins and DSJ signal/thermal/stencil maps match TI drawings")
         print("- 9 MAX17048 logical pins and T822+3 land map match Analog Devices drawings")
-        print("- the blocked USB-C footprint was not guessed")
+        print("- USB4505 is checked separately by check-usb-connector.py")
     except (OSError, ValueError, KeyError, IndexError) as error:
         print(f"Power library check failed: {error}", file=sys.stderr)
         return 1

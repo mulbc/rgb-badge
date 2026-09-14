@@ -4,4 +4,4 @@
 
 Only footprints checked against a controlled manufacturer package drawing belong here. Each footprint review must record pad numbering, dimensions, polarity/orientation marks, courtyard, paste/mask treatment and the source drawing revision.
 
-The LED footprints are traced in the adjacent [LED audit](../led-audit.md). Charger and converter footprints are traced in the [power-library audit](../../power-library-audit.md). Their presence records a first-author dimensional transcription, not the independent pin/pad/polarity review required before fabrication.
+The LED footprints are traced in the adjacent [LED audit](../led-audit.md). Charger and converter footprints are traced in the [power-library audit](../../power-library-audit.md). The GCT connector draft is traced separately in the [USB4505 audit](../../usb-connector-audit.md); its `Dwgs.User` lines are review datums rather than a qualified board cutout. Their presence records a first-author dimensional transcription, not the independent pin/pad/polarity review required before fabrication.

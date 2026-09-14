@@ -229,6 +229,7 @@ def main():
     elif args[:3] == ["sym", "export", "svg"]:
         names = [n + "_unit1.svg" for n in ("EAST10105RGBA0", "QBLP1515A-RGB2A", "TLC59581RTQT", "ERJ-2RKF3922X", "ERJ-2RKF1003X", "GRM155R71C104KA88D", "PWR_FLAG", "TestPoint_Pad", "74HC4514PW,118", "DMP2066LSN-7", "2N7002K-7", "ERJ-2RKF1001X", "ESP32-S3-WROOM-1U-N16R8", "ERJ-2RKF1002X", "ERJ-2RKF22R0X", "ERJ-2RKF4990X", "GRM155C71A105KE11D", "GRM188R60J106ME47D", "EVQP7J01P", "BQ25616JRTWT", "TPS631000DRLR", "TLV75533PDBVR", "SN74LVC1G04DBVR", "INA232AIDDFR", "TPD4E05U06DQAR", "TUSB320LAIRWBR", "TPS63020DSJT", "MAX17048G+T10")]
     elif args[:3] == ["fp", "export", "svg"]:
+        # Added independently of the source parser: exercise wrapper requirements.
         layers = args[args.index("--layers") + 1]
         if output.name == "fabrication":
             assert layers == "F.Fab,F.SilkS,F.CrtYd", "Fabrication view must exclude solid pad layers"
@@ -238,6 +239,8 @@ def main():
             assert "--sketch-pads-on-fab-layers" not in args
         elif output.name == "paste":
             assert layers == "F.Paste"
+        elif output.name == "mechanical":
+            assert layers == "F.Fab,Dwgs.User"
         else:
             raise AssertionError(f"Unexpected footprint export destination: {output}")
         stage = output.name
@@ -271,6 +274,12 @@ def main():
 
     if os.environ.get("RGB_BADGE_TEST_FAIL") == stage:
         return 7
+    if stage == "sym/export":
+        names.append("USB4505-03-0-A_unit1.svg")
+    elif stage in ("fabrication", "copper", "paste", "mechanical"):
+        if not (stage == "mechanical" and
+                os.environ.get("RGB_BADGE_TEST_MISSING_USB_CONNECTOR") == "1"):
+            names.append("USB_C_GCT_USB4505-03-0-A_MidMount.svg")
     for name in names:
         file = output / name
         if "QFN_TI_RTQ0056E" in name and stage == "paste" and os.environ.get("RGB_BADGE_TEST_MISSING_PASTE") == "1":

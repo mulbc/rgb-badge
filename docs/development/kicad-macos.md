@@ -37,7 +37,7 @@ Run this after every schematic change:
 ./tools/check-kicad.sh
 ```
 
-The script requires stable KiCad 10.0.x, checks the controlled LED, driver, row-selection and controller pin/pad geometry plus every captured source connection, exports the project-local libraries, and runs ERC. Every ERC message is a failure except the exact temporary `USB_D-` / `USB_D+` isolated-label pair at the documented controller-to-power-sheet boundary; zero messages are also accepted once the power/input sheet connects them. It then exports KiCad's XML netlist, verifies all 356 PCB items / 1,360 logical pins, and exports the complete schematic to PDF. The script uses the application-bundle CLI automatically on macOS. Set `RGB_BADGE_KICAD_CLI` only when testing a specific alternate executable.
+The script requires stable KiCad 10.0.x, checks the controlled LED, driver, row-selection, controller, power-library and USB4505 candidate geometry plus every captured source connection, exports the project-local libraries, and runs ERC. Every ERC message is a failure except the exact temporary `USB_D-` / `USB_D+` isolated-label pair at the documented controller-to-power-sheet boundary; zero messages are also accepted once the power/input sheet connects them. It then exports KiCad's XML netlist, verifies all 356 PCB items / 1,360 logical pins, and exports the complete schematic to PDF. The script uses the application-bundle CLI automatically on macOS. Set `RGB_BADGE_KICAD_CLI` only when testing a specific alternate executable.
 
 To retain SVGs for human inspection, give the check a new output path that does not already exist:
 
@@ -46,18 +46,20 @@ RGB_BADGE_KICAD_CHECK_OUTPUT=hardware/coupon/rev-a/build/led-library-review ./to
 open hardware/coupon/rev-a/build/led-library-review
 ```
 
-The `build` directory is ignored by Git. With the staged power libraries, the current check requires 28 controlled-symbol SVGs and 20 footprint SVGs in each raw view, then creates two derived numbered LED review copies:
+The `build` directory is ignored by Git. With the USB4505 candidate library, the current check requires 29 controlled-symbol SVGs and 21 footprint SVGs in each applicable raw view, then creates two derived numbered LED review copies:
 
 | Output folder | What to look for |
 |---|---|
-| `symbols/` | All 19 controlled symbols. For the LEDs, confirm readable, separated `R_K`, `G_K`, `B_K` and `A` labels; `D?` is an unassigned component reference, not an error. Review the controller items using the page-8 checklist below. |
-| `footprints/fabrication/` | Twelve unchanged raw KiCad views: outlined pads, body outlines, silkscreen and courtyards. LED body strokes may cross the small pad numbers. These outlines are not copper connections. |
+| `symbols/` | All 29 controlled symbols. For the LEDs, confirm readable, separated `R_K`, `G_K`, `B_K` and `A` labels; `D?` is an unassigned component reference, not an error. Review the controller and USB4505 items using the checklists below. |
+| `footprints/fabrication/` | Twenty-one unchanged raw KiCad views: outlined pads, body outlines, silkscreen and courtyards. LED body strokes may cross the small pad numbers. These outlines are not copper connections. |
 | `footprints/numbered/` | Two derived review copies with the original pad-number glyphs overlaid on white halos. Use these for readable pad identification; use the raw views and source files for geometry inspection. |
-| `footprints/copper/` | Twelve copper-only views. The two LEDs must each have four separate solid pads and no connecting lines. Pad numbers are intentionally absent; identify LED pads in the numbered views. |
+| `footprints/copper/` | Twenty-one copper-only views. The two LEDs must each have four separate solid pads and no connecting lines. Pad numbers are intentionally absent; identify LED pads in the numbered views. |
+| `footprints/paste/` | Twenty-one paste-only views. Parts without paste apertures may export an otherwise empty drawing; the USB4505 signal lands should have paste while its four shell slots should not. |
+| `footprints/mechanical/` | Twenty-one `F.Fab,Dwgs.User` views. For USB4505, inspect the dashed datum guide and its explicit unqualified-cutout warning; these lines are not `Edge.Cuts`. |
 | `coupon-schematic.pdf` | Root page, four 64-LED matrix pages, driver page, row-selector page and controller page. Inspect all eight actual KiCad pages for label collisions and wiring clarity. |
 | `coupon-matrix.xml` | KiCad's complete connectivity result, checked against matrix, driver/support, row selectors and controller: 356 PCB items / 1,360 logical pins. The filename is retained for compatibility. |
 
-The fabrication export uses `F.Fab,F.SilkS,F.CrtYd` and `--sketch-pads-on-fab-layers`. Copper is exported separately with `F.Cu`. These are [KiCad 10 CLI export options](https://docs.kicad.org/10.0/en/cli/cli.html). `number-footprint-review.py` then copies the existing numbered glyphs over a white halo and adds a small viewing margin. It preserves the raw exports, records each source SVG's SHA-256 in the derived copy, and rejects unexpected or missing labels. The derived view is not a manufacturing drawing. Mask and paste are deliberately absent from these readability views; their review remains a separate DFM task.
+The fabrication export uses `F.Fab,F.SilkS,F.CrtYd` and `--sketch-pads-on-fab-layers`. Copper, paste and mechanical guides are exported separately with `F.Cu`, `F.Paste` and `F.Fab,Dwgs.User`. These are [KiCad 10 CLI export options](https://docs.kicad.org/10.0/en/cli/cli.html). `number-footprint-review.py` then copies the existing numbered glyphs over a white halo and adds a small viewing margin. It preserves the raw exports, records each source SVG's SHA-256 in the derived copy, and rejects unexpected or missing labels. The derived view is not a manufacturing drawing. Mask expansion is source-checked but is not a separate rendered view; stencil/process review remains a DFM task.
 
 For the unrotated footprint top views, confirm this corner-to-pad mapping against the controlled drawings:
 
@@ -75,3 +77,5 @@ Driver exports add the TLC59581, R1/C1 and virtual power-flag symbols plus three
 Row-library exports add the `74HC4514PW,118`, `DMP2066LSN-7`, `2N7002K-7` and `ERJ-2RKF1001X` symbols plus TSSOP24, SC-59 and SOT23 footprints. Their first-author library render and the complete row-capture review have passed. Neither result authorizes fabrication.
 
 Controller exports add the exact N16R8 module, reset/USB/UART passives and `EVQP7J01P`, plus the module, 0603 capacitor and side-push switch footprints. On page 8, confirm GPIO35–37 are explicitly no-connect, GPIO0 reaches the pull-up/button/test pad, EN reaches its 10 kΩ/1 µF network, USB pins pass through separate 22 Ω resistors, and every recovery/test pad is readable. In the copper/paste views, confirm 40 perimeter module lands plus nine distinct same-numbered pad-41 lands; the switch has two pad-1 and two pad-2 lands.
+
+The USB4505 candidate is library-only and does not yet appear on a schematic page. Its symbol must show 12 land pins plus `S1 SHIELD`; CC1 and CC2 remain separate, and each USB data direction has two distinct land pins for later schematic joining. In the copper view, confirm twelve top-row lands and four oval shell lands: the wide outer GND/VBUS lands are 0.60 mm, the eight inner lands are 0.30 mm, and no adjacent copper touches. In the paste view, only the twelve SMT lands should appear. In the mechanical view, verify the 9.24 mm wide dashed opening datum, board-edge line and both warning labels. Do not approve or redraw the undimensioned corner reliefs from this view.

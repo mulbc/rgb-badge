@@ -94,7 +94,7 @@ The T822+3 footprint copies Analog Devices/legacy Maxim land pattern 90-0065: ei
 
 No unverified footprint is allowed merely to make the power sheet look complete:
 
-- `USB4505-03-0-A`: GCT drawing A2 is now available as web-extracted text, identifying the 0.80 mm board-thickness constraint. The local PDF and usable diagram render remain unavailable, so shell stakes, cutout and land coordinates are still blocked on visual verification. See the [input assessment](usb-input-assessment.md).
+- `USB4505-03-0-A`: the owner supplied GCT drawing A2; both pages and the enlarged recommended layout were visually inspected. The separate [connector audit](usb-connector-audit.md) controls the recovered symbol and draft footprint. Host mapping/geometry/fault checks pass; native rendering, the 0.80 mm stack-up/process qualification and undimensioned cutout reliefs remain open. The footprint contains no `Edge.Cuts`.
 - The latching slide switch, remaining converter/charger passives, battery connector and NTC network remain for the next library/capture increments. The switch and battery connector cannot be frozen before exact mechanical parts are selected.
 
 ## Automated and native review
