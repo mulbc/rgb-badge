@@ -2,7 +2,7 @@
 
 # USB4505 drawing and candidate-library review
 
-Status: first-author drawing inspection and recovered host-validated candidate library complete on 2026-09-14. Native KiCad rendering and independent verification remain pending. This record is not fabrication approval.
+Status: first-author drawing inspection and recovered host validation complete on 2026-09-14. The owner-generated KiCad 10.0.6 exports passed [native rendering review at `bf1627c`](../../../docs/development/usb-connector-review-bf1627c.md). Cutout relief, stack-up/process qualification and independent verification remain pending. This record is not fabrication approval.
 
 ## Evidence
 
@@ -67,14 +67,12 @@ The recovered increment contains:
 - fault tests for mirrored positions, swapped CC functions, split shared lands, altered slots and premature `Edge.Cuts`;
 - wrapper checks requiring non-empty symbol plus fabrication, copper, paste and mechanical exports.
 
-All 86 host tests passed after recovery. This result checks the source model and wrapper behavior; it is not a native KiCad load/render, assembler process review or independent electrical/mechanical review.
+All 86 host tests passed after recovery. The subsequent owner KiCad 10.0.6 run and first-author visual inspection are recorded in the [native review](../../../docs/development/usb-connector-review-bf1627c.md). That result validates the project-local library loading and rendered geometry, but it is not an assembler process review or independent electrical/mechanical review.
 
 Next implementation steps:
 
-1. Run the native KiCad export bundle covering symbol, fabrication, copper, paste and mechanical guides.
-2. Inspect the exported symbol and all footprint views against this table and the manufacturer drawing.
-3. Obtain dimensioned cutout relief geometry or manufacturer CAD before adding the board outline.
-4. Confirm the plated-slot, mask and stencil process with the chosen assembler and freeze the 0.80 mm coupon stack-up.
-5. Resolve the complete USB source-state/input-current design under ADR 0009, then finish power capture. Connector library validation does not close that electrical hold.
+1. Obtain dimensioned cutout relief geometry or manufacturer CAD before adding the board outline.
+2. Confirm the plated-slot, mask and stencil process with the chosen assembler and freeze the 0.80 mm coupon stack-up.
+3. Resolve the complete USB source-state/input-current design under ADR 0009, then finish power capture. Connector library validation does not close that electrical hold.
 
 Independent Gate A remains required before fabrication. No component substitution or purchase is authorized by this record.
