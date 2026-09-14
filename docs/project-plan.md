@@ -4,7 +4,7 @@
 
 Status: agreed design baseline and staged execution plan
 Date: 2026-09-05
-Project phase: matrix, driver, row-stage, controller, controlled power-library and USB4505 candidate-library native reviews passed; connector mechanical/process qualification, USB input-control selection, power capture and layout remain
+Project phase: matrix, driver, row-stage, controller, controlled legacy power-library and USB4505 candidate-library native reviews passed; source-qualified OFF-charge policy and BQ24074/BQ24392/TUSB320/TS3USB31E topology selected; replacement libraries, power capture, thermal proof and layout remain
 
 ## 1. Outcome
 
@@ -52,8 +52,8 @@ This is feasible, with one qualification: six hours cannot apply to arbitrary co
 ### Power and safety behaviour
 
 - A real slide switch controls the operating state. It controls regulator enables rather than carrying the complete LED current through a tiny mechanical contact.
-- Switch OFF removes power from the display and battery-powered application electronics. Charging and battery gauging remain available.
-- When USB is inserted while the switch is OFF, the standalone charger and hardware charge indicators operate, but the ESP32-S3, display drivers and both switched rails remain off. USB data is available only when the slide switch is ON.
+- Switch OFF removes power from the display and battery-powered application electronics. Battery gauging remains available.
+- While OFF, a positively identified BC1.2 charging source or Type-C 1.5 A/3 A source can charge autonomously. An SDP, default-only or unclassified source remains in charger standby. USB data is available only when the slide switch is ON.
 - The badge can operate while charging. The charger gives the system load priority and allocates remaining input power to the battery.
 - There is no ambient light sensor and no content-dependent dimming.
 - Firmware may blank the display on undervoltage, overtemperature or a detected electrical fault. That is a safety shutdown, not automatic brightness control.
@@ -77,7 +77,8 @@ This is feasible, with one qualification: six hours cannot apply to arbitrary co
 ```mermaid
 flowchart TD
     USB["USB-C 5 V + USB 2.0"] --> CC["Type-C detection and ESD"]
-    CC --> CHG["BQ25616J standalone charger and power path"]
+    CC --> DET["BC1.2 detector and data switch"]
+    DET --> CHG["BQ24074 charger and PowerPath"]
     BAT["Protected 1-cell LiPo + NTC"] <--> CHG
     CHG --> SYS["System/battery rail"]
     SYS --> P33["3.3 V buck-boost"]
@@ -137,13 +138,16 @@ The proposed input path is:
 1. A low-profile, mechanically anchored USB 2.0 Type-C receptacle on the right short edge. GCT USB4500/4505 is a candidate series; final selection depends on the 1.0 mm PCB variant and assembly stock.
 2. VBUS and USB data ESD protection close to the connector.
 3. TUSB320LAI configured as a USB device/sink in GPIO mode. It identifies attachment and whether the source advertises default, 1.5 A or 3 A current. TI documents these GPIO states in the [TUSB320LAI datasheet](https://www.ti.com/lit/gpn/TUSB320LAI).
-4. USB D+ and D− routed as a controlled differential pair to native ESP32-S3 USB, with the Espressif-recommended protection and series components.
-5. TI BQ25616J standalone switching charger/power-path manager. Its `ICHG` resistor fixes battery charge current at approximately 0.8–0.9 A, never above the selected pack rating.
-6. A fail-safe hardware resistor/analog-switch network on `ILIM`, controlled by TUSB320LAI `OUT1` (low only for an attached 1.5 A or 3 A advertisement), permits approximately 1.2 A input only in those states. Its unattached/default/passive state is 500 mA. Firmware is not in this safety loop.
+4. BQ24392RSER detects BC1.2 SDP/CDP/DCP and supported dedicated chargers. Its internal data switch connects only data-capable sources; `GOOD_BAT` remains high whenever VBUS is valid so a long OFF-state charge cannot expire its Dead Battery Provision timer.
+5. TS3USB31ERSER sits between the detector and native ESP32-S3 USB. It is powered only by switched `+3V3_APP`, with the detector-facing pair on `D+/D-` and active-low `OE` tied low, so its documented partial-power-down behavior provides hard-OFF isolation without using the BQ24392 timer.
+6. BQ24074RGTR standalone linear charger/PowerPath manager. Its hardware inputs select standby, fixed 500 mA, or a resistor-programmed external ceiling; the selected draft values are approximately 0.79 A nominal charge and 0.90 A nominal input.
+7. VBUS-powered fail-safe logic combines BQ24392 charging-port detection, TUSB320 Type-C 1.5 A/3 A detection and a validated SDP configuration grant. Both charger mode pins pull high to standby unless permission is present; hardware high-current permission has priority and application firmware cannot generate it.
 
-The [BQ25616/BQ25616J datasheet](https://www.ti.com/lit/ds/symlink/bq25616.pdf) specifies an autonomous 3 A switch-mode charger, NVDC power path, resistor-programmed 0.3–3 A charge current, NTC monitoring, a 10-hour safety timer and 9.5 µA battery leakage with the system in standby. The BQ25616J variant applies a JEITA temperature profile. It can finish a charge with the MCU genuinely off and is a better thermal fit than dissipating roughly a watt in a linear 1 A charger inside a thin plastic badge.
+The [BQ2407x datasheet](https://www.ti.com/lit/ds/symlink/bq24074.pdf) specifies PowerPath, selectable USB input modes, resistor-programmed input/charge currents, NTC monitoring and programmable safety timers. A 1.78 kΩ, 1% `ILIM` resistor gives a calculated 0.834–0.976 A external input limit; a 1.13 kΩ, 1% `ISET` resistor gives 0.698–0.872 A charge current. The exact pack must permit the maximum charge value.
 
-The charger's BC1.2 `D+`/`D−` pins are provisionally left isolated so native USB data belongs only to the ESP32-S3; the charger then treats the input as an unknown 5 V adapter and obeys `ILIM`. Gate A must verify this exact state, the TUSB320-to-`ILIM` truth table, resistor tolerances, startup transients and the passive 500 mA fallback against both TI datasheets before layout. If an engineer rejects that implementation, use a dedicated hardware USB-data switch or a different standalone charger—never an MCU-dependent current-limit increase.
+The [BQ24392 datasheet](https://www.ti.com/lit/ds/symlink/bq24392.pdf) supplies the BC1.2 classification and its first USB 2.0 switch. The [TS3USB31E datasheet](https://www.ti.com/lit/ds/symlink/ts3usb31e.pdf) supplies the second switch and partial-power-down isolation. OFF + SDP/default/unclassified and ON + unconfigured/suspended SDP select BQ24074 standby. OFF + charging port or Type-C 1.5 A/3 A selects the bounded external mode without MCU assistance. ON + configured, unsuspended SDP selects the fixed 500 mA mode. [ADR 0010](decisions/0010-source-qualified-off-charging.md) controls the complete state table.
+
+The BQ24074 is linear. A first-order low-cell estimate reaches roughly 1.6 W at 5 V, 0.8 A and 3.0 V battery voltage. Gate A must review copper/temperature estimates and the coupon must log charge current and case temperature; reduce the fixed current if normal operation enters thermal regulation or becomes unacceptably hot.
 
 Fast-charge timing is conditional:
 
@@ -158,7 +162,7 @@ Two tiny side-facing LEDs next to USB-C indicate red while charging and green wh
 
 | Rail | Provisional implementation | Purpose |
 |---|---|---|
-| SYS/BAT | BQ25616J power-path output | Selects USB/battery, supports autonomous charging and charge-through operation |
+| SYS/BAT | BQ24074 PowerPath output | Selects USB/battery, supports source-qualified autonomous charging and charge-through operation |
 | 3V3 | TPS631000-class 1.5 A buck-boost | ESP32-S3, TLC logic and low-voltage logic |
 | VLED | TPS63020-class high-current buck-boost at about 3.9 V | Row anodes and LED optical power |
 | Battery state | MAX17048G+ in 2 × 2 mm TDFN | State-of-charge independent of simple voltage readings |
@@ -171,9 +175,11 @@ The latching switch controls both switched-regulator enables. The charger, fuel 
 | Slide switch | USB present | Application/USB data | Charging | Display |
 |---|---|---|---|---|
 | OFF | No | Off | No | Off |
-| OFF | Yes | Off | Yes, autonomous | Off |
+| OFF | SDP/default-only/unclassified | Off | Standby / no charge | Off |
+| OFF | BC1.2 charging source or Type-C 1.5 A/3 A | Off | Autonomous, hardware-bounded | Off |
 | ON | No | Normal battery playback | No | On |
-| ON | Yes | Normal playback plus USB data | Yes, with power-path load priority | On |
+| ON | SDP | Normal playback plus USB data | Standby until configured; 500 mA input ceiling while configured; standby on suspend | On |
+| ON | Qualified charging source | Normal playback; USB data where supported | Yes, with PowerPath load priority | On |
 
 The charger and fuel gauge stay connected to the protected cell. The INA232 is powered only with 3V3; its datasheet permits the monitored common-mode voltage to remain present with its supply off. The design target for switch-OFF battery drain, after USB removal, is below 50 µA.
 
@@ -548,8 +554,8 @@ Keep the independent review outside this build allocation, as agreed. Obtain its
 | Matrix routing fails standard rules | DRC congestion on 1.95 mm grid | Use six layers and tighter standard rules; HDI only after a cost review |
 | Camera banding/ghosting | Coupon photos or low-gray patterns fail | Raise GCLK/visual refresh, tune blanking/precharge and row timing |
 | BLE range is poor when worn | Dropouts around body/magnets | Move/tune FPC antenna within reserved case zones; keep 1U module |
-| Charger overheats during operation | Thermal log shows regulation or hot case | Lower the fixed charge current or add switch-state hardware derating; improve copper spreading; retain full operation |
-| USB source is overdrawn | Meter shows >default current without a valid higher-current advertisement | Passive 500 mA `ILIM`; hardware-only increase after valid Type-C detection; validate every attach/detach truth-table transition |
+| Linear charger overheats | Thermal log shows regulation or hot case | Lower the fixed charge current, improve BQ24074 copper spreading and remeasure; do not assume the time target survives |
+| USB source is overdrawn | Meter shows current without a valid BC1.2/Type-C/configuration permission | Passive standby; hardware-only high-current permission; fixed 500 mA SDP ceiling; validate every attach/detach/suspend transition |
 | Marketplace substitution changes pinout/bin | Quote or incoming reel differs | Exact MPN lock, first-article photo, incoming inspection and re-coupon if needed |
 | LiPo mechanical damage | Fit interference or local pressure marks | Battery keepout, smooth cradle, swelling clearance and independent mechanical review |
 
@@ -560,7 +566,7 @@ Keep the independent review outside this build allocation, as agreed. Obtain its
 - Exact 1010 and 1515 MPNs locked; project-local footprints, polarity, tape orientation and optical bins independently checked.
 - Battery cell/terminated-pack drawing and electrical limits obtained.
 - Schematic ERC clean and power tree reviewed.
-- USB-C default-current behaviour, isolated charger data pins and TUSB320-to-`ILIM` hardware truth table proven by design review.
+- BQ24392/TUSB320 classification, two-stage BQ24392/TS3USB31E native-data switching, fail-safe BQ24074 mode truth table and SDP configuration/suspend behavior proven by design review.
 - Converter calculations and layouts checked against manufacturer guidance.
 - Coupon PCB DRC and vendor DFM clean.
 - Independent electronics engineer reviews LiPo charging, high-current LED rail, USB-C and PCB layout.
@@ -603,7 +609,9 @@ This staged route validates the actual driver, LEDs, ESP32-S3, USB-C, charger, b
 - [TI TLC59581 multiplexed-panel application note](https://www.ti.com/lit/pdf/SLVA744)
 - [TI TIDA-00161 multiplexed RGB panel reference design](https://www.ti.com/tool/TIDA-00161)
 - [TI TIDA-00161 bill of materials](https://www.ti.com/lit/pdf/tidr688)
-- [TI BQ25616/BQ25616J standalone charger/power-path datasheet](https://www.ti.com/lit/ds/symlink/bq25616.pdf)
+- [TI BQ2407x standalone charger/PowerPath datasheet](https://www.ti.com/lit/ds/symlink/bq24074.pdf)
+- [TI BQ24392 BC1.2 detector/data-switch datasheet](https://www.ti.com/lit/ds/symlink/bq24392.pdf)
+- [TI TS3USB31E USB 2.0 switch datasheet](https://www.ti.com/lit/ds/symlink/ts3usb31e.pdf)
 - [TI TUSB320LAI USB-C controller datasheet](https://www.ti.com/lit/gpn/TUSB320LAI)
 - [TI INA232 current/power monitor datasheet](https://www.ti.com/lit/gpn/INA232)
 - [TI TPS63020 high-current buck-boost](https://www.ti.com/product/TPS63020)

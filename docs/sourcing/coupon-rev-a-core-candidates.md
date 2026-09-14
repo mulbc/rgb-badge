@@ -4,7 +4,7 @@
 
 Status: researched candidates for schematic capture; **not a frozen BOM and not authorization to buy or fabricate**
 
-Research cut-off: 2026-09-09 for the power pre-capture sources; 2026-09-06 for other candidates
+Research cut-off: 2026-09-14 for the selected charger/input sources; 2026-09-06 for other candidates
 
 ## How to read this record
 
@@ -18,7 +18,10 @@ Before schematic capture, every selected part receives a project-local symbol an
 |---|---|---|---|---|---|
 | MCU and BLE | `ESP32-S3-WROOM-1U-N16R8` | External-antenna module; 16 MB flash, 8 MB octal PSRAM | [Espressif module datasheet](https://documentation.espressif.com/esp32-s3-wroom-1_wroom-1u_datasheet_en.pdf) | [DigiKey](https://www.digikey.com/en/products/detail/espressif-systems/ESP32-S3-WROOM-1U-N16R8/16162641) | [Exact library and controller source captured](../../hardware/coupon/rev-a/controller-capture.md); [native review passed](../development/controller-review-d56e1aa.md) |
 | 48-channel LED sink | `TLC59581RTQT` | 56-pin `RTQ` QFN, 8 × 8 mm; one on coupon, three on final badge | [TI datasheet](https://www.ti.com/lit/gpn/TLC59581) | [DigiKey](https://www.digikey.com/en/products/detail/texas-instruments/TLC59581RTQT/6571953) | [Driver captured](../../hardware/coupon/rev-a/driver-capture.md); provisional RTQ0056E footprint; confirm supplied E/G variant |
-| Standalone charger / power path | `BQ25616JRTWT` | 24-pin `RTW` WQFN, JEITA variant | [TI datasheet](https://www.ti.com/lit/gpn/BQ25616) | [DigiKey](https://www.digikey.com/en/products/detail/texas-instruments/BQ25616JRTWT/11570504) | [Exact library/native render passed](../../hardware/coupon/rev-a/power-library-audit.md); USB-current circuit review pending |
+| Standalone charger / power path | `BQ24074RGTR` | 16-pin `RGT` VQFN, 3 × 3 mm; linear PowerPath with hardware standby/100/500/external modes | [TI datasheet](https://www.ti.com/lit/gpn/BQ24074) | [DigiKey](https://www.digikey.com/en/products/detail/texas-instruments/BQ24074RGTR/2047269) | Selected by ADR 0010; exact library, circuit and thermal review pending |
+| Historical charger library | `BQ25616JRTWT` | 24-pin `RTW` WQFN, JEITA variant | [TI datasheet](https://www.ti.com/lit/gpn/BQ25616) | [DigiKey](https://www.digikey.com/en/products/detail/texas-instruments/BQ25616JRTWT/11570504) | Exact library/native render passed, but direct input topology rejected by ADR 0009; not selected for capture |
+| BC1.2 detector / USB data switch | `BQ24392RSER` | 10-pin `RSE` UQFN, 2.05 × 1.55 mm; VBUS-powered | [TI datasheet](https://www.ti.com/lit/gpn/BQ24392) | [DigiKey](https://www.digikey.com/en/products/detail/texas-instruments/BQ24392RSER/3471183) | Selected by ADR 0010; exact library and level/priority circuit pending |
+| Application USB data isolator | `TS3USB31ERSER` | 8-pin `RSE` UQFN, 1.5 × 1.5 mm; switched-rail power and partial-power-down isolation | [TI datasheet](https://www.ti.com/lit/gpn/TS3USB31E) | [DigiKey](https://www.digikey.com/en/products/detail/texas-instruments/TS3USB31ERSER/2071792) | Selected by ADR 0010; exact library and high-speed routing pending |
 | USB-C CC detector | `TUSB320LAIRWBR` | 12-pin `RWB` X2QFN; fixed UFP, GPIO mode | [TI datasheet](https://www.ti.com/lit/gpn/TUSB320LAI) | [DigiKey](https://www.digikey.com/en/products/detail/texas-instruments/TUSB320LAIRWBR/5722618) | [Exact library/native render passed](../../hardware/coupon/rev-a/power-library-audit.md); current-state circuit review pending |
 | USB-only 3.3 V rail | `TLV75533PDBVR` | 500 mA SOT-23-5 LDO from VBUS; powers CC detector and its logic while application rails are off | [TI datasheet](https://www.ti.com/lit/gpn/TLV755P) | [DigiKey](https://www.digikey.com/en/products/detail/texas-instruments/TLV75533PDBVR/9356541) | [Exact library/native render passed](../../hardware/coupon/rev-a/power-library-audit.md); circuit pending |
 | CC-state inverter | `SN74LVC1G04DBVR` | SOT-23-5; same USB-only 3.3 V rail | [TI product and ordering page](https://www.ti.com/product/SN74LVC1G04/part-details/SN74LVC1G04DBVR) | [DigiKey](https://www.digikey.com/en/products/detail/texas-instruments/SN74LVC1G04DBVR/385716) | [Exact library/native render passed](../../hardware/coupon/rev-a/power-library-audit.md); circuit pending |
@@ -68,17 +71,17 @@ These are datasheet calculations, not measurements and not reviewed release valu
 
 ### Battery charge current
 
-The BQ25616J specifies `ICHG = KICHG / RICHG`, with `KICHG` from 639 to 715 A·Ω over the stated conditions. For `RICHG = 806 Ω ±1%`:
+The selected BQ24074 specifies `ICHG = KISET / RISET`, with `KISET` from 797 to 975 A·Ω over the stated conditions. For `RISET = 1.13 kΩ ±1%`:
 
 | Result | Current |
 |---|---:|
-| Nominal using 677 A·Ω | 0.840 A |
-| Calculated minimum including resistor tolerance | 0.785 A |
-| Calculated maximum including resistor tolerance | 0.896 A |
+| Nominal using 890 A·Ω | 0.788 A |
+| Calculated minimum including resistor tolerance | 0.698 A |
+| Calculated maximum including resistor tolerance | 0.872 A |
 
-This value is suitable only if the exact protected and terminated pack explicitly permits at least 0.90 A charging over the charger's allowed temperature range. Otherwise `RICHG` increases. `VSET` and the JEITA/NTC network are also pack-dependent and remain open.
+This value is suitable only if the exact protected and terminated pack explicitly permits at least 0.872 A charging over the charger's allowed temperature range. Otherwise `RISET` increases. The NTC network is pack-dependent and remains open.
 
-### Provisional Type-C advertisement path
+### Selected USB permission path
 
 The TUSB320LAI has dead-battery `Rd` terminations, so a source can establish VBUS before the controller has VDD. After VBUS appears, the candidate TLV75533 rail powers the controller, pull-ups and inverter while the badge's application switch may remain off. The TUSB320LAI GPIO truth table is:
 
@@ -89,24 +92,19 @@ The TUSB320LAI has dead-battery `Rd` terminations, so a source can establish VBU
 | L | H | Attached, 1.5 A advertisement |
 | L | L | Attached, 3.0 A advertisement |
 
-Because the outputs are open drain, `OUT1` pulled up to the USB-only 3.3 V rail and then inverted can turn on an N-MOSFET only for the 1.5 A and 3.0 A states. A gate pull-down keeps that MOSFET off with USB absent.
+Because the outputs are open drain, `OUT1` can participate directly in an active-low hardware grant for the 1.5 A and 3.0 A states. BQ24392 `CHG_DET` separately grants high current for positively classified charging sources. Its `GOOD_BAT` input stays high whenever VBUS is valid; using a low level as permanent OFF isolation would start its 30-minute nominal / 45-minute maximum Dead Battery Provision timer. The application-powered TS3USB31E instead supplies the hard-OFF data disconnect. A validated ESP32 USB-device-layer signal may select only the BQ24074's fixed 500 mA mode for an SDP after configuration and while unsuspended.
 
-A preliminary BQ25616J `ILIM` network uses 1.00 kΩ as the passive branch and 665 Ω in parallel only for the higher-advertisement states. These apply only when the charger's own detection classifies the source as unknown:
+The passive BQ24074 state is standby (`EN2=1, EN1=1`). A 1.78 kΩ, 1% `ILIM` resistor defines only the hardware-qualified external mode:
 
-| State | Effective resistance | Calculated programmed range from `KILIM`, including 1% resistance tolerance |
-|---|---:|---:|
-| Passive/default | 1.00 kΩ | 0.454–0.505 A |
-| 1.5 A or 3.0 A advertised | 399.4 Ω nominal | 1.138–1.265 A |
+| State | Calculated programmed range from `KILIM`, including 1% resistance tolerance |
+|---|---:|
+| Standby, unqualified source | No charger input path |
+| Configured, unsuspended SDP | Fixed internal 450–500 mA limit |
+| BC1.2 charging source or Type-C 1.5 A/3 A | 0.834–0.976 A external limit |
 
-The high state is deliberately below a 1.5 A advertisement even at the calculated maximum. Neither state is **approved** because all of the following remain unresolved:
+All limits cover total current entering BQ24074 `IN`, not arbitrary VBUS loads ahead of it. The USB-only LDO, both detectors, logic and status indicators need a separate budget. The exact priority logic must prevent the SDP grant from corrupting a simultaneous hardware high-current state. The TS3USB31E must place the detector-facing pair on its `D+/D-` pins covered by the published `Ioff` condition, place the ESP32 on `HSD+/HSD-`, and tie active-low `OE` to ground. The selected linear charger also requires thermal proof from a depleted-battery charge cycle.
 
-1. The exact USB 2.0/default-current behaviour before and after enumeration, especially while the badge is switched off and cannot enumerate.
-2. Whether the charger's D+/D− pins can remain isolated while meeting the intended A-to-C, C-to-C, SDP, CDP and dedicated-charger behaviours, or whether a reviewed BC1.2/data-multiplexer solution is required.
-3. The 1.00 kΩ passive setting's tolerance at the nominal 500 mA boundary.
-4. TUSB320LAI VDD ramp, pull-up sequencing, detach behaviour and stale advertisement states.
-5. Dynamic stability when the display operates while the charger reaches input-current or input-voltage regulation.
-
-The [power/input pre-capture record](../../hardware/coupon/rev-a/power-pre-capture.md) freezes these calculations in an executable check and removes any implication that the provisional 500 mA branch is already a fail-safe solution.
+The [power/input pre-capture record](../../hardware/coupon/rev-a/power-pre-capture.md) and [ADR 0010](../decisions/0010-source-qualified-off-charging.md) control these calculations and states.
 
 The schematic must show this as a review block. It may not be copied into fabrication files merely because the resistor arithmetic is correct.
 

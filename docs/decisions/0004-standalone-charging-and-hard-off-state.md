@@ -2,7 +2,7 @@
 
 # ADR 0004: Standalone charging and hard application-off state
 
-- Status: Accepted baseline; implementation requires Gate A review
+- Status: Partially superseded by ADR 0009 and ADR 0010; hard-OFF principle retained
 - Date: 2026-09-05
 
 ## Context
@@ -11,12 +11,12 @@ The latching switch must make the application visibly and electrically off, whil
 
 ## Decision
 
-Use a BQ25616J-class standalone switching charger/NVDC power path. The slide switch controls the enables of the 3.3 V and LED converters; it does not carry matrix current. Charging, the fuel gauge and hardware charge indication remain upstream.
+The original decision selected a BQ25616J-class standalone switching charger/NVDC power path. The slide switch controls the enables of the 3.3 V and LED converters; it does not carry matrix current. Charging, the fuel gauge and hardware charge indication remain upstream.
 
-Use TUSB320LAI Type-C sink detection and a hardware-bounded input-current network. The provisional unknown-adapter `ILIM` states are approximately 500 mA and 1.2 A; the higher state is allowed only for a valid 1.5 A or 3 A advertisement. The complete BC1.2/native-data/default-current topology remains a Gate A decision because the TUSB320 Type-C output alone does not establish USB enumeration and the BQ25616J `ILIM` resistor applies only to sources its own `D+`/`D-` detector classifies as unknown. Application firmware is not allowed to raise the safety limit.
+ADR 0009 rejected that charger's provisional direct `ILIM` implementation. ADR 0010 replaces it with a BQ24074/BQ24392/TUSB320/TS3USB31E source-qualified topology while retaining the standalone charger, physical OFF switch, hardware current ceilings and no-firmware high-current grant principles.
 
 ## Consequences
 
 - USB data is available only with the slide switch ON.
 - Charge current is fixed by hardware and bounded by the exact cell specification.
-- The charger's isolated-versus-shared BC1.2 D+/D− topology, USB default-current behavior, the TUSB320 truth table and every attach/detach transient require explicit schematic review and bench validation.
+- The selected BC1.2/data-switch circuit, USB default-current behavior, priority logic and every attach/detach/suspend transition require explicit schematic review and bench validation.

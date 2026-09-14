@@ -8,7 +8,7 @@ Status: matrix, driver, row-stage and controller staged electrical reviews passe
 
 Validate the production electrical architecture and compare 1010 versus 1515 RGB LEDs before scaling to the 48 × 16 badge.
 
-The power/input circuit is currently on hold under [ADR 0009](../../../docs/decisions/0009-usb-input-current-closure.md): the provisional direct input-current network is unsuitable. The [assessment](usb-input-assessment.md) records replacement routes and missing proof. Library review acceptance does not freeze the charger selection.
+The provisional direct input-current network is rejected by [ADR 0009](../../../docs/decisions/0009-usb-input-current-closure.md). [ADR 0010](../../../docs/decisions/0010-source-qualified-off-charging.md) selects BQ24074/BQ24392/TUSB320/TS3USB31E for the next power capture, with standby as the fail-safe state, OFF charging limited to hardware-qualified sources and a switched-rail second data switch for hard-OFF isolation. The [assessment](usb-input-assessment.md) records its state table and missing proof. Exact replacement libraries, priority logic and thermal validation are still pending.
 
 ## Required contents
 
@@ -34,7 +34,7 @@ The two project-local LED symbols and footprints completed the first-author [LED
 - Controlled LED datasheets; verified footprints, pad numbering, polarity, tape orientation and optical-bin procurement.
 - Confirm supplied TLC59581 E/G package variant, current-limit accuracy/derating and remaining driver layout/thermal checks.
 - Exact battery-pack documentation.
-- Reviewed resolution of USB default-current, BC1.2 and native-data coexistence in switch-ON and switch-OFF states.
+- Audited BQ24074/BQ24392/TS3USB31E libraries and reviewed priority/level logic for USB default-current, BC1.2, Type-C advertisement and native-data coexistence in switch-ON and switch-OFF states.
 - Completed calculations, schematic and ERC.
 - Preliminary placement/routing and DRC/DFM.
 - Independent engineer review with every finding resolved or explicitly accepted.

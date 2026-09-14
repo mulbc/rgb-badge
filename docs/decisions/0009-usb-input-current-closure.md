@@ -2,7 +2,7 @@
 
 # ADR 0009: Reject the provisional direct USB input-current network
 
-- Status: Accepted constraint; replacement topology not yet selected
+- Status: Accepted constraint; replacement topology selected by [ADR 0010](0010-source-qualified-off-charging.md)
 - Date: 2026-09-10
 - Supersedes: the provisional 500 mA / 1.2 A direct-ILIM network in ADR 0004, not autonomous charging or the physical OFF switch
 
@@ -12,7 +12,7 @@ Reopening TI SLUSDF7A confirmed that BQ25616J `ILIM` is used only for an unknown
 
 Do not capture or approve that network as the complete USB safety solution. Keep the corrected BQ symbol/footprint as audited library work, without treating it as a frozen production selection. Preserve the product requirements: autonomous OFF-state charging, native USB data while ON, a hardware-bounded source limit and the weight/size/runtime targets. Select either a suitable standalone charger or a separately qualified input-control circuit before power/input capture resumes.
 
-The [input-current assessment](../../hardware/coupon/rev-a/usb-input-assessment.md) records alternatives and remaining proof obligations. No replacement IC has been adopted by this decision. In particular, supporting a 100 mA mode alone does not prove suspend behavior, total port current, OFF leakage or charge timing.
+The [input-current assessment](../../hardware/coupon/rev-a/usb-input-assessment.md) records alternatives and remaining proof obligations. [ADR 0010](0010-source-qualified-off-charging.md) subsequently selected a BQ24074/BQ24392/TUSB320/TS3USB31E topology for schematic capture. Supporting a 100 mA mode alone still does not prove suspend behavior, total port current, OFF leakage or charge timing.
 
 ## Verification
 
