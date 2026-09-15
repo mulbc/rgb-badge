@@ -64,6 +64,80 @@ class PowerLibraryTests(unittest.TestCase):
     def test_controlled_libraries_pass(self):
         CHECK["check_libraries"](PROJECT)
 
+    def test_replacement_pin_map_faults(self):
+        for name in ("ITERM", "GOOD_BAT", "HSD+"):
+            with self.subTest(name=name):
+                project = self.project_copy()
+                path = project / "symbols" / "rgb-badge-coupon.kicad_sym"
+                source = path.read_text(encoding="utf-8")
+                old = f'(name "{name}" (effects'
+                self.assertEqual(source.count(old), 1)
+                path.write_text(source.replace(old, '(name "BAD" (effects'), encoding="utf-8")
+                with self.assertRaisesRegex(ValueError, "pin name mismatch"):
+                    CHECK["check_libraries"](project)
+
+    def test_replacement_active_low_graphics(self):
+        symbols = CHECK["check_symbol_libraries"](PROJECT)
+        for mpn, number in (("BQ24074RGTR", "4"), ("BQ24392RSER", "4"),
+                            ("TS3USB31ERSER", "1")):
+            with self.subTest(mpn=mpn):
+                self.assertEqual(CHECK["library_pins"](symbols[mpn])[number][2], "inverted")
+
+    def test_replacement_land_and_stencil_faults(self):
+        cases = [
+            ("BQ24074RGTR", '(size 1.68 1.68)', '(size 1.70 1.68)', "central pad size"),
+            ("BQ24074RGTR", '(size 1.55 1.55)', '(size 1.50 1.55)', "central pad size"),
+            ("BQ24392RSER", '(at -0.675 -0.75)', '(at -0.65 -0.75)', "position mismatch"),
+            ("TS3USB31ERSER", '(size 0.3 0.6)', '(size 0.3 0.55)', "size mismatch"),
+        ]
+        for mpn, old, new, message in cases:
+            with self.subTest(mpn=mpn, old=old):
+                project = self.project_copy()
+                path = project / "footprints" / "rgb-badge-coupon.pretty" / \
+                    (CHECK["PARTS"][mpn]["footprint"] + ".kicad_mod")
+                source = path.read_text(encoding="utf-8")
+                self.assertIn(old, source)
+                path.write_text(source.replace(old, new, 1), encoding="utf-8")
+                with self.assertRaisesRegex(ValueError, message):
+                    CHECK["check_libraries"](project)
+
+    def test_rse_middle_pads_cannot_be_widened_to_outer_pad_size(self):
+        for mpn in ("BQ24392RSER", "TS3USB31ERSER"):
+            with self.subTest(mpn=mpn):
+                project = self.project_copy()
+                path = project / "footprints" / "rgb-badge-coupon.pretty" / \
+                    (CHECK["PARTS"][mpn]["footprint"] + ".kicad_mod")
+                source = path.read_text(encoding="utf-8")
+                self.assertIn('(size 0.55 0.2)', source)
+                path.write_text(source.replace('(size 0.55 0.2)', '(size 0.55 0.25)'), encoding="utf-8")
+                with self.assertRaisesRegex(ValueError, "pad 2 size mismatch"):
+                    CHECK["check_libraries"](project)
+
+    def test_replacement_corner_radius_cannot_be_doubled(self):
+        for mpn in ("BQ24074RGTR", "BQ24392RSER", "TS3USB31ERSER"):
+            with self.subTest(mpn=mpn):
+                project = self.project_copy()
+                path = project / "footprints" / "rgb-badge-coupon.pretty" / \
+                    (CHECK["PARTS"][mpn]["footprint"] + ".kicad_mod")
+                source = path.read_text(encoding="utf-8")
+                old = "0.208333" if mpn == "BQ24074RGTR" else "0.2"
+                self.assertIn(f'(roundrect_rratio {old})', source)
+                path.write_text(source.replace(f'(roundrect_rratio {old})',
+                    '(roundrect_rratio 0.4)', 1), encoding="utf-8")
+                with self.assertRaisesRegex(ValueError, "corner radius mismatch"):
+                    CHECK["check_libraries"](project)
+
+    def test_rse10_body_axes_cannot_be_swapped(self):
+        project = self.project_copy()
+        path = project / "footprints" / "rgb-badge-coupon.pretty" / \
+            (CHECK["PARTS"]["BQ24392RSER"]["footprint"] + ".kicad_mod")
+        source = path.read_text(encoding="utf-8")
+        old = '(start -0.75 -1) (end 0.75 1)'
+        self.assertIn(old, source)
+        path.write_text(source.replace(old, '(start -1 -0.75) (end 1 0.75)'), encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "F.Fab outline mismatch"):
+            CHECK["check_libraries"](project)
+
     def project_copy(self):
         temporary = tempfile.TemporaryDirectory(prefix="rgb-badge-power-library-")
         self.addCleanup(temporary.cleanup)

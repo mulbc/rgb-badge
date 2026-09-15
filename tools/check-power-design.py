@@ -58,7 +58,7 @@ def validate_bq_unknown_input(resistance, source_limit, *, classification="unkno
 def usb_capture_blockers():
     """Selected topology tasks not yet closed by calculation alone."""
     return (
-        "Exact BQ24074RGTR, BQ24392RSER and TS3USB31ERSER symbols/footprints have not passed their library audits.",
+        "Exact BQ24074RGTR, BQ24392RSER and TS3USB31ERSER symbols/footprints pass host audits but require native rendering review.",
         "The VBUS-domain level translation and high-current-over-SDP priority logic are not captured.",
         "The detector/LDO/logic/status auxiliary-current budget and source transitions are not validated.",
         "The exact pack, NTC/timer network and BQ24074 linear thermal behavior remain unqualified.",

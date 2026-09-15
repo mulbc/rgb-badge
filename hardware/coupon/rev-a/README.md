@@ -8,7 +8,7 @@ Status: matrix, driver, row-stage and controller staged electrical reviews passe
 
 Validate the production electrical architecture and compare 1010 versus 1515 RGB LEDs before scaling to the 48 × 16 badge.
 
-The provisional direct input-current network is rejected by [ADR 0009](../../../docs/decisions/0009-usb-input-current-closure.md). [ADR 0010](../../../docs/decisions/0010-source-qualified-off-charging.md) selects BQ24074/BQ24392/TUSB320/TS3USB31E for the next power capture, with standby as the fail-safe state, OFF charging limited to hardware-qualified sources and a switched-rail second data switch for hard-OFF isolation. The [assessment](usb-input-assessment.md) records its state table and missing proof. Exact replacement libraries, priority logic and thermal validation are still pending.
+The provisional direct input-current network is rejected by [ADR 0009](../../../docs/decisions/0009-usb-input-current-closure.md). [ADR 0010](../../../docs/decisions/0010-source-qualified-off-charging.md) selects BQ24074/BQ24392/TUSB320/TS3USB31E for the next power capture, with standby as the fail-safe state, OFF charging limited to hardware-qualified sources and a switched-rail second data switch for hard-OFF isolation. The [assessment](usb-input-assessment.md) records its state table and missing proof. Exact replacement libraries pass host audits; their [native rendering review](power-replacement-library-audit.md), priority logic and thermal validation are still pending.
 
 ## Required contents
 

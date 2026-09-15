@@ -2,7 +2,7 @@
 
 # Coupon Rev A power/input pre-capture record
 
-Status: direct input-current proposal rejected by [ADR 0009](../../../docs/decisions/0009-usb-input-current-closure.md); source-qualified BQ24074/BQ24392/TUSB320/TS3USB31E topology selected by [ADR 0010](../../../docs/decisions/0010-source-qualified-off-charging.md). Exact replacement libraries and power capture are pending; not approved for fabrication.
+Status: direct input-current proposal rejected by [ADR 0009](../../../docs/decisions/0009-usb-input-current-closure.md); source-qualified BQ24074/BQ24392/TUSB320/TS3USB31E topology selected by [ADR 0010](../../../docs/decisions/0010-source-qualified-off-charging.md). Replacement libraries pass host audits; native rendering review and power capture are pending; not approved for fabrication.
 
 ## Purpose
 
@@ -12,9 +12,9 @@ This record narrows the next schematic increment without hiding the remaining sa
 
 | Partition | Exact candidate | Power state | Draft boundary |
 |---|---|---|---|
-| Charger and PowerPath | `BQ24074RGTR` | Always connected to protected cell; standby unless source permission exists | Exact library, TS/timer/termination network and thermal layout remain open |
-| BC1.2 detector/data switch | `BQ24392RSER` | Powered directly from VBUS; `GOOD_BAT` high whenever VBUS is valid | Exact library and GPIO translation remain open |
-| Application USB isolator | `TS3USB31ERSER` | Powered only from switched `+3V3_APP`; detector side on `D+/D-`, ESP32 side on `HSD+/HSD-`, active-low `OE` tied low | Exact library and high-speed routing remain open; `Ioff` isolates the connector-facing `D+/D-` pins when unpowered |
+| Charger and PowerPath | `BQ24074RGTR` | Always connected to protected cell; standby unless source permission exists | Native library review, TS/timer/termination network and thermal layout remain open |
+| BC1.2 detector/data switch | `BQ24392RSER` | Powered directly from VBUS; `GOOD_BAT` high whenever VBUS is valid | Native library review and GPIO translation remain open |
+| Application USB isolator | `TS3USB31ERSER` | Powered only from switched `+3V3_APP`; detector side on `D+/D-`, ESP32 side on `HSD+/HSD-`, active-low `OE` tied low | Native library review and high-speed routing remain open; `Ioff` isolates the connector-facing `D+/D-` pins when unpowered |
 | Type-C sink detector | `TUSB320LAIRWBR` | Powered from USB-only 3.3 V | Fixed UFP/GPIO mode; 1.5 A/3 A is an independent hardware grant |
 | USB-only rail | `TLV75533PDBVR` | On only while VBUS is present | Must meet the TUSB320LAI 25 ms VDD-ramp condition |
 | Mode-priority logic | Exact parts pending | VBUS-only; passive output is BQ24074 standby | Hardware high-current grant must override the SDP firmware grant |

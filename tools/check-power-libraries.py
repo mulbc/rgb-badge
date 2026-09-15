@@ -23,6 +23,40 @@ PROJECT = Path(__file__).resolve().parents[1] / "hardware" / "coupon" / "rev-a"
 FP_PREFIX = "rgb-badge-coupon:"
 
 PARTS = {
+    "BQ24074RGTR": {
+        "footprint": "VQFN_TI_RGT0016C_3x3mm_P0.5mm_EP1.68mm",
+        "datasheet": "https://www.ti.com/lit/ds/symlink/bq24074.pdf",
+        "pins": {
+            1: ("TS", "input"), 2: ("BAT", "power_in"), 3: ("BAT", "power_in"),
+            4: ("CE", "input"), 5: ("EN2", "input"), 6: ("EN1", "input"),
+            7: ("PGOOD", "open_collector"), 8: ("VSS", "power_in"),
+            9: ("CHG", "open_collector"), 10: ("OUT", "power_out"),
+            11: ("OUT", "power_out"), 12: ("ILIM", "input"), 13: ("IN", "power_in"),
+            14: ("TMR", "input"), 15: ("ITERM", "input"), 16: ("ISET", "bidirectional"),
+            17: ("VSS_EP", "power_in"),
+        },
+    },
+    "BQ24392RSER": {
+        "footprint": "UQFN_TI_RSE0010A_2x1.5mm_P0.5mm",
+        "datasheet": "https://www.ti.com/lit/ds/symlink/bq24392.pdf",
+        "pins": {
+            1: ("SW_OPEN", "open_collector"), 2: ("DM_HOST", "bidirectional"),
+            3: ("DP_HOST", "bidirectional"), 4: ("CHG_AL_N", "open_collector"),
+            5: ("GOOD_BAT", "input"), 6: ("GND", "power_in"),
+            7: ("DP_CON", "bidirectional"), 8: ("DM_CON", "bidirectional"),
+            9: ("VBUS", "power_in"), 10: ("CHG_DET", "output"),
+        },
+    },
+    "TS3USB31ERSER": {
+        "footprint": "UQFN_TI_RSE0008A_1.5x1.5mm_P0.5mm",
+        "datasheet": "https://www.ti.com/lit/ds/symlink/ts3usb31e.pdf",
+        "pins": {
+            1: ("OE", "input"), 2: ("HSD+", "bidirectional"),
+            3: ("D+", "bidirectional"), 4: ("GND", "power_in"),
+            5: ("D-", "bidirectional"), 6: ("HSD-", "bidirectional"),
+            7: ("NC", "passive"), 8: ("VCC", "power_in"),
+        },
+    },
     "BQ25616JRTWT": {
         "footprint": "QFN_TI_RTW0024A_4x4mm_P0.5mm_EP2.7mm",
         "datasheet": "https://www.ti.com/lit/ds/symlink/bq25616.pdf",
@@ -230,6 +264,10 @@ def check_symbol_libraries(project):
             require(pin[1] == electrical_type, f"{mpn}.{number}: electrical type mismatch")
     require(library_pins(symbols["BQ25616JRTWT"])["9"][2] == "inverted",
             "BQ25616J CE must show active-low inversion")
+    for mpn, number in (("BQ24074RGTR", "4"), ("BQ24392RSER", "4"),
+                        ("TS3USB31ERSER", "1")):
+        require(library_pins(symbols[mpn])[number][2] == "inverted",
+                f"{mpn}.{number} must show active-low inversion")
     require(library_pins(symbols["SN74LVC1G04DBVR"])["4"][2] == "inverted",
             "SN74LVC1G04 output must show inversion")
     require(library_pins(symbols["TUSB320LAIRWBR"])["11"][2] == "inverted",
@@ -283,6 +321,92 @@ def check_rtw_footprint(project):
     marker = one(root, "fp_circle", "RTW pin-1 marker")
     require(dec(one(marker, "center", "RTW pin-1 marker")[1:]) == (D("-2.45"), D("-1.65")),
             "RTW pin-1 marker mismatch")
+
+
+def check_replacement_geometry(root, body, courtyard, marker):
+    """Also guard radius and outline errors invisible to the pad-size tables."""
+    require(D(one(root, "solder_mask_margin", "footprint")[1]) == D("0.05"),
+            f"{root[1]} mask margin mismatch")
+    for pad in children(root, "pad"):
+        require(pad[3] == "roundrect", f"{root[1]} pad shape mismatch")
+        radius = min(pad_size(pad)) * D(one(pad, "roundrect_rratio", "pad")[1])
+        require(abs(radius - D("0.05")) <= D("0.000001"),
+                f"{root[1]} pad {pad[1]} corner radius mismatch")
+        for override in ("solder_mask_margin", "solder_paste_margin",
+                         "solder_paste_margin_ratio"):
+            require(not children(pad, override), f"{root[1]} unexpected pad {override}")
+    for override in ("solder_paste_margin", "solder_paste_margin_ratio"):
+        require(not children(root, override), f"{root[1]} unexpected footprint {override}")
+    for layer, extent in (("F.Fab", body), ("F.CrtYd", courtyard)):
+        rectangles = [r for r in children(root, "fp_rect")
+                      if one(r, "layer", "rectangle")[1] == layer]
+        require(len(rectangles) == 1, f"{root[1]} {layer} outline count mismatch")
+        require(dec(one(rectangles[0], "start", "rectangle")[1:]) == tuple(-v for v in dec(extent))
+                and dec(one(rectangles[0], "end", "rectangle")[1:]) == dec(extent),
+                f"{root[1]} {layer} outline mismatch")
+    circle = one(root, "fp_circle", "pin-1 marker")
+    require(dec(one(circle, "center", "circle")[1:]) == dec(marker)
+            and one(circle, "layer", "circle")[1] == "F.SilkS",
+            f"{root[1]} pin-1 marker mismatch")
+
+
+def check_rgt_footprint(project):
+    root = footprint(project, PARTS["BQ24074RGTR"]["footprint"])
+    pads = children(root, "pad")
+    require(Counter(p[1] for p in pads) == Counter([*map(str, range(1, 18)), ""]),
+            "RGT0016C pad numbers mismatch")
+    numbered = {p[1]: p for p in pads}
+    for number in range(1, 17):
+        j = (number - 1) % 4
+        if number <= 4:
+            position, size = (D("-1.4"), D("-0.75") + D("0.5") * j), dec(("0.6", "0.24"))
+        elif number <= 8:
+            position, size = (D("-0.75") + D("0.5") * j, D("1.4")), dec(("0.24", "0.6"))
+        elif number <= 12:
+            position, size = (D("1.4"), D("0.75") - D("0.5") * j), dec(("0.6", "0.24"))
+        else:
+            position, size = (D("0.75") - D("0.5") * j, D("-1.4")), dec(("0.24", "0.6"))
+        pad = numbered[str(number)]
+        require(pad_position(pad) == position, f"RGT0016C pad {number} position mismatch")
+        require(pad_size(pad) == size, f"RGT0016C pad {number} size mismatch")
+        require(pad_layers(pad) == ["F.Cu", "F.Paste", "F.Mask"],
+                f"RGT0016C pad {number} layers mismatch")
+    for number, size, layers in (("17", "1.68", ["F.Cu", "F.Mask"]),
+                                  ("", "1.55", ["F.Paste"])):
+        pad = numbered[number]
+        require(pad_position(pad) == dec(("0", "0")), "RGT0016C central pad position mismatch")
+        require(pad_size(pad) == (D(size), D(size)), "RGT0016C central pad size mismatch")
+        require(pad_layers(pad) == layers, "RGT0016C central pad layers mismatch")
+    require(D("0.84") < D("1.55") ** 2 / D("1.68") ** 2 < D("0.86"),
+            "RGT0016C stencil coverage mismatch")
+    check_replacement_geometry(root, ("1.5", "1.5"), ("1.95", "1.95"), ("-2.12", "-1.25"))
+
+
+def check_rse_footprint(project, mpn, positions, narrow, end, body, courtyard, marker):
+    root = footprint(project, PARTS[mpn]["footprint"])
+    pads = children(root, "pad")
+    require(Counter(p[1] for p in pads) == Counter(positions.keys()), f"{mpn} pad numbers mismatch")
+    for pad in pads:
+        number = pad[1]
+        size = ("0.3", "0.6") if number in end else ("0.55", "0.2" if number in narrow else "0.25")
+        require(pad_position(pad) == dec(positions[number]), f"{mpn} pad {number} position mismatch")
+        require(pad_size(pad) == dec(size), f"{mpn} pad {number} size mismatch")
+        require(pad_layers(pad) == ["F.Cu", "F.Paste", "F.Mask"], f"{mpn} pad {number} layers mismatch")
+    check_replacement_geometry(root, body, courtyard, marker)
+
+
+def check_rse_footprints(project):
+    check_rse_footprint(project, "BQ24392RSER", {
+        "1": ("-0.675", "-0.75"), "2": ("-0.675", "-0.25"),
+        "3": ("-0.675", "0.25"), "4": ("-0.675", "0.75"), "5": ("0", "0.9"),
+        "6": ("0.675", "0.75"), "7": ("0.675", "0.25"),
+        "8": ("0.675", "-0.25"), "9": ("0.675", "-0.75"), "10": ("0", "-0.9"),
+    }, {"2", "3", "7", "8"}, {"5", "10"}, ("0.75", "1"), ("1.2", "1.45"), ("-1.42", "-0.95"))
+    check_rse_footprint(project, "TS3USB31ERSER", {
+        "1": ("-0.675", "-0.5"), "2": ("-0.675", "0"), "3": ("-0.675", "0.5"),
+        "4": ("0", "0.65"), "5": ("0.675", "0.5"), "6": ("0.675", "0"),
+        "7": ("0.675", "-0.5"), "8": ("0", "-0.65"),
+    }, {"2", "6"}, {"4", "8"}, ("0.75", "0.75"), ("1.2", "1.2"), ("-1.42", "-0.75"))
 
 
 def check_drl_footprint(project):
@@ -489,6 +613,8 @@ def check_libraries(project=PROJECT):
         check_copper_separation(footprint(project, name))
     symbols = check_symbol_libraries(project)
     check_rtw_footprint(project)
+    check_rgt_footprint(project)
+    check_rse_footprints(project)
     check_drl_footprint(project)
     check_phase_two_footprints(project)
     check_rwb_footprint(project)
@@ -504,6 +630,7 @@ def main():
     try:
         check_libraries(args.project_dir)
         print("Power library checks passed:")
+        print("- BQ24074/BQ24392/TS3USB31E: 35 pins, RGT/RSE lands, narrow middle pads, 0.05-mm corner radii")
         print("- distinct power-footprint copper pad bounding boxes are separated")
         print("- 25 BQ25616J pins match the TI RTW pin table and exposed-pad map")
         print("- RTW signal lands and four-way stencil segmentation match TI drawing 4211120-3/D")

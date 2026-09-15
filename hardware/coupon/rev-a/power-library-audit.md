@@ -2,7 +2,7 @@
 
 # Coupon Rev A power-library audit
 
-Status: native export at `c84f8ce` completed, but visual/drawing review rejected the charger copper, converter stencil and four symbol headings. Corrections passed first-author native rendering review at `3638b1d`; independent Gate A and the documented assembler shape/stencil review remain pending. See the [correction review](../../../docs/development/power-library-review-3638b1d.md). See the [finding record](../../../docs/development/power-library-review-c84f8ce.md). Remaining power/input libraries are deliberately blocked or not yet transcribed.
+Status: native export at `c84f8ce` completed, but visual/drawing review rejected the charger copper, converter stencil and four symbol headings. Corrections passed first-author native rendering review at `3638b1d`; independent Gate A and the documented assembler shape/stencil review remain pending. See the [correction review](../../../docs/development/power-library-review-3638b1d.md). See the [finding record](../../../docs/development/power-library-review-c84f8ce.md). The selected BQ24074/BQ24392/TS3USB31E replacement libraries now pass source/host audits and await native review; see the [replacement-library audit](power-replacement-library-audit.md) for exact maps, source hashes and recovery corrections.
 
 ## Controlled parts
 
@@ -99,7 +99,7 @@ No unverified footprint is allowed merely to make the power sheet look complete:
 
 ## Automated and native review
 
-`python3 tools/check-power-libraries.py` checks all nine exact MPN properties, all 97 logical pins, eight transcribed land maps, the BQ and DSJ exposed copper/paste splits, the DQA ground-land distinction, the RWB side-pad paste reduction and pin-1 markers. Dimension tables can repeat a transcription error: this happened at `c84f8ce`. A separate geometry guard now rejects touching/overlapping bounding boxes of distinct copper-pad numbers, independently of those tables. It is deliberately restricted to the current unrotated rectangular/rounded-rectangle power footprints and allows connected same-number thermal pieces; it is not PCB DRC. Additional checks constrain top-facing symbol headers, BQ paste/mask settings and DSJ nominal paste coverage. `tools/check-kicad.sh` also requires KiCad 10 to load and export every controlled symbol and all three footprint views.
+`python3 tools/check-power-libraries.py` checks twelve exact MPN properties, 132 logical pins and eleven transcribed land maps including the three replacement libraries, the BQ and DSJ exposed copper/paste splits, the DQA ground-land distinction, the RWB side-pad paste reduction and pin-1 markers. Dimension tables can repeat a transcription error: this happened at `c84f8ce`. A separate geometry guard now rejects touching/overlapping bounding boxes of distinct copper-pad numbers, independently of those tables. It is deliberately restricted to the current unrotated rectangular/rounded-rectangle power footprints and allows connected same-number thermal pieces; it is not PCB DRC. Additional checks constrain top-facing symbol headers, BQ paste/mask settings and DSJ nominal paste coverage. `tools/check-kicad.sh` also requires KiCad 10 to load and export every controlled symbol and all three footprint views.
 
 For the native render review, verify:
 
