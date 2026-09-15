@@ -13,8 +13,10 @@ Create a small, manufacturable 48 × 16 RGB wearable badge that preserves the 1.
 - KiCad workflow: 10.0.6 stable baseline accepted; Coupon Rev A project and blank schematic scaffold created; the first macOS GUI round-trip opened and saved without errors, and CLI ERC reported zero violations.
 - Coupon LED pair: `EAST10105RGBA0` in columns 0–7 and `QBLP1515A-RGB2A` in columns 8–15.
 - Coupon LED libraries: first-author exact-MPN transcription and rendering review complete. Owner KiCad 10.0.6 exports at `27c01b4` passed pin/pad comparison; separate derived numbered views resolve body-outline/label overlap. The [review record](docs/development/led-library-review-27c01b4.md) preserves evidence and limits; independent Gate A verification remains pending.
-- Coupon schematic: the matrix and TLC59581 driver passed owner KiCad 10.0.6 ERC/exported-netlist and six-page visual review at `8e95eb0`. Exact row-selection libraries passed native rendering review at `0c71860`; the complete row capture then passed zero-violation ERC, 335-item / 1,290-pin native connectivity and seven-page visual review at `eb4129b`. The exact N16R8 controller, reset/mode defaults, USB/UART boundaries and test pads passed the strict staged ERC gate, 356-item / 1,360-pin native connectivity, footprint render and eight-page visual review at `d56e1aa`. Power/input remains uncaptured, and 3.3 V N-MOS behavior plus hardware VLED inhibition remain explicit review/measurement items. See the [controller review](docs/development/controller-review-d56e1aa.md) and earlier capture/review records.
-- Repository workflow: owner granted standing permission on 2026-09-07 to merge PRs after applicable checks pass. LED library PR #2 through row-capture PR #6 are merged. Controller PR #7 passed its native merge gate; power/input is the active increment.
+- Coupon schematic: the matrix and TLC59581 driver passed owner KiCad 10.0.6 ERC/exported-netlist and six-page visual review at `8e95eb0`. Exact row-selection libraries passed native rendering review at `0c71860`; the complete row capture then passed zero-violation ERC, 335-item / 1,290-pin native connectivity and seven-page visual review at `eb4129b`. The exact N16R8 controller, reset/mode defaults, USB/UART boundaries and test pads passed the strict staged ERC gate, 356-item / 1,360-pin native connectivity, footprint render and eight-page visual review at `d56e1aa`. The [power pre-capture record](hardware/coupon/rev-a/power-pre-capture.md) freezes charger/current-limit and converter-divider arithmetic while keeping the USB default-current/data topology and pack-dependent NTC limits explicit. The [power-library audit](hardware/coupon/rev-a/power-library-audit.md) controls exact BQ25616J, TPS631000, TPS63020, USB-only LDO/inverter, TUSB320LAI, MAX17048, INA232 and USB ESD symbols/land patterns; corrected native rendering passed at `3638b1d`. The separately audited USB4505 candidate library passed host checks and [owner-generated native rendering review at `bf1627c`](docs/development/usb-connector-review-bf1627c.md). Power/input remains uncaptured, and 3.3 V N-MOS behavior plus hardware VLED inhibition remain explicit review/measurement items. See the [controller review](docs/development/controller-review-d56e1aa.md) and earlier capture/review records.
+- Power-library review update: the native run at `c84f8ce` passed its staged electrical checks, but drawing/render review found a charger ground-pad short, wrong converter stencil geometry and overlapping symbol headings. The corrected native exports at `3638b1d` passed first-author review. The follow-on row layout and stale-note repairs passed native electrical and visual review at `91ef697`, closing the recorded first-author findings. PR #8 remains draft. The [finding record](docs/development/power-library-review-c84f8ce.md) also tracks the existing row-page title-block collision and stale annotations, now closed by the [native layout review](docs/development/layout-review-91ef697.md). See the [correction review](docs/development/power-library-review-3638b1d.md).
+- USB/input closure: [ADR 0009](docs/decisions/0009-usb-input-current-closure.md) rejects the provisional direct BQ25616J ILIM network. [ADR 0010](docs/decisions/0010-source-qualified-off-charging.md) selects `BQ24074RGTR` + `BQ24392RSER` + `TS3USB31ERSER` + the audited `TUSB320LAIRWBR` for the next capture: fail-safe standby by default; autonomous OFF charging only from a positively classified charging source or Type-C 1.5 A/3 A source; SDP charging only while ON, configured and unsuspended. BQ24392 `GOOD_BAT` stays high with VBUS to avoid its finite dead-battery timer; the application-powered TS3USB31E supplies hard-OFF data isolation. The replacement libraries pass source/host audits and [native rendering review at c054cb4](docs/development/power-replacement-review-c054cb4.md). [ADR 0011](docs/decisions/0011-usb-total-current-headroom.md) corrects the configured-SDP current budget using low external ILIM plus a hardware-only resistor boost; the 1,024-case GPIO permission contract passes static checks. Physical logic, auxiliary-current proof, thermal proof and power capture remain pending. See the [replacement-library audit](hardware/coupon/rev-a/power-replacement-library-audit.md), including the corrected unpublished geometry findings. The recovered USB4505 library and owner-generated KiCad 10.0.6 exports passed first-author review; cutout reliefs and stack-up/process qualification remain open.
+- Repository workflow: owner granted standing permission on 2026-09-07 to merge PRs after applicable checks pass. LED library PR #2 through controller PR #7 are merged. Power/input is the active increment.
 - Hardware testing: none.
 - Current safe action: documentation, exact-part research, calculations and coupon design.
 - Current stop condition: do not order a PCB or battery until the Gate A engineering review is complete.
@@ -30,7 +32,7 @@ Create a small, manufacturable 48 × 16 RGB wearable badge that preserves the 1.
 | Charging | USB-C at 5 V; correct A-to-C/C-to-C behaviour; charge while operating |
 | Radio | BLE only in explicit programming mode |
 | Controls | One momentary mode button and one latching on/off slide switch |
-| OFF state | Application electronics and display off; autonomous charging and gauging remain available |
+| OFF state | Application electronics and display off; gauging remains available; autonomous charging only from a hardware-qualified charging source |
 | Assembly | Turnkey PCBA; user plugs in the protected battery and assembles the case |
 | Quantity | Five assembled full badges after coupon validation |
 | Budget | USD 500–800 for coupon, five badges, cells, basic test tools and shipping; case filament/design and independent review excluded |
@@ -43,8 +45,8 @@ Create a small, manufacturable 48 × 16 RGB wearable badge that preserves the 1.
 - The QBLP1515 coupon half preserves the manufacturer land pattern and alternates 0°/90° placement on a checkerboard under ADR 0008.
 - Sixteen level-shifted P-channel MOSFET high-side row switches.
 - ESP32-S3-WROOM-1U-N16R8 with an external 2.4 GHz FPC antenna.
-- BQ25616J standalone switching charger and NVDC power path.
-- TUSB320LAI sink/current-advertisement detection with a passive 500 mA input-limit state.
+- `BQ24074RGTR` standalone linear charger/PowerPath selected for capture, with thermal performance and exact pack current still requiring coupon and Gate A validation.
+- `BQ24392RSER` BC1.2 detector/data switch, application-powered `TS3USB31ERSER` hard-OFF data isolator, `TUSB320LAIRWBR` Type-C current detection and VBUS-powered fail-safe logic; standby is the passive state and only hardware detection can grant the external high-current mode.
 - TPS631000-class 3.3 V rail and TPS63020-class approximately 3.9 V LED rail.
 - MAX17048 fuel gauge and INA232 bidirectional battery-current monitor.
 - Protected, NTC-equipped, connectorized 750–900 mAh LiPo; 900 mAh is preferred if the 11 mm stack closes safely.
@@ -55,9 +57,11 @@ Create a small, manufacturable 48 × 16 RGB wearable badge that preserves the 1.
 | Switch | USB | Application and USB data | Charging | Display |
 |---|---|---|---|---|
 | OFF | Absent | Off | No | Off |
-| OFF | Present | Off | Autonomous | Off |
+| OFF | SDP, default-only or unclassified | Off | Standby / no charge | Off |
+| OFF | BC1.2 charging source or Type-C 1.5 A/3 A | Off | Autonomous, hardware-bounded | Off |
 | ON | Absent | Playback | No | Firmware-controlled |
-| ON | Present | Playback/USB data | Active with load priority | Firmware-controlled |
+| ON | SDP | Playback/USB data | Standby before configuration and during suspend; lower programmed input limit with auxiliary headroom while configured | Firmware-controlled |
+| ON | Qualified charging source | Playback; USB data where supported | Active with load priority and hardware high-current permission | Firmware-controlled |
 
 ## Development stages
 
@@ -75,8 +79,8 @@ Create a small, manufacturable 48 × 16 RGB wearable badge that preserves the 1.
 - Project-local LED footprints plus pad, polarity, tape-orientation and optical-bin verification.
 - Exact protected/terminated cell and connector.
 - Confirm supplied TLC59581 RTQ0056E versus RTQ0056G package; qualify the nominal 4.85 mA current calculation and TI table discrepancies.
-- Final charger `ICHG` and USB `ILIM` resistor networks.
-- Validation or replacement of the provisional isolated charger D+/D− approach, including default-current behaviour before USB enumeration.
+- Circuit capture using the native-reviewed exact `BQ24074RGTR`/`BQ24392RSER`/`TS3USB31ERSER` libraries, VBUS-powered permission logic, hardware-only parallel ILIM branch and their final `ISET`/`ILIM`/termination/timer/NTC networks.
+- Validation of the selected BC1.2/data-switch path, including SDP configuration/suspend, Type-C advertisement changes and conservative reset/detach behavior.
 - Validation of the candidate `74HC4514PW,118`, `DMP2066LSN-7` and `2N7002K-7` row chain under real multiplex timing and current.
 - Final USB ESD/VBUS protection topology.
 - Final converter component values and layout.
