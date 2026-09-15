@@ -4,7 +4,7 @@
 
 Status: agreed design baseline and staged execution plan
 Date: 2026-09-05
-Project phase: matrix, driver, row-stage, controller, controlled legacy power-library and USB4505 candidate-library native reviews passed; source-qualified OFF-charge policy and BQ24074/BQ24392/TUSB320/TS3USB31E topology selected; replacement-library native review, power capture, thermal proof and layout remain
+Project phase: matrix, driver, row-stage, controller, controlled legacy power-library and USB4505 candidate-library native reviews passed; source-qualified OFF-charge policy and BQ24074/BQ24392/TUSB320/TS3USB31E topology selected; replacement-library native review passed at c054cb4; power capture, thermal proof and layout remain
 
 ## 1. Outcome
 

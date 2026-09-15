@@ -2,7 +2,7 @@
 
 # Selected power replacement libraries
 
-Status: first-author source/drawing transcription and host checks pass; native KiCad rendering review is pending. These three libraries implement the part choices in ADR 0010. They are not instantiated in the schematic and are not fabrication approval.
+Status: first-author source/drawing transcription, host checks and [native KiCad rendering review at c054cb4](../../../docs/development/power-replacement-review-c054cb4.md) pass. These three libraries implement the part choices in ADR 0010. They are not instantiated in the schematic and are not fabrication approval.
 
 ## Sources inspected on 2026-09-15
 
@@ -56,10 +56,10 @@ The interrupted, unpublished local commit c671fc4 was unavailable after the work
 
 All three are corrected here, with regression tests. The footprint geometry guard now checks corner radii, body/courtyard axes, explicit mask expansion and prohibited paste overrides in addition to pin numbers, sizes, coordinates, layer assignments and copper separation.
 
-## Native review required
+## Native review completed
 
 Host evidence on 2026-09-15: all 99 tests passed with `python3 -m unittest discover -s tools/tests -p 'test_*.py' -v`. The power-state subset was rerun after updating its blocker wording and passed all 15 tests. The wrapper uses a test-only CLI stub here; no new native KiCad result is claimed.
 
-Run the repository's check-kicad.sh with a fresh output directory and upload the complete ZIP. It must export 32 symbols and 24 footprints per raw view, preserve the existing 356-item/1,360-logical-pin native netlist contract, and pass the strict staged ERC gate. Library-only additions do not change the eight schematic pages or resolve the temporary USB boundary.
+The owner supplied the complete KiCad 10.0.6 export ZIP at c054cb4: 32 symbols and 24 footprints per raw view, the unchanged 356-item/1,360-logical-pin native netlist, the strict staged ERC result and all eight schematic pages. The assistant inspected the actual renders and revalidated the supplied ERC/XML. See the [native review record](../../../docs/development/power-replacement-review-c054cb4.md) for hashes and findings. Library-only additions do not resolve the temporary USB boundary.
 
-The assistant will inspect the three new symbols and fabrication/copper/paste views against the drawings: distinct charger BAT/OUT pins; inversion bubbles on CE, CHG_AL_N and OE; smaller central RGT paste aperture; correct pin-one orientation; narrower RSE middle pads; and the tall RSE0010A body. Do not mark this review passed from host checks or stub exports. Power capture, source-priority logic, auxiliary-current budget, pack/NTC, thermal validation, PCB layout and independent Gate A remain open.
+The three new symbols and fabrication/copper/paste views passed comparison: distinct charger BAT/OUT pins; inversion bubbles on CE, CHG_AL_N and OE; smaller central RGT paste aperture; correct pin-one orientation; narrower RSE middle pads; and the tall RSE0010A body. No repeat owner run is required. Power capture, source-priority logic, auxiliary-current budget, pack/NTC, thermal validation, PCB layout and independent Gate A remain open.
