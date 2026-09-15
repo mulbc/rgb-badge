@@ -2,7 +2,7 @@
 
 # USB/input closure assessment
 
-Status: direct BQ25616J ILIM-only proposal rejected under [ADR 0009](../../../docs/decisions/0009-usb-input-current-closure.md). [ADR 0010](../../../docs/decisions/0010-source-qualified-off-charging.md) selects BQ24074/BQ24392/TUSB320/TS3USB31E for the next capture; replacement libraries pass host audits; native rendering review, priority logic, thermal proof and the complete power sheet remain pending.
+Status: direct BQ25616J ILIM-only proposal rejected under [ADR 0009](../../../docs/decisions/0009-usb-input-current-closure.md). [ADR 0010](../../../docs/decisions/0010-source-qualified-off-charging.md) selects BQ24074/BQ24392/TUSB320/TS3USB31E for the next capture; replacement libraries passed native review at c054cb4. [ADR 0011](../../../docs/decisions/0011-usb-total-current-headroom.md) corrects the configured-SDP auxiliary-current budget and defines the GPIO permission contract. Physical permission logic, thermal proof and the complete power sheet remain pending.
 
 ## State coverage required
 
@@ -10,7 +10,7 @@ Status: direct BQ25616J ILIM-only proposal rejected under [ADR 0009](../../../do
 |---|---|
 | USB absent | No backfeed; application OFF drain below 50 uA including pack, gauge and disabled rails |
 | Legacy USB 2.0 host, not configured | Application runs from the battery; charger remains in standby and takes no system power from VBUS beyond the VBUS-only detection/logic budget |
-| Configured SDP | Validated USB-device-layer grant selects the charger's fixed 500 mA input ceiling; it cannot select external ILIM |
+| Configured SDP | Validated USB-device-layer grant selects low external ILIM with auxiliary headroom; it cannot enable the hardware-only parallel boost resistor |
 | SDP suspend | Grant clears and charger returns to standby; reset and absent firmware are already standby |
 | BC1.2 charging source | Detection coexists with native data where supported; a charger-selected limit is not assumed to be clamped by an unrelated resistor |
 | Type-C default advertisement | Do not equate default Rp with a completed USB configuration or a BC1.2 charging-port classification |
@@ -26,25 +26,25 @@ The selected normal state table does not use the BQ24074's 100 mA mode. The batt
 | BQ25616J plus separate USB input control | Retains the audited charger and low standby draw | Rejected for this coupon. Additional circuitry would still need to override its complete input path and coexist with native data; the direct ILIM route does not do so. |
 | BQ24166RGER | Standalone switching charger with pin-selected USB100 and other modes, NTC and power path | Its specified high-impedance battery drain reaches 55 uA under the listed conditions, exceeding the complete badge OFF budget in that mode. Other operating states would need independent characterization; do not accept it from USB-mode support alone. |
 | LTC4088EDE#TRPBF | Standalone switching PowerPath with hardware 100/500/1000 mA classes and suspend modes; no charger D+/D- pins | Not selected. Its 35 uA battery-drain maximum plus the gauge's 5 uA leaves only 10 uA for all other OFF loads. |
-| `BQ24074RGTR` + `BQ24392RSER` + `TUSB320LAIRWBR` + `TS3USB31ERSER` | Hardware standby/100/500/external modes; low charger battery sleep current; BC1.2 detection; switched-rail data isolation; independent Type-C 1.5 A/3 A permission | **Selected for capture by ADR 0010.** Requires native library review, VBUS-domain level/priority logic, full auxiliary-current budget, linear-charger thermal validation and exact pack qualification. |
+| `BQ24074RGTR` + `BQ24392RSER` + `TUSB320LAIRWBR` + `TS3USB31ERSER` | Hardware standby/100/500/external modes; low charger battery sleep current; BC1.2 detection; switched-rail data isolation; independent Type-C 1.5 A/3 A permission | **Selected for capture by ADR 0010.** Native library review passed; requires VBUS-domain level/permission logic, full auxiliary-current budget, linear-charger thermal validation and exact pack qualification. |
 
-The BQ24074 is a 3 × 3 mm, 16-pin VQFN. Its no-input BAT-pin sleep current is 6.5 uA maximum at the stated 85°C condition. With a 1.13 kohm, 1% ISET resistor, the calculated fast-charge range is 0.698–0.872 A. With a 1.78 kohm, 1% ILIM resistor, the external-mode input range is 0.834–0.976 A. Both include the published factor extremes and opposite resistor tolerance. The exact pack must permit the charge-current maximum; all VBUS-only auxiliary loads must fit under the input limit.
+The BQ24074 is a 3 × 3 mm, 16-pin VQFN. Its no-input BAT-pin sleep current is 6.5 uA maximum at the stated 85°C condition. With a 1.13 kohm, 1% ISET resistor, the calculated fast-charge range is 0.698–0.872 A. Under ADR 0011, 3.65 kohm base and switched parallel 3.48 kohm ILIM resistors (both 1%) give ideal low/high input ranges of 0.361–0.476 A and 0.834–0.975 A. Both include the published factor extremes and opposite resistor tolerance. The exact pack must permit the charge-current maximum; all VBUS-only auxiliary loads must fit under the input limit.
 
 This improved OFF budget comes with linear dissipation. At 5 V, 0.8 A and a 3.0 V battery, the first-order charger loss is approximately 1.6 W before system-load terms. TI's thermal model and copper recommendations are not proof of acceptable enclosure temperature. Gate A reviews the layout calculation; the coupon logs charge current, die regulation behavior and case temperature from depleted through full charge.
 
 ## Selected permission logic
 
-`TUSB320LAIRWBR` GPIO `OUT1` is high for unattached/default and low for attached 1.5 A/3 A. `BQ24392RSER` `CHG_DET` is high for CDP/DCP and its supported dedicated-charger classifications. Those signals form hardware high-current permission. The ESP32 may request the independent 500 mA mode only for an attached SDP after native USB configuration and while unsuspended.
+`TUSB320LAIRWBR` GPIO `OUT1` is high for unattached/default and low for attached 1.5 A/3 A. BQ24392 high permission requires `CHG_AL_N` low and `CHG_DET` high. The SDP route additionally requires `CHG_DET` low and `SW_OPEN` low; it cannot treat an unidentified low-current non-data charger as an SDP. ADR 0011 qualifies all paths with valid supplies and Type-C attachment. The ESP32 may request only low external ILIM after native USB configuration and while unsuspended; it cannot enable the parallel boost resistor.
 
 | High-current permission | Valid SDP grant | BQ24074 `EN2,EN1` | Result |
 |---:|---:|---|---|
 | 0 | 0 | `1,1` | Standby |
-| 0 | 1 | `0,1` | Fixed USB500 ceiling |
-| 1 | X | `1,0` | External ILIM ceiling; hardware priority |
+| 0 | 1 | `1,0` | Low external ILIM; boost off |
+| 1 | X | `1,0` | Boosted external ILIM; hardware priority |
 
-Both mode inputs require external pull-ups to the VBUS-only logic rail because the BQ24074's internal pull-downs select USB100, not standby. Loss of a detector, reset or absent firmware must release those pull-down controls and restore `1,1`. BQ24392 `GOOD_BAT` stays high while VBUS is valid to avoid its 30-minute nominal / 45-minute maximum Dead Battery Provision timeout. A second `TS3USB31ERSER`, powered only by switched `+3V3_APP`, isolates the ESP32 data pins while OFF and prevents detector-side signals from back-powering the application. The detector-facing pair uses the switch's `D+/D-` pins covered by the published zero-VCC `Ioff` condition, the ESP32 uses `HSD+/HSD-`, and active-low `OE` is tied to ground. Exact gates/transistors and output-level translation are deferred to the audited-library/capture increment.
+EN2 remains high and EN1 requires a default-high pull-up with a permission-controlled sink. Their high levels must be valid before the USB-only LDO starts, as required by ADR 0011; pulling them to an unpowered rail is insufficient. Loss of all valid permission must restore `1,1` and turn off the boost branch. BQ24392 `GOOD_BAT` stays high while VBUS is valid to avoid its 30-minute nominal / 45-minute maximum Dead Battery Provision timeout. A second `TS3USB31ERSER`, powered only by switched `+3V3_APP`, isolates the ESP32 data pins while OFF and prevents detector-side signals from back-powering the application. The detector-facing pair uses the switch's `D+/D-` pins covered by the published zero-VCC `Ioff` condition, the ESP32 uses `HSD+/HSD-`, and active-low `OE` is tied to ground. Exact gates/transistors and output-level translation are deferred to the audited-library/capture increment.
 
-Next capture gate: complete native rendering review of the exact BQ24074/BQ24392/TS3USB31E symbols and footprints, select the level-safe priority logic, prove the complete VBUS auxiliary-current budget and encode the state table in the schematic checker. A bigger resistor on the old BQ25616J remains an invalid fix.
+The BQ24074/BQ24392/TS3USB31E libraries passed native rendering review at c054cb4. Next capture gate: select and audit the level-safe permission logic, normally-off ILIM switch and hardware supply/reset qualification; prove the complete VBUS auxiliary-current budget; then encode their actual connectivity in the schematic checker. A bigger resistor on the old BQ25616J remains an invalid fix.
 
 The deterministic checker covers all permission-state combinations, resistor extremes and conservative reset/detach defaults. `--require-usb-closure` still returns 1 intentionally until the selected topology is captured. No KiCad source changes in this decision increment, so no native rerun is requested.
 

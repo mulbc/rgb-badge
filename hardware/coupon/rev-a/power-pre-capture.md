@@ -17,7 +17,7 @@ This record narrows the next schematic increment without hiding the remaining sa
 | Application USB isolator | `TS3USB31ERSER` | Powered only from switched `+3V3_APP`; detector side on `D+/D-`, ESP32 side on `HSD+/HSD-`, active-low `OE` tied low | Native library review and high-speed routing remain open; `Ioff` isolates the connector-facing `D+/D-` pins when unpowered |
 | Type-C sink detector | `TUSB320LAIRWBR` | Powered from USB-only 3.3 V | Fixed UFP/GPIO mode; 1.5 A/3 A is an independent hardware grant |
 | USB-only rail | `TLV75533PDBVR` | On only while VBUS is present | Must meet the TUSB320LAI 25 ms VDD-ramp condition |
-| Mode-priority logic | Exact parts pending | VBUS-only; passive output is BQ24074 standby | Hardware high-current grant must override the SDP firmware grant |
+| Permission logic and ILIM boost switch | Exact parts pending | VBUS-only; passive output is BQ24074 standby, boost off | Hardware alone selects the parallel ILIM branch under ADR 0011 |
 | Application rail | `TPS631000DRLR` | Latching-switch controlled | 3.3 V; converter MODE starts in PFM |
 | LED rail | `TPS63020DSJT` | Switch plus hardware display interlock | Nominal 3.944 V; must stay off through boot/reset/programming |
 | Fuel gauge | `MAX17048G+T10` | Always connected to cell | Must enter hibernate with the application off |
@@ -27,15 +27,15 @@ This record narrows the next schematic increment without hiding the remaining sa
 
 The selected charger uses TI's `I = K/R` relationships. With a 1.13 kohm, 1% `ISET` resistor, the draft charge-current range is 0.698–0.872 A. This is prohibited unless the exact protected, terminated pack permits at least 0.872 A across the complete allowed temperature range. A lower-rated pack forces a larger resistor.
 
-The selected 1.78 kohm, 1% `ILIM` resistor applies only in the hardware-qualified external mode:
+[ADR 0011](../../../docs/decisions/0011-usb-total-current-headroom.md) replaces USB500 with a 3.65 kohm, 1% base ILIM resistor and a hardware-only switched parallel 3.48 kohm, 1% branch. The ideal-switch settings are:
 
 | Hardware state | BQ24074 mode | Calculated range |
 |---|---:|---:|
 | Passive/reset/unqualified | Standby | No charger input path |
-| Configured, unsuspended SDP | Fixed USB500 | 0.450–0.500 A |
-| BC1.2 charging source or Type-C 1.5 A/3 A | External ILIM | 0.834–0.976 A |
+| Configured, unsuspended SDP | Low external ILIM | 0.361–0.476 A |
+| BC1.2 charging source or Type-C 1.5 A/3 A | Boosted external ILIM | 0.834–0.975 A |
 
-These are capture targets, not approval of an uncaptured circuit. See the [input assessment](usb-input-assessment.md) and ADR 0010 for the complete state table. Both BQ24074 mode pins must have external pull-ups to the VBUS-only rail so loss of permission selects standby; its internal pull-downs would select USB100. BQ24392 `GOOD_BAT` must stay high while VBUS is valid because holding it low starts a finite Dead Battery Provision timer. The application-powered TS3USB31E supplies the permanent OFF-state isolation instead. Gate A must verify A-to-C and C-to-C, switch ON/OFF, SDP/CDP/DCP, attach/detach, advertisement changes, native enumeration and suspend. The exact priority/level-shift circuit must be audited before the schematic can be called fail-safe.
+These are capture targets, not approval of an uncaptured circuit. See the [input assessment](usb-input-assessment.md) and ADRs 0010/0011 for the complete state table. The low setting reserves 20 mA for configured-state auxiliaries plus 2 mA for programming-network effects; these allocations require proof and do not establish suspend compliance. Both BQ24074 mode pins must have external pull-ups to the VBUS-only rail so loss of permission selects standby; its internal pull-downs would select USB100. BQ24392 `GOOD_BAT` must stay high while VBUS is valid because holding it low starts a finite Dead Battery Provision timer. The application-powered TS3USB31E supplies the permanent OFF-state isolation instead. Gate A must verify A-to-C and C-to-C, switch ON/OFF, SDP/CDP/DCP, attach/detach, advertisement changes, native enumeration and suspend. The exact priority/level-shift circuit must be audited before the schematic can be called fail-safe.
 
 The selected charger is linear. At 5 V input, 0.8 A charge current and a 3.0 V cell, a first-order no-system-load dissipation estimate is approximately 1.6 W. This is not a thermal result. Layout analysis and a depleted-to-full coupon charge log must show whether the 125°C regulation loop engages and whether enclosure temperature is acceptable.
 

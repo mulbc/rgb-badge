@@ -59,7 +59,7 @@ def usb_capture_blockers():
     """Selected topology tasks not yet closed by calculation alone."""
     return (
         "Exact BQ24074RGTR, BQ24392RSER and TS3USB31ERSER libraries passed native review at c054cb4; the power circuit remains uncaptured.",
-        "The VBUS-domain level translation and high-current-over-SDP priority logic are not captured.",
+        "ADR 0011 GPIO permission logic, hardware-only ILIM boost and fail-safe supply/reset circuitry are not captured.",
         "The detector/LDO/logic/status auxiliary-current budget and source transitions are not validated.",
         "The exact pack, NTC/timer network and BQ24074 linear thermal behavior remain unqualified.",
     )
@@ -72,7 +72,7 @@ HIGH_BC12 = frozenset(("CDP", "DCP", "dedicated"))
 
 
 def selected_usb_state(*, switch_on, type_c, bc12, configured=False, suspended=False):
-    """Resolve ADR 0010's logical product state.
+    """Resolve ADR 0010 policy with ADR 0011's current-budget correction.
 
     This proves the intended truth table, not transistor/gate implementation,
     USB compliance, detector accuracy, or firmware behavior.
@@ -100,7 +100,7 @@ def selected_usb_state(*, switch_on, type_c, bc12, configured=False, suspended=F
                 "data_connected": data_connected, "permission": "bc1.2-hardware",
                 "good_bat": True, "app_data_isolator_powered": switch_on}
     if switch_on and bc12 == "SDP" and configured and not suspended:
-        return {"mode": "usb500", "en2": 0, "en1": 1,
+        return {"mode": "external-low", "en2": 1, "en1": 0,
                 "data_connected": True, "permission": "usb-stack",
                 "good_bat": True, "app_data_isolator_powered": True}
     return {"mode": "standby", "en2": 1, "en1": 1,
@@ -108,10 +108,41 @@ def selected_usb_state(*, switch_on, type_c, bc12, configured=False, suspended=F
             "good_bat": True, "app_data_isolator_powered": switch_on}
 
 
+def selected_input_bounds(*, boost=False, switch_resistance_max="0"):
+    """Ideal-switch resistor limits, optionally including ON resistance.
+
+    Switch leakage, transient effects and auxiliary loads are NOT included.
+    Exact switch qualification must bound those before circuit closure.
+    """
+    if type(boost) is not bool:
+        raise ValueError("boost must be a boolean")
+    ron = D(switch_resistance_max)
+    if not ron.is_finite() or ron < 0:
+        raise ValueError("Switch resistance must be finite and nonnegative")
+    base, branch, tolerance = D("3650"), D("3480"), D("0.01")
+    if not boost:
+        low, _, high = bounded_ratio("1330", "1720", str(base), str(tolerance))
+        return low, D("1525") / base, high
+    r_min = parallel(base * (1 - tolerance), branch * (1 - tolerance))
+    r_max = parallel(base * (1 + tolerance), branch * (1 + tolerance) + ron)
+    # Only use TI's 500 mA--1.5 A factor row while the whole result stays there.
+    if D("1500") / r_max < D("0.5"):
+        raise ValueError("Switch resistance moves the high branch outside the factor range")
+    return D("1500") / r_max, D("1610") / parallel(base, branch), D("1720") / r_min
+
+
+def total_usb_current(charger_max, auxiliary_max, programming_allowance="0"):
+    values = tuple(map(D, (charger_max, auxiliary_max, programming_allowance)))
+    if any(not v.is_finite() or v < 0 for v in values):
+        raise ValueError("Current budgets must be finite and nonnegative")
+    return sum(values)
+
+
 def results():
     charge_low, _, charge_high = bounded_ratio("797", "975", "1130", "0.01")
     charge = (charge_low, D("890") / D("1130"), charge_high)
-    input_external = bounded_ratio("1500", "1720", "1780", "0.01")
+    input_external = selected_input_bounds(boost=True)
+    input_sdp = selected_input_bounds()
     historical_input_default = bounded_ratio("459", "500", "1000", "0.01")
     historical_input_high = bounded_ratio("459", "500", parallel("1000", "665"), "0.01")
     rail_3v3 = divider("0.500", "511000", "91000")
@@ -120,6 +151,10 @@ def results():
     return {
         "charge": charge,
         "input_external": input_external,
+        "input_sdp": input_sdp,
+        "historical_fixed_usb500_max": D("0.5"),
+        "historical_single_resistor_high": bounded_ratio("1500", "1720", "1780", "0.01"),
+        "configured_sdp_allocated_total": total_usb_current(input_sdp[2], "0.020", "0.002"),
         "historical_input_default": historical_input_default,
         "historical_input_high": historical_input_high,
         "rail_3v3": rail_3v3,
@@ -140,12 +175,16 @@ def check():
         raise ValueError("BQ24074 nominal charge-current calculation changed")
     if not (D("0.871") < charge_max < D("0.873")):
         raise ValueError("BQ24074 maximum charge-current calculation changed")
-    if not (D("0.834") < input_min < D("0.835")):
+    if not (D("0.833") < input_min < D("0.834")):
         raise ValueError("BQ24074 minimum external input-current calculation changed")
-    if not (D("0.904") < input_nom < D("0.905")):
+    if not (D("0.903") < input_nom < D("0.904")):
         raise ValueError("BQ24074 nominal external input-current calculation changed")
-    if not (D("0.976") < input_max < D("0.977")):
+    if not (D("0.975") < input_max < D("0.976")):
         raise ValueError("BQ24074 maximum external input-current calculation changed")
+    if input_max > value["historical_single_resistor_high"][2]:
+        raise ValueError("Hardware boost increased the previous high-current maximum")
+    if not D("0.497") < value["configured_sdp_allocated_total"] < D("0.5"):
+        raise ValueError("Configured SDP allocation no longer fits 500 mA")
     if not (D("3.307") < value["rail_3v3"] < D("3.309")):
         raise ValueError("TPS631000 3.3-V divider calculation changed")
     if not (D("3.944") < value["rail_vled"] < D("3.945")):
@@ -182,8 +221,10 @@ def main():
         value = check()
         print("Power pre-capture calculations passed:")
         print(f"- BQ24074 1.13-kohm charge setting: {value['charge'][0]:.3f} to {value['charge'][2]:.3f} A")
-        print(f"- BQ24074 1.78-kohm external input setting: {value['input_external'][0]:.3f} to {value['input_external'][2]:.3f} A")
-        print("- ADR 0010 source/switch/configuration/suspend and two-stage data-isolation truth table is internally consistent")
+        print(f"- ADR 0011 low ILIM (3.65 kohm): {value['input_sdp'][0]:.3f} to {value['input_sdp'][2]:.3f} A")
+        print(f"- hardware boost (3.65 || 3.48 kohm): {value['input_external'][0]:.3f} to {value['input_external'][2]:.3f} A, ideal switch")
+        print(f"- configured SDP allocation: {value['configured_sdp_allocated_total']:.3f} A including 20 mA auxiliary + 2 mA programming allowances (not qualified loads)")
+        print("- ADR 0010/0011 source/switch/configuration/suspend and two-stage data-isolation truth table is internally consistent")
         print(f"- nominal rails: {value['rail_3v3']:.3f} V application and {value['rail_vled']:.3f} V LED")
         print(f"- BQ24074 plus hibernating MAX17048 maxima consume {value['always_on_max_uA']:.1f} uA of the 50-uA OFF budget")
         print("- exact libraries/logic, auxiliary loads, battery/NTC, thermal behavior and layout still require review")

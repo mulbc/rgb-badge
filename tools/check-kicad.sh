@@ -19,6 +19,7 @@ row_capture_check="${repo_root}/tools/check-coupon-rows.py"
 controller_library_check="${repo_root}/tools/check-controller-libraries.py"
 controller_capture_check="${repo_root}/tools/check-coupon-controller.py"
 power_design_check="${repo_root}/tools/check-power-design.py"
+usb_permission_check="${repo_root}/tools/check-usb-permission.py"
 power_library_check="${repo_root}/tools/check-power-libraries.py"
 usb_connector_check="${repo_root}/tools/check-usb-connector.py"
 
@@ -49,6 +50,7 @@ for required_path in \
     "${controller_library_check}" \
     "${controller_capture_check}" \
     "${power_design_check}" \
+    "${usb_permission_check}" \
     "${power_library_check}" \
     "${usb_connector_check}"
 do
@@ -66,6 +68,7 @@ python3 "${row_capture_check}"
 python3 "${controller_library_check}"
 python3 "${controller_capture_check}"
 python3 "${power_design_check}"
+python3 "${usb_permission_check}"
 python3 "${power_library_check}"
 python3 "${usb_connector_check}"
 

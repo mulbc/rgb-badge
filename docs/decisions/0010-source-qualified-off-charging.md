@@ -6,6 +6,8 @@
 - Date: 2026-09-14
 - Extends: [ADR 0009](0009-usb-input-current-closure.md)
 
+**Amended by [ADR 0011](0011-usb-total-current-headroom.md):** the fixed USB500 selection and single 1.78 kohm ILIM network below are historical. The configured-SDP route now uses a lower external ILIM setting to reserve current for USB auxiliaries; hardware alone controls a parallel resistor for the higher setting. Source qualification, OFF charging and USB configuration/suspend policy remain applicable.
+
 ## Decision
 
 Switch OFF is not permission to draw charging current from every powered USB connector. Coupon Rev A shall charge while OFF only after hardware identifies either a BC1.2 charging source or a USB Type-C source advertising 1.5 A or 3 A. An ordinary Standard Downstream Port (SDP), an attached source advertising only Type-C default current, and an unclassified source remain in charger standby while the switch is OFF.

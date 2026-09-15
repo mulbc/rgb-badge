@@ -66,7 +66,7 @@ class PowerDesignTests(unittest.TestCase):
             (False, False, False, "standby"),
             (True, False, False, "standby"),
             (True, True, True, "standby"),
-            (True, True, False, "usb500"),
+            (True, True, False, "external-low"),
         )
         for switch_on, configured, suspended, expected in cases:
             with self.subTest(switch_on=switch_on, configured=configured, suspended=suspended):

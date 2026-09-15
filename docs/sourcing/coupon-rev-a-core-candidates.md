@@ -92,19 +92,19 @@ The TUSB320LAI has dead-battery `Rd` terminations, so a source can establish VBU
 | L | H | Attached, 1.5 A advertisement |
 | L | L | Attached, 3.0 A advertisement |
 
-Because the outputs are open drain, `OUT1` can participate directly in an active-low hardware grant for the 1.5 A and 3.0 A states. BQ24392 `CHG_DET` separately grants high current for positively classified charging sources. Its `GOOD_BAT` input stays high whenever VBUS is valid; using a low level as permanent OFF isolation would start its 30-minute nominal / 45-minute maximum Dead Battery Provision timer. The application-powered TS3USB31E instead supplies the hard-OFF data disconnect. A validated ESP32 USB-device-layer signal may select only the BQ24074's fixed 500 mA mode for an SDP after configuration and while unsuspended.
+Because the outputs are open drain, `OUT1` can participate directly in an active-low hardware grant for the 1.5 A and 3.0 A states. BQ24392 high-current permission requires both `CHG_AL_N` low and `CHG_DET` high. Its `GOOD_BAT` input stays high whenever VBUS is valid; using a low level as permanent OFF isolation would start its 30-minute nominal / 45-minute maximum Dead Battery Provision timer. The application-powered TS3USB31E instead supplies the hard-OFF data disconnect. A validated ESP32 USB-device-layer signal may request only the lower external ILIM setting for an SDP after configuration and while unsuspended. ADR 0011 reserves auxiliary-current headroom; firmware cannot enable the parallel resistor boost.
 
-The passive BQ24074 state is standby (`EN2=1, EN1=1`). A 1.78 kΩ, 1% `ILIM` resistor defines only the hardware-qualified external mode:
+The passive BQ24074 state is standby (`EN2=1, EN1=1`). ADR 0011 uses a permanent 3.65 kΩ ILIM resistor and a hardware-only switched parallel 3.48 kΩ branch, both 1%; exact resistor/switch MPNs await audit:
 
 | State | Calculated programmed range from `KILIM`, including 1% resistance tolerance |
 |---|---:|
 | Standby, unqualified source | No charger input path |
-| Configured, unsuspended SDP | Fixed internal 450–500 mA limit |
-| BC1.2 charging source or Type-C 1.5 A/3 A | 0.834–0.976 A external limit |
+| Configured, unsuspended SDP | 0.361–0.476 A low external ILIM |
+| BC1.2 charging source or Type-C 1.5 A/3 A | 0.834–0.975 A boosted external limit, ideal switch |
 
 All limits cover total current entering BQ24074 `IN`, not arbitrary VBUS loads ahead of it. The USB-only LDO, both detectors, logic and status indicators need a separate budget. The exact priority logic must prevent the SDP grant from corrupting a simultaneous hardware high-current state. The TS3USB31E must place the detector-facing pair on its `D+/D-` pins covered by the published `Ioff` condition, place the ESP32 on `HSD+/HSD-`, and tie active-low `OE` to ground. The selected linear charger also requires thermal proof from a depleted-battery charge cycle.
 
-The [power/input pre-capture record](../../hardware/coupon/rev-a/power-pre-capture.md) and [ADR 0010](../decisions/0010-source-qualified-off-charging.md) control these calculations and states.
+The [power/input pre-capture record](../../hardware/coupon/rev-a/power-pre-capture.md) and [ADRs 0010](../decisions/0010-source-qualified-off-charging.md)/[0011](../decisions/0011-usb-total-current-headroom.md) control these calculations and states.
 
 The schematic must show this as a review block. It may not be copied into fabrication files merely because the resistor arithmetic is correct.
 
