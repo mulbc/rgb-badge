@@ -4,6 +4,22 @@
 
 Coupon Rev A is authored and validated with stable KiCad 10.0.x. The initial baseline is 10.0.6 under [ADR 0006](../decisions/0006-kicad-10-workflow.md).
 
+## Active staged USB logic checkpoint
+
+The current `coupon-power-rev-a` branch adds two [staged USB logic sheets](../../hardware/coupon/rev-a/permission-capture.md). A new native run is required for the combined library/circuit checkpoint: 39 symbol exports, 25 footprints per raw view, ten schematic pages and 417 PCB items / 1,536 logical pins. Only the original temporary USB_D−/USB_D+ isolated-label warnings remain eligible for the staged ERC exception. The raw permission inputs and outputs are explicit test boundaries; a passing run does not close the power circuit.
+
+After synchronizing that branch, generate an output directory identified by the actual commit:
+
+```bash
+review_dir="hardware/coupon/rev-a/build/permission-review-$(git rev-parse --short HEAD)"
+RGB_BADGE_KICAD_CHECK_OUTPUT="$review_dir" ./tools/check-kicad.sh && \
+  ditto -c -k --keepParent "$review_dir" "${review_dir}.zip" && \
+  open -R "${review_dir}.zip"
+git status --short
+```
+
+Provide the ZIP for first-author electrical/export and visual review. A failed checker must be investigated using its actual report; do not suppress new ERC warnings to get a passing run.
+
 ## Open the project
 
 From a synchronized repository checkout:
@@ -19,7 +35,7 @@ On first opening the project, do not accept a migration to a newer KiCad major r
 
 ## Initial blank-project GUI round-trip (completed history)
 
-This check was completed on the original blank project. The current draft contains a root and seven child sheets; its controller run passed and is recorded in the [native evidence record](controller-review-d56e1aa.md). Use the validation command again after every schematic increment.
+This check was completed on the original blank project. The earlier root-and-seven-child-sheet controller run passed and is recorded in the [native evidence record](controller-review-d56e1aa.md). The current staged USB logic draft has a root and nine child sheets. Use the validation command again after every schematic increment.
 
 1. Open `rgb-badge-coupon.kicad_pro` from the command above.
 2. Open the Schematic Editor from the project manager.

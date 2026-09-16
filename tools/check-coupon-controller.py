@@ -105,7 +105,7 @@ def check_sources(project=PROJECT):
     LIB["check_libraries"](project)
     root = parse(project / "rgb-badge-coupon.kicad_sch")
     sheets = children(root, "sheet")
-    require(len(sheets) == 7, "Expected four matrix, driver, row and controller sheets")
+    require(len(sheets) == 9, "Expected matrix, driver, rows, controller and two USB logic sheets")
     targets = [s for s in sheets if props(s)["Sheetfile"] == "controller.kicad_sch"]
     require(len(targets) == 1 and not children(root, "symbol"), "Controller sheet missing/duplicated or root contains components")
     sheet_uuid = one(targets[0], "uuid", "controller sheet")[1]
@@ -200,6 +200,10 @@ def check_netlist(path):
     expected_nets.update(ROWS["expected_connections"]())
     expected_nets.update(expected_connections())
     expected_nets.update(expected_native_no_connects())
+    permission = runpy.run_path(str(TOOLS / "check-coupon-permission.py"))
+    expected_components.update({ref: (value, footprint) for ref, (_, value, footprint) in permission["PARTS"].items()})
+    expected_nets.update(permission["expected_connections"]())
+    expected_nets.update(permission["expected_native_no_connects"]())
     require(components == expected_components, "Complete coupon XML population/value/footprint mismatch")
     require(connections == expected_nets,
             "Complete coupon XML pin-to-net mismatch: " + mapping_difference(connections, expected_nets))
@@ -213,7 +217,7 @@ def main():
     try:
         if args.netlist:
             check_netlist(args.netlist)
-            print("KiCad XML complete coupon check passed: 356 PCB items, 1360 logical pins; matrix + driver + rows + controller.")
+            print("KiCad XML complete coupon check passed: 417 PCB items, 1536 logical pins; matrix + driver + rows + controller + staged USB logic.")
         else:
             check_sources(args.project_dir)
             print("Controller source connectivity check passed: N16R8 module, safe boot/reset, USB/UART boundaries and 11 test pads (not KiCad ERC).")

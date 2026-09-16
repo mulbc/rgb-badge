@@ -20,6 +20,7 @@ controller_library_check="${repo_root}/tools/check-controller-libraries.py"
 controller_capture_check="${repo_root}/tools/check-coupon-controller.py"
 power_design_check="${repo_root}/tools/check-power-design.py"
 usb_permission_check="${repo_root}/tools/check-usb-permission.py"
+permission_capture_check="${repo_root}/tools/check-coupon-permission.py"
 power_library_check="${repo_root}/tools/check-power-libraries.py"
 usb_connector_check="${repo_root}/tools/check-usb-connector.py"
 
@@ -51,6 +52,7 @@ for required_path in \
     "${controller_capture_check}" \
     "${power_design_check}" \
     "${usb_permission_check}" \
+    "${permission_capture_check}" \
     "${power_library_check}" \
     "${usb_connector_check}"
 do
@@ -69,6 +71,7 @@ python3 "${controller_library_check}"
 python3 "${controller_capture_check}"
 python3 "${power_design_check}"
 python3 "${usb_permission_check}"
+python3 "${permission_capture_check}"
 python3 "${power_library_check}"
 python3 "${usb_connector_check}"
 
@@ -164,7 +167,7 @@ do
     fi
 done
 
-for symbol_name in TLC59581RTQT ERJ-2RKF3922X ERJ-2RKF1003X GRM155R71C104KA88D PWR_FLAG TestPoint_Pad '74HC4514PW,118' DMP2066LSN-7 2N7002K-7 ERJ-2RKF1001X ESP32-S3-WROOM-1U-N16R8 ERJ-2RKF1002X ERJ-2RKF22R0X ERJ-2RKF4990X GRM155C71A105KE11D GRM188R60J106ME47D EVQP7J01P BQ24074RGTR BQ24392RSER TS3USB31ERSER BQ25616JRTWT TPS631000DRLR TLV75533PDBVR SN74LVC1G04DBVR INA232AIDDFR TPD4E05U06DQAR TUSB320LAIRWBR TPS63020DSJT 'MAX17048G+T10' SN74LVC1G00DBVR SN74LVC1G06DBVR SN74LVC1G08DBVR SN74LVC1G11DBVR SN74LVC1G32DBVR TPS3808G01DBVR; do
+for symbol_name in TLC59581RTQT ERJ-2RKF3922X ERJ-2RKF1003X GRM155R71C104KA88D PWR_FLAG TestPoint_Pad '74HC4514PW,118' DMP2066LSN-7 2N7002K-7 ERJ-2RKF1001X ESP32-S3-WROOM-1U-N16R8 ERJ-2RKF1002X ERJ-2RKF22R0X ERJ-2RKF4990X GRM155C71A105KE11D GRM188R60J106ME47D EVQP7J01P BQ24074RGTR BQ24392RSER TS3USB31ERSER BQ25616JRTWT TPS631000DRLR TLV75533PDBVR SN74LVC1G04DBVR INA232AIDDFR TPD4E05U06DQAR TUSB320LAIRWBR TPS63020DSJT 'MAX17048G+T10' SN74LVC1G00DBVR SN74LVC1G06DBVR SN74LVC1G08DBVR SN74LVC1G11DBVR SN74LVC1G32DBVR TPS3808G01DBVR SN74LVC2G17DBVR; do
     if [[ ! -s "${symbol_svg_dir}/${symbol_name}_unit1.svg" ]]; then
         echo "Expected non-empty controlled symbol SVG: ${symbol_name}" >&2
         exit 1
@@ -241,8 +244,8 @@ if [[ ! -s "${check_tmp_dir}/coupon-schematic.pdf" ]]; then
     exit 1
 fi
 
-echo "KiCad ${kicad_version}: libraries exported; complete matrix/driver/row/controller connectivity and Coupon Rev A ERC passed."
-echo "Matrix/driver/row/controller draft: USB-C, charging, gauging and switched power remain uncaptured; supply flags are draft boundary assumptions."
+echo "KiCad ${kicad_version}: libraries exported; complete coupon connectivity including staged USB logic and ERC passed."
+echo "Draft: USB detectors, supply supervision, charger/ILIM actuator, gauging and switched power remain uncaptured; supply flags and raw USB logic ports are draft boundaries."
 if [[ "${keep_check_output}" == yes ]]; then
     echo "Review SVG/PDF output and netlist in: ${check_tmp_dir}"
 fi

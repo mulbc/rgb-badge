@@ -6,6 +6,8 @@ Date: 2026-09-16. Status: manufacturer pin/package transcription and host checks
 
 ## Controlled pin maps
 
+Follow-on capture: [permission-capture.md](permission-capture.md) now connects the LVC gates in two staged sheets and adds the audited `SN74LVC2G17DBVR` dual Schmitt buffer. The TPS3808 supervisor remains library-only. The earlier library-only status and validation counts below are historical; native review now applies to the combined circuit checkpoint.
+
 The table lists physical pin numbers in top-view package order. `Y` on the 1G06 and `RESET` on the TPS3808 are open-drain outputs, represented by KiCad's `open_collector` electrical type. NC is passive and must receive a no-connect marker when captured. Active-low inputs/outputs have inversion bubbles.
 
 | Exact MPN | Intended use | Pins 1 → 6 | Footprint |

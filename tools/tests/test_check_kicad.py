@@ -42,7 +42,7 @@ class CheckKiCadWrapperTests(unittest.TestCase):
     def test_separate_raw_views_and_numbered_copies(self):
         result = self.run_check()
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertEqual(len(list((self.output / "symbols").glob("*.svg"))), 38)
+        self.assertEqual(len(list((self.output / "symbols").glob("*.svg"))), 39)
         for view in ("fabrication", "copper", "paste", "numbered", "mechanical"):
             self.assertEqual(len(list((self.output / "footprints" / view).glob("*.svg"))), 2 if view == "numbered" else 25)
         self.assertTrue((self.output / "coupon-erc.rpt").is_file())

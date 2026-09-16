@@ -59,7 +59,7 @@ def usb_capture_blockers():
     """Selected topology tasks not yet closed by calculation alone."""
     return (
         "Exact BQ24074RGTR, BQ24392RSER and TS3USB31ERSER libraries passed native review at c054cb4; the power circuit remains uncaptured.",
-        "ADR 0011 GPIO permission logic, hardware-only ILIM boost and fail-safe supply/reset circuitry are not captured.",
+        "ADR 0011 conditioned permission gates are captured with test boundaries; detector/supervisor sources, hardware-only ILIM boost and physical startup inhibition remain uncaptured.",
         "The detector/LDO/logic/status auxiliary-current budget and source transitions are not validated.",
         "The exact pack, NTC/timer network and BQ24074 linear thermal behavior remain unqualified.",
     )

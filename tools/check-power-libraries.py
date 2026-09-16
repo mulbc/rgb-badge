@@ -23,6 +23,12 @@ PROJECT = Path(__file__).resolve().parents[1] / "hardware" / "coupon" / "rev-a"
 FP_PREFIX = "rgb-badge-coupon:"
 
 PARTS = {
+    "SN74LVC2G17DBVR": {
+        "footprint": "SOT23_TI_DBV0006A",
+        "datasheet": "https://www.ti.com/lit/ds/symlink/sn74lvc2g17.pdf",
+        "pins": {1: ("1A", "input"), 2: ("GND", "power_in"), 3: ("2A", "input"),
+                 4: ("2Y", "output"), 5: ("VCC", "power_in"), 6: ("1Y", "output")},
+    },
     "SN74LVC1G00DBVR": {
         "footprint": "SOT23_TI_DBV0005A",
         "datasheet": "https://www.ti.com/lit/ds/symlink/sn74lvc1g00.pdf",
@@ -317,6 +323,9 @@ def check_symbol_libraries(project):
     for number in ("1", "3"):
         require(library_pins(symbols["TPS3808G01DBVR"])[number][2] == "inverted",
                 f"TPS3808G01DBVR.{number} must show active-low inversion")
+    for number in ("4", "6"):
+        require(library_pins(symbols["SN74LVC2G17DBVR"])[number][2] == "line",
+                f"SN74LVC2G17DBVR.{number}: non-inverting buffer output required")
     return symbols
 
 
@@ -698,7 +707,7 @@ def main():
     try:
         check_libraries(args.project_dir)
         print("Power library checks passed:")
-        print("- permission candidates: 32 exact gate/supervisor pins; DBV5/DBV6 geometry (not circuit qualification)")
+        print("- permission libraries: 32 gate/supervisor pins plus 6 dual-Schmitt pins; DBV5/DBV6 geometry")
         print("- BQ24074/BQ24392/TS3USB31E: 35 pins, RGT/RSE lands, narrow middle pads, 0.05-mm corner radii")
         print("- distinct power-footprint copper pad bounding boxes are separated")
         print("- 25 BQ25616J pins match the TI RTW pin table and exposed-pad map")

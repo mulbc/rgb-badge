@@ -136,7 +136,7 @@ def complete_coupon_netlist():
     return root
 
 
-def controller_coupon_netlist():
+def legacy_controller_coupon_netlist():
     """Synthetic complete coupon including the controller; never native evidence."""
     root = complete_coupon_netlist()
     components = root.find('components')
@@ -197,6 +197,64 @@ def controller_coupon_netlist():
     return root
 
 
+def controller_coupon_netlist():
+    """Independent synthetic full-coupon fixture including staged USB gates."""
+    root = legacy_controller_coupon_netlist()
+    components = root.find('components')
+    nets = {n.get('name'): n for n in root.findall('./nets/net')}
+
+    def add(ref, pin, name):
+        if name not in nets:
+            nets[name] = ET.SubElement(root.find('nets'), 'net', name=name)
+        ET.SubElement(nets[name], 'node', ref=ref, pin=str(pin))
+
+    def part(ref, value, footprint):
+        comp = ET.SubElement(components, 'comp', ref=ref)
+        ET.SubElement(comp, 'value').text = value
+        ET.SubElement(comp, 'footprint').text = 'rgb-badge-coupon:' + footprint
+
+    gate_map = [
+        (10,'00',[(1,'OUT1'),(2,'OUT2'),(4,'ATTACHED')]),
+        (11,'04',[(2,'OUT1'),(4,'CC_HIGH')]),
+        (12,'04',[(2,'CHG_AL_N'),(4,'BC_ALLOWED')]),
+        (13,'04',[(2,'CHG_DET'),(4,'NOT_CHG_DET')]),
+        (14,'04',[(2,'SW_OPEN'),(4,'DATA_CLOSED')]),
+        (15,'08',[(1,'BC_ALLOWED'),(2,'CHG_DET'),(4,'BC_HIGH')]),
+        (16,'32',[(1,'CC_HIGH'),(2,'BC_HIGH'),(4,'SOURCE_HIGH')]),
+        (17,'11',[(1,'VBUS_VALID'),(3,'LOGIC_READY'),(6,'ATTACHED'),(4,'READY_ATTACHED')]),
+        (18,'08',[(1,'READY_ATTACHED'),(2,'SOURCE_HIGH'),(4,'HIGH_REQ')]),
+        (19,'11',[(1,'BC_ALLOWED'),(3,'NOT_CHG_DET'),(6,'DATA_CLOSED'),(4,'SDP')]),
+        (20,'11',[(1,'SWITCH_ON'),(3,'ESP_RUNNING'),(6,'USB_REQUEST'),(4,'APP_GRANT')]),
+        (21,'11',[(1,'READY_ATTACHED'),(3,'SDP'),(6,'APP_GRANT'),(4,'LOW_REQ')]),
+        (22,'32',[(1,'HIGH_REQ'),(2,'LOW_REQ'),(4,'RUN_REQ')]),
+        (23,'06',[(2,'RUN_REQ'),(4,'EN1_RAW_N')]),
+    ]
+    for number,code,pins in gate_map:
+        ref = f'U{number}'
+        part(ref,f'SN74LVC1G{code}DBVR','SOT23_TI_DBV0006A' if code=='11' else 'SOT23_TI_DBV0005A')
+        for pin,net in pins:add(ref,pin,'USB_'+net)
+        add(ref,2 if code=='11' else 3,'GND');add(ref,5,'+3V3_USB')
+        if code in ('04','06'):add(ref,1,f'unconnected-({ref}-NC-Pad1)')
+    raw = ['OUT1','OUT2','CHG_AL_N','CHG_DET','SW_OPEN','VBUS_VALID','LOGIC_READY','SWITCH_ON','ESP_RUNNING','USB_REQUEST']
+    for i in range(5):
+        ref = f'U{24+i}'
+        part(ref,'SN74LVC2G17DBVR','SOT23_TI_DBV0006A')
+        for pin,name in [(1,'USB_RAW_'+raw[2*i]),(3,'USB_RAW_'+raw[2*i+1]),
+                         (6,'USB_'+raw[2*i]),(4,'USB_'+raw[2*i+1]),(2,'GND'),(5,'+3V3_USB')]:add(ref,pin,name)
+    for i in range(10,29):
+        part(f'C{i}','100n 16V X7R','C_Murata_GRM15_0402')
+        add(f'C{i}',1,'+3V3_USB');add(f'C{i}',2,'GND')
+    for i,name in enumerate(raw):
+        up = i in (0,1,2,4)
+        part(f'R{60+i}','10k 1%' if up else '100k 1%','R_Panasonic_ERJ2_0402')
+        add(f'R{60+i}',1,'USB_RAW_'+name);add(f'R{60+i}',2,'+3V3_USB' if up else 'GND')
+        part(f'TP{20+i}',name,'TestPoint_Pad_D1.0mm');add(f'TP{20+i}',1,'USB_RAW_'+name)
+    part('R70','10k 1%','R_Panasonic_ERJ2_0402');add('R70',1,'+3V3_USB');add('R70',2,'USB_EN1_RAW_N')
+    for ref,name in [('TP30','HIGH_REQ'),('TP31','EN1_RAW_N')]:
+        part(ref,name,'TestPoint_Pad_D1.0mm');add(ref,1,'USB_'+name)
+    return root
+
+
 def main():
     args = sys.argv[1:]
     if args == ["version"]:
@@ -227,7 +285,7 @@ def main():
         output.write_text('Stub only: not a PDF or KiCad render.\n')
         return 0
     elif args[:3] == ["sym", "export", "svg"]:
-        names = [n + "_unit1.svg" for n in ("EAST10105RGBA0", "QBLP1515A-RGB2A", "TLC59581RTQT", "ERJ-2RKF3922X", "ERJ-2RKF1003X", "GRM155R71C104KA88D", "PWR_FLAG", "TestPoint_Pad", "74HC4514PW,118", "DMP2066LSN-7", "2N7002K-7", "ERJ-2RKF1001X", "ESP32-S3-WROOM-1U-N16R8", "ERJ-2RKF1002X", "ERJ-2RKF22R0X", "ERJ-2RKF4990X", "GRM155C71A105KE11D", "GRM188R60J106ME47D", "EVQP7J01P", "BQ24074RGTR", "BQ24392RSER", "TS3USB31ERSER", "BQ25616JRTWT", "TPS631000DRLR", "TLV75533PDBVR", "SN74LVC1G04DBVR", "INA232AIDDFR", "TPD4E05U06DQAR", "TUSB320LAIRWBR", "TPS63020DSJT", "MAX17048G+T10", "SN74LVC1G00DBVR", "SN74LVC1G06DBVR", "SN74LVC1G08DBVR", "SN74LVC1G11DBVR", "SN74LVC1G32DBVR", "TPS3808G01DBVR")]
+        names = [n + "_unit1.svg" for n in ("EAST10105RGBA0", "QBLP1515A-RGB2A", "TLC59581RTQT", "ERJ-2RKF3922X", "ERJ-2RKF1003X", "GRM155R71C104KA88D", "PWR_FLAG", "TestPoint_Pad", "74HC4514PW,118", "DMP2066LSN-7", "2N7002K-7", "ERJ-2RKF1001X", "ESP32-S3-WROOM-1U-N16R8", "ERJ-2RKF1002X", "ERJ-2RKF22R0X", "ERJ-2RKF4990X", "GRM155C71A105KE11D", "GRM188R60J106ME47D", "EVQP7J01P", "BQ24074RGTR", "BQ24392RSER", "TS3USB31ERSER", "BQ25616JRTWT", "TPS631000DRLR", "TLV75533PDBVR", "SN74LVC1G04DBVR", "INA232AIDDFR", "TPD4E05U06DQAR", "TUSB320LAIRWBR", "TPS63020DSJT", "MAX17048G+T10", "SN74LVC1G00DBVR", "SN74LVC1G06DBVR", "SN74LVC1G08DBVR", "SN74LVC1G11DBVR", "SN74LVC1G32DBVR", "TPS3808G01DBVR", "SN74LVC2G17DBVR")]
     elif args[:3] == ["fp", "export", "svg"]:
         # Added independently of the source parser: exercise wrapper requirements.
         layers = args[args.index("--layers") + 1]

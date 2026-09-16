@@ -18,6 +18,8 @@ class PowerLibraryTests(unittest.TestCase):
     def test_permission_ground_pin_and_open_drain_faults(self):
         # DBV6 AND3 ground is pin 2, unlike DBV5 AND2 pin 3.
         cases = [
+            ('SN74LVC2G17DBVR', '(name "1Y"', '(name "2Y"', 'pin name mismatch'),
+            ('SN74LVC2G17DBVR', '(pin output line', '(pin output inverted', 'non-inverting buffer'),
             ('SN74LVC1G11DBVR', '(number "2"', '(number "7"', 'pin numbers mismatch'),
             ('TPS3808G01DBVR', '(name "SENSE"', '(name "CT"', 'pin name mismatch'),
             ('SN74LVC1G06DBVR', '(pin open_collector inverted', '(pin output inverted', 'electrical type mismatch'),

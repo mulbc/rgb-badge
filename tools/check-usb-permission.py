@@ -76,4 +76,4 @@ def check():
 
 
 if __name__ == "__main__":
-    print(f"USB permission contract passed: {check()} GPIO/power/request combinations; static logic only, circuit not captured.")
+    print(f"USB permission contract passed: {check()} GPIO/power/request combinations; abstract static contract, not physical startup/actuator qualification.")

@@ -2,6 +2,8 @@
 
 # Software tools
 
+`generate-coupon-permission.py --output NEW_DIRECTORY` produces the staged conditioning and permission sheets without overwriting canonical files. `check-coupon-permission.py` traces the captured wires, validates all 61 added items / 176 pins and evaluates the real gate connections against the independent 1,024-state contract. The complete native XML checker now requires 417 items / 1,536 pins. The wrapper exports 39 symbols and 25 footprints per raw view. See [permission-capture.md](../hardware/coupon/rev-a/permission-capture.md) for the explicit uncaptured input/actuator boundaries and native-review requirements; the earlier library-only counts below are historical.
+
 The [permission-library audit](../hardware/coupon/rev-a/permission-library-audit.md) covers the six new exact gate/supervisor symbols and shared DBV5/DBV6 package checks. `check-power-libraries.py` now guards ground-pin differences, open-drain electrical types, output polarity, package body/courtyard geometry and DBV6 mask/paste settings. The native wrapper requires 38 total symbol exports and 25 footprints per raw view; these counts include the USB connector's separate library. No native rendering result is claimed for the new permission candidates yet.
 
 Host-side utilities will include the deterministic content compiler, schema validation, release-manifest generation and analysis of power/runtime logs. Tools must be testable without a connected badge and must not rewrite measured evidence.

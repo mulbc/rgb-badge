@@ -12,6 +12,8 @@ The provisional direct input-current network is rejected by [ADR 0009](../../../
 
 ## Required contents
 
+Follow-on circuit checkpoint: the [staged permission capture](permission-capture.md) adds two canonical sheets, 61 PCB items and 176 pins for Schmitt conditioning and the physical gate implementation of ADR 0011. Complete source now has ten pages and 417 items / 1,536 pins. All external detector/supervisor/application inputs and charger/ILIM outputs remain explicit test boundaries. Native ERC/XML/render review is pending for this combined library-and-circuit increment.
+
 The [permission-library audit](permission-library-audit.md) adds five exact LVC gates, a TPS3808G01DBVR supervisor candidate and a DBV6 footprint for the upcoming hardware permission circuit. Source checks cover 32 added pins and package geometry; native rendering and circuit qualification remain pending. It also records the DBV5 body/courtyard drawing correction. No new component is connected yet. Batch native review with the next circuit checkpoint rather than requesting another library-only owner run.
 
 - 16 × 16 pixels at 1.95 mm pitch: columns 0–7 use Everlight `EAST10105RGBA0`; columns 8–15 use QT Brightek `QBLP1515A-RGB2A`.
