@@ -23,6 +23,43 @@ PROJECT = Path(__file__).resolve().parents[1] / "hardware" / "coupon" / "rev-a"
 FP_PREFIX = "rgb-badge-coupon:"
 
 PARTS = {
+    "SN74LVC1G00DBVR": {
+        "footprint": "SOT23_TI_DBV0005A",
+        "datasheet": "https://www.ti.com/lit/ds/symlink/sn74lvc1g00.pdf",
+        "pins": {1: ("A", "input"), 2: ("B", "input"), 3: ("GND", "power_in"),
+                 4: ("Y", "output"), 5: ("VCC", "power_in")},
+    },
+    "SN74LVC1G06DBVR": {
+        "footprint": "SOT23_TI_DBV0005A",
+        "datasheet": "https://www.ti.com/lit/ds/symlink/sn74lvc1g06.pdf",
+        "pins": {1: ("NC", "passive"), 2: ("A", "input"), 3: ("GND", "power_in"),
+                 4: ("Y", "open_collector"), 5: ("VCC", "power_in")},
+    },
+    "SN74LVC1G08DBVR": {
+        "footprint": "SOT23_TI_DBV0005A",
+        "datasheet": "https://www.ti.com/lit/ds/symlink/sn74lvc1g08.pdf",
+        "pins": {1: ("A", "input"), 2: ("B", "input"), 3: ("GND", "power_in"),
+                 4: ("Y", "output"), 5: ("VCC", "power_in")},
+    },
+    "SN74LVC1G11DBVR": {
+        "footprint": "SOT23_TI_DBV0006A",
+        "datasheet": "https://www.ti.com/lit/ds/symlink/sn74lvc1g11.pdf",
+        "pins": {1: ("A", "input"), 2: ("GND", "power_in"), 3: ("B", "input"),
+                 4: ("Y", "output"), 5: ("VCC", "power_in"), 6: ("C", "input")},
+    },
+    "SN74LVC1G32DBVR": {
+        "footprint": "SOT23_TI_DBV0005A",
+        "datasheet": "https://www.ti.com/lit/ds/symlink/sn74lvc1g32.pdf",
+        "pins": {1: ("A", "input"), 2: ("B", "input"), 3: ("GND", "power_in"),
+                 4: ("Y", "output"), 5: ("VCC", "power_in")},
+    },
+    "TPS3808G01DBVR": {
+        "footprint": "SOT23_TI_DBV0006A",
+        "datasheet": "https://www.ti.com/lit/ds/symlink/tps3808.pdf",
+        "pins": {1: ("RESET", "open_collector"), 2: ("GND", "power_in"),
+                 3: ("MR", "input"), 4: ("CT", "input"),
+                 5: ("SENSE", "input"), 6: ("VDD", "power_in")},
+    },
     "BQ24074RGTR": {
         "footprint": "VQFN_TI_RGT0016C_3x3mm_P0.5mm_EP1.68mm",
         "datasheet": "https://www.ti.com/lit/ds/symlink/bq24074.pdf",
@@ -272,6 +309,14 @@ def check_symbol_libraries(project):
             "SN74LVC1G04 output must show inversion")
     require(library_pins(symbols["TUSB320LAIRWBR"])["11"][2] == "inverted",
             "TUSB320LAI EN_N must show active-low inversion")
+    for mpn in ("SN74LVC1G00DBVR", "SN74LVC1G06DBVR", "SN74LVC1G08DBVR",
+                "SN74LVC1G11DBVR", "SN74LVC1G32DBVR"):
+        expected = "inverted" if mpn in ("SN74LVC1G00DBVR", "SN74LVC1G06DBVR") else "line"
+        require(library_pins(symbols[mpn])["4"][2] == expected,
+                f"{mpn}: output inversion mismatch")
+    for number in ("1", "3"):
+        require(library_pins(symbols["TPS3808G01DBVR"])[number][2] == "inverted",
+                f"TPS3808G01DBVR.{number} must show active-low inversion")
     return symbols
 
 
@@ -452,6 +497,29 @@ def check_phase_two_footprints(project):
         "1": ("-1.3", "-0.95"), "2": ("-1.3", "0"), "3": ("-1.3", "0.95"),
         "4": ("1.3", "0.95"), "5": ("1.3", "-0.95"),
     }, ("1.1", "0.6"), ("-2.05", "-1.45"))
+    check_simple_gullwing(project, "SOT23_TI_DBV0006A", {
+        "1": ("-1.3", "-0.95"), "2": ("-1.3", "0"), "3": ("-1.3", "0.95"),
+        "4": ("1.3", "0.95"), "5": ("1.3", "0"), "6": ("1.3", "-0.95"),
+    }, ("1.1", "0.6"), ("-2.05", "-1.45"))
+    for name in ("SOT23_TI_DBV0005A", "SOT23_TI_DBV0006A"):
+        root = footprint(project, name)
+        for layer, start, end in (("F.Fab", ("-0.8", "-1.45"), ("0.8", "1.45")),
+                                  ("F.CrtYd", ("-2.15", "-1.8"), ("2.15", "1.8"))):
+            rects = [r for r in children(root, "fp_rect") if one(r, "layer", name)[1] == layer]
+            require(len(rects) == 1, f"{name}: {layer} rectangle count mismatch")
+            require(dec(one(rects[0], "start", name)[1:]) == dec(start) and
+                    dec(one(rects[0], "end", name)[1:]) == dec(end),
+                    f"{name}: {layer} outline mismatch")
+        for pad in children(root, "pad"):
+            radius = D(one(pad, "roundrect_rratio", name)[1]) * min(pad_size(pad))
+            require(pad[2:4] == ["smd", "roundrect"] and abs(radius - D("0.05")) < D("0.0001"),
+                    f"{name}: pad corner radius mismatch")
+        if name == "SOT23_TI_DBV0006A":
+            require(one(root, "solder_mask_margin", name)[1] == "0.05",
+                    f"{name}: mask margin mismatch")
+            require(one(root, "solder_paste_margin", name)[1] == "0" and
+                    one(root, "solder_paste_ratio", name)[1] == "0",
+                    f"{name}: stencil margin mismatch")
     check_simple_gullwing(project, "SOT23_THIN_TI_DDF0008A", {
         "1": ("-1.3", "-0.975"), "2": ("-1.3", "-0.325"),
         "3": ("-1.3", "0.325"), "4": ("-1.3", "0.975"),
@@ -630,6 +698,7 @@ def main():
     try:
         check_libraries(args.project_dir)
         print("Power library checks passed:")
+        print("- permission candidates: 32 exact gate/supervisor pins; DBV5/DBV6 geometry (not circuit qualification)")
         print("- BQ24074/BQ24392/TS3USB31E: 35 pins, RGT/RSE lands, narrow middle pads, 0.05-mm corner radii")
         print("- distinct power-footprint copper pad bounding boxes are separated")
         print("- 25 BQ25616J pins match the TI RTW pin table and exposed-pad map")

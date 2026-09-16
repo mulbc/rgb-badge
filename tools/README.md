@@ -2,6 +2,8 @@
 
 # Software tools
 
+The [permission-library audit](../hardware/coupon/rev-a/permission-library-audit.md) covers the six new exact gate/supervisor symbols and shared DBV5/DBV6 package checks. `check-power-libraries.py` now guards ground-pin differences, open-drain electrical types, output polarity, package body/courtyard geometry and DBV6 mask/paste settings. The native wrapper requires 38 total symbol exports and 25 footprints per raw view; these counts include the USB connector's separate library. No native rendering result is claimed for the new permission candidates yet.
+
 Host-side utilities will include the deterministic content compiler, schema validation, release-manifest generation and analysis of power/runtime logs. Tools must be testable without a connected badge and must not rewrite measured evidence.
 
 `check-led-libraries.py` audits the exact Coupon Rev A LED symbol pin maps, source drawing layout, footprint pads, polarity geometry and the nominal 1.95 mm checkerboard-clearance calculation. `check-kicad.sh` runs that audit, loads and exports the project-local libraries through KiCad 10, and runs schematic ERC. `check-erc-report.py` rejects every ERC message except the exact `USB_D-` / `USB_D+` isolated-label pair while those nets deliberately stop at the controller-to-power-sheet boundary; it accepts zero messages after that boundary is connected. Raw fabrication views and solid copper-only views are exported into separate directories.

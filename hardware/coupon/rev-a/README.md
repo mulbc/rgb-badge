@@ -12,6 +12,8 @@ The provisional direct input-current network is rejected by [ADR 0009](../../../
 
 ## Required contents
 
+The [permission-library audit](permission-library-audit.md) adds five exact LVC gates, a TPS3808G01DBVR supervisor candidate and a DBV6 footprint for the upcoming hardware permission circuit. Source checks cover 32 added pins and package geometry; native rendering and circuit qualification remain pending. It also records the DBV5 body/courtyard drawing correction. No new component is connected yet. Batch native review with the next circuit checkpoint rather than requesting another library-only owner run.
+
 - 16 × 16 pixels at 1.95 mm pitch: columns 0–7 use Everlight `EAST10105RGBA0`; columns 8–15 use QT Brightek `QBLP1515A-RGB2A`.
 - ESP32-S3-WROOM-1U-N16R8 and external antenna.
 - One TLC59581 and all sixteen level-shifted row stages.

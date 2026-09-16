@@ -6,6 +6,8 @@ Status: native export at `c84f8ce` completed, but visual/drawing review rejected
 
 ## Controlled parts
 
+Follow-on correction, 2026-09-16: the DBV0005A F.Fab body and courtyard have changed since the older native review, without copper/paste changes. New permission candidates share that package or the new DBV0006A. See the [permission-library audit](permission-library-audit.md) for the finding, corrected dimensions and pending combined native review. The BQ24074/BQ24392/TS3USB31E replacements subsequently passed [native review at c054cb4](../../../docs/development/power-replacement-review-c054cb4.md); the earlier status above describes their pre-review checkpoint.
+
 | Function | Exact part | Package / project footprint | Controlled source |
 |---|---|---|---|
 | Standalone charger and NVDC power path | `BQ25616JRTWT` | TI RTW0024A WQFN24, 4 × 4 mm, 0.5 mm pitch, exposed pad / `QFN_TI_RTW0024A_4x4mm_P0.5mm_EP2.7mm` | [TI BQ25616/BQ25616J datasheet](https://www.ti.com/lit/ds/symlink/bq25616.pdf), SLUSDF7A, revised 2022-02 |

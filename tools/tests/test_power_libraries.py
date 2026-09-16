@@ -15,6 +15,45 @@ PROJECT = REPO / "hardware" / "coupon" / "rev-a"
 
 
 class PowerLibraryTests(unittest.TestCase):
+    def test_permission_ground_pin_and_open_drain_faults(self):
+        # DBV6 AND3 ground is pin 2, unlike DBV5 AND2 pin 3.
+        cases = [
+            ('SN74LVC1G11DBVR', '(number "2"', '(number "7"', 'pin numbers mismatch'),
+            ('TPS3808G01DBVR', '(name "SENSE"', '(name "CT"', 'pin name mismatch'),
+            ('SN74LVC1G06DBVR', '(pin open_collector inverted', '(pin output inverted', 'electrical type mismatch'),
+            ('SN74LVC1G00DBVR', '(pin output inverted', '(pin output line', 'output inversion mismatch'),
+            ('SN74LVC1G08DBVR', '(pin output line', '(pin output inverted', 'output inversion mismatch'),
+            ('TPS3808G01DBVR', '(pin open_collector inverted', '(pin open_collector line', 'active-low inversion'),
+        ]
+        for mpn, old, new, error in cases:
+            with self.subTest(mpn=mpn, error=error):
+                project = self.project_copy()
+                path = project / 'symbols' / 'rgb-badge-coupon.kicad_sym'
+                source = path.read_text()
+                before, rest = source.split(f'(symbol "{mpn}"', 1)
+                self.assertIn(old, rest)
+                path.write_text(before + f'(symbol "{mpn}"' + rest.replace(old, new, 1))
+                with self.assertRaisesRegex(ValueError, error):
+                    CHECK['check_libraries'](project)
+
+    def test_dbv_geometry_regressions(self):
+        cases = [
+            ('DBV0005A', '(start -0.8 -1.45) (end 0.8 1.45)', '(start -1.45 -1.60) (end 1.45 1.60)', 'F.Fab outline mismatch'),
+            ('DBV0006A', '(pad "5" smd roundrect (at 1.3 0)', '(pad "5" smd roundrect (at 1.3 -0.95)', 'touch or overlap'),
+            ('DBV0006A', '(solder_mask_margin 0.05)', '(solder_mask_margin 0.1)', 'mask margin mismatch'),
+            ('DBV0006A', '(solder_paste_ratio 0)', '(solder_paste_ratio -0.1)', 'stencil margin mismatch'),
+            ('DBV0006A', '(roundrect_rratio 0.0833)', '(roundrect_rratio 0.2)', 'corner radius mismatch'),
+        ]
+        for package, old, new, error in cases:
+            with self.subTest(package=package, error=error):
+                project = self.project_copy()
+                path = project / 'footprints' / 'rgb-badge-coupon.pretty' / f'SOT23_TI_{package}.kicad_mod'
+                source = path.read_text()
+                self.assertIn(old, source)
+                path.write_text(source.replace(old, new, 1))
+                with self.assertRaisesRegex(ValueError, error):
+                    CHECK['check_libraries'](project)
+
     def test_copper_separation_rejects_original_short_independently(self):
         root = CHECK["footprint"](PROJECT, CHECK["PARTS"]["BQ25616JRTWT"]["footprint"])
         ep = next(p for p in CHECK["children"](root, "pad") if p[1] == "25")
