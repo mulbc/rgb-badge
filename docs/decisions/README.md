@@ -16,3 +16,5 @@ Decision records explain choices that materially constrain later work. Accepted 
 | [0008](0008-qblp1515-checkerboard-placement.md) | Preserve the QBLP1515 land pattern with checkerboard rotation | Accepted |
 | [0009](0009-usb-input-current-closure.md) | Reject unqualified direct USB input-current network | Accepted constraint; replacement selected by ADR 0010 |
 | [0010](0010-source-qualified-off-charging.md) | Charge while OFF only from a qualified source | Accepted for capture; thermal/Gate A pending |
+| [0011](0011-usb-total-current-headroom.md) | Reserve current for USB detection and permission logic | Accepted; resistor specification amended by ADR 0012 |
+| [0012](0012-programming-resistor-error-budget.md) | Include temperature and drift in programming-resistor limits | Exact parts selected; assembly/service qualification pending |

@@ -5,6 +5,8 @@
 **2026-09-17 current-budget finding:** resistor ranges below include initial tolerance only. The [temperature-drift counterexample](../../hardware/coupon/rev-a/usb-supervision-capture.md) exceeds the configured-SDP allocation for an ordinary 100 ppm/K candidate. Precision-part qualification or revised lower limits are required before programming-resistor capture; no substitution or current increase is approved.
 
 
+**2026-09-17 amendment:** [ADR 0012](0012-programming-resistor-error-budget.md) selects exact 0.1%, 25 ppm/K parts and retains the ±1% interval below as a total qualified resistance envelope. Assembly/service drift remains a qualification requirement; the nominal values and current ceilings are unchanged.
+
 - Status: Accepted design correction for capture; physical implementation and Gate A pending
 - Date: 2026-09-15
 - Amends: [ADR 0010](0010-source-qualified-off-charging.md), charger mode selection only

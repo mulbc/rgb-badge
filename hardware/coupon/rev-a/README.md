@@ -12,7 +12,7 @@ The provisional direct input-current network is rejected by [ADR 0009](../../../
 
 ## Required contents
 
-The [permission capture](permission-capture.md) passed [native review at 6d9a08b](../../../docs/development/permission-review-6d9a08b.md), including all seven new symbols and corrected DBV5/DBV6 views. The [USB interface capture](usb-interface-capture.md) now connects the detectors, data path and USB-only LDO. It adds 20 items / 84 logical pins and two exact resistor symbols, with no new footprint. Complete source has eleven pages and 437 items / 1,620 logical pins. [Native ERC/XML at d502e65 passed](../../../docs/development/usb-interface-review-d502e65.md); two heading overlaps were source-corrected for the next native review. ERC requires zero violations. The follow-on [logic supervisor](usb-supervision-capture.md) adds six items / sixteen pins: current totals are 443 items / 1,636 pins, still eleven pages. It needs native review together with the heading corrections.
+The [permission capture](permission-capture.md) passed [native review at 6d9a08b](../../../docs/development/permission-review-6d9a08b.md), including all seven new symbols and corrected DBV5/DBV6 views. The [USB interface capture](usb-interface-capture.md) now connects the detectors, data path and USB-only LDO. It adds 20 items / 84 logical pins and two exact resistor symbols, with no new footprint. Complete source has eleven pages and 437 items / 1,620 logical pins. [Native ERC/XML at d502e65 passed](../../../docs/development/usb-interface-review-d502e65.md); two heading overlaps were corrected and closed by native review at 2bb0e08. ERC requires zero violations. The follow-on [logic supervisor](usb-supervision-capture.md) adds six items / sixteen pins: current totals are 443 items / 1,636 pins, still eleven pages. Its native ERC/XML and visual review passed at 2bb0e08.
 
 The connector VBUS and the staged +5V_USB supply are deliberately separate until input protection is designed. VBUS qualification, physical startup inhibition, charger/ILIM actuation and remaining power sources are still open; the logic-rail supervisor is captured. #FLG04 was removed; #FLG05 marks the unfinished protected-input boundary; #FLG06 annotates power after the detector ballast resistor for ERC.
 
@@ -44,3 +44,7 @@ The two project-local LED symbols and footprints completed the first-author [LED
 - Independent engineer review with every finding resolved or explicitly accepted.
 
 The intended first order is five PCBs with three assembled. That order is not authorized by this README.
+
+## Precision programming resistors
+
+The [2bb0e08 native review](../../../docs/development/logic-supervisor-review-2bb0e08.md) accepted the logic supervisor and corrected USB headings. [ADR 0012](../../../docs/decisions/0012-programming-resistor-error-budget.md) now selects exact 0.1%, 25 ppm/K ILIM/ISET parts without changing the nominal values or current ceilings. Their [library audit](programming-resistor-audit.md) covers the new ERA2 land pattern and conditional total-error budget. Native rendering of these additions is pending; current library counts are 45 symbols / 26 footprints. Circuit counts remain 443 items / 1,636 pins over eleven pages. Charger, actuation, input protection and remaining power capture are still open.

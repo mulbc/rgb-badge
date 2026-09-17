@@ -4,14 +4,14 @@
 
 Coupon Rev A is authored and validated with stable KiCad 10.0.x. The initial baseline is 10.0.6 under [ADR 0006](../decisions/0006-kicad-10-workflow.md).
 
-## Active logic-supervisor checkpoint
+## Active precision-resistor library checkpoint
 
-The [d502e65 USB-interface review](usb-interface-review-d502e65.md) passed native ERC/XML and identified two heading overlaps. Their source corrections are combined with the [logic-rail supervisor capture](../../hardware/coupon/rev-a/usb-supervision-capture.md). Current expected outputs: **42 symbols, 25 footprints per raw view, eleven schematic pages, 443 PCB items / 1,636 logical pins and zero ERC violations**. Inspect the supervisor group on page 9, J1/U33 headings on page 11 and the new 620 kohm symbol. VBUS qualification, protection and charger/ILIM actuation remain unfinished.
+The [logic-supervisor review at 2bb0e08](logic-supervisor-review-2bb0e08.md) passed native ERC/XML and closed the J1/U33 heading findings. [ADR 0012](../decisions/0012-programming-resistor-error-budget.md) now adds three precision-resistor symbols and an ERA2 footprint without changing circuit connectivity. Expected outputs: **45 symbols, 26 footprints per raw view, eleven schematic pages, 443 PCB items / 1,636 logical pins and zero ERC violations**. Inspect the three ERA2AEB symbols and the ERA2 fabrication/copper/paste/mechanical views against the [audit](../../hardware/coupon/rev-a/programming-resistor-audit.md). VBUS qualification, protection and charger/ILIM actuation remain unfinished.
 
 After synchronizing that branch, generate an output directory identified by the actual commit:
 
 ```bash
-review_dir="hardware/coupon/rev-a/build/logic-supervisor-review-$(git rev-parse --short HEAD)"
+review_dir="hardware/coupon/rev-a/build/precision-resistor-review-$(git rev-parse --short HEAD)"
 RGB_BADGE_KICAD_CHECK_OUTPUT="$review_dir" ./tools/check-kicad.sh && \
   ditto -c -k --keepParent "$review_dir" "${review_dir}.zip" && \
   open -R "${review_dir}.zip"

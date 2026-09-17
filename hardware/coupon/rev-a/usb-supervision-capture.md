@@ -59,3 +59,7 @@ Host validation on 2026-09-17: **132 tests passed**, including source regenerati
 Host checks trace every new pin, verify the exact resistor library, reproduce both conditioning/permission sheets, reject wrong supply/sense/CT paths and missing bypass capacitance, and calculate threshold corners. The 1,024-case logic test still exhausts both resolved LOGIC_READY states; it does **not** simulate U34. CLI/XML fixtures are synthetic and never native evidence.
 
 Run the normal native wrapper and review the lower-right supervisor group on page 9, corrected headings on page 11 and new 620 kohm symbol. Expected output: **42 symbols, 25 footprints per raw view, eleven pages, 443 items / 1,636 pins, zero ERC violations**. No fabrication release follows from a pass.
+
+## Follow-up native disposition
+
+The [2bb0e08 evidence record](../../../docs/development/logic-supervisor-review-2bb0e08.md) accepts the supervisor-stage native ERC/XML and visual review and closes the USB symbol-heading findings. This does not close the remaining power-design or independent Gate A requirements.

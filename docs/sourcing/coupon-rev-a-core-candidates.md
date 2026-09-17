@@ -2,6 +2,8 @@
 
 # Coupon Rev A core component candidates
 
+**2026-09-17 resistor amendment:** [ADR 0012](../decisions/0012-programming-resistor-error-budget.md) selects `ERA2AEB3651X`, `ERA2AEB3481X` and `ERA2AEB1131X` (0.1%, 25 ppm/K). References below to 1% programming resistors are historical; current calculations retain ±1% as the total qualified resistance-error envelope. Nominal values and current ceilings do not change; assembly/service drift qualification remains open.
+
 **2026-09-17 current-budget finding:** resistor ranges below include initial tolerance only. The [temperature-drift counterexample](../../hardware/coupon/rev-a/usb-supervision-capture.md) exceeds the configured-SDP allocation for an ordinary 100 ppm/K candidate. Precision-part qualification or revised lower limits are required before programming-resistor capture; no substitution or current increase is approved.
 
 

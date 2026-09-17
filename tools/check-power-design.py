@@ -8,7 +8,11 @@ USB compliance test, battery qualification, thermal result, or fabrication appro
 
 import argparse
 from decimal import Decimal as D
+from pathlib import Path
+import runpy
 import sys
+
+PRECISION=runpy.run_path(str(Path(__file__).with_name('check-programming-resistors.py')))
 
 
 def bounded_ratio(constant_min, constant_max, resistance, tolerance):
@@ -61,7 +65,7 @@ def usb_capture_blockers():
         "Exact BQ24074RGTR, BQ24392RSER and TS3USB31ERSER libraries passed native review at c054cb4; the charger/power path remains uncaptured.",
         "ADR 0011 logic, USB detectors/data path and USB LDO are captured; protected input, VBUS qualification, hardware-only ILIM boost and physical startup inhibition remain uncaptured.",
         "The detector/LDO/logic/status auxiliary-current budget and source transitions are not validated.",
-        "The 3.65-kohm ILIM estimate includes initial tolerance only; a 100-ppm/K candidate exceeds the 500-mA allocation at temperature. Select qualified precision parts or lower limits before capture.",
+        "ADR 0012 selects precision programming resistors and retains ±1% total error; their assembly/service drift allocation and actuator leakage still require qualification. The historical 100-ppm/K temperature counterexample remains rejected.",
         "The exact pack, NTC/timer network and BQ24074 linear thermal behavior remain unqualified.",
     )
 
@@ -120,7 +124,8 @@ def selected_input_bounds(*, boost=False, switch_resistance_max="0"):
     ron = D(switch_resistance_max)
     if not ron.is_finite() or ron < 0:
         raise ValueError("Switch resistance must be finite and nonnegative")
-    base, branch, tolerance = D("3650"), D("3480"), D("0.01")
+    # ADR 0012: total qualified resistance envelope, not initial tolerance.
+    base, branch, tolerance = D("3650"), D("3480"), PRECISION['TOTAL_ERROR']
     if not boost:
         low, _, high = bounded_ratio("1330", "1720", str(base), str(tolerance))
         return low, D("1525") / base, high
@@ -140,7 +145,7 @@ def total_usb_current(charger_max, auxiliary_max, programming_allowance="0"):
 
 
 def results():
-    charge_low, _, charge_high = bounded_ratio("797", "975", "1130", "0.01")
+    charge_low, _, charge_high = bounded_ratio("797", "975", "1130", PRECISION['TOTAL_ERROR'])
     charge = (charge_low, D("890") / D("1130"), charge_high)
     input_external = selected_input_bounds(boost=True)
     input_sdp = selected_input_bounds()
@@ -169,6 +174,7 @@ def results():
 
 
 def check():
+    PRECISION['check_budget']()
     value = results()
     charge_min, charge_nom, charge_max = value["charge"]
     input_min, input_nom, input_max = value["input_external"]
@@ -226,6 +232,7 @@ def main():
     try:
         value = check()
         print("Power pre-capture calculations passed:")
+        print('- ADR 0012 current bounds use ±1% TOTAL resistance error; selected parts are 0.1%, 25 ppm/K, with assembly/service allocation still requiring qualification')
         print(f"- BQ24074 1.13-kohm charge setting: {value['charge'][0]:.3f} to {value['charge'][2]:.3f} A")
         print(f"- ADR 0011 low ILIM (3.65 kohm): {value['input_sdp'][0]:.3f} to {value['input_sdp'][2]:.3f} A")
         print(f"- hardware boost (3.65 || 3.48 kohm): {value['input_external'][0]:.3f} to {value['input_external'][2]:.3f} A, ideal switch")

@@ -42,12 +42,23 @@ class CheckKiCadWrapperTests(unittest.TestCase):
     def test_separate_raw_views_and_numbered_copies(self):
         result = self.run_check()
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertEqual(len(list((self.output / "symbols").glob("*.svg"))), 41)
+        self.assertEqual(len(list((self.output / "symbols").glob("*.svg"))), 45)
         for view in ("fabrication", "copper", "paste", "numbered", "mechanical"):
-            self.assertEqual(len(list((self.output / "footprints" / view).glob("*.svg"))), 2 if view == "numbered" else 25)
+            self.assertEqual(len(list((self.output / "footprints" / view).glob("*.svg"))), 2 if view == "numbered" else 26)
         self.assertTrue((self.output / "coupon-erc.rpt").is_file())
         self.assertTrue((self.output / "coupon-matrix.xml").is_file())
         self.assertTrue((self.output / "coupon-schematic.pdf").is_file())
+
+    def test_missing_precision_or_supervisor_export_is_rejected(self):
+        for name in ('ERA2AEB3651X_unit1.svg', 'ERA2AEB3481X_unit1.svg',
+                     'ERA2AEB1131X_unit1.svg', 'ERJ-2RKF6203X_unit1.svg',
+                     'R_Panasonic_ERA2_0402.svg'):
+            with self.subTest(name=name):
+                self.output = self.directory / name
+                result = self.run_check(RGB_BADGE_TEST_MISSING_NAMED=name)
+                self.assertEqual(result.returncode, 1)
+                self.assertIn('Expected non-empty', result.stderr)
+                self.assertFalse((self.output / 'coupon-erc.rpt').exists())
 
     def test_numbering_failure_is_not_hidden(self):
         result = self.run_check(RGB_BADGE_TEST_BAD_LABELS="1")

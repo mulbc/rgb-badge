@@ -52,6 +52,7 @@ for required_path in \
     "${controller_library_check}" \
     "${controller_capture_check}" \
     "${power_design_check}" \
+    "${repo_root}/tools/check-programming-resistors.py" \
     "${usb_permission_check}" \
     "${permission_capture_check}" \
     "${usb_capture_check}" \
@@ -72,6 +73,7 @@ python3 "${row_capture_check}"
 python3 "${controller_library_check}"
 python3 "${controller_capture_check}"
 python3 "${power_design_check}"
+python3 "${repo_root}/tools/check-programming-resistors.py"
 python3 "${usb_permission_check}"
 python3 "${permission_capture_check}"
 python3 "${usb_capture_check}"
@@ -170,9 +172,16 @@ do
     fi
 done
 
-for symbol_name in TLC59581RTQT ERJ-2RKF3922X ERJ-2RKF1003X GRM155R71C104KA88D PWR_FLAG TestPoint_Pad '74HC4514PW,118' DMP2066LSN-7 2N7002K-7 ERJ-2RKF1001X ESP32-S3-WROOM-1U-N16R8 ERJ-2RKF1002X ERJ-2RKF22R0X ERJ-2RKF4990X GRM155C71A105KE11D GRM188R60J106ME47D EVQP7J01P BQ24074RGTR BQ24392RSER TS3USB31ERSER BQ25616JRTWT TPS631000DRLR TLV75533PDBVR SN74LVC1G04DBVR INA232AIDDFR TPD4E05U06DQAR TUSB320LAIRWBR TPS63020DSJT 'MAX17048G+T10' SN74LVC1G00DBVR SN74LVC1G06DBVR SN74LVC1G08DBVR SN74LVC1G11DBVR SN74LVC1G32DBVR TPS3808G01DBVR SN74LVC2G17DBVR ERJ-2RKF8873X ERJ-2RCF2R20X; do
+for symbol_name in TLC59581RTQT ERJ-2RKF3922X ERJ-2RKF1003X GRM155R71C104KA88D PWR_FLAG TestPoint_Pad '74HC4514PW,118' DMP2066LSN-7 2N7002K-7 ERJ-2RKF1001X ESP32-S3-WROOM-1U-N16R8 ERJ-2RKF1002X ERJ-2RKF22R0X ERJ-2RKF4990X GRM155C71A105KE11D GRM188R60J106ME47D EVQP7J01P BQ24074RGTR BQ24392RSER TS3USB31ERSER BQ25616JRTWT TPS631000DRLR TLV75533PDBVR SN74LVC1G04DBVR INA232AIDDFR TPD4E05U06DQAR TUSB320LAIRWBR TPS63020DSJT 'MAX17048G+T10' SN74LVC1G00DBVR SN74LVC1G06DBVR SN74LVC1G08DBVR SN74LVC1G11DBVR SN74LVC1G32DBVR TPS3808G01DBVR SN74LVC2G17DBVR ERJ-2RKF8873X ERJ-2RCF2R20X ERJ-2RKF6203X ERA2AEB3651X ERA2AEB3481X ERA2AEB1131X; do
     if [[ ! -s "${symbol_svg_dir}/${symbol_name}_unit1.svg" ]]; then
         echo "Expected non-empty controlled symbol SVG: ${symbol_name}" >&2
+        exit 1
+    fi
+done
+
+for view_dir in "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_paste_dir}" "${footprint_mechanical_dir}"; do
+    if [[ ! -s "${view_dir}/R_Panasonic_ERA2_0402.svg" ]]; then
+        echo "Expected non-empty ERA2 footprint SVG: ${view_dir}" >&2
         exit 1
     fi
 done
@@ -248,7 +257,7 @@ if [[ ! -s "${check_tmp_dir}/coupon-schematic.pdf" ]]; then
 fi
 
 echo "KiCad ${kicad_version}: libraries exported; complete coupon connectivity including USB logic/interface and ERC passed."
-echo "Draft: input protection, supervision, charger/ILIM actuator, gauging and switched power remain uncaptured; +5V_USB is a draft source boundary."
+echo "Draft: input protection, VBUS qualification, charger/ILIM actuator, gauging and switched power remain uncaptured; +5V_USB is a draft source boundary."
 if [[ "${keep_check_output}" == yes ]]; then
     echo "Review SVG/PDF output and netlist in: ${check_tmp_dir}"
 fi

@@ -25,3 +25,7 @@ The PDF was rendered. Inspection focused on the changed conditioning page, permi
 The shared fix also increases U30's existing clearance by 1.27 mm. No pin, wire or label position changes on the USB-interface page. A geometry regression checks J1/U33 value baselines against their independently stated body dimensions. These are **source corrections awaiting the next native PDF**, not claimed native visual passes.
 
 The next checkpoint combines those drawing corrections with the [logic-rail supervisor capture](../../hardware/coupon/rev-a/usb-supervision-capture.md). Input protection, charger actuation, complete current/transition budgets, remaining power circuits and independent review stay open.
+
+## Follow-up native disposition
+
+The [2bb0e08 evidence record](logic-supervisor-review-2bb0e08.md) accepts the supervisor-stage native ERC/XML and visual review and closes the USB symbol-heading findings. This does not close the remaining power-design or independent Gate A requirements.
