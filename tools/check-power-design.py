@@ -59,8 +59,9 @@ def usb_capture_blockers():
     """Selected topology tasks not yet closed by calculation alone."""
     return (
         "Exact BQ24074RGTR, BQ24392RSER and TS3USB31ERSER libraries passed native review at c054cb4; the charger/power path remains uncaptured.",
-        "ADR 0011 logic, USB detectors/data path and USB LDO are captured; protected input, supervisors, hardware-only ILIM boost and physical startup inhibition remain uncaptured.",
+        "ADR 0011 logic, USB detectors/data path and USB LDO are captured; protected input, VBUS qualification, hardware-only ILIM boost and physical startup inhibition remain uncaptured.",
         "The detector/LDO/logic/status auxiliary-current budget and source transitions are not validated.",
+        "The 3.65-kohm ILIM estimate includes initial tolerance only; a 100-ppm/K candidate exceeds the 500-mA allocation at temperature. Select qualified precision parts or lower limits before capture.",
         "The exact pack, NTC/timer network and BQ24074 linear thermal behavior remain unqualified.",
     )
 
@@ -155,6 +156,9 @@ def results():
         "historical_fixed_usb500_max": D("0.5"),
         "historical_single_resistor_high": bounded_ratio("1500", "1720", "1780", "0.01"),
         "configured_sdp_allocated_total": total_usb_current(input_sdp[2], "0.020", "0.002"),
+        # Counterexample for the ordinary ERJ2RK candidate, not a selected MPN.
+        "sdp_temperature_counterexample": total_usb_current(
+            D('1720')/(D('3650')*D('.99')*D('.9935')), '.020', '.002'),
         "historical_input_default": historical_input_default,
         "historical_input_high": historical_input_high,
         "rail_3v3": rail_3v3,
@@ -185,6 +189,8 @@ def check():
         raise ValueError("Hardware boost increased the previous high-current maximum")
     if not D("0.497") < value["configured_sdp_allocated_total"] < D("0.5"):
         raise ValueError("Configured SDP allocation no longer fits 500 mA")
+    if value['sdp_temperature_counterexample']<=D('.5'):
+        raise ValueError('Lost the resistor-temperature budget counterexample')
     if not (D("3.307") < value["rail_3v3"] < D("3.309")):
         raise ValueError("TPS631000 3.3-V divider calculation changed")
     if not (D("3.944") < value["rail_vled"] < D("3.945")):
@@ -224,6 +230,7 @@ def main():
         print(f"- ADR 0011 low ILIM (3.65 kohm): {value['input_sdp'][0]:.3f} to {value['input_sdp'][2]:.3f} A")
         print(f"- hardware boost (3.65 || 3.48 kohm): {value['input_external'][0]:.3f} to {value['input_external'][2]:.3f} A, ideal switch")
         print(f"- configured SDP allocation: {value['configured_sdp_allocated_total']:.3f} A including 20 mA auxiliary + 2 mA programming allowances (not qualified loads)")
+        print(f"- 100-ppm/K resistor candidate at temperature: {value['sdp_temperature_counterexample']:.6f} A with those allocations; exceeds 500 mA, so the earlier tolerance-only margin is NOT closure")
         print("- ADR 0010/0011 source/switch/configuration/suspend and two-stage data-isolation truth table is internally consistent")
         print(f"- nominal rails: {value['rail_3v3']:.3f} V application and {value['rail_vled']:.3f} V LED")
         print(f"- BQ24074 plus hibernating MAX17048 maxima consume {value['always_on_max_uA']:.1f} uA of the 50-uA OFF budget")

@@ -2,6 +2,9 @@
 
 # Coupon Rev A power/input pre-capture record
 
+**2026-09-17 current-budget finding:** resistor ranges below include initial tolerance only. The [temperature-drift counterexample](usb-supervision-capture.md) exceeds the configured-SDP allocation for an ordinary 100 ppm/K candidate. Precision-part qualification or revised lower limits are required before programming-resistor capture; no substitution or current increase is approved.
+
+
 Status: direct input-current proposal rejected by [ADR 0009](../../../docs/decisions/0009-usb-input-current-closure.md); source-qualified BQ24074/BQ24392/TUSB320/TS3USB31E topology selected by [ADR 0010](../../../docs/decisions/0010-source-qualified-off-charging.md). Replacement libraries pass host audits and [native rendering review at c054cb4](../../../docs/development/power-replacement-review-c054cb4.md); power capture is pending; not approved for fabrication.
 
 ## Purpose

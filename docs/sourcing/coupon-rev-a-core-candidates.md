@@ -2,6 +2,9 @@
 
 # Coupon Rev A core component candidates
 
+**2026-09-17 current-budget finding:** resistor ranges below include initial tolerance only. The [temperature-drift counterexample](../../hardware/coupon/rev-a/usb-supervision-capture.md) exceeds the configured-SDP allocation for an ordinary 100 ppm/K candidate. Precision-part qualification or revised lower limits are required before programming-resistor capture; no substitution or current increase is approved.
+
+
 Status: researched candidates for schematic capture; **not a frozen BOM and not authorization to buy or fabricate**
 
 Research cut-off: 2026-09-14 for the selected charger/input sources; 2026-09-06 for other candidates

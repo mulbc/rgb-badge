@@ -85,8 +85,8 @@ def check_added_libraries(project=PROJECT):
         require(normalized(symbols[mpn])==normalized(symbols['ERJ-2RKF1003X']),'Unexpected USB resistor symbol geometry')
     # TUSB320 R_VBUS specification: 855..920 kohm. Include 1% tolerance
     # and ±100 ppm/K over the detector's -40..85 C range (25 C reference).
-    lo=D(887)*(1-D('.01')-D('.0001')*65)
-    hi=D(887)*(1+D('.01')+D('.0001')*65)
+    lo=D(887)*(1-D('.01'))*(1-D('.0001')*65)
+    hi=D(887)*(1+D('.01'))*(1+D('.0001')*65)
     require(D(855)<=lo<=hi<=D(920),'VBUS detect resistor outside TI interval')
     return lo,hi
 

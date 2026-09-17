@@ -252,6 +252,15 @@ def permission_coupon_netlist():
     part('R70','10k 1%','R_Panasonic_ERJ2_0402');add('R70',1,'+3V3_USB');add('R70',2,'USB_EN1_RAW_N')
     for ref,name in [('TP30','HIGH_REQ'),('TP31','EN1_RAW_N')]:
         part(ref,name,'TestPoint_Pad_D1.0mm');add(ref,1,'USB_'+name)
+    part('U34','TPS3808G01DBVR','SOT23_TI_DBV0006A')
+    for pin,net in [(1,'USB_RAW_LOGIC_READY'),(2,'GND'),(3,'+5V_USB'),(4,'USB_LOGIC_CT'),(5,'USB_LOGIC_SENSE'),(6,'+5V_USB')]:
+        add('U34',pin,net)
+    part('C38','100n 16V X7R','C_Murata_GRM15_0402');add('C38',1,'+5V_USB');add('C38',2,'GND')
+    for ref,value,a,b in [('R75','620k 1%','+3V3_USB','USB_LOGIC_SENSE'),
+                         ('R76','100k 1%','USB_LOGIC_SENSE','GND'),
+                         ('R77','100k 1%','+5V_USB','USB_LOGIC_CT'),
+                         ('R78','10k 1%','+3V3_USB','USB_RAW_LOGIC_READY')]:
+        part(ref,value,'R_Panasonic_ERJ2_0402');add(ref,1,a);add(ref,2,b)
     return root
 
 

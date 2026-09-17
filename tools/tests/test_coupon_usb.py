@@ -86,5 +86,18 @@ class UsbCaptureTests(unittest.TestCase):
             self.assertEqual((out/'usb-interface.kicad_sch').read_bytes(),(PROJECT/'usb-interface.kicad_sch').read_bytes())
             self.assertNotEqual(subprocess.run(command,capture_output=True).returncode,0)
 
+    def test_connector_and_esd_values_clear_body_outlines(self):
+        # Native d502e65 PDF showed the value baseline on each top edge.
+        # These independent dimensions are from the controlled symbol bodies.
+        source=CHECK['parse'](PROJECT/'usb-interface.kicad_sch')
+        symbols={CHECK['props'](s)['Reference']:s for s in CHECK['children'](source,'symbol')}
+        for ref,body_top in [('J1',17.78),('U33',10.16)]:
+            with self.subTest(ref=ref):
+                symbol=symbols[ref]
+                y=float(CHECK['one'](symbol,'at','instance')[2])
+                value=next(p for p in CHECK['children'](symbol,'property') if p[1]=='Value')
+                vy=float(CHECK['one'](value,'at','value')[2])
+                self.assertGreaterEqual(round(y-body_top-vy,3),2.54)
+
 
 if __name__=='__main__':unittest.main()

@@ -2,6 +2,9 @@
 
 # USB/input closure assessment
 
+**2026-09-17 current-budget finding:** resistor ranges below include initial tolerance only. The [temperature-drift counterexample](usb-supervision-capture.md) exceeds the configured-SDP allocation for an ordinary 100 ppm/K candidate. Precision-part qualification or revised lower limits are required before programming-resistor capture; no substitution or current increase is approved.
+
+
 Status: direct BQ25616J ILIM-only proposal rejected under [ADR 0009](../../../docs/decisions/0009-usb-input-current-closure.md). [ADR 0010](../../../docs/decisions/0010-source-qualified-off-charging.md) selects BQ24074/BQ24392/TUSB320/TS3USB31E for the next capture; replacement libraries passed native review at c054cb4. [ADR 0011](../../../docs/decisions/0011-usb-total-current-headroom.md) corrects the configured-SDP auxiliary-current budget and defines the GPIO permission contract. Physical permission logic, thermal proof and the complete power sheet remain pending.
 
 ## State coverage required

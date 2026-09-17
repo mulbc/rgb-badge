@@ -2,6 +2,9 @@
 
 # ADR 0011: Reserve current for USB detection and permission logic
 
+**2026-09-17 current-budget finding:** resistor ranges below include initial tolerance only. The [temperature-drift counterexample](../../hardware/coupon/rev-a/usb-supervision-capture.md) exceeds the configured-SDP allocation for an ordinary 100 ppm/K candidate. Precision-part qualification or revised lower limits are required before programming-resistor capture; no substitution or current increase is approved.
+
+
 - Status: Accepted design correction for capture; physical implementation and Gate A pending
 - Date: 2026-09-15
 - Amends: [ADR 0010](0010-source-qualified-off-charging.md), charger mode selection only

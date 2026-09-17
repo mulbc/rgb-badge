@@ -2,11 +2,11 @@
 
 # Staged USB interface capture
 
-Date: 2026-09-17. Status: canonical source and host validation; native KiCad review pending. Implements the detector/data topology already accepted by ADRs 0010/0011. It does not complete the power section.
+Date: 2026-09-17. Status: [native ERC/XML passed at d502e65](../../../docs/development/usb-interface-review-d502e65.md); two drawing overlaps were found and source-corrected, awaiting the next native PDF. Implements the detector/data topology already accepted by ADRs 0010/0011. It does not complete the power section.
 
 ## Captured circuit
 
-`usb-interface.kicad_sch` adds **20 PCB items / 84 logical pin entries**, including eleven explicit NCs. The coupon now has **437 PCB items / 1,620 logical pin entries across eleven pages**. Repeated same-number connector shell lands are one netlist pin, as are other repeated ground-pad lands. Power flags are virtual and excluded.
+`usb-interface.kicad_sch` adds **20 PCB items / 84 logical pin entries**, including eleven explicit NCs. At d502e65 the coupon had **437 PCB items / 1,620 logical pin entries across eleven pages**. The follow-on supervisor raises these to 443 / 1,636 without adding a page. Repeated same-number connector shell lands are one netlist pin, as are other repeated ground-pad lands. Power flags are virtual and excluded.
 
 | Reference | Exact part / role | Connections and intent |
 |---|---|---|
@@ -23,7 +23,7 @@ Date: 2026-09-17. Status: canonical source and host validation; native KiCad rev
 | C35/C36/C37 | GRM155R71C104KA88D | 100 nF / 16 V X7R at BC detector, CC detector and application-powered data switch |
 | TP32/TP33 | Copper test pads | VBUS_CONNECTOR / +5V_USB boundary observability |
 
-The two Type-C outputs and three BC1.2 outputs now connect to the previously captured Schmitt inputs. Their existing pull-ups R60/R61/R62/R64 remain on +3V3_USB. This does not introduce a battery-powered pull-up onto an unpowered TUSB320. The other five supervisor/application inputs remain test boundaries.
+The two Type-C outputs and three BC1.2 outputs now connect to the previously captured Schmitt inputs. Their existing pull-ups R60/R61/R62/R64 remain on +3V3_USB. This does not introduce a battery-powered pull-up onto an unpowered TUSB320. The follow-on [logic supervisor](usb-supervision-capture.md) drives LOGIC_READY; four other supervisor/application inputs remain staged.
 
 The data path is J1 → ballast → BQ24392 → TS3USB31E → existing 22-ohm controller resistors → ESP32. U33 is shunt ESD protection, not a series-through device. The two historical isolated USB_D-/USB_D+ warnings should disappear: the ERC gate now accepts **zero violations only**. No new exception has been added.
 
@@ -32,7 +32,7 @@ The data path is J1 → ballast → BQ24392 → TS3USB31E → existing 22-ohm co
 The already native-reviewed IC and connector libraries retain their pin maps and footprints. Sources were reread for the circuit connections:
 
 - [BQ24392, SLIS146G](https://www.ti.com/lit/ds/symlink/bq24392.pdf): pin table, GOOD_BAT/timer behavior, GPIO outputs, ballast and bypass guidance. The supply-domain connection avoids using GOOD_BAT for product OFF isolation.
-- [TUSB320LAI, SLLSEQ8D](https://www.ti.com/lit/ds/symlink/tusb320lai.pdf): GPIO/UFP straps, internal Rd, VDD ramp requirement, open-drain pull-up domain and VBUS_DET resistor table. Although prose says 900 kohm, the electrical table specifies 855/887/920 kohm min/typ/max. R71 at 887 kohm fits this interval; 1% tolerance plus ±100 ppm/K over -40..85 C gives a conservative calculated **872.3645–901.6355 kohm** interval, using 25 C as reference.
+- [TUSB320LAI, SLLSEQ8D](https://www.ti.com/lit/ds/symlink/tusb320lai.pdf): GPIO/UFP straps, internal Rd, VDD ramp requirement, open-drain pull-up domain and VBUS_DET resistor table. Although prose says 900 kohm, the electrical table specifies 855/887/920 kohm min/typ/max. R71 at 887 kohm fits this interval; 1% tolerance plus ±100 ppm/K over -40..85 C gives a conservative calculated **872.422155–901.693155 kohm** interval, using 25 C as reference and multiplying initial-tolerance and TCR factors (including their cross term).
 - [TS3USB31E, SCDS256A](https://www.ti.com/lit/ds/symlink/ts3usb31e.pdf): D/HSD polarity, OE and partial-power-down conditions. Zero-VCC isolation applies specifically to the detector-facing D pins; it does not prove safe behavior at every intermediate supply voltage.
 - [TLV755P, SBVS320D](https://www.ti.com/lit/ds/symlink/tlv755p.pdf): DBV pin map, bypass, stability and startup/dropout cautions.
 - [TPDxE05U06, SLVSBO7O](https://www.ti.com/lit/ds/symlink/tpd4e05u06.pdf): four channel pins, two grounds and four NC pins. No VBUS protection is claimed from this data/CC array.
@@ -59,4 +59,4 @@ Fault tests cover a CC short, reversed data, swapped current-advertisement outpu
 
 Host validation: **126 tests passed** on 2026-09-17, including six new USB capture tests with multiple fault cases. Canonical regeneration and the unchanged 1,024-state permission comparison passed. The strict USB-closure gate still returns 1 for the documented incomplete circuitry. No native or bench result is claimed for this increment.
 
-The owner must run `tools/check-kicad.sh` under KiCad 10.0.6 for this new source. Expected outputs: **41 symbols, 25 footprints per raw view, eleven PDF pages, 437 items / 1,620 pins and zero ERC violations**. Inspect the new USB interface page and updated conditioning page. Power closure remains blocked even if those checks pass; independent Gate A still precedes fabrication.
+The owner completed the d502e65 run below; its [review record](../../../docs/development/usb-interface-review-d502e65.md) preserves the findings. The next required run is the combined [supervisor checkpoint](usb-supervision-capture.md). Historical expected outputs for d502e65: **41 symbols, 25 footprints per raw view, eleven PDF pages, 437 items / 1,620 pins and zero ERC violations**. Inspect the new USB interface page and updated conditioning page. Power closure remains blocked even if those checks pass; independent Gate A still precedes fabrication.

@@ -140,7 +140,7 @@
 )
 (text "ADR 0011 permission gates: physical pin connectivity is checked against all 1,024 input combinations" (at 20.320 20.320 0) (effects (font (size 2 2)) (justify left)) (uuid "716dad9b-7921-5d38-bbc7-1c7fc5f6b703"))
 (text "USB_HIGH_REQ and USB_EN1_RAW_N are test outputs, NOT connections to ILIM or charger EN1." (at 20.320 30.480 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "ed890d54-98f0-5c42-808b-4cbc5ed3db6a"))
-(text "Supply supervision, ramp/brownout inhibition and the parallel ILIM switch are still outside this captured boundary." (at 20.320 38.100 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "ff1ca995-f2d0-5eee-875c-233213c4aafe"))
+(text "VBUS qualification, fast-brownout inhibition and the parallel ILIM switch remain outside this captured boundary." (at 20.320 38.100 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "ff1ca995-f2d0-5eee-875c-233213c4aafe"))
 (text "Attached = NOT (OUT1 AND OUT2)" (at 20.320 53.340 0) (effects (font (size 1.016 1.016)) (justify left)) (uuid "17ddc012-4561-5275-9313-932be30d4886"))
 (symbol (lib_id "rgb-badge-coupon:SN74LVC1G00DBVR") (at 78.740 76.200 0) (unit 1)
 (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)

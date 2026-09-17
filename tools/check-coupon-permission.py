@@ -3,7 +3,8 @@
 """Trace staged KiCad USB gates and compare their actual wiring to ADR 0011.
 
 Includes a stable-state logic evaluator, not a SPICE/transient simulation. The
-physical startup inhibit, detectors, charger and ILIM switch remain uncaptured.
+detectors and logic-rail supervisor are captured. Physical actuator inhibition,
+VBUS qualification, charger and ILIM switch remain uncaptured.
 """
 
 import argparse
@@ -52,6 +53,11 @@ for i,name in enumerate(INPUTS):
     PARTS[f'TP{20+i}']=('TestPoint_Pad',name,'rgb-badge-coupon:TestPoint_Pad_D1.0mm')
 PARTS['R70']=('ERJ-2RKF1002X','10k 1%','rgb-badge-coupon:R_Panasonic_ERJ2_0402')
 PARTS.update({ref:('TestPoint_Pad',value,'rgb-badge-coupon:TestPoint_Pad_D1.0mm') for ref,value in [('TP30','HIGH_REQ'),('TP31','EN1_RAW_N')]})
+PARTS['U34']=('TPS3808G01DBVR','TPS3808G01DBVR','rgb-badge-coupon:SOT23_TI_DBV0006A')
+PARTS['C38']=('GRM155R71C104KA88D','100n 16V X7R','rgb-badge-coupon:C_Murata_GRM15_0402')
+for ref,mpn,value in [('R75','ERJ-2RKF6203X','620k 1%'),('R76','ERJ-2RKF1003X','100k 1%'),
+                      ('R77','ERJ-2RKF1003X','100k 1%'),('R78','ERJ-2RKF1002X','10k 1%')]:
+    PARTS[ref]=(mpn,value,'rgb-badge-coupon:R_Panasonic_ERJ2_0402')
 
 
 def require(ok, message):
@@ -75,6 +81,11 @@ def expected_connections():
         nets[f'R{60+i}','2']='+3V3_USB' if name in ('OUT1','OUT2','CHG_AL_N','SW_OPEN') else 'GND'
         nets[f'TP{20+i}','1']='USB_RAW_'+name
     nets.update({('R70','1'):'+3V3_USB',('R70','2'):'USB_EN1_RAW_N',('TP30','1'):'USB_HIGH_REQ',('TP31','1'):'USB_EN1_RAW_N'})
+    maps={'U34':{1:'USB_RAW_LOGIC_READY',2:'GND',3:'+5V_USB',4:'USB_LOGIC_CT',5:'USB_LOGIC_SENSE',6:'+5V_USB'},
+          'C38':{1:'+5V_USB',2:'GND'},'R75':{1:'+3V3_USB',2:'USB_LOGIC_SENSE'},
+          'R76':{1:'USB_LOGIC_SENSE',2:'GND'},'R77':{1:'+5V_USB',2:'USB_LOGIC_CT'},
+          'R78':{1:'+3V3_USB',2:'USB_RAW_LOGIC_READY'}}
+    nets.update({(ref,str(pin)):net for ref,pins in maps.items() for pin,net in pins.items()})
     return nets
 
 
@@ -187,6 +198,9 @@ def evaluate(connections, bits):
     remaining=[]
     for ref,(mpn,_,_) in PARTS.items():
         if not ref.startswith('U'):continue
+        # The analog supervisor is checked separately; this evaluator exhausts
+        # both resolved LOGIC_READY states, not supervisor timing or behavior.
+        if ref=='U34':continue
         if mpn=='SN74LVC2G17DBVR':
             remaining.extend([(ref,('1',),'6',lambda a:a),(ref,('3',),'4',lambda a:a)])
         else:
@@ -217,6 +231,7 @@ def check_logic(connections):
 
 
 def check_sources(project=PROJECT):
+    runpy.run_path(str(TOOLS/'check-usb-supervision.py'))['check'](project)
     nets=trace_sources(project)
     require(nets==expected_connections(),'Permission source pin-to-net mismatch')
     check_logic(nets)
@@ -229,7 +244,7 @@ def main():
     args=p.parse_args()
     try:
         check_sources(args.project_dir)
-        print('Captured USB logic source check passed: 61 PCB items, 176 pins including 5 NC; 1024 stable-state cases. Actuator/startup boundary remains open; not native ERC.')
+        print('Captured USB logic/supervisor source check passed: 67 PCB items, 192 pins including 5 NC; 1024 stable-state cases. Actuator/startup boundary remains open; not native ERC.')
     except (ValueError,KeyError,IndexError,OSError) as e:
         print(f'Permission capture check failed: {e}',file=sys.stderr);return 1
     return 0

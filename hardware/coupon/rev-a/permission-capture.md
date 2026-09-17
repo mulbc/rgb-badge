@@ -6,7 +6,7 @@ Date: 2026-09-16. Status: canonical KiCad source and host validation; [native Ki
 
 ## Subsequent integration
 
-The [USB interface increment](usb-interface-capture.md) now connects the five detector outputs and supplies +3V3_USB from U29. #FLG04 is removed. Five supervisor/application inputs and both actuator outputs remain test boundaries. The ten-page counts and boundary description below record the reviewed `6d9a08b` checkpoint; current coupon totals are eleven pages, 437 items / 1,620 logical pins.
+The [USB interface increment](usb-interface-capture.md) now connects the five detector outputs and supplies +3V3_USB from U29. #FLG04 is removed. The [logic-rail supervisor](usb-supervision-capture.md) now drives LOGIC_READY; four inputs and both actuator outputs remain staged. The ten-page counts and boundary description below record the reviewed `6d9a08b` checkpoint; current coupon totals are eleven pages, 443 items / 1,636 logical pins.
 
 ## What was connected at 6d9a08b
 

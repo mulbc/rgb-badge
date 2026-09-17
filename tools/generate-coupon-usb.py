@@ -56,7 +56,7 @@ def interface():
     s.component('#FLG06','PWR_FLAG',492.76,355.60,{'1':'USB_BC_VBUS'})
     s.note('#FLG06: ERC power annotation after R72; not another source.',426.72,370.84,'derived-flag',1.016)
     s.note('Effective capacitance, inrush, total-port current, undervoltage/ramp behavior and input protection remain open.',20.32,381,'limits')
-    s.note('R60/R61/R62/R64 on usb-conditioning provide detector pull-ups. Supervisors and charger actuators are not captured.',20.32,391.16,'pullups',1.016)
+    s.note('R60/R61/R62/R64 on usb-conditioning provide detector pull-ups. VBUS qualification and charger actuators remain open.',20.32,391.16,'pullups',1.016)
     return s
 
 

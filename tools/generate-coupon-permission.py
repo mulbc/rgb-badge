@@ -84,6 +84,12 @@ class Sheet:
         virtual = mpn == 'PWR_FLAG'
         purchased = mpn not in ('PWR_FLAG', 'TestPoint_Pad')
         top = max(float(LIB['one'](p, 'at', 'pin')[2]) for p in pins.values())
+        # A connector/IC body can extend above every pin. Pin-only placement
+        # put J1/U33 values directly on their outlines in the native PDF.
+        for unit in LIB['children'](lib, 'symbol'):
+            for rectangle in LIB['children'](unit, 'rectangle'):
+                top = max(top, *(float(LIB['one'](rectangle, corner, 'rectangle')[2])
+                                 for corner in ('start', 'end')))
         header = max(12.70 if ref.startswith('U') else 6.35, top + 5.08)
         ry, vy = y-header, y-header+2.54
         items = [f'(symbol (lib_id "rgb-badge-coupon:{mpn}") (at {x:.3f} {y:.3f} 0) (unit 1)',
@@ -120,8 +126,8 @@ RAW = ('OUT1','OUT2','CHG_AL_N','CHG_DET','SW_OPEN','VBUS_VALID','LOGIC_READY','
 
 def conditioning():
     s = Sheet('usb-conditioning','Coupon Rev A - USB input conditioning (staged)')
-    s.note('USB input conditioning: detector outputs connected; five supervisor/application inputs remain staged',20.32,20.32,'title',2)
-    s.note('OUT1/OUT2 and BC outputs come from usb-interface. Supervisors, switch and MCU inputs remain test boundaries.',20.32,30.48,'boundary')
+    s.note('USB input conditioning: detectors and logic-rail supervisor connected; four inputs remain staged',20.32,20.32,'title',2)
+    s.note('OUT1/OUT2 and BC outputs come from usb-interface. VBUS_VALID, switch and MCU inputs remain test boundaries.',20.32,30.48,'boundary')
     s.note('CHG_DET uses the staged 4.80-5.25 V USB supply boundary; protection is pending. ESP_RUNNING is not tied to ESP_EN.',20.32,38.10,'domains')
     for i in range(5):
         x,y = 83.82+(i%3)*180.34,76.20+(i//3)*119.38
@@ -137,8 +143,19 @@ def conditioning():
     for i,name in enumerate(RAW):
         x,y=83.82+(i%5)*106.68,325.12+(i//5)*25.4
         s.component(f'TP{20+i}','TestPoint_Pad',x,y,{'1':'USB_RAW_'+name},name)
-    s.note('+3V3_USB is supplied by U29 on usb-interface; its protected 5 V input is still a draft boundary.',378.46,241.30,'power',1.016)
+    s.note('Logic-rail supervisor: input-domain powered, delayed release',383.54,175.26,'supervisor',1.016)
+    s.component('U34','TPS3808G01DBVR',444.50,195.58,
+                {'1':'USB_RAW_LOGIC_READY','2':'GND','3':'+5V_USB',
+                 '4':'USB_LOGIC_CT','5':'USB_LOGIC_SENSE','6':'+5V_USB'})
+    s.component('C38','GRM155R71C104KA88D',444.50,218.44,{'1':'+5V_USB','2':'GND'},'100n 16V X7R')
+    for ref,mpn,y,a,b,value in [
+        ('R75','ERJ-2RKF6203X',238.76,'+3V3_USB','USB_LOGIC_SENSE','620k 1%'),
+        ('R76','ERJ-2RKF1003X',259.08,'USB_LOGIC_SENSE','GND','100k 1%'),
+        ('R77','ERJ-2RKF1003X',279.40,'+5V_USB','USB_LOGIC_CT','100k 1%'),
+        ('R78','ERJ-2RKF1002X',299.72,'+3V3_USB','USB_RAW_LOGIC_READY','10k 1%')]:
+        s.component(ref,mpn,444.50,y,{'1':a,'2':b},value)
     s.note('Default pull-ups: 10 kohm. Default pull-downs: 100 kohm. Source/leakage/suspend budgets remain to be qualified.',20.32,375.92,'pulls')
+    s.note('U34: nominal trip 2.916 V; CT via 100k selects 180-420 ms release. Fast brownout/actuator inhibition remain unproven.',20.32,386.08,'reset-limits',1.016)
     return s
 
 
@@ -146,7 +163,7 @@ def permission():
     s=Sheet('usb-permission','Coupon Rev A - USB charging permission gates (staged)')
     s.note('ADR 0011 permission gates: physical pin connectivity is checked against all 1,024 input combinations',20.32,20.32,'title',2)
     s.note('USB_HIGH_REQ and USB_EN1_RAW_N are test outputs, NOT connections to ILIM or charger EN1.',20.32,30.48,'actuator')
-    s.note('Supply supervision, ramp/brownout inhibition and the parallel ILIM switch are still outside this captured boundary.',20.32,38.10,'startup')
+    s.note('VBUS qualification, fast-brownout inhibition and the parallel ILIM switch remain outside this captured boundary.',20.32,38.10,'startup')
     # MPNS and pin assignments are explicit rather than generated from the oracle.
     gates = [
         ('U10','00',{'1':'USB_OUT1','2':'USB_OUT2','4':'USB_ATTACHED'},'Attached = NOT (OUT1 AND OUT2)'),
