@@ -2,8 +2,8 @@
 # SPDX-License-Identifier: Apache-2.0
 """Generate two staged USB permission sheets into a NEW directory.
 
-Canonical KiCad files are reviewed copies of this deterministic output. Inputs
-are explicit test boundaries, not yet connected detectors or supply supervisors.
+Canonical KiCad files are reviewed copies of this deterministic output. The detector inputs now connect to the USB interface sheet; supervisors and
+application controls remain explicit test boundaries.
 """
 
 import argparse
@@ -83,7 +83,9 @@ class Sheet:
         pins = LIB['library_pins'](lib)
         virtual = mpn == 'PWR_FLAG'
         purchased = mpn not in ('PWR_FLAG', 'TestPoint_Pad')
-        ry, vy = (y-12.70, y-10.16) if ref.startswith('U') else (y-6.35, y-3.81)
+        top = max(float(LIB['one'](p, 'at', 'pin')[2]) for p in pins.values())
+        header = max(12.70 if ref.startswith('U') else 6.35, top + 5.08)
+        ry, vy = y-header, y-header+2.54
         items = [f'(symbol (lib_id "rgb-badge-coupon:{mpn}") (at {x:.3f} {y:.3f} 0) (unit 1)',
                  f'(exclude_from_sim no) (in_bom {"yes" if purchased else "no"}) (on_board {"no" if virtual else "yes"}) (dnp no)',
                  f'(uuid {q(uid(ref))})', field('Reference',ref,x,ry,virtual), field('Value', value or mpn,x,vy)]
@@ -108,7 +110,7 @@ class Sheet:
     def output(self):
         return '\n'.join(['(kicad_sch (version 20260306) (generator "rgb_badge_permission") (generator_version "1.0")',
                           f'(uuid {q(self.file_uuid)}) (paper "A2")',
-                          f'(title_block (title {q(self.title)}) (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "Staged logic capture; detector/supervisor and charger actuator boundaries are NOT closed"))',
+                          f'(title_block (title {q(self.title)}) (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "Staged logic; supervisors, startup inhibit and charger actuation remain open"))',
                           '(lib_symbols\n'+'\n'.join(extract_symbol(self.source,n) for n in sorted(self.used))+'\n)',
                           *self.body,'(embedded_fonts no)',')',''])
 
@@ -118,9 +120,9 @@ RAW = ('OUT1','OUT2','CHG_AL_N','CHG_DET','SW_OPEN','VBUS_VALID','LOGIC_READY','
 
 def conditioning():
     s = Sheet('usb-conditioning','Coupon Rev A - USB input conditioning (staged)')
-    s.note('USB input conditioning: five dual Schmitt buffers; all ten source signals remain test boundaries',20.32,20.32,'title',2)
-    s.note('No detector, supervisor, switch or MCU request is connected here yet. Pull defaults implement the inactive contract only.',20.32,30.48,'boundary')
-    s.note('CHG_DET may be VBUS-level only after input protection bounds it to 5.5 V. ESP_RUNNING is not yet tied to ESP_EN.',20.32,38.10,'domains')
+    s.note('USB input conditioning: detector outputs connected; five supervisor/application inputs remain staged',20.32,20.32,'title',2)
+    s.note('OUT1/OUT2 and BC outputs come from usb-interface. Supervisors, switch and MCU inputs remain test boundaries.',20.32,30.48,'boundary')
+    s.note('CHG_DET uses the staged 4.80-5.25 V USB supply boundary; protection is pending. ESP_RUNNING is not tied to ESP_EN.',20.32,38.10,'domains')
     for i in range(5):
         x,y = 83.82+(i%3)*180.34,76.20+(i//3)*119.38
         a,b=RAW[2*i:2*i+2]
@@ -135,8 +137,7 @@ def conditioning():
     for i,name in enumerate(RAW):
         x,y=83.82+(i%5)*106.68,325.12+(i//5)*25.4
         s.component(f'TP{20+i}','TestPoint_Pad',x,y,{'1':'USB_RAW_'+name},name)
-    s.component('#FLG04','PWR_FLAG',444.5,218.44,{'1':'+3V3_USB'})
-    s.note('Draft +3V3_USB source assumption; remove/replace when the actual USB LDO is captured.',378.46,241.30,'power',1.016)
+    s.note('+3V3_USB is supplied by U29 on usb-interface; its protected 5 V input is still a draft boundary.',378.46,241.30,'power',1.016)
     s.note('Default pull-ups: 10 kohm. Default pull-downs: 100 kohm. Source/leakage/suspend budgets remain to be qualified.',20.32,375.92,'pulls')
     return s
 

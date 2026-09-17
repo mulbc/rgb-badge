@@ -2,9 +2,13 @@
 
 # Staged USB permission circuit capture
 
-Date: 2026-09-16. Status: canonical KiCad source and host validation; native KiCad ERC/XML/render review pending. This is a circuit increment, not completion of the power section or USB-current qualification.
+Date: 2026-09-16. Status: canonical KiCad source and host validation; [native KiCad ERC/XML/render review passed at 6d9a08b](../../../docs/development/permission-review-6d9a08b.md). This is a circuit increment, not completion of the power section or USB-current qualification.
 
-## What is connected
+## Subsequent integration
+
+The [USB interface increment](usb-interface-capture.md) now connects the five detector outputs and supplies +3V3_USB from U29. #FLG04 is removed. Five supervisor/application inputs and both actuator outputs remain test boundaries. The ten-page counts and boundary description below record the reviewed `6d9a08b` checkpoint; current coupon totals are eleven pages, 437 items / 1,620 logical pins.
+
+## What was connected at 6d9a08b
 
 Two new sheets implement the stable-signal equations of ADR 0011 using real, numbered IC pins. `usb-conditioning.kicad_sch` provides five dual Schmitt buffers, ten default resistors, decoupling and ten input test pads. `usb-permission.kicad_sch` contains fourteen gates, decoupling, two output test pads and a pull-up for the raw open-drain logic output. Added population: **61 PCB items / 176 physical pins, including five explicit NCs**. Complete coupon source: **417 PCB items / 1,536 physical pins, on ten schematic pages**. Power flags are virtual source assumptions and are excluded from PCB counts.
 
@@ -44,10 +48,12 @@ The added [TI SN74LVC2G17 datasheet](https://www.ti.com/lit/ds/symlink/sn74lvc2g
 
 Fault tests prove that a firmware-to-HIGH route, bypassed supply-valid input, bypassed SDP data condition, bypassed application grant and loss of autonomous OFF charging fail the logic comparison. Separate source/XML mutations reject missed pins, wrong resistors, missing decoupling, wrong NCs and altered connections. The complete XML checker now includes every new component and pin instead of silently ignoring the added sheets. The synthetic exporter fixture remains test-only, never native evidence.
 
-## Required native checkpoint
+## Native checkpoint completed
 
 Host validation on 2026-09-16: all **120** tests passed, including six new capture tests with multiple source, logic and XML fault cases. The canonical-source 1,024-case logic evaluation, controlled-library check, unchanged matrix/row/controller source checks and whitespace check passed. The strict USB-closure gate still exits 1, as required for the remaining uncaptured physical boundaries. No new native result or bench measurement is claimed.
 
 Run `tools/check-kicad.sh` under KiCad 10.0.6. It must load/export **39 symbols**, **25 footprints per raw view**, produce the ten-page schematic PDF, pass the complete **417-item / 1,536-pin** XML check, and pass the unchanged strict staged ERC policy (only the old USB_D−/USB_D+ isolated-label pair is temporarily permitted). New warnings are not automatically exempted. Review both new sheets plus the Schmitt symbol and previously added permission-library exports. Also inspect the corrected DBV5/DBV6 fabrication outlines.
 
 The source/logic checks do not prove native connectivity, rendered readability, transient behavior or hardware performance. Keep PR #8 draft, the strict USB-closure gate blocked, and fabrication behind Gate A.
+
+The owner supplied the requested native exports at `6d9a08b`. ERC/XML and first-author rendered review passed; see the [evidence record](../../../docs/development/permission-review-6d9a08b.md). The instructions above describe that completed checkpoint, not a request to repeat it.

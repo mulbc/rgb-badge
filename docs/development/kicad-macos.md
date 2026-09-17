@@ -4,14 +4,14 @@
 
 Coupon Rev A is authored and validated with stable KiCad 10.0.x. The initial baseline is 10.0.6 under [ADR 0006](../decisions/0006-kicad-10-workflow.md).
 
-## Active staged USB logic checkpoint
+## Active USB interface checkpoint
 
-The current `coupon-power-rev-a` branch adds two [staged USB logic sheets](../../hardware/coupon/rev-a/permission-capture.md). A new native run is required for the combined library/circuit checkpoint: 39 symbol exports, 25 footprints per raw view, ten schematic pages and 417 PCB items / 1,536 logical pins. Only the original temporary USB_D−/USB_D+ isolated-label warnings remain eligible for the staged ERC exception. The raw permission inputs and outputs are explicit test boundaries; a passing run does not close the power circuit.
+The staged permission circuit passed [native review at 6d9a08b](permission-review-6d9a08b.md). The current `coupon-power-rev-a` branch adds the [USB interface](../../hardware/coupon/rev-a/usb-interface-capture.md): connector, ESD, CC/BC detectors, data isolation and USB-only LDO. The new native checkpoint requires **41 symbols, 25 footprints per raw view, eleven schematic pages and 437 PCB items / 1,620 logical pins**. Both USB data nets are now connected; ERC must report **zero violations**, with the old exception removed. Protected input, supervisors and charger/ILIM actuation remain unfinished.
 
 After synchronizing that branch, generate an output directory identified by the actual commit:
 
 ```bash
-review_dir="hardware/coupon/rev-a/build/permission-review-$(git rev-parse --short HEAD)"
+review_dir="hardware/coupon/rev-a/build/usb-interface-review-$(git rev-parse --short HEAD)"
 RGB_BADGE_KICAD_CHECK_OUTPUT="$review_dir" ./tools/check-kicad.sh && \
   ditto -c -k --keepParent "$review_dir" "${review_dir}.zip" && \
   open -R "${review_dir}.zip"
@@ -35,7 +35,7 @@ On first opening the project, do not accept a migration to a newer KiCad major r
 
 ## Initial blank-project GUI round-trip (completed history)
 
-This check was completed on the original blank project. The earlier root-and-seven-child-sheet controller run passed and is recorded in the [native evidence record](controller-review-d56e1aa.md). The current staged USB logic draft has a root and nine child sheets. Use the validation command again after every schematic increment.
+This check was completed on the original blank project. The earlier root-and-seven-child-sheet controller run passed and is recorded in the [native evidence record](controller-review-d56e1aa.md). The current USB interface draft has a root and ten child sheets. Use the validation command again after every schematic increment.
 
 1. Open `rgb-badge-coupon.kicad_pro` from the command above.
 2. Open the Schematic Editor from the project manager.
@@ -94,4 +94,4 @@ Row-library exports add the `74HC4514PW,118`, `DMP2066LSN-7`, `2N7002K-7` and `E
 
 Controller exports add the exact N16R8 module, reset/USB/UART passives and `EVQP7J01P`, plus the module, 0603 capacitor and side-push switch footprints. On page 8, confirm GPIO35–37 are explicitly no-connect, GPIO0 reaches the pull-up/button/test pad, EN reaches its 10 kΩ/1 µF network, USB pins pass through separate 22 Ω resistors, and every recovery/test pad is readable. In the copper/paste views, confirm 40 perimeter module lands plus nine distinct same-numbered pad-41 lands; the switch has two pad-1 and two pad-2 lands.
 
-The USB4505 candidate is library-only and does not yet appear on a schematic page. Its symbol must show 12 land pins plus `S1 SHIELD`; CC1 and CC2 remain separate, and each USB data direction has two distinct land pins for later schematic joining. In the copper view, confirm twelve top-row lands and four oval shell lands: the wide outer GND/VBUS lands are 0.60 mm, the eight inner lands are 0.30 mm, and no adjacent copper touches. In the paste view, confirm twelve filled SMT apertures; KiCad renders each drilled shell slot as an unfilled outline even though those pads have no paste layer. In the mechanical view, verify the 9.24 mm wide dashed opening datum, board-edge line and both warning labels. Do not approve or redraw the undimensioned corner reliefs from this view.
+The USB4505 candidate is now J1 on the staged USB interface page. Its symbol must show 12 land pins plus `S1 SHIELD`; CC1 and CC2 remain separate, and each USB data direction has two distinct land pins with their matching polarity joined in the schematic. In the copper view, confirm twelve top-row lands and four oval shell lands: the wide outer GND/VBUS lands are 0.60 mm, the eight inner lands are 0.30 mm, and no adjacent copper touches. In the paste view, confirm twelve filled SMT apertures; KiCad renders each drilled shell slot as an unfilled outline even though those pads have no paste layer. In the mechanical view, verify the 9.24 mm wide dashed opening datum, board-edge line and both warning labels. Do not approve or redraw the undimensioned corner reliefs from this view.

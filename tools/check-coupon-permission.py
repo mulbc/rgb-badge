@@ -89,7 +89,7 @@ def position(item):
     return tuple(map(D,one(item,'at','position')[1:3]))
 
 
-def trace_sources(project=PROJECT):
+def trace_sheet_set(project, sheets, parts, no_connects, flags):
     """Read canonical wires and labels; do not borrow the generator's net table."""
     LIB['check_libraries'](project)
     library={s[1]:s for s in children(parse(project/'symbols/rgb-badge-coupon.kicad_sym'),'symbol')}
@@ -97,7 +97,7 @@ def trace_sources(project=PROJECT):
     root_sheets=children(root,'sheet')
     require(one(root,'uuid','root')[1]==ROOT_UUID,'Unexpected permission root UUID')
     components,connections,nc=set(),{},set()
-    for filename,(sheet_uuid,file_uuid) in SHEETS.items():
+    for filename,(sheet_uuid,file_uuid) in sheets.items():
         targets=[s for s in root_sheets if props(s).get('Sheetfile')==filename]
         require(len(targets)==1 and one(targets[0],'uuid','sheet')[1]==sheet_uuid,'Permission sheet missing/duplicated or wrong UUID')
         source=parse(project/filename)
@@ -129,10 +129,10 @@ def trace_sources(project=PROJECT):
         require(len(nc_points)==len(children(source,'no_connect')),'Duplicate no-connect marker')
         consumed_nc,consumed_wire_points=set(),set()
         for symbol in children(source,'symbol'):
-            p=props(symbol);ref=p['Reference'];virtual=ref=='#FLG04'
+            p=props(symbol);ref=p['Reference'];virtual=ref in flags
             require(ref not in components,'Duplicate permission reference')
             components.add(ref)
-            expected=('PWR_FLAG','PWR_FLAG','') if virtual else PARTS.get(ref)
+            expected=('PWR_FLAG','PWR_FLAG','') if virtual else parts.get(ref)
             require(expected is not None,f'Unexpected permission component {ref}')
             mpn,value,fp=expected
             require(one(symbol,'lib_id',ref)[1]=='rgb-badge-coupon:'+mpn and p['Value']==value and p['Footprint']==fp,f'{ref}: MPN/value/footprint mismatch')
@@ -150,20 +150,24 @@ def trace_sources(project=PROJECT):
                     point=pending.pop()
                     if point in visited:continue
                     visited.add(point);names.update(labels[point]);pending.extend(graph[point]-visited)
-                if (ref,number) in NO_CONNECTS:
+                if (ref,number) in no_connects:
                     require(start in nc_points and not names and not graph[start],f'{ref}.{number}: NC connected or missing')
                     nc.add((ref,number));consumed_nc.add(start)
                 else:
                     require(start not in nc_points and len(names)==1 and bool(graph[start]),f'{ref}.{number}: expected one connected net')
                     name=names.pop()
-                    if virtual:require(name=='+3V3_USB','Draft power flag assigned to wrong rail')
+                    if virtual:require(name==flags[ref],'Draft power flag assigned to wrong rail')
                     else:connections[ref,number]=name
                     consumed_wire_points.update(visited)
         require(consumed_nc==nc_points,'Orphan no-connect marker')
         require({p for p,edges in graph.items() if edges}<=consumed_wire_points,'Orphan permission wire')
-    require(components==set(PARTS)|{'#FLG04'},'Permission population mismatch')
-    require(nc==NO_CONNECTS,'Permission no-connect set mismatch')
+    require(components==set(parts)|set(flags),'Permission population mismatch')
+    require(nc==no_connects,'Permission no-connect set mismatch')
     return connections
+
+
+def trace_sources(project=PROJECT):
+    return trace_sheet_set(project, SHEETS, PARTS, NO_CONNECTS, {})
 
 
 # Independent device truth functions, keyed by exact physical pin number.

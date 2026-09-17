@@ -58,8 +58,8 @@ def validate_bq_unknown_input(resistance, source_limit, *, classification="unkno
 def usb_capture_blockers():
     """Selected topology tasks not yet closed by calculation alone."""
     return (
-        "Exact BQ24074RGTR, BQ24392RSER and TS3USB31ERSER libraries passed native review at c054cb4; the power circuit remains uncaptured.",
-        "ADR 0011 conditioned permission gates are captured with test boundaries; detector/supervisor sources, hardware-only ILIM boost and physical startup inhibition remain uncaptured.",
+        "Exact BQ24074RGTR, BQ24392RSER and TS3USB31ERSER libraries passed native review at c054cb4; the charger/power path remains uncaptured.",
+        "ADR 0011 logic, USB detectors/data path and USB LDO are captured; protected input, supervisors, hardware-only ILIM boost and physical startup inhibition remain uncaptured.",
         "The detector/LDO/logic/status auxiliary-current budget and source transitions are not validated.",
         "The exact pack, NTC/timer network and BQ24074 linear thermal behavior remain unqualified.",
     )

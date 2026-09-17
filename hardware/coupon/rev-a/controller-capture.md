@@ -56,7 +56,7 @@ The pending power sheet must make `DISPLAY_ENABLE` fail-safe: VLED remains off t
 
 Native USB remains available through the future USB-C receptacle when the application rail is on. R45/R46 belong beside U3 in layout; the receptacle, controlled-impedance pair, ESD array and Type-C circuits remain on the next power/input sheet.
 
-Until that sheet is captured, native ERC correctly reports the single-ended `USB_D-` and `USB_D+` global labels as isolated. The wrapper accepts only that exact two-warning set (or zero warnings after connection); any other ERC message remains fatal. This is a temporary staged-capture exception, not an electrical waiver.
+Historical controller-only checkpoint: before that sheet was captured, native ERC reported the single-ended `USB_D-` and `USB_D+` global labels as isolated. The former wrapper accepted only that exact pair. The USB interface now connects both nets, and the exception is retired: current ERC must have zero violations. Native review of the new interface is pending.
 
 ## Library provenance and checks
 

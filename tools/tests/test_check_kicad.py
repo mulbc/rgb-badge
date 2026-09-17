@@ -42,7 +42,7 @@ class CheckKiCadWrapperTests(unittest.TestCase):
     def test_separate_raw_views_and_numbered_copies(self):
         result = self.run_check()
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertEqual(len(list((self.output / "symbols").glob("*.svg"))), 39)
+        self.assertEqual(len(list((self.output / "symbols").glob("*.svg"))), 41)
         for view in ("fabrication", "copper", "paste", "numbered", "mechanical"):
             self.assertEqual(len(list((self.output / "footprints" / view).glob("*.svg"))), 2 if view == "numbered" else 25)
         self.assertTrue((self.output / "coupon-erc.rpt").is_file())
@@ -87,10 +87,10 @@ class CheckKiCadWrapperTests(unittest.TestCase):
         self.assertEqual(result.returncode, 5)
         self.assertNotIn("ERC passed", result.stdout)
 
-    def test_exact_staged_usb_boundary_warnings_are_accepted(self):
+    def test_retired_usb_boundary_warnings_are_rejected(self):
         result = self.run_check(RGB_BADGE_TEST_USB_BOUNDARY_ERC="1")
-        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertIn("temporary USB-boundary warnings", result.stdout)
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("Unexpected ERC violation set", result.stderr)
 
     def test_unexpected_erc_warning_is_not_hidden(self):
         result = self.run_check(RGB_BADGE_TEST_UNEXPECTED_ERC="1")

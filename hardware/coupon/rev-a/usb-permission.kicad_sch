@@ -1,6 +1,6 @@
 (kicad_sch (version 20260306) (generator "rgb_badge_permission") (generator_version "1.0")
 (uuid "a7d329d3-fad2-5879-8232-e18669c3e38f") (paper "A2")
-(title_block (title "Coupon Rev A - USB charging permission gates (staged)") (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "Staged logic capture; detector/supervisor and charger actuator boundaries are NOT closed"))
+(title_block (title "Coupon Rev A - USB charging permission gates (staged)") (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "Staged logic; supervisors, startup inhibit and charger actuation remain open"))
 (lib_symbols
 (symbol "rgb-badge-coupon:ERJ-2RKF1002X"
 (pin_names (offset 1.016) hide) (in_bom yes) (on_board yes)

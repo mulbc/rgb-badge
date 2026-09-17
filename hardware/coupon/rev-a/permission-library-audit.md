@@ -2,7 +2,7 @@
 
 # USB permission logic: exact candidate libraries
 
-Date: 2026-09-16. Status: manufacturer pin/package transcription and host checks complete; native KiCad rendering, circuit capture and electrical qualification pending. These libraries support ADR 0011, without changing its current limits or granting USB closure. No component in this increment is connected in the schematic yet.
+Date: 2026-09-16. Status: manufacturer pin/package transcription, host checks and native rendering at `6d9a08b` complete; full electrical qualification pending. These libraries support ADR 0011, without changing its current limits or granting USB closure. The gate circuit is now captured; TPS3808 remains library-only.
 
 ## Controlled pin maps
 
@@ -60,3 +60,7 @@ Pin tables: first five sources page 3; TPS3808 pages 4–5. DBV6 outline/land/st
 `check-power-libraries.py` now audits the 32 added pins, output electrical types/inversions, DBV6 pads/mask/paste and both nominal body/courtyard outlines. Mutation tests reject the wrong AND3 ground number, swapped supervisor function, push-pull substitution for the open-drain inverter, incorrect logic polarity, duplicate right-side pad placement, wrong radius, mask/paste changes and recurrence of the oversized body drawing. `check-kicad.sh` requires all six additional native symbol exports and the DBV6 footprint exports. Wrapper tests use a stub and are not native ERC or rendering evidence.
 
 Validation on 2026-09-16: all 114 host tests passed, including the 25 power-library and 17 wrapper tests. The 1,024-case permission contract, controller source check and `git diff --check` passed. The strict `check-power-design.py --require-usb-closure` gate still returns 1 for the recorded uncaptured/unqualified circuit. No KiCad CLI is available in this workspace; no new native ERC, render or bench result is claimed. Native export review is deferred to the next combined capture checkpoint, with no owner action needed for this increment.
+
+## Native rendering evidence
+
+The combined circuit/library exports at `6d9a08b` passed [first-author native review](../../../docs/development/permission-review-6d9a08b.md) on 2026-09-17, including all seven added symbols and corrected DBV5/DBV6 views. TPS3808 remains a library candidate; this does not qualify a supervisor circuit.
