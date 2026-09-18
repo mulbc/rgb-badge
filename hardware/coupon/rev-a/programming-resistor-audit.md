@@ -2,7 +2,7 @@
 
 # Programming-resistor library and error-budget audit
 
-Status: first-author source audit, 2026-09-17; new native library rendering pending. No charger placement or procurement approval.
+Status: first-author source audit, 2026-09-17; [native library rendering passed at 9e71bb5](../../../docs/development/precision-resistor-review-9e71bb5.md). No charger placement or procurement approval.
 
 [ADR 0012](../../../docs/decisions/0012-programming-resistor-error-budget.md) selects Panasonic `ERA2AEB3651X` (3.65 kohm base ILIM), `ERA2AEB3481X` (3.48 kohm boost) and `ERA2AEB1131X` (1.13 kohm ISET). Manufacturer exact-part pages are linked there. Each is a 0402, 0.1%, 25 ppm/K resistor. Symbols use two passive pins, 1 and 2; the resistor is nonpolar. Exact identity, manufacturer, source link and footprint are controlled separately from the displayed circuit value.
 
@@ -37,3 +37,5 @@ The drift allocation is not a manufacturer lifetime guarantee. Qualification mus
 `check-programming-resistors.py` checks the exact symbols, complete footprint geometry and conditional error allocation. Fault tests reject altered source identity, pins, pad dimensions, a reduced courtyard and an excessive error allocation. Wrapper tests require every new symbol and footprint view. These are host/source checks; CLI-stub results are not native KiCad evidence. The next owner-generated bundle must show 45 symbols and 26 footprints per raw view, with the existing 443-item / 1,636-pin circuit and zero ERC violations unchanged.
 
 Host validation on 2026-09-17: all 138 repository tests passed, including five new precision-budget/library tests and the missing-export wrapper cases. `git diff --check` passed. Rechecking the owner's unchanged 2bb0e08 circuit XML/ERC still passes 443 items / 1,636 pins and zero violations. The strict `check-power-design.py --require-usb-closure` gate returned 1 for the recorded unfinished power design. Native exports of the new libraries remain pending.
+
+Native follow-up on 2026-09-18: the owner bundle at 9e71bb5 passed the expected export counts, zero-violation ERC, unchanged complete XML and visual review of all new resistor views. See the linked evidence record. Earlier pending statements above describe the pre-native checkpoint.

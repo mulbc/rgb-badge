@@ -4,9 +4,11 @@
 
 Coupon Rev A is authored and validated with stable KiCad 10.0.x. The initial baseline is 10.0.6 under [ADR 0006](../decisions/0006-kicad-10-workflow.md).
 
-## Active precision-resistor library checkpoint
+## Accepted precision-resistor library checkpoint
 
 The [logic-supervisor review at 2bb0e08](logic-supervisor-review-2bb0e08.md) passed native ERC/XML and closed the J1/U33 heading findings. [ADR 0012](../decisions/0012-programming-resistor-error-budget.md) now adds three precision-resistor symbols and an ERA2 footprint without changing circuit connectivity. Expected outputs: **45 symbols, 26 footprints per raw view, eleven schematic pages, 443 PCB items / 1,636 logical pins and zero ERC violations**. Inspect the three ERA2AEB symbols and the ERA2 fabrication/copper/paste/mechanical views against the [audit](../../hardware/coupon/rev-a/programming-resistor-audit.md). VBUS qualification, protection and charger/ILIM actuation remain unfinished.
+
+The [owner bundle at 9e71bb5](precision-resistor-review-9e71bb5.md) passed this checkpoint on 2026-09-18. No repeat run is needed for the subsequent documentation-only review record. The command below is retained for the next source-changing checkpoint; use it when requested.
 
 After synchronizing that branch, generate an output directory identified by the actual commit:
 

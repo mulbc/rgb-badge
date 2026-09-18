@@ -4,7 +4,7 @@
 
 Status: agreed design baseline and staged execution plan
 Date: 2026-09-05
-Project phase: matrix, driver, row-stage, controller, controlled legacy power-library and USB4505 candidate-library native reviews passed; source-qualified OFF-charge policy and BQ24074/BQ24392/TUSB320/TS3USB31E topology selected; replacement-library native review passed at c054cb4; ADR 0011 gate capture passed native review at 6d9a08b; USB detector/data/LDO native ERC/XML passed at d502e65 with two heading findings; corrections and logic-rail supervisor capture passed native review at 2bb0e08; ADR 0012 precision-resistor libraries await rendering; input protection, VBUS qualification, charger/ILIM actuation, remaining power capture, thermal proof and layout remain
+Project phase: matrix, driver, row-stage, controller, controlled legacy power-library and USB4505 candidate-library native reviews passed; source-qualified OFF-charge policy and BQ24074/BQ24392/TUSB320/TS3USB31E topology selected; replacement-library native review passed at c054cb4; ADR 0011 gate capture passed native review at 6d9a08b; USB detector/data/LDO native ERC/XML passed at d502e65 with two heading findings; corrections and logic-rail supervisor capture passed native review at 2bb0e08; ADR 0012 precision-resistor libraries passed native review at 9e71bb5; input protection, VBUS qualification, charger/ILIM actuation, remaining power capture, thermal proof and layout remain
 
 ## 1. Outcome
 
