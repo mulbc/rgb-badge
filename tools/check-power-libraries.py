@@ -23,6 +23,19 @@ PROJECT = Path(__file__).resolve().parents[1] / "hardware" / "coupon" / "rev-a"
 FP_PREFIX = "rgb-badge-coupon:"
 
 PARTS = {
+    "ADG4612BCPZ-REEL7": {
+        "footprint": "LFCSP_ADI_CP16_22_3x3mm_P0.5mm_EP1.75mm",
+        "datasheet": "https://www.analog.com/media/en/technical-documentation/data-sheets/ADG4612_4613.pdf",
+        "pins": {0: ("GND_EP", "power_in"), 1: ("S1", "bidirectional"),
+                 2: ("VSS", "power_in"), 3: ("GND", "power_in"),
+                 4: ("S4", "bidirectional"), 5: ("D4", "bidirectional"),
+                 6: ("IN4", "input"), 7: ("IN3", "input"),
+                 8: ("D3", "bidirectional"), 9: ("S3", "bidirectional"),
+                 10: ("NC", "passive"), 11: ("VDD", "power_in"),
+                 12: ("S2", "bidirectional"), 13: ("D2", "bidirectional"),
+                 14: ("IN2", "input"), 15: ("IN1", "input"),
+                 16: ("D1", "bidirectional")},
+    },
     "SN74LVC2G17DBVR": {
         "footprint": "SOT23_TI_DBV0006A",
         "datasheet": "https://www.ti.com/lit/ds/symlink/sn74lvc2g17.pdf",
@@ -326,6 +339,10 @@ def check_symbol_libraries(project):
     for number in ("4", "6"):
         require(library_pins(symbols["SN74LVC2G17DBVR"])[number][2] == "line",
                 f"SN74LVC2G17DBVR.{number}: non-inverting buffer output required")
+    adg = symbols["ADG4612BCPZ-REEL7"]
+    require(property_map(adg).get("Manufacturer") == "Analog Devices", "ADG manufacturer mismatch")
+    for number in ("6", "7", "14", "15"):
+        require(library_pins(adg)[number][2] == "line", "ADG4612 controls must be active high")
     return symbols
 
 
@@ -685,6 +702,38 @@ def check_t822_footprint(project):
             (D("-1.65"), D("-1.05")), "T822+3 pin-1 marker mismatch")
 
 
+def check_adg_footprint(project):
+    """Project-derived CP-16-22 candidate lands; assembler qualification pending."""
+    root = footprint(project, PARTS["ADG4612BCPZ-REEL7"]["footprint"])
+    pads = children(root, "pad")
+    require(Counter(p[1] for p in pads) == Counter([*map(str, range(17)), "", "", "", ""]),
+            "ADG pad numbers/count mismatch; EP must be 0")
+    numbered = {p[1]: p for p in pads if p[1]}
+    coordinates = ("-0.75", "-0.25", "0.25", "0.75")
+    for n in range(1, 17):
+        a = D(coordinates[(n-1) % 4])
+        if n <= 4: pos, size = (D('-1.45'), a), dec(('0.7', '0.3'))
+        elif n <= 8: pos, size = (a, D('1.45')), dec(('0.3', '0.7'))
+        elif n <= 12: pos, size = (D('1.45'), -a), dec(('0.7', '0.3'))
+        else: pos, size = (-a, D('-1.45')), dec(('0.3', '0.7'))
+        pad = numbered[str(n)]
+        require(pad_position(pad) == pos and pad_size(pad) == size, f'ADG pad {n} geometry mismatch')
+        require(pad_layers(pad) == ['F.Cu', 'F.Paste', 'F.Mask'], f'ADG pad {n} layers mismatch')
+    ep = numbered['0']
+    require(pad_position(ep) == dec(('0', '0')) and pad_size(ep) == dec(('1.75', '1.75')),
+            'ADG exposed-pad geometry mismatch')
+    require(pad_layers(ep) == ['F.Cu', 'F.Mask'], 'ADG EP must use separate paste windows')
+    windows = [p for p in pads if not p[1]]
+    require({pad_position(p) for p in windows} ==
+            {(D(x), D(y)) for x in ('-.425', '.425') for y in ('-.425', '.425')},
+            'ADG stencil positions mismatch')
+    for pad in windows:
+        require(pad_size(pad) == dec(('.7', '.7')) and pad_layers(pad) == ['F.Paste'],
+                'ADG stencil size/layers mismatch')
+    check_replacement_geometry(root, ('1.5','1.5'), ('2.05','2.05'), ('-2.15','-1.25'))
+
+
+
 def check_libraries(project=PROJECT):
     for name in sorted({part["footprint"] for part in PARTS.values()}):
         check_copper_separation(footprint(project, name))
@@ -697,6 +746,7 @@ def check_libraries(project=PROJECT):
     check_rwb_footprint(project)
     check_dsj_footprint(project)
     check_t822_footprint(project)
+    check_adg_footprint(project)
     return symbols
 
 
@@ -707,6 +757,7 @@ def main():
     try:
         check_libraries(args.project_dir)
         print("Power library checks passed:")
+        print("- ADG4612 candidate: 17 pins including EP 0; project-derived CP-16-22 lands, not approved for assembly")
         print("- permission libraries: 32 gate/supervisor pins plus 6 dual-Schmitt pins; DBV5/DBV6 geometry")
         print("- BQ24074/BQ24392/TS3USB31E: 35 pins, RGT/RSE lands, narrow middle pads, 0.05-mm corner radii")
         print("- distinct power-footprint copper pad bounding boxes are separated")

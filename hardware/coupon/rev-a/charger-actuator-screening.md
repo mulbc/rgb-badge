@@ -2,7 +2,7 @@
 
 # Charger actuator screening
 
-Status: candidate investigation, 2026-09-18. No selected BOM change, new KiCad library or captured circuit. ADR 0011's hardware-only boost and passive charger-standby requirements remain controlling.
+Status: candidate investigation, 2026-09-18. Candidate library added; no selected BOM change or captured circuit. ADR 0011's hardware-only boost and passive charger-standby requirements remain controlling.
 
 ## Candidate direction
 
@@ -30,7 +30,7 @@ These are application-specific screening observations, not claims that these par
 
 ## Required work before selection and capture
 
-1. Visually verify the exact LFCSP pin map, exposed-pad connection and package drawing. The online text is accessible, but direct PDF download timed out and the available web screenshot response did not expose an inspectable image. Request the owner's PDF copy rather than attempt retrieval workarounds. No file hash or visual package audit is claimed.
+1. Package/pin review is complete using the owner-supplied PDF; see the [candidate library audit](charger-actuator-library-audit.md). Native KiCad rendering and assembly qualification remain pending.
 2. Define normal, unpowered, rising and falling supply conditions, including a grounded reference before other signals. A powered-off isolation specification is not a guarantee for every intermediate rail voltage or a replacement for an undervoltage detector.
 3. Prove EN1/EN2 high/low levels including charger input current and pull-down behavior; control-input specifications at one test voltage are not universal current bounds. Ensure both mode inputs default to standby before the logic LDO starts.
 4. Bound ILIM-node voltage, off leakage and their effect on charger current. The BQ24074 `K/R` specification alone is not a guaranteed conversion factor from arbitrary externally injected pin current to input current. Do not invent a minimum ILIM voltage to make the leakage calculation pass.
@@ -38,3 +38,5 @@ These are application-specific screening observations, not claims that these par
 6. Close supply-loss/advertisement-change timing and programming-node charge injection, then document the chosen topology in an ADR before changing requirements or source.
 
 Manufacturer sources were inspected as online text on 2026-09-18. The existing [TI BQ24074 source](https://www.ti.com/lit/ds/symlink/bq24074.pdf), pin descriptions, startup sequence and logic/current tables remain controlling. No new source should be considered visually audited until its drawing has been inspected.
+
+The supplied Rev. 0 drawings were visually inspected on 2026-09-18. Table 11 specifies isolation for VDD = 0–0.8 V, while the operating prose says up to 1 V and normal operation starts at 2.7 V. Use the narrower tabulated range; behavior throughout 0.8–2.7 V remains unproven. The earlier PDF-access blocker is closed.

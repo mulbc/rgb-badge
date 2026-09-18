@@ -387,13 +387,13 @@ def main():
     if os.environ.get("RGB_BADGE_TEST_FAIL") == stage:
         return 7
     if stage == "sym/export":
-        names.extend(n + "_unit1.svg" for n in ("USB4505-03-0-A", "ERJ-2RKF6203X", "ERA2AEB3651X", "ERA2AEB3481X", "ERA2AEB1131X"))
+        names.extend(n + "_unit1.svg" for n in ("USB4505-03-0-A", "ERJ-2RKF6203X", "ERA2AEB3651X", "ERA2AEB3481X", "ERA2AEB1131X", "ADG4612BCPZ-REEL7"))
     elif stage in ("fabrication", "copper", "paste", "mechanical"):
         if not (stage == "mechanical" and
                 os.environ.get("RGB_BADGE_TEST_MISSING_USB_CONNECTOR") == "1"):
             names.append("USB_C_GCT_USB4505-03-0-A_MidMount.svg")
     if stage in ("fabrication", "copper", "paste", "mechanical"):
-        names.append("R_Panasonic_ERA2_0402.svg")
+        names.extend(("R_Panasonic_ERA2_0402.svg", "LFCSP_ADI_CP16_22_3x3mm_P0.5mm_EP1.75mm.svg"))
     for name in names:
         if name == os.environ.get("RGB_BADGE_TEST_MISSING_NAMED"):
             continue

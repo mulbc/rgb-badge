@@ -4,16 +4,14 @@
 
 Coupon Rev A is authored and validated with stable KiCad 10.0.x. The initial baseline is 10.0.6 under [ADR 0006](../decisions/0006-kicad-10-workflow.md).
 
-## Accepted precision-resistor library checkpoint
+## Candidate actuator library checkpoint
 
-The [logic-supervisor review at 2bb0e08](logic-supervisor-review-2bb0e08.md) passed native ERC/XML and closed the J1/U33 heading findings. [ADR 0012](../decisions/0012-programming-resistor-error-budget.md) now adds three precision-resistor symbols and an ERA2 footprint without changing circuit connectivity. Expected outputs: **45 symbols, 26 footprints per raw view, eleven schematic pages, 443 PCB items / 1,636 logical pins and zero ERC violations**. Inspect the three ERA2AEB symbols and the ERA2 fabrication/copper/paste/mechanical views against the [audit](../../hardware/coupon/rev-a/programming-resistor-audit.md). VBUS qualification, protection and charger/ILIM actuation remain unfinished.
-
-The [owner bundle at 9e71bb5](precision-resistor-review-9e71bb5.md) passed this checkpoint on 2026-09-18. No repeat run is needed for the subsequent documentation-only review record. The command below is retained for the next source-changing checkpoint; use it when requested.
+The [precision-resistor review](precision-resistor-review-9e71bb5.md) passed. The supplied ADG4612 PDF now supports an exact candidate symbol and project-derived CP-16-22 lands; see the [audit](../../hardware/coupon/rev-a/charger-actuator-library-audit.md). Native rendering is pending. Expected outputs: **46 symbols, 27 footprints per raw view, eleven pages, 443 PCB items / 1,636 logical pins and zero ERC violations**. No circuit parts were added. Supply-transition, leakage and assembly qualification remain open.
 
 After synchronizing that branch, generate an output directory identified by the actual commit:
 
 ```bash
-review_dir="hardware/coupon/rev-a/build/precision-resistor-review-$(git rev-parse --short HEAD)"
+review_dir="hardware/coupon/rev-a/build/actuator-library-review-$(git rev-parse --short HEAD)"
 RGB_BADGE_KICAD_CHECK_OUTPUT="$review_dir" ./tools/check-kicad.sh && \
   ditto -c -k --keepParent "$review_dir" "${review_dir}.zip" && \
   open -R "${review_dir}.zip"
@@ -64,16 +62,16 @@ RGB_BADGE_KICAD_CHECK_OUTPUT=hardware/coupon/rev-a/build/led-library-review ./to
 open hardware/coupon/rev-a/build/led-library-review
 ```
 
-The `build` directory is ignored by Git. With the USB4505 candidate library, the current check requires 42 controlled-symbol SVGs and 25 footprint SVGs in each applicable raw view, then creates two derived numbered LED review copies:
+The `build` directory is ignored by Git. With the USB4505 candidate library, the current check requires 46 controlled-symbol SVGs and 27 footprint SVGs in each applicable raw view, then creates two derived numbered LED review copies:
 
 | Output folder | What to look for |
 |---|---|
-| `symbols/` | All 42 controlled symbols. For the LEDs, confirm readable, separated `R_K`, `G_K`, `B_K` and `A` labels; `D?` is an unassigned component reference, not an error. Review the controller and USB4505 items using the checklists below. |
-| `footprints/fabrication/` | Twenty-five unchanged raw KiCad views: outlined pads, body outlines, silkscreen and courtyards. LED body strokes may cross the small pad numbers. These outlines are not copper connections. |
+| `symbols/` | All 46 controlled symbols. For the LEDs, confirm readable, separated `R_K`, `G_K`, `B_K` and `A` labels; `D?` is an unassigned component reference, not an error. Review the controller and USB4505 items using the checklists below. |
+| `footprints/fabrication/` | Twenty-seven unchanged raw KiCad views: outlined pads, body outlines, silkscreen and courtyards. LED body strokes may cross the small pad numbers. These outlines are not copper connections. |
 | `footprints/numbered/` | Two derived review copies with the original pad-number glyphs overlaid on white halos. Use these for readable pad identification; use the raw views and source files for geometry inspection. |
-| `footprints/copper/` | Twenty-five copper-only views. The two LEDs must each have four separate solid pads and no connecting lines. Pad numbers are intentionally absent; identify LED pads in the numbered views. |
-| `footprints/paste/` | Twenty-five paste-only views. Parts without paste apertures may export an otherwise empty drawing; the USB4505 signal lands should have paste while its four shell slots should not. KiCad still outlines the four drilled slots in this plot; these unfilled outlines are not stencil openings. |
-| `footprints/mechanical/` | Twenty-five `F.Fab,Dwgs.User` views. For USB4505, inspect the dashed datum guide and its explicit unqualified-cutout warning; these lines are not `Edge.Cuts`. |
+| `footprints/copper/` | Twenty-seven copper-only views. The two LEDs must each have four separate solid pads and no connecting lines. Pad numbers are intentionally absent; identify LED pads in the numbered views. |
+| `footprints/paste/` | Twenty-seven paste-only views. Parts without paste apertures may export an otherwise empty drawing; the USB4505 signal lands should have paste while its four shell slots should not. KiCad still outlines the four drilled slots in this plot; these unfilled outlines are not stencil openings. |
+| `footprints/mechanical/` | Twenty-seven `F.Fab,Dwgs.User` views. For USB4505, inspect the dashed datum guide and its explicit unqualified-cutout warning; these lines are not `Edge.Cuts`. |
 | `coupon-schematic.pdf` | Root, four matrix pages, driver, row selector, controller, USB conditioning/supervisor, permission and USB interface. Inspect all eleven actual KiCad pages for label collisions and wiring clarity. |
 | `coupon-matrix.xml` | KiCad's complete connectivity result, checked against matrix, driver/support, row selectors, controller and captured USB circuits: 443 PCB items / 1,636 logical pins. The filename is retained for compatibility. |
 

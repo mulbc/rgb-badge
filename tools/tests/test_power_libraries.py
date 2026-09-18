@@ -102,6 +102,38 @@ class PowerLibraryTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, message):
                 CHECK["check_libraries"](project)
 
+    def test_adg_symbol_faults(self):
+        for old, new, error in (
+            ('(number "0"', '(number "17"', 'pin numbers mismatch'),
+            ('(name "S1"', '(name "D1"', 'pin name mismatch'),
+            ('(pin input line', '(pin input inverted', 'active high'),
+        ):
+            with self.subTest(error=error):
+                project = self.project_copy()
+                path = project / 'symbols' / 'rgb-badge-coupon.kicad_sym'
+                before, rest = path.read_text().split('(symbol "ADG4612BCPZ-REEL7"', 1)
+                self.assertIn(old, rest)
+                path.write_text(before + '(symbol "ADG4612BCPZ-REEL7"' + rest.replace(old, new, 1))
+                with self.assertRaisesRegex(ValueError, error):
+                    CHECK['check_libraries'](project)
+
+    def test_adg_land_and_stencil_faults(self):
+        for old, new, error in (
+            ('(pad "0"', '(pad "17"', 'pad numbers/count'),
+            ('(at -1.45 -0.75)', '(at 1.45 -0.75)', 'touch or overlap|geometry mismatch'),
+            ('(size 1.75 1.75)', '(size 1.6 1.6)', 'exposed-pad geometry'),
+            ('(layers "F.Cu" "F.Mask")', '(layers "F.Cu" "F.Paste" "F.Mask")', 'separate paste'),
+            ('(at -0.425 -0.425)', '(at -0.4 -0.425)', 'stencil positions'),
+        ):
+            with self.subTest(error=error):
+                project = self.project_copy()
+                path = project / 'footprints' / 'rgb-badge-coupon.pretty' / (CHECK['PARTS']['ADG4612BCPZ-REEL7']['footprint'] + '.kicad_mod')
+                source = path.read_text()
+                self.assertIn(old, source)
+                path.write_text(source.replace(old, new, 1))
+                with self.assertRaisesRegex(ValueError, error):
+                    CHECK['check_libraries'](project)
+
     def test_controlled_libraries_pass(self):
         CHECK["check_libraries"](PROJECT)
 
