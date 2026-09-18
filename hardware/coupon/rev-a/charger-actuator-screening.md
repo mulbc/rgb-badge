@@ -30,7 +30,7 @@ These are application-specific screening observations, not claims that these par
 
 ## Required work before selection and capture
 
-1. Package/pin review is complete using the owner-supplied PDF; see the [candidate library audit](charger-actuator-library-audit.md). Native KiCad rendering and assembly qualification remain pending.
+1. Package/pin review is complete using the owner-supplied PDF; see the [candidate library audit](charger-actuator-library-audit.md). [Native rendering at 2b7a468](../../../docs/development/actuator-library-review-2b7a468.md) passed; assembly qualification remains pending.
 2. Define normal, unpowered, rising and falling supply conditions, including a grounded reference before other signals. A powered-off isolation specification is not a guarantee for every intermediate rail voltage or a replacement for an undervoltage detector.
 3. Prove EN1/EN2 high/low levels including charger input current and pull-down behavior; control-input specifications at one test voltage are not universal current bounds. Ensure both mode inputs default to standby before the logic LDO starts.
 4. Bound ILIM-node voltage, off leakage and their effect on charger current. The BQ24074 `K/R` specification alone is not a guaranteed conversion factor from arbitrary externally injected pin current to input current. Do not invent a minimum ILIM voltage to make the leakage calculation pass.

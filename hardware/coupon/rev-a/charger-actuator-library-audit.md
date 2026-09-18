@@ -2,7 +2,7 @@
 
 # ADG4612 candidate library audit
 
-2026-09-18. Library preparation only: not a selected BOM part, captured circuit or fabrication approval. Native KiCad rendering is pending. Electrical selection remains governed by [actuator screening](charger-actuator-screening.md).
+2026-09-18. Library preparation only: not a selected BOM part, captured circuit or fabrication approval. [Native KiCad rendering at 2b7a468](../../../docs/development/actuator-library-review-2b7a468.md) passed first-author review. Electrical selection remains governed by [actuator screening](charger-actuator-screening.md).
 
 ## Source and package identity
 
@@ -53,4 +53,4 @@ Table 11 characterizes isolation at VDD = 0–0.8 V; prose discusses isolation u
 
 Expected native output: 46 symbols, 27 footprints per raw view, eleven schematic pages, 443 PCB items / 1,636 logical pins, zero ERC violations. The circuit is unchanged. Review the native candidate symbol and fabrication/copper/paste/mechanical views before accepting this library checkpoint. Independent Gate A and assembly qualification remain pending.
 
-Host validation on 2026-09-18: all 140 tests passed; the targeted 27 power-library tests also passed after removing a redundant constant-only assertion. `git diff --check` passed. The strict USB-closure command still exits 1 for the documented unfinished circuitry. No native KiCad result is claimed for this increment.
+Host validation on 2026-09-18: all 140 tests passed; the targeted 27 power-library tests also passed after removing a redundant constant-only assertion. `git diff --check` passed. The strict USB-closure command still exits 1 for the documented unfinished circuitry. The subsequent owner-supplied native bundle passed the review linked above.

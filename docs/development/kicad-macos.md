@@ -6,7 +6,7 @@ Coupon Rev A is authored and validated with stable KiCad 10.0.x. The initial bas
 
 ## Candidate actuator library checkpoint
 
-The [precision-resistor review](precision-resistor-review-9e71bb5.md) passed. The supplied ADG4612 PDF now supports an exact candidate symbol and project-derived CP-16-22 lands; see the [audit](../../hardware/coupon/rev-a/charger-actuator-library-audit.md). Native rendering is pending. Expected outputs: **46 symbols, 27 footprints per raw view, eleven pages, 443 PCB items / 1,636 logical pins and zero ERC violations**. No circuit parts were added. Supply-transition, leakage and assembly qualification remain open.
+The [precision-resistor review](precision-resistor-review-9e71bb5.md) passed. The supplied ADG4612 PDF now supports an exact candidate symbol and project-derived CP-16-22 lands; see the [audit](../../hardware/coupon/rev-a/charger-actuator-library-audit.md). [Native rendering at 2b7a468](actuator-library-review-2b7a468.md) passed. No repeat run is needed for the documentation-only acceptance; the commands below are retained for the next source checkpoint. Expected outputs: **46 symbols, 27 footprints per raw view, eleven pages, 443 PCB items / 1,636 logical pins and zero ERC violations**. No circuit parts were added. Supply-transition, leakage and assembly qualification remain open.
 
 After synchronizing that branch, generate an output directory identified by the actual commit:
 
