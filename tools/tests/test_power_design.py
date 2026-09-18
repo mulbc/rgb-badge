@@ -13,6 +13,23 @@ CHECK = runpy.run_path(str(Path(__file__).resolve().parents[1] / "check-power-de
 
 
 class PowerDesignTests(unittest.TestCase):
+    def test_actuator_shared_rail_corner_and_ron_envelope(self):
+        result = CHECK['actuator_supply_screen']()
+        self.assertEqual(result['charger_fall_min_v'], D('2.9'))
+        self.assertEqual(result['rise_static_margin_v'], D('0.5'))
+        self.assertEqual(result['fall_remaining_margin_v'], D('0.2'))
+        self.assertEqual(result['ron_supply_gap_at_fall_v'], D('1.6'))
+
+    def test_actuator_drop_and_delay_can_exhaust_static_margin(self):
+        result = CHECK['actuator_supply_screen'](local_drop_v='.05',
+            fall_slew_v_per_us='.01', response_us='20')
+        self.assertEqual(result['fall_remaining_margin_v'], D('-.05'))
+        self.assertEqual(CHECK['actuator_supply_screen'](
+            local_drop_v='.2')['fall_remaining_margin_v'], D('0'))
+        for value in ('-.1', 'NaN', 'Infinity'):
+            with self.subTest(value=value), self.assertRaises(ValueError):
+                CHECK['actuator_supply_screen'](response_us=value)
+
     def test_historical_passive_resistor_is_outside_programming_range(self):
         with self.assertRaisesRegex(ValueError, "outside the documented"):
             CHECK["validate_bq_unknown_input"]("1000", "0.5")

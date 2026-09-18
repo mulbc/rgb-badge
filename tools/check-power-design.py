@@ -59,12 +59,36 @@ def validate_bq_unknown_input(resistance, source_limit, *, classification="unkno
     return low, nominal, high
 
 
+def actuator_supply_screen(*, local_drop_v="0", fall_slew_v_per_us="0",
+                           response_us="0"):
+    """Conditional voltage margins, NOT a qualified transient or timing model.
+
+    BQ24074 SLUS810N §8.5: UVLO rising 3.2–3.4 V, hysteresis
+    0.2–0.3 V. ADG4612 Rev.0 Table5: VDD minimum 2.7 V;
+    Table3: the 17-ohm maximum is characterized at VDD=4.5 V.
+    All inputs are assumed bounds to explore, not measured design values.
+    """
+    drop, slew, delay = map(D, (local_drop_v, fall_slew_v_per_us, response_us))
+    if any(not x.is_finite() or x < 0 for x in (drop, slew, delay)):
+        raise ValueError("Supply-screen bounds must be finite and nonnegative")
+    earliest_rise = D("3.2")
+    lowest_fall = earliest_rise - D("0.3")
+    loss = drop + slew * delay
+    return {
+        "charger_rise_min_v": earliest_rise,
+        "charger_fall_min_v": lowest_fall,
+        "rise_static_margin_v": earliest_rise - drop - D("2.7"),
+        "fall_remaining_margin_v": lowest_fall - D("2.7") - loss,
+        "ron_supply_gap_at_fall_v": D("4.5") - lowest_fall,
+    }
+
+
 def usb_capture_blockers():
     """Selected topology tasks not yet closed by calculation alone."""
     return (
         "Exact BQ24074RGTR, BQ24392RSER and TS3USB31ERSER libraries passed native review at c054cb4; the charger/power path remains uncaptured.",
         "ADR 0011 logic, USB detectors/data path and USB LDO are captured; protected input, VBUS qualification, hardware-only ILIM boost and physical startup inhibition remain uncaptured.",
-        "The detector/LDO/logic/status auxiliary-current budget and source transitions are not validated.",
+        "The detector/LDO/logic/status auxiliary-current budget and source transitions are not validated. Shared-rail actuator UVLO arithmetic is conditional, not startup/brownout closure.",
         "ADR 0012 selects precision programming resistors and retains ±1% total error; their assembly/service drift allocation and actuator leakage still require qualification. The historical 100-ppm/K temperature counterexample remains rejected.",
         "The exact pack, NTC/timer network and BQ24074 linear thermal behavior remain unqualified.",
     )
@@ -231,6 +255,7 @@ def main():
     args = parser.parse_args()
     try:
         value = check()
+        supply = actuator_supply_screen()
         print("Power pre-capture calculations passed:")
         print('- ADR 0012 current bounds use ±1% TOTAL resistance error; selected parts are 0.1%, 25 ppm/K, with assembly/service allocation still requiring qualification')
         print(f"- BQ24074 1.13-kohm charge setting: {value['charge'][0]:.3f} to {value['charge'][2]:.3f} A")
@@ -241,6 +266,7 @@ def main():
         print("- ADR 0010/0011 source/switch/configuration/suspend and two-stage data-isolation truth table is internally consistent")
         print(f"- nominal rails: {value['rail_3v3']:.3f} V application and {value['rail_vled']:.3f} V LED")
         print(f"- BQ24074 plus hibernating MAX17048 maxima consume {value['always_on_max_uA']:.1f} uA of the 50-uA OFF budget")
+        print(f"- candidate shared-rail static UVLO margin: {supply['fall_remaining_margin_v']:.3f} V; zero-drop/zero-delay assumption only, NOT transient closure")
         print("- exact libraries/logic, auxiliary loads, battery/NTC, thermal behavior and layout still require review")
         blockers = usb_capture_blockers()
         print("USB/input capture remains BLOCKED:")

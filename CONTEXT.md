@@ -100,3 +100,5 @@ Create a small, manufacturable 48 × 16 RGB wearable badge that preserves the 1.
 - **Fixed brightness:** user-selected during programming; it is not changed automatically during playback.
 - **Programming mode:** mode entered by holding the single button for about three seconds; BLE is enabled only in this state.
 - **Release:** an immutable, hashed fabrication/assembly package tied to a tagged repository revision.
+
+- Actuator supply analysis (2026-09-18): [conditional shared-rail calculation](hardware/coupon/rev-a/charger-actuator-supply-analysis.md) finds 0.2 V static UVLO margin, but does not close transient timing or control defaults. The ADG 17-ohm guarantee is restricted to its 4.5 V test envelope; no circuit capture or current-limit change.

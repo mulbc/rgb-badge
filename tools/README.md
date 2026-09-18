@@ -57,3 +57,5 @@ The wrapper exports all project-local symbols and footprints, including separate
 ## Logic-rail supervision checkpoint
 
 `check-usb-supervision.py` audits the TPS3808 divider/CT selection and exact 620 kohm resistor. It is called by the permission capture check. Source totals are now 443 items / 1,636 logical pins on eleven pages. The native d502e65 bundle passed ERC/XML; its two heading findings and the added supervisor passed native review at 2bb0e08. See [capture and limits](../hardware/coupon/rev-a/usb-supervision-capture.md). The ordinary-resistor temperature counterexample remains regression evidence; ADR 0012 precision selection addresses it conditionally, with assembly/service drift still requiring qualification.
+
+`check-power-design.py` also reports the candidate actuator shared-rail static UVLO margin. `actuator_supply_screen()` accepts explicit hypothetical local-drop/slew/delay bounds; it is a sensitivity calculation, not a transient guarantee. See the [supply analysis](../hardware/coupon/rev-a/charger-actuator-supply-analysis.md).

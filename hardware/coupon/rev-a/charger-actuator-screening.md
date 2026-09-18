@@ -40,3 +40,5 @@ These are application-specific screening observations, not claims that these par
 Manufacturer sources were inspected as online text on 2026-09-18. The existing [TI BQ24074 source](https://www.ti.com/lit/ds/symlink/bq24074.pdf), pin descriptions, startup sequence and logic/current tables remain controlling. No new source should be considered visually audited until its drawing has been inspected.
 
 The supplied Rev. 0 drawings were visually inspected on 2026-09-18. Table 11 specifies isolation for VDD = 0–0.8 V, while the operating prose says up to 1 V and normal operation starts at 2.7 V. Use the narrower tabulated range; behavior throughout 0.8–2.7 V remains unproven. The earlier PDF-access blocker is closed.
+
+Follow-up: [shared-supply analysis](charger-actuator-supply-analysis.md) narrows the intermediate-rail concern to a conditional 0.2 V static margin when charger IN and actuator VDD share the protected node. Delay/local-drop bounds and control defaults are still unresolved; the 17-ohm resistance guarantee cannot be extended down to 2.7 V.
