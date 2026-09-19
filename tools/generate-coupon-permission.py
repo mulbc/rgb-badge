@@ -142,7 +142,7 @@ def conditioning():
                         {'1':'USB_RAW_'+name,'2':'+3V3_USB' if up else 'GND'},'10k 1%' if up else '100k 1%')
     for i,name in enumerate(RAW):
         x,y=83.82+(i%5)*106.68,325.12+(i//5)*25.4
-        s.component(f'TP{20+i}','TestPoint_Pad',x,y,{'1':'USB_RAW_'+name},name)
+        s.component(f'TP{20+i}','TestPoint_Pad',x,y,{'1':'USB_OUT2' if name=='OUT2' else 'USB_RAW_'+name},name)
     s.note('Logic-rail supervisor: input-domain powered, delayed release',383.54,175.26,'supervisor',1.016)
     s.component('U34','TPS3808G01DBVR',444.50,195.58,
                 {'1':'USB_RAW_LOGIC_READY','2':'GND','3':'+5V_USB',

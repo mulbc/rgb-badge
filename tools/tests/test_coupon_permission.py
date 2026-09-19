@@ -42,6 +42,16 @@ class PermissionCaptureTests(unittest.TestCase):
         self.assertTrue(charging['USB_CHARGE_REQ'])
         self.assertFalse(charging['USB_EN1_RAW_N'])
 
+    def test_out2_diagnostic_pad_must_terminate_buffer_output(self):
+        project=self.project_copy()
+        path=project/'usb-conditioning.kicad_sch'
+        source=path.read_text()
+        # The final OUT2 label is TP21, after the U24 buffer output label.
+        before, label, after=source.rpartition('(global_label "USB_OUT2"')
+        self.assertTrue(label)
+        path.write_text(before+'(global_label "USB_RAW_OUT2"'+after)
+        with self.assertRaises(ValueError):CHECK['check_sources'](project)
+
     def project_copy(self):
         temporary=tempfile.TemporaryDirectory(prefix='rgb-permission-')
         self.addCleanup(temporary.cleanup)

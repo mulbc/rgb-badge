@@ -237,7 +237,7 @@ def permission_coupon_netlist():
         up = i in (0,1)
         part(f'R{60+i}','10k 1%' if up else '100k 1%','R_Panasonic_ERJ2_0402')
         add(f'R{60+i}',1,'USB_RAW_'+name);add(f'R{60+i}',2,'+3V3_USB' if up else 'GND')
-        part(f'TP{20+i}',name,'TestPoint_Pad_D1.0mm');add(f'TP{20+i}',1,'USB_RAW_'+name)
+        part(f'TP{20+i}',name,'TestPoint_Pad_D1.0mm');add(f'TP{20+i}',1,'USB_OUT2' if i==1 else 'USB_RAW_'+name)
     part('R70','10k 1%','R_Panasonic_ERJ2_0402');add('R70',1,'+3V3_USB');add('R70',2,'USB_EN1_RAW_N')
     for ref,name in [('TP30','CHARGE_REQ'),('TP31','EN1_RAW_N')]:
         part(ref,name,'TestPoint_Pad_D1.0mm');add(ref,1,'USB_'+name)

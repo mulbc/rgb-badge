@@ -68,7 +68,7 @@ def expected_connections():
     for i,name in enumerate(INPUTS):
         nets[f'R{60+i}','1']='USB_RAW_'+name
         nets[f'R{60+i}','2']='+3V3_USB' if name in ('OUT1','OUT2') else 'GND'
-        nets[f'TP{20+i}','1']='USB_RAW_'+name
+        nets[f'TP{20+i}','1']='USB_OUT2' if name=='OUT2' else 'USB_RAW_'+name
     nets.update({('R70','1'):'+3V3_USB',('R70','2'):'USB_EN1_RAW_N',('TP30','1'):'USB_CHARGE_REQ',('TP31','1'):'USB_EN1_RAW_N'})
     maps={'U34':{1:'USB_RAW_LOGIC_READY',2:'GND',3:'+5V_USB',4:'USB_LOGIC_CT',5:'USB_LOGIC_SENSE',6:'+5V_USB'},
           'C38':{1:'+5V_USB',2:'GND'},'R75':{1:'+3V3_USB',2:'USB_LOGIC_SENSE'},

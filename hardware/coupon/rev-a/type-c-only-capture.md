@@ -33,3 +33,5 @@ The protected-input bridge, VBUS qualification and physical charger standby cont
 Generators reproduce all three canonical sheets. Synthetic netlist fixtures are separately transcribed and do not count as native KiCad results. The combined native review should inspect all three changed USB pages and require zero ERC violations. No new native review is requested for individual component removals.
 
 Host validation completed 2026-09-19: all 140 tests pass, including regeneration, independent gate evaluation, source fault injection and the separately transcribed full XML fixture. The fixture contains 396 items / 1,492 pins. `git diff --check` passes. The strict USB-closure check still rejects the explicitly unfinished power circuit. Native KiCad review remains pending.
+
+Native cb81e86 stopped on isolated USB_OUT2: see the [finding and source correction](../../../docs/development/type-c-only-review-cb81e86.md). TP21 now probes conditioned OUT2; no components added. Seven targeted permission-capture tests pass, including the new regression and complete synthetic XML fault checks. Native ERC/PDF/XML review remains pending.

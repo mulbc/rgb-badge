@@ -286,7 +286,7 @@
 (pin "1" (uuid "799228a6-a771-549c-b358-1c64927128f3"))
 (instances (project "rgb-badge-coupon" (path "/207fb68e-2ddb-46bb-8712-eba2f8c5eef6/05e96674-5624-545e-aef0-a1af37c3f4ba" (reference "TP21") (unit 1)))))
 (wire (pts (xy 185.420 325.120) (xy 175.260 325.120)) (stroke (width 0) (type default)) (uuid "495d33a0-d96e-5fc3-9885-830c0fa2e8d3"))
-(global_label "USB_RAW_OUT2" (shape passive) (at 175.260 325.120 180) (effects (font (size 1.016 1.016)) (justify right)) (uuid "bac4bf5e-8743-5e4c-93a0-a48bd67fce0b") (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 175.260 325.120 0) (effects (font (size 1.27 1.27)) (hide yes))))
+(global_label "USB_OUT2" (shape passive) (at 175.260 325.120 180) (effects (font (size 1.016 1.016)) (justify right)) (uuid "bac4bf5e-8743-5e4c-93a0-a48bd67fce0b") (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 175.260 325.120 0) (effects (font (size 1.27 1.27)) (hide yes))))
 (symbol (lib_id "rgb-badge-coupon:TestPoint_Pad") (at 297.180 325.120 0) (unit 1)
 (exclude_from_sim no) (in_bom no) (on_board yes) (dnp no)
 (uuid "081953a5-332d-5bdb-bdc6-e47d232f1d1e")
