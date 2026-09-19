@@ -14,6 +14,10 @@ The revised source removes BQ24392 and its support parts, eleven permission gate
 
 The fixed ILIM uses the audited 3.65k/3.48k precision pair permanently in parallel, with no analog switch. ADG4612 and its leakage/supply screening are historical, not active blockers. Remaining power work: protected input, VBUS qualification and physical standby control; charger/pack/NTC/timer/thermal design; converter and gauge capture; whole-port budget and layout. Flag meaningful simplification opportunities to the owner before expanding complexity.
 
+## Active input-voltage correction — ADR 0014
+
+[ADR 0014](docs/decisions/0014-usb-voltage-envelope-and-logic-ldo.md) corrects the normal USB upper boundary to 5.5 V. U29 now uses TPS70933DBVR with EN intentionally open; source totals remain 396 items / 1,492 logical pins, libraries 47 symbols / 27 footprints. Native review is pending and will be batched with the functional input section. The prior 12a134f review applies to the preceding U29 circuit. [Protection screening](hardware/coupon/rev-a/usb-input-protection-screening.md) has a calculated OVLO window, but no selected/captured protection IC or transient closure. No user rerun is requested for this intermediate checkpoint. All 147 host tests passed. Murata blocked access to the exact C32 characteristic data; the owner is being asked for a manufacturer/SimSurfing export to assess effective capacitance with TPS709.
+
 ## Current state
 
 - Requirements interview: complete.
@@ -59,22 +63,24 @@ The fixed ILIM uses the audited 3.65k/3.48k precision pair permanently in parall
 - Sixteen level-shifted P-channel MOSFET high-side row switches.
 - ESP32-S3-WROOM-1U-N16R8 with an external 2.4 GHz FPC antenna.
 - `BQ24074RGTR` standalone linear charger/PowerPath selected for capture, with thermal performance and exact pack current still requiring coupon and Gate A validation.
-- `BQ24392RSER` BC1.2 detector/data switch, application-powered `TS3USB31ERSER` hard-OFF data isolator, `TUSB320LAIRWBR` Type-C current detection and VBUS-powered fail-safe logic; standby is the passive state and only hardware detection can grant the external high-current mode.
+- `TUSB320LAIRWBR` Type-C current detection and application-powered `TS3USB31ERSER` hard-OFF data isolation. TPS70933DBVR supplies the USB-only logic domain. ADR 0013 removes BC1.2 detection and application charge grants; physical charger standby control remains uncaptured.
 - TPS631000-class 3.3 V rail and TPS63020-class approximately 3.9 V LED rail.
 - MAX17048 fuel gauge and INA232 bidirectional battery-current monitor.
 - Protected, NTC-equipped, connectorized 750–900 mAh LiPo; 900 mAh is preferred if the 11 mm stack closes safely.
 - KiCad 10.0.6 stable with project-local symbols, footprints and 3D models.
 
-## Power states
+## Power states (ADR 0013)
 
-| Switch | USB | Application and USB data | Charging | Display |
+| Switch | USB | Application/data | Charger input | Display |
 |---|---|---|---|---|
-| OFF | Absent | Off | No | Off |
-| OFF | SDP, default-only or unclassified | Off | Standby / no charge | Off |
-| OFF | BC1.2 charging source or Type-C 1.5 A/3 A | Off | Autonomous, hardware-bounded | Off |
-| ON | Absent | Playback | No | Firmware-controlled |
-| ON | SDP | Playback/USB data | Standby before configuration and during suspend; lower programmed input limit with auxiliary headroom while configured | Firmware-controlled |
-| ON | Qualified charging source | Playback; USB data where supported | Active with load priority and hardware high-current permission | Firmware-controlled |
+| OFF | Absent | Off | Off | Off |
+| OFF | USB-A/default/unclassified | Off | Standby | Off |
+| OFF | Type-C 1.5 A/3 A | Off | Fixed-limit autonomous charging | Off |
+| ON | Absent | Battery playback | Off | Fixed user brightness |
+| ON | USB-A/default/unclassified | Battery operation; data if host present | Standby | Fixed user brightness |
+| ON | Type-C 1.5 A/3 A | Operation; data if host present | Fixed-limit charge/PowerPath | Fixed user brightness |
+
+These are required behaviors, not measured results. Unsupported-source USB recovery with a depleted or absent battery is not guaranteed.
 
 ## Development stages
 
@@ -92,8 +98,8 @@ The fixed ILIM uses the audited 3.65k/3.48k precision pair permanently in parall
 - Project-local LED footprints plus pad, polarity, tape-orientation and optical-bin verification.
 - Exact protected/terminated cell and connector.
 - Confirm supplied TLC59581 RTQ0056E versus RTQ0056G package; qualify the nominal 4.85 mA current calculation and TI table discrepancies.
-- Circuit capture using the native-reviewed exact `BQ24074RGTR`/`BQ24392RSER`/`TS3USB31ERSER` libraries, VBUS-powered permission logic, hardware-only parallel ILIM branch and their final `ISET`/`ILIM`/termination/timer/NTC networks.
-- Validation of the selected BC1.2/data-switch path, including SDP configuration/suspend, Type-C advertisement changes and conservative reset/detach behavior.
+- BQ24074 fixed-current capture: permanent ILIM pair, ISET, termination, timer and exact-pack NTC network; input protection and physical standby control.
+- Validation of Type-C advertisement changes, data isolation, reset/detach behavior and complete-port consumption under ADRs 0013/0014.
 - Validation of the candidate `74HC4514PW,118`, `DMP2066LSN-7` and `2N7002K-7` row chain under real multiplex timing and current.
 - Final USB ESD/VBUS protection topology.
 - Final converter component values and layout.

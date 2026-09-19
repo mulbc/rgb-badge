@@ -2,6 +2,9 @@
 
 # Staged USB interface capture
 
+**Active update (2026-09-19):** ADR 0013 removes BC1.2 and ADR 0014 replaces U29 with TPS70933DBVR, EN intentionally open. The output-capacitance requirement is now 1.5–47 µF effective for the 3.3 V part, ESR ≤0.2 ohm. Earlier TLV755/BC counts and 0.47 µF requirements below are historical. See [current audit](usb-input-protection-screening.md); native review of this U29 change is pending.
+
+
 Date: 2026-09-17. Status: [native ERC/XML passed at d502e65](../../../docs/development/usb-interface-review-d502e65.md); two drawing overlaps were found and source-corrected, awaiting the next native PDF. Implements the detector/data topology already accepted by ADRs 0010/0011. It does not complete the power section.
 
 ## Captured circuit

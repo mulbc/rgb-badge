@@ -13,7 +13,7 @@ def interface():
     s = BASE['Sheet']('usb-interface', 'Coupon Rev A - USB detection, data and logic supply')
     s.note('USB interface: connector, Type-C-only permission, switched data and USB-only logic supply',20.32,20.32,'title',2)
     s.note('VBUS_CONNECTOR and +5V_USB are NOT bridged: input protection is still missing. No charger is connected.',20.32,30.48,'boundary')
-    s.note('Draft +5V_USB boundary: 4.80-5.25 V only; this is a capture assumption, not a compliant input stage.',20.32,38.10,'voltage')
+    s.note('Draft +5V_USB boundary: 4.80-5.50 V normal; protection, low-voltage operation and transients remain unqualified.',20.32,38.10,'voltage')
     s.component('J1','USB4505-03-0-A',60.96,91.44,{
         'A1_B12':'GND','A4_B9':'VBUS_CONNECTOR','A5':'USB_CC1',
         'B7':'USB_CONN_DM','A6':'USB_CONN_DP','A7':'USB_CONN_DM','B6':'USB_CONN_DP',
@@ -31,7 +31,8 @@ def interface():
     s.component('C36','GRM155R71C104KA88D',449.58,172.72,{'1':'+3V3_USB','2':'GND'},'100n 16V X7R')
     s.note('No external CC Rd: detector provides dead-battery Rd.',391.16,187.96,'cc-rd',1.016)
     s.note('USB-only LDO; never connect +3V3_APP here',20.32,215.90,'ldo',1.016)
-    s.component('U29','TLV75533PDBVR',83.82,243.84,{'1':'+5V_USB','2':'GND','3':'+5V_USB','5':'+3V3_USB'})
+    s.component('U29','TPS70933DBVR',83.82,243.84,{'1':'+5V_USB','2':'GND','5':'+3V3_USB'})
+    s.note('EN intentionally open (internal enable); never tie it to IN.',20.32,261.62,'ldo-enable',1.016)
     for ref,y in [('C30',276.86),('C31',299.72)]:
         s.component(ref,'GRM155C71A105KE11D',83.82,y,{'1':'+5V_USB','2':'GND'},'1u 10V X7S')
     s.component('C32','GRM188R60J106ME47D',83.82,325.12,{'1':'+3V3_USB','2':'GND'},'10u 6.3V X5R')

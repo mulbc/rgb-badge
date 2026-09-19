@@ -21,7 +21,7 @@ require=TRACE['require']
 SHEETS={'usb-interface.kicad_sch':('271a5e22-dd9f-53e5-be76-9ea876726439','4cd06246-fee3-58d0-a7b6-a6b2526af0d3')}
 PARTS={
     'J1':('USB4505-03-0-A','USB4505-03-0-A','USB_C_GCT_USB4505-03-0-A_MidMount'),
-    'U29':('TLV75533PDBVR','TLV75533PDBVR','SOT23_TI_DBV0005A'),
+    'U29':('TPS70933DBVR','TPS70933DBVR','SOT23_TI_DBV0005A'),
     'U31':('TUSB320LAIRWBR','TUSB320LAIRWBR','X2QFN_TI_RWB0012A_1.6x1.6mm_P0.4mm'),
     'U32':('TS3USB31ERSER','TS3USB31ERSER','UQFN_TI_RSE0008A_1.5x1.5mm_P0.5mm'),
     'U33':('TPD4E05U06DQAR','TPD4E05U06DQAR','USON_TI_DQA0010A'),
@@ -40,7 +40,7 @@ def expected_connections():
         'J1':{'A1_B12':'GND','A4_B9':'VBUS_CONNECTOR','B8':None,'A5':'USB_CC1',
               'B7':'USB_CONN_DM','A6':'USB_CONN_DP','A7':'USB_CONN_DM','B6':'USB_CONN_DP',
               'A8':None,'B5':'USB_CC2','B4_A9':'VBUS_CONNECTOR','B1_A12':'GND','S1':'GND'},
-        'U29':{1:'+5V_USB',2:'GND',3:'+5V_USB',5:'+3V3_USB'},
+        'U29':{1:'+5V_USB',2:'GND',5:'+3V3_USB'},
         'U31':{1:'USB_CC1',2:'USB_CC2',3:'GND',4:'USB_VBUS_DET',7:'USB_RAW_OUT1',8:'USB_RAW_OUT2',10:'GND',11:'GND',12:'+3V3_USB'},
         'U32':{1:'GND',2:'USB_D+',3:'USB_CONN_DP',4:'GND',5:'USB_CONN_DM',6:'USB_D-',8:'+3V3_APP'},
         'U33':{1:'USB_CONN_DP',2:'USB_CONN_DM',3:'GND',4:'USB_CC1',5:'USB_CC2',8:'GND'},
@@ -53,7 +53,7 @@ def expected_connections():
     return {(ref,str(pin)):net for ref,pins in maps.items() for pin,net in pins.items() if net is not None}
 
 
-NC_NAMES={('J1','B8'):'SBU2',('J1','A8'):'SBU1',('U29','4'):'NC',
+NC_NAMES={('J1','B8'):'SBU2',('J1','A8'):'SBU1',('U29','4'):'NC',('U29','3'):'EN',
           ('U31','5'):'ADDR',('U31','6'):'INT_N/OUT3',('U31','9'):'ID',('U32','7'):'NC',
           **{('U33',str(p)):'NC' for p in (6,7,9,10)}}
 

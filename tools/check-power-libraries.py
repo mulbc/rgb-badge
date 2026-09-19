@@ -23,6 +23,13 @@ PROJECT = Path(__file__).resolve().parents[1] / "hardware" / "coupon" / "rev-a"
 FP_PREFIX = "rgb-badge-coupon:"
 
 PARTS = {
+    "TPS70933DBVR": {
+        "footprint": "SOT23_TI_DBV0005A",
+        "datasheet": "https://www.ti.com/lit/ds/symlink/tps709.pdf",
+        "pins": {1: ("IN", "power_in"), 2: ("GND", "power_in"),
+                 3: ("EN", "input"), 4: ("NC", "passive"),
+                 5: ("OUT", "power_out")},
+    },
     "ADG4612BCPZ-REEL7": {
         "footprint": "LFCSP_ADI_CP16_22_3x3mm_P0.5mm_EP1.75mm",
         "datasheet": "https://www.analog.com/media/en/technical-documentation/data-sheets/ADG4612_4613.pdf",

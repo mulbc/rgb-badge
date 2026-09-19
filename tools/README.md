@@ -61,3 +61,7 @@ The wrapper exports all project-local symbols and footprints, including separate
 `check-usb-supervision.py` audits the TPS3808 divider/CT selection and exact 620 kohm resistor. It is called by the permission capture check. Source totals are now 443 items / 1,636 logical pins on eleven pages. The native d502e65 bundle passed ERC/XML; its two heading findings and the added supervisor passed native review at 2bb0e08. See [capture and limits](../hardware/coupon/rev-a/usb-supervision-capture.md). The ordinary-resistor temperature counterexample remains regression evidence; ADR 0012 precision selection addresses it conditionally, with assembly/service drift still requiring qualification.
 
 `check-power-design.py` also reports the candidate actuator shared-rail static UVLO margin. `actuator_supply_screen()` accepts explicit hypothetical local-drop/slew/delay bounds; it is a sensitivity calculation, not a transient guarantee. See the [supply analysis](../hardware/coupon/rev-a/charger-actuator-supply-analysis.md).
+
+## Input protection screening
+
+`python3 tools/check-input-protection.py` calculates candidate OVLO divider corners with signed leakage and total resistor error. It does not select a protection IC or validate transients. `--require-closure` deliberately fails until the input circuit is qualified. See ADR 0014 and `hardware/coupon/rev-a/usb-input-protection-screening.md`.

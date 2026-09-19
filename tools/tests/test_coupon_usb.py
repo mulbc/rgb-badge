@@ -56,7 +56,7 @@ class UsbCaptureTests(unittest.TestCase):
                 with self.assertRaises(ValueError):CHECK['check_sources'](project)
 
     def test_synthetic_complete_xml_rejects_power_and_isolation_faults(self):
-        for ref,pin,net in [('U32','8','+3V3_USB'),('U29','1','GND'),
+        for ref,pin,net in [('U32','8','+3V3_USB'),('U29','1','GND'),('U29','3','+5V_USB'),
                             ('U31','3','+3V3_USB'),('U32','3','USB_D+'),('J1','B6','USB_CONN_DM')]:
             with self.subTest(ref=ref,pin=pin),tempfile.TemporaryDirectory() as td:
                 root=controller_coupon_netlist()
