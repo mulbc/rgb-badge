@@ -22,16 +22,14 @@ SHEETS={'usb-interface.kicad_sch':('271a5e22-dd9f-53e5-be76-9ea876726439','4cd06
 PARTS={
     'J1':('USB4505-03-0-A','USB4505-03-0-A','USB_C_GCT_USB4505-03-0-A_MidMount'),
     'U29':('TLV75533PDBVR','TLV75533PDBVR','SOT23_TI_DBV0005A'),
-    'U30':('BQ24392RSER','BQ24392RSER','UQFN_TI_RSE0010A_2x1.5mm_P0.5mm'),
     'U31':('TUSB320LAIRWBR','TUSB320LAIRWBR','X2QFN_TI_RWB0012A_1.6x1.6mm_P0.4mm'),
     'U32':('TS3USB31ERSER','TS3USB31ERSER','UQFN_TI_RSE0008A_1.5x1.5mm_P0.5mm'),
     'U33':('TPD4E05U06DQAR','TPD4E05U06DQAR','USON_TI_DQA0010A'),
     'R71':('ERJ-2RKF8873X','887k 1%','R_Panasonic_ERJ2_0402'),
     'C32':('GRM188R60J106ME47D','10u 6.3V X5R','C_Murata_GRM18_0603'),
 }
-PARTS.update({f'R{i}':('ERJ-2RCF2R20X','2.2R 1%','R_Panasonic_ERJ2_0402') for i in (72,73,74)})
-PARTS.update({f'C{i}':('GRM155C71A105KE11D','1u 10V X7S','C_Murata_GRM15_0402') for i in (30,31,33,34)})
-PARTS.update({f'C{i}':('GRM155R71C104KA88D','100n 16V X7R','C_Murata_GRM15_0402') for i in (35,36,37)})
+PARTS.update({f'C{i}':('GRM155C71A105KE11D','1u 10V X7S','C_Murata_GRM15_0402') for i in (30,31)})
+PARTS.update({f'C{i}':('GRM155R71C104KA88D','100n 16V X7R','C_Murata_GRM15_0402') for i in (36,37)})
 PARTS.update({ref:('TestPoint_Pad',value,'TestPoint_Pad_D1.0mm') for ref,value in [('TP32','VBUS_CONNECTOR'),('TP33','5V_USB_BOUNDARY')]})
 PARTS={ref:(mpn,value,'rgb-badge-coupon:'+fp) for ref,(mpn,value,fp) in PARTS.items()}
 
@@ -43,19 +41,14 @@ def expected_connections():
               'B7':'USB_CONN_DM','A6':'USB_CONN_DP','A7':'USB_CONN_DM','B6':'USB_CONN_DP',
               'A8':None,'B5':'USB_CC2','B4_A9':'VBUS_CONNECTOR','B1_A12':'GND','S1':'GND'},
         'U29':{1:'+5V_USB',2:'GND',3:'+5V_USB',5:'+3V3_USB'},
-        'U30':{1:'USB_RAW_SW_OPEN',2:'USB_BC_HOST_DM',3:'USB_BC_HOST_DP',4:'USB_RAW_CHG_AL_N',
-               5:'USB_BC_VBUS',6:'GND',7:'USB_BC_DP',8:'USB_BC_DM',9:'USB_BC_VBUS',10:'USB_RAW_CHG_DET'},
         'U31':{1:'USB_CC1',2:'USB_CC2',3:'GND',4:'USB_VBUS_DET',7:'USB_RAW_OUT1',8:'USB_RAW_OUT2',10:'GND',11:'GND',12:'+3V3_USB'},
-        'U32':{1:'GND',2:'USB_D+',3:'USB_BC_HOST_DP',4:'GND',5:'USB_BC_HOST_DM',6:'USB_D-',8:'+3V3_APP'},
+        'U32':{1:'GND',2:'USB_D+',3:'USB_CONN_DP',4:'GND',5:'USB_CONN_DM',6:'USB_D-',8:'+3V3_APP'},
         'U33':{1:'USB_CONN_DP',2:'USB_CONN_DM',3:'GND',4:'USB_CC1',5:'USB_CC2',8:'GND'},
         'R71':{1:'VBUS_CONNECTOR',2:'USB_VBUS_DET'},
-        'R72':{1:'+5V_USB',2:'USB_BC_VBUS'},
-        'R73':{1:'USB_CONN_DP',2:'USB_BC_DP'},
-        'R74':{1:'USB_CONN_DM',2:'USB_BC_DM'},
         'TP32':{1:'VBUS_CONNECTOR'},'TP33':{1:'+5V_USB'},
     }
     for ref,net in [('C30','+5V_USB'),('C31','+5V_USB'),('C32','+3V3_USB'),
-                    ('C33','USB_BC_VBUS'),('C34','USB_BC_VBUS'),('C35','USB_BC_VBUS'),
+
                     ('C36','+3V3_USB'),('C37','+3V3_APP')]:maps[ref]={1:net,2:'GND'}
     return {(ref,str(pin)):net for ref,pins in maps.items() for pin,net in pins.items() if net is not None}
 
@@ -94,7 +87,7 @@ def check_added_libraries(project=PROJECT):
 def check_sources(project=PROJECT):
     check_added_libraries(project)
     runpy.run_path(str(TOOLS/'check-usb-connector.py'))['check_libraries'](project)
-    actual=TRACE['trace_sheet_set'](project,SHEETS,PARTS,set(NC_NAMES),{'#FLG05':'+5V_USB','#FLG06':'USB_BC_VBUS'})
+    actual=TRACE['trace_sheet_set'](project,SHEETS,PARTS,set(NC_NAMES),{'#FLG05':'+5V_USB'})
     require(actual==expected_connections(),'USB interface pin-to-net mismatch')
     # The logic supply must have a real source, without the old parallel flag.
     conditioning=parse(project/'usb-conditioning.kicad_sch')
@@ -108,7 +101,7 @@ def main():
     args=p.parse_args()
     try:
         check_sources(args.project_dir)
-        print('USB interface source checks passed: 20 PCB items / 84 pins; connector, ESD, detectors, switched data, USB LDO. Protected input remains staged; not native ERC.')
+        print('USB interface source checks passed: 13 PCB items / 62 pins; connector, ESD, detectors, switched data, USB LDO. Protected input remains staged; not native ERC.')
     except (OSError,ValueError,KeyError,IndexError) as e:
         print(f'USB interface check failed: {e}',file=sys.stderr);return 1
     return 0

@@ -27,17 +27,16 @@ class UsbCaptureTests(unittest.TestCase):
 
     def test_canonical_source_and_resistor_temperature_interval(self):
         nets=CHECK['check_sources'](PROJECT)
-        self.assertEqual(len(nets)+len(CHECK['NC_NAMES']),84)
+        self.assertEqual(len(nets)+len(CHECK['NC_NAMES']),62)
         lo,hi=CHECK['check_added_libraries'](PROJECT)
         self.assertGreater(lo,855)
         self.assertLess(hi,920)
 
     def test_wiring_faults_cannot_pass_source_check(self):
         faults=[('USB_CC2','USB_CC1'),                    # incorrect CC short
-                ('USB_BC_HOST_DP','USB_BC_HOST_DM'),    # reversed data path
+                ('USB_CONN_DP','USB_CONN_DM'),    # reversed data path
                 ('USB_RAW_OUT1','USB_RAW_OUT2'),        # wrong current decode
-                ('USB_RAW_CHG_AL_N','USB_RAW_SW_OPEN'), # detection permission confused
-                ('USB_BC_VBUS','+3V3_APP'),             # loses autonomous OFF detection
+                ('+3V3_USB','+3V3_APP'),             # loses autonomous OFF detection
                 ('+5V_USB','VBUS_CONNECTOR'),           # bypasses unqualified input stage
                 ('USB_D+','USB_CONN_DP')]               # bypasses OFF isolation
         for old,new in faults:
@@ -57,7 +56,7 @@ class UsbCaptureTests(unittest.TestCase):
                 with self.assertRaises(ValueError):CHECK['check_sources'](project)
 
     def test_synthetic_complete_xml_rejects_power_and_isolation_faults(self):
-        for ref,pin,net in [('U32','8','+3V3_USB'),('U30','5','GND'),
+        for ref,pin,net in [('U32','8','+3V3_USB'),('U29','1','GND'),
                             ('U31','3','+3V3_USB'),('U32','3','USB_D+'),('J1','B6','USB_CONN_DM')]:
             with self.subTest(ref=ref,pin=pin),tempfile.TemporaryDirectory() as td:
                 root=controller_coupon_netlist()

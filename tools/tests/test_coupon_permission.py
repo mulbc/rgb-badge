@@ -19,16 +19,15 @@ PROJECT=TOOLS.parent/'hardware/coupon/rev-a'
 
 
 class PermissionCaptureTests(unittest.TestCase):
-    def test_canonical_sources_and_1024_logic_cases(self):
+    def test_canonical_sources_and_16_logic_cases(self):
         CHECK['check_sources'](PROJECT)
 
     def test_gate_evaluation_catches_dangerous_connections_independently(self):
         original=CHECK['trace_sources'](PROJECT)
-        cases=[(('U18','2'),'USB_USB_REQUEST'),  # firmware can select boost
-               (('U17','3'),'+3V3_USB'),        # ignores supply qualification
-               (('U19','6'),'+3V3_USB'),        # treats non-data charger as SDP
-               (('U21','6'),'+3V3_USB'),        # ignores application grant
-               (('U23','2'),'USB_LOW_REQ')]    # rejects standalone OFF charging
+        cases=[(('U17','6'),'+3V3_USB'),
+               (('U17','3'),'+3V3_USB'),
+               (('U17','1'),'+3V3_USB'),
+               (('U23','2'),'USB_OUT1')]
         for node,net in cases:
             with self.subTest(node=node,net=net):
                 bad=deepcopy(original);bad[node]=net
@@ -36,11 +35,11 @@ class PermissionCaptureTests(unittest.TestCase):
 
     def test_unattached_defaults_and_off_charging(self):
         nets=CHECK['trace_sources'](PROJECT)
-        detached=CHECK['evaluate'](nets,(1,1,1,0,1,1,1,0,0,0))
-        self.assertFalse(detached['USB_HIGH_REQ'])
+        detached=CHECK['evaluate'](nets,(1,1,1,1))
+        self.assertFalse(detached['USB_CHARGE_REQ'])
         self.assertTrue(detached['USB_EN1_RAW_N'])
-        charging=CHECK['evaluate'](nets,(0,1,1,0,1,1,1,0,0,0))
-        self.assertTrue(charging['USB_HIGH_REQ'])
+        charging=CHECK['evaluate'](nets,(0,1,1,1))
+        self.assertTrue(charging['USB_CHARGE_REQ'])
         self.assertFalse(charging['USB_EN1_RAW_N'])
 
     def project_copy(self):
@@ -52,11 +51,11 @@ class PermissionCaptureTests(unittest.TestCase):
 
     def test_canonical_wiring_and_population_faults(self):
         cases=[
-            ('usb-permission.kicad_sch','(global_label "USB_HIGH_REQ"','(global_label "USB_USB_REQUEST"'),
+            ('usb-permission.kicad_sch','(global_label "USB_CHARGE_REQ"','(global_label "USB_USB_REQUEST"'),
             ('usb-conditioning.kicad_sch','(property "Value" "10k 1%"','(property "Value" "100k 1%"'),
             ('usb-conditioning.kicad_sch','(xy 73.660 73.660)','(xy 73.661 73.660)'),
-            ('usb-permission.kicad_sch','(property "Reference" "C10"','(property "Reference" "C99"'),
-            ('usb-permission.kicad_sch','(no_connect (at 208.280 73.660)','(no_connect (at 208.290 73.660)'),
+            ('usb-permission.kicad_sch','(property "Reference" "C11"','(property "Reference" "C99"'),
+            ('usb-permission.kicad_sch','(no_connect (at 68.580 73.660)','(no_connect (at 68.590 73.660)'),
         ]
         for filename,old,new in cases:
             with self.subTest(old=old):
@@ -70,12 +69,12 @@ class PermissionCaptureTests(unittest.TestCase):
             with self.subTest(fault=fault),tempfile.TemporaryDirectory() as directory:
                 root=controller_coupon_netlist()
                 if fault=='missing capacitor':
-                    root.find('components').remove(root.find("./components/comp[@ref='C18']"))
+                    root.find('components').remove(root.find("./components/comp[@ref='C17']"))
                 else:
-                    node=root.find("./nets/net/node[@ref='U18'][@pin='2']")
+                    node=root.find("./nets/net/node[@ref='U17'][@pin='6']")
                     for net in root.findall('./nets/net'):
                         if node in list(net):net.remove(node);break
-                    root.find("./nets/net[@name='USB_USB_REQUEST']").append(node)
+                    root.find("./nets/net[@name='+3V3_USB']").append(node)
                 path=Path(directory)/'bad.xml';path.write_bytes(ET.tostring(root))
                 with self.assertRaises(ValueError):COMPLETE['check_netlist'](path)
 

@@ -2,6 +2,8 @@
 
 # Candidate actuator supply analysis
 
+**Superseded for active design by [ADR 0013](../../../docs/decisions/0013-type-c-only-fixed-current-charging.md):** no switched ILIM branch or ADG4612 actuator is planned. Retained as investigation/library history; its unresolved switch-leakage questions are not active design blockers. Physical charger standby control still requires qualification.
+
 2026-09-18. Conditional calculation, not circuit selection, transient simulation or bench evidence. The native-reviewed ADG4612 library remains a candidate. This narrows the unresolved supply question without changing ADR 0011 or current ceilings.
 
 ## Shared supply removes one static overlap

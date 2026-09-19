@@ -6,6 +6,10 @@ Status: agreed design baseline and staged execution plan
 Date: 2026-09-05
 Project phase: matrix, driver, row-stage, controller, controlled legacy power-library and USB4505 candidate-library native reviews passed; source-qualified OFF-charge policy and BQ24074/BQ24392/TUSB320/TS3USB31E topology selected; replacement-library native review passed at c054cb4; ADR 0011 gate capture passed native review at 6d9a08b; USB detector/data/LDO native ERC/XML passed at d502e65 with two heading findings; corrections and logic-rail supervisor capture passed native review at 2bb0e08; ADR 0012 precision-resistor libraries passed native review at 9e71bb5; input protection, VBUS qualification, charger/ILIM actuation, remaining power capture, thermal proof and layout remain
 
+## Current amendment: simpler charging
+
+[ADR 0013](decisions/0013-type-c-only-fixed-current-charging.md), accepted 2026-09-18, supersedes the BC1.2/SDP charging and switched-current descriptions below. Only Type-C sources advertising 1.5 A/3 A charge, using one fixed current limit. USB-A/default sources support battery-powered data while ON, with no guaranteed depleted-battery recovery. OFF charging and charge-through operation remain. The three USB sheets have been simplified and await one combined native review. Historical sections below are design history wherever they conflict with ADR 0013.
+
 ## 1. Outcome
 
 Build a new, open-source, full-colour wearable LED badge inspired by the FOSSASIA Badge Magic form factor, while retaining its pixel pitch and meeting these product targets:

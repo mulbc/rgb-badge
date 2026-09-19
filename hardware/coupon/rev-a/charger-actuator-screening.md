@@ -2,6 +2,8 @@
 
 # Charger actuator screening
 
+**Superseded for active design by [ADR 0013](../../../docs/decisions/0013-type-c-only-fixed-current-charging.md):** no switched ILIM branch or ADG4612 actuator is planned. Retained as investigation/library history; its unresolved switch-leakage questions are not active design blockers. Physical charger standby control still requires qualification.
+
 Status: candidate investigation, 2026-09-18. Candidate library added; no selected BOM change or captured circuit. ADR 0011's hardware-only boost and passive charger-standby requirements remain controlling.
 
 ## Candidate direction

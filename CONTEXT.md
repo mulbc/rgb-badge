@@ -6,6 +6,14 @@
 
 Create a small, manufacturable 48 × 16 RGB wearable badge that preserves the 1.95 mm pixel pitch of the referenced FOSSASIA Badge Magic board. The owner intends to develop the electronics, firmware and enclosure with AI assistance, then have a turnkey PCBA supplier assemble the SMT hardware.
 
+## Active simplification — ADR 0013
+
+The owner accepted **Type-C-only charging** on 2026-09-18. This section supersedes the historical BC1.2/SDP/boost descriptions below. [ADR 0013](docs/decisions/0013-type-c-only-fixed-current-charging.md) keeps OFF charging and charge-through operation only for Type-C sources advertising 1.5 A/3 A. USB-A/default-current sources provide data while ON from battery power, but no charging or charger PowerPath input. Depleted-battery USB recovery on those sources is not guaranteed.
+
+The revised source removes BQ24392 and its support parts, eleven permission gates, three dual buffers and obsolete grant pull resistors/test pads: **47 fewer PCB items**. Current totals: **396 items / 1,492 logical pins, eleven pages**. The libraries remain 46 symbols / 27 footprints, including retained historical candidates. Native review of the revised three USB sheets is pending.
+
+The fixed ILIM uses the audited 3.65k/3.48k precision pair permanently in parallel, with no analog switch. ADG4612 and its leakage/supply screening are historical, not active blockers. Remaining power work: protected input, VBUS qualification and physical standby control; charger/pack/NTC/timer/thermal design; converter and gauge capture; whole-port budget and layout. Flag meaningful simplification opportunities to the owner before expanding complexity.
+
 ## Current state
 
 - Requirements interview: complete.

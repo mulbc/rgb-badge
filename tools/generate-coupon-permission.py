@@ -3,7 +3,7 @@
 """Generate two staged USB permission sheets into a NEW directory.
 
 Canonical KiCad files are reviewed copies of this deterministic output. The detector inputs now connect to the USB interface sheet; supervisors and
-application controls remain explicit test boundaries.
+VBUS qualification remains an explicit test boundary; there are no application charge grants.
 """
 
 import argparse
@@ -121,15 +121,15 @@ class Sheet:
                           *self.body,'(embedded_fonts no)',')',''])
 
 
-RAW = ('OUT1','OUT2','CHG_AL_N','CHG_DET','SW_OPEN','VBUS_VALID','LOGIC_READY','SWITCH_ON','ESP_RUNNING','USB_REQUEST')
+RAW = ('OUT1','OUT2','VBUS_VALID','LOGIC_READY')
 
 
 def conditioning():
     s = Sheet('usb-conditioning','Coupon Rev A - USB input conditioning (staged)')
-    s.note('USB input conditioning: detectors and logic-rail supervisor connected; four inputs remain staged',20.32,20.32,'title',2)
-    s.note('OUT1/OUT2 and BC outputs come from usb-interface. VBUS_VALID, switch and MCU inputs remain test boundaries.',20.32,30.48,'boundary')
-    s.note('CHG_DET uses the staged 4.80-5.25 V USB supply boundary; protection is pending. ESP_RUNNING is not tied to ESP_EN.',20.32,38.10,'domains')
-    for i in range(5):
+    s.note('ADR 0013: Type-C detector and logic supervisor; VBUS qualification remains staged',20.32,20.32,'title',2)
+    s.note('OUT1/OUT2 come from usb-interface. Only VBUS_VALID remains an external qualification boundary.',20.32,30.48,'boundary')
+    s.note('No BC1.2 or application-domain inputs. Default-current and USB-A sources cannot grant charging.',20.32,38.10,'domains')
+    for i in range(2):
         x,y = 83.82+(i%3)*180.34,76.20+(i//3)*119.38
         a,b=RAW[2*i:2*i+2]
         s.note(f'{a} / {b}: conditioned before ordinary LVC gates',x-60.96,y-20.32,f'group{i}',1.016)
@@ -137,7 +137,7 @@ def conditioning():
         s.capacitor(f'C{24+i}',x,y+22.86)
         for j,name in enumerate((a,b)):
             n=2*i+j
-            up=name in ('OUT1','OUT2','CHG_AL_N','SW_OPEN')
+            up=name in ('OUT1','OUT2')
             s.component(f'R{60+n}','ERJ-2RKF1002X' if up else 'ERJ-2RKF1003X',x,y+45.72+j*20.32,
                         {'1':'USB_RAW_'+name,'2':'+3V3_USB' if up else 'GND'},'10k 1%' if up else '100k 1%')
     for i,name in enumerate(RAW):
@@ -161,25 +161,14 @@ def conditioning():
 
 def permission():
     s=Sheet('usb-permission','Coupon Rev A - USB charging permission gates (staged)')
-    s.note('ADR 0011 permission gates: physical pin connectivity is checked against all 1,024 input combinations',20.32,20.32,'title',2)
-    s.note('USB_HIGH_REQ and USB_EN1_RAW_N are test outputs, NOT connections to ILIM or charger EN1.',20.32,30.48,'actuator')
-    s.note('VBUS qualification, fast-brownout inhibition and the parallel ILIM switch remain outside this captured boundary.',20.32,38.10,'startup')
+    s.note('ADR 0013: one fixed current limit; 16 stable Type-C/supply combinations checked',20.32,20.32,'title',2)
+    s.note('USB_CHARGE_REQ and USB_EN1_RAW_N are test outputs, NOT a physical charger EN1 connection.',20.32,30.48,'actuator')
+    s.note('VBUS qualification and physical standby inhibition remain open. No switched ILIM branch.',20.32,38.10,'startup')
     # MPNS and pin assignments are explicit rather than generated from the oracle.
     gates = [
-        ('U10','00',{'1':'USB_OUT1','2':'USB_OUT2','4':'USB_ATTACHED'},'Attached = NOT (OUT1 AND OUT2)'),
-        ('U11','04',{'2':'USB_OUT1','4':'USB_CC_HIGH'},'CC high-current advertisement'),
-        ('U12','04',{'2':'USB_CHG_AL_N','4':'USB_BC_ALLOWED'},'Positive BC classification'),
-        ('U13','04',{'2':'USB_CHG_DET','4':'USB_NOT_CHG_DET'},'No charging-source flag'),
-        ('U14','04',{'2':'USB_SW_OPEN','4':'USB_DATA_CLOSED'},'BC data switch closed'),
-        ('U15','08',{'1':'USB_BC_ALLOWED','2':'USB_CHG_DET','4':'USB_BC_HIGH'},'Qualified BC high-current source'),
-        ('U16','32',{'1':'USB_CC_HIGH','2':'USB_BC_HIGH','4':'USB_SOURCE_HIGH'},'Hardware source permission'),
-        ('U17','11',{'1':'USB_VBUS_VALID','3':'USB_LOGIC_READY','6':'USB_ATTACHED','4':'USB_READY_ATTACHED'},'Both supplies valid AND attached'),
-        ('U18','08',{'1':'USB_READY_ATTACHED','2':'USB_SOURCE_HIGH','4':'USB_HIGH_REQ'},'Hardware-only high-current request'),
-        ('U19','11',{'1':'USB_BC_ALLOWED','3':'USB_NOT_CHG_DET','6':'USB_DATA_CLOSED','4':'USB_SDP'},'SDP data-source qualification'),
-        ('U20','11',{'1':'USB_SWITCH_ON','3':'USB_ESP_RUNNING','6':'USB_USB_REQUEST','4':'USB_APP_GRANT'},'ON AND running AND USB-stack grant'),
-        ('U21','11',{'1':'USB_READY_ATTACHED','3':'USB_SDP','6':'USB_APP_GRANT','4':'USB_LOW_REQ'},'Low-current-only application route'),
-        ('U22','32',{'1':'USB_HIGH_REQ','2':'USB_LOW_REQ','4':'USB_RUN_REQ'},'Either qualified route can request run'),
-        ('U23','06',{'2':'USB_RUN_REQ','4':'USB_EN1_RAW_N'},'Open-drain request output; not charger pin'),
+        ('U11','04',{'2':'USB_OUT1','4':'USB_CC_HIGH'},'Type-C advertises 1.5 A or 3 A'),
+        ('U17','11',{'1':'USB_VBUS_VALID','3':'USB_LOGIC_READY','6':'USB_CC_HIGH','4':'USB_CHARGE_REQ'},'Both supplies valid AND Type-C permission'),
+        ('U23','06',{'2':'USB_CHARGE_REQ','4':'USB_EN1_RAW_N'},'Open-drain request; not charger pin'),
     ]
     for i,(ref,code,nets,description) in enumerate(gates):
         x,y=78.74+(i%4)*139.70,76.20+(i//4)*76.20
@@ -188,7 +177,7 @@ def permission():
         s.component(ref,f'SN74LVC1G{code}DBVR',x,y,nets)
         s.capacitor('C'+ref[1:],x,y+27.94)
     s.component('R70','ERJ-2RKF1002X',358.14,325.12,{'1':'+3V3_USB','2':'USB_EN1_RAW_N'},'10k 1%')
-    s.component('TP30','TestPoint_Pad',487.68,325.12,{'1':'USB_HIGH_REQ'},'HIGH_REQ')
+    s.component('TP30','TestPoint_Pad',487.68,325.12,{'1':'USB_CHARGE_REQ'},'CHARGE_REQ')
     s.component('TP31','TestPoint_Pad',487.68,350.52,{'1':'USB_EN1_RAW_N'},'EN1_RAW_N')
     s.note('The 3.3 V pull-up on the RAW output is for this logic boundary only; it does not meet charger startup requirements.',20.32,375.92,'raw-pullup')
     return s

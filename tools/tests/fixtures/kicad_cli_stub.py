@@ -214,20 +214,9 @@ def permission_coupon_netlist():
         ET.SubElement(comp, 'footprint').text = 'rgb-badge-coupon:' + footprint
 
     gate_map = [
-        (10,'00',[(1,'OUT1'),(2,'OUT2'),(4,'ATTACHED')]),
         (11,'04',[(2,'OUT1'),(4,'CC_HIGH')]),
-        (12,'04',[(2,'CHG_AL_N'),(4,'BC_ALLOWED')]),
-        (13,'04',[(2,'CHG_DET'),(4,'NOT_CHG_DET')]),
-        (14,'04',[(2,'SW_OPEN'),(4,'DATA_CLOSED')]),
-        (15,'08',[(1,'BC_ALLOWED'),(2,'CHG_DET'),(4,'BC_HIGH')]),
-        (16,'32',[(1,'CC_HIGH'),(2,'BC_HIGH'),(4,'SOURCE_HIGH')]),
-        (17,'11',[(1,'VBUS_VALID'),(3,'LOGIC_READY'),(6,'ATTACHED'),(4,'READY_ATTACHED')]),
-        (18,'08',[(1,'READY_ATTACHED'),(2,'SOURCE_HIGH'),(4,'HIGH_REQ')]),
-        (19,'11',[(1,'BC_ALLOWED'),(3,'NOT_CHG_DET'),(6,'DATA_CLOSED'),(4,'SDP')]),
-        (20,'11',[(1,'SWITCH_ON'),(3,'ESP_RUNNING'),(6,'USB_REQUEST'),(4,'APP_GRANT')]),
-        (21,'11',[(1,'READY_ATTACHED'),(3,'SDP'),(6,'APP_GRANT'),(4,'LOW_REQ')]),
-        (22,'32',[(1,'HIGH_REQ'),(2,'LOW_REQ'),(4,'RUN_REQ')]),
-        (23,'06',[(2,'RUN_REQ'),(4,'EN1_RAW_N')]),
+        (17,'11',[(1,'VBUS_VALID'),(3,'LOGIC_READY'),(6,'CC_HIGH'),(4,'CHARGE_REQ')]),
+        (23,'06',[(2,'CHARGE_REQ'),(4,'EN1_RAW_N')]),
     ]
     for number,code,pins in gate_map:
         ref = f'U{number}'
@@ -235,22 +224,22 @@ def permission_coupon_netlist():
         for pin,net in pins:add(ref,pin,'USB_'+net)
         add(ref,2 if code=='11' else 3,'GND');add(ref,5,'+3V3_USB')
         if code in ('04','06'):add(ref,1,f'unconnected-({ref}-NC-Pad1)')
-    raw = ['OUT1','OUT2','CHG_AL_N','CHG_DET','SW_OPEN','VBUS_VALID','LOGIC_READY','SWITCH_ON','ESP_RUNNING','USB_REQUEST']
-    for i in range(5):
+    raw = ['OUT1','OUT2','VBUS_VALID','LOGIC_READY']
+    for i in range(2):
         ref = f'U{24+i}'
         part(ref,'SN74LVC2G17DBVR','SOT23_TI_DBV0006A')
         for pin,name in [(1,'USB_RAW_'+raw[2*i]),(3,'USB_RAW_'+raw[2*i+1]),
                          (6,'USB_'+raw[2*i]),(4,'USB_'+raw[2*i+1]),(2,'GND'),(5,'+3V3_USB')]:add(ref,pin,name)
-    for i in range(10,29):
+    for i in (11,17,23,24,25):
         part(f'C{i}','100n 16V X7R','C_Murata_GRM15_0402')
         add(f'C{i}',1,'+3V3_USB');add(f'C{i}',2,'GND')
     for i,name in enumerate(raw):
-        up = i in (0,1,2,4)
+        up = i in (0,1)
         part(f'R{60+i}','10k 1%' if up else '100k 1%','R_Panasonic_ERJ2_0402')
         add(f'R{60+i}',1,'USB_RAW_'+name);add(f'R{60+i}',2,'+3V3_USB' if up else 'GND')
         part(f'TP{20+i}',name,'TestPoint_Pad_D1.0mm');add(f'TP{20+i}',1,'USB_RAW_'+name)
     part('R70','10k 1%','R_Panasonic_ERJ2_0402');add('R70',1,'+3V3_USB');add('R70',2,'USB_EN1_RAW_N')
-    for ref,name in [('TP30','HIGH_REQ'),('TP31','EN1_RAW_N')]:
+    for ref,name in [('TP30','CHARGE_REQ'),('TP31','EN1_RAW_N')]:
         part(ref,name,'TestPoint_Pad_D1.0mm');add(ref,1,'USB_'+name)
     part('U34','TPS3808G01DBVR','SOT23_TI_DBV0006A')
     for pin,net in [(1,'USB_RAW_LOGIC_READY'),(2,'GND'),(3,'+5V_USB'),(4,'USB_LOGIC_CT'),(5,'USB_LOGIC_SENSE'),(6,'+5V_USB')]:
@@ -282,27 +271,21 @@ def controller_coupon_netlist():
         'A8':'unconnected-(J1-SBU1-PadA8)','B5':'USB_CC2','B4_A9':'VBUS_CONNECTOR','B1_A12':'GND','S1':'GND'})
     part('U29','TLV75533PDBVR','SOT23_TI_DBV0005A',{
         1:'+5V_USB',2:'GND',3:'+5V_USB',4:'unconnected-(U29-NC-Pad4)',5:'+3V3_USB'})
-    part('U30','BQ24392RSER','UQFN_TI_RSE0010A_2x1.5mm_P0.5mm',{
-        1:'USB_RAW_SW_OPEN',2:'USB_BC_HOST_DM',3:'USB_BC_HOST_DP',4:'USB_RAW_CHG_AL_N',
-        5:'USB_BC_VBUS',6:'GND',7:'USB_BC_DP',8:'USB_BC_DM',9:'USB_BC_VBUS',10:'USB_RAW_CHG_DET'})
     part('U31','TUSB320LAIRWBR','X2QFN_TI_RWB0012A_1.6x1.6mm_P0.4mm',{
         1:'USB_CC1',2:'USB_CC2',3:'GND',4:'USB_VBUS_DET',5:'unconnected-(U31-ADDR-Pad5)',
         6:'unconnected-(U31-INT_N/OUT3-Pad6)',7:'USB_RAW_OUT1',8:'USB_RAW_OUT2',
         9:'unconnected-(U31-ID-Pad9)',10:'GND',11:'GND',12:'+3V3_USB'})
     part('U32','TS3USB31ERSER','UQFN_TI_RSE0008A_1.5x1.5mm_P0.5mm',{
-        1:'GND',2:'USB_D+',3:'USB_BC_HOST_DP',4:'GND',5:'USB_BC_HOST_DM',6:'USB_D-',7:'unconnected-(U32-NC-Pad7)',8:'+3V3_APP'})
+        1:'GND',2:'USB_D+',3:'USB_CONN_DP',4:'GND',5:'USB_CONN_DM',6:'USB_D-',7:'unconnected-(U32-NC-Pad7)',8:'+3V3_APP'})
     part('U33','TPD4E05U06DQAR','USON_TI_DQA0010A',{
         1:'USB_CONN_DP',2:'USB_CONN_DM',3:'GND',4:'USB_CC1',5:'USB_CC2',6:'unconnected-(U33-NC-Pad6)',
         7:'unconnected-(U33-NC-Pad7)',8:'GND',9:'unconnected-(U33-NC-Pad9)',10:'unconnected-(U33-NC-Pad10)'})
-    for ref,a,b,v in [('R71','VBUS_CONNECTOR','USB_VBUS_DET','887k 1%'),
-                      ('R72','+5V_USB','USB_BC_VBUS','2.2R 1%'),
-                      ('R73','USB_CONN_DP','USB_BC_DP','2.2R 1%'),
-                      ('R74','USB_CONN_DM','USB_BC_DM','2.2R 1%')]:
+    for ref,a,b,v in [('R71','VBUS_CONNECTOR','USB_VBUS_DET','887k 1%')]:
         part(ref,v,'R_Panasonic_ERJ2_0402',{1:a,2:b})
-    for ref,rail in [('C30','+5V_USB'),('C31','+5V_USB'),('C33','USB_BC_VBUS'),('C34','USB_BC_VBUS')]:
+    for ref,rail in [('C30','+5V_USB'),('C31','+5V_USB')]:
         part(ref,'1u 10V X7S','C_Murata_GRM15_0402',{1:rail,2:'GND'})
     part('C32','10u 6.3V X5R','C_Murata_GRM18_0603',{1:'+3V3_USB',2:'GND'})
-    for ref,rail in [('C35','USB_BC_VBUS'),('C36','+3V3_USB'),('C37','+3V3_APP')]:
+    for ref,rail in [('C36','+3V3_USB'),('C37','+3V3_APP')]:
         part(ref,'100n 16V X7R','C_Murata_GRM15_0402',{1:rail,2:'GND'})
     for ref,value,net in [('TP32','VBUS_CONNECTOR','VBUS_CONNECTOR'),('TP33','5V_USB_BOUNDARY','+5V_USB')]:
         part(ref,value,'TestPoint_Pad_D1.0mm',{1:net})

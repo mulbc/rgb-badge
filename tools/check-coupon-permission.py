@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: Apache-2.0
-"""Trace staged KiCad USB gates and compare their actual wiring to ADR 0011.
+"""Trace staged KiCad USB gates and compare their actual wiring to ADR 0013.
 
 Includes a stable-state logic evaluator, not a SPICE/transient simulation. The
 detectors and logic-rail supervisor are captured. Physical actuator inhibition,
-VBUS qualification, charger and ILIM switch remain uncaptured.
+VBUS qualification, charger remain uncaptured.
 """
 
 import argparse
@@ -25,34 +25,23 @@ SHEETS={
     'usb-conditioning.kicad_sch': ('05e96674-5624-545e-aef0-a1af37c3f4ba','1f02a509-ecc7-5fb6-8e3c-a47168ba29b3'),
     'usb-permission.kicad_sch': ('1bdb377e-db1a-5cbe-9422-f58828c0b6ba','a7d329d3-fad2-5879-8232-e18669c3e38f'),
 }
-INPUTS=('OUT1','OUT2','CHG_AL_N','CHG_DET','SW_OPEN','VBUS_VALID','LOGIC_READY','SWITCH_ON','ESP_RUNNING','USB_REQUEST')
+INPUTS=('OUT1','OUT2','VBUS_VALID','LOGIC_READY')
 GATES={
-    'U10':('00',{'1':'OUT1','2':'OUT2','4':'ATTACHED'}),
     'U11':('04',{'2':'OUT1','4':'CC_HIGH'}),
-    'U12':('04',{'2':'CHG_AL_N','4':'BC_ALLOWED'}),
-    'U13':('04',{'2':'CHG_DET','4':'NOT_CHG_DET'}),
-    'U14':('04',{'2':'SW_OPEN','4':'DATA_CLOSED'}),
-    'U15':('08',{'1':'BC_ALLOWED','2':'CHG_DET','4':'BC_HIGH'}),
-    'U16':('32',{'1':'CC_HIGH','2':'BC_HIGH','4':'SOURCE_HIGH'}),
-    'U17':('11',{'1':'VBUS_VALID','3':'LOGIC_READY','6':'ATTACHED','4':'READY_ATTACHED'}),
-    'U18':('08',{'1':'READY_ATTACHED','2':'SOURCE_HIGH','4':'HIGH_REQ'}),
-    'U19':('11',{'1':'BC_ALLOWED','3':'NOT_CHG_DET','6':'DATA_CLOSED','4':'SDP'}),
-    'U20':('11',{'1':'SWITCH_ON','3':'ESP_RUNNING','6':'USB_REQUEST','4':'APP_GRANT'}),
-    'U21':('11',{'1':'READY_ATTACHED','3':'SDP','6':'APP_GRANT','4':'LOW_REQ'}),
-    'U22':('32',{'1':'HIGH_REQ','2':'LOW_REQ','4':'RUN_REQ'}),
-    'U23':('06',{'2':'RUN_REQ','4':'EN1_RAW_N'}),
+    'U17':('11',{'1':'VBUS_VALID','3':'LOGIC_READY','6':'CC_HIGH','4':'CHARGE_REQ'}),
+    'U23':('06',{'2':'CHARGE_REQ','4':'EN1_RAW_N'}),
 }
 PARTS={ref:(f'SN74LVC1G{code}DBVR',f'SN74LVC1G{code}DBVR',
             'rgb-badge-coupon:SOT23_TI_DBV0006A' if code=='11' else 'rgb-badge-coupon:SOT23_TI_DBV0005A')
        for ref,(code,_) in GATES.items()}
-PARTS.update({f'U{i}':('SN74LVC2G17DBVR','SN74LVC2G17DBVR','rgb-badge-coupon:SOT23_TI_DBV0006A') for i in range(24,29)})
-PARTS.update({f'C{i}':('GRM155R71C104KA88D','100n 16V X7R','rgb-badge-coupon:C_Murata_GRM15_0402') for i in range(10,29)})
+PARTS.update({f'U{i}':('SN74LVC2G17DBVR','SN74LVC2G17DBVR','rgb-badge-coupon:SOT23_TI_DBV0006A') for i in range(24,26)})
+PARTS.update({f'C{i}':('GRM155R71C104KA88D','100n 16V X7R','rgb-badge-coupon:C_Murata_GRM15_0402') for i in (11,17,23,24,25)})
 for i,name in enumerate(INPUTS):
-    up=name in ('OUT1','OUT2','CHG_AL_N','SW_OPEN')
+    up=name in ('OUT1','OUT2')
     PARTS[f'R{60+i}']=('ERJ-2RKF1002X' if up else 'ERJ-2RKF1003X','10k 1%' if up else '100k 1%','rgb-badge-coupon:R_Panasonic_ERJ2_0402')
     PARTS[f'TP{20+i}']=('TestPoint_Pad',name,'rgb-badge-coupon:TestPoint_Pad_D1.0mm')
 PARTS['R70']=('ERJ-2RKF1002X','10k 1%','rgb-badge-coupon:R_Panasonic_ERJ2_0402')
-PARTS.update({ref:('TestPoint_Pad',value,'rgb-badge-coupon:TestPoint_Pad_D1.0mm') for ref,value in [('TP30','HIGH_REQ'),('TP31','EN1_RAW_N')]})
+PARTS.update({ref:('TestPoint_Pad',value,'rgb-badge-coupon:TestPoint_Pad_D1.0mm') for ref,value in [('TP30','CHARGE_REQ'),('TP31','EN1_RAW_N')]})
 PARTS['U34']=('TPS3808G01DBVR','TPS3808G01DBVR','rgb-badge-coupon:SOT23_TI_DBV0006A')
 PARTS['C38']=('GRM155R71C104KA88D','100n 16V X7R','rgb-badge-coupon:C_Murata_GRM15_0402')
 for ref,mpn,value in [('R75','ERJ-2RKF6203X','620k 1%'),('R76','ERJ-2RKF1003X','100k 1%'),
@@ -70,17 +59,17 @@ def expected_connections():
         nets.update({(ref,n):'USB_'+name for n,name in pins.items()})
         nets[ref,'2' if code=='11' else '3']='GND'
         nets[ref,'5']='+3V3_USB'
-    for i in range(5):
+    for i in range(2):
         ref=f'U{24+i}';a,b=INPUTS[i*2:i*2+2]
         nets.update({(ref,n):name for n,name in {'1':'USB_RAW_'+a,'3':'USB_RAW_'+b,
                     '6':'USB_'+a,'4':'USB_'+b,'2':'GND','5':'+3V3_USB'}.items()})
-    for i in range(10,29):
+    for i in (11,17,23,24,25):
         nets[f'C{i}','1']='+3V3_USB';nets[f'C{i}','2']='GND'
     for i,name in enumerate(INPUTS):
         nets[f'R{60+i}','1']='USB_RAW_'+name
-        nets[f'R{60+i}','2']='+3V3_USB' if name in ('OUT1','OUT2','CHG_AL_N','SW_OPEN') else 'GND'
+        nets[f'R{60+i}','2']='+3V3_USB' if name in ('OUT1','OUT2') else 'GND'
         nets[f'TP{20+i}','1']='USB_RAW_'+name
-    nets.update({('R70','1'):'+3V3_USB',('R70','2'):'USB_EN1_RAW_N',('TP30','1'):'USB_HIGH_REQ',('TP31','1'):'USB_EN1_RAW_N'})
+    nets.update({('R70','1'):'+3V3_USB',('R70','2'):'USB_EN1_RAW_N',('TP30','1'):'USB_CHARGE_REQ',('TP31','1'):'USB_EN1_RAW_N'})
     maps={'U34':{1:'USB_RAW_LOGIC_READY',2:'GND',3:'+5V_USB',4:'USB_LOGIC_CT',5:'USB_LOGIC_SENSE',6:'+5V_USB'},
           'C38':{1:'+5V_USB',2:'GND'},'R75':{1:'+3V3_USB',2:'USB_LOGIC_SENSE'},
           'R76':{1:'USB_LOGIC_SENSE',2:'GND'},'R77':{1:'+5V_USB',2:'USB_LOGIC_CT'},
@@ -89,7 +78,7 @@ def expected_connections():
     return nets
 
 
-NO_CONNECTS={(ref,'1') for ref in ('U11','U12','U13','U14','U23')}
+NO_CONNECTS={(ref,'1') for ref in ('U11','U23')}
 
 
 def expected_native_no_connects():
@@ -220,14 +209,13 @@ def evaluate(connections, bits):
 
 
 def check_logic(connections):
-    for bits in product((0,1),repeat=10):
+    for bits in product((0,1),repeat=4):
         actual=evaluate(connections,bits)
-        expected=CONTRACT['permission'](**dict(zip(('out1','out2','chg_al_n','chg_det','sw_open'),bits[:5])),
-              **dict(zip(('vbus_valid','logic_ready','switch_on','esp_running','usb_request'),map(bool,bits[5:]))))
-        require(actual['USB_HIGH_REQ']==expected['boost'],f'Captured HIGH differs from contract for {bits}')
-        if bits[5]:require(int(actual['USB_EN1_RAW_N'])==expected['en1'],f'Captured EN1 request differs from contract for {bits}')
-        else:require(actual['USB_EN1_RAW_N'],'Missing VBUS permits captured RUN')
-    return 1024
+        expected=CONTRACT['permission'](out1=bits[0],out2=bits[1],
+                                      vbus_valid=bool(bits[2]),logic_ready=bool(bits[3]))
+        require(actual['USB_CHARGE_REQ']==expected['charge'],f'Captured charge request differs for {bits}')
+        require(actual['USB_EN1_RAW_N']==(not expected['charge']),f'Captured standby request differs for {bits}')
+    return 16
 
 
 def check_sources(project=PROJECT):
@@ -244,7 +232,7 @@ def main():
     args=p.parse_args()
     try:
         check_sources(args.project_dir)
-        print('Captured USB logic/supervisor source check passed: 67 PCB items, 192 pins including 5 NC; 1024 stable-state cases. Actuator/startup boundary remains open; not native ERC.')
+        print('Captured USB logic/supervisor source check passed: 27 PCB items, 70 pins including 2 NC; 16 stable-state cases. Actuator/startup boundary remains open; not native ERC.')
     except (ValueError,KeyError,IndexError,OSError) as e:
         print(f'Permission capture check failed: {e}',file=sys.stderr);return 1
     return 0

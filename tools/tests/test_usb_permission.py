@@ -13,65 +13,34 @@ GPIO = runpy.run_path(str(TOOLS / "check-usb-permission.py"))
 POLICY = runpy.run_path(str(TOOLS / "check-power-design.py"))
 
 
-def pins(tc="default", bc="SDP", **overrides):
-    out1, out2 = GPIO["TYPE_C_PINS"][tc]
-    allowed, detected, opened = GPIO["BC12_PINS"][bc]
-    return dict(out1=out1, out2=out2, chg_al_n=allowed, chg_det=detected,
-                sw_open=opened, vbus_valid=True, logic_ready=True,
-                switch_on=True, esp_running=True, usb_request=True) | overrides
-
+def pins(tc='default', **overrides):
+    a,b=GPIO['TYPE_C_PINS'][tc]
+    return dict(out1=a,out2=b,vbus_valid=True,logic_ready=True)|overrides
 
 class UsbPermissionTests(unittest.TestCase):
     def test_all_gpio_and_domain_combinations(self):
-        self.assertEqual(GPIO["check"](), 1024)
+        self.assertEqual(GPIO['check'](),16)
 
-    def test_manufacturer_encodings_agree_with_product_policy(self):
-        for tc, bc, on, configured, suspended in product(
-                ("default", "1.5A", "3A"), GPIO["BC12_PINS"],
-                (False, True), (False, True), (False, True)):
-            with self.subTest(tc=tc, bc=bc, on=on, cfg=configured, suspend=suspended):
-                expected = POLICY["selected_usb_state"](
-                    switch_on=on, type_c=tc, bc12=bc,
-                    configured=configured, suspended=suspended)
-                actual = GPIO["permission"](**pins(tc, bc, switch_on=on,
-                                                   usb_request=configured and not suspended))
-                mode = "external-high" if expected["mode"] == "external-ilim" else expected["mode"]
-                self.assertEqual(actual["mode"], mode)
-                self.assertEqual((actual["en2"], actual["en1"]), (expected["en2"], expected["en1"]))
+    def test_only_advertised_type_c_sources_can_charge(self):
+        for tc in GPIO['TYPE_C_PINS']:
+            self.assertEqual(GPIO['permission'](**pins(tc))['charge'],tc in ('1.5A','3A'))
 
-    def test_charger_detect_alone_never_grants_bc12_high_current(self):
-        result = GPIO["permission"](**pins(chg_al_n=1, chg_det=1))
-        self.assertEqual(result["mode"], "standby")
+    def test_either_invalid_supply_inhibits_both_supported_sources(self):
+        for tc,field in product(('1.5A','3A'),('vbus_valid','logic_ready')):
+            self.assertFalse(GPIO['permission'](**pins(tc,**{field:False}))['charge'])
 
-    def test_low_current_non_data_charger_cannot_impersonate_sdp(self):
-        self.assertEqual(GPIO["permission"](**pins(bc="unclassified"))["mode"], "standby")
+    def test_advertisement_reduction_selects_standby(self):
+        self.assertTrue(GPIO['permission'](**pins('1.5A'))['charge'])
+        self.assertEqual(GPIO['permission'](**pins('default'))['mode'],'standby')
 
-    def test_detach_brownout_and_reset_with_stale_request(self):
-        for changes in ({"vbus_valid": False}, {"logic_ready": False},
-                        {"out1": 1, "out2": 1}, {"esp_running": False},
-                        {"switch_on": False}, {"usb_request": False}):
-            state = GPIO["permission"](**pins(**changes))
-            self.assertIn(state["mode"], ("standby", "input-asleep"))
-            self.assertFalse(state["boost"])
+    def test_application_or_bc_grant_is_not_an_input(self):
+        for field in ('usb_request','switch_on','esp_running','chg_det','chg_al_n','sw_open'):
+            with self.subTest(field=field), self.assertRaises(TypeError):
+                GPIO['permission'](**(pins()|{field:True}))
 
-    def test_hardware_charge_survives_application_reset(self):
-        for tc, bc in (("1.5A", "SDP"), ("3A", "none"), ("default", "CDP")):
-            state = GPIO["permission"](**pins(tc, bc, esp_running=False, switch_on=False, usb_request=False))
-            self.assertEqual(state["mode"], "external-high")
-
-    def test_advertisement_reduction_removes_boost(self):
-        before = GPIO["permission"](**pins("1.5A"))
-        after = GPIO["permission"](**pins("default"))
-        self.assertTrue(before["boost"])
-        self.assertFalse(after["boost"])
-        self.assertEqual(after["mode"], "external-low")
-        # Without a valid stack grant the reduced advertisement selects standby.
-        self.assertEqual(GPIO["permission"](**pins("default", usb_request=False))["mode"], "standby")
-
-    def test_unresolved_gpio_is_not_silently_treated_as_permission(self):
-        for bad in (None, "0", 2, 0.0):
-            with self.assertRaises(ValueError):
-                GPIO["permission"](**pins(out1=bad))
+    def test_unresolved_gpio_is_rejected(self):
+        for bad in (None,'0',2,0.0,False):
+            with self.assertRaises(ValueError):GPIO['permission'](**pins(out1=bad))
 
 
 class UsbBudgetTests(unittest.TestCase):

@@ -86,12 +86,12 @@ def actuator_supply_screen(*, local_drop_v="0", fall_slew_v_per_us="0",
 def usb_capture_blockers():
     """Selected topology tasks not yet closed by calculation alone."""
     return (
-        "Exact BQ24074RGTR, BQ24392RSER and TS3USB31ERSER libraries passed native review at c054cb4; the charger/power path remains uncaptured.",
-        "ADR 0011 logic, USB detectors/data path and USB LDO are captured; protected input, VBUS qualification, hardware-only ILIM boost and physical startup inhibition remain uncaptured.",
-        "The detector/LDO/logic/status auxiliary-current budget and source transitions are not validated. Shared-rail actuator UVLO arithmetic is conditional, not startup/brownout closure.",
-        "ADR 0012 selects precision programming resistors and retains ±1% total error; their assembly/service drift allocation and actuator leakage still require qualification. The historical 100-ppm/K temperature counterexample remains rejected.",
-        "The exact pack, NTC/timer network and BQ24074 linear thermal behavior remain unqualified.",
+        "ADR 0013 removes BC1.2, firmware charging grants and switched ILIM; the fixed-current charger remains uncaptured.",
+        "Protected input, VBUS qualification and physical charger standby/startup inhibition remain open.",
+        "Whole-port current, standby, inrush, source transitions and thermal behavior remain unqualified.",
+        "Exact pack, NTC/timer network, programming-resistor temperature/assembly drift and switched rails remain open.",
     )
+
 
 
 TYPE_C_STATES = frozenset(("none", "default", "1.5A", "3A"))
@@ -100,8 +100,8 @@ HIGH_TYPE_C = frozenset(("1.5A", "3A"))
 HIGH_BC12 = frozenset(("CDP", "DCP", "dedicated"))
 
 
-def selected_usb_state(*, switch_on, type_c, bc12, configured=False, suspended=False):
-    """Resolve ADR 0010 policy with ADR 0011's current-budget correction.
+def legacy_usb_state(*, switch_on, type_c, bc12, configured=False, suspended=False):
+    """Historical ADR 0010/0011 policy, superseded by ADR 0013.
 
     This proves the intended truth table, not transistor/gate implementation,
     USB compliance, detector accuracy, or firmware behavior.
@@ -233,7 +233,7 @@ def check():
             for bc12 in BC12_STATES:
                 for configured in (False, True):
                     for suspended in (False, True):
-                        state = selected_usb_state(switch_on=switch_on, type_c=type_c, bc12=bc12,
+                        state = legacy_usb_state(switch_on=switch_on, type_c=type_c, bc12=bc12,
                                                    configured=configured, suspended=suspended)
                         if not switch_on and state["data_connected"]:
                             raise ValueError("USB data connected while switch is OFF")
@@ -255,19 +255,13 @@ def main():
     args = parser.parse_args()
     try:
         value = check()
-        supply = actuator_supply_screen()
-        print("Power pre-capture calculations passed:")
-        print('- ADR 0012 current bounds use ±1% TOTAL resistance error; selected parts are 0.1%, 25 ppm/K, with assembly/service allocation still requiring qualification')
-        print(f"- BQ24074 1.13-kohm charge setting: {value['charge'][0]:.3f} to {value['charge'][2]:.3f} A")
-        print(f"- ADR 0011 low ILIM (3.65 kohm): {value['input_sdp'][0]:.3f} to {value['input_sdp'][2]:.3f} A")
-        print(f"- hardware boost (3.65 || 3.48 kohm): {value['input_external'][0]:.3f} to {value['input_external'][2]:.3f} A, ideal switch")
-        print(f"- configured SDP allocation: {value['configured_sdp_allocated_total']:.3f} A including 20 mA auxiliary + 2 mA programming allowances (not qualified loads)")
-        print(f"- 100-ppm/K resistor candidate at temperature: {value['sdp_temperature_counterexample']:.6f} A with those allocations; exceeds 500 mA, so the earlier tolerance-only margin is NOT closure")
-        print("- ADR 0010/0011 source/switch/configuration/suspend and two-stage data-isolation truth table is internally consistent")
-        print(f"- nominal rails: {value['rail_3v3']:.3f} V application and {value['rail_vled']:.3f} V LED")
-        print(f"- BQ24074 plus hibernating MAX17048 maxima consume {value['always_on_max_uA']:.1f} uA of the 50-uA OFF budget")
-        print(f"- candidate shared-rail static UVLO margin: {supply['fall_remaining_margin_v']:.3f} V; zero-drop/zero-delay assumption only, NOT transient closure")
-        print("- exact libraries/logic, auxiliary loads, battery/NTC, thermal behavior and layout still require review")
+        runpy.run_path(str(Path(__file__).with_name('check-usb-permission.py')))['check']()
+        print("ADR 0013 fixed-current power calculations passed:")
+        print(f"- permanent 3.65 || 3.48 kohm input setting: {value['input_external'][0]:.3f} to {value['input_external'][2]:.3f} A; no switch")
+        print(f"- provisional charge-current range: {value['charge'][0]:.3f} to {value['charge'][2]:.3f} A; exact pack qualification pending")
+        print("- only qualified Type-C 1.5 A / 3 A sources can request charge; no BC or firmware grant")
+        print("- ±1% total resistance envelope retained; assembly/service allocation remains unqualified")
+        print("- historical dual-limit calculations remain regression evidence, not the active policy")
         blockers = usb_capture_blockers()
         print("USB/input capture remains BLOCKED:")
         for finding in blockers:

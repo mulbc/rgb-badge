@@ -4,21 +4,22 @@
 
 Coupon Rev A is authored and validated with stable KiCad 10.0.x. The initial baseline is 10.0.6 under [ADR 0006](../decisions/0006-kicad-10-workflow.md).
 
-## Candidate actuator library checkpoint
+## Type-C-only functional checkpoint
 
-The [precision-resistor review](precision-resistor-review-9e71bb5.md) passed. The supplied ADG4612 PDF now supports an exact candidate symbol and project-derived CP-16-22 lands; see the [audit](../../hardware/coupon/rev-a/charger-actuator-library-audit.md). [Native rendering at 2b7a468](actuator-library-review-2b7a468.md) passed. No repeat run is needed for the documentation-only acceptance; the commands below are retained for the next source checkpoint. Expected outputs: **46 symbols, 27 footprints per raw view, eleven pages, 443 PCB items / 1,636 logical pins and zero ERC violations**. No circuit parts were added. Supply-transition, leakage and assembly qualification remain open.
-
-After synchronizing that branch, generate an output directory identified by the actual commit:
+[ADR 0013](../decisions/0013-type-c-only-fixed-current-charging.md) removes BC1.2 detection, application charging grants and dual-current selection. Three USB sheets changed together. Expected: **396 PCB items / 1,492 logical pins, eleven PDF pages, 46 symbols and 27 footprints per raw view, zero ERC violations**. Previous native reviews remain valid only for unchanged sections. Native review of this revision is pending.
 
 ```bash
-review_dir="hardware/coupon/rev-a/build/actuator-library-review-$(git rev-parse --short HEAD)"
+git switch coupon-power-rev-a
+git pull --ff-only
+git rev-parse --short HEAD
+review_dir="hardware/coupon/rev-a/build/type-c-only-review-$(git rev-parse --short HEAD)"
 RGB_BADGE_KICAD_CHECK_OUTPUT="$review_dir" ./tools/check-kicad.sh && \
   ditto -c -k --keepParent "$review_dir" "${review_dir}.zip" && \
   open -R "${review_dir}.zip"
 git status --short
 ```
 
-Provide the ZIP for first-author electrical/export and visual review. A failed checker must be investigated using its actual report; do not suppress new ERC warnings to get a passing run.
+Upload the ZIP and terminal output for review of the revised conditioning, permission and USB-interface pages. The charger itself and input protection are not yet captured; successful ERC does not close those boundaries.
 
 ## Open the project
 
@@ -53,7 +54,7 @@ Run this after every schematic change:
 ./tools/check-kicad.sh
 ```
 
-The script requires stable KiCad 10.0.x, checks the controlled LED, driver, row-selection, controller, power-library and USB4505 candidate geometry plus every captured source connection, exports the project-local libraries, and runs ERC. Every ERC message is a failure. The historical isolated USB-label exception is retired. It then exports KiCad's XML netlist, verifies all 443 PCB items / 1,636 logical pins, and exports the complete schematic to PDF. The script uses the application-bundle CLI automatically on macOS. Set `RGB_BADGE_KICAD_CLI` only when testing a specific alternate executable.
+The script requires stable KiCad 10.0.x, checks the controlled LED, driver, row-selection, controller, power-library and USB4505 candidate geometry plus every captured source connection, exports the project-local libraries, and runs ERC. Every ERC message is a failure. The historical isolated USB-label exception is retired. It then exports KiCad's XML netlist, verifies all 396 PCB items / 1,492 logical pins, and exports the complete schematic to PDF. The script uses the application-bundle CLI automatically on macOS. Set `RGB_BADGE_KICAD_CLI` only when testing a specific alternate executable.
 
 To retain SVGs for human inspection, give the check a new output path that does not already exist:
 
@@ -73,7 +74,7 @@ The `build` directory is ignored by Git. With the USB4505 candidate library, the
 | `footprints/paste/` | Twenty-seven paste-only views. Parts without paste apertures may export an otherwise empty drawing; the USB4505 signal lands should have paste while its four shell slots should not. KiCad still outlines the four drilled slots in this plot; these unfilled outlines are not stencil openings. |
 | `footprints/mechanical/` | Twenty-seven `F.Fab,Dwgs.User` views. For USB4505, inspect the dashed datum guide and its explicit unqualified-cutout warning; these lines are not `Edge.Cuts`. |
 | `coupon-schematic.pdf` | Root, four matrix pages, driver, row selector, controller, USB conditioning/supervisor, permission and USB interface. Inspect all eleven actual KiCad pages for label collisions and wiring clarity. |
-| `coupon-matrix.xml` | KiCad's complete connectivity result, checked against matrix, driver/support, row selectors, controller and captured USB circuits: 443 PCB items / 1,636 logical pins. The filename is retained for compatibility. |
+| `coupon-matrix.xml` | KiCad's complete connectivity result, checked against matrix, driver/support, row selectors, controller and captured USB circuits: 396 PCB items / 1,492 logical pins. The filename is retained for compatibility. |
 
 The fabrication export uses `F.Fab,F.SilkS,F.CrtYd` and `--sketch-pads-on-fab-layers`. Copper, paste and mechanical guides are exported separately with `F.Cu`, `F.Paste` and `F.Fab,Dwgs.User`. These are [KiCad 10 CLI export options](https://docs.kicad.org/10.0/en/cli/cli.html). `number-footprint-review.py` then copies the existing numbered glyphs over a white halo and adds a small viewing margin. It preserves the raw exports, records each source SVG's SHA-256 in the derived copy, and rejects unexpected or missing labels. The derived view is not a manufacturing drawing. Mask expansion is source-checked but is not a separate rendered view; stencil/process review remains a DFM task.
 

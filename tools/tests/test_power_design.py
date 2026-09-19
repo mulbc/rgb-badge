@@ -67,13 +67,13 @@ class PowerDesignTests(unittest.TestCase):
         for type_c, bc12 in (("default", "SDP"), ("default", "none"),
                              ("default", "unclassified")):
             with self.subTest(type_c=type_c, bc12=bc12):
-                state = CHECK["selected_usb_state"](switch_on=False, type_c=type_c, bc12=bc12)
+                state = CHECK["legacy_usb_state"](switch_on=False, type_c=type_c, bc12=bc12)
                 self.assertEqual(state["mode"], "standby")
                 self.assertFalse(state["data_connected"])
         for type_c, bc12 in (("default", "CDP"), ("default", "DCP"),
                              ("default", "dedicated"), ("1.5A", "none"), ("3A", "SDP")):
             with self.subTest(type_c=type_c, bc12=bc12):
-                state = CHECK["selected_usb_state"](switch_on=False, type_c=type_c, bc12=bc12)
+                state = CHECK["legacy_usb_state"](switch_on=False, type_c=type_c, bc12=bc12)
                 self.assertEqual(state["mode"], "external-ilim")
                 self.assertIn(state["permission"], ("bc1.2-hardware", "type-c-hardware"))
                 self.assertFalse(state["data_connected"])
@@ -87,7 +87,7 @@ class PowerDesignTests(unittest.TestCase):
         )
         for switch_on, configured, suspended, expected in cases:
             with self.subTest(switch_on=switch_on, configured=configured, suspended=suspended):
-                state = CHECK["selected_usb_state"](
+                state = CHECK["legacy_usb_state"](
                     switch_on=switch_on, type_c="default", bc12="SDP",
                     configured=configured, suspended=suspended)
                 self.assertEqual(state["mode"], expected)
@@ -95,7 +95,7 @@ class PowerDesignTests(unittest.TestCase):
     def test_hardware_high_current_has_priority_and_survives_suspend(self):
         for type_c, bc12 in (("1.5A", "SDP"), ("3A", "SDP"), ("default", "CDP")):
             with self.subTest(type_c=type_c, bc12=bc12):
-                state = CHECK["selected_usb_state"](
+                state = CHECK["legacy_usb_state"](
                     switch_on=True, type_c=type_c, bc12=bc12,
                     configured=True, suspended=True)
                 self.assertEqual(state["mode"], "external-ilim")
@@ -105,14 +105,14 @@ class PowerDesignTests(unittest.TestCase):
         for switch_on in (False, True):
             for bc12 in ("SDP", "CDP", "DCP"):
                 with self.subTest(switch_on=switch_on, bc12=bc12):
-                    state = CHECK["selected_usb_state"](
+                    state = CHECK["legacy_usb_state"](
                         switch_on=switch_on, type_c="default", bc12=bc12)
                     self.assertEqual(state["data_connected"], switch_on and bc12 in ("SDP", "CDP"))
 
     def test_good_bat_does_not_time_out_off_state_charging(self):
         for bc12 in ("SDP", "CDP", "DCP", "dedicated", "unclassified"):
             with self.subTest(bc12=bc12):
-                state = CHECK["selected_usb_state"](
+                state = CHECK["legacy_usb_state"](
                     switch_on=False, type_c="default", bc12=bc12)
                 self.assertTrue(state["good_bat"])
                 self.assertFalse(state["app_data_isolator_powered"])
@@ -121,21 +121,21 @@ class PowerDesignTests(unittest.TestCase):
     def test_application_data_isolator_tracks_physical_switch(self):
         for switch_on in (False, True):
             with self.subTest(switch_on=switch_on):
-                state = CHECK["selected_usb_state"](
+                state = CHECK["legacy_usb_state"](
                     switch_on=switch_on, type_c="default", bc12="CDP")
                 self.assertEqual(state["app_data_isolator_powered"], switch_on)
 
-        detached = CHECK["selected_usb_state"](
+        detached = CHECK["legacy_usb_state"](
             switch_on=True, type_c="none", bc12="none")
         self.assertTrue(detached["app_data_isolator_powered"])
         self.assertFalse(detached["good_bat"])
         self.assertFalse(detached["data_connected"])
 
     def test_unattached_rejects_impossible_protocol_state(self):
-        state = CHECK["selected_usb_state"](switch_on=False, type_c="none", bc12="none")
+        state = CHECK["legacy_usb_state"](switch_on=False, type_c="none", bc12="none")
         self.assertEqual(state["mode"], "input-asleep")
         with self.assertRaisesRegex(ValueError, "without an attached"):
-            CHECK["selected_usb_state"](switch_on=True, type_c="none", bc12="SDP")
+            CHECK["legacy_usb_state"](switch_on=True, type_c="none", bc12="SDP")
 
     def test_ratio_worst_cases_use_opposite_resistor_tolerances(self):
         low, nominal, high = CHECK["bounded_ratio"]("459", "500", "1000", "0.01")

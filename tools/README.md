@@ -2,6 +2,8 @@
 
 # Software tools
 
+**Current functional checkpoint — ADR 0013:** Type-C-only fixed-current charging. `check-usb-permission.py` checks 16 resolved detector/supply states; `check-coupon-permission.py` independently traces the reduced three-gate/two-buffer circuit. The three revised USB sheets remove 47 PCB items. Complete source/fixture expectations are 396 items / 1,492 pins. Older dual-limit and BC1.2 tests/calculations are historical regressions, not active charging policy. Native KiCad review is pending; see [capture record](../hardware/coupon/rev-a/type-c-only-capture.md).
+
 `generate-coupon-permission.py --output NEW_DIRECTORY` produces the conditioning and permission sheets without overwriting canonical files. `check-coupon-permission.py` traces 61 items / 176 pins and evaluates actual gate connections against the independent 1,024-state contract. This checkpoint passed native review at `6d9a08b`.
 
 `generate-coupon-usb.py --output NEW_DIRECTORY` produces the USB interface sheet. `check-coupon-usb.py` checks its 20 items / 84 logical pins and domain/data connections. The added logic supervisor brings complete XML validation to **443 items / 1,636 logical pins**. Native review at [2bb0e08](../docs/development/logic-supervisor-review-2bb0e08.md) passed zero ERC violations and the eleven-page export. The precision-resistor increment added three ERA2 symbols and one footprint. The subsequent candidate ADG4612 library brings exports to **46 symbols and 27 footprints per raw view**; its [native rendering at 2b7a468](../docs/development/actuator-library-review-2b7a468.md) passed. Its [native rendering at 9e71bb5](../docs/development/precision-resistor-review-9e71bb5.md) passed; older counts below are historical.

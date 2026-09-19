@@ -2,6 +2,8 @@
 
 # ADG4612 candidate library audit
 
+**Superseded for active design by [ADR 0013](../../../docs/decisions/0013-type-c-only-fixed-current-charging.md):** no switched ILIM branch or ADG4612 actuator is planned. Retained as investigation/library history; its unresolved switch-leakage questions are not active design blockers. Physical charger standby control still requires qualification.
+
 2026-09-18. Library preparation only: not a selected BOM part, captured circuit or fabrication approval. [Native KiCad rendering at 2b7a468](../../../docs/development/actuator-library-review-2b7a468.md) passed first-author review. Electrical selection remains governed by [actuator screening](charger-actuator-screening.md).
 
 ## Source and package identity
