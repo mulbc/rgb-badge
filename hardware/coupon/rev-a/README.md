@@ -2,7 +2,7 @@
 
 # Coupon Rev A
 
-**Active revision: [ADR 0013](../../../docs/decisions/0013-type-c-only-fixed-current-charging.md).** Type-C-only charging, one fixed current limit; no BC1.2 or firmware charge grants. The revised USB source has 396 total PCB items / 1,492 logical pins and eleven pages; native review is pending. Libraries remain 46 symbols / 27 footprints. See [simplified capture](type-c-only-capture.md); earlier counts and source-policy descriptions below are historical.
+**Active revision: [ADR 0013](../../../docs/decisions/0013-type-c-only-fixed-current-charging.md).** Type-C-only charging, one fixed current limit; no BC1.2 or firmware charge grants. The revised USB source has 396 total PCB items / 1,492 logical pins and eleven pages; [native ERC/XML and three-sheet visual review passed at 12a134f](../../../docs/development/type-c-only-review-12a134f.md). Libraries remain 46 symbols / 27 footprints. See [simplified capture](type-c-only-capture.md); earlier counts and source-policy descriptions below are historical.
 
 Status: matrix, driver, row-stage and controller staged electrical reviews passed; power-library copper/stencil/heading corrections passed native review at `3638b1d`. The row-page readability repair passed [native review at `91ef697`](../../../docs/development/layout-review-91ef697.md), and the USB4505 candidate library passed [native rendering review at `bf1627c`](../../../docs/development/usb-connector-review-bf1627c.md). Remaining power capture and independent Gate A verification are pending; not safe to fabricate. See the [finding record](../../../docs/development/power-library-review-c84f8ce.md).
 

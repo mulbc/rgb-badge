@@ -2,7 +2,7 @@
 
 # Type-C-only charging: functional simplification
 
-2026-09-18. Implements the owner-approved [ADR 0013](../../../docs/decisions/0013-type-c-only-fixed-current-charging.md) source-policy simplification. Native review pending; not a complete power circuit or fabrication release.
+2026-09-18. Implements the owner-approved [ADR 0013](../../../docs/decisions/0013-type-c-only-fixed-current-charging.md) source-policy simplification. Native review accepted at `12a134f`; not a complete power circuit or fabrication release.
 
 ## Removed from the captured circuit
 
@@ -35,3 +35,5 @@ Generators reproduce all three canonical sheets. Synthetic netlist fixtures are 
 Host validation completed 2026-09-19: all 140 tests pass, including regeneration, independent gate evaluation, source fault injection and the separately transcribed full XML fixture. The fixture contains 396 items / 1,492 pins. `git diff --check` passes. The strict USB-closure check still rejects the explicitly unfinished power circuit. Native KiCad review remains pending.
 
 Native cb81e86 stopped on isolated USB_OUT2: see the [finding and source correction](../../../docs/development/type-c-only-review-cb81e86.md). TP21 now probes conditioned OUT2; no components added. Seven targeted permission-capture tests pass, including the new regression and complete synthetic XML fault checks. Native ERC/PDF/XML review remains pending.
+
+Native closure (2026-09-19): owner KiCad 10.0.6 at `12a134f` reports zero ERC violations and exports the complete 396-item / 1,492-pin XML. The uploaded XML was independently rerun through the repository checker; pages 9–11 passed first-author visual review. This closes the OUT2 finding and the combined simplification checkpoint. Earlier pending statements above describe preceding checkpoints. See [evidence](../../../docs/development/type-c-only-review-12a134f.md).
