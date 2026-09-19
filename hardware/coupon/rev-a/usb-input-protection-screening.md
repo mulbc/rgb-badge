@@ -36,8 +36,6 @@ Before capture: qualify exact divider parts, PG thresholds and loading, overcurr
 
 Host validation: all 147 tests passed on 2026-09-19, including generator equivalence, independent pin maps, the EN-to-IN fault rejection, export-wrapper tests and six new divider-screening tests. No native KiCad result is claimed for the modified source. The 12a134f bundle remains evidence for the prior circuit.
 
-## Source access needed for C32
+## C32 source review received
 
-The Murata product endpoint for `GRM188R60J106ME47#` returned HTTP 403 on 2026-09-19. Following the owner's access preference, no access workaround is attempted. Request the manufacturer characteristic report (or SimSurfing export) for exact `GRM188R60J106ME47D`: capacitance versus DC bias, temperature, frequency/ESR, test conditions and aging information. Use 3.3 V nominal, 3.366 V maximum regulated output under the ±2% screening assumption. The 3.3 V TPS709 requires 1.5–47 µF effective output capacitance and ESR at most 0.2 ohm; distributed bypass capacitors are not automatically a substitute for the local output capacitor.
-
-Manufacturer curves may be typical rather than guaranteed. An export supports screening, not an invented tolerance guarantee. Preserve that distinction, allow explicit margin, and carry any remaining stability verification into Gate A/coupon testing. Do not mark the whole input stage qualified from this document alone. No capacitor replacement or new native run is requested while this source is missing.
+The owner supplied Murata's five-page characteristic PDF on 2026-09-19, resolving the HTTP 403 source-access blocker. See [C32 characteristic review](c32-characteristic-review.md) for the file hash, page-by-page evidence, approximate curve readings and limits. Retain C32 provisionally; no capacitor or schematic change is required by this screening. Combined-condition capacitance, aging and actual regulator stability remain Gate A/coupon qualification items. No further owner document request or native rerun is needed for this evidence-only update.
