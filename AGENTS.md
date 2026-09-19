@@ -8,6 +8,8 @@ These instructions apply to the complete repository.
 
 The owner authorized the assistant on 2026-09-07 to act as the sole developer and merge pull requests once their applicable checks pass, without requesting merge permission again. Record validation evidence and unresolved findings. Independent Gate A engineering review is still required before fabrication; a source-code merge is not a fabrication release.
 
+When giving the owner shell commands, assume the current directory is the repository root. Do not include a placeholder `cd` command.
+
 ## Read before changing the project
 
 1. Read `CONTEXT.md`.
@@ -22,6 +24,7 @@ The owner authorized the assistant on 2026-09-07 to act as the sole developer an
 - Every measurement must identify hardware revision, firmware revision, setup and raw evidence location.
 - Use exact manufacturer part numbers in the BOM. Never accept or make silent substitutions.
 - Check every symbol pin number, footprint pad, polarity mark and package drawing against the current manufacturer datasheet.
+- If source content is bot-restricted or otherwise blocked, ask the owner to supply it instead of attempting difficult retrieval experiments or access workarounds.
 - Record a material design change in an ADR and update affected requirements before implementation.
 
 ## Electrical safety
