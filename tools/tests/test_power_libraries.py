@@ -15,9 +15,27 @@ PROJECT = REPO / "hardware" / "coupon" / "rev-a"
 
 
 class PowerLibraryTests(unittest.TestCase):
+    def test_rpw_rail_identity_and_stencil_regressions(self):
+        cases = [
+            ('(pad "5" smd', '(pad "8" smd'),
+            ('(at -0.25 0) (size 0.3 2.4)', '(at -0.25 0) (size 0.6 2.4)'),
+            ('(at -0.25 -0.63) (size 0.28 1.06)', '(at -0.25 -0.63) (size 0.28 2.4)'),
+            ('(at -0.725 -0.875)', '(at -0.825 -0.875)'),
+            ('(solder_mask_margin 0.05)', '(solder_mask_margin 0.1)'),
+        ]
+        for old,new in cases:
+            with self.subTest(old=old):
+                project=self.project_copy()
+                path=project/'footprints/rgb-badge-coupon.pretty/VQFN_TI_RPW0010A_2x2mm_HotRod.kicad_mod'
+                text=path.read_text(); self.assertIn(old,text)
+                path.write_text(text.replace(old,new,1))
+                with self.assertRaises(ValueError): CHECK['check_libraries'](project)
+
     def test_permission_ground_pin_and_open_drain_faults(self):
         # DBV6 AND3 ground is pin 2, unlike DBV5 AND2 pin 3.
         cases = [
+            ('TPS259472ARPWR', '(name "OVCSEL"', '(name "OVLO"', 'pin name mismatch'),
+            ('TPS259474ARPWR', '(pin open_collector line', '(pin output line', 'electrical type mismatch'),
             ('TPS70933DBVR', '(number "1"', '(number "6"', 'pin numbers mismatch'),
             ('SN74LVC2G17DBVR', '(name "1Y"', '(name "2Y"', 'pin name mismatch'),
             ('SN74LVC2G17DBVR', '(pin output line', '(pin output inverted', 'non-inverting buffer'),

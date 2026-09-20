@@ -64,4 +64,4 @@ The wrapper exports all project-local symbols and footprints, including separate
 
 ## Input protection screening
 
-`python3 tools/check-input-protection.py` calculates candidate OVLO divider corners with signed leakage and total resistor error. It does not select a protection IC or validate transients. `--require-closure` deliberately fails until the input circuit is qualified. See ADR 0014 and `hardware/coupon/rev-a/usb-input-protection-screening.md`.
+`python3 tools/check-input-protection.py` calculates candidate OVLO and PGTH divider corners with signed leakage and total resistor error, and records fixed-clamp/current-threshold limitations. It does not select a protection IC or validate transients. `--require-closure` deliberately fails until the input circuit is qualified. See ADR 0014 and `hardware/coupon/rev-a/usb-input-protection-screening.md`.

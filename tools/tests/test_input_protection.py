@@ -34,6 +34,19 @@ class InputProtectionTests(unittest.TestCase):
         lo, hi=CHECK['divider_bounds']('37400','10000',('1.183','1.223'),('-0.0000001','0.0000001'),'.02')
         self.assertLess(lo,D('5.5'))
 
+    def test_pg_leakage_is_asymmetric_and_not_ovlo_leakage(self):
+        a=CHECK['divider_bounds']('27400','10000',('1.183','1.223'),('-0.0000001','0.0000003'),'.01')
+        b=CHECK['divider_bounds']('27400','10000',('1.183','1.223'),('-0.0000001','0.0000001'),'.01')
+        self.assertEqual(a[0],b[0])
+        self.assertEqual(a[1]-b[1],D('0.0055348'))
+
+    def test_new_supply_does_not_turn_clamp_screen_into_qualification(self):
+        s=CHECK['screening']()
+        self.assertEqual(s['fixed_clamp_alternative']['threshold_to_u34_headroom_v'],'0.3')
+        self.assertFalse(s['fixed_clamp_alternative']['transient_qualified'])
+        self.assertFalse(s['power_good_screen']['direct_off_level_guaranteed_low_at_3v'])
+        self.assertFalse(s['current_threshold_example']['guarantees_charger_ceiling_without_limiting_or_trip'])
+
     def test_invalid_intervals_rejected(self):
         for args in [('NaN','10',('1','2'),('0','0'),'0'),('10','10',('1','Infinity'),('0','0'),'0'),('-1','10',('1','2'),('0','0'),'0'),('10','0',('1','2'),('0','0'),'0'),('10','10',('1','2'),('0','0'),'1'),('10','10',('2','1'),('0','0'),'0')]:
             with self.subTest(args=args),self.assertRaises(ValueError): CHECK['divider_bounds'](*args)

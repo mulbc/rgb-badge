@@ -39,3 +39,7 @@ Host validation: all 147 tests passed on 2026-09-19, including generator equival
 ## C32 source review received
 
 The owner supplied Murata's five-page characteristic PDF on 2026-09-19, resolving the HTTP 403 source-access blocker. See [C32 characteristic review](c32-characteristic-review.md) for the file hash, page-by-page evidence, approximate curve readings and limits. Retain C32 provisionally; no capacitor or schematic change is required by this screening. Combined-condition capacitance, aging and actual regulator stability remain Gate A/coupon qualification items. No further owner document request or native rerun is needed for this evidence-only update.
+
+## Candidate libraries and follow-on screening
+
+The 2026-09-20 [shared package audit](input-protection-library-audit.md) adds unplaced TPS259472ARPWR/TPS259474ARPWR candidates, including their distinct copper/stencil geometry. The screening tool now reports PGTH leakage corners, PG startup-level limitations, fixed-clamp headroom and an ILM threshold counterexample. Neither candidate is selected; no protected-input bridge is captured.

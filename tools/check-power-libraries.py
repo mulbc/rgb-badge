@@ -23,6 +23,24 @@ PROJECT = Path(__file__).resolve().parents[1] / "hardware" / "coupon" / "rev-a"
 FP_PREFIX = "rgb-badge-coupon:"
 
 PARTS = {
+    "TPS259472ARPWR": {
+        "footprint": "VQFN_TI_RPW0010A_2x2mm_HotRod",
+        "datasheet": "https://www.ti.com/lit/ds/symlink/tps25947.pdf",
+        "pins": {1: ("EN/UVLO", "input"), 2: ("OVCSEL", "input"),
+                 3: ("PG", "open_collector"), 4: ("PGTH", "input"),
+                 5: ("IN", "power_in"), 6: ("OUT", "power_out"),
+                 7: ("DVDT", "output"), 8: ("GND", "power_in"),
+                 9: ("ILM", "output"), 10: ("ITIMER", "output")},
+    },
+    "TPS259474ARPWR": {
+        "footprint": "VQFN_TI_RPW0010A_2x2mm_HotRod",
+        "datasheet": "https://www.ti.com/lit/ds/symlink/tps25947.pdf",
+        "pins": {1: ("EN/UVLO", "input"), 2: ("OVLO", "input"),
+                 3: ("PG", "open_collector"), 4: ("PGTH", "input"),
+                 5: ("IN", "power_in"), 6: ("OUT", "power_out"),
+                 7: ("DVDT", "output"), 8: ("GND", "power_in"),
+                 9: ("ILM", "output"), 10: ("ITIMER", "output")},
+    },
     "TPS70933DBVR": {
         "footprint": "SOT23_TI_DBV0005A",
         "datasheet": "https://www.ti.com/lit/ds/symlink/tps709.pdf",
@@ -741,6 +759,43 @@ def check_adg_footprint(project):
 
 
 
+def check_rpw_footprint(project):
+    """TI 4225183/A, sheets 2/3: compound corner copper and distinct paste."""
+    root = footprint(project, 'VQFN_TI_RPW0010A_2x2mm_HotRod')
+    # Explicit independent transcription: n,x,y,w,h,layer group.
+    copper = [
+        ('1','-.9','-.7','.6','.3'), ('1','-.725','-.875','.25','.65'),
+        ('2','-.9','-.225','.6','.25'), ('3','-.9','.225','.6','.25'),
+        ('4','-.9','.7','.6','.3'), ('4','-.725','.875','.25','.65'),
+        ('5','-.25','0','.3','2.4'), ('6','.25','0','.3','2.4'),
+        ('7','.9','.7','.6','.3'), ('7','.725','.875','.25','.65'),
+        ('8','.9','.225','.6','.25'), ('9','.9','-.225','.6','.25'),
+        ('10','.9','-.7','.6','.3'), ('10','.725','-.875','.25','.65'),
+    ]
+    stencil = [
+        ('-.9','-.6875','.6','.275'), ('-.7125','-.875','.225','.65'),
+        ('-.9','.6875','.6','.275'), ('-.7125','.875','.225','.65'),
+        ('.9','.6875','.6','.275'), ('.7125','.875','.225','.65'),
+        ('.9','-.6875','.6','.275'), ('.7125','-.875','.225','.65'),
+        ('-.25','-.63','.28','1.06'), ('-.25','.63','.28','1.06'),
+        ('.25','-.63','.28','1.06'), ('.25','.63','.28','1.06'),
+    ]
+    actual = Counter((p[1], *pad_position(p), *pad_size(p), tuple(pad_layers(p)))
+                     for p in children(root,'pad'))
+    expected = Counter()
+    for n,x,y,w,h in copper:
+        layers = ('F.Cu','F.Paste','F.Mask') if n in ('2','3','8','9') else ('F.Cu','F.Mask')
+        expected[(n,*dec((x,y,w,h)),layers)] += 1
+    for x,y,w,h in stencil:
+        expected[('',*dec((x,y,w,h)),('F.Paste',))] += 1
+    require(actual == expected, 'RPW copper/stencil geometry or pad identity mismatch')
+    check_replacement_geometry(root, ('1','1'), ('1.45','1.45'), ('-1.4','-1.4'))
+    # Copper has 10 electrical pads, not an additional exposed ground pad.
+    for mpn in ('TPS259472ARPWR','TPS259474ARPWR'):
+        require(PARTS[mpn]['pins'][5][0] == 'IN' and PARTS[mpn]['pins'][6][0] == 'OUT',
+                'RPW central rails are IN/OUT, not thermal ground')
+
+
 def check_libraries(project=PROJECT):
     for name in sorted({part["footprint"] for part in PARTS.values()}):
         check_copper_separation(footprint(project, name))
@@ -754,6 +809,7 @@ def check_libraries(project=PROJECT):
     check_dsj_footprint(project)
     check_t822_footprint(project)
     check_adg_footprint(project)
+    check_rpw_footprint(project)
     return symbols
 
 
@@ -764,6 +820,7 @@ def main():
     try:
         check_libraries(args.project_dir)
         print("Power library checks passed:")
+        print("- TPS259472/474 candidates: distinct pin-2 functions, ten RPW electrical pads, compound corners and segmented stencil")
         print("- ADG4612 candidate: 17 pins including EP 0; project-derived CP-16-22 lands, not approved for assembly")
         print("- permission libraries: 32 gate/supervisor pins plus 6 dual-Schmitt pins; DBV5/DBV6 geometry")
         print("- BQ24074/BQ24392/TS3USB31E: 35 pins, RGT/RSE lands, narrow middle pads, 0.05-mm corner radii")

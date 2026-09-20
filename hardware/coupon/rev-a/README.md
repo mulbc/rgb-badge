@@ -6,6 +6,8 @@
 
 **Follow-on draft:** [ADR 0014](../../../docs/decisions/0014-usb-voltage-envelope-and-logic-ldo.md) changes U29 to TPS70933DBVR and intentionally opens EN. Counts remain 396 items / 1,492 pins; libraries are now 47 symbols / 27 footprints. This change has not passed native review. Batch it with the next input-stage checkpoint; [source audit and screening](usb-input-protection-screening.md).
 
+**Candidate input libraries:** [RPW0010A audit](input-protection-library-audit.md) adds TPS259472ARPWR and TPS259474ARPWR, neither placed or selected. Current exports: 49 symbols / 28 footprints. Circuit counts are unchanged; native review will be batched.
+
 Status: matrix, driver, row-stage and controller staged electrical reviews passed; power-library copper/stencil/heading corrections passed native review at `3638b1d`. The row-page readability repair passed [native review at `91ef697`](../../../docs/development/layout-review-91ef697.md), and the USB4505 candidate library passed [native rendering review at `bf1627c`](../../../docs/development/usb-connector-review-bf1627c.md). Remaining power capture and independent Gate A verification are pending; not safe to fabricate. See the [finding record](../../../docs/development/power-library-review-c84f8ce.md).
 
 ## Purpose

@@ -18,6 +18,10 @@ The fixed ILIM uses the audited 3.65k/3.48k precision pair permanently in parall
 
 [ADR 0014](docs/decisions/0014-usb-voltage-envelope-and-logic-ldo.md) corrects the normal USB upper boundary to 5.5 V. U29 now uses TPS70933DBVR with EN intentionally open; source totals remain 396 items / 1,492 logical pins, libraries 47 symbols / 27 footprints. Native review is pending and will be batched with the functional input section. The prior 12a134f review applies to the preceding U29 circuit. [Protection screening](hardware/coupon/rev-a/usb-input-protection-screening.md) has a calculated OVLO window, but no selected/captured protection IC or transient closure. No user rerun is requested for this intermediate checkpoint. All 147 host tests passed. The owner supplied the exact-family Murata characteristic PDF; [C32 screening](hardware/coupon/rev-a/c32-characteristic-review.md) supports retaining the capacitor in the draft. The source-access blocker is closed; combined bias/temperature/aging limits and bench stability remain qualification items, not another immediate document request.
 
+## Input-protection library checkpoint (2026-09-20)
+
+Two unplaced TPS25947 candidates now share an audited RPW0010A library: [audit and electrical findings](hardware/coupon/rev-a/input-protection-library-audit.md). Libraries contain **49 symbols / 28 footprints**, while the schematic remains 396 items / 1,492 pins. The 472 clamp/active-limit variant could remove the OV divider now that U29 has wider input tolerance, but neither variant is selected. PG startup levels and the low end of the current threshold prevent treating nominal settings as qualification. Native library/U29 review stays batched with the functional input increment; no owner action yet.
+
 ## Current state
 
 - Requirements interview: complete.

@@ -39,7 +39,37 @@ def screening():
     ov = divider_bounds('37400', '10000', rising, leakage, '.01')
     recovery = divider_bounds('37400', '10000', falling, leakage, '.01')
     legacy = divider_bounds('34620', '10000', rising, leakage, '.002')
+    pg_rise = divider_bounds('27400', '10000', rising, ('-0.0000001', '0.0000003'), '.01')
+    pg_fall = divider_bounds('27400', '10000', falling, ('-0.0000001', '0.0000003'), '.01')
     return {
+        'power_good_screen': {
+            'monitored_rail': 'protected output, not connector VBUS',
+            'divider_nominal_ohm': ['27400', '10000'],
+            'rising_v': list(map(str, pg_rise)),
+            'falling_v': list(map(str, pg_fall)),
+            'pg_off_max_v_at_specified_pullups': '1',
+            'receiver_vt_minus_min_at_3v_only': '0.8',
+            'direct_off_level_guaranteed_low_at_3v': D('1') < D('0.8'),
+            'full_supply_range_or_transient_qualified': False,
+        },
+        'fixed_clamp_alternative': {
+            'candidate': 'TPS259472ARPWR',
+            'selection': 'NOT_SELECTED',
+            'ovcsel': 'open',
+            'clamp_threshold_v': ['5.25', '6.2'],
+            'clamped_output_v_at_10ma': ['5.0', '6.12'],
+            'u34_operating_max_v': '6.5',
+            'threshold_to_u34_headroom_v': str(D('6.5')-D('6.2')),
+            'removed_ov_divider_resistors_if_selected': 2,
+            'transient_qualified': False,
+        },
+        'current_threshold_example': {
+            'rilm_ohm_table_test_value': '3320',
+            'trip_or_limit_a': ['0.850', '1.150'],
+            'charger_ceiling_a': '0.9753',
+            'guarantees_charger_ceiling_without_limiting_or_trip': D('0.850') > D('0.9753'),
+            'includes_resistor_tolerance': False,
+        },
         'status': 'SCREENING_ONLY_NOT_CAPTURED',
         'source_normal_max_v': '5.5',
         'candidate': 'TPS259474ARPWR',
