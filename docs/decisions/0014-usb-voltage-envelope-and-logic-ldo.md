@@ -2,7 +2,7 @@
 
 # ADR 0014: Correct the USB voltage envelope and widen logic-supply headroom
 
-- Status: engineering decision implemented in the draft; native review and input-stage qualification pending
+- Status: engineering decision implemented in the draft; native U29 review accepted at bad43fa; input-stage qualification pending
 - Date: 2026-09-19
 - Retains: ADR 0013 source-current policy, OFF charging, fixed current ceilings and independent Gate A
 - Changes: USB-only U29 regulator and its enable connection; no change to the application regulator

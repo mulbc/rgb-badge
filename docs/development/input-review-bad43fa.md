@@ -26,3 +26,9 @@ Native SVGs were rasterized on a white background for inspection; the original S
 ## Result and remaining work
 
 Accept the U29 native capture and candidate symbol/copper/paste rendering checkpoint. No additional owner run is needed for this documentation-only acceptance. The candidate package still needs clear final assembly numbering and assembler stencil/process review. Protection-variant selection, PG/startup behavior, physical charger standby, remaining power capture and independent Gate A remain open. PR #8 stays draft.
+
+## Derived numbering follow-up, 2026-09-24
+
+The RPW profile of `number-footprint-review.py` was applied directly to this bundle's native fabrication SVG and rasterized on white for visual inspection. It validates exactly two glyphs each for compound pads 1/4/7/10 and one for every other pad. It removes numeric glyphs in the derived copy, then overlays the first unchanged source glyph per electrical pad with a white halo. All copper/body geometry stays in place; no pad identity is inferred from position. The ten pad numbers are now distinct and readable, including separate central IN 5 and OUT 6.
+
+This closes the footprint-review numbering finding using existing evidence, without another owner KiCad run. Original exports remain unchanged and their SHA-256 is embedded in each derived copy. The wrapper will include this third numbered view in future bundles. Final board assembly documentation and assembler stencil review remain release tasks. Regression tests cover preserved geometry/glyph identity, wrong multiplicities, changed SVG structures, no-overwrite behavior and wrapper integration.

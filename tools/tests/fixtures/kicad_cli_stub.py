@@ -8,14 +8,19 @@ import sys
 import xml.etree.ElementTree as ET
 
 
-def fabrication_svg():
+def fabrication_svg(profile="led"):
     # Minimal KiCad-shaped text structure for wrapper/overlay tests. The paths
     # are deliberately dummy strokes, not a real LED footprint or digit font.
     groups = "".join(
         f'<g style="fill:none;stroke:#000000;stroke-width:0.012500;stroke-linecap:round">'
         f'<g class="stroked-text"><desc>{number}</desc>'
         f'<path d="M{x} {y} L{x + 0.1} {y + 0.15}"/></g></g>'
-        for number, x, y in ((1, 1.3, 0.4), (2, 1.3, 1.3), (3, 0.4, 1.3), (4, 0.4, 0.4))
+        for number, x, y in (
+            ((1, 1.3, 0.4), (2, 1.3, 1.3), (3, 0.4, 1.3), (4, 0.4, 0.4))
+            if profile == "led" else
+            tuple((n, n / 10, copy / 10) for n in range(1, 11)
+                  for copy in range(2 if n in (1, 4, 7, 10) else 1))
+        )
     )
     return (
         '<svg xmlns="http://www.w3.org/2000/svg" width="2.000000mm" '
@@ -389,7 +394,7 @@ def main():
             continue
         svg = '<svg xmlns="http://www.w3.org/2000/svg"><desc>Test stub, not a KiCad render</desc></svg>\n'
         if stage == "fabrication":
-            svg = fabrication_svg()
+            svg = fabrication_svg("rpw" if "RPW0010A" in name else "led")
             if os.environ.get("RGB_BADGE_TEST_BAD_LABELS") == "1":
                 svg = svg.replace('<desc>4</desc>', '<desc>3</desc>')
         if target and os.environ.get("RGB_BADGE_TEST_EMPTY") == "1":

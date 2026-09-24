@@ -16,7 +16,7 @@ Exact `TPS70933DBVR`, [TI SBVS186H](https://www.ti.com/lit/ds/symlink/tps709.pdf
 | 4 | NC | No-connect |
 | 5 | OUT | +3V3_USB |
 
-DBV lands match the existing pattern: 1.1 × 0.6 mm, row centres ±1.3 mm, 0.95 mm pin pitch, 0.05 mm corner radius. No footprint changes. Symbol geometry retains existing U29 heading spacing. Native export is pending. TI's exact-part page lists ACTIVE; its public inventory response is ambiguous with login-required fields, so no stock quantity or purchase recommendation is recorded.
+DBV lands match the existing pattern: 1.1 × 0.6 mm, row centres ±1.3 mm, 0.95 mm pin pitch, 0.05 mm corner radius. No footprint changes. Symbol geometry retains existing U29 heading spacing. Native U29 review passed at bad43fa; see [evidence](../../../docs/development/input-review-bad43fa.md). TI's exact-part page lists ACTIVE; its public inventory response is ambiguous with login-required fields, so no stock quantity or purchase recommendation is recorded.
 
 ## Protection screening
 

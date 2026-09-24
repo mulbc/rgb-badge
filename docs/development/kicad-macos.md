@@ -63,14 +63,14 @@ RGB_BADGE_KICAD_CHECK_OUTPUT=hardware/coupon/rev-a/build/led-library-review ./to
 open hardware/coupon/rev-a/build/led-library-review
 ```
 
-The `build` directory is ignored by Git. With the USB4505 candidate library, the current check requires 46 controlled-symbol SVGs and 27 footprint SVGs in each applicable raw view, then creates two derived numbered LED review copies:
+The `build` directory is ignored by Git. With the USB4505 candidate library, the current check requires 49 controlled-symbol SVGs and 28 footprint SVGs in each applicable raw view, then creates three derived numbered review copies (two LEDs and the RPW candidate):
 
 | Output folder | What to look for |
 |---|---|
 | `symbols/` | All 46 controlled symbols. For the LEDs, confirm readable, separated `R_K`, `G_K`, `B_K` and `A` labels; `D?` is an unassigned component reference, not an error. Review the controller and USB4505 items using the checklists below. |
 | `footprints/fabrication/` | Twenty-seven unchanged raw KiCad views: outlined pads, body outlines, silkscreen and courtyards. LED body strokes may cross the small pad numbers. These outlines are not copper connections. |
-| `footprints/numbered/` | Two derived review copies with the original pad-number glyphs overlaid on white halos. Use these for readable pad identification; use the raw views and source files for geometry inspection. |
-| `footprints/copper/` | Twenty-seven copper-only views. The two LEDs must each have four separate solid pads and no connecting lines. Pad numbers are intentionally absent; identify LED pads in the numbered views. |
+| `footprints/numbered/` | Three derived review copies with the original pad-number glyphs overlaid on white halos; RPW duplicate corner numerals are removed only in the derived view. Use these for readable pad identification; use the raw views and source files for geometry inspection. |
+| `footprints/copper/` | Twenty-eight copper-only views. The two LEDs must each have four separate solid pads and no connecting lines. Pad numbers are intentionally absent; identify LED pads in the numbered views. |
 | `footprints/paste/` | Twenty-seven paste-only views. Parts without paste apertures may export an otherwise empty drawing; the USB4505 signal lands should have paste while its four shell slots should not. KiCad still outlines the four drilled slots in this plot; these unfilled outlines are not stencil openings. |
 | `footprints/mechanical/` | Twenty-seven `F.Fab,Dwgs.User` views. For USB4505, inspect the dashed datum guide and its explicit unqualified-cutout warning; these lines are not `Edge.Cuts`. |
 | `coupon-schematic.pdf` | Root, four matrix pages, driver, row selector, controller, USB conditioning/supervisor, permission and USB interface. Inspect all eleven actual KiCad pages for label collisions and wiring clarity. |

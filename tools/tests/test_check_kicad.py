@@ -44,7 +44,7 @@ class CheckKiCadWrapperTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         self.assertEqual(len(list((self.output / "symbols").glob("*.svg"))), 49)
         for view in ("fabrication", "copper", "paste", "numbered", "mechanical"):
-            self.assertEqual(len(list((self.output / "footprints" / view).glob("*.svg"))), 2 if view == "numbered" else 28)
+            self.assertEqual(len(list((self.output / "footprints" / view).glob("*.svg"))), 3 if view == "numbered" else 28)
         self.assertTrue((self.output / "coupon-erc.rpt").is_file())
         self.assertTrue((self.output / "coupon-matrix.xml").is_file())
         self.assertTrue((self.output / "coupon-schematic.pdf").is_file())

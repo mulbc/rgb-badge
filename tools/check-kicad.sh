@@ -242,6 +242,10 @@ for footprint_name in LED_Everlight_EAST10105RGBA0 LED_QTBrightek_QBLP1515A-RGB2
         "${footprint_numbered_dir}/${footprint_name}.svg"
 done
 
+python3 "${numbered_review}" --profile rpw \
+    "${footprint_fab_dir}/VQFN_TI_RPW0010A_2x2mm_HotRod.svg" \
+    "${footprint_numbered_dir}/VQFN_TI_RPW0010A_2x2mm_HotRod.svg"
+
 "${kicad_cli}" sch erc \
     --severity-all \
     --output "${check_tmp_dir}/coupon-erc.rpt" \
