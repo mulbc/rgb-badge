@@ -51,3 +51,7 @@ Two exact symbols and one footprint added: **49 symbols / 28 footprints per raw 
 All **150 host tests passed** on 2026-09-20; whitespace checks passed. No native KiCad evidence is claimed for the new library.
 
 Native review of these libraries and U29 is pending and will be batched with a functional input-stage checkpoint. Remaining design work is selection of the protection response and exact divider/current/slew components, PG/startup conditioning, physical charger standby, complete-port inrush and transient/thermal verification. Gate A remains mandatory.
+
+## Native follow-up
+
+Owner KiCad 10.0.6 exports at bad43fa passed the [native review](../../../docs/development/input-review-bad43fa.md): configured zero ERC violations, complete connectivity and U29/candidate symbol/copper/paste inspection. Compound corner numerals overlap in the combined fabrication view; clear final assembly numbering remains open. Neither protection candidate is selected or placed. Earlier pending statements describe the source-only checkpoint.

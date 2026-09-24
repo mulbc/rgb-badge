@@ -20,7 +20,7 @@ The fixed ILIM uses the audited 3.65k/3.48k precision pair permanently in parall
 
 ## Input-protection library checkpoint (2026-09-20)
 
-Two unplaced TPS25947 candidates now share an audited RPW0010A library: [audit and electrical findings](hardware/coupon/rev-a/input-protection-library-audit.md). Libraries contain **49 symbols / 28 footprints**, while the schematic remains 396 items / 1,492 pins. The 472 clamp/active-limit variant could remove the OV divider now that U29 has wider input tolerance, but neither variant is selected. PG startup levels and the low end of the current threshold prevent treating nominal settings as qualification. Native library/U29 review stays batched with the functional input increment; no owner action yet.
+Two unplaced TPS25947 candidates now share an audited RPW0010A library: [audit and electrical findings](hardware/coupon/rev-a/input-protection-library-audit.md). Libraries contain **49 symbols / 28 footprints**, while the schematic remains 396 items / 1,492 pins. The 472 clamp/active-limit variant could remove the OV divider now that U29 has wider input tolerance, but neither variant is selected. PG startup levels and the low end of the current threshold prevent treating nominal settings as qualification. Owner KiCad 10.0.6 at bad43fa passed configured zero-violation ERC, full native XML and first-author U29/candidate geometry review; see [evidence](docs/development/input-review-bad43fa.md). Compound-pad numbering in the combined fabrication view needs a clearer final assembly drawing. No owner rerun is needed for this acceptance.
 
 ## Current state
 
