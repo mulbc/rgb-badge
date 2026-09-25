@@ -42,6 +42,15 @@ class InputProtectionTests(unittest.TestCase):
         self.assertLess(D('5.0'), low)
         self.assertGreater(D('5.5'), high)
 
+    def test_wider_ovlo_example_still_needs_transient_proof(self):
+        s = CHECK['screening']()['wider_ovlo_example']
+        rise_low, rise_high = map(D, s['rising_v'])
+        fall_low, _ = map(D, s['falling_v'])
+        self.assertGreater(rise_low - D('5.5'), D('0.1'))
+        self.assertLess(rise_high, D('6.1'))
+        self.assertLess(D('5.0'), fall_low)
+        self.assertFalse(s['transient_qualified'])
+
     def test_pg_leakage_is_asymmetric_and_not_ovlo_leakage(self):
         a=CHECK['divider_bounds']('27400','10000',('1.183','1.223'),('-0.0000001','0.0000003'),'.01')
         b=CHECK['divider_bounds']('27400','10000',('1.183','1.223'),('-0.0000001','0.0000001'),'.01')

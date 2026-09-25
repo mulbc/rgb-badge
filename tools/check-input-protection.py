@@ -38,6 +38,8 @@ def screening():
     # ±1% is TOTAL error, not permission to use an unqualified 1% resistor.
     ov = divider_bounds('37400', '10000', rising, leakage, '.01')
     recovery = divider_bounds('37400', '10000', falling, leakage, '.01')
+    wider_ov = divider_bounds('38300', '10000', rising, leakage, '.01')
+    wider_recovery = divider_bounds('38300', '10000', falling, leakage, '.01')
     legacy = divider_bounds('34620', '10000', rising, leakage, '.002')
     pg_rise = divider_bounds('27400', '10000', rising, ('-0.0000001', '0.0000003'), '.01')
     pg_fall = divider_bounds('27400', '10000', falling, ('-0.0000001', '0.0000003'), '.01')
@@ -75,6 +77,15 @@ def screening():
         'candidate': 'TPS259474ARPWR',
         'candidate_ov_trip_v': list(map(str, ov)),
         'candidate_ov_recovery_v': list(map(str, recovery)),
+        'wider_ovlo_example': {
+            'selection': 'NOT_SELECTED',
+            'divider_nominal_ohm': ['38300', '10000'],
+            'rising_v': list(map(str, wider_ov)),
+            'falling_v': list(map(str, wider_recovery)),
+            'normal_5v5_static_margin_min_v': str(wider_ov[0]-D('5.5')),
+            'u34_6v5_static_gap_at_max_trip_v': str(D('6.5')-wider_ov[1]),
+            'transient_qualified': False,
+        },
         'narrow_window_ov_trip_v': list(map(str, legacy)),
         'narrow_window_accepts_5v5': legacy[0] > D('5.5'),
         'candidate_static_window_passes': ov[0] > D('5.5') and ov[1] < D('6.0'),
