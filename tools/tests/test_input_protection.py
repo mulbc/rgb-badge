@@ -34,6 +34,14 @@ class InputProtectionTests(unittest.TestCase):
         lo, hi=CHECK['divider_bounds']('37400','10000',('1.183','1.223'),('-0.0000001','0.0000001'),'.02')
         self.assertLess(lo,D('5.5'))
 
+    def test_ovlo_recovery_is_evaluated_against_falling_threshold(self):
+        # Once OVLO trips, VBUS must fall BELOW the falling threshold to recover.
+        # At a steady 5.0 V every screened corner permits recovery; at 5.5 V
+        # none guarantees it. This does not bound response time or noise.
+        low, high = map(D, CHECK['screening']()['candidate_ov_recovery_v'])
+        self.assertLess(D('5.0'), low)
+        self.assertGreater(D('5.5'), high)
+
     def test_pg_leakage_is_asymmetric_and_not_ovlo_leakage(self):
         a=CHECK['divider_bounds']('27400','10000',('1.183','1.223'),('-0.0000001','0.0000003'),'.01')
         b=CHECK['divider_bounds']('27400','10000',('1.183','1.223'),('-0.0000001','0.0000001'),'.01')
