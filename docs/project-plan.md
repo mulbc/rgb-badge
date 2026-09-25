@@ -4,11 +4,11 @@
 
 Status: agreed design baseline and staged execution plan
 Date: 2026-09-05
-Project phase: simplified Type-C-only logic passed native review at 12a134f; subsequent U29 voltage-headroom correction is source-checked and awaits a batched native input-stage review. Input protection, physical standby, charger, converters/gauges and layout remain unfinished.
+Project phase: simplified Type-C-only logic passed native review at 12a134f; the subsequent U29 voltage-headroom correction and candidate eFuse libraries passed first-author native review at bad43fa. Input protection, physical standby, charger, converters/gauges and layout remain unfinished.
 
 ## Current amendment: simpler charging
 
-[ADR 0013](decisions/0013-type-c-only-fixed-current-charging.md), accepted 2026-09-18, supersedes the BC1.2/SDP charging and switched-current descriptions below. Only Type-C sources advertising 1.5 A/3 A charge, using one fixed current limit. USB-A/default sources support battery-powered data while ON, with no guaranteed depleted-battery recovery. OFF charging and charge-through operation remain. The three USB sheets passed the combined native review at 12a134f. [ADR 0014](decisions/0014-usb-voltage-envelope-and-logic-ldo.md) subsequently changes U29; that source change awaits the next batched native checkpoint. Historical sections below are design history wherever they conflict with ADR 0013.
+[ADR 0013](decisions/0013-type-c-only-fixed-current-charging.md), accepted 2026-09-18, supersedes the BC1.2/SDP charging and switched-current descriptions below. Only Type-C sources advertising 1.5 A/3 A charge, using one fixed current limit. USB-A/default sources support battery-powered data while ON, with no guaranteed depleted-battery recovery. OFF charging and charge-through operation remain. The three USB sheets passed the combined native review at 12a134f. [ADR 0014](decisions/0014-usb-voltage-envelope-and-logic-ldo.md) subsequently changes U29; its [native review](development/input-review-bad43fa.md) passed. The [pack screen](sourcing/pack-screen-2026-09-25.md) found that the current ISET charge ceiling exceeds all three documented pack candidates' charge ratings. Historical sections below are design history wherever they conflict with ADR 0013 or current pack evidence.
 
 ## 1. Outcome
 
@@ -57,7 +57,7 @@ This is feasible, with one qualification: six hours cannot apply to arbitrary co
 
 - A real slide switch controls the operating state. It controls regulator enables rather than carrying the complete LED current through a tiny mechanical contact.
 - Switch OFF removes power from the display and battery-powered application electronics. Battery gauging remains available.
-- While OFF, a positively identified BC1.2 charging source or Type-C 1.5 A/3 A source can charge autonomously. An SDP, default-only or unclassified source remains in charger standby. USB data is available only when the slide switch is ON.
+- While OFF, a Type-C source advertising 1.5 A/3 A can charge autonomously after hardware qualification. USB-A and default-current Type-C sources do not charge. USB data is available only when the slide switch is ON.
 - The badge can operate while charging. The charger gives the system load priority and allocates remaining input power to the battery.
 - There is no ambient light sensor and no content-dependent dimming.
 - Firmware may blank the display on undervoltage, overtemperature or a detected electrical fault. That is a safety shutdown, not automatic brightness control.
@@ -81,8 +81,8 @@ This is feasible, with one qualification: six hours cannot apply to arbitrary co
 ```mermaid
 flowchart TD
     USB["USB-C 5 V + USB 2.0"] --> CC["Type-C detection and ESD"]
-    CC --> DET["BC1.2 detector and data switch"]
-    DET --> CHG["BQ24074 charger and PowerPath"]
+    CC --> PROT["Protected input and permission: pending"]
+    PROT --> CHG["BQ24074 charger and PowerPath"]
     BAT["Protected 1-cell LiPo + NTC"] <--> CHG
     CHG --> SYS["System/battery rail"]
     SYS --> P33["3.3 V buck-boost"]
@@ -262,13 +262,15 @@ After electrical validation, a final shell can use snaps/adhesive and rear-side 
 | Assembly | Design allocation |
 |---|---:|
 | Complete populated PCB | ≤18 g |
-| Protected 900 mAh pack, lead and connector | ≤21 g |
+| Protected pack, lead and connector | ≤21 g stretch allocation |
 | Printed shell and diffuser | ≤18 g |
 | Two magnets and garment backer | ≤15 g |
 | Antenna, screws, gasket and adhesive | ≤3 g |
 | **Target total** | **≤75 g** |
 
 A 106 × 32.5 × 1.0 mm FR-4 substrate is approximately 6.4 g before copper and components, so the allocation is realistic. Every physical revision is weighed; the 100 g limit is a hard stop, not a goal.
+
+The stretch allocation is **not met by the screened GlobTek packs on paper**: the documented 700 mAh pack weighs about 22 g and the 800 mAh pack about 30 g. Recalculate the complete weight and measured runtime with the exact selected pack; the 100 g maximum remains controlling.
 
 ## 5. Runtime model
 
@@ -570,7 +572,7 @@ Keep the independent review outside this build allocation, as agreed. Obtain its
 - Exact 1010 and 1515 MPNs locked; project-local footprints, polarity, tape orientation and optical bins independently checked.
 - Battery cell/terminated-pack drawing and electrical limits obtained.
 - Schematic ERC clean and power tree reviewed.
-- BQ24392/TUSB320 classification, two-stage BQ24392/TS3USB31E native-data switching, fail-safe BQ24074 mode truth table and SDP configuration/suspend behavior proven by design review.
+- TUSB320 Type-C 1.5 A/3 A classification, protected input, TS3USB31E native-data isolation, fixed BQ24074 current and fail-safe charging permission proven by design review for switch ON/OFF, USB-A/default-current, source transitions, and suspend.
 - Converter calculations and layouts checked against manufacturer guidance.
 - Coupon PCB DRC and vendor DFM clean.
 - Independent electronics engineer reviews LiPo charging, high-current LED rail, USB-C and PCB layout.
