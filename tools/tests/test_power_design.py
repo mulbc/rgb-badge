@@ -13,6 +13,27 @@ CHECK = runpy.run_path(str(Path(__file__).resolve().parents[1] / "check-power-de
 
 
 class PowerDesignTests(unittest.TestCase):
+    def test_pack_charge_limit_checks_the_high_corner(self):
+        for resistance, limit in (("1500", "700"), ("2490", "400")):
+            with self.subTest(resistance=resistance):
+                low, _, high = CHECK['screen_pack_charge'](resistance, limit)
+                self.assertLess(high * 1000, D(limit))
+                self.assertLess(low, high)
+        for resistance, limit in (("1130", "700"), ("1500", "400"), ("2400", "400")):
+            with self.subTest(resistance=resistance, limit=limit), self.assertRaisesRegex(ValueError, "Pack charge limit"):
+                CHECK['screen_pack_charge'](resistance, limit)
+
+    def test_pack_charge_rejects_invalid_or_partial_limits(self):
+        for resistance, limit in (("NaN", "700"), ("1500", "Infinity"),
+                                  ("0", "700"), ("1500", "-1"), ("9000", "700")):
+            with self.subTest(resistance=resistance, limit=limit), self.assertRaises(ValueError):
+                CHECK['screen_pack_charge'](resistance, limit)
+        script = Path(__file__).resolve().parents[1] / "check-power-design.py"
+        result = subprocess.run([sys.executable, str(script), "--pack-max-charge-ma", "700"],
+                                capture_output=True, text=True)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("Supply both", result.stderr)
+
     def test_actuator_shared_rail_corner_and_ron_envelope(self):
         result = CHECK['actuator_supply_screen']()
         self.assertEqual(result['charger_fall_min_v'], D('2.9'))

@@ -28,7 +28,7 @@ Two unplaced TPS25947 candidates now share an audited RPW0010A library: [audit a
 
 ## Pack-current finding, 2026-09-25
 
-[Candidate pack screen](docs/sourcing/pack-screen-2026-09-25.md) identifies a protected, NTC-equipped 700 mAh GlobTek pouch stocked by a US distributor and an 800 mAh version with its own fuel gauge. Both physically fit the rectangular envelope on paper. Their documented maximum charge currents of 700 mA and 400 mA are lower than the draft 872 mA ISET ceiling; neither can be substituted into the current charger design. The 700 mAh drawing also needs exact-part and NTC curve confirmation. No pack is selected and no order is authorized.
+[Candidate pack screen](docs/sourcing/pack-screen-2026-09-25.md) identifies a protected, NTC-equipped 700 mAh GlobTek pouch stocked by a US distributor and an 800 mAh version with its own fuel gauge. Both physically fit the rectangular envelope on paper. Their documented maximum charge currents of 700 mA and 400 mA are lower than the draft 872 mA ISET ceiling; neither can be substituted into the current charger design. The 700 mAh pack is at best a coupon candidate: the full-badge 2.49 W white-pattern model implies 0.83 A at 3.0 V, above its 0.70 A continuous discharge rating. Its drawing also needs exact-part and NTC curve confirmation. No pack is selected and no order is authorized.
 
 ## Current state
 

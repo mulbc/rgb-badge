@@ -29,6 +29,23 @@ def bounded_ratio(constant_min, constant_max, resistance, tolerance):
     )
 
 
+def screen_pack_charge(resistance_ohm, pack_max_ma):
+    """Reject a draft BQ24074 ISET setting above a documented pack limit.
+
+    This tests the *maximum* under the retained total resistor-error budget,
+    not nominal current. It cannot validate a pack's NTC, temperature or PCM.
+    """
+    resistor, limit_ma = D(resistance_ohm), D(pack_max_ma)
+    if (not resistor.is_finite() or not limit_ma.is_finite() or
+            not D('590') <= resistor * (1-PRECISION['TOTAL_ERROR']) or
+            resistor * (1+PRECISION['TOTAL_ERROR']) > D('8900') or limit_ma <= 0):
+        raise ValueError('Invalid ISET resistance or pack charge limit')
+    result = bounded_ratio('797', '975', resistor, PRECISION['TOTAL_ERROR'])
+    if result[2] * 1000 > limit_ma:
+        raise ValueError(f'Pack charge limit {limit_ma} mA below calculated maximum {result[2]*1000:.2f} mA')
+    return result
+
+
 def parallel(a, b):
     a, b = D(a), D(b)
     return a * b / (a + b)
@@ -252,8 +269,12 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--require-usb-closure", action="store_true",
                         help="Fail while USB/input circuit blockers remain; arithmetic success is insufficient")
+    parser.add_argument('--candidate-iset-ohm', help='Evaluate a proposed, not selected, ISET value')
+    parser.add_argument('--pack-max-charge-ma', help='Documented maximum charge current for that exact pack')
     args = parser.parse_args()
     try:
+        if (args.candidate_iset_ohm is None) != (args.pack_max_charge_ma is None):
+            raise ValueError('Supply both the candidate ISET value and exact pack charge limit')
         value = check()
         runpy.run_path(str(Path(__file__).with_name('check-usb-permission.py')))['check']()
         print("ADR 0013 fixed-current power calculations passed:")
@@ -262,6 +283,9 @@ def main():
         print("- only qualified Type-C 1.5 A / 3 A sources can request charge; no BC or firmware grant")
         print("- ±1% total resistance envelope retained; assembly/service allocation remains unqualified")
         print("- historical dual-limit calculations remain regression evidence, not the active policy")
+        if args.candidate_iset_ohm is not None:
+            low, _, high = screen_pack_charge(args.candidate_iset_ohm, args.pack_max_charge_ma)
+            print(f'- pack-current SCREEN ONLY: {low*1000:.2f}–{high*1000:.2f} mA; pack maximum {D(args.pack_max_charge_ma)} mA')
         blockers = usb_capture_blockers()
         print("USB/input capture remains BLOCKED:")
         for finding in blockers:
