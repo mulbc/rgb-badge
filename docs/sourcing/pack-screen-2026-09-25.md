@@ -26,9 +26,16 @@ There is a separate peak-load exclusion for the **full** badge: the same model e
 
 As of this screening, DigiKey displayed 1,640 units of `BL0750F5030481S1PCTC` at $11.85 for one and an 18-week manufacturer standard lead time. Stock/price are snapshots, not reservations. Do not order now; an exact pack, revised charger setting and Gate A must precede the PCB release. The battery for an **isolated development test** can be chosen separately if its charger settings are explicitly compatible.
 
+## Capacity floor and a near miss
+
+Under the same provisional 0.45 W reference load, 85% usable energy and 3.7 V nominal voltage, six hours requires at least **0.45 W × 6 h / (3.7 V × 0.85) ≈ 859 mAh** nominal capacity. This is an arithmetic floor, not a pack specification: aging, voltage sag and a measured workload may demand more. Full-white screening separately requires at least **0.83 A continuous discharge at 3.0 V**, before peak margin. A pack's PCM trip threshold cannot replace its lower continuous rating.
+
+Jauch `LP523450JU+PCM+MOLEX 51021-0300 70MM` is a US-distributor near miss. DigiKey lists 950 mAh, 34.5 mm pack width and a three-position connector. Jauch's catalogue gives **34.8 mm cell width**. That leaves only 0.2 mm inside the 35 mm *outside* case width even before walls, tolerances or swelling allowance. The manufacturer's available two-wire variant sheet states up to 1.0 A charge/discharge under specified temperature conditions, but it does not establish an NTC or the precise three-wire pack wiring. Exclude it from the current mechanical design rather than assuming that nominal capacity alone makes it a fit.
+
 ## Evidence
 
 - [GlobTek 700 mAh drawing Rev D](https://www.globtek.com/pdf/manual-datasheets/BL0750F5030481S1PCTC.pdf), pages 3 and 5, and [DigiKey listing](https://www.digikey.com/en/products/detail/globtek-inc/BL0750F5030481S1PCTC/16515787), inspected 2026-09-25.
 - [GlobTek 800 mAh drawing Rev F1](https://www.globtek.com/pdf/manual-datasheets/BL0800F5424651S1PSXH.pdf), pages 3–4, and [DigiKey listing](https://www.digikey.com/en/products/detail/globtek-inc/BL0800F5424651S1PSXH/14318830), inspected 2026-09-25.
 - [LiPol 800 mAh manufacturer page](https://www.lipobattery.us/un38-3-iec62133-msds-certified-lipo-battery-lp402480-800mah-3-7v-2-96wh-with-pcm-ntc-wires-molex-78172-0003/), inspected 2026-09-25.
+- [Jauch battery catalogue](https://www.jauch.com/en-GB/products/battery_technology/getPrm/batteries/), [two-wire variant sheet](https://www.jauch.com/downloadfile/5bf529f04a63911ea283ee57b9c7f2385/950mah_-_lp523450ju_1s1p_2_wire_70mm.pdf) and [DigiKey three-position listing](https://www.digikey.com/en/products/detail/jauch-quartz/lp523450ju-pcm-molex-51021-0300-70mm/21765435), inspected 2026-09-25. The two-wire sheet is not evidence for the three-wire pack's NTC.
 - [Existing BQ24074 programming analysis](../../hardware/coupon/rev-a/power-pre-capture.md); this screen does not redo its resistor/source verification.
