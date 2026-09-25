@@ -10,6 +10,10 @@ Keep the Type-C detector and USB logic available upstream of the permission-cont
 
 Place the eFuse between connector VBUS and **charger IN only**. Fixed charger mode would be EN1 low / EN2 high, with the unchanged permanent ILIM pair. When Type-C permission is absent, disable the eFuse. The charger then behaves as it does with USB power removed: battery operation remains available. ON data over USB-A/default-current sources remains battery-powered; qualified Type-C sources retain OFF charging and charge-through operation.
 
+### Upstream transient and capacitor blocker
+
+This placement leaves the USB-only U29 regulator and C30/C31 on the **connector side** of the switch, so eFuse cutoff does not protect those capacitors. Both are currently `GRM155C71A105KE11D`, **1 µF / 10 V**. The selected U29 has a wide input rating, but the complete upstream rail does not inherit that rating. TI's TPS25947 transient-protection guidance recommends a close input capacitor rated at least **twice the input supply voltage** to withstand positive inductive ringing. At the accepted 5.5 V normal maximum, this gives **11 V minimum by that recommendation**; the current 10 V parts fail even this simple comparison. Any replacement capacitor must be assessed for the actual connector fault/transient waveform, effective capacitance and placement; a nominal 16 V marking by itself would not establish protection. If the input switch is instead placed ahead of U29, its enable logic and Type-C detector need another safe way to boot and classify the source. There is no approved direct VBUS-to-`+5V_USB` bridge.
+
 This could eliminate the separate charger-mode sink and remove PG from the charge-permission path. It does not remove the need for verified enable defaults, source-voltage qualification or the complete-port current budget. Upstream logic consumption still comes from USB when the charger path is disabled.
 
 ## Why it is worth pursuing
@@ -38,6 +42,7 @@ These use KCL and the published threshold/leakage limits, not a circuit simulati
 Resolve these together as one functional increment, rather than generating a separate owner export for each:
 
 1. Choose the eFuse variant and exact ILM/dVdt/OVLO parts. TPS259474 retains cutoff instead of sustained clamp dissipation. TPS259472's recommended-input note limits normal operation to its selected clamp threshold, whose low corner is 5.25 V for the open setting; it cannot be presented as an unconditional pass-through at 5.5 V merely because downstream parts tolerate 6.2 V. Neither candidate is selected here.
+   The screened TPS259474 37.4k/10k OVLO divider has just **16.1 mV** between the 5.5 V normal maximum and its lowest calculated rising trip of 5.5161 V. This is a nominally positive DC comparison, not verified noise/ripple or component-drift margin. Its falling trip can be as high as 5.3779 V, so a 5.0 V source after an OV fault may require detachment/recovery rather than immediate restart. Decide the desired recovery behavior before fixing the divider.
 2. Define how both source voltage and logic validity inhibit EN. The present three-input permission expression cannot be removed without an equivalent state table and an ADR. A same-rail supervisor and eFuse intrinsic UVP alone are not automatically equivalent to the current VBUS_VALID boundary.
 3. Select the actual inhibit network with startup/off/high-level leakage and slew bounds. Remove or recalculate all existing pull-ups and Schmitt-input loads attached to its node. No floating enable or direct raw-VBUS pull-up.
 4. Strap BQ24074 EN1/EN2 with valid levels over powered/unpowered states, including input leakage and possible injection when charger IN is disconnected. Review stored input-capacitor energy during revocation; it is not continuing draw from the USB source.
@@ -47,7 +52,7 @@ No user preference is needed to perform this engineering comparison. A material 
 
 ## Controlled sources
 
-- TI TPS25947 SLVSFC9C, May 2026, sections 6.3/6.5 and 7.3: https://www.ti.com/lit/ds/symlink/tps25947.pdf. SHA-256 `8f96de389903091650d4f462dcfad3210071c3ae7093623a7978f34baf8a65b4`.
+- TI TPS25947 SLVSFC9C, May 2026, sections 6.3/6.5, 7.3 and 8.3.1 (input transient capacitor rating): https://www.ti.com/lit/ds/symlink/tps25947.pdf. SHA-256 `8f96de389903091650d4f462dcfad3210071c3ae7093623a7978f34baf8a65b4`.
 - TI TPS3808 SBVS050N, August 2026, electrical characteristics and power-up-reset footnotes: https://www.ti.com/lit/ds/symlink/tps3808.pdf. SHA-256 `74d889c0f68af88032f1633c26381817cc03e10d9fd3b4c177a044ad3ed86eed`.
 - TI BQ24074 SLUS810N, October 2021, EN1/EN2 mode table and logic electrical limits: https://www.ti.com/lit/ds/symlink/bq24074.pdf.
 - TI SN74LVC1G06 SCES295AB, October 2025, electrical table and partial-power-down conditions: https://www.ti.com/lit/ds/symlink/sn74lvc1g06.pdf.
