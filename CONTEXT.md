@@ -22,6 +22,10 @@ The fixed ILIM uses the audited 3.65k/3.48k precision pair permanently in parall
 
 Two unplaced TPS25947 candidates now share an audited RPW0010A library: [audit and electrical findings](hardware/coupon/rev-a/input-protection-library-audit.md). Libraries contain **49 symbols / 28 footprints**, while the schematic remains 396 items / 1,492 pins. The 472 clamp/active-limit variant could remove the OV divider now that U29 has wider input tolerance, but neither variant is selected. PG startup levels and the low end of the current threshold prevent treating nominal settings as qualification. Owner KiCad 10.0.6 at bad43fa passed configured zero-violation ERC, full native XML and first-author U29/candidate geometry review; see [evidence](docs/development/input-review-bad43fa.md). A derived RPW numbered review now removes duplicate corner numerals without changing geometry; the original native export remains unchanged. Final board assembly documentation is still a release task. No owner rerun is needed for this acceptance.
 
+## Next functional simplification to evaluate
+
+[Charger input gating](hardware/coupon/rev-a/charger-input-gating-assessment.md) could make the input-protection switch enforce Type-C permission, keeping the detector/logic upstream and the charger in fixed-current mode. This avoids a separate charger-mode actuator and PG receiver, but supply-domain changes, enable leakage/startup, voltage qualification and whole-port budgeting must be resolved together before an ADR/capture. The assessment provides a conditional enable-node budget and identifies why the current 10k RESET pull-up cannot be reused unchanged. No circuit or user-facing requirement changed; no owner rerun is requested.
+
 ## Current state
 
 - Requirements interview: complete.

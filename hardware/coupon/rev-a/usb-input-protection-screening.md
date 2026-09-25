@@ -43,3 +43,7 @@ The owner supplied Murata's five-page characteristic PDF on 2026-09-19, resolvin
 ## Candidate libraries and follow-on screening
 
 The 2026-09-20 [shared package audit](input-protection-library-audit.md) adds unplaced TPS259472ARPWR/TPS259474ARPWR candidates, including their distinct copper/stencil geometry. The screening tool now reports PGTH leakage corners, PG startup-level limitations, fixed-clamp headroom and an ILM threshold counterexample. Neither candidate is selected; no protected-input bridge is captured.
+
+## Charger-path gating alternative
+
+The [2026-09-24 assessment](charger-input-gating-assessment.md) evaluates using the input switch itself for charge permission, with upstream USB logic. It also records the TPS259472 recommended-input/clamp limitation; the earlier static downstream headroom calculation alone does not establish normal 5.5 V operation. This alternative is not selected or captured.
