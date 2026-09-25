@@ -26,6 +26,10 @@ Two unplaced TPS25947 candidates now share an audited RPW0010A library: [audit a
 
 [Charger input gating](hardware/coupon/rev-a/charger-input-gating-assessment.md) could make the input-protection switch enforce Type-C permission, keeping the detector/logic upstream and the charger in fixed-current mode. This avoids a separate charger-mode actuator and PG receiver, but supply-domain changes, enable leakage/startup, voltage qualification and whole-port budgeting must be resolved together before an ADR/capture. The assessment provides a conditional enable-node budget and identifies why the current 10k RESET pull-up cannot be reused unchanged. No circuit or user-facing requirement changed; no owner rerun is requested.
 
+## Pack-current finding, 2026-09-25
+
+[Candidate pack screen](docs/sourcing/pack-screen-2026-09-25.md) identifies a protected, NTC-equipped 700 mAh GlobTek pouch stocked by a US distributor and an 800 mAh version with its own fuel gauge. Both physically fit the rectangular envelope on paper. Their documented maximum charge currents of 700 mA and 400 mA are lower than the draft 872 mA ISET ceiling; neither can be substituted into the current charger design. The 700 mAh drawing also needs exact-part and NTC curve confirmation. No pack is selected and no order is authorized.
+
 ## Current state
 
 - Requirements interview: complete.
