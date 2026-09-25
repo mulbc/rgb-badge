@@ -50,10 +50,19 @@ Resolve these together as one functional increment, rather than generating a sep
 
 No user preference is needed to perform this engineering comparison. A material architecture change must be recorded before changing the canonical schematic. The current source and native acceptance remain unchanged.
 
+## Simpler fallback if upstream exposure cannot be closed
+
+Keep an always-enabled input protector **ahead of both** U29 and the charger, then control the BQ24074 standby mode with a single charge-permission sink. Unlike the eFuse-as-permission proposal, this keeps the USB logic capacitors behind the input switch and avoids asking the detector to operate from an unprotected VBUS rail. It still requires a fail-safe charger-mode actuator: EN1/EN2 both high must hold standby until qualified Type-C permission; only then may EN1 be pulled low while EN2 remains high to select the fixed ILIM setting. CE high alone is insufficient because BQ24074 still powers OUT from the input when charging is disabled.
+
+Pulling EN2 high from **BAT** would spend battery current in the charger's approximately 285 kΩ internal pull-down even with USB absent (about 15 µA at 4.2 V by nominal arithmetic), consuming a substantial fraction of the 50 µA OFF-state allowance. Powering that pull-up from the protected USB domain avoids this specific absent-USB draw, but its high level across startup, brownout and overvoltage faults needs an exact source and resistor/leakage calculation. EN1 needs an independent low-voltage sink whose guaranteed output is below the charger's 0.4 V logic-low limit across the active supply range. The existing `2N7002K-7` library does **not** establish that behavior at 3.3 V gate drive: its manufacturer bounds ON resistance at 5 V and 10 V gate drive, not at 2.5 V or 3.3 V. No actuator, pull-up or protection placement is selected by this fallback.
+
+The architecture comparison is therefore conditional: the upstream-detector eFuse option saves the EN1 actuator but incurs a second exposed VBUS domain; the whole-rail protector plus EN1 sink keeps one protected USB domain but needs actuator qualification. Compare their actual footprints, upstream leakage, startup cases and overvoltage behavior before recording a new ADR. No battery-side pull-up or raw connector bridge should be added merely to reduce the schematic part count.
+
 ## Controlled sources
 
 - TI TPS25947 SLVSFC9C, May 2026, sections 6.3/6.5, 7.3 and 8.3.1 (input transient capacitor rating): https://www.ti.com/lit/ds/symlink/tps25947.pdf. SHA-256 `8f96de389903091650d4f462dcfad3210071c3ae7093623a7978f34baf8a65b4`.
 - TI TPS3808 SBVS050N, August 2026, electrical characteristics and power-up-reset footnotes: https://www.ti.com/lit/ds/symlink/tps3808.pdf. SHA-256 `74d889c0f68af88032f1633c26381817cc03e10d9fd3b4c177a044ad3ed86eed`.
 - TI BQ24074 SLUS810N, October 2021, EN1/EN2 mode table and logic electrical limits: https://www.ti.com/lit/ds/symlink/bq24074.pdf.
 - TI SN74LVC1G06 SCES295AB, October 2025, electrical table and partial-power-down conditions: https://www.ti.com/lit/ds/symlink/sn74lvc1g06.pdf.
+- Diodes Incorporated 2N7002K DS30896 Rev. 20-2, July 2024, page 3 ON characteristics and test conditions: https://www.diodes.com/datasheet/download/2N7002K.pdf.
 - TPS709 input/capacitor scope remains controlled by ADR 0014 and the existing U29 audit.
