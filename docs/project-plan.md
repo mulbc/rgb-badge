@@ -141,7 +141,7 @@ The existing classic ESP32-WROOM-32 breadboard board can be used for content-fil
 
 The proposed input path is:
 
-1. A low-profile, mechanically anchored USB 2.0 Type-C receptacle on the right short edge. GCT USB4500/4505 is a candidate series; final selection depends on the 1.0 mm PCB variant and assembly stock.
+1. A low-profile, mechanically anchored USB 2.0 Type-C receptacle on the right short edge. The exact GCT USB4505-03-0-A candidate drawing recommends a 0.80 mm PCB; its cited 1.0 mm connector offset is a separate dimension. Board stack-up and assembly stock must be resolved before layout freeze.
 2. VBUS and USB data ESD protection close to the connector.
 3. TUSB320LAI configured as a USB device/sink in GPIO mode. It identifies attachment and whether the source advertises default, 1.5 A or 3 A current. TI documents these GPIO states in the [TUSB320LAI datasheet](https://www.ti.com/lit/gpn/TUSB320LAI).
 4. BQ24392RSER detects BC1.2 SDP/CDP/DCP and supported dedicated chargers. Its internal data switch connects only data-capable sources; `GOOD_BAT` remains high whenever VBUS is valid so a long OFF-state charge cannot expire its Dead Battery Provision timer.
@@ -228,9 +228,11 @@ No pouch cell may be clamped between screw bosses or magnets. The case includes 
 
 These are layout starting values, not permission to exceed the finished envelope. The CadQuery model and KiCad STEP export must be assembled before layout freeze.
 
+**Unresolved preliminary dimensions:** the exact GCT USB4505 connector guide specifies a 0.80 mm board, while the historical 1.0 mm PCB estimate in this table has not been revised or validated. A centred 48 × 16 QT LED grid on the 106 mm draft board also has a [calculated last-column conflict with the USB opening](../mechanical/usb-led-edge-screen-2026-09-26.md). Set the board thickness, length and grid origin together during placement review; neither value here is a fabrication specification.
+
 ### 4.2 Final PCB recommendation
 
-- Six layers, 1.0 mm FR-4, standard through vias if routing can pass without HDI.
+- Six layers, provisional 1.0 mm FR-4 subject to review of the USB4505 candidate's 0.80 mm recommended board thickness; standard through vias if routing can pass without HDI.
 - ENIG finish for the fine LED/QFN pads and consistent coplanarity.
 - Black solder mask; minimal front silkscreen within the viewing area.
 - One uninterrupted ground reference layer and deliberate power layers/regions for VLED and row current.
@@ -270,7 +272,7 @@ After electrical validation, a final shell can use snaps/adhesive and rear-side 
 | Antenna, screws, gasket and adhesive | ≤3 g |
 | **Target total** | **≤75 g** |
 
-A 106 × 32.5 × 1.0 mm FR-4 substrate is approximately 6.4 g before copper and components, so the allocation is realistic. Every physical revision is weighed; the 100 g limit is a hard stop, not a goal.
+A hypothetical 106 × 32.5 × 1.0 mm FR-4 substrate is approximately 6.4 g before copper and components; at 0.80 mm the same area would scale to approximately 5.1 g. Neither stack-up is frozen, and copper, components and mounting may change the actual weight. Every physical revision is weighed; the 100 g limit is a hard stop, not a goal.
 
 The stretch allocation is **not met by the screened GlobTek packs on paper**: the documented 700 mAh pack weighs about 22 g and the 800 mAh pack about 30 g. Recalculate the complete weight and measured runtime with the exact selected pack; the 100 g maximum remains controlling.
 
