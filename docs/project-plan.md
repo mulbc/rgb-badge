@@ -12,6 +12,8 @@ Project phase: simplified Type-C-only logic passed native review at 12a134f; the
 
 The [LED volume-cost screen](sourcing/led-volume-cost-screen-2026-09-26.md) finds a substantial gap between the USD 500–800 all-in target and representative DigiKey LED prices for three assembled coupons plus five full boards. No budget or quantity is changed; exact-MPN, optical-bin-aware assembly quotations are needed before a production commitment.
 
+**Gauge amendment:** [ADR 0015](decisions/0015-switch-fuel-gauge-with-application.md) disconnects the MAX17048 using an independent pole of the latching switch. OFF charging remains autonomous; battery SOC is not tracked while OFF and can be provisional after switch-ON. The earlier upstream/always-on gauge statements below are historical.
+
 ## 1. Outcome
 
 Build a new, open-source, full-colour wearable LED badge inspired by the FOSSASIA Badge Magic form factor, while retaining its pixel pitch and meeting these product targets:
@@ -58,7 +60,7 @@ This is feasible, with one qualification: six hours cannot apply to arbitrary co
 ### Power and safety behaviour
 
 - A real slide switch controls the operating state. It controls regulator enables rather than carrying the complete LED current through a tiny mechanical contact.
-- Switch OFF removes power from the display and battery-powered application electronics. Battery gauging remains available.
+- Switch OFF removes power from the display, application electronics and fuel gauge. The charger remains connected to the protected battery for qualified-source OFF charging.
 - While OFF, a Type-C source advertising 1.5 A/3 A can charge autonomously after hardware qualification. USB-A and default-current Type-C sources do not charge. USB data is available only when the slide switch is ON.
 - The badge can operate while charging. The charger gives the system load priority and allocates remaining input power to the battery.
 - There is no ambient light sensor and no content-dependent dimming.
@@ -171,12 +173,12 @@ Two tiny side-facing LEDs next to USB-C indicate red while charging and green wh
 | SYS/BAT | BQ24074 PowerPath output | Selects USB/battery, supports source-qualified autonomous charging and charge-through operation |
 | 3V3 | TPS631000-class 1.5 A buck-boost | ESP32-S3, TLC logic and low-voltage logic |
 | VLED | TPS63020-class high-current buck-boost at about 3.9 V | Row anodes and LED optical power |
-| Battery state | MAX17048G+ in 2 × 2 mm TDFN | State-of-charge independent of simple voltage readings |
+| Battery state | Switched MAX17048G+ in 2 × 2 mm TDFN | State of charge during ON; initial post-ON estimate may be provisional |
 | Battery current | INA232 with approximately 10 mΩ shunt | Bidirectional current/power telemetry while the application is on |
 
-The [TPS631000](https://www.ti.com/product/TPS631000) provides a compact SOT-package buck-boost rail with 1.5 A output capability and low quiescent current. The [TPS63020](https://www.ti.com/product/TPS63020) is active, supports a 1.8–5.5 V input and substantially more current than the matrix requires. The [MAX17048](https://www.analog.com/en/products/max17048.html) uses ModelGauge without a current-sense resistor and is available in an assembly-friendly 2 × 2 mm TDFN package; its datasheet specifies 3 µA hibernate and 23 µA active current.
+The [TPS631000](https://www.ti.com/product/TPS631000) provides a compact SOT-package buck-boost rail with 1.5 A output capability and low quiescent current. The [TPS63020](https://www.ti.com/product/TPS63020) is active, supports a 1.8–5.5 V input and substantially more current than the matrix requires. The [MAX17048](https://www.analog.com/en/products/max17048.html) uses ModelGauge without a current-sense resistor and is available in a 2 × 2 mm TDFN package; its operating current depends on mode, and its active supply-current maximum is 40 µA. ADR 0015 disconnects its supply when the slide switch is OFF.
 
-The latching switch controls both switched-regulator enables. The charger, fuel gauge and hardware charge-status circuit are upstream of that switch:
+The latching switch controls the regulator enables and disconnects the gauge via an independent contact. The charger and hardware charge-status circuit remain upstream. The older charging rows below are superseded by ADR 0013:
 
 | Slide switch | USB present | Application/USB data | Charging | Display |
 |---|---|---|---|---|
@@ -187,7 +189,7 @@ The latching switch controls both switched-regulator enables. The charger, fuel 
 | ON | SDP | Normal playback plus USB data | Standby until configured; low external ILIM with auxiliary headroom while configured; standby on suspend | On |
 | ON | Qualified charging source | Normal playback; USB data where supported | Yes, with PowerPath load priority | On |
 
-The charger and fuel gauge stay connected to the protected cell. The INA232 is powered only with 3V3; its datasheet permits the monitored common-mode voltage to remain present with its supply off. The design target for switch-OFF battery drain, after USB removal, is below 50 µA.
+The charger remains connected to the protected cell when OFF; the gauge is disconnected, and the INA232 is powered only with 3V3. The design target for switch-OFF battery drain with USB absent remains below 50 µA; the exact pack/switch leakage and SOC recovery after an OFF charge require coupon measurements.
 
 ### 3.7 Battery
 

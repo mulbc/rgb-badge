@@ -27,6 +27,7 @@ Source: requirements interview completed 2026-09-05
 | PWR-004 | Switch OFF shall disable the ESP32, display drivers, 3.3 V rail and LED rail. | Rail/current measurement | Coupon/final |
 | PWR-005 | With the switch OFF, charging and status shall operate autonomously only from USB-C sources advertising 1.5 A/3 A; all other sources leave the charger in standby. | State-matrix test (ADR 0013) | Coupon/final |
 | PWR-006 | Operation while charging shall remain stable; the charger power path shall respect the input limit. | Load/charge test and USB power log | Coupon/final |
+| PWR-007 | The latching switch shall disconnect the fuel gauge in OFF while preserving hardware-only charging/status. On return to ON, initially uncertain SOC/runtime shall be identified as provisional until validated against the chosen pack. | OFF isolation/current test, OFF-charge state matrix and post-ON SOC comparison (ADR 0015) | Coupon/final |
 | USB-001 | Use a USB-C receptacle on the right short edge with 5 V input only; USB PD is not required. | Inspection and source test | Coupon/final |
 | USB-002 | Enumerate native USB in both connector orientations with compliant A-to-C and C-to-C cables while switched ON. | Enumeration matrix | Coupon/final |
 | USB-003 | Hardware shall bound total USB input draw for startup, standby, permitted charging and Type-C source changes; higher Type-C current shall not depend on application firmware. | Complete source-state analysis plus unprogrammed-board, configuration, suspend and attach/detach tests (ADR 0009) | Coupon/final |

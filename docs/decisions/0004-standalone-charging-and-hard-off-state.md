@@ -2,7 +2,7 @@
 
 # ADR 0004: Standalone charging and hard application-off state
 
-- Status: Partially superseded by ADR 0009 and ADR 0010; hard-OFF principle retained
+- Status: Partially superseded by ADRs 0009 and 0010; fuel-gauge upstream placement superseded by ADR 0015; hard-OFF principle retained
 - Date: 2026-09-05
 
 ## Context

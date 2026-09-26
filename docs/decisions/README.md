@@ -18,3 +18,6 @@ Decision records explain choices that materially constrain later work. Accepted 
 | [0010](0010-source-qualified-off-charging.md) | Charge while OFF only from a qualified source | Accepted for capture; thermal/Gate A pending |
 | [0011](0011-usb-total-current-headroom.md) | Reserve current for USB detection and permission logic | Accepted; resistor specification amended by ADR 0012 |
 | [0012](0012-programming-resistor-error-budget.md) | Include temperature and drift in programming-resistor limits | Exact parts selected; assembly/service qualification pending |
+| [0013](0013-type-c-only-fixed-current-charging.md) | Use Type-C-only charging with a fixed limit | Accepted for coupon capture; hardware verification pending |
+| [0014](0014-usb-voltage-envelope-and-logic-ldo.md) | Correct USB voltage envelope and logic regulator | Draft circuit reviewed; input-stage qualification pending |
+| [0015](0015-switch-fuel-gauge-with-application.md) | Disconnect the gauge with the physical switch | Accepted for coupon capture; exact switch and SOC recovery validation pending |

@@ -33,7 +33,7 @@ The exact draft candidates and open circuit risks are tracked in the [Coupon Rev
 
 The [charger thermal sensitivity screen](charger-thermal-screen.md) compares existing worst-corner ISET cases with TI's RGT reference-board thermal metric at 5.5 V. It flags thermal regulation risk for the old 0.872 A draft even in display-OFF charging; it does not select a resistor or establish actual enclosure temperature.
 
-The [MAX17048 capture contract](fuel-gauge-capture-contract.md) identifies the always-on battery and switched I²C domains, rules out the existing 10 kΩ pull-up under the gauge's 300 ns rise-time specification, and corrects the conditional OFF-current estimate. It is a source calculation; the gauge circuit remains uncaptured.
+The [MAX17048 capture contract](fuel-gauge-capture-contract.md) now implements the [ADR 0015](../../../docs/decisions/0015-switch-fuel-gauge-with-application.md) decision to disconnect gauge power with the physical switch while keeping autonomous OFF charging. It selects an exact 2.2 kΩ I²C pull-up candidate after ruling out 10 kΩ under the gauge's 300 ns rise-time specification. The circuit remains uncaptured; bus timing, OFF leakage and post-charge SOC recovery require verification.
 
 ## Open and validate
 

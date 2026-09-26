@@ -2,6 +2,8 @@
 
 # Coupon Rev A power/input pre-capture record
 
+**Current gauge decision:** [ADR 0015](../../../docs/decisions/0015-switch-fuel-gauge-with-application.md) disconnects the MAX17048 with the latching switch. The historical always-on gauge and hibernate budget below are superseded; charger BAT and source-qualified OFF charging stay connected. [ADR 0013](../../../docs/decisions/0013-type-c-only-fixed-current-charging.md) supersedes the BC1.2/SDP/boost charging sections below.
+
 **2026-09-17 resistor amendment:** [ADR 0012](../../../docs/decisions/0012-programming-resistor-error-budget.md) selects `ERA2AEB3651X`, `ERA2AEB3481X` and `ERA2AEB1131X` (0.1%, 25 ppm/K). References below to 1% programming resistors are historical; current calculations retain ±1% as the total qualified resistance-error envelope. Nominal values and current ceilings do not change; assembly/service drift qualification remains open.
 
 **2026-09-17 current-budget finding:** resistor ranges below include initial tolerance only. The [temperature-drift counterexample](usb-supervision-capture.md) exceeds the configured-SDP allocation for an ordinary 100 ppm/K candidate. Precision-part qualification or revised lower limits are required before programming-resistor capture; no substitution or current increase is approved.
@@ -25,7 +27,7 @@ This record narrows the next schematic increment without hiding the remaining sa
 | Permission logic and ILIM boost switch | Exact parts pending | VBUS-only; passive output is BQ24074 standby, boost off | Hardware alone selects the parallel ILIM branch under ADR 0011 |
 | Application rail | `TPS631000DRLR` | Latching-switch controlled | 3.3 V; converter MODE starts in PFM |
 | LED rail | `TPS63020DSJT` | Switch plus hardware display interlock | Nominal 3.944 V; must stay off through boot/reset/programming |
-| Fuel gauge | `MAX17048G+T10` | Always connected to cell | Must enter hibernate with the application off |
+| Fuel gauge | `MAX17048G+T10` | Switched protected-cell feed, independent second slide-switch pole under ADR 0015 | OFF charging is not gauged; SOC recovery after ON requires coupon qualification |
 | Current monitor | `INA232AIDDFR` | Powered only from application 3.3 V | Monitored common mode may remain present while IC is off |
 
 ## Calculated settings
@@ -55,7 +57,7 @@ The 3.3 V values follow TI's August 2026 TPS631000 Rev. C application table. The
 
 ## OFF-current budget
 
-The BQ24074 no-input BAT-pin sleep-current maximum is 6.5 uA at the stated 85°C condition. The MAX17048 hibernate maximum is 5 uA **only with its reset comparator disabled**. The resulting 11.5 uA allocation and 38.5 uA remainder are *conditional*: immediately after battery insertion or an OFF transition, the gauge may instead draw up to 40 uA active current, leaving just 3.5 uA after the charger and before other loads. A never-programmed OFF board cannot rely on the comparator-disabled limit, and automatic hibernate requires low rate for longer than six minutes. The [gauge capture contract](fuel-gauge-capture-contract.md) records the bus and firmware requirements and the still-unproven default-state budget. These sums mix individual part specifications at different test conditions; none claims PWR-003 compliance across all temperatures.
+**Active ADR 0015 allocation:** with the gauge physically disconnected in OFF, its powered operating current no longer belongs in the USB-absent OFF budget. The BQ24074 no-input BAT-pin sleep-current maximum is 6.5 uA at the manufacturer's stated test condition, leaving a preliminary 43.5 uA for the exact pack protector, contact/sneak leakage, disabled converters and PCB leakage. This is arithmetic, not a qualified board bound or proof of PWR-003. Confirm no I²C/other path powers the gauge in OFF and measure after settling on an unconfigured board. The former 11.5 uA sum and 38.5 uA remainder assumed firmware-disabled MAX17048 comparator and are historical only. The [gauge capture contract](fuel-gauge-capture-contract.md) describes the switched topology and validation.
 
 ## Hardware defaults required in capture
 
@@ -63,7 +65,7 @@ The BQ24074 no-input BAT-pin sleep-current maximum is 6.5 uA at the stated 85°C
 - Hardware high-current permission selects `EN2=1, EN1=0`; an SDP grant can select only `EN2=0, EN1=1` and defaults inactive.
 - BQ24392 `GOOD_BAT` is high whenever VBUS is valid so its 30-minute nominal / 45-minute maximum Dead Battery Provision timer cannot terminate a long OFF-state CDP charge.
 - TS3USB31E is powered only by `+3V3_APP`; its connector/detector-facing pair uses the `D+/D-` pins covered by the published `Ioff` condition, its ESP32 pair uses `HSD+/HSD-`, and active-low `OE` is tied low. With the slide switch OFF, loss of VCC provides the data disconnect and prevents back-powering.
-- The latching switch disables both application converters without carrying display current.
+- The latching switch disables both application converters and uses an independent contact to disconnect the gauge; it carries no display current. Choose and audit the exact switch before source capture.
 - `VLED` requires the physical switch ON and a separate hardware-qualified display request; an unpowered or resetting ESP32 cannot enable it.
 - TPS63020 shutdown disconnects its output from the input; row pull-ups reference the switched VLED output.
 - MAX17048 `QSTRT` is held low unless a reviewed reset path is added.

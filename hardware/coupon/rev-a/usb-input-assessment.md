@@ -13,7 +13,7 @@ Status: direct BQ25616J ILIM-only proposal rejected under [ADR 0009](../../../do
 
 | Source/state | Required design evidence |
 |---|---|
-| USB absent | No backfeed; application OFF drain below 50 uA including pack, gauge and disabled rails |
+| USB absent | No backfeed; application OFF drain below 50 uA including pack, charger and disabled rails. The gauge is disconnected under ADR 0015; verify isolation and leakage on the coupon. |
 | Legacy USB 2.0 host, not configured | Application runs from the battery; charger remains in standby and takes no system power from VBUS beyond the VBUS-only detection/logic budget |
 | Configured SDP | Validated USB-device-layer grant selects low external ILIM with auxiliary headroom; it cannot enable the hardware-only parallel boost resistor |
 | SDP suspend | Grant clears and charger returns to standby; reset and absent firmware are already standby |

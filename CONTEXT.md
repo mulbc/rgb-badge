@@ -34,7 +34,7 @@ The [charger thermal sensitivity screen](hardware/coupon/rev-a/charger-thermal-s
 
 ## Current state
 
-- Fuel-gauge preparation, 2026-09-26: the [MAX17048 capture contract](hardware/coupon/rev-a/fuel-gauge-capture-contract.md) fixes pin/domain requirements. The 10 kΩ resistor cannot meet the gauge's 300 ns I²C rise specification; audited-library candidate Panasonic `ERJ-2RKF2201X` (2.2 kΩ) now has a first-order 161 pF nominal bus limit, subject to whole-bus/bench qualification. The prior 38.5 µA OFF-current remainder requires comparator-disabled hibernate after configuration; a never-programmed or newly reset board has no such proven worst-case allowance. Keeping the gauge always-on versus switching its supply with the OFF control would materially change SOC behavior and requires an explicit architecture choice. No gauge circuit has been added and PWR-003 remains unverified.
+- Fuel-gauge decision, 2026-09-26: the owner accepted [ADR 0015](docs/decisions/0015-switch-fuel-gauge-with-application.md), disconnecting the MAX17048 from the protected cell with an independent latching-switch contact in OFF. The charger stays battery-connected for source-qualified OFF charging. PWR-003 remains <50 µA, without needing gauge firmware configuration before first battery insertion. OFF charging is not tracked by the gauge: post-ON SOC/runtime starts provisional until measured recovery is qualified. [Capture contract](hardware/coupon/rev-a/fuel-gauge-capture-contract.md) selects project-local Panasonic `ERJ-2RKF2201X` (2.2 kΩ) as the initial I²C pull-up; the modeled 161 pF bus limit still needs whole-bus and bench validation. Exact slide switch, pack and gauge circuit are not yet captured; PWR-003 is unverified.
 
 - Independent layout feasibility checkpoint, 2026-09-26: the [front/rear bounding-box screen](mechanical/preliminary-placement-screen-2026-09-26.md) finds eight QT LED/USB courtyard overlaps on a centred 106 × 32.5 mm final-badge trial board. A 1.775 mm illustrative LED shift clears those *courtyard rectangles* by 0.25 mm. Rear MCU/three drivers and a 700 mAh coupon-only nominal pack have nonoverlapping trial rectangles, but the rest of the hardware, battery cables, RF, isolation and routing are not placed. This is not a KiCad PCB or final pack choice; complete schematic, board DRC and Gate A still gate fabrication.
 
@@ -67,7 +67,7 @@ The [charger thermal sensitivity screen](hardware/coupon/rev-a/charger-thermal-s
 | Charging | USB-C at 5 V; correct A-to-C/C-to-C behaviour; charge while operating |
 | Radio | BLE only in explicit programming mode |
 | Controls | One momentary mode button and one latching on/off slide switch |
-| OFF state | Application electronics and display off; gauging remains available; autonomous charging only from a hardware-qualified charging source |
+| OFF state | Application electronics, display and fuel gauge off; autonomous charging only from a hardware-qualified charging source (ADR 0015) |
 | Assembly | Turnkey PCBA; user plugs in the protected battery and assembles the case |
 | Quantity | Five assembled full badges after coupon validation |
 | Budget | USD 500–800 for coupon, five badges, cells, basic test tools and shipping; case filament/design and independent review excluded |
@@ -83,11 +83,11 @@ The [charger thermal sensitivity screen](hardware/coupon/rev-a/charger-thermal-s
 - `BQ24074RGTR` standalone linear charger/PowerPath selected for capture, with thermal performance and exact pack current still requiring coupon and Gate A validation.
 - `TUSB320LAIRWBR` Type-C current detection and application-powered `TS3USB31ERSER` hard-OFF data isolation. TPS70933DBVR supplies the USB-only logic domain. ADR 0013 removes BC1.2 detection and application charge grants; physical charger standby control remains uncaptured.
 - TPS631000-class 3.3 V rail and TPS63020-class approximately 3.9 V LED rail.
-- MAX17048 fuel gauge and INA232 bidirectional battery-current monitor.
+- Switched MAX17048 fuel gauge and application-only INA232 bidirectional battery-current monitor; the gauge powers up afresh on each ON transition (ADR 0015).
 - Protected, NTC-equipped, connectorized 750–900 mAh LiPo; 900 mAh is preferred if the 11 mm stack closes safely.
 - KiCad 10.0.6 stable with project-local symbols, footprints and 3D models.
 
-## Power states (ADR 0013)
+## Power states (ADRs 0013 and 0015)
 
 | Switch | USB | Application/data | Charger input | Display |
 |---|---|---|---|---|
