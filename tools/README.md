@@ -2,6 +2,8 @@
 
 # Software tools
 
+`python3 tools/screen-preliminary-placement.py --output mechanical/review` reads four project-local footprint courtyards plus the USB cutout guide and regenerates the [final-badge bounding-box screen](../mechanical/preliminary-placement-screen-2026-09-26.md). It produces an SVG and JSON, **not** a KiCad PCB or DRC clearance. Its 700 mAh pack rectangle is a coupon-only mechanical comparison; no battery has been selected for the final badge.
+
 **Current functional checkpoint — ADR 0013:** Type-C-only fixed-current charging. `check-usb-permission.py` checks 16 resolved detector/supply states; `check-coupon-permission.py` independently traces the reduced three-gate/two-buffer circuit. The three revised USB sheets remove 47 PCB items. Complete source/fixture expectations are 396 items / 1,492 pins. Older dual-limit and BC1.2 tests/calculations are historical regressions, not active charging policy. Native KiCad review is pending; see [capture record](../hardware/coupon/rev-a/type-c-only-capture.md).
 
 `generate-coupon-permission.py --output NEW_DIRECTORY` produces the conditioning and permission sheets without overwriting canonical files. `check-coupon-permission.py` traces 61 items / 176 pins and evaluates actual gate connections against the independent 1,024-state contract. This checkpoint passed native review at `6d9a08b`.

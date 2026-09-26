@@ -1,0 +1,72 @@
+{
+  "inputs": {
+    "board_mm": [
+      106.0,
+      32.5
+    ],
+    "pitch_mm": 1.95,
+    "led_courtyard_mm": {
+      "x0": -1.1,
+      "y0": -0.85,
+      "x1": 1.1,
+      "y1": 0.85
+    },
+    "usb_courtyard_local_mm": {
+      "x0": -6.4,
+      "y0": -0.85,
+      "x1": 6.4,
+      "y1": 7.5
+    },
+    "pack_coupon_only_mm": [
+      50.5,
+      30.5
+    ]
+  },
+  "centered": {
+    "usb_courtyard_overlaps": 8,
+    "worst_horizontal_courtyard_gap_mm": -1.525,
+    "straight_cutout_inner_x_mm": 99.8
+  },
+  "shifted_trial": {
+    "shift_left_mm": 1.775,
+    "usb_courtyard_overlaps": 0,
+    "worst_horizontal_courtyard_gap_mm": 0.25,
+    "smallest_left_courtyard_edge_mm": 4.3
+  },
+  "rear_trial": {
+    "pack": {
+      "x0": 27.75,
+      "y0": 1.0,
+      "x1": 78.25,
+      "y1": 31.5
+    },
+    "controller": {
+      "x0": 4.699999999999999,
+      "y0": 6.300000000000001,
+      "x1": 24.3,
+      "y1": 26.8
+    },
+    "drivers": [
+      {
+        "x0": 78.55,
+        "y0": 0.5499999999999998,
+        "x1": 87.45,
+        "y1": 9.45
+      },
+      {
+        "x0": 78.55,
+        "y0": 11.8,
+        "x1": 87.45,
+        "y1": 20.7
+      },
+      {
+        "x0": 78.55,
+        "y0": 23.05,
+        "x1": 87.45,
+        "y1": 31.95
+      }
+    ],
+    "any_rear_box_overlap": false,
+    "all_rear_boxes_inside_board": true
+  }
+}

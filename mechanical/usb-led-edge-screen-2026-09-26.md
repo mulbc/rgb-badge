@@ -19,6 +19,8 @@ Both rows lie within the nominal 9.24 mm opening. **Row 7 copper intrudes 0.025 
 
 This centreline calculation excludes LED body/courtyard, connector shell and staking, solder mask, fabrication/placement tolerances, board-edge milling, strain relief, case walls and display registration. The actual footprint's 0° courtyard extends 1.10 mm horizontally from centre, so its right edge would be X = **99.925 mm** in row 7 under the same assumptions. The maximum case length is 110 mm; a longer PCB must still fit the USB plug and case rather than treating the 4 mm difference as free space.
 
+**Follow-up:** the [full footprint-courtyard screen](preliminary-placement-screen-2026-09-26.md) found eight centred LED/USB courtyard overlaps and an illustrative 1.775 mm left shift to obtain 0.25 mm *courtyard* gap. The 0.275 mm move above addresses copper-to-straight-cutout only and **does not resolve the assembly-courtyard conflict**.
+
 ## Connector stack-up conflict
 
 The [original GCT USB4505 drawing, revision A2](https://gct.co/files/drawings/usb4505.pdf), independently checked against the owner-supplied PDF with SHA-256 `b1ea604d8e579ee60bf3db78fc55a300bc107cb3bdb3ac3e6c881955898b52ad`, calls out **0.80 mm recommended PCB thickness** in its recommended layout. The [project-local connector audit](../hardware/coupon/rev-a/usb-connector-audit.md) and exact candidate footprint also say 0.80 mm. The historical [project plan](../docs/project-plan.md) instead models 1.0 mm FR-4. The connector's description of a 1.0 mm *offset* is not a 1.0 mm board-thickness specification. The 0.80 mm section in the [envelope screen](envelope-screen-2026-09-26.md) is a trial stack, not a frozen board stack-up.

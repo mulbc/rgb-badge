@@ -32,6 +32,8 @@ Two unplaced TPS25947 candidates now share an audited RPW0010A library: [audit a
 
 ## Current state
 
+- Independent layout feasibility checkpoint, 2026-09-26: the [front/rear bounding-box screen](mechanical/preliminary-placement-screen-2026-09-26.md) finds eight QT LED/USB courtyard overlaps on a centred 106 × 32.5 mm final-badge trial board. A 1.775 mm illustrative LED shift clears those *courtyard rectangles* by 0.25 mm. Rear MCU/three drivers and a 700 mAh coupon-only nominal pack have nonoverlapping trial rectangles, but the rest of the hardware, battery cables, RF, isolation and routing are not placed. This is not a KiCad PCB or final pack choice; complete schematic, board DRC and Gate A still gate fabrication.
+
 - Requirements interview: complete.
 - Architecture: accepted baseline, subject to coupon measurements.
 - KiCad workflow: 10.0.6 stable baseline accepted; Coupon Rev A project and blank schematic scaffold created; the first macOS GUI round-trip opened and saved without errors, and CLI ERC reported zero violations.
