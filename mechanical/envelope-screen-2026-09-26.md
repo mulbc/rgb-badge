@@ -8,7 +8,7 @@
 
 At 1.95 mm pitch, the 48 × 16 centres span 91.65 × 29.25 mm. A 1.55 × 1.50 mm QBLP1515 package extends the envelope to approximately **93.20 × 30.75 mm** (assuming each package is centred on its pixel). That leaves only **16.80 mm total along length** and **4.25 mm total across width** between the package envelope and the maximum case outline. These are differences of outer dimensions, **not PCB-edge or component placement clearance**. With a centred display, width allocation is 2.125 mm per side for wall, optical lip and tolerances. The alternative 1010 LED may shrink its own package envelope, but cannot justify a reduced pixel pitch or a smaller nominal luminous aperture without Gate B selection.
 
-For a *trial* 1.0 mm wall on both long sides and 0.5 mm cell side clearance on each side, the rectangular internal battery-width ceiling is `35 - 2×1.0 - 2×0.5 = 32.0 mm`. This is a provisional geometry budget; structural strength, print error, fasteners, USB/antenna placement and pack swelling may require more clearance. A nominal 34.8 mm-wide Jauch cell cannot fit that illustrative envelope. A 30.5 mm-wide *terminated* pack would leave 1.5 mm spare in this width budget **only if 30.5 mm is its guaranteed maximum including wrap and tabs**. It cannot overlap M2 bosses, magnets or the FPC antenna zone.
+For a *trial* 1.0 mm wall on both long sides and 0.5 mm cell side clearance on each side, the rectangular internal battery-width ceiling is `35 - 2×1.0 - 2×0.5 = 32.0 mm`. This is a provisional geometry budget; structural strength, print error, fasteners, USB/antenna placement and pack swelling may require more clearance. A nominal 34.8 mm-wide Jauch cell cannot fit that illustrative envelope. The [GlobTek 700 mAh terminated-pack drawing](https://www.globtek.com/pdf/manual-datasheets/BL0750F5030481S1PCTC.pdf) permits **31.0 mm maximum width** (30.5 + 0.5), leaving 1.0 mm inside this trial width budget before additional package/assembly variance or swelling allowance beyond the stated 0.5 mm per side. It cannot overlap M2 bosses, magnets or the FPC antenna zone.
 
 ## Illustrative section through LED, PCB and cell
 
@@ -27,7 +27,7 @@ The following single-stack assumption deliberately includes a local swelling all
 
 | Candidate battery envelope | Calculated total using above stack (mm) | Status |
 |---|---:|---|
-| 5.3 mm protected GlobTek 700 mAh pack thickness | 10.2 | 0.8 mm apparent margin; poor six-hour and peak-current fit for full badge; protection PCB/wires may create thicker local zones |
+| 5.6 mm maximum protected GlobTek 700 mAh pack thickness (5.3 + 0.3) | 10.5 | 0.5 mm apparent margin; poor six-hour and peak-current fit for full badge; protection PCB/wires may create thicker local zones |
 | 6.0 mm protected GlobTek 800 mAh pack thickness | 10.9 | 0.1 mm apparent margin before board/solder/print/pack tolerances; five-pin integrated-gauge pack and 400 mA charge limit remain unresolved |
 | 6.3 mm EEMB 900 mAh **bare cell** page thickness | 11.2 | Exceeds this trial stack by 0.2 mm **before** pack protection, NTC, wrap or connector |
 

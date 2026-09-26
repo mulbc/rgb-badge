@@ -22,7 +22,7 @@ PARTS = {
 BOARD_W, BOARD_H, PITCH = 106.0, 32.5, 1.95
 USB_CUTOUT_DATUM = 6.75  # Audit of GCT A2; guides also checked below.
 USB_REAR_DATUM = 0.55
-PACK_W, PACK_H = 50.5, 30.5  # Coupon-only GlobTek BL0750F5030481S1PCTC bounding size.
+PACK_W, PACK_H = 50.5, 31.0  # GlobTek Rev D: 30.5 mm width +0.5 mm; coupon-only pack.
 
 
 @dataclass(frozen=True)

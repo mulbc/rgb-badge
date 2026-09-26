@@ -30,6 +30,7 @@ class PlacementScreenTests(unittest.TestCase):
         self.assertEqual(report["centered"]["worst_horizontal_courtyard_gap_mm"], -1.525)
         self.assertEqual(report["shifted_trial"]["shift_left_mm"], 1.775)
         self.assertEqual(report["shifted_trial"]["usb_courtyard_overlaps"], 0)
+        self.assertEqual(report["inputs"]["pack_coupon_only_mm"], [50.5, 31.0])
         self.assertTrue(report["rear_trial"]["all_rear_boxes_inside_board"])
         self.assertFalse(report["rear_trial"]["any_rear_box_overlap"])
 
