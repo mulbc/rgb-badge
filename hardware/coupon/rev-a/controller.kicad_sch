@@ -4,7 +4,7 @@
 (generator_version "1.0")
 (uuid "8c76aba2-3e70-5442-9e12-3838cdcea085")
 (paper "A2")
-(title_block (title "Coupon Rev A - ESP32-S3 controller") (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "USB connector/ESD and switched rail sources remain on the pending power sheet"))
+(title_block (title "Coupon Rev A - ESP32-S3 controller") (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "USB data connects to usb-interface; switched rail sources remain pending"))
 (lib_symbols
 	(symbol "rgb-badge-coupon:ESP32-S3-WROOM-1U-N16R8"
 (pin_names (offset 1.016))
@@ -397,7 +397,7 @@
 (instances (project "rgb-badge-coupon" (path "/207fb68e-2ddb-46bb-8712-eba2f8c5eef6/c1aa0a05-857c-59e4-b6b1-f737e9508fa3" (reference "TP3") (unit 1)))))
 (wire (pts (xy 208.280 210.820) (xy 198.120 210.820)) (stroke (width 0) (type default)) (uuid "ef1e3eeb-def4-5fa3-9dce-f4cb2e74eb30"))
 (global_label "MODE_BOOT_N" (shape passive) (at 198.120 210.820 180) (effects (font (size 1.016 1.016)) (justify right)) (uuid "a119d3df-368a-5fa8-99e8-b56d031b8091") (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 198.120 210.820 0) (effects (font (size 1.27 1.27)) (hide yes))))
-(text "Native USB boundary; connector and ESD are captured with the power/input sheet" (at 299.72 50.80 0) (effects (font (size 1.016 1.016)) (justify left)) (uuid "362e2acf-c6e1-5f10-8620-4edeb1b2ffe2"))
+(text "Native USB connects through data switches and ESD on usb-interface" (at 299.72 50.80 0) (effects (font (size 1.016 1.016)) (justify left)) (uuid "362e2acf-c6e1-5f10-8620-4edeb1b2ffe2"))
 (symbol (lib_id "rgb-badge-coupon:ERJ-2RKF22R0X") (at 335.280 66.040 0) (unit 1)
 (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
 (uuid "3eecc804-fa90-510c-b1f7-c8b1a99a52e5")
@@ -567,6 +567,6 @@
 (global_label "SYS_I2C_SCL" (shape passive) (at 320.040 243.840 180) (effects (font (size 1.016 1.016)) (justify right)) (uuid "64c52829-99eb-5fd7-8907-c17b7ea2caab") (property "Intersheetrefs" "${INTERSHEET_REFS}" (at 320.040 243.840 0) (effects (font (size 1.27 1.27)) (hide yes))))
 (text "DISPLAY_ENABLE is only a controller request. The pending power sheet must default VLED OFF without firmware." (at 20.32 248.92 0) (effects (font (size 1.016 1.016)) (justify left)) (uuid "3da3127c-be35-59a6-aedc-9c915c147ec4"))
 (text "External antenna: Taoglas FXP75.07.0045B candidate on the module U.FL connector; fitted part, no PCB footprint." (at 20.32 256.54 0) (effects (font (size 1.016 1.016)) (justify left)) (uuid "9d960b0f-b329-5655-a4c1-071a6316dfd2"))
-(text "Never fabricate from this sheet alone. USB/power capture, DRC/DFM, Gate A review and coupon measurements remain." (at 20.32 264.16 0) (effects (font (size 1.016 1.016)) (justify left)) (uuid "558051a6-8041-54a1-9cf3-986e4fa208bb"))
+(text "Never fabricate from this sheet alone. Power completion, DRC/DFM, Gate A review and coupon measurements remain." (at 20.32 264.16 0) (effects (font (size 1.016 1.016)) (justify left)) (uuid "558051a6-8041-54a1-9cf3-986e4fa208bb"))
 (embedded_fonts no)
 )

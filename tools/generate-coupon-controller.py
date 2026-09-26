@@ -138,7 +138,7 @@ def generate():
     lines = [
         '(kicad_sch', '(version 20260306)', '(generator "rgb_badge_controller")', '(generator_version "1.0")',
         f'(uuid {quote(FILE_UUID)})', '(paper "A2")',
-        '(title_block (title "Coupon Rev A - ESP32-S3 controller") (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "USB connector/ESD and switched rail sources remain on the pending power sheet"))',
+        '(title_block (title "Coupon Rev A - ESP32-S3 controller") (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "USB data connects to usb-interface; switched rail sources remain pending"))',
         '(lib_symbols\n' + '\n'.join(cached_symbol(name) for name in used_symbols) + '\n)',
         note('ESP32-S3-WROOM-1U-N16R8 controller and recovery interfaces', 20.32, 20.32, 'title', 2.0),
         note('GPIO35..37 are reserved by the N16R8 octal PSRAM and are deliberately not connected.', 20.32, 27.94, 'psram-note'),
@@ -186,7 +186,7 @@ def generate():
     lines += two_pin("EVQP7J01P", "SW1", "EVQP7J01P", 213.36, 195.58, "MODE_BOOT_N", "GND")
     lines += testpoint("TP3", "MODE_BOOT_N", 213.36, 210.82)
 
-    lines += [note('Native USB boundary; connector and ESD are captured with the power/input sheet', 299.72, 50.80, 'usb-title', 1.016)]
+    lines += [note('Native USB connects through data switches and ESD on usb-interface', 299.72, 50.80, 'usb-title', 1.016)]
     lines += two_pin("ERJ-2RKF22R0X", "R45", "22R 1%", 335.28, 66.04, "USB_DN_MCU", "USB_D-")
     lines += two_pin("ERJ-2RKF22R0X", "R46", "22R 1%", 335.28, 81.28, "USB_DP_MCU", "USB_D+")
     lines += [note('Route R45/R46 beside U3 and route USB_D+/D- as a controlled differential pair.', 299.72, 93.98, 'usb-layout-note', 1.016)]
@@ -205,7 +205,7 @@ def generate():
     lines += [
         note('DISPLAY_ENABLE is only a controller request. The pending power sheet must default VLED OFF without firmware.', 20.32, 248.92, 'display-safety-note', 1.016),
         note('External antenna: Taoglas FXP75.07.0045B candidate on the module U.FL connector; fitted part, no PCB footprint.', 20.32, 256.54, 'antenna-note', 1.016),
-        note('Never fabricate from this sheet alone. USB/power capture, DRC/DFM, Gate A review and coupon measurements remain.', 20.32, 264.16, 'release-note', 1.016),
+        note('Never fabricate from this sheet alone. Power completion, DRC/DFM, Gate A review and coupon measurements remain.', 20.32, 264.16, 'release-note', 1.016),
         '(embedded_fonts no)', ')',
     ]
     return '\n'.join(lines) + '\n'

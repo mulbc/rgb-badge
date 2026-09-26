@@ -25,13 +25,16 @@ Source: requirements interview completed 2026-09-05
 | PWR-002 | Continuous maximum full-white runtime shall be measured and published separately. | Logged stress runtime test | Final |
 | PWR-003 | OFF-state battery drain with USB absent shall be below 50 µA. | Ammeter measurement after settling | Coupon/final |
 | PWR-004 | Switch OFF shall disable the ESP32, display drivers, 3.3 V rail and LED rail. | Rail/current measurement | Coupon/final |
-| PWR-005 | Charging, cell qualification and charge status shall operate autonomously while the switch is OFF. | State-matrix test | Coupon/final |
+| PWR-005 | With the switch OFF, charging and status shall operate autonomously only from USB-C sources advertising 1.5 A/3 A; all other sources leave the charger in standby. | State-matrix test (ADR 0013) | Coupon/final |
 | PWR-006 | Operation while charging shall remain stable; the charger power path shall respect the input limit. | Load/charge test and USB power log | Coupon/final |
 | USB-001 | Use a USB-C receptacle on the right short edge with 5 V input only; USB PD is not required. | Inspection and source test | Coupon/final |
 | USB-002 | Enumerate native USB in both connector orientations with compliant A-to-C and C-to-C cables while switched ON. | Enumeration matrix | Coupon/final |
-| USB-003 | Hardware shall default to a conservative input limit and shall not depend on application firmware to unlock higher Type-C current. | Unprogrammed-board and attach-state test | Coupon/final |
+| USB-003 | Hardware shall bound total USB input draw for startup, standby, permitted charging and Type-C source changes; higher Type-C current shall not depend on application firmware. | Complete source-state analysis plus unprogrammed-board, configuration, suspend and attach/detach tests (ADR 0009) | Coupon/final |
+| USB-004 | USB-A/default-current Type-C sources shall not charge or supply the application through the charger. Native USB data remains available while ON from battery power; recovery with a depleted/absent battery on these sources is not guaranteed. | USB data and power-state tests (ADR 0013) | Coupon/final |
+| USB-005 | Use one fixed external input-current setting, bounded by the existing 0.9753 A ceiling, enabled only by qualified Type-C 1.5 A/3 A hardware permission. No switched ILIM resistor or firmware charge grant. Budget all VBUS loads within source allowance. | Complete-port budget and source-transition tests (ADR 0013) | Coupon/final |
+| USB-006 | Account for 5.5 V normal VBUS at light load; derive the low-voltage and transient envelopes separately. Do not use a 5.25 V draft assumption as full input qualification. | Source-envelope and protection review (ADR 0014) | Coupon/final |
 | CHG-001 | Target approximately 80% charge in 45–60 min and full charge in 75–100 min with the display off, a capable source and a cell rated for the selected current. | Charge log | Coupon/final |
-| CHG-002 | Charge current shall never exceed the exact terminated-pack rating. | BOM/calculation review and current log | Coupon/final |
+| CHG-002 | Charge current shall never exceed the exact terminated-pack rating. | BOM/calculation review including qualified total ISET resistance error (ADR 0012), exact-pack rating and current log | Coupon/final |
 | CHG-003 | A pack NTC and charger safety timer shall qualify charging without MCU assistance. | NTC boundary/fault tests | Coupon/final |
 | RF-001 | BLE shall be disabled during normal playback. | Firmware state and current test | Coupon/final |
 | RF-002 | Holding the mode button for approximately three seconds shall enter programming mode and enable BLE. | Functional test | Coupon/final |

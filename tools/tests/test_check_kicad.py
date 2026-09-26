@@ -42,12 +42,24 @@ class CheckKiCadWrapperTests(unittest.TestCase):
     def test_separate_raw_views_and_numbered_copies(self):
         result = self.run_check()
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertEqual(len(list((self.output / "symbols").glob("*.svg"))), 19)
-        for view in ("fabrication", "copper", "paste", "numbered"):
-            self.assertEqual(len(list((self.output / "footprints" / view).glob("*.svg"))), 2 if view == "numbered" else 12)
+        self.assertEqual(len(list((self.output / "symbols").glob("*.svg"))), 49)
+        for view in ("fabrication", "copper", "paste", "numbered", "mechanical"):
+            self.assertEqual(len(list((self.output / "footprints" / view).glob("*.svg"))), 3 if view == "numbered" else 28)
         self.assertTrue((self.output / "coupon-erc.rpt").is_file())
         self.assertTrue((self.output / "coupon-matrix.xml").is_file())
         self.assertTrue((self.output / "coupon-schematic.pdf").is_file())
+
+    def test_missing_precision_or_supervisor_export_is_rejected(self):
+        for name in ('ERA2AEB3651X_unit1.svg', 'ERA2AEB3481X_unit1.svg',
+                     'ERA2AEB1131X_unit1.svg', 'ERJ-2RKF6203X_unit1.svg',
+                     'R_Panasonic_ERA2_0402.svg', 'ADG4612BCPZ-REEL7_unit1.svg',
+                     'LFCSP_ADI_CP16_22_3x3mm_P0.5mm_EP1.75mm.svg'):
+            with self.subTest(name=name):
+                self.output = self.directory / name
+                result = self.run_check(RGB_BADGE_TEST_MISSING_NAMED=name)
+                self.assertEqual(result.returncode, 1)
+                self.assertIn('Expected non-empty', result.stderr)
+                self.assertFalse((self.output / 'coupon-erc.rpt').exists())
 
     def test_numbering_failure_is_not_hidden(self):
         result = self.run_check(RGB_BADGE_TEST_BAD_LABELS="1")
@@ -68,19 +80,29 @@ class CheckKiCadWrapperTests(unittest.TestCase):
         self.assertIn("Expected non-empty SVG", result.stderr)
 
     def test_export_failure_is_not_hidden(self):
-        result = self.run_check(RGB_BADGE_TEST_FAIL="copper")
-        self.assertEqual(result.returncode, 7)
-        self.assertNotIn("ERC passed", result.stdout)
+        for stage in ("copper", "mechanical"):
+            with self.subTest(stage=stage):
+                self.output = self.directory / stage
+                result = self.run_check(RGB_BADGE_TEST_FAIL=stage)
+                self.assertEqual(result.returncode, 7)
+                self.assertNotIn("ERC passed", result.stdout)
+
+    def test_missing_usb_connector_mechanical_export_is_rejected(self):
+        result = self.run_check(RGB_BADGE_TEST_MISSING_USB_CONNECTOR="1")
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("Expected non-empty USB connector footprint SVG", result.stderr)
+        self.assertIn("footprints/mechanical", result.stderr)
+        self.assertFalse((self.output / "coupon-erc.rpt").exists())
 
     def test_erc_failure_is_not_hidden(self):
         result = self.run_check(RGB_BADGE_TEST_FAIL="sch/erc")
         self.assertEqual(result.returncode, 5)
         self.assertNotIn("ERC passed", result.stdout)
 
-    def test_exact_staged_usb_boundary_warnings_are_accepted(self):
+    def test_retired_usb_boundary_warnings_are_rejected(self):
         result = self.run_check(RGB_BADGE_TEST_USB_BOUNDARY_ERC="1")
-        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertIn("temporary USB-boundary warnings", result.stdout)
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("Unexpected ERC violation set", result.stderr)
 
     def test_unexpected_erc_warning_is_not_hidden(self):
         result = self.run_check(RGB_BADGE_TEST_UNEXPECTED_ERC="1")
