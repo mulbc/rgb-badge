@@ -34,6 +34,8 @@ The [charger thermal sensitivity screen](hardware/coupon/rev-a/charger-thermal-s
 
 ## Current state
 
+- Fuel-gauge preparation, 2026-09-26: the [MAX17048 capture contract](hardware/coupon/rev-a/fuel-gauge-capture-contract.md) fixes pin/domain requirements and exposes two unresolved checks. The existing 10 kΩ resistor cannot meet the gauge's published 300 ns I²C rise time even with its own listed 60 pF input alone; a new exact pull-up and powered-off bus review are needed. The prior 38.5 µA OFF-current remainder requires comparator-disabled hibernate after gauge configuration; a never-programmed or newly reset board has no such proven worst-case allowance. No circuit has been added and PWR-003 remains unverified.
+
 - Independent layout feasibility checkpoint, 2026-09-26: the [front/rear bounding-box screen](mechanical/preliminary-placement-screen-2026-09-26.md) finds eight QT LED/USB courtyard overlaps on a centred 106 × 32.5 mm final-badge trial board. A 1.775 mm illustrative LED shift clears those *courtyard rectangles* by 0.25 mm. Rear MCU/three drivers and a 700 mAh coupon-only nominal pack have nonoverlapping trial rectangles, but the rest of the hardware, battery cables, RF, isolation and routing are not placed. This is not a KiCad PCB or final pack choice; complete schematic, board DRC and Gate A still gate fabrication.
 
 - Requirements interview: complete.

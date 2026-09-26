@@ -55,7 +55,7 @@ The 3.3 V values follow TI's August 2026 TPS631000 Rev. C application table. The
 
 ## OFF-current budget
 
-The BQ24074 no-input BAT-pin sleep-current maximum is 6.5 uA at the stated 85°C condition. The MAX17048 hibernate maximum is 5 uA with its reset comparator disabled. Those two controlled IC limits consume 11.5 uA of the 50 uA requirement, leaving 38.5 uA for the pack protector, switch leakage, disabled converters, dividers and PCB leakage. This is a component-budget calculation, not a claim that the board meets PWR-003 across all temperatures.
+The BQ24074 no-input BAT-pin sleep-current maximum is 6.5 uA at the stated 85°C condition. The MAX17048 hibernate maximum is 5 uA **only with its reset comparator disabled**. The resulting 11.5 uA allocation and 38.5 uA remainder are *conditional*: immediately after battery insertion or an OFF transition, the gauge may instead draw up to 40 uA active current, leaving just 3.5 uA after the charger and before other loads. A never-programmed OFF board cannot rely on the comparator-disabled limit, and automatic hibernate requires low rate for longer than six minutes. The [gauge capture contract](fuel-gauge-capture-contract.md) records the bus and firmware requirements and the still-unproven default-state budget. These sums mix individual part specifications at different test conditions; none claims PWR-003 compliance across all temperatures.
 
 ## Hardware defaults required in capture
 

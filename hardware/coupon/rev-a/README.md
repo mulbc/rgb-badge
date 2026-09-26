@@ -33,6 +33,8 @@ The exact draft candidates and open circuit risks are tracked in the [Coupon Rev
 
 The [charger thermal sensitivity screen](charger-thermal-screen.md) compares existing worst-corner ISET cases with TI's RGT reference-board thermal metric at 5.5 V. It flags thermal regulation risk for the old 0.872 A draft even in display-OFF charging; it does not select a resistor or establish actual enclosure temperature.
 
+The [MAX17048 capture contract](fuel-gauge-capture-contract.md) identifies the always-on battery and switched I²C domains, rules out the existing 10 kΩ pull-up under the gauge's 300 ns rise-time specification, and corrects the conditional OFF-current estimate. It is a source calculation; the gauge circuit remains uncaptured.
+
 ## Open and validate
 
 Follow the [macOS KiCad setup and round-trip check](../../../docs/development/kicad-macos.md). The canonical project entry point is `rgb-badge-coupon.kicad_pro`. Run `../../../tools/check-kicad.sh` from this directory, or `./tools/check-kicad.sh` from the repository root.
