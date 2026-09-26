@@ -201,7 +201,7 @@ The most promising standard cells are:
 
 | Candidate | Capacity | Cell dimensions | Cell weight | Status |
 |---|---:|---:|---:|---|
-| [EEMB LP603048](https://www.eemb.com/product-146) | 900 mAh | 30.5 × 32 × 6.3 mm | 18 g | Runtime favourite; thickness must be proven in CAD |
+| [EEMB LP603048](https://www.eemb.com/product-146) | 900 mAh | 30.5 × **length unverified** × 6.3 mm bare cell; product page says 32 mm but its 603048 code indicates 48 mm nominal | 18 g bare cell | Runtime candidate only; source discrepancy and terminated-pack thickness must be resolved. See [mechanical screen](../mechanical/envelope-screen-2026-09-26.md). |
 | [EEMB LP503048](https://www.eemb.com/product-201) | 750 mAh | 30.5 × 50 × 5.3 mm | 15 g | Safer thickness fallback |
 | [EEMB LP453048](https://www.eemb.com/product-209) | 710 mAh | 30.5 × 50 × 4.8 mm | 14.2 g | Thin fallback if enclosure stack is tight |
 
