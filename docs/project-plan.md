@@ -10,6 +10,8 @@ Project phase: simplified Type-C-only logic passed native review at 12a134f; the
 
 [ADR 0013](decisions/0013-type-c-only-fixed-current-charging.md), accepted 2026-09-18, supersedes the BC1.2/SDP charging and switched-current descriptions below. Only Type-C sources advertising 1.5 A/3 A charge, using one fixed current limit. USB-A/default sources support battery-powered data while ON, with no guaranteed depleted-battery recovery. OFF charging and charge-through operation remain. The three USB sheets passed the combined native review at 12a134f. [ADR 0014](decisions/0014-usb-voltage-envelope-and-logic-ldo.md) subsequently changes U29; its [native review](development/input-review-bad43fa.md) passed. The [pack screen](sourcing/pack-screen-2026-09-25.md) found that the current ISET charge ceiling exceeds all three documented pack candidates' charge ratings. Historical sections below are design history wherever they conflict with ADR 0013 or current pack evidence.
 
+The [LED volume-cost screen](sourcing/led-volume-cost-screen-2026-09-26.md) finds a substantial gap between the USD 500–800 all-in target and representative DigiKey LED prices for three assembled coupons plus five full boards. No budget or quantity is changed; exact-MPN, optical-bin-aware assembly quotations are needed before a production commitment.
+
 ## 1. Outcome
 
 Build a new, open-source, full-colour wearable LED badge inspired by the FOSSASIA Badge Magic form factor, while retaining its pixel pitch and meeting these product targets:
