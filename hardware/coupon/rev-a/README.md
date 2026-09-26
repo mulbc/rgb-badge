@@ -31,6 +31,8 @@ The connector VBUS and the staged +5V_USB supply are deliberately separate until
 
 The exact draft candidates and open circuit risks are tracked in the [Coupon Rev A sourcing record](../../../docs/sourcing/coupon-rev-a-core-candidates.md). A candidate in that record is not an approved purchase or fabrication BOM line.
 
+The [charger thermal sensitivity screen](charger-thermal-screen.md) compares existing worst-corner ISET cases with TI's RGT reference-board thermal metric at 5.5 V. It flags thermal regulation risk for the old 0.872 A draft even in display-OFF charging; it does not select a resistor or establish actual enclosure temperature.
+
 ## Open and validate
 
 Follow the [macOS KiCad setup and round-trip check](../../../docs/development/kicad-macos.md). The canonical project entry point is `rgb-badge-coupon.kicad_pro`. Run `../../../tools/check-kicad.sh` from this directory, or `./tools/check-kicad.sh` from the repository root.
