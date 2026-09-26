@@ -24,7 +24,7 @@ Two unplaced TPS25947 candidates now share an audited RPW0010A library: [audit a
 
 ## Next functional simplification to evaluate
 
-[Charger input gating](hardware/coupon/rev-a/charger-input-gating-assessment.md) could make the input-protection switch enforce Type-C permission, keeping the detector/logic upstream and the charger in fixed-current mode. This avoids a separate charger-mode actuator and PG receiver, but supply-domain changes, enable leakage/startup, voltage qualification and whole-port budgeting must be resolved together before an ADR/capture. The assessment provides a conditional enable-node budget and identifies why the current 10k RESET pull-up cannot be reused unchanged. No circuit or user-facing requirement changed; no owner rerun is requested.
+[Charger input gating](hardware/coupon/rev-a/charger-input-gating-assessment.md) could make the input-protection switch enforce Type-C permission, keeping the detector/logic upstream and the charger in fixed-current mode. This avoids a separate charger-mode actuator and PG receiver, but supply-domain changes, enable leakage/startup, voltage qualification and whole-port budgeting must be resolved together before an ADR/capture. The assessment provides a conditional enable-node budget and identifies why the current 10k RESET pull-up cannot be reused unchanged. A two-resistor U23 reuse screen for a whole-rail protector shows narrow illustrative DC margins; charger EN input current outside its 1.4 V test point and rail startup/transients remain unbounded. No circuit or user-facing requirement changed; no owner rerun is requested.
 
 ## Pack-current finding, 2026-09-25
 
