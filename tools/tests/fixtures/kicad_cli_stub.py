@@ -294,6 +294,13 @@ def controller_coupon_netlist():
         part(ref,'100n 16V X7R','C_Murata_GRM15_0402',{1:rail,2:'GND'})
     for ref,value,net in [('TP32','VBUS_CONNECTOR','VBUS_CONNECTOR'),('TP33','5V_USB_BOUNDARY','+5V_USB')]:
         part(ref,value,'TestPoint_Pad_D1.0mm',{1:net})
+    # Staged gauge boundary: the switch is not in this source or fixture.
+    part('U35','MAX17048G+T10','TDFN_Maxim_T822-3_2x2mm_P0.5mm_EP0.7x1.38mm',{
+        1:'GND',2:'+BAT_GAUGE_SW',3:'+BAT_GAUGE_SW',4:'GND',
+        5:'unconnected-(U35-ALRT-Pad5)',6:'GND',7:'SYS_I2C_SCL',8:'SYS_I2C_SDA',9:'GND'})
+    for ref,net in [('R79','SYS_I2C_SDA'),('R80','SYS_I2C_SCL')]:
+        part(ref,'2.2k 1%','R_Panasonic_ERJ2_0402',{1:'+3V3_APP',2:net})
+    part('C39','100n 16V X7R','C_Murata_GRM15_0402',{1:'+BAT_GAUGE_SW',2:'GND'})
     return root
 
 

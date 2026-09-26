@@ -24,6 +24,7 @@ permission_capture_check="${repo_root}/tools/check-coupon-permission.py"
 usb_capture_check="${repo_root}/tools/check-coupon-usb.py"
 power_library_check="${repo_root}/tools/check-power-libraries.py"
 usb_connector_check="${repo_root}/tools/check-usb-connector.py"
+gauge_check="${repo_root}/tools/check-coupon-gauge.py"
 
 if [[ -n "${RGB_BADGE_KICAD_CLI:-}" ]]; then
     kicad_cli="${RGB_BADGE_KICAD_CLI}"
@@ -57,7 +58,9 @@ for required_path in \
     "${permission_capture_check}" \
     "${usb_capture_check}" \
     "${power_library_check}" \
-    "${usb_connector_check}"
+    "${usb_connector_check}" \
+    "${gauge_check}" \
+    "${project_dir}/gauge.kicad_sch"
 do
     if [[ ! -e "${required_path}" ]]; then
         echo "Required project path is missing: ${required_path}" >&2
@@ -79,6 +82,7 @@ python3 "${permission_capture_check}"
 python3 "${usb_capture_check}"
 python3 "${power_library_check}"
 python3 "${usb_connector_check}"
+python3 "${gauge_check}"
 
 kicad_version="$("${kicad_cli}" version)"
 
@@ -267,7 +271,7 @@ if [[ ! -s "${check_tmp_dir}/coupon-schematic.pdf" ]]; then
     exit 1
 fi
 
-echo "KiCad ${kicad_version}: libraries exported; complete coupon connectivity including USB logic/interface and ERC passed."
+echo "KiCad ${kicad_version}: libraries exported; staged gauge and earlier coupon connectivity and ERC passed. Switched BAT flag is a draft boundary, not a captured switch."
 echo "Draft: input protection, VBUS qualification, charger/ILIM actuator, gauging and switched power remain uncaptured; +5V_USB is a draft source boundary."
 if [[ "${keep_check_output}" == yes ]]; then
     echo "Review SVG/PDF output and netlist in: ${check_tmp_dir}"

@@ -4,6 +4,24 @@
 
 Coupon Rev A is authored and validated with stable KiCad 10.0.x. The initial baseline is 10.0.6 under [ADR 0006](../decisions/0006-kicad-10-workflow.md).
 
+## Staged gauge review (pending native check)
+
+The new `gauge.kicad_sch` contains U35, two exact 2.2 kΩ I²C pull-ups and the gauge bypass. Expected complete netlist: **400 PCB items / 1,507 logical pins**, with 12 PDF pages including the root and zero configured ERC violations. `+BAT_GAUGE_SW` has a PWR_FLAG solely to mark the missing physical switch and protected-battery supply. Passing ERC here does **not** validate OFF current or the latching switch.
+
+After the reviewed commit is available on `coupon-power-rev-a`, use a fresh output path:
+
+```bash
+git fetch origin
+git switch coupon-power-rev-a
+git pull --ff-only
+review_dir="hardware/coupon/rev-a/build/gauge-review-$(git rev-parse --short HEAD)"
+RGB_BADGE_KICAD_CHECK_OUTPUT="$review_dir" ./tools/check-kicad.sh
+ditto -c -k --keepParent "$review_dir" "${review_dir}.zip"
+git status --short
+```
+
+Inspect the PDF's staged gauge page for VDD/CELL on `+BAT_GAUGE_SW`, QSTRT/CTG/GND/EP on GND, ALRT marked NC and two distinct pull-ups to `+3V3_APP`. The [staged boundary record](../../hardware/coupon/rev-a/switch-gauge-boundary.md) lists the remaining switch audit and bench work. Provide the ZIP and terminal output for first-author review; Gate A remains independent.
+
 ## Type-C-only functional checkpoint
 
 [ADR 0013](../decisions/0013-type-c-only-fixed-current-charging.md) removes BC1.2 detection, application charging grants and dual-current selection. Three USB sheets changed together. Expected: **396 PCB items / 1,492 logical pins, eleven PDF pages, 46 symbols and 27 footprints per raw view, zero ERC violations**. Previous native reviews remain valid only for unchanged sections. Native review of this revision is pending.
@@ -36,7 +54,7 @@ On first opening the project, do not accept a migration to a newer KiCad major r
 
 ## Initial blank-project GUI round-trip (completed history)
 
-This check was completed on the original blank project. The earlier root-and-seven-child-sheet controller run passed and is recorded in the [native evidence record](controller-review-d56e1aa.md). The current USB interface draft has a root and ten child sheets. Use the validation command again after every schematic increment.
+This check was completed on the original blank project. The earlier root-and-seven-child-sheet controller run passed and is recorded in the [native evidence record](controller-review-d56e1aa.md). The current staged gauge draft has a root and eleven child sheets. Use the validation command again after every schematic increment.
 
 1. Open `rgb-badge-coupon.kicad_pro` from the command above.
 2. Open the Schematic Editor from the project manager.
