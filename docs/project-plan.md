@@ -14,6 +14,8 @@ The [LED volume-cost screen](sourcing/led-volume-cost-screen-2026-09-26.md) find
 
 **Gauge amendment:** [ADR 0015](decisions/0015-switch-fuel-gauge-with-application.md) disconnects the MAX17048 using an independent pole of the latching switch. OFF charging remains autonomous; battery SOC is not tracked while OFF and can be provisional after switch-ON. The earlier upstream/always-on gauge statements below are historical.
 
+**Pack and timing amendment:** [ADR 0016](decisions/0016-runtime-and-fit-over-charge-speed.md) prioritizes roughly six hours of reference runtime and finished fit over the former 45–60 min / 75–100 min charge-time numbers. The old ISET/fast-charge descriptions below are historical numerical screens, not an approved charge setting. Define pack-specific planning times before Gate A, then measure them.
+
 ## 1. Outcome
 
 Build a new, open-source, full-colour wearable LED badge inspired by the FOSSASIA Badge Magic form factor, while retaining its pixel pitch and meeting these product targets:
@@ -26,7 +28,7 @@ Build a new, open-source, full-colour wearable LED badge inspired by the FOSSASI
 | Finished weight | aim for 75 g; absolute maximum 100 g, including battery, case and attachment |
 | Runtime | roughly 6 h for the defined mixed-content reference workload at a suitable fixed brightness |
 | Charging | USB-C, standard 5 V only, correct A-to-C and C-to-C behaviour |
-| Charge-time target | approximately 80% in 45–60 min and full in 75–100 min, with the display off and a capable USB-C source |
+| Charge timing | Exact-pack-specific 80% and full planning times before Gate A; measure both with display off on a qualified USB-C source (ADR 0016) |
 | Wireless | Bluetooth Low Energy, enabled only in programming mode |
 | Local controls | one momentary mode button and one latching on/off slide switch |
 | Assembly | turnkey PCBA; the user only plugs in the battery and assembles the case |
@@ -157,12 +159,12 @@ The [BQ24392 datasheet](https://www.ti.com/lit/ds/symlink/bq24392.pdf) supplies 
 
 The BQ24074 is linear. A first-order low-cell estimate reaches roughly 1.6 W at 5 V, 0.8 A and 3.0 V battery voltage. Gate A must review copper/temperature estimates and the coupon must log charge current and case temperature; reduce the fixed current if normal operation enters thermal regulation or becomes unacceptably hot.
 
-Fast-charge timing is conditional:
+Charging time depends on the exact pack and thermal behavior (ADR 0016 supersedes the old timing target):
 
-- Target 80% in 45–60 min assumes a new 750–900 mAh cell whose datasheet allows approximately 1 C charging, display off or lightly loaded, and a USB-C source advertising at least 1.5 A.
-- A-to-C and default-current C-to-C sources are intentionally limited and take longer.
+- The old 80% in 45–60 min target assumed a 750–900 mAh cell allowing approximately 1 C charging; it is withdrawn.
+- Under ADR 0013, A-to-C and default-current C-to-C sources do not charge the pack.
 - Heavy display use consumes input power first and extends charge time.
-- The final charge current is never set above the exact pack supplier's rating.
+- Set the charge current no higher than the exact terminated pack's rating; document expected times and measure them with the display OFF on a qualified source.
 
 Two tiny side-facing LEDs next to USB-C indicate red while charging and green when complete. The circuit should derive a useful indication from charger status even before full application firmware is installed.
 
@@ -410,7 +412,7 @@ Final acceptance:
 - user-selected fixed brightness with no automatic dimming;
 - approximately six hours at the published reference content/brightness with a new selected pack;
 - safe 5 V USB-C charging and USB data in both orientations;
-- target fast charge on a capable source, with slower compliant fallback;
+- published measured 80% and full charge times on a qualified Type-C source, with limits matched to the exact pack;
 - full operation during charging;
 - BLE off in playback and on only during programming mode;
 - correct button/switch/status indicators;

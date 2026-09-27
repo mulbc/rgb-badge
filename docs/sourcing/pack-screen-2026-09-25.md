@@ -2,6 +2,8 @@
 
 # Single-cell pack screening, 2026-09-25
 
+Historical timing comparison: [ADR 0016](../decisions/0016-runtime-and-fit-over-charge-speed.md) withdrew the 45–60 min / 75–100 min targets on 2026-09-27. The arithmetic below still screens safe current but no longer disqualifies a pack solely for slower charging.
+
 These are documented **candidates**, not approved pack MPNs, a purchase list or permission to fabricate. Compare the terminated pack, not just the bare cell. Both 800 mAh and 700 mAh nominal alternatives illustrate why the current charge setting cannot be frozen ahead of pack selection. The owner prefers a US distributor for development batteries; DigiKey is a potential channel, but domestic stocking does not mean a cell was manufactured in the US.
 
 | Exact terminated pack | Documented properties | Disposition |
