@@ -4,9 +4,9 @@
 
 Coupon Rev A is authored and validated with stable KiCad 10.0.x. The initial baseline is 10.0.6 under [ADR 0006](../decisions/0006-kicad-10-workflow.md).
 
-## Staged gauge review (native electrical checkpoint passed; visual correction pending)
+## Staged gauge review (native electrical and visual checkpoint passed)
 
-The new `gauge.kicad_sch` contains U35, two exact 2.2 kΩ I²C pull-ups and the gauge bypass. The first [native review at `20fdf48`](gauge-review-20fdf48.md) passed configured ERC and XML but found overlapping ground-label boxes below U35; these are now spaced apart in source and need a native visual rerun. Expected complete netlist: **400 PCB items / 1,507 logical pins**, with 12 PDF pages including the root and zero configured ERC violations. `+BAT_GAUGE_SW` has a PWR_FLAG solely to mark the missing physical switch and protected-battery supply. Passing ERC here does **not** validate OFF current or the latching switch.
+The new `gauge.kicad_sch` contains U35, two exact 2.2 kΩ I²C pull-ups and the gauge bypass. The first [native review at `20fdf48`](gauge-review-20fdf48.md) passed configured ERC and XML but found overlapping ground-label boxes below U35; the [review at `d9d717a`](gauge-review-d9d717a.md) accepted the corrected rendering and the repeated native checks. Expected complete netlist: **400 PCB items / 1,507 logical pins**, with 12 PDF pages including the root and zero configured ERC violations. `+BAT_GAUGE_SW` has a PWR_FLAG solely to mark the missing physical switch and protected-battery supply. Passing ERC here does **not** validate OFF current or the latching switch.
 
 After the reviewed commit is available on `coupon-power-rev-a`, use a fresh output path:
 
