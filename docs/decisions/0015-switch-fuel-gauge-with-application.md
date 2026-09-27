@@ -25,7 +25,7 @@ The gauge **cannot track discharge, self-discharge or OFF-state charging** while
 
 ## Verification
 
-1. Confirm the switch pole isolates gauge VDD/CELL and the bypass from protected BAT in OFF, and has no unexpected sneak path through SDA/SCL/ALRT/QSTRT, connector or ESD networks. Check break/make transitions with converter enable under switch bounce.
+1. Confirm the switch pole isolates gauge VDD/CELL and the bypass from protected BAT in OFF, and has no unexpected sneak path through SDA/SCL/ALRT/QSTRT, connector or ESD networks. The MAX17048 datasheet does not specify powered-off SDA/SCL leakage: check the interval when the application bus remains high but the gauge pole has opened, and provide a bounded isolation/sequence design or qualified evidence before direct connection. Check break/make transitions with converter enable under switch bounce.
 2. With USB absent, measure OFF battery drain before firmware has ever run and after normal operation, at several protected-pack voltages and ambient conditions. Account for the exact pack protector, charger and regulators; require **<50 µA after settling** as PWR-003 specifies.
 3. While OFF, confirm permitted Type-C charging and charge status still function without the MCU/gauge; default-current sources remain in charger standby. Confirm the charge current and pack NTC/timer hardware independently.
 4. Record gauge boot delay, I²C rise/LOW levels, powered-off leakage and SOC error following an OFF full-charge interval, an OFF partial-charge interval and battery insertion. Compare the reported SOC with an independently logged discharge/charge reference; do not claim a tolerance before setting it against the chosen pack.
