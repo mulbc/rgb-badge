@@ -33,7 +33,7 @@ The exact draft candidates and open circuit risks are tracked in the [Coupon Rev
 
 The [charger thermal sensitivity screen](charger-thermal-screen.md) compares existing worst-corner ISET cases with TI's RGT reference-board thermal metric at 5.5 V. It flags thermal regulation risk for the old 0.872 A draft even in display-OFF charging; it does not select a resistor or establish actual enclosure temperature.
 
-The [MAX17048 capture contract](fuel-gauge-capture-contract.md) implements the [ADR 0015](../../../docs/decisions/0015-switch-fuel-gauge-with-application.md) decision to disconnect gauge power with the physical switch while keeping autonomous OFF charging. A [staged gauge sheet](switch-gauge-boundary.md) now places the gauge, bypass and exact 2.2 kΩ pull-ups. Its switched-BAT supply uses a clearly labeled draft PWR_FLAG: the real switch, charger and protected pack remain uncaptured. Native ERC/XML, bus timing, OFF leakage and post-charge SOC recovery require verification.
+The [MAX17048 capture contract](fuel-gauge-capture-contract.md) implements the [ADR 0015](../../../docs/decisions/0015-switch-fuel-gauge-with-application.md) decision to disconnect gauge power with the physical switch while keeping autonomous OFF charging. A [staged gauge sheet](switch-gauge-boundary.md) places the gauge, bypass and exact 2.2 kΩ pull-ups. Its switched-BAT supply uses a clearly labeled draft PWR_FLAG: the real switch, charger and protected pack remain uncaptured. The [first native review](../../../docs/development/gauge-review-20fdf48.md) passed ERC/XML but found overlapping ground labels; a source-only visual correction awaits native rerun. Bus timing, OFF leakage and post-charge SOC recovery require verification.
 
 ## Open and validate
 

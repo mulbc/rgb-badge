@@ -95,8 +95,9 @@ def generate():
     lines += wire_label("+BAT_GAUGE_SW", gx - 12.70, gy - 7.62, 63.50, gy - 7.62, "U35/VDD")
     lines += wire_label("+BAT_GAUGE_SW", gx - 12.70, gy - 5.08, 63.50, gy - 5.08, "U35/CELL")
     lines += wire_label("GND", gx - 12.70, gy, 63.50, gy, "U35/QSTRT")
-    for pin, x in (("CTG", gx - 2.54), ("GND", gx), ("EP", gx + 2.54)):
-        lines += wire_label("GND", x, gy + 12.70, x + 10.16, gy + 25.40, "U35/" + pin)
+    for index, (pin, x) in enumerate((("CTG", gx - 2.54), ("GND", gx), ("EP", gx + 2.54))):
+        # Native rendering showed all three GND labels overlapping at one Y.
+        lines += wire_label("GND", x, gy + 12.70, x + 17.78, gy + 25.40 + index * 7.62, "U35/" + pin)
     lines += wire_label("SYS_I2C_SDA", gx + 12.70, gy - 2.54, 134.62, gy - 2.54, "U35/SDA")
     lines += wire_label("SYS_I2C_SCL", gx + 12.70, gy, 134.62, gy, "U35/SCL")
     lines.append(f'(no_connect (at {gx + 12.70:.3f} {gy - 7.62:.3f}) (uuid {q(uid("U35/ALRT/nc"))}))')
