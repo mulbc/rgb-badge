@@ -54,6 +54,7 @@ for required_path in \
     "${controller_capture_check}" \
     "${power_design_check}" \
     "${repo_root}/tools/check-programming-resistors.py" \
+    "${repo_root}/tools/check-3v3-feedback-libraries.py" \
     "${usb_permission_check}" \
     "${permission_capture_check}" \
     "${usb_capture_check}" \
@@ -77,6 +78,7 @@ python3 "${controller_library_check}"
 python3 "${controller_capture_check}"
 python3 "${power_design_check}"
 python3 "${repo_root}/tools/check-programming-resistors.py"
+python3 "${repo_root}/tools/check-3v3-feedback-libraries.py"
 python3 "${usb_permission_check}"
 python3 "${permission_capture_check}"
 python3 "${usb_capture_check}"
