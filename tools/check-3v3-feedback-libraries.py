@@ -13,7 +13,7 @@ LED = runpy.run_path(str(TOOLS / "check-led-libraries.py"))
 parse, children = LED["parse_sexpr"], LED["children"]
 PROJECT = TOOLS.parent / "hardware" / "coupon" / "rev-a"
 REFERENCE = "ERJ-2RKF1002X"
-PARTS = {"ERJ-2RKF5113X": 511000, "ERJ-2RKF9102X": 91000}
+PARTS = {"ERJ2RKF5113X": 511000, "ERJ2RKF9102X": 91000}
 
 
 def replace_strings(node, original, new):
@@ -31,7 +31,7 @@ def check(project=PROJECT):
             raise ValueError(f"Missing 3.3 V feedback symbol {mpn}")
         if symbols[mpn] != replace_strings(reference, REFERENCE, mpn):
             raise ValueError(f"{mpn}: MPN, manufacturer source, footprint or passive-pin geometry differs from audited ERJ2")
-        code = mpn.removeprefix("ERJ-2RKF").removesuffix("X")
+        code = mpn.removeprefix("ERJ2RKF").removesuffix("X")
         if len(code) != 4 or int(code[:3]) * 10 ** int(code[3]) != resistance:
             raise ValueError(f"{mpn}: value code mismatch")
     return len(PARTS)
