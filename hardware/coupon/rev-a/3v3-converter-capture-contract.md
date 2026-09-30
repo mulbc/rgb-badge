@@ -18,6 +18,15 @@ Status: **pre-capture engineering calculation, 2026-09-30**. No 3.3 V converter 
 
 The gauge uses a **separate** switch pole for its cell feed. VLED needs the physical ON condition **and** a hardware-qualified display request, with VLED disabled at boot/reset/programming. Sharing an ON-permission signal with the LED interlock is a later reviewed circuit decision, not a reason to route LED current through the switch. When OFF, the 3.3 V converter must disconnect its output and the unpowered application must not be back-fed from USB data, gauge I²C, debug pads, or another rail. TI calls the TPS631000 behavior *true shutdown with load disconnect*, but whole-board OFF isolation and <50 µA remain measured requirements. The separately powered USB-only logic is allowed to operate when USB is attached while the application switch is OFF.
 
+**Planned steady source states for `SYS` / converter VIN:** These are BQ24074 device behaviors from [TI's datasheet](https://www.ti.com/lit/ds/symlink/bq24074.pdf), §§8.5 and 9.3.2–9.3.4, applied to the accepted Type-C-only permission policy. They do not bound attach/detach overshoot or establish pack capability.
+
+| State | BQ24074 OUT source | Converter-input check |
+|---|---|---|
+| USB absent, battery connected | Battery through BAT-to-OUT FET | Check low protected-pack end voltage, BAT-to-OUT drop and converter load capability; charging-voltage maximum is specified as 4.23 V at BAT under the datasheet condition. |
+| USB-A or Type-C default-current, charger standby `(EN1, EN2) = (HI, HI)` | Battery through BAT-to-OUT FET; input FET OFF | Even with USB VBUS present, do not treat OUT as a 5 V rail or allow charger-supplied application current. Depleted/absent-pack recovery remains unguaranteed. |
+| Qualified Type-C 1.5 A/3 A, charger in fixed-ILIM normal mode | Input-fed regulated OUT, **4.3–4.5 V** with sufficient headroom; DPPM may lower it, then battery supplements | Use 4.5 V for the steady high CIN DC-bias screen; check 2.7 V minimum required for TI's full-load example at discharge/DPPM corners. |
+| USB input fault, source revocation or switching | Input FET turns off under standby/OVP and OUT reverts to battery when present | Capture and measure any OUT overshoot/ringing and temporary undershoot separately; 4.5 V regulated maximum is not a transient maximum. |
+
 ## Manufacturer starting point and arithmetic
 
 TI's [TPS631000 Rev. C datasheet](https://www.ti.com/lit/ds/symlink/tps631000.pdf), §§4, 5.3, 5.5, 6.3 and 7.2, gives the 2.7–4.3 V, 3.3 V/1.5 A typical design and these proposed parts/values. The precise passive order codes below are **candidates from TI's example**, not yet audited land patterns or a released BOM.
