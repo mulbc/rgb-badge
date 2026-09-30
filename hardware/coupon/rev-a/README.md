@@ -37,6 +37,8 @@ The [September 27 exact-pack shortlist](../../../docs/sourcing/pack-shortlist-20
 
 The [MAX17048 capture contract](fuel-gauge-capture-contract.md) implements the [ADR 0015](../../../docs/decisions/0015-switch-fuel-gauge-with-application.md) decision to disconnect gauge power with the physical switch while keeping autonomous OFF charging. A [staged gauge sheet](switch-gauge-boundary.md) places the gauge, bypass and exact 2.2 kΩ pull-ups. Its switched-BAT supply uses a clearly labeled draft PWR_FLAG: the real switch, charger and protected pack remain uncaptured. The [corrected native review at d9d717a](../../../docs/development/gauge-review-d9d717a.md) passed configured ERC, XML and page-12 visual inspection. Bus timing, OFF leakage and post-charge SOC recovery require verification.
 
+The [3.3 V converter capture contract](3v3-converter-capture-contract.md) records TI's TPS631000 starting circuit, pin-level switch/rail defaults and voltage-tolerance arithmetic. Its exact passives, protected SYS source, latching switch and KiCad sheet still require capture and review. The battery inquiry does not block this preparatory work.
+
 ## Open and validate
 
 Follow the [macOS KiCad setup and round-trip check](../../../docs/development/kicad-macos.md). The canonical project entry point is `rgb-badge-coupon.kicad_pro`. Run `../../../tools/check-kicad.sh` from this directory, or `./tools/check-kicad.sh` from the repository root.
