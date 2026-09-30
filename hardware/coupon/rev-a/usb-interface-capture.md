@@ -16,9 +16,9 @@ Date: 2026-09-17. Status: [native ERC/XML passed at d502e65](../../../docs/devel
 | J1 | USB4505-03-0-A | Both D+ contacts joined; both D- contacts joined; separate CC1/CC2; both VBUS and GND lands used; shell grounded; SBU1/2 NC |
 | U33 | TPD4E05U06DQAR | Four shunt channels on connector D+/D-/CC1/CC2; both GND pins used; four NCs explicit |
 | U31 | TUSB320LAIRWBR | +3V3_USB supply; PORT and EN_N grounded; ADDR floating selects GPIO mode; unused OUT3/ID NC; built-in Rd, no parallel external CC pull-downs |
-| R71 | ERJ-2RKF8873X | 887 kohm, 1%, connector VBUS to U31 VBUS_DET |
+| R71 | ERJ2RKF8873X | 887 kohm, 1%, connector VBUS to U31 VBUS_DET |
 | U30 | BQ24392RSER | VBUS-domain detector; GOOD_BAT tied to its local supply, independent of the application rail |
-| R72/R73/R74 | ERJ-2RCF2R20X | 2.2 ohm, 1%, ballast on detector VBUS, connector-facing D+ and D- respectively |
+| R72/R73/R74 | ERJ2RCF2R20X | 2.2 ohm, 1%, ballast on detector VBUS, connector-facing D+ and D- respectively |
 | U32 | TS3USB31ERSER | Powered only by +3V3_APP; OE grounded; detector faces D pins, ESP32 faces HSD pins; NC explicit |
 | U29 | TLV75533PDBVR | USB-only 3.3 V regulator; IN and EN on the staged +5V_USB input, OUT on +3V3_USB, NC explicit |
 | C30/C31, C33/C34 | GRM155C71A105KE11D | Two parallel 1 uF / 10 V X7S capacitors at LDO input and detector input respectively |
@@ -41,7 +41,7 @@ The already native-reviewed IC and connector libraries retain their pin maps and
 - [TPDxE05U06, SLVSBO7O](https://www.ti.com/lit/ds/symlink/tpd4e05u06.pdf): four channel pins, two grounds and four NC pins. No VBUS protection is claimed from this data/CC array.
 - GCT drawing A2 and the [USB4505 audit](usb-connector-audit.md) control the previously accepted contact/land mapping. Its mechanical and assembly holds are unchanged.
 
-New exact passive symbols: `ERJ-2RKF8873X` and `ERJ-2RCF2R20X`. Both use the existing audited nonpolar 0402 resistor land pattern and passive pins 1/2. [Panasonic's ERJ datasheet](https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf), dated 2025-05-29, specifies **2RK** for 10 ohm–1 Mohm and **2RC** for 1–9.76 ohm. The different letter is intentional, not a substitute. Code 8873 means 887 kohm, 2R20 means 2.20 ohm, F is 1%, X is the stated tape option. The downloaded PDF SHA-256 is `78825b819853a63f57cc18214f321d2f1da9dc205a7e58af7db18ae73563e378`. No new footprint was added. The two capacitor families are reused from the [controller capture](controller-capture.md); their nominal ratings do not establish effective capacitance in this new application.
+New exact passive symbols: `ERJ2RKF8873X` and `ERJ2RCF2R20X`. Both use the existing audited nonpolar 0402 resistor land pattern and passive pins 1/2. [Panasonic's ERJ datasheet](https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf), dated 2025-05-29, specifies **2RK** for 10 ohm–1 Mohm and **2RC** for 1–9.76 ohm. The different letter is intentional, not a substitute. Code 8873 means 887 kohm, 2R20 means 2.20 ohm, F is 1%, X is the stated tape option. The downloaded PDF SHA-256 is `78825b819853a63f57cc18214f321d2f1da9dc205a7e58af7db18ae73563e378`. No new footprint was added. The two capacitor families are reused from the [controller capture](controller-capture.md); their nominal ratings do not establish effective capacitance in this new application.
 
 TI source hashes match the controlled audits: TS3USB31E `b33c728a099c9f32d3acae56125b13bb88bad6f8925ddf32be69a3bd8908d940`, TPD4E05U06 `c167cf1e72a5473a4d2c59b6a3c0251498701da05b7785919b9ceaae3b3e02c6`. Other source hashes remain in the power/replacement-library audits.
 

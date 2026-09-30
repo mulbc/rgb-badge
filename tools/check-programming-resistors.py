@@ -37,7 +37,7 @@ def check_libraries(project=LIB['PROJECT']):
     parse,children,one=LIB['parse'],LIB['children'],LIB['one']
     symbols={s[1]:s for s in children(parse(project/'symbols/rgb-badge-coupon.kicad_sym'),'symbol')}
     for mpn in PARTS:
-        expected=json.dumps(symbols['ERJ-2RKF1003X']).replace('ERJ-2RKF1003X',mpn).replace('R_Panasonic_ERJ2_0402',FOOTPRINT).replace('RDA0000/AOA0000C304.pdf','RDM0000/AOA0000C307.pdf')
+        expected=json.dumps(symbols['ERJ2RKF1003X']).replace('ERJ2RKF1003X',mpn).replace('R_Panasonic_ERJ2_0402',FOOTPRINT).replace('RDA0000/AOA0000C304.pdf','RDM0000/AOA0000C307.pdf')
         if json.dumps(symbols[mpn])!=expected:
             raise ValueError(f'{mpn}: exact identity, source, passive pins or symbol geometry mismatch')
     folder=project/'footprints/rgb-badge-coupon.pretty'

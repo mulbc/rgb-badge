@@ -21,7 +21,7 @@ SCOPE = uuid.UUID(SHEET_UUID)
 LIBRARY = PROJECT / "symbols/rgb-badge-coupon.kicad_sym"
 SOURCE = {
     "MAX17048G+T10": ("Analog Devices (Maxim Integrated)", "https://www.analog.com/media/en/technical-documentation/data-sheets/MAX17048-MAX17049.pdf", "TDFN_Maxim_T822-3_2x2mm_P0.5mm_EP0.7x1.38mm", list(map(str, range(1, 10)))),
-    "ERJ-2RKF2201X": ("Panasonic", "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf", "R_Panasonic_ERJ2_0402", ["1", "2"]),
+    "ERJ2RKF2201X": ("Panasonic", "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf", "R_Panasonic_ERJ2_0402", ["1", "2"]),
     "GRM155R71C104KA88D": ("Murata", "https://pim.murata.com/asset/pim4/ceramicCapacitorSMD/GRM155R71C104KA88-01A-EN_PDF_CERAMICCAPACITORSMD", "C_Murata_GRM15_0402", ["1", "2"]),
     "PWR_FLAG": ("", "", "", ["1"]),
 }
@@ -103,7 +103,7 @@ def generate():
     lines.append(f'(no_connect (at {gx + 12.70:.3f} {gy - 7.62:.3f}) (uuid {q(uid("U35/ALRT/nc"))}))')
     for ref, y, net in (("R79", 71.12, "SYS_I2C_SDA"), ("R80", 91.44, "SYS_I2C_SCL")):
         x = 198.12
-        lines += component(ref, "ERJ-2RKF2201X", "2.2k 1%", x, y)
+        lines += component(ref, "ERJ2RKF2201X", "2.2k 1%", x, y)
         lines += wire_label("+3V3_APP", x - 5.08, y, x - 20.32, y, ref + "/1")
         lines += wire_label(net, x + 5.08, y, x + 20.32, y, ref + "/2")
     x, y = 198.12, 116.84

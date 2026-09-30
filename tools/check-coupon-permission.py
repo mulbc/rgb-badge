@@ -38,14 +38,14 @@ PARTS.update({f'U{i}':('SN74LVC2G17DBVR','SN74LVC2G17DBVR','rgb-badge-coupon:SOT
 PARTS.update({f'C{i}':('GRM155R71C104KA88D','100n 16V X7R','rgb-badge-coupon:C_Murata_GRM15_0402') for i in (11,17,23,24,25)})
 for i,name in enumerate(INPUTS):
     up=name in ('OUT1','OUT2')
-    PARTS[f'R{60+i}']=('ERJ-2RKF1002X' if up else 'ERJ-2RKF1003X','10k 1%' if up else '100k 1%','rgb-badge-coupon:R_Panasonic_ERJ2_0402')
+    PARTS[f'R{60+i}']=('ERJ2RKF1002X' if up else 'ERJ2RKF1003X','10k 1%' if up else '100k 1%','rgb-badge-coupon:R_Panasonic_ERJ2_0402')
     PARTS[f'TP{20+i}']=('TestPoint_Pad',name,'rgb-badge-coupon:TestPoint_Pad_D1.0mm')
-PARTS['R70']=('ERJ-2RKF1002X','10k 1%','rgb-badge-coupon:R_Panasonic_ERJ2_0402')
+PARTS['R70']=('ERJ2RKF1002X','10k 1%','rgb-badge-coupon:R_Panasonic_ERJ2_0402')
 PARTS.update({ref:('TestPoint_Pad',value,'rgb-badge-coupon:TestPoint_Pad_D1.0mm') for ref,value in [('TP30','CHARGE_REQ'),('TP31','EN1_RAW_N')]})
 PARTS['U34']=('TPS3808G01DBVR','TPS3808G01DBVR','rgb-badge-coupon:SOT23_TI_DBV0006A')
 PARTS['C38']=('GRM155R71C104KA88D','100n 16V X7R','rgb-badge-coupon:C_Murata_GRM15_0402')
-for ref,mpn,value in [('R75','ERJ-2RKF6203X','620k 1%'),('R76','ERJ-2RKF1003X','100k 1%'),
-                      ('R77','ERJ-2RKF1003X','100k 1%'),('R78','ERJ-2RKF1002X','10k 1%')]:
+for ref,mpn,value in [('R75','ERJ2RKF6203X','620k 1%'),('R76','ERJ2RKF1003X','100k 1%'),
+                      ('R77','ERJ2RKF1003X','100k 1%'),('R78','ERJ2RKF1002X','10k 1%')]:
     PARTS[ref]=(mpn,value,'rgb-badge-coupon:R_Panasonic_ERJ2_0402')
 
 

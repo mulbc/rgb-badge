@@ -462,18 +462,18 @@
 (pin passive line (at -22.860 -35.560 0) (length 2.54) (name "IREFGND" (effects (font (size 1.016 1.016)))) (number "56" (effects (font (size 1.016 1.016)))))
 (pin power_in line (at -22.860 -50.800 0) (length 2.54) (name "GND_EP" (effects (font (size 1.016 1.016)))) (number "57" (effects (font (size 1.016 1.016))))))
 	)
-	(symbol "ERJ-2RKF3922X"
+	(symbol "ERJ2RKF3922X"
 (pin_names (offset 1.016) hide)
 
 (in_bom yes) (on_board yes)
 (property "Reference" "R" (at 0.000 5.080 0) (effects (font (size 1.27 1.27))))
-(property "Value" "ERJ-2RKF3922X" (at 0.000 2.540 0) (effects (font (size 1.27 1.27))))
+(property "Value" "ERJ2RKF3922X" (at 0.000 2.540 0) (effects (font (size 1.27 1.27))))
 (property "Footprint" "rgb-badge-coupon:R_Panasonic_ERJ2_0402" (at 0.000 0.000 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf" (at 0.000 0.000 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Manufacturer" "Panasonic" (at 0.000 0.000 0) (effects (font (size 1.27 1.27)) (hide yes)))
-(property "MPN" "ERJ-2RKF3922X" (at 0.000 0.000 0) (effects (font (size 1.27 1.27)) (hide yes)))
-(symbol "ERJ-2RKF3922X_0_1" (rectangle (start -2.54 1.016) (end 2.54 -1.016) (stroke (width 0.254) (type default)) (fill (type background))))
-(symbol "ERJ-2RKF3922X_1_1" (pin passive line (at -5.080 0.000 0) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "1" (effects (font (size 1.016 1.016)))))
+(property "MPN" "ERJ2RKF3922X" (at 0.000 0.000 0) (effects (font (size 1.27 1.27)) (hide yes)))
+(symbol "ERJ2RKF3922X_0_1" (rectangle (start -2.54 1.016) (end 2.54 -1.016) (stroke (width 0.254) (type default)) (fill (type background))))
+(symbol "ERJ2RKF3922X_1_1" (pin passive line (at -5.080 0.000 0) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "1" (effects (font (size 1.016 1.016)))))
 (pin passive line (at 5.080 0.000 180) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "2" (effects (font (size 1.016 1.016))))))
 	)
 	(symbol "GRM155R71C104KA88D"
@@ -506,18 +506,18 @@
 (symbol "PWR_FLAG_1_1" (pin power_out line (at 0.000 0.000 0) (length 0) (name "pwr" (effects (font (size 1.016 1.016)))) (number "1" (effects (font (size 1.016 1.016))))))
 	)
 
-	(symbol "ERJ-2RKF1003X"
+	(symbol "ERJ2RKF1003X"
 (pin_names (offset 1.016) hide)
 
 (in_bom yes) (on_board yes)
 (property "Reference" "R" (at 0.000 5.080 0) (effects (font (size 1.27 1.27))))
-(property "Value" "ERJ-2RKF1003X" (at 0.000 2.540 0) (effects (font (size 1.27 1.27))))
+(property "Value" "ERJ2RKF1003X" (at 0.000 2.540 0) (effects (font (size 1.27 1.27))))
 (property "Footprint" "rgb-badge-coupon:R_Panasonic_ERJ2_0402" (at 0.000 0.000 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf" (at 0.000 0.000 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Manufacturer" "Panasonic" (at 0.000 0.000 0) (effects (font (size 1.27 1.27)) (hide yes)))
-(property "MPN" "ERJ-2RKF1003X" (at 0.000 0.000 0) (effects (font (size 1.27 1.27)) (hide yes)))
-(symbol "ERJ-2RKF1003X_0_1" (rectangle (start -2.54 1.016) (end 2.54 -1.016) (stroke (width 0.254) (type default)) (fill (type background))))
-(symbol "ERJ-2RKF1003X_1_1" (pin passive line (at -5.080 0.000 0) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "1" (effects (font (size 1.016 1.016)))))
+(property "MPN" "ERJ2RKF1003X" (at 0.000 0.000 0) (effects (font (size 1.27 1.27)) (hide yes)))
+(symbol "ERJ2RKF1003X_0_1" (rectangle (start -2.54 1.016) (end 2.54 -1.016) (stroke (width 0.254) (type default)) (fill (type background))))
+(symbol "ERJ2RKF1003X_1_1" (pin passive line (at -5.080 0.000 0) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "1" (effects (font (size 1.016 1.016)))))
 (pin passive line (at 5.080 0.000 180) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "2" (effects (font (size 1.016 1.016))))))
 	)
 
@@ -629,17 +629,17 @@
 )
 	)
 
-	(symbol "ERJ-2RKF1001X"
+	(symbol "ERJ2RKF1001X"
 (pin_names (offset 1.016) hide)
 (in_bom yes) (on_board yes)
 (property "Reference" "R" (at 0 5.08 0) (effects (font (size 1.27 1.27))))
-(property "Value" "ERJ-2RKF1001X" (at 0 2.54 0) (effects (font (size 1.27 1.27))))
+(property "Value" "ERJ2RKF1001X" (at 0 2.54 0) (effects (font (size 1.27 1.27))))
 (property "Footprint" "rgb-badge-coupon:R_Panasonic_ERJ2_0402" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Manufacturer" "Panasonic" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
-(property "MPN" "ERJ-2RKF1001X" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
-(symbol "ERJ-2RKF1001X_0_1" (rectangle (start -2.54 1.016) (end 2.54 -1.016) (stroke (width 0.254) (type default)) (fill (type background))))
-(symbol "ERJ-2RKF1001X_1_1"
+(property "MPN" "ERJ2RKF1001X" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
+(symbol "ERJ2RKF1001X_0_1" (rectangle (start -2.54 1.016) (end 2.54 -1.016) (stroke (width 0.254) (type default)) (fill (type background))))
+(symbol "ERJ2RKF1001X_1_1"
 (pin passive line (at -5.08 0 0) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "1" (effects (font (size 1.016 1.016)))))
 (pin passive line (at 5.08 0 180) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "2" (effects (font (size 1.016 1.016)))))
 )
@@ -701,52 +701,52 @@
 )
 	)
 
-	(symbol "ERJ-2RKF1002X"
+	(symbol "ERJ2RKF1002X"
 (pin_names (offset 1.016) hide) (in_bom yes) (on_board yes)
 (property "Reference" "R" (at 0 5.08 0) (effects (font (size 1.27 1.27))))
-(property "Value" "ERJ-2RKF1002X" (at 0 2.54 0) (effects (font (size 1.27 1.27))))
+(property "Value" "ERJ2RKF1002X" (at 0 2.54 0) (effects (font (size 1.27 1.27))))
 (property "Footprint" "rgb-badge-coupon:R_Panasonic_ERJ2_0402" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Manufacturer" "Panasonic" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
-(property "MPN" "ERJ-2RKF1002X" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
-(symbol "ERJ-2RKF1002X_0_1" (rectangle (start -2.54 1.016) (end 2.54 -1.016) (stroke (width 0.254) (type default)) (fill (type background))))
-(symbol "ERJ-2RKF1002X_1_1" (pin passive line (at -5.08 0 0) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "1" (effects (font (size 1.016 1.016))))) (pin passive line (at 5.08 0 180) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "2" (effects (font (size 1.016 1.016))))))
+(property "MPN" "ERJ2RKF1002X" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
+(symbol "ERJ2RKF1002X_0_1" (rectangle (start -2.54 1.016) (end 2.54 -1.016) (stroke (width 0.254) (type default)) (fill (type background))))
+(symbol "ERJ2RKF1002X_1_1" (pin passive line (at -5.08 0 0) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "1" (effects (font (size 1.016 1.016))))) (pin passive line (at 5.08 0 180) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "2" (effects (font (size 1.016 1.016))))))
 	)
 
-	(symbol "ERJ-2RKF2201X"
+	(symbol "ERJ2RKF2201X"
 (pin_names (offset 1.016) hide) (in_bom yes) (on_board yes)
 (property "Reference" "R" (at 0 5.08 0) (effects (font (size 1.27 1.27))))
-(property "Value" "ERJ-2RKF2201X" (at 0 2.54 0) (effects (font (size 1.27 1.27))))
+(property "Value" "ERJ2RKF2201X" (at 0 2.54 0) (effects (font (size 1.27 1.27))))
 (property "Footprint" "rgb-badge-coupon:R_Panasonic_ERJ2_0402" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Manufacturer" "Panasonic" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
-(property "MPN" "ERJ-2RKF2201X" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
-(symbol "ERJ-2RKF2201X_0_1" (rectangle (start -2.54 1.016) (end 2.54 -1.016) (stroke (width 0.254) (type default)) (fill (type background))))
-(symbol "ERJ-2RKF2201X_1_1" (pin passive line (at -5.08 0 0) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "1" (effects (font (size 1.016 1.016))))) (pin passive line (at 5.08 0 180) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "2" (effects (font (size 1.016 1.016))))))
+(property "MPN" "ERJ2RKF2201X" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
+(symbol "ERJ2RKF2201X_0_1" (rectangle (start -2.54 1.016) (end 2.54 -1.016) (stroke (width 0.254) (type default)) (fill (type background))))
+(symbol "ERJ2RKF2201X_1_1" (pin passive line (at -5.08 0 0) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "1" (effects (font (size 1.016 1.016))))) (pin passive line (at 5.08 0 180) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "2" (effects (font (size 1.016 1.016))))))
 	)
 
-	(symbol "ERJ-2RKF22R0X"
+	(symbol "ERJ2RKF22R0X"
 (pin_names (offset 1.016) hide) (in_bom yes) (on_board yes)
 (property "Reference" "R" (at 0 5.08 0) (effects (font (size 1.27 1.27))))
-(property "Value" "ERJ-2RKF22R0X" (at 0 2.54 0) (effects (font (size 1.27 1.27))))
+(property "Value" "ERJ2RKF22R0X" (at 0 2.54 0) (effects (font (size 1.27 1.27))))
 (property "Footprint" "rgb-badge-coupon:R_Panasonic_ERJ2_0402" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Manufacturer" "Panasonic" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
-(property "MPN" "ERJ-2RKF22R0X" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
-(symbol "ERJ-2RKF22R0X_0_1" (rectangle (start -2.54 1.016) (end 2.54 -1.016) (stroke (width 0.254) (type default)) (fill (type background))))
-(symbol "ERJ-2RKF22R0X_1_1" (pin passive line (at -5.08 0 0) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "1" (effects (font (size 1.016 1.016))))) (pin passive line (at 5.08 0 180) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "2" (effects (font (size 1.016 1.016))))))
+(property "MPN" "ERJ2RKF22R0X" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
+(symbol "ERJ2RKF22R0X_0_1" (rectangle (start -2.54 1.016) (end 2.54 -1.016) (stroke (width 0.254) (type default)) (fill (type background))))
+(symbol "ERJ2RKF22R0X_1_1" (pin passive line (at -5.08 0 0) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "1" (effects (font (size 1.016 1.016))))) (pin passive line (at 5.08 0 180) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "2" (effects (font (size 1.016 1.016))))))
 	)
 
-	(symbol "ERJ-2RKF4990X"
+	(symbol "ERJ2RKF4990X"
 (pin_names (offset 1.016) hide) (in_bom yes) (on_board yes)
 (property "Reference" "R" (at 0 5.08 0) (effects (font (size 1.27 1.27))))
-(property "Value" "ERJ-2RKF4990X" (at 0 2.54 0) (effects (font (size 1.27 1.27))))
+(property "Value" "ERJ2RKF4990X" (at 0 2.54 0) (effects (font (size 1.27 1.27))))
 (property "Footprint" "rgb-badge-coupon:R_Panasonic_ERJ2_0402" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Manufacturer" "Panasonic" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
-(property "MPN" "ERJ-2RKF4990X" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
-(symbol "ERJ-2RKF4990X_0_1" (rectangle (start -2.54 1.016) (end 2.54 -1.016) (stroke (width 0.254) (type default)) (fill (type background))))
-(symbol "ERJ-2RKF4990X_1_1" (pin passive line (at -5.08 0 0) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "1" (effects (font (size 1.016 1.016))))) (pin passive line (at 5.08 0 180) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "2" (effects (font (size 1.016 1.016))))))
+(property "MPN" "ERJ2RKF4990X" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
+(symbol "ERJ2RKF4990X_0_1" (rectangle (start -2.54 1.016) (end 2.54 -1.016) (stroke (width 0.254) (type default)) (fill (type background))))
+(symbol "ERJ2RKF4990X_1_1" (pin passive line (at -5.08 0 0) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "1" (effects (font (size 1.016 1.016))))) (pin passive line (at 5.08 0 180) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "2" (effects (font (size 1.016 1.016))))))
 	)
 
 	(symbol "GRM155C71A105KE11D"
@@ -1270,47 +1270,47 @@
 )
 	)
 
-(symbol "ERJ-2RKF8873X"
+(symbol "ERJ2RKF8873X"
 (pin_names (offset 1.016) hide)
 
 (in_bom yes) (on_board yes)
 (property "Reference" "R" (at 0.000 5.080 0) (effects (font (size 1.27 1.27))))
-(property "Value" "ERJ-2RKF8873X" (at 0.000 2.540 0) (effects (font (size 1.27 1.27))))
+(property "Value" "ERJ2RKF8873X" (at 0.000 2.540 0) (effects (font (size 1.27 1.27))))
 (property "Footprint" "rgb-badge-coupon:R_Panasonic_ERJ2_0402" (at 0.000 0.000 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf" (at 0.000 0.000 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Manufacturer" "Panasonic" (at 0.000 0.000 0) (effects (font (size 1.27 1.27)) (hide yes)))
-(property "MPN" "ERJ-2RKF8873X" (at 0.000 0.000 0) (effects (font (size 1.27 1.27)) (hide yes)))
-(symbol "ERJ-2RKF8873X_0_1" (rectangle (start -2.54 1.016) (end 2.54 -1.016) (stroke (width 0.254) (type default)) (fill (type background))))
-(symbol "ERJ-2RKF8873X_1_1" (pin passive line (at -5.080 0.000 0) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "1" (effects (font (size 1.016 1.016)))))
+(property "MPN" "ERJ2RKF8873X" (at 0.000 0.000 0) (effects (font (size 1.27 1.27)) (hide yes)))
+(symbol "ERJ2RKF8873X_0_1" (rectangle (start -2.54 1.016) (end 2.54 -1.016) (stroke (width 0.254) (type default)) (fill (type background))))
+(symbol "ERJ2RKF8873X_1_1" (pin passive line (at -5.080 0.000 0) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "1" (effects (font (size 1.016 1.016)))))
 (pin passive line (at 5.080 0.000 180) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "2" (effects (font (size 1.016 1.016))))))
 	)
-(symbol "ERJ-2RCF2R20X"
+(symbol "ERJ2RCF2R20X"
 (pin_names (offset 1.016) hide)
 
 (in_bom yes) (on_board yes)
 (property "Reference" "R" (at 0.000 5.080 0) (effects (font (size 1.27 1.27))))
-(property "Value" "ERJ-2RCF2R20X" (at 0.000 2.540 0) (effects (font (size 1.27 1.27))))
+(property "Value" "ERJ2RCF2R20X" (at 0.000 2.540 0) (effects (font (size 1.27 1.27))))
 (property "Footprint" "rgb-badge-coupon:R_Panasonic_ERJ2_0402" (at 0.000 0.000 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf" (at 0.000 0.000 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Manufacturer" "Panasonic" (at 0.000 0.000 0) (effects (font (size 1.27 1.27)) (hide yes)))
-(property "MPN" "ERJ-2RCF2R20X" (at 0.000 0.000 0) (effects (font (size 1.27 1.27)) (hide yes)))
-(symbol "ERJ-2RCF2R20X_0_1" (rectangle (start -2.54 1.016) (end 2.54 -1.016) (stroke (width 0.254) (type default)) (fill (type background))))
-(symbol "ERJ-2RCF2R20X_1_1" (pin passive line (at -5.080 0.000 0) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "1" (effects (font (size 1.016 1.016)))))
+(property "MPN" "ERJ2RCF2R20X" (at 0.000 0.000 0) (effects (font (size 1.27 1.27)) (hide yes)))
+(symbol "ERJ2RCF2R20X_0_1" (rectangle (start -2.54 1.016) (end 2.54 -1.016) (stroke (width 0.254) (type default)) (fill (type background))))
+(symbol "ERJ2RCF2R20X_1_1" (pin passive line (at -5.080 0.000 0) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "1" (effects (font (size 1.016 1.016)))))
 (pin passive line (at 5.080 0.000 180) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "2" (effects (font (size 1.016 1.016))))))
 	)
 
-(symbol "ERJ-2RKF6203X"
+(symbol "ERJ2RKF6203X"
 (pin_names (offset 1.016) hide)
 
 (in_bom yes) (on_board yes)
 (property "Reference" "R" (at 0.000 5.080 0) (effects (font (size 1.27 1.27))))
-(property "Value" "ERJ-2RKF6203X" (at 0.000 2.540 0) (effects (font (size 1.27 1.27))))
+(property "Value" "ERJ2RKF6203X" (at 0.000 2.540 0) (effects (font (size 1.27 1.27))))
 (property "Footprint" "rgb-badge-coupon:R_Panasonic_ERJ2_0402" (at 0.000 0.000 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf" (at 0.000 0.000 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Manufacturer" "Panasonic" (at 0.000 0.000 0) (effects (font (size 1.27 1.27)) (hide yes)))
-(property "MPN" "ERJ-2RKF6203X" (at 0.000 0.000 0) (effects (font (size 1.27 1.27)) (hide yes)))
-(symbol "ERJ-2RKF6203X_0_1" (rectangle (start -2.54 1.016) (end 2.54 -1.016) (stroke (width 0.254) (type default)) (fill (type background))))
-(symbol "ERJ-2RKF6203X_1_1" (pin passive line (at -5.080 0.000 0) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "1" (effects (font (size 1.016 1.016)))))
+(property "MPN" "ERJ2RKF6203X" (at 0.000 0.000 0) (effects (font (size 1.27 1.27)) (hide yes)))
+(symbol "ERJ2RKF6203X_0_1" (rectangle (start -2.54 1.016) (end 2.54 -1.016) (stroke (width 0.254) (type default)) (fill (type background))))
+(symbol "ERJ2RKF6203X_1_1" (pin passive line (at -5.080 0.000 0) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "1" (effects (font (size 1.016 1.016)))))
 (pin passive line (at 5.080 0.000 180) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "2" (effects (font (size 1.016 1.016))))))
 	)
 

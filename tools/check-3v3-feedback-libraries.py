@@ -12,7 +12,7 @@ TOOLS = Path(__file__).resolve().parent
 LED = runpy.run_path(str(TOOLS / "check-led-libraries.py"))
 parse, children = LED["parse_sexpr"], LED["children"]
 PROJECT = TOOLS.parent / "hardware" / "coupon" / "rev-a"
-REFERENCE = "ERJ-2RKF1002X"
+REFERENCE = "ERJ2RKF1002X"
 PARTS = {"ERJ2RKF5113X": 511000, "ERJ2RKF9102X": 91000}
 
 

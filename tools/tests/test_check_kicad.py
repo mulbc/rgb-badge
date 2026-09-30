@@ -51,7 +51,7 @@ class CheckKiCadWrapperTests(unittest.TestCase):
 
     def test_missing_precision_or_supervisor_export_is_rejected(self):
         for name in ('ERA2AEB3651X_unit1.svg', 'ERA2AEB3481X_unit1.svg',
-                     'ERA2AEB1131X_unit1.svg', 'ERJ-2RKF6203X_unit1.svg',
+                     'ERA2AEB1131X_unit1.svg', 'ERJ2RKF6203X_unit1.svg',
                      'R_Panasonic_ERA2_0402.svg', 'ADG4612BCPZ-REEL7_unit1.svg',
                      'LFCSP_ADI_CP16_22_3x3mm_P0.5mm_EP1.75mm.svg'):
             with self.subTest(name=name):

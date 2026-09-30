@@ -25,7 +25,7 @@ PARTS={
     'U31':('TUSB320LAIRWBR','TUSB320LAIRWBR','X2QFN_TI_RWB0012A_1.6x1.6mm_P0.4mm'),
     'U32':('TS3USB31ERSER','TS3USB31ERSER','UQFN_TI_RSE0008A_1.5x1.5mm_P0.5mm'),
     'U33':('TPD4E05U06DQAR','TPD4E05U06DQAR','USON_TI_DQA0010A'),
-    'R71':('ERJ-2RKF8873X','887k 1%','R_Panasonic_ERJ2_0402'),
+    'R71':('ERJ2RKF8873X','887k 1%','R_Panasonic_ERJ2_0402'),
     'C32':('GRM188R60J106ME47D','10u 6.3V X5R','C_Murata_GRM18_0603'),
 }
 PARTS.update({f'C{i}':('GRM155C71A105KE11D','1u 10V X7S','C_Murata_GRM15_0402') for i in (30,31)})
@@ -64,7 +64,7 @@ def expected_native_no_connects():
 
 def check_added_libraries(project=PROJECT):
     symbols={s[1]:s for s in children(parse(project/'symbols/rgb-badge-coupon.kicad_sym'),'symbol')}
-    for mpn in ('ERJ-2RKF8873X','ERJ-2RCF2R20X'):
+    for mpn in ('ERJ2RKF8873X','ERJ2RCF2R20X'):
         p=props(symbols[mpn])
         require(p.get('MPN')==mpn and p.get('Value')==mpn and p.get('Manufacturer')=='Panasonic','USB resistor identity mismatch')
         require(p.get('Footprint')=='rgb-badge-coupon:R_Panasonic_ERJ2_0402','USB resistor footprint mismatch')
@@ -74,8 +74,8 @@ def check_added_libraries(project=PROJECT):
         # Inherit only the already audited geometry, never the old MPN.
         def normalized(s):
             import json
-            return json.dumps(s).replace(mpn,'ERJ-2RKF1003X')
-        require(normalized(symbols[mpn])==normalized(symbols['ERJ-2RKF1003X']),'Unexpected USB resistor symbol geometry')
+            return json.dumps(s).replace(mpn,'ERJ2RKF1003X')
+        require(normalized(symbols[mpn])==normalized(symbols['ERJ2RKF1003X']),'Unexpected USB resistor symbol geometry')
     # TUSB320 R_VBUS specification: 855..920 kohm. Include 1% tolerance
     # and ±100 ppm/K over the detector's -40..85 C range (25 C reference).
     lo=D(887)*(1-D('.01'))*(1-D('.0001')*65)

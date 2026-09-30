@@ -29,7 +29,7 @@ The connector VBUS and the staged +5V_USB supply are deliberately separate until
 - Production 3.3 V/VLED converters, fuel gauge, battery-current monitor, NTC interfaces and controls.
 - Native USB diagnostics and hidden factory programming/test pads.
 
-The exact draft candidates and open circuit risks are tracked in the [Coupon Rev A sourcing record](../../../docs/sourcing/coupon-rev-a-core-candidates.md). A candidate in that record is not an approved purchase or fabrication BOM line.
+The exact draft candidates and open circuit risks are tracked in the [Coupon Rev A sourcing record](../../../docs/sourcing/coupon-rev-a-core-candidates.md). The [Panasonic order-code audit](panasonic-order-code-audit.md) records the corrected ERJ2 identities and outstanding native roundtrip. A candidate in that record is not an approved purchase or fabrication BOM line.
 
 The [charger thermal sensitivity screen](charger-thermal-screen.md) compares existing worst-corner ISET cases with TI's RGT reference-board thermal metric at 5.5 V. It flags thermal regulation risk for the old 0.872 A draft even in display-OFF charging; it does not select a resistor or establish actual enclosure temperature.
 

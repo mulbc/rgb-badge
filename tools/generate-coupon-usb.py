@@ -27,7 +27,7 @@ def interface():
         '1':'USB_CC1','2':'USB_CC2','3':'GND','4':'USB_VBUS_DET',
         '7':'USB_RAW_OUT1','8':'USB_RAW_OUT2','10':'GND','11':'GND','12':'+3V3_USB'})
     s.note('PORT low = UFP; ADDR NC = GPIO; EN_N low.',391.16,127,'cc-mode',1.016)
-    s.component('R71','ERJ-2RKF8873X',449.58,147.32,{'1':'VBUS_CONNECTOR','2':'USB_VBUS_DET'},'887k 1%')
+    s.component('R71','ERJ2RKF8873X',449.58,147.32,{'1':'VBUS_CONNECTOR','2':'USB_VBUS_DET'},'887k 1%')
     s.component('C36','GRM155R71C104KA88D',449.58,172.72,{'1':'+3V3_USB','2':'GND'},'100n 16V X7R')
     s.note('No external CC Rd: detector provides dead-battery Rd.',391.16,187.96,'cc-rd',1.016)
     s.note('USB-only LDO; never connect +3V3_APP here',20.32,215.90,'ldo',1.016)

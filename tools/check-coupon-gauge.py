@@ -18,8 +18,8 @@ SHEET_UUID = 'a3481745-5e2e-5d38-a0e5-19e861e87d30'
 FILE_UUID = '0e9b0552-544c-5c4e-83ac-90b44a40a47a'
 PARTS = {
     'U35': ('MAX17048G+T10', 'MAX17048G+T10', 'rgb-badge-coupon:TDFN_Maxim_T822-3_2x2mm_P0.5mm_EP0.7x1.38mm'),
-    'R79': ('ERJ-2RKF2201X', '2.2k 1%', 'rgb-badge-coupon:R_Panasonic_ERJ2_0402'),
-    'R80': ('ERJ-2RKF2201X', '2.2k 1%', 'rgb-badge-coupon:R_Panasonic_ERJ2_0402'),
+    'R79': ('ERJ2RKF2201X', '2.2k 1%', 'rgb-badge-coupon:R_Panasonic_ERJ2_0402'),
+    'R80': ('ERJ2RKF2201X', '2.2k 1%', 'rgb-badge-coupon:R_Panasonic_ERJ2_0402'),
     'C39': ('GRM155R71C104KA88D', '100n 16V X7R', 'rgb-badge-coupon:C_Murata_GRM15_0402'),
     '#FLG06': ('PWR_FLAG', 'PWR_FLAG', ''),
 }

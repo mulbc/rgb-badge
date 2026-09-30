@@ -40,11 +40,11 @@ def threshold_bounds(upper='620000',lower='100000'):
 
 def check(project=LIB['PROJECT']):
     symbols={s[1]:s for s in LIB['children'](LIB['parse'](project/'symbols/rgb-badge-coupon.kicad_sym'),'symbol')}
-    mpn='ERJ-2RKF6203X'
+    mpn='ERJ2RKF6203X'
     import json
     # Reuse the audited passive shape/pin map while checking all exact identity
     # fields and the manufacturer source URL against the controlled template.
-    if json.dumps(symbols[mpn]).replace(mpn,'ERJ-2RKF1003X')!=json.dumps(symbols['ERJ-2RKF1003X']):
+    if json.dumps(symbols[mpn]).replace(mpn,'ERJ2RKF1003X')!=json.dumps(symbols['ERJ2RKF1003X']):
         raise ValueError('Supervisor divider resistor identity/geometry mismatch')
     lo,hi,release=threshold_bounds()
     if not D('2.7')<lo<hi<release<D('3.2'):

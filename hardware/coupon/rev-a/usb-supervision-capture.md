@@ -12,10 +12,10 @@ Six items / sixteen logical pins are added to the unused lower-right area of `us
 |---|---|---|
 | U34 | TPS3808G01DBVR | VDD and MR on +5V_USB; SENSE on the divider; open-drain RESET drives USB_RAW_LOGIC_READY |
 | C38 | GRM155R71C104KA88D | 100 nF bypass from +5V_USB to GND |
-| R75 | ERJ-2RKF6203X | 620 kohm, 1%, from +3V3_USB to SENSE |
-| R76 | ERJ-2RKF1003X | 100 kohm, 1%, from SENSE to GND |
-| R77 | ERJ-2RKF1003X | 100 kohm from +5V_USB to CT; selects long fixed reset delay |
-| R78 | ERJ-2RKF1002X | 10 kohm pull-up from +3V3_USB to RESET |
+| R75 | ERJ2RKF6203X | 620 kohm, 1%, from +3V3_USB to SENSE |
+| R76 | ERJ2RKF1003X | 100 kohm, 1%, from SENSE to GND |
+| R77 | ERJ2RKF1003X | 100 kohm from +5V_USB to CT; selects long fixed reset delay |
+| R78 | ERJ2RKF1002X | 10 kohm pull-up from +3V3_USB to RESET |
 
 R66 remains the existing 100 kohm pull-down. U27 buffers RESET into USB_LOGIC_READY; TP26 observes the raw signal. U34 is powered from the input domain, rather than the rail it measures. VBUS_VALID, SWITCH_ON, ESP_RUNNING and USB_REQUEST remain four staged inputs. The two actuator outputs are still test boundaries.
 

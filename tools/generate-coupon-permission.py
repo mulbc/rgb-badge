@@ -138,7 +138,7 @@ def conditioning():
         for j,name in enumerate((a,b)):
             n=2*i+j
             up=name in ('OUT1','OUT2')
-            s.component(f'R{60+n}','ERJ-2RKF1002X' if up else 'ERJ-2RKF1003X',x,y+45.72+j*20.32,
+            s.component(f'R{60+n}','ERJ2RKF1002X' if up else 'ERJ2RKF1003X',x,y+45.72+j*20.32,
                         {'1':'USB_RAW_'+name,'2':'+3V3_USB' if up else 'GND'},'10k 1%' if up else '100k 1%')
     for i,name in enumerate(RAW):
         x,y=83.82+(i%5)*106.68,325.12+(i//5)*25.4
@@ -149,10 +149,10 @@ def conditioning():
                  '4':'USB_LOGIC_CT','5':'USB_LOGIC_SENSE','6':'+5V_USB'})
     s.component('C38','GRM155R71C104KA88D',444.50,218.44,{'1':'+5V_USB','2':'GND'},'100n 16V X7R')
     for ref,mpn,y,a,b,value in [
-        ('R75','ERJ-2RKF6203X',238.76,'+3V3_USB','USB_LOGIC_SENSE','620k 1%'),
-        ('R76','ERJ-2RKF1003X',259.08,'USB_LOGIC_SENSE','GND','100k 1%'),
-        ('R77','ERJ-2RKF1003X',279.40,'+5V_USB','USB_LOGIC_CT','100k 1%'),
-        ('R78','ERJ-2RKF1002X',299.72,'+3V3_USB','USB_RAW_LOGIC_READY','10k 1%')]:
+        ('R75','ERJ2RKF6203X',238.76,'+3V3_USB','USB_LOGIC_SENSE','620k 1%'),
+        ('R76','ERJ2RKF1003X',259.08,'USB_LOGIC_SENSE','GND','100k 1%'),
+        ('R77','ERJ2RKF1003X',279.40,'+5V_USB','USB_LOGIC_CT','100k 1%'),
+        ('R78','ERJ2RKF1002X',299.72,'+3V3_USB','USB_RAW_LOGIC_READY','10k 1%')]:
         s.component(ref,mpn,444.50,y,{'1':a,'2':b},value)
     s.note('Default pull-ups: 10 kohm. Default pull-downs: 100 kohm. Source/leakage/suspend budgets remain to be qualified.',20.32,375.92,'pulls')
     s.note('U34: nominal trip 2.916 V; CT via 100k selects 180-420 ms release. Fast brownout/actuator inhibition remain unproven.',20.32,386.08,'reset-limits',1.016)
@@ -176,7 +176,7 @@ def permission():
         s.note(description,x-58.42,y-22.86,ref+'-title',1.016)
         s.component(ref,f'SN74LVC1G{code}DBVR',x,y,nets)
         s.capacitor('C'+ref[1:],x,y+27.94)
-    s.component('R70','ERJ-2RKF1002X',358.14,325.12,{'1':'+3V3_USB','2':'USB_EN1_RAW_N'},'10k 1%')
+    s.component('R70','ERJ2RKF1002X',358.14,325.12,{'1':'+3V3_USB','2':'USB_EN1_RAW_N'},'10k 1%')
     s.component('TP30','TestPoint_Pad',487.68,325.12,{'1':'USB_CHARGE_REQ'},'CHARGE_REQ')
     s.component('TP31','TestPoint_Pad',487.68,350.52,{'1':'USB_EN1_RAW_N'},'EN1_RAW_N')
     s.note('The 3.3 V pull-up on the RAW output is for this logic boundary only; it does not meet charger startup requirements.',20.32,375.92,'raw-pullup')

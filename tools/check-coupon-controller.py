@@ -31,11 +31,11 @@ PARTS = {
     "C3": ("GRM188R60J106ME47D", "10u 6.3V X5R", "rgb-badge-coupon:C_Murata_GRM18_0603"),
     "C4": ("GRM155R71C104KA88D", "100n 16V X7R", "rgb-badge-coupon:C_Murata_GRM15_0402"),
     "C5": ("GRM155C71A105KE11D", "1u 10V X7S", "rgb-badge-coupon:C_Murata_GRM15_0402"),
-    "R43": ("ERJ-2RKF1002X", "10k 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
-    "R44": ("ERJ-2RKF1002X", "10k 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
-    "R45": ("ERJ-2RKF22R0X", "22R 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
-    "R46": ("ERJ-2RKF22R0X", "22R 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
-    "R47": ("ERJ-2RKF4990X", "499R 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
+    "R43": ("ERJ2RKF1002X", "10k 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
+    "R44": ("ERJ2RKF1002X", "10k 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
+    "R45": ("ERJ2RKF22R0X", "22R 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
+    "R46": ("ERJ2RKF22R0X", "22R 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
+    "R47": ("ERJ2RKF4990X", "499R 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
     "SW1": ("EVQP7J01P", "EVQP7J01P", "rgb-badge-coupon:SW_Panasonic_EVQP7J01P"),
 }
 PARTS.update({f"TP{i}": ("TestPoint_Pad", "TestPoint_Pad", "rgb-badge-coupon:TestPoint_Pad_D1.0mm") for i in range(2, 13)})

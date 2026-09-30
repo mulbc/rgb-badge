@@ -57,9 +57,9 @@ def cached_symbol(mpn):
 
 METADATA = {
     "ESP32-S3-WROOM-1U-N16R8": ("Espressif Systems", "https://documentation.espressif.com/esp32-s3-wroom-1_wroom-1u_datasheet_en.pdf", "rgb-badge-coupon:ESP32-S3-WROOM-1U"),
-    "ERJ-2RKF1002X": ("Panasonic", "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
-    "ERJ-2RKF22R0X": ("Panasonic", "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
-    "ERJ-2RKF4990X": ("Panasonic", "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
+    "ERJ2RKF1002X": ("Panasonic", "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
+    "ERJ2RKF22R0X": ("Panasonic", "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
+    "ERJ2RKF4990X": ("Panasonic", "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
     "GRM155C71A105KE11D": ("Murata", "https://pim.murata.com/en-global/pim/details/?partNum=GRM155C71A105KE11D", "rgb-badge-coupon:C_Murata_GRM15_0402"),
     "GRM188R60J106ME47D": ("Murata", "https://pim.murata.com/en-global/pim/details/?partNum=GRM188R60J106ME47D", "rgb-badge-coupon:C_Murata_GRM18_0603"),
     "GRM155R71C104KA88D": ("Murata", "https://pim.murata.com/asset/pim4/ceramicCapacitorSMD/GRM155R71C104KA88-01A-EN_PDF_CERAMICCAPACITORSMD", "rgb-badge-coupon:C_Murata_GRM15_0402"),
@@ -69,8 +69,8 @@ METADATA = {
 
 PIN_NUMBERS = {
     "ESP32-S3-WROOM-1U-N16R8": [str(i) for i in range(1, 42)],
-    "ERJ-2RKF1002X": ["1", "2"], "ERJ-2RKF22R0X": ["1", "2"],
-    "ERJ-2RKF4990X": ["1", "2"], "GRM155C71A105KE11D": ["1", "2"],
+    "ERJ2RKF1002X": ["1", "2"], "ERJ2RKF22R0X": ["1", "2"],
+    "ERJ2RKF4990X": ["1", "2"], "GRM155C71A105KE11D": ["1", "2"],
     "GRM188R60J106ME47D": ["1", "2"], "GRM155R71C104KA88D": ["1", "2"],
     "EVQP7J01P": ["1", "2"], "TestPoint_Pad": ["1"],
 }
@@ -177,22 +177,22 @@ def generate():
     lines += two_pin("GRM155R71C104KA88D", "C4", "100n 16V X7R", 213.36, 78.74, "+3V3_APP", "GND")
 
     lines += [note('EN delay: Espressif baseline 10 kOhm / 1 uF; verify rail ramp on the coupon', 177.80, 101.60, 'en-title', 1.016)]
-    lines += two_pin("ERJ-2RKF1002X", "R43", "10k 1%", 213.36, 114.30, "+3V3_APP", "ESP_EN")
+    lines += two_pin("ERJ2RKF1002X", "R43", "10k 1%", 213.36, 114.30, "+3V3_APP", "ESP_EN")
     lines += two_pin("GRM155C71A105KE11D", "C5", "1u 10V X7S", 213.36, 129.54, "ESP_EN", "GND")
     lines += testpoint("TP2", "ESP_EN", 213.36, 144.78)
 
     lines += [note('One side-push user button; normally-open to ground', 177.80, 167.64, 'mode-title')]
-    lines += two_pin("ERJ-2RKF1002X", "R44", "10k 1%", 213.36, 180.34, "+3V3_APP", "MODE_BOOT_N")
+    lines += two_pin("ERJ2RKF1002X", "R44", "10k 1%", 213.36, 180.34, "+3V3_APP", "MODE_BOOT_N")
     lines += two_pin("EVQP7J01P", "SW1", "EVQP7J01P", 213.36, 195.58, "MODE_BOOT_N", "GND")
     lines += testpoint("TP3", "MODE_BOOT_N", 213.36, 210.82)
 
     lines += [note('Native USB connects through data switches and ESD on usb-interface', 299.72, 50.80, 'usb-title', 1.016)]
-    lines += two_pin("ERJ-2RKF22R0X", "R45", "22R 1%", 335.28, 66.04, "USB_DN_MCU", "USB_D-")
-    lines += two_pin("ERJ-2RKF22R0X", "R46", "22R 1%", 335.28, 81.28, "USB_DP_MCU", "USB_D+")
+    lines += two_pin("ERJ2RKF22R0X", "R45", "22R 1%", 335.28, 66.04, "USB_DN_MCU", "USB_D-")
+    lines += two_pin("ERJ2RKF22R0X", "R46", "22R 1%", 335.28, 81.28, "USB_DP_MCU", "USB_D+")
     lines += [note('Route R45/R46 beside U3 and route USB_D+/D- as a controlled differential pair.', 299.72, 93.98, 'usb-layout-note', 1.016)]
 
     lines += [note('Hidden recovery / factory-test pads', 299.72, 114.30, 'test-title')]
-    lines += two_pin("ERJ-2RKF4990X", "R47", "499R 1%", 335.28, 127.00, "UART0_TX_RAW", "UART0_TX")
+    lines += two_pin("ERJ2RKF4990X", "R47", "499R 1%", 335.28, 127.00, "UART0_TX_RAW", "UART0_TX")
     for ref, net, y in (
         ("TP4", "UART0_TX", 142.24), ("TP5", "UART0_RX", 154.94),
         ("TP6", "LED_GCLK", 167.64), ("TP7", "ROW_ENABLE_N", 180.34),
