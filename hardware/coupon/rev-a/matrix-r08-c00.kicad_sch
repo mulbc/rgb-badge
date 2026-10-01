@@ -4,7 +4,7 @@
 (generator_version "1.0")
 (uuid "d4af163a-c53e-5a5d-a27f-288b2a608a91")
 (paper "A2")
-(title_block (title "Rows 08-15, columns 00-07 - EAST10105RGBA0") (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "Driver/rows captured; controller and power pending"))
+(title_block (title "Rows 08-15, columns 00-07 - EAST10105RGBA0") (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "Driver, rows and controller captured; power pending"))
 (lib_symbols
 	(symbol "rgb-badge-coupon:EAST10105RGBA0"
 		(pin_names

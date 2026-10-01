@@ -35,9 +35,10 @@ MODULE_PINS = {
 
 PARTS = {
     "ESP32-S3-WROOM-1U-N16R8": ("ESP32-S3-WROOM-1U", MODULE_PINS),
-    "ERJ-2RKF1002X": ("R_Panasonic_ERJ2_0402", {1: "~", 2: "~"}),
-    "ERJ-2RKF22R0X": ("R_Panasonic_ERJ2_0402", {1: "~", 2: "~"}),
-    "ERJ-2RKF4990X": ("R_Panasonic_ERJ2_0402", {1: "~", 2: "~"}),
+    "ERJ2RKF1002X": ("R_Panasonic_ERJ2_0402", {1: "~", 2: "~"}),
+    "ERJ2RKF2201X": ("R_Panasonic_ERJ2_0402", {1: "~", 2: "~"}),
+    "ERJ2RKF22R0X": ("R_Panasonic_ERJ2_0402", {1: "~", 2: "~"}),
+    "ERJ2RKF4990X": ("R_Panasonic_ERJ2_0402", {1: "~", 2: "~"}),
     "GRM155C71A105KE11D": ("C_Murata_GRM15_0402", {1: "~", 2: "~"}),
     "GRM188R60J106ME47D": ("C_Murata_GRM18_0603", {1: "~", 2: "~"}),
     "EVQP7J01P": ("SW_Panasonic_EVQP7J01P", {1: "1", 2: "2"}),
