@@ -33,6 +33,10 @@ class PlacementScreenTests(unittest.TestCase):
         self.assertEqual(report["inputs"]["pack_coupon_only_mm"], [50.5, 31.0])
         self.assertTrue(report["rear_trial"]["all_rear_boxes_inside_board"])
         self.assertFalse(report["rear_trial"]["any_rear_box_overlap"])
+        self.assertEqual(report["rear_trial"]["driver_center_x_mm"], 86.5)
+        self.assertEqual(report["battery_sensor_trial"]["lp503055_overlaps_provisional_drivers"], [False] * 3)
+        self.assertEqual(report["battery_sensor_trial"]["lp503055_to_driver_courtyard_gap_mm"], 1.05)
+        self.assertEqual(report["battery_sensor_trial"]["middle_driver_to_usb_courtyard_gap_mm"], 7.45)
 
     def test_changed_guide_fails_closed(self):
         original = (module.FOOTPRINTS / module.PARTS["usb"]).read_text(encoding="utf-8")

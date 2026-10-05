@@ -778,9 +778,9 @@
 <rect x="222.00" y="442.00" width="404.00" height="248.00" fill="#f1dbab" stroke="#9c6e00" opacity="1"/>
 <rect x="200.00" y="444.00" width="448.00" height="244.00" fill="none" stroke="#c54b27" opacity="1"/>
 <rect x="37.60" y="486.40" width="156.80" height="164.00" fill="#aad7ae" stroke="#217b38" opacity="1"/>
-<rect x="628.40" y="440.40" width="71.20" height="71.20" fill="#b8b3e4" stroke="#5a49b1" opacity="1"/>
-<rect x="628.40" y="530.40" width="71.20" height="71.20" fill="#b8b3e4" stroke="#5a49b1" opacity="1"/>
-<rect x="628.40" y="620.40" width="71.20" height="71.20" fill="#b8b3e4" stroke="#5a49b1" opacity="1"/>
+<rect x="656.40" y="440.40" width="71.20" height="71.20" fill="#b8b3e4" stroke="#5a49b1" opacity="1"/>
+<rect x="656.40" y="530.40" width="71.20" height="71.20" fill="#b8b3e4" stroke="#5a49b1" opacity="1"/>
+<rect x="656.40" y="620.40" width="71.20" height="71.20" fill="#b8b3e4" stroke="#5a49b1" opacity="1"/>
 <circle cx="424.00" cy="566.00" r="5" fill="#d42b2b" stroke="#ffffff" stroke-width="2"/>
 <text class="small" x="238" y="566">700 mAh coupon pack*</text>
 <text class="small" x="440" y="550">NTC target</text>

@@ -24,6 +24,7 @@ USB_CUTOUT_DATUM = 6.75  # Audit of GCT A2; guides also checked below.
 USB_REAR_DATUM = 0.55
 PACK_W, PACK_H = 50.5, 31.0  # GlobTek Rev D: 30.5 mm width +0.5 mm; coupon-only pack.
 LP503055_W, LP503055_H = 56.0, 30.5  # FD_3055_73 finished-body maximums; leads excluded.
+DRIVER_TRIAL_X = 86.5  # Shift right to clear the LP503055 body in this 2D screen.
 
 
 @dataclass(frozen=True)
@@ -103,7 +104,7 @@ def analyze() -> dict:
     ntc_target = {"x": BOARD_W / 2, "y": BOARD_H / 2}
     # Trial rear reservations; NOT placed components or a complete packing solution.
     controller = mcu.shifted(14.5, BOARD_H / 2)
-    drivers = [driver.shifted(83.0, y) for y in (5.0, BOARD_H / 2, 27.5)]
+    drivers = [driver.shifted(DRIVER_TRIAL_X, y) for y in (5.0, BOARD_H / 2, 27.5)]
     rear = [controller, *drivers]
     bbox = Rect(0, 0, BOARD_W, BOARD_H)
     return {
@@ -119,6 +120,7 @@ def analyze() -> dict:
                           "worst_horizontal_courtyard_gap_mm": round(connector.x0 - max(r.x1 for r in moved if r.y0 < connector.y1 and r.y1 > connector.y0), 3),
                           "smallest_left_courtyard_edge_mm": round(min(r.x0 for r in moved), 3)},
         "rear_trial": {"pack": vars(pack), "controller": vars(controller),
+                       "driver_center_x_mm": DRIVER_TRIAL_X,
                        "drivers": [vars(r) for r in drivers],
                        "any_rear_box_overlap": any(a.overlap(b) for i, a in enumerate(rear + [pack]) for b in (rear + [pack])[i + 1:]),
                        "all_rear_boxes_inside_board": all(r.x0 >= bbox.x0 and r.y0 >= bbox.y0 and r.x1 <= bbox.x1 and r.y1 <= bbox.y1 for r in rear + [pack])},
@@ -126,6 +128,8 @@ def analyze() -> dict:
             "ntc_xy_target_mm": ntc_target,
             "lp503055_finished_body_max": vars(lp503055),
             "lp503055_overlaps_provisional_drivers": [lp503055.overlap(r) for r in drivers],
+            "lp503055_to_driver_courtyard_gap_mm": round(min(r.x0 for r in drivers) - lp503055.x1, 3),
+            "middle_driver_to_usb_courtyard_gap_mm": round(connector.x0 - drivers[1].x1, 3),
             "status": "XY target only; no NTC footprint, PCB, thermal clearance or pack fit approved",
         },
     }
