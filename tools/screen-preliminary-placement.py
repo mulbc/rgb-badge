@@ -23,6 +23,7 @@ BOARD_W, BOARD_H, PITCH = 106.0, 32.5, 1.95
 USB_CUTOUT_DATUM = 6.75  # Audit of GCT A2; guides also checked below.
 USB_REAR_DATUM = 0.55
 PACK_W, PACK_H = 50.5, 31.0  # GlobTek Rev D: 30.5 mm width +0.5 mm; coupon-only pack.
+LP503055_W, LP503055_H = 56.0, 30.5  # FD_3055_73 finished-body maximums; leads excluded.
 
 
 @dataclass(frozen=True)
@@ -97,6 +98,9 @@ def analyze() -> dict:
     moved = grid(shift)
     pack = Rect((BOARD_W - PACK_W) / 2, (BOARD_H - PACK_H) / 2,
                 (BOARD_W + PACK_W) / 2, (BOARD_H + PACK_H) / 2)
+    lp503055 = Rect((BOARD_W - LP503055_W) / 2, (BOARD_H - LP503055_H) / 2,
+                    (BOARD_W + LP503055_W) / 2, (BOARD_H + LP503055_H) / 2)
+    ntc_target = {"x": BOARD_W / 2, "y": BOARD_H / 2}
     # Trial rear reservations; NOT placed components or a complete packing solution.
     controller = mcu.shifted(14.5, BOARD_H / 2)
     drivers = [driver.shifted(83.0, y) for y in (5.0, BOARD_H / 2, 27.5)]
@@ -105,7 +109,8 @@ def analyze() -> dict:
     return {
         "inputs": {"board_mm": [BOARD_W, BOARD_H], "pitch_mm": PITCH,
                    "led_courtyard_mm": vars(led), "usb_courtyard_local_mm": vars(usb),
-                   "pack_coupon_only_mm": [PACK_W, PACK_H]},
+                   "pack_coupon_only_mm": [PACK_W, PACK_H],
+                   "lp503055_finished_body_max_mm": [LP503055_W, LP503055_H]},
         "centered": {"usb_courtyard_overlaps": sum(r.overlap(connector) for r in centered),
                      "worst_horizontal_courtyard_gap_mm": round(connector.x0 - nearest, 3),
                      "straight_cutout_inner_x_mm": BOARD_W - (USB_CUTOUT_DATUM - USB_REAR_DATUM)},
@@ -117,6 +122,12 @@ def analyze() -> dict:
                        "drivers": [vars(r) for r in drivers],
                        "any_rear_box_overlap": any(a.overlap(b) for i, a in enumerate(rear + [pack]) for b in (rear + [pack])[i + 1:]),
                        "all_rear_boxes_inside_board": all(r.x0 >= bbox.x0 and r.y0 >= bbox.y0 and r.x1 <= bbox.x1 and r.y1 <= bbox.y1 for r in rear + [pack])},
+        "battery_sensor_trial": {
+            "ntc_xy_target_mm": ntc_target,
+            "lp503055_finished_body_max": vars(lp503055),
+            "lp503055_overlaps_provisional_drivers": [lp503055.overlap(r) for r in drivers],
+            "status": "XY target only; no NTC footprint, PCB, thermal clearance or pack fit approved",
+        },
     }
 
 
@@ -146,10 +157,16 @@ def svg(report: dict) -> str:
                 rect(Rect(0, 0, width, height), '#f2f5f8', '#27313b', y_offset)])
     back = report["rear_trial"]
     out.append(rect(back["pack"], '#f1dbab', '#9c6e00', y_offset))
+    candidate = report["battery_sensor_trial"]
+    out.append(rect(candidate["lp503055_finished_body_max"], 'none', '#c54b27', y_offset))
     out.append(rect(back["controller"], '#aad7ae', '#217b38', y_offset))
     for item in back["drivers"]:
         out.append(rect(item, '#b8b3e4', '#5a49b1', y_offset))
+    ntc = candidate["ntc_xy_target_mm"]
+    out.append(f'<circle cx="{ntc["x"]*scale:.2f}" cy="{(ntc["y"]+y_offset)*scale:.2f}" r="5" fill="#d42b2b" stroke="#ffffff" stroke-width="2"/>')
     out.extend([f'<text class="small" x="{(back["pack"]["x0"]+2)*scale:.0f}" y="{(y_offset+height/2)*scale:.0f}">700 mAh coupon pack*</text>',
+                f'<text class="small" x="{(ntc["x"]+2)*scale:.0f}" y="{(y_offset+ntc["y"]-2)*scale:.0f}">NTC target</text>',
+                f'<text class="small" x="{(candidate["lp503055_finished_body_max"]["x0"]+1)*scale:.0f}" y="{(y_offset+4)*scale:.0f}">LP503055 max body outline</text>',
                 f'<text class="small" x="0" y="{(y_offset+height+4)*scale:.0f}">*Volume, wires and height unmodelled; rear boxes are reservations, not a routed layout.</text>',
                 '</svg>'])
     return '\n'.join(out) + '\n'

@@ -20,6 +20,10 @@
     "pack_coupon_only_mm": [
       50.5,
       31.0
+    ],
+    "lp503055_finished_body_max_mm": [
+      56.0,
+      30.5
     ]
   },
   "centered": {
@@ -68,5 +72,23 @@
     ],
     "any_rear_box_overlap": false,
     "all_rear_boxes_inside_board": true
+  },
+  "battery_sensor_trial": {
+    "ntc_xy_target_mm": {
+      "x": 53.0,
+      "y": 16.25
+    },
+    "lp503055_finished_body_max": {
+      "x0": 25.0,
+      "y0": 1.0,
+      "x1": 81.0,
+      "y1": 31.5
+    },
+    "lp503055_overlaps_provisional_drivers": [
+      true,
+      true,
+      true
+    ],
+    "status": "XY target only; no NTC footprint, PCB, thermal clearance or pack fit approved"
   }
 }
