@@ -26,6 +26,7 @@ power_library_check="${repo_root}/tools/check-power-libraries.py"
 usb_connector_check="${repo_root}/tools/check-usb-connector.py"
 gauge_check="${repo_root}/tools/check-coupon-gauge.py"
 converter_candidate_check="${repo_root}/tools/check-coupon-3v3.py"
+slide_switch_library_check="${repo_root}/tools/check-slide-switch-library.py"
 
 if [[ -n "${RGB_BADGE_KICAD_CLI:-}" ]]; then
     kicad_cli="${RGB_BADGE_KICAD_CLI}"
@@ -66,6 +67,7 @@ for required_path in \
     "${gauge_check}" \
     "${project_dir}/gauge.kicad_sch" \
     "${converter_candidate_check}" \
+    "${slide_switch_library_check}" \
     "${project_dir}/staging/3v3-converter.kicad_sch"
 do
     if [[ ! -e "${required_path}" ]]; then
@@ -93,6 +95,7 @@ python3 "${power_library_check}"
 python3 "${usb_connector_check}"
 python3 "${gauge_check}"
 python3 "${converter_candidate_check}"
+python3 "${slide_switch_library_check}"
 
 kicad_version="$("${kicad_cli}" version)"
 
@@ -204,6 +207,16 @@ if [[ ! -s "${symbol_svg_dir}/DFE252012P-1R0M=P2_unit1.svg" ]]; then
     echo "Expected non-empty 3V3 inductor symbol SVG." >&2
     exit 1
 fi
+if [[ ! -s "${symbol_svg_dir}/JS202011JCQN_unit1.svg" ]]; then
+    echo "Expected non-empty two-pole switch candidate symbol SVG." >&2
+    exit 1
+fi
+for view_dir in "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_paste_dir}" "${footprint_mechanical_dir}"; do
+    if [[ ! -s "${view_dir}/SW_CK_JS202011JCQN.svg" ]]; then
+        echo "Expected non-empty two-pole switch footprint SVG: ${view_dir}" >&2
+        exit 1
+    fi
+done
 for view_dir in "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_paste_dir}" "${footprint_mechanical_dir}"; do
     if [[ ! -s "${view_dir}/L_Murata_DFE252012P.svg" ]]; then
         echo "Expected non-empty 3V3 inductor footprint SVG: ${view_dir}" >&2

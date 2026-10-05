@@ -1,0 +1,13 @@
+<!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
+
+# Two-pole physical ON/OFF switch candidate
+
+Status: **unplaced library candidate**, 2026-10-05. This does not select or connect the physical switch, close H5, or approve a PCB.
+
+The exact candidate is C&K/Littelfuse `JS202011JCQN`, a latching, non-shorting, vertical SMT J-bend DPDT slide switch. The [manufacturer JS series datasheet, revised 2026-01-14](https://www.ckswitches.com/media/1422/js.pdf), identifies this MPN on PDF page 9. The family rates the contacts 0.3 A at 6 V DC, with 70 mΩ maximum contact resistance and 100 MΩ minimum insulation resistance under its stated 500 V test. The intended use is only the TPS631000 enable control and the switched MAX17048 supply. **Neither converter nor display load current may pass through this switch.** The two contacts' order during motion is unspecified; the power/interlock design must tolerate either contact opening or closing first.
+
+The staged project-local symbol has six distinct passive pins. The proposed circuit interpretation is 2 common between throws 1/3 and 5 common between throws 4/6. The provisional ON side uses 2–3 for `SYS` to the converter enable and 5–6 for protected battery to gauge supply; 1 and 4 remain disconnected. This mapping agrees with the KiCad 10.0.6 `SW_DPDT_CK_JS202011JCQN` reference land numbering, but the manufacturer drawing needs a visual pin-1/throw-direction reconciliation before placement. The physical top-edge ON direction and actuator clearance also require enclosure review.
+
+The project-local footprint was newly written against the manufacturer's page-9 body/PCB-layout dimensions: six 1.0 × 1.6 mm surface pads in two rows, 2.5 mm horizontal pitch, row centers at ±1.2 mm, a 9.0 × 3.6 mm nominal body and a 9.6 × 4.6 mm courtyard. It has no external 3D model reference. Compare the pad numbering, suggested solder lands and assembly orientation to the current C&K drawing and the actual received switch before use; especially check whether the top-row `1,2,3` orientation in the drawing is a top or bottom view. The footprint is **not yet an approved manufacturing land pattern**.
+
+KiCad 10.0.6 successfully exported the new symbol and copper footprint SVGs on 2026-10-05. The unchanged eleven-sheet root schematic still passed zero configured ERC violations and its XML retained 400 PCB items / 1,507 logical pins; these checks do not validate this unplaced switch electrically. Before connection, replace the gauge's draft battery source flag, wire both contacts and the 3.3 V converter EN with an explicit OFF pull-down, check all arbitrary contact sequences and OFF drain, and inspect a new native PDF/netlist. The exact protected pack, connector and other power blocks remain open.
