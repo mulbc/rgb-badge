@@ -1,0 +1,1842 @@
+{
+  "method": "2D courtyard-area lower bound and first-fit 0.25 mm grid stress test; not a PCB",
+  "board_mm": [
+    106.0,
+    32.5
+  ],
+  "assumptions": [
+    "48x16 front LED array replaces the coupon's 256 mixed LEDs",
+    "three driver bodies replace the coupon's one driver body",
+    "all 151 other captured footprints are trialed on the rear outside the pack",
+    "only the LP503055 finished body is reserved; leads, PCM protrusion, connector and swelling are omitted",
+    "uncaptured charger, VLED, input protection and other final support parts are omitted"
+  ],
+  "schematic_footprint_counts": {
+    "C_Murata_GRM15_0402": 15,
+    "C_Murata_GRM18_0603": 4,
+    "C_Murata_GRM21_0805": 2,
+    "ESP32-S3-WROOM-1U": 1,
+    "LED_Everlight_EAST10105RGBA0": 128,
+    "LED_QTBrightek_QBLP1515A-RGB2A": 128,
+    "L_Murata_DFE252012P": 1,
+    "QFN_TI_RTQ0056E_8x8mm_P0.5mm_EP5.7mm": 1,
+    "R_Panasonic_ERJ2_0402": 62,
+    "SC59_Diodes_DMP2066LSN": 16,
+    "SOT23_Diodes_2N7002K": 16,
+    "SOT23_TI_DBV0005A": 3,
+    "SOT23_TI_DBV0006A": 4,
+    "SOT5X3_TI_DRL0008A": 1,
+    "SW_CK_JS202011JCQN": 1,
+    "SW_Panasonic_EVQP7J01P": 1,
+    "TDFN_Maxim_T822-3_2x2mm_P0.5mm_EP0.7x1.38mm": 1,
+    "TSSOP_Nexperia_SOT355-1_24": 1,
+    "TestPoint_Pad_D1.0mm": 20,
+    "UQFN_TI_RSE0008A_1.5x1.5mm_P0.5mm": 1,
+    "USB_C_GCT_USB4505-03-0-A_MidMount": 1,
+    "USON_TI_DQA0010A": 1,
+    "X2QFN_TI_RWB0012A_1.6x1.6mm_P0.4mm": 1
+  },
+  "fixed_boxes": {
+    "lp503055_body": {
+      "x0": 25.0,
+      "y0": 1.0,
+      "x1": 81.0,
+      "y1": 31.5
+    },
+    "mcu": {
+      "x0": 4.699999999999999,
+      "y0": 6.300000000000001,
+      "x1": 24.3,
+      "y1": 26.8
+    },
+    "drivers": [
+      {
+        "x0": 82.05,
+        "y0": 0.5499999999999998,
+        "x1": 90.95,
+        "y1": 9.45
+      },
+      {
+        "x0": 82.05,
+        "y0": 11.8,
+        "x1": 90.95,
+        "y1": 20.7
+      },
+      {
+        "x0": 82.05,
+        "y0": 23.05,
+        "x1": 90.95,
+        "y1": 31.95
+      }
+    ],
+    "usb_connector_courtyard": {
+      "x0": 98.4,
+      "y0": 9.85,
+      "x1": 106.75,
+      "y1": 22.65
+    }
+  },
+  "area_mm2": {
+    "board": 3445.0,
+    "lp503055_body": 1708.0,
+    "mcu_three_drivers_usb": 736.71,
+    "free_after_fixed_boxes": 1000.29,
+    "other_captured_courtyards_and_testpad_reservations": 901.6,
+    "remaining_before_clearance_routing_or_missing_parts": 98.69
+  },
+  "packing_trial": {
+    "component_gap_each_side_mm": 0.25,
+    "placed_count": 55,
+    "unplaced_count": 96,
+    "unplaced_refs": [
+      "Q18",
+      "Q19",
+      "Q20",
+      "Q21",
+      "Q22",
+      "Q23",
+      "Q24",
+      "Q25",
+      "Q26",
+      "Q27",
+      "Q28",
+      "Q29",
+      "Q30",
+      "Q31",
+      "Q32",
+      "L1",
+      "U35",
+      "C42",
+      "C43",
+      "U36",
+      "U32",
+      "U31",
+      "C2",
+      "C23",
+      "C24",
+      "C25",
+      "C30",
+      "C31",
+      "C36",
+      "C37",
+      "C38",
+      "C39",
+      "C4",
+      "C5",
+      "R1",
+      "R10",
+      "R11",
+      "R12",
+      "R13",
+      "R14",
+      "R15",
+      "R16",
+      "R17",
+      "R18",
+      "R19",
+      "R2",
+      "R20",
+      "R21",
+      "R22",
+      "R23",
+      "R24",
+      "R25",
+      "R26",
+      "R27",
+      "R28",
+      "R29",
+      "R3",
+      "R30",
+      "R31",
+      "R32",
+      "R33",
+      "R34",
+      "R35",
+      "R36",
+      "R37",
+      "R38",
+      "R39",
+      "R4",
+      "R40",
+      "R41",
+      "R42",
+      "R43",
+      "R44",
+      "R45",
+      "R46",
+      "R47",
+      "R5",
+      "R6",
+      "R60",
+      "R61",
+      "R62",
+      "R63",
+      "R7",
+      "R70",
+      "R71",
+      "R75",
+      "R76",
+      "R77",
+      "R78",
+      "R79",
+      "R8",
+      "R80",
+      "R81",
+      "R82",
+      "R83",
+      "R9"
+    ],
+    "placed": [
+      {
+        "ref": "U2",
+        "footprint": "TSSOP_Nexperia_SOT355-1_24",
+        "x0": 91.0,
+        "y0": 0.0,
+        "x1": 99.25,
+        "y1": 9.0
+      },
+      {
+        "ref": "SW2",
+        "footprint": "SW_CK_JS202011JCQN",
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 10.25,
+        "y1": 5.25
+      },
+      {
+        "ref": "SW1",
+        "footprint": "SW_Panasonic_EVQP7J01P",
+        "x0": 10.25,
+        "y0": 0.0,
+        "x1": 16.0,
+        "y1": 4.0
+      },
+      {
+        "ref": "U11",
+        "footprint": "SOT23_TI_DBV0005A",
+        "x0": 16.0,
+        "y0": 0.0,
+        "x1": 21.0,
+        "y1": 4.25
+      },
+      {
+        "ref": "U17",
+        "footprint": "SOT23_TI_DBV0006A",
+        "x0": 99.25,
+        "y0": 0.0,
+        "x1": 104.25,
+        "y1": 4.25
+      },
+      {
+        "ref": "U23",
+        "footprint": "SOT23_TI_DBV0005A",
+        "x0": 99.25,
+        "y0": 4.25,
+        "x1": 104.25,
+        "y1": 8.5
+      },
+      {
+        "ref": "U24",
+        "footprint": "SOT23_TI_DBV0006A",
+        "x0": 91.0,
+        "y0": 9.0,
+        "x1": 96.0,
+        "y1": 13.25
+      },
+      {
+        "ref": "U25",
+        "footprint": "SOT23_TI_DBV0006A",
+        "x0": 91.0,
+        "y0": 13.25,
+        "x1": 96.0,
+        "y1": 17.5
+      },
+      {
+        "ref": "U29",
+        "footprint": "SOT23_TI_DBV0005A",
+        "x0": 91.0,
+        "y0": 17.5,
+        "x1": 96.0,
+        "y1": 21.75
+      },
+      {
+        "ref": "U34",
+        "footprint": "SOT23_TI_DBV0006A",
+        "x0": 91.0,
+        "y0": 21.75,
+        "x1": 96.0,
+        "y1": 26.0
+      },
+      {
+        "ref": "Q1",
+        "footprint": "SC59_Diodes_DMP2066LSN",
+        "x0": 21.0,
+        "y0": 0.0,
+        "x1": 25.0,
+        "y1": 4.25
+      },
+      {
+        "ref": "Q10",
+        "footprint": "SC59_Diodes_DMP2066LSN",
+        "x0": 0.0,
+        "y0": 5.25,
+        "x1": 4.0,
+        "y1": 9.5
+      },
+      {
+        "ref": "Q11",
+        "footprint": "SC59_Diodes_DMP2066LSN",
+        "x0": 0.0,
+        "y0": 9.5,
+        "x1": 4.0,
+        "y1": 13.75
+      },
+      {
+        "ref": "Q12",
+        "footprint": "SC59_Diodes_DMP2066LSN",
+        "x0": 0.0,
+        "y0": 13.75,
+        "x1": 4.0,
+        "y1": 18.0
+      },
+      {
+        "ref": "Q13",
+        "footprint": "SC59_Diodes_DMP2066LSN",
+        "x0": 0.0,
+        "y0": 18.0,
+        "x1": 4.0,
+        "y1": 22.25
+      },
+      {
+        "ref": "Q14",
+        "footprint": "SC59_Diodes_DMP2066LSN",
+        "x0": 0.0,
+        "y0": 22.25,
+        "x1": 4.0,
+        "y1": 26.5
+      },
+      {
+        "ref": "Q15",
+        "footprint": "SC59_Diodes_DMP2066LSN",
+        "x0": 96.0,
+        "y0": 22.75,
+        "x1": 100.0,
+        "y1": 27.0
+      },
+      {
+        "ref": "Q16",
+        "footprint": "SC59_Diodes_DMP2066LSN",
+        "x0": 100.0,
+        "y0": 22.75,
+        "x1": 104.0,
+        "y1": 27.0
+      },
+      {
+        "ref": "Q2",
+        "footprint": "SC59_Diodes_DMP2066LSN",
+        "x0": 91.0,
+        "y0": 26.0,
+        "x1": 95.0,
+        "y1": 30.25
+      },
+      {
+        "ref": "Q3",
+        "footprint": "SC59_Diodes_DMP2066LSN",
+        "x0": 0.0,
+        "y0": 26.5,
+        "x1": 4.0,
+        "y1": 30.75
+      },
+      {
+        "ref": "Q4",
+        "footprint": "SC59_Diodes_DMP2066LSN",
+        "x0": 4.0,
+        "y0": 27.0,
+        "x1": 8.0,
+        "y1": 31.25
+      },
+      {
+        "ref": "Q5",
+        "footprint": "SC59_Diodes_DMP2066LSN",
+        "x0": 8.0,
+        "y0": 27.0,
+        "x1": 12.0,
+        "y1": 31.25
+      },
+      {
+        "ref": "Q6",
+        "footprint": "SC59_Diodes_DMP2066LSN",
+        "x0": 12.0,
+        "y0": 27.0,
+        "x1": 16.0,
+        "y1": 31.25
+      },
+      {
+        "ref": "Q7",
+        "footprint": "SC59_Diodes_DMP2066LSN",
+        "x0": 16.0,
+        "y0": 27.0,
+        "x1": 20.0,
+        "y1": 31.25
+      },
+      {
+        "ref": "Q8",
+        "footprint": "SC59_Diodes_DMP2066LSN",
+        "x0": 20.0,
+        "y0": 27.0,
+        "x1": 24.0,
+        "y1": 31.25
+      },
+      {
+        "ref": "Q9",
+        "footprint": "SC59_Diodes_DMP2066LSN",
+        "x0": 95.0,
+        "y0": 27.0,
+        "x1": 99.0,
+        "y1": 31.25
+      },
+      {
+        "ref": "Q17",
+        "footprint": "SOT23_Diodes_2N7002K",
+        "x0": 99.0,
+        "y0": 27.0,
+        "x1": 103.0,
+        "y1": 31.0
+      },
+      {
+        "ref": "U33",
+        "footprint": "USON_TI_DQA0010A",
+        "x0": 103.0,
+        "y0": 27.0,
+        "x1": 105.75,
+        "y1": 30.5
+      },
+      {
+        "ref": "C3",
+        "footprint": "C_Murata_GRM18_0603",
+        "x0": 10.25,
+        "y0": 4.0,
+        "x1": 13.75,
+        "y1": 6.0
+      },
+      {
+        "ref": "C32",
+        "footprint": "C_Murata_GRM18_0603",
+        "x0": 13.75,
+        "y0": 4.25,
+        "x1": 17.25,
+        "y1": 6.25
+      },
+      {
+        "ref": "C40",
+        "footprint": "C_Murata_GRM18_0603",
+        "x0": 17.25,
+        "y0": 4.25,
+        "x1": 20.75,
+        "y1": 6.25
+      },
+      {
+        "ref": "C41",
+        "footprint": "C_Murata_GRM18_0603",
+        "x0": 20.75,
+        "y0": 4.25,
+        "x1": 24.25,
+        "y1": 6.25
+      },
+      {
+        "ref": "TP1",
+        "footprint": "TestPoint_Pad_D1.0mm",
+        "x0": 96.0,
+        "y0": 9.0,
+        "x1": 98.0,
+        "y1": 11.0
+      },
+      {
+        "ref": "TP10",
+        "footprint": "TestPoint_Pad_D1.0mm",
+        "x0": 81.0,
+        "y0": 9.5,
+        "x1": 83.0,
+        "y1": 11.5
+      },
+      {
+        "ref": "TP11",
+        "footprint": "TestPoint_Pad_D1.0mm",
+        "x0": 83.0,
+        "y0": 9.5,
+        "x1": 85.0,
+        "y1": 11.5
+      },
+      {
+        "ref": "TP12",
+        "footprint": "TestPoint_Pad_D1.0mm",
+        "x0": 85.0,
+        "y0": 9.5,
+        "x1": 87.0,
+        "y1": 11.5
+      },
+      {
+        "ref": "TP2",
+        "footprint": "TestPoint_Pad_D1.0mm",
+        "x0": 87.0,
+        "y0": 9.5,
+        "x1": 89.0,
+        "y1": 11.5
+      },
+      {
+        "ref": "TP20",
+        "footprint": "TestPoint_Pad_D1.0mm",
+        "x0": 89.0,
+        "y0": 9.5,
+        "x1": 91.0,
+        "y1": 11.5
+      },
+      {
+        "ref": "TP21",
+        "footprint": "TestPoint_Pad_D1.0mm",
+        "x0": 96.0,
+        "y0": 11.0,
+        "x1": 98.0,
+        "y1": 13.0
+      },
+      {
+        "ref": "TP22",
+        "footprint": "TestPoint_Pad_D1.0mm",
+        "x0": 96.0,
+        "y0": 13.0,
+        "x1": 98.0,
+        "y1": 15.0
+      },
+      {
+        "ref": "TP23",
+        "footprint": "TestPoint_Pad_D1.0mm",
+        "x0": 96.0,
+        "y0": 15.0,
+        "x1": 98.0,
+        "y1": 17.0
+      },
+      {
+        "ref": "TP3",
+        "footprint": "TestPoint_Pad_D1.0mm",
+        "x0": 96.0,
+        "y0": 17.0,
+        "x1": 98.0,
+        "y1": 19.0
+      },
+      {
+        "ref": "TP30",
+        "footprint": "TestPoint_Pad_D1.0mm",
+        "x0": 96.0,
+        "y0": 19.0,
+        "x1": 98.0,
+        "y1": 21.0
+      },
+      {
+        "ref": "TP31",
+        "footprint": "TestPoint_Pad_D1.0mm",
+        "x0": 81.0,
+        "y0": 20.75,
+        "x1": 83.0,
+        "y1": 22.75
+      },
+      {
+        "ref": "TP32",
+        "footprint": "TestPoint_Pad_D1.0mm",
+        "x0": 83.0,
+        "y0": 20.75,
+        "x1": 85.0,
+        "y1": 22.75
+      },
+      {
+        "ref": "TP33",
+        "footprint": "TestPoint_Pad_D1.0mm",
+        "x0": 85.0,
+        "y0": 20.75,
+        "x1": 87.0,
+        "y1": 22.75
+      },
+      {
+        "ref": "TP4",
+        "footprint": "TestPoint_Pad_D1.0mm",
+        "x0": 87.0,
+        "y0": 20.75,
+        "x1": 89.0,
+        "y1": 22.75
+      },
+      {
+        "ref": "TP5",
+        "footprint": "TestPoint_Pad_D1.0mm",
+        "x0": 89.0,
+        "y0": 20.75,
+        "x1": 91.0,
+        "y1": 22.75
+      },
+      {
+        "ref": "TP6",
+        "footprint": "TestPoint_Pad_D1.0mm",
+        "x0": 104.0,
+        "y0": 22.75,
+        "x1": 106.0,
+        "y1": 24.75
+      },
+      {
+        "ref": "TP7",
+        "footprint": "TestPoint_Pad_D1.0mm",
+        "x0": 104.0,
+        "y0": 24.75,
+        "x1": 106.0,
+        "y1": 26.75
+      },
+      {
+        "ref": "TP8",
+        "footprint": "TestPoint_Pad_D1.0mm",
+        "x0": 91.0,
+        "y0": 30.25,
+        "x1": 93.0,
+        "y1": 32.25
+      },
+      {
+        "ref": "TP9",
+        "footprint": "TestPoint_Pad_D1.0mm",
+        "x0": 93.0,
+        "y0": 30.25,
+        "x1": 95.0,
+        "y1": 32.25
+      },
+      {
+        "ref": "C1",
+        "footprint": "C_Murata_GRM15_0402",
+        "x0": 103.0,
+        "y0": 30.5,
+        "x1": 105.5,
+        "y1": 32.0
+      },
+      {
+        "ref": "C11",
+        "footprint": "C_Murata_GRM15_0402",
+        "x0": 0.0,
+        "y0": 30.75,
+        "x1": 2.5,
+        "y1": 32.25
+      },
+      {
+        "ref": "C17",
+        "footprint": "C_Murata_GRM15_0402",
+        "x0": 99.0,
+        "y0": 31.0,
+        "x1": 101.5,
+        "y1": 32.5
+      }
+    ]
+  },
+  "inventory": [
+    {
+      "ref": "C1",
+      "footprint": "C_Murata_GRM15_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R1",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R2",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R3",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R4",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R5",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "TP1",
+      "footprint": "TestPoint_Pad_D1.0mm",
+      "width_mm": 1.5,
+      "height_mm": 1.5,
+      "area_mm2": 2.25,
+      "source": "1.0 mm pad with trial 1.5 mm square reservation"
+    },
+    {
+      "ref": "C2",
+      "footprint": "C_Murata_GRM15_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "Q1",
+      "footprint": "SC59_Diodes_DMP2066LSN",
+      "width_mm": 3.5,
+      "height_mm": 3.7,
+      "area_mm2": 12.95,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "Q2",
+      "footprint": "SC59_Diodes_DMP2066LSN",
+      "width_mm": 3.5,
+      "height_mm": 3.7,
+      "area_mm2": 12.95,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "Q3",
+      "footprint": "SC59_Diodes_DMP2066LSN",
+      "width_mm": 3.5,
+      "height_mm": 3.7,
+      "area_mm2": 12.95,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "Q4",
+      "footprint": "SC59_Diodes_DMP2066LSN",
+      "width_mm": 3.5,
+      "height_mm": 3.7,
+      "area_mm2": 12.95,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "Q5",
+      "footprint": "SC59_Diodes_DMP2066LSN",
+      "width_mm": 3.5,
+      "height_mm": 3.7,
+      "area_mm2": 12.95,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "Q6",
+      "footprint": "SC59_Diodes_DMP2066LSN",
+      "width_mm": 3.5,
+      "height_mm": 3.7,
+      "area_mm2": 12.95,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "Q7",
+      "footprint": "SC59_Diodes_DMP2066LSN",
+      "width_mm": 3.5,
+      "height_mm": 3.7,
+      "area_mm2": 12.95,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "Q8",
+      "footprint": "SC59_Diodes_DMP2066LSN",
+      "width_mm": 3.5,
+      "height_mm": 3.7,
+      "area_mm2": 12.95,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "Q9",
+      "footprint": "SC59_Diodes_DMP2066LSN",
+      "width_mm": 3.5,
+      "height_mm": 3.7,
+      "area_mm2": 12.95,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "Q10",
+      "footprint": "SC59_Diodes_DMP2066LSN",
+      "width_mm": 3.5,
+      "height_mm": 3.7,
+      "area_mm2": 12.95,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "Q11",
+      "footprint": "SC59_Diodes_DMP2066LSN",
+      "width_mm": 3.5,
+      "height_mm": 3.7,
+      "area_mm2": 12.95,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "Q12",
+      "footprint": "SC59_Diodes_DMP2066LSN",
+      "width_mm": 3.5,
+      "height_mm": 3.7,
+      "area_mm2": 12.95,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "Q13",
+      "footprint": "SC59_Diodes_DMP2066LSN",
+      "width_mm": 3.5,
+      "height_mm": 3.7,
+      "area_mm2": 12.95,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "Q14",
+      "footprint": "SC59_Diodes_DMP2066LSN",
+      "width_mm": 3.5,
+      "height_mm": 3.7,
+      "area_mm2": 12.95,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "Q15",
+      "footprint": "SC59_Diodes_DMP2066LSN",
+      "width_mm": 3.5,
+      "height_mm": 3.7,
+      "area_mm2": 12.95,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "Q16",
+      "footprint": "SC59_Diodes_DMP2066LSN",
+      "width_mm": 3.5,
+      "height_mm": 3.7,
+      "area_mm2": 12.95,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "Q17",
+      "footprint": "SOT23_Diodes_2N7002K",
+      "width_mm": 3.5,
+      "height_mm": 3.4,
+      "area_mm2": 11.9,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "Q18",
+      "footprint": "SOT23_Diodes_2N7002K",
+      "width_mm": 3.5,
+      "height_mm": 3.4,
+      "area_mm2": 11.9,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "Q19",
+      "footprint": "SOT23_Diodes_2N7002K",
+      "width_mm": 3.5,
+      "height_mm": 3.4,
+      "area_mm2": 11.9,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "Q20",
+      "footprint": "SOT23_Diodes_2N7002K",
+      "width_mm": 3.5,
+      "height_mm": 3.4,
+      "area_mm2": 11.9,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "Q21",
+      "footprint": "SOT23_Diodes_2N7002K",
+      "width_mm": 3.5,
+      "height_mm": 3.4,
+      "area_mm2": 11.9,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "Q22",
+      "footprint": "SOT23_Diodes_2N7002K",
+      "width_mm": 3.5,
+      "height_mm": 3.4,
+      "area_mm2": 11.9,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "Q23",
+      "footprint": "SOT23_Diodes_2N7002K",
+      "width_mm": 3.5,
+      "height_mm": 3.4,
+      "area_mm2": 11.9,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "Q24",
+      "footprint": "SOT23_Diodes_2N7002K",
+      "width_mm": 3.5,
+      "height_mm": 3.4,
+      "area_mm2": 11.9,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "Q25",
+      "footprint": "SOT23_Diodes_2N7002K",
+      "width_mm": 3.5,
+      "height_mm": 3.4,
+      "area_mm2": 11.9,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "Q26",
+      "footprint": "SOT23_Diodes_2N7002K",
+      "width_mm": 3.5,
+      "height_mm": 3.4,
+      "area_mm2": 11.9,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "Q27",
+      "footprint": "SOT23_Diodes_2N7002K",
+      "width_mm": 3.5,
+      "height_mm": 3.4,
+      "area_mm2": 11.9,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "Q28",
+      "footprint": "SOT23_Diodes_2N7002K",
+      "width_mm": 3.5,
+      "height_mm": 3.4,
+      "area_mm2": 11.9,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "Q29",
+      "footprint": "SOT23_Diodes_2N7002K",
+      "width_mm": 3.5,
+      "height_mm": 3.4,
+      "area_mm2": 11.9,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "Q30",
+      "footprint": "SOT23_Diodes_2N7002K",
+      "width_mm": 3.5,
+      "height_mm": 3.4,
+      "area_mm2": 11.9,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "Q31",
+      "footprint": "SOT23_Diodes_2N7002K",
+      "width_mm": 3.5,
+      "height_mm": 3.4,
+      "area_mm2": 11.9,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "Q32",
+      "footprint": "SOT23_Diodes_2N7002K",
+      "width_mm": 3.5,
+      "height_mm": 3.4,
+      "area_mm2": 11.9,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R6",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R7",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R8",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R9",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R10",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R11",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R12",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R13",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R14",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R15",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R16",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R17",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R18",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R19",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R20",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R21",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R22",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R23",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R24",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R25",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R26",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R27",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R28",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R29",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R30",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R31",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R32",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R33",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R34",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R35",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R36",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R37",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R38",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R39",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R40",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R41",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R42",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "U2",
+      "footprint": "TSSOP_Nexperia_SOT355-1_24",
+      "width_mm": 7.7,
+      "height_mm": 8.3,
+      "area_mm2": 63.91,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "C3",
+      "footprint": "C_Murata_GRM18_0603",
+      "width_mm": 3.0,
+      "height_mm": 1.3,
+      "area_mm2": 3.9,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "C4",
+      "footprint": "C_Murata_GRM15_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "C5",
+      "footprint": "C_Murata_GRM15_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R43",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R44",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R45",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R46",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R47",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "SW1",
+      "footprint": "SW_Panasonic_EVQP7J01P",
+      "width_mm": 5.1,
+      "height_mm": 3.5,
+      "area_mm2": 17.85,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "TP2",
+      "footprint": "TestPoint_Pad_D1.0mm",
+      "width_mm": 1.5,
+      "height_mm": 1.5,
+      "area_mm2": 2.25,
+      "source": "1.0 mm pad with trial 1.5 mm square reservation"
+    },
+    {
+      "ref": "TP3",
+      "footprint": "TestPoint_Pad_D1.0mm",
+      "width_mm": 1.5,
+      "height_mm": 1.5,
+      "area_mm2": 2.25,
+      "source": "1.0 mm pad with trial 1.5 mm square reservation"
+    },
+    {
+      "ref": "TP4",
+      "footprint": "TestPoint_Pad_D1.0mm",
+      "width_mm": 1.5,
+      "height_mm": 1.5,
+      "area_mm2": 2.25,
+      "source": "1.0 mm pad with trial 1.5 mm square reservation"
+    },
+    {
+      "ref": "TP5",
+      "footprint": "TestPoint_Pad_D1.0mm",
+      "width_mm": 1.5,
+      "height_mm": 1.5,
+      "area_mm2": 2.25,
+      "source": "1.0 mm pad with trial 1.5 mm square reservation"
+    },
+    {
+      "ref": "TP6",
+      "footprint": "TestPoint_Pad_D1.0mm",
+      "width_mm": 1.5,
+      "height_mm": 1.5,
+      "area_mm2": 2.25,
+      "source": "1.0 mm pad with trial 1.5 mm square reservation"
+    },
+    {
+      "ref": "TP7",
+      "footprint": "TestPoint_Pad_D1.0mm",
+      "width_mm": 1.5,
+      "height_mm": 1.5,
+      "area_mm2": 2.25,
+      "source": "1.0 mm pad with trial 1.5 mm square reservation"
+    },
+    {
+      "ref": "TP8",
+      "footprint": "TestPoint_Pad_D1.0mm",
+      "width_mm": 1.5,
+      "height_mm": 1.5,
+      "area_mm2": 2.25,
+      "source": "1.0 mm pad with trial 1.5 mm square reservation"
+    },
+    {
+      "ref": "TP9",
+      "footprint": "TestPoint_Pad_D1.0mm",
+      "width_mm": 1.5,
+      "height_mm": 1.5,
+      "area_mm2": 2.25,
+      "source": "1.0 mm pad with trial 1.5 mm square reservation"
+    },
+    {
+      "ref": "TP10",
+      "footprint": "TestPoint_Pad_D1.0mm",
+      "width_mm": 1.5,
+      "height_mm": 1.5,
+      "area_mm2": 2.25,
+      "source": "1.0 mm pad with trial 1.5 mm square reservation"
+    },
+    {
+      "ref": "TP11",
+      "footprint": "TestPoint_Pad_D1.0mm",
+      "width_mm": 1.5,
+      "height_mm": 1.5,
+      "area_mm2": 2.25,
+      "source": "1.0 mm pad with trial 1.5 mm square reservation"
+    },
+    {
+      "ref": "TP12",
+      "footprint": "TestPoint_Pad_D1.0mm",
+      "width_mm": 1.5,
+      "height_mm": 1.5,
+      "area_mm2": 2.25,
+      "source": "1.0 mm pad with trial 1.5 mm square reservation"
+    },
+    {
+      "ref": "C24",
+      "footprint": "C_Murata_GRM15_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "C25",
+      "footprint": "C_Murata_GRM15_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "C38",
+      "footprint": "C_Murata_GRM15_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R60",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R61",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R62",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R63",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R75",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R76",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R77",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R78",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "TP20",
+      "footprint": "TestPoint_Pad_D1.0mm",
+      "width_mm": 1.5,
+      "height_mm": 1.5,
+      "area_mm2": 2.25,
+      "source": "1.0 mm pad with trial 1.5 mm square reservation"
+    },
+    {
+      "ref": "TP21",
+      "footprint": "TestPoint_Pad_D1.0mm",
+      "width_mm": 1.5,
+      "height_mm": 1.5,
+      "area_mm2": 2.25,
+      "source": "1.0 mm pad with trial 1.5 mm square reservation"
+    },
+    {
+      "ref": "TP22",
+      "footprint": "TestPoint_Pad_D1.0mm",
+      "width_mm": 1.5,
+      "height_mm": 1.5,
+      "area_mm2": 2.25,
+      "source": "1.0 mm pad with trial 1.5 mm square reservation"
+    },
+    {
+      "ref": "TP23",
+      "footprint": "TestPoint_Pad_D1.0mm",
+      "width_mm": 1.5,
+      "height_mm": 1.5,
+      "area_mm2": 2.25,
+      "source": "1.0 mm pad with trial 1.5 mm square reservation"
+    },
+    {
+      "ref": "U24",
+      "footprint": "SOT23_TI_DBV0006A",
+      "width_mm": 4.3,
+      "height_mm": 3.6,
+      "area_mm2": 15.48,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "U25",
+      "footprint": "SOT23_TI_DBV0006A",
+      "width_mm": 4.3,
+      "height_mm": 3.6,
+      "area_mm2": 15.48,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "U34",
+      "footprint": "SOT23_TI_DBV0006A",
+      "width_mm": 4.3,
+      "height_mm": 3.6,
+      "area_mm2": 15.48,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "C11",
+      "footprint": "C_Murata_GRM15_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "C17",
+      "footprint": "C_Murata_GRM15_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "C23",
+      "footprint": "C_Murata_GRM15_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R70",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "TP30",
+      "footprint": "TestPoint_Pad_D1.0mm",
+      "width_mm": 1.5,
+      "height_mm": 1.5,
+      "area_mm2": 2.25,
+      "source": "1.0 mm pad with trial 1.5 mm square reservation"
+    },
+    {
+      "ref": "TP31",
+      "footprint": "TestPoint_Pad_D1.0mm",
+      "width_mm": 1.5,
+      "height_mm": 1.5,
+      "area_mm2": 2.25,
+      "source": "1.0 mm pad with trial 1.5 mm square reservation"
+    },
+    {
+      "ref": "U11",
+      "footprint": "SOT23_TI_DBV0005A",
+      "width_mm": 4.3,
+      "height_mm": 3.6,
+      "area_mm2": 15.48,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "U17",
+      "footprint": "SOT23_TI_DBV0006A",
+      "width_mm": 4.3,
+      "height_mm": 3.6,
+      "area_mm2": 15.48,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "U23",
+      "footprint": "SOT23_TI_DBV0005A",
+      "width_mm": 4.3,
+      "height_mm": 3.6,
+      "area_mm2": 15.48,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "C30",
+      "footprint": "C_Murata_GRM15_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "C31",
+      "footprint": "C_Murata_GRM15_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "C32",
+      "footprint": "C_Murata_GRM18_0603",
+      "width_mm": 3.0,
+      "height_mm": 1.3,
+      "area_mm2": 3.9,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "C36",
+      "footprint": "C_Murata_GRM15_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "C37",
+      "footprint": "C_Murata_GRM15_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R71",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "TP32",
+      "footprint": "TestPoint_Pad_D1.0mm",
+      "width_mm": 1.5,
+      "height_mm": 1.5,
+      "area_mm2": 2.25,
+      "source": "1.0 mm pad with trial 1.5 mm square reservation"
+    },
+    {
+      "ref": "TP33",
+      "footprint": "TestPoint_Pad_D1.0mm",
+      "width_mm": 1.5,
+      "height_mm": 1.5,
+      "area_mm2": 2.25,
+      "source": "1.0 mm pad with trial 1.5 mm square reservation"
+    },
+    {
+      "ref": "U29",
+      "footprint": "SOT23_TI_DBV0005A",
+      "width_mm": 4.3,
+      "height_mm": 3.6,
+      "area_mm2": 15.48,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "U31",
+      "footprint": "X2QFN_TI_RWB0012A_1.6x1.6mm_P0.4mm",
+      "width_mm": 2.2,
+      "height_mm": 2.2,
+      "area_mm2": 4.84,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "U32",
+      "footprint": "UQFN_TI_RSE0008A_1.5x1.5mm_P0.5mm",
+      "width_mm": 2.4,
+      "height_mm": 2.4,
+      "area_mm2": 5.76,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "U33",
+      "footprint": "USON_TI_DQA0010A",
+      "width_mm": 2.1,
+      "height_mm": 2.8,
+      "area_mm2": 5.88,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "C39",
+      "footprint": "C_Murata_GRM15_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R79",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R80",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "U35",
+      "footprint": "TDFN_Maxim_T822-3_2x2mm_P0.5mm_EP0.7x1.38mm",
+      "width_mm": 3.3,
+      "height_mm": 2.6,
+      "area_mm2": 8.58,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "SW2",
+      "footprint": "SW_CK_JS202011JCQN",
+      "width_mm": 9.6,
+      "height_mm": 4.6,
+      "area_mm2": 44.16,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "C40",
+      "footprint": "C_Murata_GRM18_0603",
+      "width_mm": 3.0,
+      "height_mm": 1.3,
+      "area_mm2": 3.9,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "C41",
+      "footprint": "C_Murata_GRM18_0603",
+      "width_mm": 3.0,
+      "height_mm": 1.3,
+      "area_mm2": 3.9,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "C42",
+      "footprint": "C_Murata_GRM21_0805",
+      "width_mm": 3.6,
+      "height_mm": 2.0,
+      "area_mm2": 7.2,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "C43",
+      "footprint": "C_Murata_GRM21_0805",
+      "width_mm": 3.6,
+      "height_mm": 2.0,
+      "area_mm2": 7.2,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "L1",
+      "footprint": "L_Murata_DFE252012P",
+      "width_mm": 3.3,
+      "height_mm": 2.7,
+      "area_mm2": 8.91,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R81",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R82",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "R83",
+      "footprint": "R_Panasonic_ERJ2_0402",
+      "width_mm": 2.0,
+      "height_mm": 1.0,
+      "area_mm2": 2.0,
+      "source": "project-local F.CrtYd"
+    },
+    {
+      "ref": "U36",
+      "footprint": "SOT5X3_TI_DRL0008A",
+      "width_mm": 2.7,
+      "height_mm": 2.5,
+      "area_mm2": 6.75,
+      "source": "project-local F.CrtYd"
+    }
+  ]
+}
