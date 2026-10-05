@@ -22,3 +22,5 @@ Decision records explain choices that materially constrain later work. Accepted 
 | [0014](0014-usb-voltage-envelope-and-logic-ldo.md) | Correct USB voltage envelope and logic regulator | Draft circuit reviewed; input-stage qualification pending |
 | [0015](0015-switch-fuel-gauge-with-application.md) | Disconnect the gauge with the physical switch | Accepted for coupon capture; exact switch and SOC recovery validation pending |
 | [0016](0016-runtime-and-fit-over-charge-speed.md) | Prioritize badge runtime and fit over charging speed | Accepted; exact terminated pack and charge times pending |
+| [0017](0017-parallel-3v3-converter-capacitors.md) | Parallel exact capacitors on the coupon application converter | Provisional coupon target; complete derating and rail qualification pending |
+| [0018](0018-complete-power-architecture-proposal.md) | Review the complete power topology as one functional block | Proposed; six capture holds, no circuit changes |

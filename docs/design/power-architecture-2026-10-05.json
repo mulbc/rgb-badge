@@ -1,0 +1,275 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "status": "PROPOSAL_ONLY_NOT_CAPTURED_NOT_SIMULATED_NOT_MEASURED",
+  "baseline_commit": "0764245",
+  "charge_setting": {
+    "numerical_resistance_ohm": 2490,
+    "exact_mpn_selected": false,
+    "total_resistance_error_fraction": "0.01",
+    "min_a": "0.3169112091932084774742534494",
+    "typ_a": "0.3574297188755020080321285141",
+    "max_a": "0.3955214798588292564196178654",
+    "900mah_ideal_80percent_min_minutes_at_max_a": "109.2228923076923076923076923",
+    "900mah_ideal_full_min_minutes_at_max_a": "136.5286153846153846153846154"
+  },
+  "unchanged_charger_input_limit_a": [
+    "0.8336568186813957730208542817",
+    "0.9752381315914617756847326993"
+  ],
+  "qualified_source_arithmetic_headroom_a": "0.5247618684085382243152673007",
+  "ovlo_38k3_10k_screen_v": {
+    "rising": [
+      "5.620377705940594059405940594",
+      "6.005586380808080808080808080"
+    ],
+    "falling": [
+      "5.111682755445544554455445544",
+      "5.480497390909090909090909090"
+    ]
+  },
+  "thermal_scenarios": [
+    {
+      "cell_v": "3.0",
+      "sys_a": "0",
+      "theta_c_per_w": "44.5",
+      "loss_w": "0.9888036996470731410490446635",
+      "open_loop_junction_c": "84.00176463429475477668248753"
+    },
+    {
+      "cell_v": "3.0",
+      "sys_a": "0",
+      "theta_c_per_w": "70",
+      "loss_w": "0.9888036996470731410490446635",
+      "open_loop_junction_c": "109.2162589752951198734331264"
+    },
+    {
+      "cell_v": "3.0",
+      "sys_a": "0.4",
+      "theta_c_per_w": "44.5",
+      "loss_w": "1.428803699647073141049044664",
+      "open_loop_junction_c": "103.5817646342947547766824876"
+    },
+    {
+      "cell_v": "3.0",
+      "sys_a": "0.4",
+      "theta_c_per_w": "70",
+      "loss_w": "1.428803699647073141049044664",
+      "open_loop_junction_c": "140.0162589752951198734331265"
+    },
+    {
+      "cell_v": "3.4",
+      "sys_a": "0",
+      "theta_c_per_w": "44.5",
+      "loss_w": "0.8305951077035414384811975173",
+      "open_loop_junction_c": "76.96148229280759401241328952"
+    },
+    {
+      "cell_v": "3.4",
+      "sys_a": "0",
+      "theta_c_per_w": "70",
+      "loss_w": "0.8305951077035414384811975173",
+      "open_loop_junction_c": "98.14165753924790069368382621"
+    },
+    {
+      "cell_v": "3.4",
+      "sys_a": "0.4",
+      "theta_c_per_w": "44.5",
+      "loss_w": "1.270595107703541438481197517",
+      "open_loop_junction_c": "96.54148229280759401241328951"
+    },
+    {
+      "cell_v": "3.4",
+      "sys_a": "0.4",
+      "theta_c_per_w": "70",
+      "loss_w": "1.270595107703541438481197517",
+      "open_loop_junction_c": "128.9416575392479006936838262"
+    }
+  ],
+  "runtime_scenarios": {
+    "usable_nominal_energy_wh": "2.8305",
+    "baseline_hours": "6.29",
+    "buffer_5ma_85percent_efficiency_extra_w": "0.01941176470588235294117647059",
+    "with_buffer_hours": "6.029887218045112781954887218",
+    "required_nominal_mah_for_six_hours_with_buffer": "895.5391377536706256429439822"
+  },
+  "gauge_bus_screen": {
+    "pullup_nominal_ohm": 2200,
+    "assumed_resistance_factor": "1.023",
+    "300ns_max_modeled_capacitance_pf": "157.3206506039555508750913994",
+    "4v23_pullup_current_a_conservative": "0.001967991067274588257188052480"
+  },
+  "permission_candidate_static_screen": {
+    "gate": "SN74AUP1G125DBVR",
+    "rail_v": "3.3V_USB",
+    "pullup_nominal_ohm": 220000,
+    "pulldown_nominal_ohm": 1000000,
+    "resistor_total_error_fraction_assumed": "0.01",
+    "pullup_current_at_0v8_rail_a": "0.000003673094582185491276400367309",
+    "pullup_current_at_3v6_rail_a": "0.00001652892561983471074380165289",
+    "hypothetical_combined_en_sink_a": "9E-7",
+    "minimum_en_high_at_3v_rail_v": "2.286767695099818511796733212",
+    "leakage_and_transients_proven": false
+  },
+  "off_current_allocations_ua": {
+    "charger_reference_limit": "6.5",
+    "pack_protection_target": 10,
+    "disabled_converters_target": 10,
+    "other_paths_target": 10,
+    "unspent_margin_to_50": "13.5",
+    "compliance_established": false
+  },
+  "stable_intent_states": [
+    {
+      "voltage_valid": false,
+      "logic_ready": false,
+      "advertised_high": false,
+      "switch_on": false,
+      "charger_input_permitted": false,
+      "application_requested": false,
+      "gauge_requested": false
+    },
+    {
+      "voltage_valid": false,
+      "logic_ready": false,
+      "advertised_high": false,
+      "switch_on": true,
+      "charger_input_permitted": false,
+      "application_requested": true,
+      "gauge_requested": true
+    },
+    {
+      "voltage_valid": false,
+      "logic_ready": false,
+      "advertised_high": true,
+      "switch_on": false,
+      "charger_input_permitted": false,
+      "application_requested": false,
+      "gauge_requested": false
+    },
+    {
+      "voltage_valid": false,
+      "logic_ready": false,
+      "advertised_high": true,
+      "switch_on": true,
+      "charger_input_permitted": false,
+      "application_requested": true,
+      "gauge_requested": true
+    },
+    {
+      "voltage_valid": false,
+      "logic_ready": true,
+      "advertised_high": false,
+      "switch_on": false,
+      "charger_input_permitted": false,
+      "application_requested": false,
+      "gauge_requested": false
+    },
+    {
+      "voltage_valid": false,
+      "logic_ready": true,
+      "advertised_high": false,
+      "switch_on": true,
+      "charger_input_permitted": false,
+      "application_requested": true,
+      "gauge_requested": true
+    },
+    {
+      "voltage_valid": false,
+      "logic_ready": true,
+      "advertised_high": true,
+      "switch_on": false,
+      "charger_input_permitted": false,
+      "application_requested": false,
+      "gauge_requested": false
+    },
+    {
+      "voltage_valid": false,
+      "logic_ready": true,
+      "advertised_high": true,
+      "switch_on": true,
+      "charger_input_permitted": false,
+      "application_requested": true,
+      "gauge_requested": true
+    },
+    {
+      "voltage_valid": true,
+      "logic_ready": false,
+      "advertised_high": false,
+      "switch_on": false,
+      "charger_input_permitted": false,
+      "application_requested": false,
+      "gauge_requested": false
+    },
+    {
+      "voltage_valid": true,
+      "logic_ready": false,
+      "advertised_high": false,
+      "switch_on": true,
+      "charger_input_permitted": false,
+      "application_requested": true,
+      "gauge_requested": true
+    },
+    {
+      "voltage_valid": true,
+      "logic_ready": false,
+      "advertised_high": true,
+      "switch_on": false,
+      "charger_input_permitted": false,
+      "application_requested": false,
+      "gauge_requested": false
+    },
+    {
+      "voltage_valid": true,
+      "logic_ready": false,
+      "advertised_high": true,
+      "switch_on": true,
+      "charger_input_permitted": false,
+      "application_requested": true,
+      "gauge_requested": true
+    },
+    {
+      "voltage_valid": true,
+      "logic_ready": true,
+      "advertised_high": false,
+      "switch_on": false,
+      "charger_input_permitted": false,
+      "application_requested": false,
+      "gauge_requested": false
+    },
+    {
+      "voltage_valid": true,
+      "logic_ready": true,
+      "advertised_high": false,
+      "switch_on": true,
+      "charger_input_permitted": false,
+      "application_requested": true,
+      "gauge_requested": true
+    },
+    {
+      "voltage_valid": true,
+      "logic_ready": true,
+      "advertised_high": true,
+      "switch_on": false,
+      "charger_input_permitted": true,
+      "application_requested": false,
+      "gauge_requested": false
+    },
+    {
+      "voltage_valid": true,
+      "logic_ready": true,
+      "advertised_high": true,
+      "switch_on": true,
+      "charger_input_permitted": true,
+      "application_requested": true,
+      "gauge_requested": true
+    }
+  ],
+  "unresolved": [
+    "Exact protected NTC pack and connector",
+    "USB fault and enable transient bounds",
+    "eFuse current/inrush coordination",
+    "Gauge buffer power-down and LOW-level bounds",
+    "Hardware display interlock circuit",
+    "Thermal, runtime and mechanical qualification"
+  ]
+}

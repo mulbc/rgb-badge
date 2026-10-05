@@ -2,6 +2,8 @@
 
 # Coupon Rev A
 
+**2026-10-05 architecture proposal:** [Complete power system](../../../docs/design/power-architecture-2026-10-05.md), with [proposed ADR 0018](../../../docs/decisions/0018-complete-power-architecture-proposal.md), consolidates topology choices, budgets and six capture holds. It does not modify the current schematic or select a battery. Review the architecture before continuing isolated power-component increments. Native KiCad exports can now be run locally by the assistant.
+
 **Active revision: [ADR 0013](../../../docs/decisions/0013-type-c-only-fixed-current-charging.md).** Type-C-only charging, one fixed current limit; no BC1.2 or firmware charge grants. The revised USB source has 396 total PCB items / 1,492 logical pins and eleven pages; [native ERC/XML and three-sheet visual review passed at 12a134f](../../../docs/development/type-c-only-review-12a134f.md). Libraries remain 46 symbols / 27 footprints. See [simplified capture](type-c-only-capture.md); earlier counts and source-policy descriptions below are historical.
 
 **Follow-on draft:** [ADR 0014](../../../docs/decisions/0014-usb-voltage-envelope-and-logic-ldo.md) changes U29 to TPS70933DBVR and intentionally opens EN. Counts remain 396 items / 1,492 pins; libraries are now 47 symbols / 27 footprints. Native U29 review passed at bad43fa; see [evidence](../../../docs/development/input-review-bad43fa.md). No repeat run is needed; [source audit and screening](usb-input-protection-screening.md).

@@ -55,3 +55,17 @@ Source: requirements interview completed 2026-09-05
 ## Reference workload
 
 The provisional runtime workload consists of representative text, icons and animations with approximately 35% of pixels lit and brightness fixed at 25% of the validated hardware maximum. It is a repeatable engineering benchmark, not a restriction on user content. Coupon measurements will define the final asset bundle and calibrated power model.
+
+## Power-architecture proposal verification addendum
+
+2026-10-05: [ADR 0018](decisions/0018-complete-power-architecture-proposal.md) is **proposed, not an accepted replacement of the table above**. These verification refinements must be adopted/resolved before its material circuit changes are implemented. No current ceiling, battery rating or fabrication gate is relaxed.
+
+| Existing requirements | Proposed refinement / acceptance evidence |
+|---|---|
+| USB-003/004/005/006, PWR-005 | Treat an independently disconnected charger input as the proposed physical implementation of unsupported-source standby; preserve battery-only application operation. Prove default-disable and total port current through startup, all partial-supply states, source downgrade and detach, including capacitance outside the charger limiter. |
+| PWR-003/004/007 | Verify arbitrary switch-contact order, settling and bus isolation with either gauge or application rail absent/decaying; no reliance on firmware to order physical contacts. Retain provisional SOC after ON. |
+| PWR-001/002 | Include added buffer/control losses and exact-pack minimum capacity/cutoff in the model before battery freeze; preserve fixed-brightness workload and separate full-white result. |
+| DSP-006, PWR-004/008 | Hardware must keep VLED disabled and rows blank at boot, all reset paths, programming entry and physical OFF; audit residual rail energy, programmer injection and watchdog behavior. Define the exact interlock before capture. |
+| CHG-001/002/003, SAF-001/002 | Select ISET, charge voltage, ITERM, NTC network and timer from the exact pack and full thermal budget; the 2.49 kΩ / 396 mA maximum is a conditional numerical proposal, not an approved BOM population. |
+
+The [proposal's six capture holds](design/power-architecture-2026-10-05.md#8-one-consolidated-capture-hold-list) separate required engineering evidence from the remaining supplier information. Native ERC alone does not close them.

@@ -6,6 +6,10 @@
 
 Create a small, manufacturable 48 × 16 RGB wearable badge that preserves the 1.95 mm pixel pitch of the referenced FOSSASIA Badge Magic board. The owner intends to develop the electronics, firmware and enclosure with AI assistance, then have a turnkey PCBA supplier assemble the SMT hardware.
 
+## Complete power proposal, 2026-10-05
+
+[ADR 0018](docs/decisions/0018-complete-power-architecture-proposal.md) and the [whole-system proposal](docs/design/power-architecture-2026-10-05.md) recommend a protected USB detector domain plus a separate reverse-blocking charger gate, the existing charger/converters, a buffered switched gauge and a lower conditional charge-current target. Status is **proposed for engineering review, not accepted for capture**. The owner confirms no pack supplier reply or alternate selection yet. Six consolidated holds cover pack, USB faults/inrush, permission startup, gauge transitions, hardware display interlock and thermal/fit. No schematic or accepted current setting changed. Review by complete architecture → complete schematic → PCB/mechanical batches; local KiCad CLI 10.0.6 is now accessible without owner command/upload cycles. Existing reviews at `0764245` remain the baseline.
+
 ## Active simplification — ADR 0013
 
 The owner accepted **Type-C-only charging** on 2026-09-18. This section supersedes the historical BC1.2/SDP/boost descriptions below. [ADR 0013](docs/decisions/0013-type-c-only-fixed-current-charging.md) keeps OFF charging and charge-through operation only for Type-C sources advertising 1.5 A/3 A. USB-A/default-current sources provide data while ON from battery power, but no charging or charger PowerPath input. Depleted-battery USB recovery on those sources is not guaranteed.
