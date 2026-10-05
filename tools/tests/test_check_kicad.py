@@ -42,9 +42,9 @@ class CheckKiCadWrapperTests(unittest.TestCase):
     def test_separate_raw_views_and_numbered_copies(self):
         result = self.run_check()
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertEqual(len(list((self.output / "symbols").glob("*.svg"))), 50)
+        self.assertEqual(len(list((self.output / "symbols").glob("*.svg"))), 51)
         for view in ("fabrication", "copper", "paste", "numbered", "mechanical"):
-            self.assertEqual(len(list((self.output / "footprints" / view).glob("*.svg"))), 3 if view == "numbered" else 28)
+            self.assertEqual(len(list((self.output / "footprints" / view).glob("*.svg"))), 3 if view == "numbered" else 29)
         self.assertTrue((self.output / "coupon-erc.rpt").is_file())
         self.assertTrue((self.output / "coupon-matrix.xml").is_file())
         self.assertTrue((self.output / "coupon-schematic.pdf").is_file())
@@ -53,7 +53,8 @@ class CheckKiCadWrapperTests(unittest.TestCase):
         for name in ('ERA2AEB3651X_unit1.svg', 'ERA2AEB3481X_unit1.svg',
                      'ERA2AEB1131X_unit1.svg', 'ERJ2RKF6203X_unit1.svg',
                      'R_Panasonic_ERA2_0402.svg', 'ADG4612BCPZ-REEL7_unit1.svg',
-                     'LFCSP_ADI_CP16_22_3x3mm_P0.5mm_EP1.75mm.svg'):
+                     'LFCSP_ADI_CP16_22_3x3mm_P0.5mm_EP1.75mm.svg',
+                     'DFE252012P-1R0M=P2_unit1.svg', 'L_Murata_DFE252012P.svg'):
             with self.subTest(name=name):
                 self.output = self.directory / name
                 result = self.run_check(RGB_BADGE_TEST_MISSING_NAMED=name)

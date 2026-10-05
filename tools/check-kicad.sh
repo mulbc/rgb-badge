@@ -56,6 +56,7 @@ for required_path in \
     "${repo_root}/tools/check-programming-resistors.py" \
     "${repo_root}/tools/check-3v3-feedback-libraries.py" \
     "${repo_root}/tools/check-3v3-capacitor-footprints.py" \
+    "${repo_root}/tools/check-3v3-inductor-library.py" \
     "${usb_permission_check}" \
     "${permission_capture_check}" \
     "${usb_capture_check}" \
@@ -81,6 +82,7 @@ python3 "${power_design_check}"
 python3 "${repo_root}/tools/check-programming-resistors.py"
 python3 "${repo_root}/tools/check-3v3-feedback-libraries.py"
 python3 "${repo_root}/tools/check-3v3-capacitor-footprints.py"
+python3 "${repo_root}/tools/check-3v3-inductor-library.py"
 python3 "${usb_permission_check}"
 python3 "${permission_capture_check}"
 python3 "${usb_capture_check}"
@@ -190,6 +192,17 @@ done
 for view_dir in "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_paste_dir}" "${footprint_mechanical_dir}"; do
     if [[ ! -s "${view_dir}/R_Panasonic_ERA2_0402.svg" ]]; then
         echo "Expected non-empty ERA2 footprint SVG: ${view_dir}" >&2
+        exit 1
+    fi
+done
+
+if [[ ! -s "${symbol_svg_dir}/DFE252012P-1R0M=P2_unit1.svg" ]]; then
+    echo "Expected non-empty 3V3 inductor symbol SVG." >&2
+    exit 1
+fi
+for view_dir in "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_paste_dir}" "${footprint_mechanical_dir}"; do
+    if [[ ! -s "${view_dir}/L_Murata_DFE252012P.svg" ]]; then
+        echo "Expected non-empty 3V3 inductor footprint SVG: ${view_dir}" >&2
         exit 1
     fi
 done
