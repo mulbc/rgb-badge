@@ -201,6 +201,7 @@ def main() -> None:
         "outside_nominal_area_remainder_mm2": outside_screen["area_mm2"]["remaining_before_clearance_routing_or_missing_parts"],
         "outside_first_fit_placed": outside_screen["packing_trial"]["placed_count"],
         "outside_first_fit_unplaced": outside_screen["packing_trial"]["unplaced_count"],
+        "outside_first_fit_unplaced_refs": outside_screen["packing_trial"]["unplaced_refs"],
         "caveats": ["not all 0402 passives can move away from their associated ICs or row switches",
                     "pack support, insulation, swelling, actual assembled heights and thermal coupling are unverified",
                     "all missing power, connector, mounting and routing areas remain omitted"],
