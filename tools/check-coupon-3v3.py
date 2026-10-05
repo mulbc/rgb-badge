@@ -41,8 +41,8 @@ def at(item):
 
 
 def check(project=PROJECT):
-    require(not (project / 'rgb-badge-coupon.kicad_sch').read_text().find('"3v3-converter.kicad_sch"') >= 0,
-            'The candidate was linked into the root without source/switch integration')
+    # The unlinked candidate remains a deterministic reference after a distinct
+    # provisional root-linked copy is generated with the physical control pole.
     sheet = parse(project / 'staging/3v3-converter.kicad_sch')
     require(one(sheet, 'uuid', 'file')[1] == GEN['FILE_UUID'], 'Unexpected file UUID')
     require(not any(children(sheet, key) for key in ('sheet','bus','label','junction','no_connect')),

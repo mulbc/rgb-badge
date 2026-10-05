@@ -27,6 +27,7 @@ usb_connector_check="${repo_root}/tools/check-usb-connector.py"
 gauge_check="${repo_root}/tools/check-coupon-gauge.py"
 converter_candidate_check="${repo_root}/tools/check-coupon-3v3.py"
 slide_switch_library_check="${repo_root}/tools/check-slide-switch-library.py"
+app_power_capture_check="${repo_root}/tools/check-coupon-app-power.py"
 
 if [[ -n "${RGB_BADGE_KICAD_CLI:-}" ]]; then
     kicad_cli="${RGB_BADGE_KICAD_CLI}"
@@ -68,6 +69,9 @@ for required_path in \
     "${project_dir}/gauge.kicad_sch" \
     "${converter_candidate_check}" \
     "${slide_switch_library_check}" \
+    "${app_power_capture_check}" \
+    "${project_dir}/app-control.kicad_sch" \
+    "${project_dir}/3v3-converter.kicad_sch" \
     "${project_dir}/staging/3v3-converter.kicad_sch"
 do
     if [[ ! -e "${required_path}" ]]; then
@@ -96,6 +100,7 @@ python3 "${usb_connector_check}"
 python3 "${gauge_check}"
 python3 "${converter_candidate_check}"
 python3 "${slide_switch_library_check}"
+python3 "${app_power_capture_check}"
 
 kicad_version="$("${kicad_cli}" version)"
 
@@ -305,8 +310,8 @@ if [[ ! -s "${check_tmp_dir}/coupon-schematic.pdf" ]]; then
     exit 1
 fi
 
-echo "KiCad ${kicad_version}: libraries exported; staged gauge and earlier coupon connectivity and ERC passed. Switched BAT flag is a draft boundary, not a captured switch."
-echo "Draft: input protection, VBUS qualification, charger/ILIM actuator, gauging and switched power remain uncaptured; +5V_USB is a draft source boundary."
+echo "KiCad ${kicad_version}: libraries exported; provisional app switch/3V3, staged gauge and earlier coupon connectivity and ERC passed."
+echo "Draft: SYS and +5V_USB source flags remain; input protection, charger, gauge switch/bus isolation and VLED supply/interlock are uncaptured."
 if [[ "${keep_check_output}" == yes ]]; then
     echo "Review SVG/PDF output and netlist in: ${check_tmp_dir}"
 fi

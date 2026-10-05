@@ -105,7 +105,7 @@ def check_sources(project=PROJECT):
     LIB["check_libraries"](project)
     root = parse(project / "rgb-badge-coupon.kicad_sch")
     sheets = children(root, "sheet")
-    require(len(sheets) == 11, "Expected matrix, driver, rows, controller, USB logic/interface and staged gauge")
+    require(len(sheets) == 13, "Expected matrix, driver, rows, controller, USB, gauge and provisional application power")
     targets = [s for s in sheets if props(s)["Sheetfile"] == "controller.kicad_sch"]
     require(len(targets) == 1 and not children(root, "symbol"), "Controller sheet missing/duplicated or root contains components")
     sheet_uuid = one(targets[0], "uuid", "controller sheet")[1]
@@ -212,6 +212,18 @@ def check_netlist(path):
     expected_components.update({ref: (value, footprint) for ref, (_, value, footprint) in gauge["PARTS"].items() if not ref.startswith('#')})
     expected_nets.update({pair: net for pair, net in gauge["CONNECTIONS"].items() if not pair[0].startswith('#')})
     expected_nets[('U35','5')] = 'unconnected-(U35-ALRT-Pad5)'
+    converter = runpy.run_path(str(TOOLS / "check-coupon-3v3.py"))
+    generator = runpy.run_path(str(TOOLS / "generate-coupon-3v3.py"))
+    expected_components.update({ref: (value, 'rgb-badge-coupon:' + footprint)
+                                for ref, (_, value, footprint, _, _, _) in generator['PARTS'].items()})
+    expected_nets.update({pair: ('Net-(U36-' + net + ')' if net in ('LX1', 'LX2') else net)
+                          for pair, net in converter['EXPECTED'].items()})
+    expected_components['SW2'] = ('JS202011JCQN', 'rgb-badge-coupon:SW_CK_JS202011JCQN')
+    expected_nets.update({('SW2','2'): '+SYS_APP_IN_DRAFT', ('SW2','3'): 'APP_ON_SW_DRAFT',
+                          ('SW2','1'): 'unconnected-(SW2-A1-Pad1)',
+                          ('SW2','4'): 'unconnected-(SW2-A2-Pad4)',
+                          ('SW2','5'): 'unconnected-(SW2-COM2-Pad5)',
+                          ('SW2','6'): 'unconnected-(SW2-B2-Pad6)'})
     require(components == expected_components, "Complete coupon XML population/value/footprint mismatch")
     require(connections == expected_nets,
             "Complete coupon XML pin-to-net mismatch: " + mapping_difference(connections, expected_nets))
@@ -225,7 +237,7 @@ def main():
     try:
         if args.netlist:
             check_netlist(args.netlist)
-            print("KiCad XML complete coupon check passed: 400 PCB items, 1507 logical pins; staged gauge and prior display/controller/USB sheets.")
+            print("KiCad XML complete coupon check passed: 410 PCB items, 1537 logical pins; provisional switch/3V3 and staged gauge.")
         else:
             check_sources(args.project_dir)
             print("Controller source connectivity check passed: N16R8 module, safe boot/reset, USB/UART boundaries and 11 test pads (not KiCad ERC).")

@@ -33,7 +33,7 @@ PARTS = {
 }
 PARTS.update({f'R{i}': ('ERJ2RKF1003X', '100k 1%', 'rgb-badge-coupon:R_Panasonic_ERJ2_0402') for i in range(2, 6)})
 PARTS['TP1'] = ('TestPoint_Pad', 'LED_SOUT', 'rgb-badge-coupon:TestPoint_Pad_D1.0mm')
-FLAGS = {'#FLG01': '+3V3_APP', '#FLG02': 'GND'}
+FLAGS = {'#FLG02': 'GND'}
 
 
 def require(condition, message):

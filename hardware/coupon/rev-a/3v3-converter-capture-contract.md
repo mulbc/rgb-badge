@@ -2,7 +2,7 @@
 
 # Coupon Rev A 3.3 V application converter capture contract
 
-Status: **pre-capture engineering calculation, 2026-09-30**. No 3.3 V converter circuit has been placed in the canonical KiCad schematic, no complete input rail or physical switch is connected, and no board has been built. This increment does not select the battery, charger ISET, or a PCB order. It applies the hard-OFF decision in [ADR 0004](../../../docs/decisions/0004-standalone-charging-and-hard-off-state.md), the independently switched gauge in [ADR 0015](../../../docs/decisions/0015-switch-fuel-gauge-with-application.md), the provisional parallel-capacitor target in [ADR 0017](../../../docs/decisions/0017-parallel-3v3-converter-capacitors.md), and PWR-003/004/008 in [requirements](../../../docs/requirements.md).
+Status: **provisional root-linked circuit, 2026-10-05**. The TPS631000 converter and one physical-switch control pole are now in the canonical KiCad schematic, with the former `+3V3_APP` source flag removed. The converter VIN source is still a flagged draft boundary, its EN switch/footprint remains subject to mechanical review, and no board has been built. This increment does not select the battery, charger ISET, or a PCB order. It applies the hard-OFF decision in [ADR 0004](../../../docs/decisions/0004-standalone-charging-and-hard-off-state.md), the independently switched gauge in [ADR 0015](../../../docs/decisions/0015-switch-fuel-gauge-with-application.md), the provisional parallel-capacitor target in [ADR 0017](../../../docs/decisions/0017-parallel-3v3-converter-capacitors.md), and PWR-003/004/008 in [requirements](../../../docs/requirements.md).
 
 ## Circuit boundary and defaults
 
