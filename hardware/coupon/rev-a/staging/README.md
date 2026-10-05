@@ -1,0 +1,9 @@
+<!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
+
+# Unlinked 3.3 V application converter candidate
+
+`3v3-converter.kicad_sch` contains the exact `TPS631000DRLR`, one Murata `DFE252012P-1R0M=P2` 1 µH inductor, two `GRM187R61A226ME15` input capacitors, two `GRM219R60J476ME44` output capacitors, the Panasonic 511 kΩ / 91 kΩ feedback pair, and a 100 kΩ EN pull-down. The source checker verifies nine items, all 24 pins and the two *local* LX switching nodes. Regenerate deterministically into a new directory with `python3 tools/generate-coupon-3v3.py --output /tmp/rgb-3v3-candidate`; compare with this source before replacing it.
+
+This sheet is **not connected to the project root**. `+SYS_APP_IN_DRAFT` is an unresolved protected charger/pack source. `APP_ON_SW_DRAFT` is an unresolved physical switch contact; R83 only establishes the intended OFF default. `+3V3_APP` is still declared by draft source flags in the existing project, so linking this sheet before removing those flags would falsely assert multiple sources. `APP_3V3_FB` is only a staged drawing label, not a routed board net; rename or localize it during integration. The battery pack, charger, slide switch, LED supply and whole-board OFF leakage are not captured here.
+
+The [capture contract](../3v3-converter-capture-contract.md) records the TI starting circuit, conditional capacitor choice and load/current sensitivity. The [inductor audit](../3v3-inductor-footprint-audit.md) and capacitor/feedback audits control the libraries. No native KiCad ERC/XML or visual export has yet been run **on this unlinked sheet**; the main project's passing ERC does not validate it. Integrate only after the protected SYS and switch boundaries are reviewed, then remove the superseded flags, run native ERC/netlist and inspect the page, and update the whole-project checker. This is not a fabrication release.

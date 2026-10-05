@@ -25,6 +25,7 @@ usb_capture_check="${repo_root}/tools/check-coupon-usb.py"
 power_library_check="${repo_root}/tools/check-power-libraries.py"
 usb_connector_check="${repo_root}/tools/check-usb-connector.py"
 gauge_check="${repo_root}/tools/check-coupon-gauge.py"
+converter_candidate_check="${repo_root}/tools/check-coupon-3v3.py"
 
 if [[ -n "${RGB_BADGE_KICAD_CLI:-}" ]]; then
     kicad_cli="${RGB_BADGE_KICAD_CLI}"
@@ -63,7 +64,9 @@ for required_path in \
     "${power_library_check}" \
     "${usb_connector_check}" \
     "${gauge_check}" \
-    "${project_dir}/gauge.kicad_sch"
+    "${project_dir}/gauge.kicad_sch" \
+    "${converter_candidate_check}" \
+    "${project_dir}/staging/3v3-converter.kicad_sch"
 do
     if [[ ! -e "${required_path}" ]]; then
         echo "Required project path is missing: ${required_path}" >&2
@@ -89,6 +92,7 @@ python3 "${usb_capture_check}"
 python3 "${power_library_check}"
 python3 "${usb_connector_check}"
 python3 "${gauge_check}"
+python3 "${converter_candidate_check}"
 
 kicad_version="$("${kicad_cli}" version)"
 
