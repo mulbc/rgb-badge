@@ -9,3 +9,4 @@ Critical ICs should come from manufacturer-authorized distribution or a traceabl
 ## Current records
 
 - [Coupon Rev A core component candidates](coupon-rev-a-core-candidates.md) — exact schematic candidates, preliminary charger math, marketplace policy and unresolved Gate A items; not a frozen BOM.
+- [2026-10-05 protected two-wire pack screen](pack-screen-2026-10-05.md) — board-NTC sourcing direction, leading 950 mAh technical candidate and orderability limits.

@@ -37,7 +37,7 @@ Source: requirements interview completed 2026-09-05
 | USB-006 | Account for 5.5 V normal VBUS at light load; derive the low-voltage and transient envelopes separately. Do not use a 5.25 V draft assumption as full input qualification. | Source-envelope and protection review (ADR 0014) | Coupon/final |
 | CHG-001 | Prioritize the finished size and roughly six-hour reference runtime over charging speed. With the display off and a qualified USB-C source, document an exact-pack-specific time-to-80% and time-to-full planning target before Gate A and measure both on the coupon/final hardware. Charging shall remain within the terminated pack's current, temperature and protection limits; the previous 45–60/75–100 min targets are withdrawn (ADR 0016). | Exact-pack profile and current-limit review; dated charge log showing pack, source, ambient and hardware revision | Coupon/final |
 | CHG-002 | Charge current shall never exceed the exact terminated-pack rating. | BOM/calculation review including qualified total ISET resistance error (ADR 0012), exact-pack rating and current log | Coupon/final |
-| CHG-003 | A pack NTC and charger safety timer shall qualify charging without MCU assistance. | NTC boundary/fault tests | Coupon/final |
+| CHG-003 | A battery-facing NTC connected to the charger and a charger safety timer shall qualify charging without MCU assistance. The NTC may be pack-integrated or board-mounted under ADR 0019; a board-mounted sensor requires measured cell-to-board temperature bounds before final approval. | NTC hot/cold/open/short tests; simultaneous cell-surface and board-sensor logs for a board-mounted NTC | Coupon/final |
 | RF-001 | BLE shall be disabled during normal playback. | Firmware state and current test | Coupon/final |
 | RF-002 | Holding the mode button for approximately three seconds shall enter programming mode and enable BLE. | Functional test | Coupon/final |
 | RF-003 | Programming-mode BLE shall work at 3 m line-of-sight in normal worn orientation. | Range test | Coupon/final |
@@ -46,7 +46,7 @@ Source: requirements interview completed 2026-09-05
 | MFG-001 | Maintain vendor-neutral KiCad, Gerber, drill, BOM and placement sources. | Release inspection | Coupon/final |
 | MFG-002 | PCBA delivery shall require no manual SMT soldering by the user. | Purchase package and incoming inspection | Coupon/final |
 | MFG-003 | Critical component substitutions require a written engineering review and updated BOM. | Release audit | Coupon/final |
-| SAF-001 | Use a protected, NTC-equipped, documented and keyed connectorized LiPo pack. | Supplier documentation and inspection | Coupon/final |
+| SAF-001 | Use a protected, documented and keyed connectorized LiPo pack. A two-wire pack is permitted when the charger has the independently operating battery-facing NTC arrangement and validation in ADR 0019. | Supplier documentation, connector/polarity inspection and temperature-sensing qualification | Coupon/final |
 | SAF-002 | No cell surface may contact a component, solder joint, magnet or screw boss; swelling clearance is required. | CAD interference and physical inspection | Final |
 | SAF-003 | An experienced hardware engineer shall review the coupon schematic and preliminary layout before fabrication. | Recorded review disposition | Coupon |
 | SRC-001 | Quote JLCPCB, PCBWay and a vetted Alibaba turnkey PCBA supplier against the same frozen package. | Quote comparison | Final |

@@ -24,3 +24,4 @@ Decision records explain choices that materially constrain later work. Accepted 
 | [0016](0016-runtime-and-fit-over-charge-speed.md) | Prioritize badge runtime and fit over charging speed | Accepted; exact terminated pack and charge times pending |
 | [0017](0017-parallel-3v3-converter-capacitors.md) | Parallel exact capacitors on the coupon application converter | Provisional coupon target; complete derating and rail qualification pending |
 | [0018](0018-complete-power-architecture-proposal.md) | Review the complete power topology as one functional block | Proposed; six capture holds, no circuit changes |
+| [0019](0019-board-mounted-battery-temperature-sensing.md) | Trial a board-mounted battery temperature sensor with protected two-wire packs | Accepted direction; cell-to-board thermal validation pending |

@@ -195,11 +195,11 @@ The charger remains connected to the protected cell when OFF; the gauge is disco
 
 ### 3.7 Battery
 
-Start with a standard reputable LiPo cell and have the battery vendor add:
+Start with a documented protected LiPo pack. Under ADR 0019, a battery-facing PCB NTC may replace a pack-integrated NTC after thermal validation. Require:
 
 - a one-cell protection circuit;
-- a 10 kΩ NTC compatible with the charger profile;
-- a keyed three-wire low-profile connector;
+- an independently operating charger-connected 10 kΩ NTC compatible with the exact pack's charge-temperature range, on the pack or battery-facing PCB;
+- a keyed two- or three-wire low-profile connector, matching the chosen NTC arrangement;
 - strain relief and insulated protection-board terminations;
 - documentation for the exact assembled pack, not only a generic cell family.
 
