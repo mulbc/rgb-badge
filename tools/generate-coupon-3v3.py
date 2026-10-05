@@ -95,9 +95,9 @@ def generate():
              '(lib_symbols\n' + '\n'.join(cached_symbol(mpn) for mpn in mpns) + '\n)',
              f'(text "Unlinked candidate: protected SYS and switch ON drive are NOT captured." (at 20.320 20.320 0) {effects(justify="left")} (uuid {q(uid("note/source"))}))',
              f'(text "LX1/LX2 wires are local switching nodes. No PCB, thermal or load validation." (at 20.320 27.940 0) {effects(justify="left")} (uuid {q(uid("note/lx"))}))']
-    for ref, x, y in [('U36',147.32,96.52),('L1',147.32,137.16),('C40',50.80,66.04),('C41',50.80,83.82),
+    for ref, x, y in [('U36',147.32,96.52),('L1',147.32,137.16),('C40',76.20,66.04),('C41',76.20,83.82),
                       ('C42',254.00,66.04),('C43',254.00,83.82),('R81',254.00,116.84),
-                      ('R82',254.00,137.16),('R83',50.80,116.84)]:
+                      ('R82',254.00,137.16),('R83',76.20,116.84)]:
         lines.extend(component(ref, x, y))
     for pin, net, y, end in [('VIN','+SYS_APP_IN_DRAFT',91.44,99.06),('EN','APP_ON_SW_DRAFT',99.06,99.06),
                              ('MODE','GND',101.60,99.06)]:
@@ -106,10 +106,10 @@ def generate():
     lines.extend(labelled('APP_3V3_FB',160.02,101.60,193.04,101.60,'U36/FB'))
     lines.extend(labelled('GND',147.32,106.68,180.34,106.68,'U36/GND'))
     for ref,x,y,input_net,output_net in [
-        ('C40',50.80,66.04,'+SYS_APP_IN_DRAFT','GND'),('C41',50.80,83.82,'+SYS_APP_IN_DRAFT','GND'),
+        ('C40',76.20,66.04,'+SYS_APP_IN_DRAFT','GND'),('C41',76.20,83.82,'+SYS_APP_IN_DRAFT','GND'),
         ('C42',254.00,66.04,'+3V3_APP','GND'),('C43',254.00,83.82,'+3V3_APP','GND'),
         ('R81',254.00,116.84,'+3V3_APP','APP_3V3_FB'),('R82',254.00,137.16,'APP_3V3_FB','GND'),
-        ('R83',50.80,116.84,'APP_ON_SW_DRAFT','GND')]:
+        ('R83',76.20,116.84,'APP_ON_SW_DRAFT','GND')]:
         lines.extend(labelled(input_net,x-5.08,y,x-20.32,y,ref+'/1'))
         lines.extend(labelled(output_net,x+5.08,y,x+20.32,y,ref+'/2'))
     for side, a, b, turn in [('LX1',134.62,142.24,127.00),('LX2',160.02,152.40,167.64)]:

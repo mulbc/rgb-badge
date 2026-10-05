@@ -1433,7 +1433,7 @@
 )
 
 (symbol "DFE252012P-1R0M=P2" (pin_names (offset 1.016) hide) (in_bom yes) (on_board yes)
-(property "Reference" "L" (at 0 5.08 0) (effects (font (size 1.27 1.27))))
+(property "Reference" "L" (at 0 7.62 0) (effects (font (size 1.27 1.27))))
 (property "Value" "DFE252012P-1R0M=P2" (at 0 3.81 0) (effects (font (size 1.27 1.27))))
 (property "Footprint" "rgb-badge-coupon:L_Murata_DFE252012P" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Datasheet" "https://www.murata.com/~/media/webrenewal/products/inductor/chip/tokoproducts/wirewoundmetalalloychiptype/m_dfe252012p.ashx" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
