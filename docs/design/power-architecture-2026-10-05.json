@@ -17,6 +17,29 @@
     "0.9752381315914617756847326993"
   ],
   "qualified_source_arithmetic_headroom_a": "0.5247618684085382243152673007",
+  "published_efuse_threshold_rows": [
+    {
+      "resistance_ohm": "6650",
+      "minimum_a": "0.425",
+      "maximum_a": "0.575",
+      "minimum_exceeds_charger_input_corner": false,
+      "maximum_at_or_below_1v5_source_a": true
+    },
+    {
+      "resistance_ohm": "3320",
+      "minimum_a": "0.850",
+      "maximum_a": "1.150",
+      "minimum_exceeds_charger_input_corner": false,
+      "maximum_at_or_below_1v5_source_a": true
+    },
+    {
+      "resistance_ohm": "1650",
+      "minimum_a": "1.800",
+      "maximum_a": "2.200",
+      "minimum_exceeds_charger_input_corner": true,
+      "maximum_at_or_below_1v5_source_a": false
+    }
+  ],
   "ovlo_38k3_10k_screen_v": {
     "rising": [
       "5.620377705940594059405940594",

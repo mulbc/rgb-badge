@@ -21,6 +21,9 @@ def report():
     ilim_r = D(3650) * D(3480) / D(7130)
     ilim_min = D(1500) / (ilim_r * D('1.01'))
     ilim_max = D(1720) / (ilim_r * D('.99'))
+    fuse_rows = [(D('6650'), D('.425'), D('.575')),
+                 (D('3320'), D('.850'), D('1.150')),
+                 (D('1650'), D('1.800'), D('2.200'))]
     thermal = []
     for cell_v, sys_a, theta in product(map(D, ('3.0', '3.4')), map(D, ('0', '.4')), map(D, ('44.5', '70'))):
         loss = (D('5.5') - cell_v) * charge_max + (D('5.5') - D('4.4')) * sys_a
@@ -54,6 +57,11 @@ def report():
                            '900mah_ideal_full_min_minutes_at_max_a': D('.9') / charge_max * 60},
         'unchanged_charger_input_limit_a': [ilim_min, ilim_max],
         'qualified_source_arithmetic_headroom_a': D('1.5') - ilim_max,
+        'published_efuse_threshold_rows': [
+            {'resistance_ohm': resistance, 'minimum_a': minimum, 'maximum_a': maximum,
+             'minimum_exceeds_charger_input_corner': minimum > ilim_max,
+             'maximum_at_or_below_1v5_source_a': maximum <= D('1.5')}
+            for resistance, minimum, maximum in fuse_rows],
         'ovlo_38k3_10k_screen_v': {'rising': ov, 'falling': recovery},
         'thermal_scenarios': thermal,
         'runtime_scenarios': {'usable_nominal_energy_wh': energy,
