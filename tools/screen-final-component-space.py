@@ -156,7 +156,7 @@ def svg(report: dict) -> str:
            '<title>Rear component-space stress test; unplaced components remain</title>',
            '<style>text{font:14px sans-serif;fill:#18242e}</style>',
            f'<rect x="-10" y="-35" width="{layout.BOARD_W * scale + 20}" height="{layout.BOARD_H * scale + 100}" fill="#ffffff"/>',
-           '<text x="0" y="-12">REAR SPACE SCREEN · captured coupon parts projected onto final board</text>',
+           '<text x="0" y="-12">BASELINE · all captured parts kept outside the battery outline</text>',
            f'<rect x="0" y="0" width="{layout.BOARD_W * scale}" height="{layout.BOARD_H * scale}" fill="#f4f6f8" stroke="#263238"/>']
     fixed = report["fixed_boxes"]
     out.append(rect(fixed["lp503055_body"], "#f2d59e"))
@@ -168,6 +168,8 @@ def svg(report: dict) -> str:
         out.append(rect(box, "#3d8fba", 0.8))
     out.append(f'<text x="0" y="{layout.BOARD_H * scale + 22:.0f}">First-fit only: {report["packing_trial"]["placed_count"]} placed, {report["packing_trial"]["unplaced_count"]} unplaced.</text>')
     out.append(f'<text x="0" y="{layout.BOARD_H * scale + 42:.0f}">No routing, thermal spacing, leads or unfinished power circuit included.</text>')
+    alternate = report["conditional_under_pack_0402_screen"]
+    out.append(f'<text x="0" y="{layout.BOARD_H * scale + 62:.0f}">Conditional 0402-under-pack screen: {alternate["candidate_count"]} moved; {alternate["outside_first_fit_unplaced"]} still unplaced outside.</text>')
     out.append('</svg>')
     return '\n'.join(out) + '\n'
 
@@ -183,10 +185,34 @@ def main() -> None:
                        check=True, stdout=subprocess.DEVNULL)
         parts, counts = component_inventory(netlist)
     report = screen(parts, counts)
+    # An optimistic alternate deliberately permits only the two captured 0402
+    # footprint classes beneath a mechanically supported, insulated pack. It
+    # tests planar capacity, not their height, heat or required net proximity.
+    candidate_fps = {"R_Panasonic_ERJ2_0402", "C_Murata_GRM15_0402"}
+    under_pack = [p for p in parts if p["footprint"] in candidate_fps]
+    outside = [p for p in parts if p["footprint"] not in candidate_fps]
+    outside_screen = screen(outside, counts)
+    report["conditional_under_pack_0402_screen"] = {
+        "status": "optimistic XY-only scenario; no physical under-pack placement or height qualification",
+        "candidate_refs": [p["ref"] for p in under_pack],
+        "candidate_count": len(under_pack),
+        "candidate_courtyard_area_mm2": round(sum(p["area_mm2"] for p in under_pack), 2),
+        "outside_part_count": len(outside),
+        "outside_nominal_area_remainder_mm2": outside_screen["area_mm2"]["remaining_before_clearance_routing_or_missing_parts"],
+        "outside_first_fit_placed": outside_screen["packing_trial"]["placed_count"],
+        "outside_first_fit_unplaced": outside_screen["packing_trial"]["unplaced_count"],
+        "caveats": ["not all 0402 passives can move away from their associated ICs or row switches",
+                    "pack support, insulation, swelling, actual assembled heights and thermal coupling are unverified",
+                    "all missing power, connector, mounting and routing areas remain omitted"],
+    }
     args.output.mkdir(parents=True, exist_ok=True)
     (args.output / "component-space.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     (args.output / "component-space.svg").write_text(svg(report), encoding="utf-8")
     print(json.dumps({"area_mm2": report["area_mm2"],
+                      "conditional_under_pack_0402_screen": {
+                          k: v for k, v in report["conditional_under_pack_0402_screen"].items()
+                          if k in ("candidate_count", "candidate_courtyard_area_mm2",
+                                   "outside_first_fit_placed", "outside_first_fit_unplaced")},
                       "packing_trial": {k: v for k, v in report["packing_trial"].items()
                                         if k in ("placed_count", "unplaced_count")}}, indent=2))
 

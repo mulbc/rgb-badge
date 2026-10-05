@@ -31,7 +31,7 @@ The rear battery rectangle is the **protected GlobTek BL0750F5030481S1PCTC 700 m
 
 The rear boxes represent only the MCU, three LED drivers and nominal pouch, **not** the decoder, sixteen row switches, charger, protection, converters, magnet/screw zones, antenna and feedline, USB shell, test pads or all of their routing. The 1.05 mm LP503055-to-driver gap does not establish electrical insulation, pouch expansion or assembly access. The actual 11 mm section must keep the cell isolated from circuitry, as required by SAF-002. Moving LEDs on the front does not make room for rear components.
 
-The [complete captured-part space screen](component-space-screen-2026-10-05.md) now adds the other 151 coupon footprint instances to this trial geometry. Its area and first-fit checks do **not** establish enough room for a full final board; the larger battery/driver clearance alone was misleading.
+The [captured-part space screen](component-space-screen-2026-10-05.md) now adds the other 151 coupon footprint instances to this trial geometry. Its initial outside-only packing result was deliberately conservative because a mechanically supported, wired battery may hover above insulated PCB components. A conditional 0402-under-pack screen improves the area budget, but neither scenario establishes the full-board fit.
 
 ## Next layout work
 

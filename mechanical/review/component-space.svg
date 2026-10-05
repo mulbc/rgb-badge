@@ -2,7 +2,7 @@
 <title>Rear component-space stress test; unplaced components remain</title>
 <style>text{font:14px sans-serif;fill:#18242e}</style>
 <rect x="-10" y="-35" width="868.0" height="360.0" fill="#ffffff"/>
-<text x="0" y="-12">REAR SPACE SCREEN · captured coupon parts projected onto final board</text>
+<text x="0" y="-12">BASELINE · all captured parts kept outside the battery outline</text>
 <rect x="0" y="0" width="848.0" height="260.0" fill="#f4f6f8" stroke="#263238"/>
 <rect x="200.00" y="8.00" width="448.00" height="244.00" fill="#f2d59e" opacity="1" stroke="#263238" stroke-width="0.5"/>
 <rect x="37.60" y="50.40" width="156.80" height="164.00" fill="#8cc79b" opacity="1" stroke="#263238" stroke-width="0.5"/>
@@ -67,4 +67,5 @@
 <rect x="792.00" y="248.00" width="20.00" height="12.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
 <text x="0" y="282">First-fit only: 55 placed, 96 unplaced.</text>
 <text x="0" y="302">No routing, thermal spacing, leads or unfinished power circuit included.</text>
+<text x="0" y="322">Conditional 0402-under-pack screen: 77 moved; 22 still unplaced outside.</text>
 </svg>
