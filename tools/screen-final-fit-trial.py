@@ -34,6 +34,7 @@ BOARD_W, BOARD_H = layout.BOARD_W, layout.BOARD_H
 GRID = 0.25
 UNDER_PACK_FPS = {"R_Panasonic_ERJ2_0402", "C_Murata_GRM15_0402"}
 NTC_TARGET = {"x0": 51.0, "y0": 14.25, "x1": 55.0, "y1": 18.25}
+DUAL_ROW_CANDIDATE = "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB"
 
 
 def overlap(a: dict, b: dict) -> bool:
@@ -269,6 +270,8 @@ def connector_first_trial(inventory: list[dict], anchors: list[dict], under: lis
 
 def dual_row_package_screen(inventory: list[dict], connector_first: dict, pack: dict) -> dict:
     """Check package area for a proposed dual N/P part; do not alter the circuit."""
+    dual = layout.courtyard(layout.FOOTPRINTS / f"{DUAL_ROW_CANDIDATE}.kicad_mod")
+    pair_w, pair_h = dual.x1 - dual.x0, dual.y1 - dual.y0
     fixed = [p for p in connector_first["fixed_and_repacked"] if not p["ref"].startswith("Q")]
     occupied = [pack, *[p["box"] for p in fixed]]
     reservations = []
@@ -291,8 +294,8 @@ def dual_row_package_screen(inventory: list[dict], connector_first: dict, pack: 
             ref = labels[part["label"]] + (str(n) if part["quantity"] > 1 else "")
             reserve(ref, "power IC package minimum", *part["courtyard_mm"], part["footprint"])
     for n in range(16):
-        reserve(f"PAIR{n + 1:02}", "dual row MOSFET trial", 3.0, 3.0,
-                "DMC1229UFDB-7; illustrative 3x3 mm allowance, no audited footprint")
+        reserve(f"PAIR{n + 1:02}", "dual row MOSFET trial", pair_w, pair_h,
+                DUAL_ROW_CANDIDATE + "; candidate, not schematic-assigned")
     nonrow = [p for p in inventory if not (p["ref"].startswith("Q") and p["ref"][1:].isdigit())]
     under = connector_first["under_pack_0402_candidates"]
     other, unplaced = remaining_trial(nonrow, fixed + reservations, under, pack)
@@ -304,14 +307,18 @@ def dual_row_package_screen(inventory: list[dict], connector_first: dict, pack: 
         for q in all_boxes[i + 1:]:
             if overlap(p["box"], q["box"]):
                 raise ValueError(f"Dual-row screen overlaps: {p['ref']}, {q['ref']}")
-    return {"status": "conditional XY-only package screen; dual row circuit and footprint are not captured",
+    old_area = round(sum(p["area_mm2"] for p in inventory
+                         if p["ref"].startswith("Q") and p["ref"][1:].isdigit()), 3)
+    new_area = round(16 * pair_w * pair_h, 3)
+    return {"status": "conditional XY-only package screen; candidate footprint exists but row circuit is unchanged",
             "fixed_and_reservations": fixed + reservations,
             "dual_package_candidate": "Diodes DMC1229UFDB-7",
-            "illustrative_dual_courtyard_mm": [3.0, 3.0],
+            "candidate_dual_footprint": DUAL_ROW_CANDIDATE,
+            "candidate_dual_courtyard_mm": [round(pair_w, 3), round(pair_h, 3)],
             "dual_count": 16,
-            "old_32_row_courtyard_area_mm2": 397.6,
-            "new_16_dual_trial_area_mm2": 144.0,
-            "nominal_courtyard_area_saved_mm2": 253.6,
+            "old_32_row_courtyard_area_mm2": old_area,
+            "new_16_dual_trial_area_mm2": new_area,
+            "nominal_courtyard_area_saved_mm2": round(old_area - new_area, 3),
             "under_pack_0402_candidates": under,
             "other_unrouted_first_fit": other,
             "unplaced_nonrow_captured_refs": unplaced,
@@ -420,7 +427,7 @@ def plan_svg(report: dict, connector_first: bool = False, dual_row: bool = False
             f'<text x="0" y="{y0+60}">Battery needs case support above the board; height and circuit locality are unqualified.</text>']
     if dual_row:
         out.append(f'<text x="0" y="{y0+82}">NO ROUTES, thermal copper, power passives, interlock, mount or antenna in this screen.</text>')
-        out.append(f'<text x="0" y="{y0+104}">3 × 3 mm dual-package allowances are not manufacturer-audited footprints.</text>')
+        out.append(f'<text x="0" y="{y0+104}">3 × 3 mm boxes use a first-author footprint; assembly and pin map need independent review.</text>')
     else:
         out.append(f'<text x="0" y="{y0+82}">UNALLOCATED PACKAGE MINIMA (shown to scale off-board; support parts need more space)</text>')
         labels = [("BQ", report["unallocated_required_package_minima"][0]["courtyard_mm"]),

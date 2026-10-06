@@ -171,5 +171,5 @@
 <text x="0" y="322.0">Dual MOSFETs and power ICs are package reservations; support circuits and routing remain.</text>
 <text x="0" y="342.0">Battery needs case support above the board; height and circuit locality are unqualified.</text>
 <text x="0" y="364.0">NO ROUTES, thermal copper, power passives, interlock, mount or antenna in this screen.</text>
-<text x="0" y="386.0">3 × 3 mm dual-package allowances are not manufacturer-audited footprints.</text>
+<text x="0" y="386.0">3 × 3 mm boxes use a first-author footprint; assembly and pin map need independent review.</text>
 </svg>

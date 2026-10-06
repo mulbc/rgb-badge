@@ -15,6 +15,7 @@ numbered_review="${repo_root}/tools/number-footprint-review.py"
 matrix_check="${repo_root}/tools/check-coupon-matrix.py"
 driver_check="${repo_root}/tools/check-coupon-driver.py"
 row_library_check="${repo_root}/tools/check-row-libraries.py"
+dual_row_candidate_check="${repo_root}/tools/check-dual-row-candidate.py"
 row_capture_check="${repo_root}/tools/check-coupon-rows.py"
 controller_library_check="${repo_root}/tools/check-controller-libraries.py"
 controller_capture_check="${repo_root}/tools/check-coupon-controller.py"
@@ -52,6 +53,7 @@ for required_path in \
     "${matrix_check}" \
     "${driver_check}" \
     "${row_library_check}" \
+    "${dual_row_candidate_check}" \
     "${row_capture_check}" \
     "${controller_library_check}" \
     "${controller_capture_check}" \
@@ -84,6 +86,7 @@ python3 "${led_library_check}"
 python3 "${matrix_check}"
 python3 "${driver_check}"
 python3 "${row_library_check}"
+python3 "${dual_row_candidate_check}"
 python3 "${row_capture_check}"
 python3 "${controller_library_check}"
 python3 "${controller_capture_check}"

@@ -3322,7 +3322,7 @@
     ]
   },
   "dual_row_package_screen": {
-    "status": "conditional XY-only package screen; dual row circuit and footprint are not captured",
+    "status": "conditional XY-only package screen; candidate footprint exists but row circuit is unchanged",
     "fixed_and_reservations": [
       {
         "ref": "SW2",
@@ -3481,7 +3481,7 @@
       {
         "ref": "PAIR01",
         "category": "dual row MOSFET trial",
-        "footprint": "DMC1229UFDB-7; illustrative 3x3 mm allowance, no audited footprint",
+        "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
         "box": {
           "x0": 94.0,
           "y0": 25.5,
@@ -3492,7 +3492,7 @@
       {
         "ref": "PAIR02",
         "category": "dual row MOSFET trial",
-        "footprint": "DMC1229UFDB-7; illustrative 3x3 mm allowance, no audited footprint",
+        "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
         "box": {
           "x0": 91.0,
           "y0": 22.5,
@@ -3503,7 +3503,7 @@
       {
         "ref": "PAIR03",
         "category": "dual row MOSFET trial",
-        "footprint": "DMC1229UFDB-7; illustrative 3x3 mm allowance, no audited footprint",
+        "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
         "box": {
           "x0": 94.0,
           "y0": 22.5,
@@ -3514,7 +3514,7 @@
       {
         "ref": "PAIR04",
         "category": "dual row MOSFET trial",
-        "footprint": "DMC1229UFDB-7; illustrative 3x3 mm allowance, no audited footprint",
+        "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
         "box": {
           "x0": 91.0,
           "y0": 19.5,
@@ -3525,7 +3525,7 @@
       {
         "ref": "PAIR05",
         "category": "dual row MOSFET trial",
-        "footprint": "DMC1229UFDB-7; illustrative 3x3 mm allowance, no audited footprint",
+        "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
         "box": {
           "x0": 94.0,
           "y0": 19.5,
@@ -3536,7 +3536,7 @@
       {
         "ref": "PAIR06",
         "category": "dual row MOSFET trial",
-        "footprint": "DMC1229UFDB-7; illustrative 3x3 mm allowance, no audited footprint",
+        "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
         "box": {
           "x0": 20.25,
           "y0": 19.25,
@@ -3547,7 +3547,7 @@
       {
         "ref": "PAIR07",
         "category": "dual row MOSFET trial",
-        "footprint": "DMC1229UFDB-7; illustrative 3x3 mm allowance, no audited footprint",
+        "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
         "box": {
           "x0": 91.0,
           "y0": 16.5,
@@ -3558,7 +3558,7 @@
       {
         "ref": "PAIR08",
         "category": "dual row MOSFET trial",
-        "footprint": "DMC1229UFDB-7; illustrative 3x3 mm allowance, no audited footprint",
+        "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
         "box": {
           "x0": 94.0,
           "y0": 16.5,
@@ -3569,7 +3569,7 @@
       {
         "ref": "PAIR09",
         "category": "dual row MOSFET trial",
-        "footprint": "DMC1229UFDB-7; illustrative 3x3 mm allowance, no audited footprint",
+        "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
         "box": {
           "x0": 20.25,
           "y0": 16.25,
@@ -3580,7 +3580,7 @@
       {
         "ref": "PAIR10",
         "category": "dual row MOSFET trial",
-        "footprint": "DMC1229UFDB-7; illustrative 3x3 mm allowance, no audited footprint",
+        "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
         "box": {
           "x0": 91.0,
           "y0": 13.5,
@@ -3591,7 +3591,7 @@
       {
         "ref": "PAIR11",
         "category": "dual row MOSFET trial",
-        "footprint": "DMC1229UFDB-7; illustrative 3x3 mm allowance, no audited footprint",
+        "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
         "box": {
           "x0": 94.0,
           "y0": 13.5,
@@ -3602,7 +3602,7 @@
       {
         "ref": "PAIR12",
         "category": "dual row MOSFET trial",
-        "footprint": "DMC1229UFDB-7; illustrative 3x3 mm allowance, no audited footprint",
+        "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
         "box": {
           "x0": 20.25,
           "y0": 13.25,
@@ -3613,7 +3613,7 @@
       {
         "ref": "PAIR13",
         "category": "dual row MOSFET trial",
-        "footprint": "DMC1229UFDB-7; illustrative 3x3 mm allowance, no audited footprint",
+        "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
         "box": {
           "x0": 91.0,
           "y0": 10.5,
@@ -3624,7 +3624,7 @@
       {
         "ref": "PAIR14",
         "category": "dual row MOSFET trial",
-        "footprint": "DMC1229UFDB-7; illustrative 3x3 mm allowance, no audited footprint",
+        "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
         "box": {
           "x0": 94.0,
           "y0": 10.5,
@@ -3635,7 +3635,7 @@
       {
         "ref": "PAIR15",
         "category": "dual row MOSFET trial",
-        "footprint": "DMC1229UFDB-7; illustrative 3x3 mm allowance, no audited footprint",
+        "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
         "box": {
           "x0": 20.25,
           "y0": 10.25,
@@ -3646,7 +3646,7 @@
       {
         "ref": "PAIR16",
         "category": "dual row MOSFET trial",
-        "footprint": "DMC1229UFDB-7; illustrative 3x3 mm allowance, no audited footprint",
+        "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
         "box": {
           "x0": 91.0,
           "y0": 7.5,
@@ -3656,7 +3656,8 @@
       }
     ],
     "dual_package_candidate": "Diodes DMC1229UFDB-7",
-    "illustrative_dual_courtyard_mm": [
+    "candidate_dual_footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB",
+    "candidate_dual_courtyard_mm": [
       3.0,
       3.0
     ],
