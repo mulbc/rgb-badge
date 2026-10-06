@@ -188,6 +188,23 @@ def candidate_package_minima() -> list[dict]:
     return minima
 
 
+def vled_candidate_package_minima() -> list[dict]:
+    """Footprint-only inventory from the unlinked 13-part VLED sheet."""
+    names = [
+        ("L2", "L_Murata_DFE252012P", 1),
+        ("C44-C45", "C_Murata_GRM18_0603", 2),
+        ("C46-C49", "C_Murata_GRM18_0603", 4),
+        ("C50", "C_Murata_GRM15_0402", 1),
+        ("R84-R87", "R_Panasonic_ERJ2_0402", 4),
+    ]
+    result = []
+    for label, fp, quantity in names:
+        r = layout.courtyard(layout.FOOTPRINTS / f"{fp}.kicad_mod")
+        result.append({"label": label, "footprint": fp, "quantity": quantity,
+                       "courtyard_mm": [round(r.x1-r.x0, 3), round(r.y1-r.y0, 3)]})
+    return result
+
+
 def connector_envelope_screen(anchors: list[dict], placed: list[dict], pack: dict) -> dict:
     """Try an illustrative mated side-entry PH pocket, not a footprint/land audit."""
     sizes = [(8.0, 9.6), (9.6, 8.0)]
@@ -276,32 +293,63 @@ def dual_row_package_screen(inventory: list[dict], connector_first: dict, pack: 
     occupied = [pack, *[p["box"] for p in fixed]]
     reservations = []
 
-    def reserve(ref: str, category: str, w: float, h: float, footprint: str) -> None:
+    def reserve(ref: str, category: str, w: float, h: float, footprint: str,
+                near: dict | None = None) -> None:
+        choices = []
         for yi in reversed(range(int((BOARD_H - h) / GRID) + 1)):
             for xi in range(int((BOARD_W - w) / GRID) + 1):
                 candidate = box(xi * GRID, yi * GRID, w, h)
                 if all(not overlap(candidate, other) for other in occupied):
-                    occupied.append(candidate)
-                    reservations.append({"ref": ref, "category": category,
-                                         "footprint": footprint, "box": candidate})
-                    return
-        raise ValueError(f"Could not reserve proposed package in XY: {ref}")
+                    if near is None:
+                        occupied.append(candidate)
+                        reservations.append({"ref": ref, "category": category,
+                                             "footprint": footprint, "box": candidate})
+                        return
+                    else:
+                        dx = (candidate["x0"] + candidate["x1"] - near["x0"] - near["x1"]) / 2
+                        dy = (candidate["y0"] + candidate["y1"] - near["y0"] - near["y1"]) / 2
+                        distance = math.hypot(dx, dy)
+                        if distance <= 12.0:
+                            choices.append((distance, candidate))
+        if not choices:
+            raise ValueError(f"Could not reserve proposed package near VLED IC: {ref}")
+        _, chosen = min(choices, key=lambda item: item[0])
+        occupied.append(chosen)
+        reservations.append({"ref": ref, "category": category,
+                             "footprint": footprint, "box": chosen})
 
-    for part in candidate_package_minima():
+    power_parts = candidate_package_minima()
+    vled_part = next(p for p in power_parts if p["label"] == "TPS63020 VLED IC")
+    reserve("VLED", "power IC package minimum", *vled_part["courtyard_mm"], vled_part["footprint"])
+    for part in vled_candidate_package_minima():
+        first = int(part["label"].split("-")[0][1:])
+        prefix = part["label"][0]
+        for n in range(part["quantity"]):
+            vled_ic = next(p["box"] for p in reservations if p["ref"] == "VLED")
+            reserve(f"{prefix}{first+n}", "VLED candidate passive",
+                    *part["courtyard_mm"], part["footprint"], near=vled_ic)
+    for part in power_parts:
+        if part is vled_part:
+            continue
         labels = {"BQ24074 charger IC": "BQ", "TPS63020 VLED IC": "VLED",
                   "TPS259474 input-switch candidate": "E", "INA232 current monitor candidate": "INA"}
         for n in range(part["quantity"]):
             ref = labels[part["label"]] + (str(n) if part["quantity"] > 1 else "")
             reserve(ref, "power IC package minimum", *part["courtyard_mm"], part["footprint"])
+    fixed_refs = {p["ref"] for p in fixed}
+    for p in sorted(inventory, key=lambda part: (-part["area_mm2"], part["ref"])):
+        if p["ref"].startswith("U") and p["ref"] not in fixed_refs:
+            reserve(p["ref"], "captured priority IC trial",
+                    p["width_mm"], p["height_mm"], p["footprint"])
     for n in range(16):
         reserve(f"PAIR{n + 1:02}", "dual row MOSFET trial", pair_w, pair_h,
                 DUAL_ROW_CANDIDATE + "; candidate, not schematic-assigned")
     nonrow = [p for p in inventory if not (p["ref"].startswith("Q") and p["ref"][1:].isdigit())]
     under = connector_first["under_pack_0402_candidates"]
     other, unplaced = remaining_trial(nonrow, fixed + reservations, under, pack)
-    accounted = {p["ref"] for p in fixed + under + other} & {p["ref"] for p in nonrow}
+    accounted = {p["ref"] for p in fixed + reservations + under + other} & {p["ref"] for p in nonrow}
     if unplaced or accounted != {p["ref"] for p in nonrow}:
-        raise ValueError("Dual-row package screen did not place every non-row captured part")
+        raise ValueError(f"Dual-row package screen did not place every non-row captured part: {unplaced}")
     all_boxes = fixed + reservations + under + other
     for i, p in enumerate(all_boxes):
         for q in all_boxes[i + 1:]:
@@ -310,6 +358,14 @@ def dual_row_package_screen(inventory: list[dict], connector_first: dict, pack: 
     old_area = round(sum(p["area_mm2"] for p in inventory
                          if p["ref"].startswith("Q") and p["ref"][1:].isdigit()), 3)
     new_area = round(16 * pair_w * pair_h, 3)
+    vled_box = next(p["box"] for p in reservations if p["ref"] == "VLED")
+    def center(r: dict) -> tuple[float, float]:
+        return ((r["x0"] + r["x1"]) / 2, (r["y0"] + r["y1"]) / 2)
+    vx, vy = center(vled_box)
+    passive_distances = {
+        p["ref"]: round(math.dist((vx, vy), center(p["box"])), 3)
+        for p in reservations if p["category"] == "VLED candidate passive"
+    }
     return {"status": "conditional XY-only package screen; candidate footprint exists but row circuit is unchanged",
             "fixed_and_reservations": fixed + reservations,
             "dual_package_candidate": "Diodes DMC1229UFDB-7",
@@ -322,7 +378,11 @@ def dual_row_package_screen(inventory: list[dict], connector_first: dict, pack: 
             "under_pack_0402_candidates": under,
             "other_unrouted_first_fit": other,
             "unplaced_nonrow_captured_refs": unplaced,
-            "omits": ["all new power passives and inductors", "gauge buffer and display interlock",
+            "vled_candidate_passives_placed": 12,
+            "vled_passive_center_distances_mm": passive_distances,
+            "vled_max_passive_center_distance_mm": max(passive_distances.values()),
+            "vled_locality_note": "12 mm centre-radius heuristic is package accounting only; switching-loop placement and routing are unverified",
+            "omits": ["all charger/input-support passives and inductors", "gauge buffer and display interlock",
                       "antenna, mounts, battery support and cable bend", "routing and thermal copper",
                       "assembled component heights and 11 mm case fit"]}
 
@@ -359,11 +419,12 @@ def build() -> dict:
         "connector_first_trial": connector_first,
         "dual_row_package_screen": dual_screen,
         "unallocated_required_package_minima": candidate_package_minima(),
+        "vled_candidate_package_minima": vled_candidate_package_minima(),
         "battery_connector_envelope_screen": connector_envelope_screen(anchors, placed, pack),
         "other_unallocated_needs": ["exact keyed battery connector and wire bend/strain relief",
                                     "antenna and coax route/case-edge zone",
                                     "mounting bosses and magnet clearance",
-                                    "charger/VLED/input passives, inductors and thermal copper",
+                                    "charger/input passives, inductors and thermal copper; VLED passives are only XY trialed in the dual-row screen",
                                     "display interlock and gauge isolation",
                                     "two added driver support networks and all PCB routing"],
         "section": {"layers_front_to_rear_mm": section, "trial_total_mm": total,
@@ -400,7 +461,8 @@ def plan_svg(report: dict, connector_first: bool = False, dual_row: bool = False
         color = {"MCU":"#8fc69b", "LED driver projection":"#a8a2dc", "USB connector":"#f5aaac",
                  "row P-MOS":"#5079b6", "row N-MOS":"#64a0d4", "row decoder":"#a8cf96",
                  "top-edge control trial":"#c5a3cf", "battery connector pocket":"#f3a550",
-                 "dual row MOSFET trial":"#5079b6", "power IC package minimum":"#d1d5d8"}[p["category"]]
+                 "dual row MOSFET trial":"#5079b6", "power IC package minimum":"#d1d5d8",
+                 "VLED candidate passive":"#94a3b8", "captured priority IC trial":"#88bbc2"}[p["category"]]
         out.append(draw(p["box"], color))
         if p["category"] not in ("row P-MOS", "row N-MOS", "dual row MOSFET trial"):
             r=p["box"]
@@ -426,7 +488,7 @@ def plan_svg(report: dict, connector_first: bool = False, dual_row: bool = False
             f'<text x="0" y="{y0+40}">{third_line}</text>',
             f'<text x="0" y="{y0+60}">Battery needs case support above the board; height and circuit locality are unqualified.</text>']
     if dual_row:
-        out.append(f'<text x="0" y="{y0+82}">NO ROUTES, thermal copper, power passives, interlock, mount or antenna in this screen.</text>')
+        out.append(f'<text x="0" y="{y0+82}">VLED passives are XY-only; NO routes, thermal copper, remaining power support, mount or antenna.</text>')
         out.append(f'<text x="0" y="{y0+104}">3 × 3 mm boxes use a first-author footprint; assembly and pin map need independent review.</text>')
     else:
         out.append(f'<text x="0" y="{y0+82}">UNALLOCATED PACKAGE MINIMA (shown to scale off-board; support parts need more space)</text>')
