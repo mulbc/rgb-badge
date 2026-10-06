@@ -2,7 +2,7 @@
 
 # Coupon Rev A
 
-**2026-10-06 VLED increment:** An [unlinked, default-disabled converter candidate](vled-converter-capture-contract.md) now captures the TI LED buck-boost, exact passives and local switching nodes. It does not close the SYS source or display-interlock holds and is not a fabrication release.
+**2026-10-06 VLED increment:** An [unlinked, default-disabled converter candidate](vled-converter-capture-contract.md) now captures the TI LED buck-boost, exact passives and local switching nodes. A separate [native local placement trial](staging/vled-layout-trial.kicad_pcb) carries the thirteen exact project footprints and schematic pad nets, with no routing or full-board DRC. It does not close the SYS source or display-interlock holds and is not a fabrication release.
 
 **2026-10-05 architecture proposal:** [Complete power system](../../../docs/design/power-architecture-2026-10-05.md), with [proposed ADR 0018](../../../docs/decisions/0018-complete-power-architecture-proposal.md), consolidates topology choices, budgets and six capture holds. It does not modify the current schematic or select a battery. Review the architecture before continuing isolated power-component increments. Native KiCad exports can now be run locally by the assistant.
 
@@ -32,7 +32,7 @@ The connector VBUS and the staged +5V_USB supply are deliberately separate until
 - ESP32-S3-WROOM-1U-N16R8 and external antenna.
 - One TLC59581 and all sixteen level-shifted row stages.
 - Production USB-C, ESD, Type-C detection and standalone charger circuits.
-- Production 3.3 V/VLED converters, fuel gauge, battery-current monitor, NTC interfaces and controls.
+- Production 3.3 V/VLED converters, fuel gauge, NTC interfaces and controls; battery-current measurements use an external inline instrument under ADR 0021.
 - Native USB diagnostics and hidden factory programming/test pads.
 
 The exact draft candidates and open circuit risks are tracked in the [Coupon Rev A sourcing record](../../../docs/sourcing/coupon-rev-a-core-candidates.md). The [Panasonic order-code audit](panasonic-order-code-audit.md) records the corrected ERJ2 identities and outstanding native roundtrip. A candidate in that record is not an approved purchase or fabrication BOM line.

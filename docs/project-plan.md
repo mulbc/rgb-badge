@@ -176,7 +176,7 @@ Two tiny side-facing LEDs next to USB-C indicate red while charging and green wh
 | 3V3 | TPS631000-class 1.5 A buck-boost | ESP32-S3, TLC logic and low-voltage logic |
 | VLED | TPS63020-class high-current buck-boost at about 3.9 V | Row anodes and LED optical power |
 | Battery state | Switched MAX17048G+ in 2 × 2 mm TDFN | State of charge during ON; initial post-ON estimate may be provisional |
-| Battery current | INA232 with approximately 10 mΩ shunt | Bidirectional current/power telemetry while the application is on |
+| Battery current | External inline instrument during validation (ADR 0021) | No on-board current monitor or series measurement shunt |
 
 The [TPS631000](https://www.ti.com/product/TPS631000) provides a compact SOT-package buck-boost rail with 1.5 A output capability and low quiescent current. The [TPS63020](https://www.ti.com/product/TPS63020) is active, supports a 1.8–5.5 V input and substantially more current than the matrix requires. The [MAX17048](https://www.analog.com/en/products/max17048.html) uses ModelGauge without a current-sense resistor and is available in a 2 × 2 mm TDFN package; its operating current depends on mode, and its active supply-current maximum is 40 µA. ADR 0015 disconnects its supply when the slide switch is OFF.
 
@@ -191,7 +191,7 @@ The latching switch controls the regulator enables and disconnects the gauge via
 | ON | SDP | Normal playback plus USB data | Standby until configured; low external ILIM with auxiliary headroom while configured; standby on suspend | On |
 | ON | Qualified charging source | Normal playback; USB data where supported | Yes, with PowerPath load priority | On |
 
-The charger remains connected to the protected cell when OFF; the gauge is disconnected, and the INA232 is powered only with 3V3. The design target for switch-OFF battery drain with USB absent remains below 50 µA; the exact pack/switch leakage and SOC recovery after an OFF charge require coupon measurements.
+The charger remains connected to the protected cell when OFF; the gauge is disconnected. ADR 0021 removes the originally planned INA232/shunt from capture. The design target for switch-OFF battery drain with USB absent remains below 50 µA; the exact pack/switch leakage and SOC recovery after an OFF charge require coupon measurements.
 
 ### 3.7 Battery
 
@@ -321,8 +321,7 @@ The first production-intent hardware is not an off-the-shelf HUB75 panel. It is 
 - One TLC59581, all 16 level-shifted row switches and the production row decoder/inhibit circuit.
 - ESP32-S3-WROOM-1U-N16R8 and external FPC antenna.
 - Production-intent USB-C, Type-C detection, ESD, charger, fuel gauge, 3V3/VLED converters, NTC interfaces, slide switch and mode button.
-- Production-intent INA232 and approximately 10 mΩ battery-path shunt for bidirectional voltage/current/power telemetry over USB serial while the badge is on.
-- Optional coupon-only second INA232 and shunt on VLED, if routing/cost permit, to separate display power from controller power.
+- External inline protected-pack current logging for charge, discharge, OFF leakage and runtime validation (ADR 0021); no on-board INA232 or series measurement shunt.
 - Test pads for VBUS, BAT, SYS, 3V3, VLED, ground, I²C, USB, SPI/GCLK/latch, row-decoder enable and row-address signals.
 - Factory Tag-Connect-compatible or custom pogo footprint for flashing and a minimal functional test.
 
@@ -361,7 +360,7 @@ The board remains self-reporting so ordinary bring-up does not require an oscill
 1. Vendor AOI, polarity inspection and resistance checks before power.
 2. Flash factory firmware through the pogo pads.
 3. Power from USB with no battery and VLED disabled.
-4. Turn the slide switch ON; confirm 3V3, native USB enumeration, reset/boot mode and the MAX17048/INA232 I²C device IDs.
+4. Turn the slide switch ON; confirm 3V3, native USB enumeration, reset/boot mode and the MAX17048 I²C device ID.
 5. With the application alternately ON and OFF, confirm Type-C default/1.5 A/3 A detection, hardware `ILIM` selection and conservative startup current.
 6. Enable VLED without scanning; confirm voltage, quiescent current and shutdown.
 7. Scan one pixel at the lowest current, then one colour, one row and walking rows.
@@ -425,11 +424,11 @@ The coupon firmware is intentionally small but production-shaped:
 
 - board pin map and hardware revision held in one machine-readable definition;
 - native USB serial/JTAG recovery and diagnostic console;
-- MAX17048 and INA232 drivers with register/configuration readback, plus GPIO readback for Type-C and charger-status states;
+- MAX17048 driver with register/configuration readback, plus GPIO readback for Type-C and charger-status states;
 - deterministic TLC59581 scan engine using hardware timers/DMA where practical;
 - boot-time all-rows-off and VLED-off defaults;
 - test patterns, gamma LUT, colour correction and fixed brightness setting;
-- telemetry: battery voltage/current/power, state of charge, board temperature, USB attachment/current advertisement and charger `PG`/`STAT` state;
+- telemetry: battery voltage and state of charge, board temperature, USB attachment/current advertisement and charger `PG`/`STAT` state; validation current/power are logged externally under ADR 0021;
 - three-second mode-button state machine;
 - BLE programming-mode skeleton and a small CRC-checked test transfer into flash;
 - playback mode that explicitly releases/stops BLE resources;

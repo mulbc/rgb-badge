@@ -3323,6 +3323,7 @@
   },
   "dual_row_package_screen": {
     "status": "conditional XY-only package screen; candidate footprint exists but row circuit is unchanged",
+    "ina232_included": false,
     "fixed_and_reservations": [
       {
         "ref": "SW2",
@@ -3352,9 +3353,9 @@
         "footprint": "TSSOP_Nexperia_SOT355-1_24",
         "box": {
           "x0": 97.0,
-          "y0": 23.5,
+          "y0": 0.5,
           "x1": 104.7,
-          "y1": 31.8
+          "y1": 8.8
         }
       },
       {
@@ -3427,143 +3428,156 @@
         "ref": "VLED",
         "category": "power IC package minimum",
         "footprint": "VSON_TI_DSJ0014_4x3mm_P0.5mm_EP2.85x1.58mm",
+        "orientation_deg": 0,
         "box": {
           "x0": 91.0,
-          "y0": 28.5,
+          "y0": 25.5,
           "x1": 95.9,
-          "y1": 32.4
+          "y1": 29.4
         }
       },
       {
         "ref": "L2",
         "category": "VLED candidate passive",
         "footprint": "L_Murata_DFE252012P",
+        "orientation_deg": 90,
         "box": {
-          "x0": 91.75,
-          "y0": 25.75,
-          "x1": 95.05,
-          "y1": 28.45
+          "x0": 96.15,
+          "y0": 25.8,
+          "x1": 98.85,
+          "y1": 29.1
         }
       },
       {
         "ref": "C44",
         "category": "VLED candidate passive",
         "footprint": "C_Murata_GRM18_0603",
+        "orientation_deg": 180,
         "box": {
-          "x0": 92.0,
-          "y0": 24.25,
-          "x1": 95.0,
-          "y1": 25.55
+          "x0": 91.1,
+          "y0": 29.65,
+          "x1": 94.1,
+          "y1": 30.95
         }
       },
       {
         "ref": "C45",
         "category": "VLED candidate passive",
         "footprint": "C_Murata_GRM18_0603",
+        "orientation_deg": 0,
         "box": {
-          "x0": 92.0,
-          "y0": 22.75,
-          "x1": 95.0,
-          "y1": 24.05
+          "x0": 94.25,
+          "y0": 29.65,
+          "x1": 97.25,
+          "y1": 30.95
         }
       },
       {
         "ref": "C46",
         "category": "VLED candidate passive",
         "footprint": "C_Murata_GRM18_0603",
+        "orientation_deg": 180,
         "box": {
-          "x0": 95.0,
-          "y0": 22.0,
-          "x1": 98.0,
-          "y1": 23.3
+          "x0": 91.1,
+          "y0": 23.95,
+          "x1": 94.1,
+          "y1": 25.25
         }
       },
       {
         "ref": "C47",
         "category": "VLED candidate passive",
         "footprint": "C_Murata_GRM18_0603",
+        "orientation_deg": 0,
         "box": {
-          "x0": 92.0,
-          "y0": 21.25,
-          "x1": 95.0,
-          "y1": 22.55
+          "x0": 94.25,
+          "y0": 23.95,
+          "x1": 97.25,
+          "y1": 25.25
         }
       },
       {
         "ref": "C48",
         "category": "VLED candidate passive",
         "footprint": "C_Murata_GRM18_0603",
+        "orientation_deg": 0,
         "box": {
-          "x0": 89.0,
-          "y0": 21.75,
-          "x1": 92.0,
-          "y1": 23.05
+          "x0": 98.95,
+          "y0": 23.95,
+          "x1": 101.95,
+          "y1": 25.25
         }
       },
       {
         "ref": "C49",
         "category": "VLED candidate passive",
         "footprint": "C_Murata_GRM18_0603",
+        "orientation_deg": 0,
         "box": {
-          "x0": 95.0,
-          "y0": 20.5,
-          "x1": 98.0,
-          "y1": 21.8
+          "x0": 99.0,
+          "y0": 25.4,
+          "x1": 102.0,
+          "y1": 26.7
         }
       },
       {
         "ref": "C50",
         "category": "VLED candidate passive",
         "footprint": "C_Murata_GRM15_0402",
+        "orientation_deg": 0,
         "box": {
-          "x0": 95.0,
-          "y0": 24.75,
-          "x1": 97.0,
-          "y1": 25.75
+          "x0": 91.1,
+          "y0": 22.8,
+          "x1": 93.1,
+          "y1": 23.8
         }
       },
       {
         "ref": "R84",
         "category": "VLED candidate passive",
         "footprint": "R_Panasonic_ERJ2_0402",
+        "orientation_deg": 0,
         "box": {
-          "x0": 95.0,
-          "y0": 23.75,
-          "x1": 97.0,
-          "y1": 24.75
+          "x0": 93.25,
+          "y0": 22.8,
+          "x1": 95.25,
+          "y1": 23.8
         }
       },
       {
         "ref": "R85",
         "category": "VLED candidate passive",
         "footprint": "R_Panasonic_ERJ2_0402",
+        "orientation_deg": 0,
         "box": {
-          "x0": 90.0,
-          "y0": 20.75,
-          "x1": 92.0,
-          "y1": 21.75
+          "x0": 95.4,
+          "y0": 22.8,
+          "x1": 97.4,
+          "y1": 23.8
         }
       },
       {
         "ref": "R86",
         "category": "VLED candidate passive",
         "footprint": "R_Panasonic_ERJ2_0402",
+        "orientation_deg": 0,
         "box": {
-          "x0": 87.0,
-          "y0": 22.0,
-          "x1": 89.0,
-          "y1": 23.0
+          "x0": 97.55,
+          "y0": 22.8,
+          "x1": 99.55,
+          "y1": 23.8
         }
       },
       {
         "ref": "R87",
         "category": "VLED candidate passive",
         "footprint": "R_Panasonic_ERJ2_0402",
+        "orientation_deg": 180,
         "box": {
-          "x0": 92.5,
-          "y0": 20.25,
-          "x1": 94.5,
-          "y1": 21.25
+          "x0": 91.1,
+          "y0": 31.1,
+          "x1": 93.1,
+          "y1": 32.1
         }
       },
       {
@@ -3582,10 +3596,10 @@
         "category": "power IC package minimum",
         "footprint": "VQFN_TI_RPW0010A_2x2mm_HotRod",
         "box": {
-          "x0": 20.25,
-          "y0": 25.5,
-          "x1": 23.15,
-          "y1": 28.4
+          "x0": 97.25,
+          "y0": 29.5,
+          "x1": 100.15,
+          "y1": 32.4
         }
       },
       {
@@ -3593,21 +3607,10 @@
         "category": "power IC package minimum",
         "footprint": "VQFN_TI_RPW0010A_2x2mm_HotRod",
         "box": {
-          "x0": 20.25,
-          "y0": 22.5,
-          "x1": 23.15,
-          "y1": 25.4
-        }
-      },
-      {
-        "ref": "INA",
-        "category": "power IC package minimum",
-        "footprint": "SOT23_THIN_TI_DDF0008A",
-        "box": {
-          "x0": 20.25,
-          "y0": 19.25,
-          "x1": 24.55,
-          "y1": 22.45
+          "x0": 100.25,
+          "y0": 29.5,
+          "x1": 103.15,
+          "y1": 32.4
         }
       },
       {
@@ -3615,10 +3618,10 @@
         "category": "captured priority IC trial",
         "footprint": "SOT23_TI_DBV0005A",
         "box": {
-          "x0": 91.0,
-          "y0": 16.5,
-          "x1": 95.3,
-          "y1": 20.1
+          "x0": 20.25,
+          "y0": 24.75,
+          "x1": 24.55,
+          "y1": 28.35
         }
       },
       {
@@ -3627,9 +3630,9 @@
         "footprint": "SOT23_TI_DBV0006A",
         "box": {
           "x0": 20.25,
-          "y0": 15.5,
+          "y0": 21.0,
           "x1": 24.55,
-          "y1": 19.1
+          "y1": 24.6
         }
       },
       {
@@ -3638,9 +3641,9 @@
         "footprint": "SOT23_TI_DBV0005A",
         "box": {
           "x0": 91.0,
-          "y0": 12.75,
+          "y0": 19.0,
           "x1": 95.3,
-          "y1": 16.35
+          "y1": 22.6
         }
       },
       {
@@ -3649,9 +3652,9 @@
         "footprint": "SOT23_TI_DBV0006A",
         "box": {
           "x0": 20.25,
-          "y0": 11.75,
+          "y0": 17.25,
           "x1": 24.55,
-          "y1": 15.35
+          "y1": 20.85
         }
       },
       {
@@ -3660,9 +3663,9 @@
         "footprint": "SOT23_TI_DBV0006A",
         "box": {
           "x0": 91.0,
-          "y0": 9.0,
+          "y0": 15.25,
           "x1": 95.3,
-          "y1": 12.6
+          "y1": 18.85
         }
       },
       {
@@ -3670,10 +3673,10 @@
         "category": "captured priority IC trial",
         "footprint": "SOT23_TI_DBV0005A",
         "box": {
-          "x0": 95.5,
-          "y0": 6.25,
-          "x1": 99.8,
-          "y1": 9.85
+          "x0": 20.25,
+          "y0": 13.5,
+          "x1": 24.55,
+          "y1": 17.1
         }
       },
       {
@@ -3681,10 +3684,10 @@
         "category": "captured priority IC trial",
         "footprint": "SOT23_TI_DBV0006A",
         "box": {
-          "x0": 100.0,
-          "y0": 6.25,
-          "x1": 104.3,
-          "y1": 9.85
+          "x0": 91.0,
+          "y0": 11.5,
+          "x1": 95.3,
+          "y1": 15.1
         }
       },
       {
@@ -3714,10 +3717,10 @@
         "category": "captured priority IC trial",
         "footprint": "USON_TI_DQA0010A",
         "box": {
-          "x0": 95.5,
-          "y0": 17.5,
-          "x1": 97.6,
-          "y1": 20.3
+          "x0": 103.25,
+          "y0": 29.5,
+          "x1": 105.35,
+          "y1": 32.3
         }
       },
       {
@@ -3747,14 +3750,58 @@
         "category": "dual row MOSFET trial",
         "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
         "box": {
-          "x0": 20.25,
-          "y0": 8.75,
-          "x1": 23.25,
-          "y1": 11.75
+          "x0": 102.0,
+          "y0": 26.5,
+          "x1": 105.0,
+          "y1": 29.5
         }
       },
       {
         "ref": "PAIR02",
+        "category": "dual row MOSFET trial",
+        "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
+        "box": {
+          "x0": 102.0,
+          "y0": 23.5,
+          "x1": 105.0,
+          "y1": 26.5
+        }
+      },
+      {
+        "ref": "PAIR03",
+        "category": "dual row MOSFET trial",
+        "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
+        "box": {
+          "x0": 20.25,
+          "y0": 10.5,
+          "x1": 23.25,
+          "y1": 13.5
+        }
+      },
+      {
+        "ref": "PAIR04",
+        "category": "dual row MOSFET trial",
+        "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
+        "box": {
+          "x0": 91.0,
+          "y0": 8.5,
+          "x1": 94.0,
+          "y1": 11.5
+        }
+      },
+      {
+        "ref": "PAIR05",
+        "category": "dual row MOSFET trial",
+        "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
+        "box": {
+          "x0": 94.0,
+          "y0": 8.5,
+          "x1": 97.0,
+          "y1": 11.5
+        }
+      },
+      {
+        "ref": "PAIR06",
         "category": "dual row MOSFET trial",
         "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
         "box": {
@@ -3765,7 +3812,7 @@
         }
       },
       {
-        "ref": "PAIR03",
+        "ref": "PAIR07",
         "category": "dual row MOSFET trial",
         "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
         "box": {
@@ -3776,7 +3823,7 @@
         }
       },
       {
-        "ref": "PAIR04",
+        "ref": "PAIR08",
         "category": "dual row MOSFET trial",
         "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
         "box": {
@@ -3787,7 +3834,7 @@
         }
       },
       {
-        "ref": "PAIR05",
+        "ref": "PAIR09",
         "category": "dual row MOSFET trial",
         "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
         "box": {
@@ -3798,7 +3845,7 @@
         }
       },
       {
-        "ref": "PAIR06",
+        "ref": "PAIR10",
         "category": "dual row MOSFET trial",
         "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
         "box": {
@@ -3809,58 +3856,14 @@
         }
       },
       {
-        "ref": "PAIR07",
-        "category": "dual row MOSFET trial",
-        "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
-        "box": {
-          "x0": 91.0,
-          "y0": 6.0,
-          "x1": 94.0,
-          "y1": 9.0
-        }
-      },
-      {
-        "ref": "PAIR08",
-        "category": "dual row MOSFET trial",
-        "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
-        "box": {
-          "x0": 10.25,
-          "y0": 3.25,
-          "x1": 13.25,
-          "y1": 6.25
-        }
-      },
-      {
-        "ref": "PAIR09",
-        "category": "dual row MOSFET trial",
-        "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
-        "box": {
-          "x0": 13.25,
-          "y0": 3.25,
-          "x1": 16.25,
-          "y1": 6.25
-        }
-      },
-      {
-        "ref": "PAIR10",
-        "category": "dual row MOSFET trial",
-        "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
-        "box": {
-          "x0": 96.25,
-          "y0": 3.25,
-          "x1": 99.25,
-          "y1": 6.25
-        }
-      },
-      {
         "ref": "PAIR11",
         "category": "dual row MOSFET trial",
         "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
         "box": {
-          "x0": 99.25,
-          "y0": 3.25,
-          "x1": 102.25,
-          "y1": 6.25
+          "x0": 91.0,
+          "y0": 5.5,
+          "x1": 94.0,
+          "y1": 8.5
         }
       },
       {
@@ -3868,10 +3871,10 @@
         "category": "dual row MOSFET trial",
         "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
         "box": {
-          "x0": 102.25,
-          "y0": 3.25,
-          "x1": 105.25,
-          "y1": 6.25
+          "x0": 94.0,
+          "y0": 5.5,
+          "x1": 97.0,
+          "y1": 8.5
         }
       },
       {
@@ -3880,9 +3883,9 @@
         "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
         "box": {
           "x0": 10.25,
-          "y0": 0.25,
+          "y0": 3.25,
           "x1": 13.25,
-          "y1": 3.25
+          "y1": 6.25
         }
       },
       {
@@ -3891,9 +3894,9 @@
         "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
         "box": {
           "x0": 13.25,
-          "y0": 0.25,
+          "y0": 3.25,
           "x1": 16.25,
-          "y1": 3.25
+          "y1": 6.25
         }
       },
       {
@@ -3901,9 +3904,9 @@
         "category": "dual row MOSFET trial",
         "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
         "box": {
-          "x0": 96.25,
+          "x0": 10.25,
           "y0": 0.25,
-          "x1": 99.25,
+          "x1": 13.25,
           "y1": 3.25
         }
       },
@@ -3912,9 +3915,9 @@
         "category": "dual row MOSFET trial",
         "footprint": "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB; candidate, not schematic-assigned",
         "box": {
-          "x0": 99.25,
+          "x0": 13.25,
           "y0": 0.25,
-          "x1": 102.25,
+          "x1": 16.25,
           "y1": 3.25
         }
       }
@@ -3926,6 +3929,8 @@
       3.0
     ],
     "dual_count": 16,
+    "dual_pairs_placed": 16,
+    "unplaced_dual_pair_refs": [],
     "old_32_row_courtyard_area_mm2": 397.6,
     "new_16_dual_trial_area_mm2": 144.0,
     "nominal_courtyard_area_saved_mm2": 253.6,
@@ -4784,10 +4789,10 @@
         "category": "unrouted first-fit only",
         "footprint": "L_Murata_DFE252012P",
         "box": {
-          "x0": 102.25,
-          "y0": 0.0,
-          "x1": 105.75,
-          "y1": 2.75
+          "x0": 11.0,
+          "y0": 29.75,
+          "x1": 14.5,
+          "y1": 32.5
         }
       },
       {
@@ -4795,10 +4800,10 @@
         "category": "unrouted first-fit only",
         "footprint": "C_Murata_GRM21_0805",
         "box": {
-          "x0": 91.0,
-          "y0": 4.0,
-          "x1": 94.75,
-          "y1": 6.0
+          "x0": 20.25,
+          "y0": 8.5,
+          "x1": 24.0,
+          "y1": 10.5
         }
       },
       {
@@ -4817,6 +4822,28 @@
         "category": "unrouted first-fit only",
         "footprint": "C_Murata_GRM18_0603",
         "box": {
+          "x0": 91.0,
+          "y0": 4.0,
+          "x1": 94.0,
+          "y1": 5.5
+        }
+      },
+      {
+        "ref": "C32",
+        "category": "unrouted first-fit only",
+        "footprint": "C_Murata_GRM18_0603",
+        "box": {
+          "x0": 94.0,
+          "y0": 4.0,
+          "x1": 97.0,
+          "y1": 5.5
+        }
+      },
+      {
+        "ref": "C40",
+        "category": "unrouted first-fit only",
+        "footprint": "C_Murata_GRM18_0603",
+        "box": {
           "x0": 84.75,
           "y0": 9.5,
           "x1": 87.75,
@@ -4824,7 +4851,7 @@
         }
       },
       {
-        "ref": "C32",
+        "ref": "C41",
         "category": "unrouted first-fit only",
         "footprint": "C_Murata_GRM18_0603",
         "box": {
@@ -4835,36 +4862,14 @@
         }
       },
       {
-        "ref": "C40",
-        "category": "unrouted first-fit only",
-        "footprint": "C_Murata_GRM18_0603",
-        "box": {
-          "x0": 81.0,
-          "y0": 20.75,
-          "x1": 84.0,
-          "y1": 22.25
-        }
-      },
-      {
-        "ref": "C41",
-        "category": "unrouted first-fit only",
-        "footprint": "C_Murata_GRM18_0603",
-        "box": {
-          "x0": 84.0,
-          "y0": 20.75,
-          "x1": 87.0,
-          "y1": 22.25
-        }
-      },
-      {
         "ref": "TP1",
         "category": "unrouted first-fit only",
         "footprint": "TestPoint_Pad_D1.0mm",
         "box": {
-          "x0": 94.75,
-          "y0": 4.0,
-          "x1": 96.25,
-          "y1": 5.5
+          "x0": 15.0,
+          "y0": 6.25,
+          "x1": 16.5,
+          "y1": 7.75
         }
       },
       {
@@ -4872,10 +4877,10 @@
         "category": "unrouted first-fit only",
         "footprint": "TestPoint_Pad_D1.0mm",
         "box": {
-          "x0": 94.0,
-          "y0": 6.0,
-          "x1": 95.5,
-          "y1": 7.5
+          "x0": 15.0,
+          "y0": 7.75,
+          "x1": 16.5,
+          "y1": 9.25
         }
       },
       {
@@ -4883,91 +4888,14 @@
         "category": "unrouted first-fit only",
         "footprint": "TestPoint_Pad_D1.0mm",
         "box": {
-          "x0": 15.0,
-          "y0": 6.25,
-          "x1": 16.5,
-          "y1": 7.75
+          "x0": 23.25,
+          "y0": 10.5,
+          "x1": 24.75,
+          "y1": 12.0
         }
       },
       {
         "ref": "TP12",
-        "category": "unrouted first-fit only",
-        "footprint": "TestPoint_Pad_D1.0mm",
-        "box": {
-          "x0": 104.5,
-          "y0": 6.25,
-          "x1": 106.0,
-          "y1": 7.75
-        }
-      },
-      {
-        "ref": "TP2",
-        "category": "unrouted first-fit only",
-        "footprint": "TestPoint_Pad_D1.0mm",
-        "box": {
-          "x0": 94.0,
-          "y0": 7.5,
-          "x1": 95.5,
-          "y1": 9.0
-        }
-      },
-      {
-        "ref": "TP20",
-        "category": "unrouted first-fit only",
-        "footprint": "TestPoint_Pad_D1.0mm",
-        "box": {
-          "x0": 15.0,
-          "y0": 7.75,
-          "x1": 16.5,
-          "y1": 9.25
-        }
-      },
-      {
-        "ref": "TP21",
-        "category": "unrouted first-fit only",
-        "footprint": "TestPoint_Pad_D1.0mm",
-        "box": {
-          "x0": 104.5,
-          "y0": 7.75,
-          "x1": 106.0,
-          "y1": 9.25
-        }
-      },
-      {
-        "ref": "TP22",
-        "category": "unrouted first-fit only",
-        "footprint": "TestPoint_Pad_D1.0mm",
-        "box": {
-          "x0": 23.25,
-          "y0": 8.5,
-          "x1": 24.75,
-          "y1": 10.0
-        }
-      },
-      {
-        "ref": "TP23",
-        "category": "unrouted first-fit only",
-        "footprint": "TestPoint_Pad_D1.0mm",
-        "box": {
-          "x0": 23.25,
-          "y0": 10.0,
-          "x1": 24.75,
-          "y1": 11.5
-        }
-      },
-      {
-        "ref": "TP3",
-        "category": "unrouted first-fit only",
-        "footprint": "TestPoint_Pad_D1.0mm",
-        "box": {
-          "x0": 95.5,
-          "y0": 10.0,
-          "x1": 97.0,
-          "y1": 11.5
-        }
-      },
-      {
-        "ref": "TP30",
         "category": "unrouted first-fit only",
         "footprint": "TestPoint_Pad_D1.0mm",
         "box": {
@@ -4978,7 +4906,18 @@
         }
       },
       {
-        "ref": "TP31",
+        "ref": "TP2",
+        "category": "unrouted first-fit only",
+        "footprint": "TestPoint_Pad_D1.0mm",
+        "box": {
+          "x0": 23.25,
+          "y0": 12.0,
+          "x1": 24.75,
+          "y1": 13.5
+        }
+      },
+      {
+        "ref": "TP20",
         "category": "unrouted first-fit only",
         "footprint": "TestPoint_Pad_D1.0mm",
         "box": {
@@ -4989,7 +4928,7 @@
         }
       },
       {
-        "ref": "TP32",
+        "ref": "TP21",
         "category": "unrouted first-fit only",
         "footprint": "TestPoint_Pad_D1.0mm",
         "box": {
@@ -5000,7 +4939,7 @@
         }
       },
       {
-        "ref": "TP33",
+        "ref": "TP22",
         "category": "unrouted first-fit only",
         "footprint": "TestPoint_Pad_D1.0mm",
         "box": {
@@ -5011,14 +4950,80 @@
         }
       },
       {
+        "ref": "TP23",
+        "category": "unrouted first-fit only",
+        "footprint": "TestPoint_Pad_D1.0mm",
+        "box": {
+          "x0": 95.5,
+          "y0": 17.5,
+          "x1": 97.0,
+          "y1": 19.0
+        }
+      },
+      {
+        "ref": "TP3",
+        "category": "unrouted first-fit only",
+        "footprint": "TestPoint_Pad_D1.0mm",
+        "box": {
+          "x0": 95.5,
+          "y0": 19.0,
+          "x1": 97.0,
+          "y1": 20.5
+        }
+      },
+      {
+        "ref": "TP30",
+        "category": "unrouted first-fit only",
+        "footprint": "TestPoint_Pad_D1.0mm",
+        "box": {
+          "x0": 95.5,
+          "y0": 20.5,
+          "x1": 97.0,
+          "y1": 22.0
+        }
+      },
+      {
+        "ref": "TP31",
+        "category": "unrouted first-fit only",
+        "footprint": "TestPoint_Pad_D1.0mm",
+        "box": {
+          "x0": 81.0,
+          "y0": 20.75,
+          "x1": 82.5,
+          "y1": 22.25
+        }
+      },
+      {
+        "ref": "TP32",
+        "category": "unrouted first-fit only",
+        "footprint": "TestPoint_Pad_D1.0mm",
+        "box": {
+          "x0": 82.5,
+          "y0": 20.75,
+          "x1": 84.0,
+          "y1": 22.25
+        }
+      },
+      {
+        "ref": "TP33",
+        "category": "unrouted first-fit only",
+        "footprint": "TestPoint_Pad_D1.0mm",
+        "box": {
+          "x0": 84.0,
+          "y0": 20.75,
+          "x1": 85.5,
+          "y1": 22.25
+        }
+      },
+      {
         "ref": "TP4",
         "category": "unrouted first-fit only",
         "footprint": "TestPoint_Pad_D1.0mm",
         "box": {
-          "x0": 23.25,
-          "y0": 22.5,
-          "x1": 24.75,
-          "y1": 24.0
+          "x0": 85.5,
+          "y0": 20.75,
+          "x1": 87.0,
+          "y1": 22.25
         }
       },
       {
@@ -5026,10 +5031,10 @@
         "category": "unrouted first-fit only",
         "footprint": "TestPoint_Pad_D1.0mm",
         "box": {
-          "x0": 23.25,
-          "y0": 24.0,
-          "x1": 24.75,
-          "y1": 25.5
+          "x0": 87.0,
+          "y0": 20.75,
+          "x1": 88.5,
+          "y1": 22.25
         }
       },
       {
@@ -5037,10 +5042,10 @@
         "category": "unrouted first-fit only",
         "footprint": "TestPoint_Pad_D1.0mm",
         "box": {
-          "x0": 23.25,
-          "y0": 25.5,
-          "x1": 24.75,
-          "y1": 27.0
+          "x0": 88.5,
+          "y0": 20.75,
+          "x1": 90.0,
+          "y1": 22.25
         }
       },
       {
@@ -5048,10 +5053,10 @@
         "category": "unrouted first-fit only",
         "footprint": "TestPoint_Pad_D1.0mm",
         "box": {
-          "x0": 95.25,
-          "y0": 25.75,
-          "x1": 96.75,
-          "y1": 27.25
+          "x0": 97.25,
+          "y0": 24.0,
+          "x1": 98.75,
+          "y1": 25.5
         }
       },
       {
@@ -5059,10 +5064,10 @@
         "category": "unrouted first-fit only",
         "footprint": "TestPoint_Pad_D1.0mm",
         "box": {
-          "x0": 23.25,
-          "y0": 27.0,
-          "x1": 24.75,
-          "y1": 28.5
+          "x0": 99.0,
+          "y0": 26.75,
+          "x1": 100.5,
+          "y1": 28.25
         }
       },
       {
@@ -5070,38 +5075,61 @@
         "category": "unrouted first-fit only",
         "footprint": "TestPoint_Pad_D1.0mm",
         "box": {
-          "x0": 11.0,
-          "y0": 29.75,
-          "x1": 12.5,
-          "y1": 31.25
+          "x0": 100.5,
+          "y0": 26.75,
+          "x1": 102.0,
+          "y1": 28.25
         }
       }
     ],
     "unplaced_nonrow_captured_refs": [],
     "vled_candidate_passives_placed": 12,
-    "vled_passive_center_distances_mm": {
-      "L2": 3.35,
-      "C44": 5.55,
-      "C45": 7.05,
-      "C46": 8.375,
-      "C47": 8.55,
-      "C48": 8.574,
-      "C49": 9.787,
-      "C50": 5.792,
-      "R84": 6.704,
-      "R85": 9.521,
-      "R86": 9.639,
-      "R87": 9.7
+    "vled_cluster_envelope_mm": {
+      "x0": 91.0,
+      "y0": 22.8,
+      "x1": 102.0,
+      "y1": 32.1
     },
-    "vled_max_passive_center_distance_mm": 9.787,
-    "vled_locality_note": "12 mm centre-radius heuristic is package accounting only; switching-loop placement and routing are unverified",
+    "vled_passive_center_distances_mm": {
+      "L2": 4.05,
+      "C44": 2.974,
+      "C45": 3.662,
+      "C46": 2.974,
+      "C47": 3.662,
+      "C48": 7.558,
+      "C49": 7.188,
+      "C50": 4.364,
+      "R84": 4.226,
+      "R85": 5.092,
+      "R86": 6.575,
+      "R87": 4.364
+    },
+    "vled_max_passive_center_distance_mm": 7.558,
+    "vled_first_input_cap_center_distance_mm": 2.974,
+    "vled_first_output_cap_center_distance_mm": 2.974,
+    "vled_locality_note": "Manual functional grouping puts first input/output capacitors by the IC pin rows; pad routes, switching loop and thermal copper remain unverified",
     "omits": [
+      "historical INA232 monitor removed from capture by ADR 0021",
       "all charger/input-support passives and inductors",
       "gauge buffer and display interlock",
       "antenna, mounts, battery support and cable bend",
       "routing and thermal copper",
       "assembled component heights and 11 mm case fit"
     ]
+  },
+  "ina232_inclusion_comparison": {
+    "status": "same first-fit order with INA232 package minimum added; unplaced boxes are heuristic results, not a no-fit proof",
+    "dual_pairs_placed": 15,
+    "unplaced_dual_pair_refs": [
+      "PAIR16"
+    ],
+    "unplaced_nonrow_captured_refs": [],
+    "monitor_ic_box": {
+      "x0": 20.25,
+      "y0": 25.25,
+      "x1": 24.55,
+      "y1": 28.45
+    }
   },
   "unallocated_required_package_minima": [
     {
@@ -5129,15 +5157,6 @@
       "courtyard_mm": [
         2.9,
         2.9
-      ]
-    },
-    {
-      "label": "INA232 current monitor candidate",
-      "footprint": "SOT23_THIN_TI_DDF0008A",
-      "quantity": 1,
-      "courtyard_mm": [
-        4.3,
-        3.2
       ]
     }
   ],

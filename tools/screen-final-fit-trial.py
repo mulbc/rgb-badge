@@ -173,13 +173,14 @@ def remaining_trial(inventory: list[dict], anchors: list[dict], under_pack: list
     return placed, unplaced
 
 
-def candidate_package_minima() -> list[dict]:
+def candidate_package_minima(include_ina232: bool = False) -> list[dict]:
     names = [
         ("BQ24074 charger IC", "VQFN_TI_RGT0016C_3x3mm_P0.5mm_EP1.68mm", 1),
         ("TPS63020 VLED IC", "VSON_TI_DSJ0014_4x3mm_P0.5mm_EP2.85x1.58mm", 1),
         ("TPS259474 input-switch candidate", "VQFN_TI_RPW0010A_2x2mm_HotRod", 2),
-        ("INA232 current monitor candidate", "SOT23_THIN_TI_DDF0008A", 1),
     ]
+    if include_ina232:
+        names.append(("INA232 historical monitor comparison", "SOT23_THIN_TI_DDF0008A", 1))
     minima = []
     for label, fp, quantity in names:
         r = layout.courtyard(layout.FOOTPRINTS / f"{fp}.kicad_mod")
@@ -285,65 +286,92 @@ def connector_first_trial(inventory: list[dict], anchors: list[dict], under: lis
                               "row FETs repacked from bottom-left"]}
 
 
-def dual_row_package_screen(inventory: list[dict], connector_first: dict, pack: dict) -> dict:
+def dual_row_package_screen(inventory: list[dict], connector_first: dict, pack: dict,
+                            include_ina232: bool = False) -> dict:
     """Check package area for a proposed dual N/P part; do not alter the circuit."""
     dual = layout.courtyard(layout.FOOTPRINTS / f"{DUAL_ROW_CANDIDATE}.kicad_mod")
     pair_w, pair_h = dual.x1 - dual.x0, dual.y1 - dual.y0
-    fixed = [p for p in connector_first["fixed_and_repacked"] if not p["ref"].startswith("Q")]
+    fixed = [{**p, "box": dict(p["box"])} for p in connector_first["fixed_and_repacked"]
+             if not p["ref"].startswith("Q")]
+    # The decoder occupied the lower-right power area in the connector-first
+    # trial. The upper-right edge clears the USB body and leaves a converter bay.
+    for p in fixed:
+        if p["ref"] == "U2":
+            p["box"] = box(97.0, 0.5, 7.7, 8.3)
     occupied = [pack, *[p["box"] for p in fixed]]
     reservations = []
 
-    def reserve(ref: str, category: str, w: float, h: float, footprint: str,
-                near: dict | None = None) -> None:
-        choices = []
+    def reserve_fixed(ref: str, category: str, footprint: str, x: float, y: float,
+                      w: float, h: float, orientation_deg: int = 0) -> None:
+        candidate = box(x, y, w, h)
+        if x < 0 or y < 0 or candidate["x1"] > BOARD_W or candidate["y1"] > BOARD_H:
+            raise ValueError(f"Fixed trial box outside board: {ref}")
+        collisions = [other for other in occupied if overlap(candidate, other)]
+        if collisions:
+            raise ValueError(f"Fixed trial box overlaps: {ref} {collisions}")
+        occupied.append(candidate)
+        reservations.append({"ref": ref, "category": category, "footprint": footprint,
+                             "orientation_deg": orientation_deg, "box": candidate})
+
+    def reserve(ref: str, category: str, w: float, h: float, footprint: str) -> bool:
         for yi in reversed(range(int((BOARD_H - h) / GRID) + 1)):
             for xi in range(int((BOARD_W - w) / GRID) + 1):
                 candidate = box(xi * GRID, yi * GRID, w, h)
                 if all(not overlap(candidate, other) for other in occupied):
-                    if near is None:
-                        occupied.append(candidate)
-                        reservations.append({"ref": ref, "category": category,
-                                             "footprint": footprint, "box": candidate})
-                        return
-                    else:
-                        dx = (candidate["x0"] + candidate["x1"] - near["x0"] - near["x1"]) / 2
-                        dy = (candidate["y0"] + candidate["y1"] - near["y0"] - near["y1"]) / 2
-                        distance = math.hypot(dx, dy)
-                        if distance <= 12.0:
-                            choices.append((distance, candidate))
-        if not choices:
-            raise ValueError(f"Could not reserve proposed package near VLED IC: {ref}")
-        _, chosen = min(choices, key=lambda item: item[0])
-        occupied.append(chosen)
-        reservations.append({"ref": ref, "category": category,
-                             "footprint": footprint, "box": chosen})
+                    occupied.append(candidate)
+                    reservations.append({"ref": ref, "category": category,
+                                         "footprint": footprint, "box": candidate})
+                    return True
+        return False
 
-    power_parts = candidate_package_minima()
+    power_parts = candidate_package_minima(include_ina232)
     vled_part = next(p for p in power_parts if p["label"] == "TPS63020 VLED IC")
-    reserve("VLED", "power IC package minimum", *vled_part["courtyard_mm"], vled_part["footprint"])
-    for part in vled_candidate_package_minima():
-        first = int(part["label"].split("-")[0][1:])
-        prefix = part["label"][0]
-        for n in range(part["quantity"]):
-            vled_ic = next(p["box"] for p in reservations if p["ref"] == "VLED")
-            reserve(f"{prefix}{first+n}", "VLED candidate passive",
-                    *part["courtyard_mm"], part["footprint"], near=vled_ic)
+    vled_passives = vled_candidate_package_minima()
+    by_label = {p["label"]: p for p in vled_passives}
+    # A functional grouping trial beside the lower-right driver: the inductor
+    # straddles the IC's L1/L2 sides and the first input/output capacitors flank
+    # its VIN/VOUT pin rows. Boxes are exact local courtyards, not routed copper.
+    cluster = [
+        ("VLED", "power IC package minimum", vled_part, 91.0, 25.5, 0),
+        ("L2", "VLED candidate passive", by_label["L2"], 96.15, 25.8, 90),
+        ("C44", "VLED candidate passive", by_label["C44-C45"], 91.1, 29.65, 180),
+        ("C45", "VLED candidate passive", by_label["C44-C45"], 94.25, 29.65, 0),
+        ("C46", "VLED candidate passive", by_label["C46-C49"], 91.1, 23.95, 180),
+        ("C47", "VLED candidate passive", by_label["C46-C49"], 94.25, 23.95, 0),
+        ("C48", "VLED candidate passive", by_label["C46-C49"], 98.95, 23.95, 0),
+        ("C49", "VLED candidate passive", by_label["C46-C49"], 99.0, 25.4, 0),
+        ("C50", "VLED candidate passive", by_label["C50"], 91.1, 22.8, 0),
+        ("R84", "VLED candidate passive", by_label["R84-R87"], 93.25, 22.8, 0),
+        ("R85", "VLED candidate passive", by_label["R84-R87"], 95.4, 22.8, 0),
+        ("R86", "VLED candidate passive", by_label["R84-R87"], 97.55, 22.8, 0),
+        ("R87", "VLED candidate passive", by_label["R84-R87"], 91.1, 31.1, 180),
+    ]
+    for ref, category, part, x, y, orientation in cluster:
+        w, h = part["courtyard_mm"]
+        if orientation == 90:
+            w, h = h, w
+        reserve_fixed(ref, category, part["footprint"], x, y, w, h, orientation)
     for part in power_parts:
         if part is vled_part:
             continue
         labels = {"BQ24074 charger IC": "BQ", "TPS63020 VLED IC": "VLED",
-                  "TPS259474 input-switch candidate": "E", "INA232 current monitor candidate": "INA"}
+                  "TPS259474 input-switch candidate": "E", "INA232 historical monitor comparison": "INA"}
         for n in range(part["quantity"]):
             ref = labels[part["label"]] + (str(n) if part["quantity"] > 1 else "")
-            reserve(ref, "power IC package minimum", *part["courtyard_mm"], part["footprint"])
+            if not reserve(ref, "power IC package minimum", *part["courtyard_mm"], part["footprint"]):
+                raise ValueError(f"Could not reserve proposed power IC in XY: {ref}")
     fixed_refs = {p["ref"] for p in fixed}
     for p in sorted(inventory, key=lambda part: (-part["area_mm2"], part["ref"])):
         if p["ref"].startswith("U") and p["ref"] not in fixed_refs:
-            reserve(p["ref"], "captured priority IC trial",
-                    p["width_mm"], p["height_mm"], p["footprint"])
+            if not reserve(p["ref"], "captured priority IC trial",
+                           p["width_mm"], p["height_mm"], p["footprint"]):
+                raise ValueError(f"Could not reserve captured priority IC in XY: {p['ref']}")
+    unplaced_pairs = []
     for n in range(16):
-        reserve(f"PAIR{n + 1:02}", "dual row MOSFET trial", pair_w, pair_h,
-                DUAL_ROW_CANDIDATE + "; candidate, not schematic-assigned")
+        ref = f"PAIR{n + 1:02}"
+        if not reserve(ref, "dual row MOSFET trial", pair_w, pair_h,
+                       DUAL_ROW_CANDIDATE + "; candidate, not schematic-assigned"):
+            unplaced_pairs.append(ref)
     nonrow = [p for p in inventory if not (p["ref"].startswith("Q") and p["ref"][1:].isdigit())]
     under = connector_first["under_pack_0402_candidates"]
     other, unplaced = remaining_trial(nonrow, fixed + reservations, under, pack)
@@ -366,12 +394,21 @@ def dual_row_package_screen(inventory: list[dict], connector_first: dict, pack: 
         p["ref"]: round(math.dist((vx, vy), center(p["box"])), 3)
         for p in reservations if p["category"] == "VLED candidate passive"
     }
+    cluster_boxes = [p["box"] for p in reservations
+                     if p["ref"] == "VLED" or p["category"] == "VLED candidate passive"]
+    cluster_envelope = {"x0": min(r["x0"] for r in cluster_boxes),
+                        "y0": min(r["y0"] for r in cluster_boxes),
+                        "x1": max(r["x1"] for r in cluster_boxes),
+                        "y1": max(r["y1"] for r in cluster_boxes)}
     return {"status": "conditional XY-only package screen; candidate footprint exists but row circuit is unchanged",
+            "ina232_included": include_ina232,
             "fixed_and_reservations": fixed + reservations,
             "dual_package_candidate": "Diodes DMC1229UFDB-7",
             "candidate_dual_footprint": DUAL_ROW_CANDIDATE,
             "candidate_dual_courtyard_mm": [round(pair_w, 3), round(pair_h, 3)],
             "dual_count": 16,
+            "dual_pairs_placed": 16 - len(unplaced_pairs),
+            "unplaced_dual_pair_refs": unplaced_pairs,
             "old_32_row_courtyard_area_mm2": old_area,
             "new_16_dual_trial_area_mm2": new_area,
             "nominal_courtyard_area_saved_mm2": round(old_area - new_area, 3),
@@ -379,10 +416,14 @@ def dual_row_package_screen(inventory: list[dict], connector_first: dict, pack: 
             "other_unrouted_first_fit": other,
             "unplaced_nonrow_captured_refs": unplaced,
             "vled_candidate_passives_placed": 12,
+            "vled_cluster_envelope_mm": cluster_envelope,
             "vled_passive_center_distances_mm": passive_distances,
             "vled_max_passive_center_distance_mm": max(passive_distances.values()),
-            "vled_locality_note": "12 mm centre-radius heuristic is package accounting only; switching-loop placement and routing are unverified",
-            "omits": ["all charger/input-support passives and inductors", "gauge buffer and display interlock",
+            "vled_first_input_cap_center_distance_mm": passive_distances["C44"],
+            "vled_first_output_cap_center_distance_mm": passive_distances["C46"],
+            "vled_locality_note": "Manual functional grouping puts first input/output capacitors by the IC pin rows; pad routes, switching loop and thermal copper remain unverified",
+            "omits": ["historical INA232 monitor removed from capture by ADR 0021",
+                      "all charger/input-support passives and inductors", "gauge buffer and display interlock",
                       "antenna, mounts, battery support and cable bend", "routing and thermal copper",
                       "assembled component heights and 11 mm case fit"]}
 
@@ -394,6 +435,10 @@ def build() -> dict:
     placed, unplaced = remaining_trial(inventory, anchors, under, pack)
     connector_first = connector_first_trial(inventory, anchors, under, pack)
     dual_screen = dual_row_package_screen(inventory, connector_first, pack)
+    monitor_screen = dual_row_package_screen(inventory, connector_first, pack,
+                                              include_ina232=True)
+    if dual_screen["dual_pairs_placed"] != 16:
+        raise ValueError("Tight VLED primary screen failed to reserve all sixteen pair courtyards")
     captured_refs = {p["ref"] for p in inventory}
     accounted = {p["ref"] for p in anchors + under + placed} & captured_refs
     if accounted | set(unplaced) != captured_refs or accounted & set(unplaced):
@@ -418,6 +463,14 @@ def build() -> dict:
                        "other_unrouted_first_fit": placed, "unplaced_captured_refs": unplaced},
         "connector_first_trial": connector_first,
         "dual_row_package_screen": dual_screen,
+        "ina232_inclusion_comparison": {
+            "status": "same first-fit order with INA232 package minimum added; unplaced boxes are heuristic results, not a no-fit proof",
+            "dual_pairs_placed": monitor_screen["dual_pairs_placed"],
+            "unplaced_dual_pair_refs": monitor_screen["unplaced_dual_pair_refs"],
+            "unplaced_nonrow_captured_refs": monitor_screen["unplaced_nonrow_captured_refs"],
+            "monitor_ic_box": next((p["box"] for p in monitor_screen["fixed_and_reservations"]
+                                    if p["ref"] == "INA"), None),
+        },
         "unallocated_required_package_minima": candidate_package_minima(),
         "vled_candidate_package_minima": vled_candidate_package_minima(),
         "battery_connector_envelope_screen": connector_envelope_screen(anchors, placed, pack),
@@ -443,7 +496,7 @@ def plan_svg(report: dict, connector_first: bool = False, dual_row: bool = False
             report["connector_first_trial"] if connector_first else report["rear_trial"])
     anchors = (rear["fixed_and_reservations"] if dual_row else
                rear["fixed_and_repacked"] if connector_first else rear["anchors"])
-    title = ("REAR · proposed dual N/P packages and power-IC minima; geometry only" if dual_row else
+    title = ("REAR · tight VLED cluster, dual N/P packages; ADR 0021 monitor omission" if dual_row else
              "REAR · connector-first PicoBlade pocket, shifted control/decoder, repacked FETs"
              if connector_first else
              "REAR · exact captured footprint courtyards; unconnected, incomplete final circuit")
@@ -472,7 +525,7 @@ def plan_svg(report: dict, connector_first: bool = False, dual_row: bool = False
     y0=BOARD_H*s+22
     unplaced_refs = (rear["unplaced_nonrow_captured_refs"] if dual_row
                      else rear["unplaced_captured_refs"])
-    third_line = ("Dual MOSFETs and power ICs are package reservations; support circuits and routing remain."
+    third_line = ("Dual MOSFETs and power ICs are package reservations; ADR 0021 removes INA232; routing remains."
                   if dual_row else
                   "Connector pocket is illustrative; charger, VLED, input protection, RF and routing remain."
                   if connector_first else
@@ -488,15 +541,14 @@ def plan_svg(report: dict, connector_first: bool = False, dual_row: bool = False
             f'<text x="0" y="{y0+40}">{third_line}</text>',
             f'<text x="0" y="{y0+60}">Battery needs case support above the board; height and circuit locality are unqualified.</text>']
     if dual_row:
-        out.append(f'<text x="0" y="{y0+82}">VLED passives are XY-only; NO routes, thermal copper, remaining power support, mount or antenna.</text>')
+        out.append(f'<text x="0" y="{y0+82}">VLED cluster is XY-only; NO routes, thermal copper, remaining power support, mount or antenna.</text>')
         out.append(f'<text x="0" y="{y0+104}">3 × 3 mm boxes use a first-author footprint; assembly and pin map need independent review.</text>')
     else:
         out.append(f'<text x="0" y="{y0+82}">UNALLOCATED PACKAGE MINIMA (shown to scale off-board; support parts need more space)</text>')
         labels = [("BQ", report["unallocated_required_package_minima"][0]["courtyard_mm"]),
                   ("VLED", report["unallocated_required_package_minima"][1]["courtyard_mm"]),
                   ("E0", report["unallocated_required_package_minima"][2]["courtyard_mm"]),
-                  ("E1", report["unallocated_required_package_minima"][2]["courtyard_mm"]),
-                  ("INA", report["unallocated_required_package_minima"][3]["courtyard_mm"])]
+                  ("E1", report["unallocated_required_package_minima"][2]["courtyard_mm"])]
         x = 0.0
         for label, (w, h) in labels:
             out.append(f'<rect x="{x:.1f}" y="{y0+94:.1f}" width="{w*s:.1f}" height="{h*s:.1f}" fill="#d1d5d8" stroke="#596a72"/>')
@@ -527,6 +579,40 @@ def section_svg(report: dict) -> str:
     return '\n'.join(out)+'\n'
 
 
+def vled_cluster_svg(report: dict) -> str:
+    """Magnify the candidate converter bay without implying routed copper."""
+    trial = report["dual_row_package_screen"]
+    x0, y0, x1, y1, scale = 90.5, 22.25, 105.5, 32.5, 40
+    width, height = (x1 - x0) * scale, (y1 - y0) * scale
+    palette = {"LED driver projection": "#aaa5d7", "USB connector": "#f5aaac",
+               "power IC package minimum": "#d1d5d8", "VLED candidate passive": "#7792bb",
+               "dual row MOSFET trial": "#5079b6", "captured priority IC trial": "#88bbc2"}
+    out = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -36 {width+20:.1f} {height+132:.1f}">',
+           '<title>Magnified, unconnected VLED converter placement trial</title>',
+           '<style>text{font:13px sans-serif;fill:#21313c}.small{font:11px sans-serif}</style>',
+           f'<rect x="-10" y="-36" width="{width+20:.1f}" height="{height+132:.1f}" fill="white"/>',
+           '<text x="0" y="-15">VLED bay · courtyards only</text>',
+           f'<defs><clipPath id="boardclip"><rect x="0" y="0" width="{width:.1f}" height="{height:.1f}"/></clipPath></defs>',
+           f'<rect x="0" y="0" width="{width:.1f}" height="{height:.1f}" fill="#f1f4f6" stroke="#21313c"/>',
+           '<g clip-path="url(#boardclip)">']
+    for p in trial["fixed_and_reservations"]:
+        r = p["box"]
+        if not overlap(r, {"x0": x0, "y0": y0, "x1": x1, "y1": y1}):
+            continue
+        px, py = (r["x0"] - x0) * scale, (r["y0"] - y0) * scale
+        w, h = (r["x1"] - r["x0"]) * scale, (r["y1"] - r["y0"]) * scale
+        fill = palette.get(p["category"], "#b4cad4")
+        out.append(f'<rect x="{px:.2f}" y="{py:.2f}" width="{w:.2f}" height="{h:.2f}" fill="{fill}" stroke="#33424b" stroke-width="1"/>')
+        if p["category"] != "LED driver projection":
+            out.append(f'<text class="small" x="{px+w/2:.1f}" y="{py+h/2+4:.1f}" text-anchor="middle">{escape(p["ref"])}</text>')
+    out += ['</g>',
+            f'<text x="0" y="{height+22:.1f}">First input/output capacitor centres: {trial["vled_first_input_cap_center_distance_mm"]:.3f} mm from IC centre</text>',
+            f'<text x="0" y="{height+44:.1f}">Inductor centre: {trial["vled_passive_center_distances_mm"]["L2"]:.3f} mm; farthest passive: {trial["vled_max_passive_center_distance_mm"]:.3f} mm</text>',
+            f'<text x="0" y="{height+66:.1f}">No tracks, ground planes, vias, thermal copper or route-clearance check.</text>',
+            '</svg>']
+    return '\n'.join(out) + '\n'
+
+
 def main() -> None:
     report=build()
     OUT.mkdir(parents=True,exist_ok=True)
@@ -534,6 +620,7 @@ def main() -> None:
     (OUT/'fit-trial-plan.svg').write_text(plan_svg(report),encoding='utf-8')
     (OUT/'connector-first-plan.svg').write_text(plan_svg(report,connector_first=True),encoding='utf-8')
     (OUT/'dual-row-package-plan.svg').write_text(plan_svg(report,dual_row=True),encoding='utf-8')
+    (OUT/'vled-cluster-detail.svg').write_text(vled_cluster_svg(report),encoding='utf-8')
     (OUT/'fit-trial-section.svg').write_text(section_svg(report),encoding='utf-8')
     print(json.dumps({"captured":report["captured_footprint_count"],
                       "unplaced_captured":report["rear_trial"]["unplaced_captured_refs"],

@@ -26,3 +26,4 @@ Decision records explain choices that materially constrain later work. Accepted 
 | [0018](0018-complete-power-architecture-proposal.md) | Review the complete power topology as one functional block | Proposed; six capture holds, no circuit changes |
 | [0019](0019-board-mounted-battery-temperature-sensing.md) | Trial a board-mounted battery temperature sensor with protected two-wire packs | Accepted direction; cell-to-board thermal validation pending |
 | [0020](0020-dual-row-mosfet-package-proposal.md) | Evaluate one complementary N/P package per row to recover PCB area | Proposed; no schematic or BOM change |
+| [0021](0021-external-battery-current-measurement.md) | Measure battery current with an inline instrument during validation; omit the on-board monitor/shunt | Accepted for capture; instrument/harness and hardware validation pending |
