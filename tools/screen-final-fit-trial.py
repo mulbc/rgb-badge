@@ -187,6 +187,31 @@ def candidate_package_minima() -> list[dict]:
     return minima
 
 
+def connector_envelope_screen(anchors: list[dict], placed: list[dict], pack: dict) -> dict:
+    """Try an illustrative mated side-entry PH pocket, not a footprint/land audit."""
+    sizes = [(8.0, 9.6), (9.6, 8.0)]
+    grouped = [pack, *[p["box"] for p in anchors]]
+    occupied = [*grouped, *[p["box"] for p in placed]]
+    counts = []
+    for w, h in sizes:
+        fits_grouped = fits_all = 0
+        for yi in range(round((BOARD_H - h) / GRID) + 1):
+            for xi in range(round((BOARD_W - w) / GRID) + 1):
+                candidate = box(xi * GRID, yi * GRID, w, h)
+                if all(not overlap(candidate, other) for other in grouped):
+                    fits_grouped += 1
+                if all(not overlap(candidate, other) for other in occupied):
+                    fits_all += 1
+        counts.append({"envelope_mm": [w, h], "grid_mm": GRID,
+                       "free_before_first_fit": fits_grouped, "free_after_first_fit": fits_all})
+    return {
+        "candidate_header": "JST S2B-PH-SM4-TB with PHR-2 housing; no pack termination selected",
+        "status": "illustrative mated-connector pocket only; dimensions and direction are not an audited courtyard",
+        "placements": counts,
+        "omits": ["wire bend", "strain relief", "case wall", "routing", "mounting hardware"],
+    }
+
+
 def build() -> dict:
     inventory, counts = native_inventory()
     anchors, pack = anchored_layout(inventory)
@@ -215,6 +240,7 @@ def build() -> dict:
         "rear_trial": {"anchors": anchors, "under_pack_0402_candidates": under,
                        "other_unrouted_first_fit": placed, "unplaced_captured_refs": unplaced},
         "unallocated_required_package_minima": candidate_package_minima(),
+        "battery_connector_envelope_screen": connector_envelope_screen(anchors, placed, pack),
         "other_unallocated_needs": ["exact keyed battery connector and wire bend/strain relief",
                                     "antenna and coax route/case-edge zone",
                                     "mounting bosses and magnet clearance",

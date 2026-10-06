@@ -1712,6 +1712,37 @@
       ]
     }
   ],
+  "battery_connector_envelope_screen": {
+    "candidate_header": "JST S2B-PH-SM4-TB with PHR-2 housing; no pack termination selected",
+    "status": "illustrative mated-connector pocket only; dimensions and direction are not an audited courtyard",
+    "placements": [
+      {
+        "envelope_mm": [
+          8.0,
+          9.6
+        ],
+        "grid_mm": 0.25,
+        "free_before_first_fit": 0,
+        "free_after_first_fit": 0
+      },
+      {
+        "envelope_mm": [
+          9.6,
+          8.0
+        ],
+        "grid_mm": 0.25,
+        "free_before_first_fit": 0,
+        "free_after_first_fit": 0
+      }
+    ],
+    "omits": [
+      "wire bend",
+      "strain relief",
+      "case wall",
+      "routing",
+      "mounting hardware"
+    ]
+  },
   "other_unallocated_needs": [
     "exact keyed battery connector and wire bend/strain relief",
     "antenna and coax route/case-edge zone",
