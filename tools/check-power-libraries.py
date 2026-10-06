@@ -224,7 +224,9 @@ PARTS = {
         "pins": {
             1: ("VINA", "power_in"), 2: ("GND", "power_in"),
             3: ("FB", "input"), 4: ("VOUT", "power_out"),
-            5: ("VOUT", "power_out"), 6: ("L2", "passive"),
+            # One common VOUT pin is passive in ERC to avoid connecting
+            # two power-output symbols on the same physical output rail.
+            5: ("VOUT", "passive"), 6: ("L2", "passive"),
             7: ("L2", "passive"), 8: ("L1", "passive"),
             9: ("L1", "passive"), 10: ("VIN", "power_in"),
             11: ("VIN", "power_in"), 12: ("EN", "input"),

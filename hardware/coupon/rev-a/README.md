@@ -2,6 +2,8 @@
 
 # Coupon Rev A
 
+**2026-10-06 VLED increment:** An [unlinked, default-disabled converter candidate](vled-converter-capture-contract.md) now captures the TI LED buck-boost, exact passives and local switching nodes. It does not close the SYS source or display-interlock holds and is not a fabrication release.
+
 **2026-10-05 architecture proposal:** [Complete power system](../../../docs/design/power-architecture-2026-10-05.md), with [proposed ADR 0018](../../../docs/decisions/0018-complete-power-architecture-proposal.md), consolidates topology choices, budgets and six capture holds. It does not modify the current schematic or select a battery. Review the architecture before continuing isolated power-component increments. Native KiCad exports can now be run locally by the assistant.
 
 **Provisional application-power capture, 2026-10-05:** The [JS202011JCQN library audit](slide-switch-library-audit.md) now accompanies a root-linked control pole and the existing TPS631000 3.3 V converter candidate. The old `+3V3_APP` source flag is removed; the converter output is the schematic source. `+SYS_APP_IN_DRAFT` still has an explicit source flag because the charger/pack path is not captured. Switch pole 2 and the gauge source flag remain untouched pending bus isolation. JCQN is not yet the final top-edge mechanical selection. Native KiCad 10.0.6 ERC, complete XML and visual page review passed for the provisional sheets; no board or electrical hardware test exists.

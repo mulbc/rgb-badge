@@ -2,6 +2,8 @@
 
 # Unlinked 3.3 V application converter candidate
 
+The separate [VLED converter candidate](../vled-converter-capture-contract.md) now stages thirteen exact-MPN items in vled-converter.kicad_sch. It is default-disabled and remains unlinked until protected SYS and the hardware display interlock are captured.
+
 `3v3-converter.kicad_sch` contains the exact `TPS631000DRLR`, one Murata `DFE252012P-1R0M=P2` 1 µH inductor, two `GRM187R61A226ME15` input capacitors, two `GRM219R60J476ME44` output capacitors, the Panasonic 511 kΩ / 91 kΩ feedback pair, and a 100 kΩ EN pull-down. The source checker verifies nine items, all 24 pins and the two *local* LX switching nodes. Regenerate deterministically into a new directory with `python3 tools/generate-coupon-3v3.py --output /tmp/rgb-3v3-candidate`; compare with this source before replacing it.
 
 This historical candidate remains **unlinked** for deterministic comparison. A distinct, root-linked copy now exists at `../3v3-converter.kicad_sch` with SW2's first control pole on EN; the previous `+3V3_APP` draft source flag was removed. `+SYS_APP_IN_DRAFT` remains a flagged, unresolved charger/pack source. `APP_3V3_FB` is a schematic feedback net, not a routed board design. The battery pack, charger, gauge pole, LED supply and whole-board OFF leakage remain uncaptured or unqualified.
