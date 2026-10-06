@@ -28,11 +28,11 @@
 <rect x="24.00" y="22.00" width="80.00" height="40.00" fill="#7792bb" stroke="#33424b" stroke-width="1"/>
 <text class="small" x="64.0" y="46.0" text-anchor="middle">C50</text>
 <rect x="110.00" y="22.00" width="80.00" height="40.00" fill="#7792bb" stroke="#33424b" stroke-width="1"/>
-<text class="small" x="150.0" y="46.0" text-anchor="middle">R84</text>
+<text class="small" x="150.0" y="46.0" text-anchor="middle">R86</text>
 <rect x="196.00" y="22.00" width="80.00" height="40.00" fill="#7792bb" stroke="#33424b" stroke-width="1"/>
 <text class="small" x="236.0" y="46.0" text-anchor="middle">R85</text>
 <rect x="282.00" y="22.00" width="80.00" height="40.00" fill="#7792bb" stroke="#33424b" stroke-width="1"/>
-<text class="small" x="322.0" y="46.0" text-anchor="middle">R86</text>
+<text class="small" x="322.0" y="46.0" text-anchor="middle">R84</text>
 <rect x="24.00" y="354.00" width="80.00" height="40.00" fill="#7792bb" stroke="#33424b" stroke-width="1"/>
 <text class="small" x="64.0" y="378.0" text-anchor="middle">R87</text>
 <rect x="270.00" y="290.00" width="116.00" height="116.00" fill="#d1d5d8" stroke="#33424b" stroke-width="1"/>

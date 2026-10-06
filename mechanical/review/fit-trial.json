@@ -3533,10 +3533,10 @@
         }
       },
       {
-        "ref": "R84",
+        "ref": "R86",
         "category": "VLED candidate passive",
         "footprint": "R_Panasonic_ERJ2_0402",
-        "orientation_deg": 0,
+        "orientation_deg": 180,
         "box": {
           "x0": 93.25,
           "y0": 22.8,
@@ -3548,7 +3548,7 @@
         "ref": "R85",
         "category": "VLED candidate passive",
         "footprint": "R_Panasonic_ERJ2_0402",
-        "orientation_deg": 0,
+        "orientation_deg": 180,
         "box": {
           "x0": 95.4,
           "y0": 22.8,
@@ -3557,10 +3557,10 @@
         }
       },
       {
-        "ref": "R86",
+        "ref": "R84",
         "category": "VLED candidate passive",
         "footprint": "R_Panasonic_ERJ2_0402",
-        "orientation_deg": 0,
+        "orientation_deg": 180,
         "box": {
           "x0": 97.55,
           "y0": 22.8,
@@ -5099,9 +5099,9 @@
       "C48": 7.558,
       "C49": 7.188,
       "C50": 4.364,
-      "R84": 4.226,
+      "R86": 4.226,
       "R85": 5.092,
-      "R86": 6.575,
+      "R84": 6.575,
       "R87": 4.364
     },
     "vled_max_passive_center_distance_mm": 7.558,

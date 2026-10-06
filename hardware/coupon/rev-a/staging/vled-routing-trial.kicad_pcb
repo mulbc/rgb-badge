@@ -818,10 +818,10 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "F.Cu")
 		(uuid "dab354cf-4309-5125-b0a4-bf2ae6b50e65")
-		(at 94.25 23.3)
+		(at 98.55 23.3 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R84"
-			(at 0 -1 0)
+			(at 0 -1 180)
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "bdf03a32-483c-5ab2-bdb8-850190a0c44a")
@@ -833,7 +833,7 @@
 			)
 		)
 		(property "Value" "620k 1%"
-			(at 0 1 0)
+			(at 0 1 180)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "51974e48-d6a4-50ff-b3b3-a8a43cb96382")
@@ -845,7 +845,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 0)
+			(at 0 0 180)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "632f6d23-06a4-5d43-8dd1-c6261016972a")
@@ -856,7 +856,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 0 0 0)
+			(at 0 0 180)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "1a34b327-209b-5ddb-9761-e204ccf19d86")
@@ -891,14 +891,14 @@
 			(uuid "43a29e46-b3dd-5d9c-9e53-1c58345c2ee4")
 		)
 		(pad "1" smd rect
-			(at -0.5 0)
+			(at -0.5 0 180)
 			(size 0.5 0.5)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(net "VLED")
 			(uuid "74aa8a55-6380-53a6-8b15-6aa418f439cc")
 		)
 		(pad "2" smd rect
-			(at 0.5 0)
+			(at 0.5 0 180)
 			(size 0.5 0.5)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(net "VLED_FB_TOP_MID")
@@ -909,10 +909,10 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "F.Cu")
 		(uuid "370cc9a8-20fe-5fb3-ba3b-a66368577a08")
-		(at 96.4 23.3)
+		(at 96.4 23.3 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R85"
-			(at 0 -1 0)
+			(at 0 -1 180)
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "ec160865-52a6-555b-9d82-59d6b3715f41")
@@ -924,7 +924,7 @@
 			)
 		)
 		(property "Value" "620k 1%"
-			(at 0 1 0)
+			(at 0 1 180)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "f44a8083-c8c3-500b-814b-b91f723d7d7f")
@@ -936,7 +936,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 0)
+			(at 0 0 180)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "84961163-cb7e-5c22-be54-616eb76dafa7")
@@ -947,7 +947,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 0 0 0)
+			(at 0 0 180)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "b42f4d0b-c6fe-54ee-bb95-50b47b0bf758")
@@ -982,14 +982,14 @@
 			(uuid "fbd1c3f6-cfdc-5916-add0-adf410bf78ad")
 		)
 		(pad "1" smd rect
-			(at -0.5 0)
+			(at -0.5 0 180)
 			(size 0.5 0.5)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(net "VLED_FB_TOP_MID")
 			(uuid "fc3347c1-1d31-58df-97be-0d6f17d442d2")
 		)
 		(pad "2" smd rect
-			(at 0.5 0)
+			(at 0.5 0 180)
 			(size 0.5 0.5)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(net "VLED_FB")
@@ -1000,10 +1000,10 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "F.Cu")
 		(uuid "7c17852f-06cd-5602-b6b6-2e7082cac07a")
-		(at 98.55 23.3)
+		(at 94.25 23.3 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R86"
-			(at 0 -1 0)
+			(at 0 -1 180)
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "5cf90433-a9b1-57d3-b4b0-ce7cc48adc9f")
@@ -1015,7 +1015,7 @@
 			)
 		)
 		(property "Value" "180k 1%"
-			(at 0 1 0)
+			(at 0 1 180)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "f62ca171-600d-5bcb-a8b2-d7fa108cfa99")
@@ -1027,7 +1027,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 0)
+			(at 0 0 180)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "4e61c930-d572-598b-be08-9dbfe92163d8")
@@ -1038,7 +1038,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 0 0 0)
+			(at 0 0 180)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "0924176c-e0fe-5bfa-bad9-b34008c6d760")
@@ -1073,14 +1073,14 @@
 			(uuid "913f646a-3fef-59b2-8bbd-7aa02f64814c")
 		)
 		(pad "1" smd rect
-			(at -0.5 0)
+			(at -0.5 0 180)
 			(size 0.5 0.5)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(net "VLED_FB")
 			(uuid "ad30da10-0f3d-51f9-a39a-ed52ccc1c5e3")
 		)
 		(pad "2" smd rect
-			(at 0.5 0)
+			(at 0.5 0 180)
 			(size 0.5 0.5)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(net "GND")

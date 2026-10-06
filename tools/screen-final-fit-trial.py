@@ -341,9 +341,11 @@ def dual_row_package_screen(inventory: list[dict], connector_first: dict, pack: 
         ("C48", "VLED candidate passive", by_label["C46-C49"], 98.95, 23.95, 0),
         ("C49", "VLED candidate passive", by_label["C46-C49"], 99.0, 25.4, 0),
         ("C50", "VLED candidate passive", by_label["C50"], 91.1, 22.8, 0),
-        ("R84", "VLED candidate passive", by_label["R84-R87"], 93.25, 22.8, 0),
-        ("R85", "VLED candidate passive", by_label["R84-R87"], 95.4, 22.8, 0),
-        ("R86", "VLED candidate passive", by_label["R84-R87"], 97.55, 22.8, 0),
+        # Reverse the divider order so its grounded end is closest to U37's
+        # control GND, while R84's VLED end stays near the outer output cap.
+        ("R86", "VLED candidate passive", by_label["R84-R87"], 93.25, 22.8, 180),
+        ("R85", "VLED candidate passive", by_label["R84-R87"], 95.4, 22.8, 180),
+        ("R84", "VLED candidate passive", by_label["R84-R87"], 97.55, 22.8, 180),
         ("R87", "VLED candidate passive", by_label["R84-R87"], 91.1, 31.1, 180),
     ]
     for ref, category, part, x, y, orientation in cluster:
