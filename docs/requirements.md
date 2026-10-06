@@ -69,3 +69,13 @@ The provisional runtime workload consists of representative text, icons and anim
 | CHG-001/002/003, SAF-001/002 | Select ISET, charge voltage, ITERM, NTC network and timer from the exact pack and full thermal budget; the 2.49 kΩ / 396 mA maximum is a conditional numerical proposal, not an approved BOM population. |
 
 The [proposal's six capture holds](design/power-architecture-2026-10-05.md#8-one-consolidated-capture-hold-list) separate required engineering evidence from the remaining supplier information. Native ERC alone does not close them.
+
+## Row-package proposal verification addendum
+
+2026-10-06: [ADR 0020](decisions/0020-dual-row-mosfet-package-proposal.md) proposes a complementary N/P package for each row to recover board area. It is **not accepted or implemented**. The following evidence is required before it could replace the captured row stage; the display, current and fail-safe requirements above remain unchanged.
+
+| Existing requirements | Proposed refinement / acceptance evidence |
+|---|---|
+| DSP-001/004/006, PWR-004 | Preserve 16 independently selected rows and hardware-default blanking during boot, reset, programming, OFF and VLED faults. Verify turn-off and row dead time under real multiplex timing, including visible ghosting. |
+| PWR-006/008, USB-003, CHG-002 | Bound a final 48-pixel row's current, tolerance and overlap/fault cases at the selected VLED rail. Review the candidate P device's hot resistance, switching loss, SOA, gate stress and compact-board copper; the manufacturer's large test-board current rating is not a badge rating. Do not raise existing limits through a package change. |
+| MFG-001/003, SAF-003 | Audit the exact manufacturer's N/P pin map, land pattern, polarity/pin-one mark and assemblability into project-local libraries. If selected, use the same stage on the coupon and measure it before relying on coupon results for the final board; include it in the independent Gate A review. |

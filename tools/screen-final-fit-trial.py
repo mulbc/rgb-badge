@@ -212,11 +212,121 @@ def connector_envelope_screen(anchors: list[dict], placed: list[dict], pack: dic
     }
 
 
+def connector_first_trial(inventory: list[dict], anchors: list[dict], under: list[dict], pack: dict) -> dict:
+    """Move control/decoder, reserve connector, then repack row FETs and other parts."""
+    fixed = [{**p, "box": dict(p["box"])} for p in anchors if not p["ref"].startswith("Q")]
+    for p in fixed:
+        if p["ref"] == "SW1":
+            p["box"] = box(91.1, 0.3, 5.1, 3.5)
+        elif p["ref"] == "U2":
+            p["box"] = box(97.0, 23.5, 7.7, 8.3)
+    pocket = {"ref": "BAT", "category": "battery connector pocket",
+              "footprint": "illustrative 8x8 mm envelope; no audited footprint",
+              "box": box(16.5, 0.5, 8.0, 8.0)}
+    fixed.append(pocket)
+    for i, p in enumerate(fixed):
+        for q in fixed[i + 1:]:
+            if overlap(p["box"], q["box"]):
+                raise ValueError(f"Connector-first fixed boxes overlap: {p['ref']}, {q['ref']}")
+        if p["ref"] != "J1" and overlap(p["box"], pack):
+            raise ValueError(f"Connector-first fixed box intersects pack: {p['ref']}")
+    occupied = [pack, *[p["box"] for p in fixed]]
+    moved_rows = []
+    for original in reversed([p for p in anchors if p["ref"].startswith("Q")]):
+        r = original["box"]
+        w, h = r["x1"] - r["x0"], r["y1"] - r["y0"]
+        found = None
+        for yi in reversed(range(int((BOARD_H - h) / GRID) + 1)):
+            for xi in range(int((BOARD_W - w) / GRID) + 1):
+                candidate = box(xi * GRID, yi * GRID, w, h)
+                if all(not overlap(candidate, other) for other in occupied):
+                    found = candidate
+                    break
+            if found:
+                break
+        if found:
+            occupied.append(found)
+            moved_rows.append({**original, "box": found})
+    other, unplaced = remaining_trial(inventory, fixed + moved_rows, under, pack)
+    refs = {p["ref"] for p in inventory}
+    placed_refs = {p["ref"] for p in fixed + moved_rows + under + other} & refs
+    if placed_refs & set(unplaced) or placed_refs | set(unplaced) != refs:
+        raise ValueError("Connector-first footprint accounting failed")
+    all_boxes = fixed + moved_rows + under + other
+    for i, p in enumerate(all_boxes):
+        for q in all_boxes[i + 1:]:
+            if overlap(p["box"], q["box"]):
+                raise ValueError(f"Connector-first courtyards overlap: {p['ref']}, {q['ref']}")
+    return {"status": "connector-first XY trial only; no audited connector footprint, routing or vertical fit",
+            "connector_pocket": pocket, "fixed_and_repacked": fixed + moved_rows,
+            "row_fets_placed": len(moved_rows), "row_fets_required": 32,
+            "under_pack_0402_candidates": under, "other_unrouted_first_fit": other,
+            "unplaced_captured_refs": unplaced,
+            "rearrangement": ["SW1 moved to top-right", "U2 moved to lower-right",
+                              "battery connector pocket next to pack left end",
+                              "row FETs repacked from bottom-left"]}
+
+
+def dual_row_package_screen(inventory: list[dict], connector_first: dict, pack: dict) -> dict:
+    """Check package area for a proposed dual N/P part; do not alter the circuit."""
+    fixed = [p for p in connector_first["fixed_and_repacked"] if not p["ref"].startswith("Q")]
+    occupied = [pack, *[p["box"] for p in fixed]]
+    reservations = []
+
+    def reserve(ref: str, category: str, w: float, h: float, footprint: str) -> None:
+        for yi in reversed(range(int((BOARD_H - h) / GRID) + 1)):
+            for xi in range(int((BOARD_W - w) / GRID) + 1):
+                candidate = box(xi * GRID, yi * GRID, w, h)
+                if all(not overlap(candidate, other) for other in occupied):
+                    occupied.append(candidate)
+                    reservations.append({"ref": ref, "category": category,
+                                         "footprint": footprint, "box": candidate})
+                    return
+        raise ValueError(f"Could not reserve proposed package in XY: {ref}")
+
+    for part in candidate_package_minima():
+        labels = {"BQ24074 charger IC": "BQ", "TPS63020 VLED IC": "VLED",
+                  "TPS259474 input-switch candidate": "E", "INA232 current monitor candidate": "INA"}
+        for n in range(part["quantity"]):
+            ref = labels[part["label"]] + (str(n) if part["quantity"] > 1 else "")
+            reserve(ref, "power IC package minimum", *part["courtyard_mm"], part["footprint"])
+    for n in range(16):
+        reserve(f"PAIR{n + 1:02}", "dual row MOSFET trial", 3.0, 3.0,
+                "DMC1229UFDB-7; illustrative 3x3 mm allowance, no audited footprint")
+    nonrow = [p for p in inventory if not (p["ref"].startswith("Q") and p["ref"][1:].isdigit())]
+    under = connector_first["under_pack_0402_candidates"]
+    other, unplaced = remaining_trial(nonrow, fixed + reservations, under, pack)
+    accounted = {p["ref"] for p in fixed + under + other} & {p["ref"] for p in nonrow}
+    if unplaced or accounted != {p["ref"] for p in nonrow}:
+        raise ValueError("Dual-row package screen did not place every non-row captured part")
+    all_boxes = fixed + reservations + under + other
+    for i, p in enumerate(all_boxes):
+        for q in all_boxes[i + 1:]:
+            if overlap(p["box"], q["box"]):
+                raise ValueError(f"Dual-row screen overlaps: {p['ref']}, {q['ref']}")
+    return {"status": "conditional XY-only package screen; dual row circuit and footprint are not captured",
+            "fixed_and_reservations": fixed + reservations,
+            "dual_package_candidate": "Diodes DMC1229UFDB-7",
+            "illustrative_dual_courtyard_mm": [3.0, 3.0],
+            "dual_count": 16,
+            "old_32_row_courtyard_area_mm2": 397.6,
+            "new_16_dual_trial_area_mm2": 144.0,
+            "nominal_courtyard_area_saved_mm2": 253.6,
+            "under_pack_0402_candidates": under,
+            "other_unrouted_first_fit": other,
+            "unplaced_nonrow_captured_refs": unplaced,
+            "omits": ["all new power passives and inductors", "gauge buffer and display interlock",
+                      "antenna, mounts, battery support and cable bend", "routing and thermal copper",
+                      "assembled component heights and 11 mm case fit"]}
+
+
 def build() -> dict:
     inventory, counts = native_inventory()
     anchors, pack = anchored_layout(inventory)
     under = under_pack_trial(inventory, pack)
     placed, unplaced = remaining_trial(inventory, anchors, under, pack)
+    connector_first = connector_first_trial(inventory, anchors, under, pack)
+    dual_screen = dual_row_package_screen(inventory, connector_first, pack)
     captured_refs = {p["ref"] for p in inventory}
     accounted = {p["ref"] for p in anchors + under + placed} & captured_refs
     if accounted | set(unplaced) != captured_refs or accounted & set(unplaced):
@@ -239,6 +349,8 @@ def build() -> dict:
         "captured_footprint_count": sum(counts.values()),
         "rear_trial": {"anchors": anchors, "under_pack_0402_candidates": under,
                        "other_unrouted_first_fit": placed, "unplaced_captured_refs": unplaced},
+        "connector_first_trial": connector_first,
+        "dual_row_package_screen": dual_screen,
         "unallocated_required_package_minima": candidate_package_minima(),
         "battery_connector_envelope_screen": connector_envelope_screen(anchors, placed, pack),
         "other_unallocated_needs": ["exact keyed battery connector and wire bend/strain relief",
@@ -253,49 +365,74 @@ def build() -> dict:
     }
 
 
-def plan_svg(report: dict) -> str:
+def plan_svg(report: dict, connector_first: bool = False, dual_row: bool = False) -> str:
     s = 8
     def draw(r: dict, fill: str, stroke: str = "#233", opacity: float = 1) -> str:
         return (f'<rect x="{r["x0"]*s:.2f}" y="{r["y0"]*s:.2f}" '
                 f'width="{(r["x1"]-r["x0"])*s:.2f}" height="{(r["y1"]-r["y0"])*s:.2f}" '
                 f'fill="{fill}" fill-opacity="{opacity}" stroke="{stroke}" stroke-width="0.7"/>')
-    rear = report["rear_trial"]
+    rear = (report["dual_row_package_screen"] if dual_row else
+            report["connector_first_trial"] if connector_first else report["rear_trial"])
+    anchors = (rear["fixed_and_reservations"] if dual_row else
+               rear["fixed_and_repacked"] if connector_first else rear["anchors"])
+    title = ("REAR · proposed dual N/P packages and power-IC minima; geometry only" if dual_row else
+             "REAR · connector-first PicoBlade pocket, shifted control/decoder, repacked FETs"
+             if connector_first else
+             "REAR · exact captured footprint courtyards; unconnected, incomplete final circuit")
     out = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -40 {BOARD_W*s+30} {BOARD_H*s+260}">',
            '<title>RGB badge rear footprint and battery-over-board fit trial</title>',
            '<style>text{font:13px sans-serif;fill:#21313c}.small{font:11px sans-serif}</style>',
            f'<rect x="-15" y="-40" width="{BOARD_W*s+30}" height="{BOARD_H*s+260}" fill="white"/>',
-           '<text x="0" y="-15">REAR · exact captured footprint courtyards; unconnected, incomplete final circuit</text>',
+           f'<text x="0" y="-15">{title}</text>',
            draw(box(0, 0, BOARD_W, BOARD_H), "#f1f4f6"),
            draw(report["pack_body_max_box_mm"], "#f2d59e", "#9a6300", 0.55)]
     for p in rear["under_pack_0402_candidates"]:
         out.append(draw(p["box"], "#dcb95d", "#8b6b21", 0.9))
     out.append(draw(report["ntc_xy_target_reservation_mm"], "none", "#d2232a"))
-    for p in rear["anchors"]:
+    for p in anchors:
         color = {"MCU":"#8fc69b", "LED driver projection":"#a8a2dc", "USB connector":"#f5aaac",
                  "row P-MOS":"#5079b6", "row N-MOS":"#64a0d4", "row decoder":"#a8cf96",
-                 "top-edge control trial":"#c5a3cf"}[p["category"]]
+                 "top-edge control trial":"#c5a3cf", "battery connector pocket":"#f3a550",
+                 "dual row MOSFET trial":"#5079b6", "power IC package minimum":"#d1d5d8"}[p["category"]]
         out.append(draw(p["box"], color))
-        if p["category"] not in ("row P-MOS", "row N-MOS"):
+        if p["category"] not in ("row P-MOS", "row N-MOS", "dual row MOSFET trial"):
             r=p["box"]
             out.append(f'<text class="small" x="{r["x0"]*s+2:.1f}" y="{r["y0"]*s+12:.1f}">{escape(p["ref"])}</text>')
     for p in rear["other_unrouted_first_fit"]:
         out.append(draw(p["box"], "#88bbc2", "#2f707c", 0.8))
     y0=BOARD_H*s+22
-    out += [f'<text x="0" y="{y0}">Captured coupon parts: {report["captured_footprint_count"]}; 3 driver bodies projected for final board.</text>',
-            f'<text x="0" y="{y0+20}">Under-pack 0402 positions: 77 conditional · captured parts still unplaced: {len(rear["unplaced_captured_refs"])}.</text>',
-            f'<text x="0" y="{y0+40}">Charger, VLED, input protection, battery connector, RF and routing are not placed.</text>',
-            f'<text x="0" y="{y0+60}">Battery needs case support above the board; height and circuit locality are unqualified.</text>',
-            f'<text x="0" y="{y0+82}">UNALLOCATED PACKAGE MINIMA (shown to scale off-board; support parts need more space)</text>']
-    labels = [("BQ", report["unallocated_required_package_minima"][0]["courtyard_mm"]),
-              ("VLED", report["unallocated_required_package_minima"][1]["courtyard_mm"]),
-              ("E0", report["unallocated_required_package_minima"][2]["courtyard_mm"]),
-              ("E1", report["unallocated_required_package_minima"][2]["courtyard_mm"]),
-              ("INA", report["unallocated_required_package_minima"][3]["courtyard_mm"])]
-    x = 0.0
-    for label, (w, h) in labels:
-        out.append(f'<rect x="{x:.1f}" y="{y0+94:.1f}" width="{w*s:.1f}" height="{h*s:.1f}" fill="#d1d5d8" stroke="#596a72"/>')
-        out.append(f'<text class="small" x="{x:.1f}" y="{y0+145:.1f}">{label}</text>')
-        x += w*s + 25
+    unplaced_refs = (rear["unplaced_nonrow_captured_refs"] if dual_row
+                     else rear["unplaced_captured_refs"])
+    third_line = ("Dual MOSFETs and power ICs are package reservations; support circuits and routing remain."
+                  if dual_row else
+                  "Connector pocket is illustrative; charger, VLED, input protection, RF and routing remain."
+                  if connector_first else
+                  "Charger, VLED, input protection, battery connector, RF and routing are not placed.")
+    inventory_line = (f'Original coupon capture: {report["captured_footprint_count"]} parts; 32 row FETs hypothetically replaced by 16 pair boxes.'
+                      if dual_row else
+                      f'Captured coupon parts: {report["captured_footprint_count"]}; 3 driver bodies projected for final board.')
+    unplaced_line = (f"Retained captured non-row parts unplaced: {len(unplaced_refs)}; under-pack 0402: 77 conditional."
+                     if dual_row else
+                     f"Under-pack 0402 positions: 77 conditional · captured parts still unplaced: {len(unplaced_refs)}.")
+    out += [f'<text x="0" y="{y0}">{inventory_line}</text>',
+            f'<text x="0" y="{y0+20}">{unplaced_line}</text>',
+            f'<text x="0" y="{y0+40}">{third_line}</text>',
+            f'<text x="0" y="{y0+60}">Battery needs case support above the board; height and circuit locality are unqualified.</text>']
+    if dual_row:
+        out.append(f'<text x="0" y="{y0+82}">NO ROUTES, thermal copper, power passives, interlock, mount or antenna in this screen.</text>')
+        out.append(f'<text x="0" y="{y0+104}">3 × 3 mm dual-package allowances are not manufacturer-audited footprints.</text>')
+    else:
+        out.append(f'<text x="0" y="{y0+82}">UNALLOCATED PACKAGE MINIMA (shown to scale off-board; support parts need more space)</text>')
+        labels = [("BQ", report["unallocated_required_package_minima"][0]["courtyard_mm"]),
+                  ("VLED", report["unallocated_required_package_minima"][1]["courtyard_mm"]),
+                  ("E0", report["unallocated_required_package_minima"][2]["courtyard_mm"]),
+                  ("E1", report["unallocated_required_package_minima"][2]["courtyard_mm"]),
+                  ("INA", report["unallocated_required_package_minima"][3]["courtyard_mm"])]
+        x = 0.0
+        for label, (w, h) in labels:
+            out.append(f'<rect x="{x:.1f}" y="{y0+94:.1f}" width="{w*s:.1f}" height="{h*s:.1f}" fill="#d1d5d8" stroke="#596a72"/>')
+            out.append(f'<text class="small" x="{x:.1f}" y="{y0+145:.1f}">{label}</text>')
+            x += w*s + 25
     out.append('</svg>')
     return '\n'.join(out)+'\n'
 
@@ -326,6 +463,8 @@ def main() -> None:
     OUT.mkdir(parents=True,exist_ok=True)
     (OUT/'fit-trial.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     (OUT/'fit-trial-plan.svg').write_text(plan_svg(report),encoding='utf-8')
+    (OUT/'connector-first-plan.svg').write_text(plan_svg(report,connector_first=True),encoding='utf-8')
+    (OUT/'dual-row-package-plan.svg').write_text(plan_svg(report,dual_row=True),encoding='utf-8')
     (OUT/'fit-trial-section.svg').write_text(section_svg(report),encoding='utf-8')
     print(json.dumps({"captured":report["captured_footprint_count"],
                       "unplaced_captured":report["rear_trial"]["unplaced_captured_refs"],
