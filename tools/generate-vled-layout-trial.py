@@ -133,6 +133,8 @@ def generate():
         x, y = (rect["x0"] + rect["x1"]) / 2, (rect["y0"] + rect["y1"]) / 2
         part.SetPosition(pcb.VECTOR2I(pcb.FromMM(x), pcb.FromMM(y)))
         part.SetOrientationDegrees(placement.get("orientation_deg", 0))
+        # Reference positions belong to the eventual complete-board silkscreen.
+        part.Reference().SetVisible(False)
         part.Value().SetVisible(False)
         board.Add(part)
         for pad in part.Pads():
