@@ -21,6 +21,9 @@ def report():
     ilim_r = D(3650) * D(3480) / D(7130)
     ilim_min = D(1500) / (ilim_r * D('1.01'))
     ilim_max = D(1720) / (ilim_r * D('.99'))
+    lower_ilim_r = D(3650)
+    lower_ilim_min = D(1330) / (lower_ilim_r * D('1.01'))
+    lower_ilim_max = D(1720) / (lower_ilim_r * D('.99'))
     fuse_rows = [(D('6650'), D('.425'), D('.575')),
                  (D('3320'), D('.850'), D('1.150')),
                  (D('1650'), D('1.800'), D('2.200'))]
@@ -57,6 +60,20 @@ def report():
                            '900mah_ideal_full_min_minutes_at_max_a': D('.9') / charge_max * 60},
         'unchanged_charger_input_limit_a': [ilim_min, ilim_max],
         'qualified_source_arithmetic_headroom_a': D('1.5') - ilim_max,
+        'lower_fixed_input_limit_screen': {
+            'status': 'PROPOSED_DC_SCREEN_NOT_SELECTED',
+            'retained_exact_resistor_mpn': 'ERA2AEB3651X',
+            'remove_parallel_branch_mpn_if_accepted': 'ERA2AEB3481X',
+            'total_resistance_error_fraction_assumed': D('.01'),
+            'calculated_bq24074_limit_min_a': lower_ilim_min,
+            'calculated_bq24074_limit_max_a': lower_ilim_max,
+            'tps259474_published_3k32_min_threshold_a': D('.850'),
+            'dc_gap_to_published_nominal_rilm_test_point_a': D('.850') - lower_ilim_max,
+            'normal_1v5_source_arithmetic_headroom_a': D('1.5') - lower_ilim_max,
+            'charge_current_proposal_max_a': charge_max,
+            'charger_input_min_below_charge_proposal_max': lower_ilim_min < charge_max,
+            'efuse_resistor_tolerance_transient_or_fault_proven': False,
+        },
         'published_efuse_threshold_rows': [
             {'resistance_ohm': resistance, 'minimum_a': minimum, 'maximum_a': maximum,
              'minimum_exceeds_charger_input_corner': minimum > ilim_max,

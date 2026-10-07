@@ -24,6 +24,8 @@ The owner confirmed on 2026-10-05 that no battery supplier reply or alternate pa
 
 2026-10-06 placement follow-on: the [tight VLED XY trial](../../mechanical/dual-row-package-screen-2026-10-06.md) fits its converter cluster and all sixteen proposed row-package boxes when the `INA232AIDDFR` current-monitor IC box is omitted from that deterministic first-fit pass. [ADR 0021](0021-external-battery-current-measurement.md) independently accepts external inline battery-current measurement and removes the on-board monitor/shunt from capture, without changing current or charger safeguards. A complete routed-board fit is still unproven.
 
+2026-10-07 current-coordinate follow-on: [proposed ADR 0022](0022-lower-fixed-usb-input-limit-proposal.md) screens dropping the 3.48 kΩ parallel ILIM branch and using the existing 3.65 kΩ resistor alone. This would lower the calculated charger input maximum from 0.975 A to 0.476 A and remove the present DC overlap with a published eFuse breaker test point. It does not select a new circuit or close input transient, permission, pack or thermal holds.
+
 ## Review disposition required
 
 Resolve the six numbered capture holds in the proposal as one engineering review. In particular, do not approve a Boolean permission table as evidence of analog startup behavior, or the buffer's power-up sequencing statement as a numerical bound on power-down injection. A simpler replacement is welcome if it satisfies the same source, OFF and transient contracts with traceable evidence.

@@ -17,6 +17,20 @@
     "0.9752381315914617756847326993"
   ],
   "qualified_source_arithmetic_headroom_a": "0.5247618684085382243152673007",
+  "lower_fixed_input_limit_screen": {
+    "status": "PROPOSED_DC_SCREEN_NOT_SELECTED",
+    "retained_exact_resistor_mpn": "ERA2AEB3651X",
+    "remove_parallel_branch_mpn_if_accepted": "ERA2AEB3481X",
+    "total_resistance_error_fraction_assumed": "0.01",
+    "calculated_bq24074_limit_min_a": "0.3607758036077580360775803608",
+    "calculated_bq24074_limit_max_a": "0.4759928047599280475992804760",
+    "tps259474_published_3k32_min_threshold_a": "0.850",
+    "dc_gap_to_published_nominal_rilm_test_point_a": "0.3740071952400719524007195240",
+    "normal_1v5_source_arithmetic_headroom_a": "1.024007195240071952400719524",
+    "charge_current_proposal_max_a": "0.3955214798588292564196178654",
+    "charger_input_min_below_charge_proposal_max": true,
+    "efuse_resistor_tolerance_transient_or_fault_proven": false
+  },
   "published_efuse_threshold_rows": [
     {
       "resistance_ohm": "6650",

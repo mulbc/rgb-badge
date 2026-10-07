@@ -70,6 +70,8 @@ The provisional runtime workload consists of representative text, icons and anim
 
 The [proposal's six capture holds](design/power-architecture-2026-10-05.md#8-one-consolidated-capture-hold-list) separate required engineering evidence from the remaining supplier information. Native ERC alone does not close them.
 
+**2026-10-07 USB-005/PWR-006/CHG-001 proposal:** [ADR 0022](decisions/0022-lower-fixed-usb-input-limit-proposal.md) screens one fixed 3.65 kΩ ILIM resistor, calculated at 0.361–0.476 A, to separate the charger's steady input limit from the screened eFuse breaker threshold. It is not accepted or captured. Before adoption, verify charge-through operation and pack-specific charge times at the lower input limit, as well as the complete USB load/startup/fault envelope. Existing current ceilings and safeguards remain in force.
+
 ## Row-package proposal verification addendum
 
 2026-10-06: [ADR 0020](decisions/0020-dual-row-mosfet-package-proposal.md) proposes a complementary N/P package for each row to recover board area. It is **not accepted or implemented**. The following evidence is required before it could replace the captured row stage; the display, current and fail-safe requirements above remain unchanged.
