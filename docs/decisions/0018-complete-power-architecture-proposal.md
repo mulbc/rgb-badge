@@ -26,6 +26,8 @@ The owner confirmed on 2026-10-05 that no battery supplier reply or alternate pa
 
 2026-10-07 current-coordinate follow-on: [proposed ADR 0022](0022-lower-fixed-usb-input-limit-proposal.md) screens dropping the 3.48 kΩ parallel ILIM branch and using the existing 3.65 kΩ resistor alone. This would lower the calculated charger input maximum from 0.975 A to 0.476 A and remove the present DC overlap with a published eFuse breaker test point. It does not select a new circuit or close input transient, permission, pack or thermal holds.
 
+2026-10-07 permission follow-on: the [charger pin-boundary review](../design/charger-permission-boundary-2026-10-07.md) states the proposed E1/AUP/supervisor connections and default-off source states together. It identifies BQ24074 `EN2` sourcing, fault voltage and timing as the immediate unresolved pin-level connection. The existing permission test outputs remain disconnected from charger control.
+
 ## Review disposition required
 
 Resolve the six numbered capture holds in the proposal as one engineering review. In particular, do not approve a Boolean permission table as evidence of analog startup behavior, or the buffer's power-up sequencing statement as a numerical bound on power-down injection. A simpler replacement is welcome if it satisfies the same source, OFF and transient contracts with traceable evidence.
