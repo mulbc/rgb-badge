@@ -49,8 +49,8 @@ def report():
     en_pulldown_min = D(1000000) * D('.99')
     hypothetical_en_sink = D('.0000009')
     en_high_screen = (D('3.0') / en_pullup_max - hypothetical_en_sink) / (1 / en_pullup_max + 1 / en_pulldown_min)
-    en2_feed_min = (D('4.35') - D('3.022')) / D('10100')
-    en2_fault_feed_max = (D('28') - D('2.978')) / D('9900')
+    en2_feed_min = (D('4.35') - D('2.519')) / D('10100')
+    en2_fault_feed_max = (D('28') - D('2.481')) / D('9900')
     return {
         'SPDX-License-Identifier': 'CERN-OHL-S-2.0',
         'status': 'PROPOSAL_ONLY_NOT_CAPTURED_NOT_SIMULATED_NOT_MEASURED',
@@ -104,15 +104,15 @@ def report():
             'leakage_and_transients_proven': False},
         'charger_en2_local_clamp_screen': {
             'status': 'PROPOSED_DC_SCREEN_ISOLATED_KICAD_CANDIDATE_ONLY',
-            'shunt_exact_mpn': 'LM4040A30IDBZT',
+            'shunt_exact_mpn': 'LM4040A25IDBZT',
             'series_resistor_exact_mpn': 'ERJ2RKF1002X',
             'minimum_feed_at_bq_operating_input_a': en2_feed_min,
             'assumed_en2_load_at_clamp_a': D('.000020'),
             'minimum_shunt_after_assumed_load_a': en2_feed_min - D('.000020'),
-            'lm4040_full_range_minimum_cathode_current_a': D('.000082'),
+            'lm4040_full_range_minimum_cathode_current_a': D('.000080'),
             'fault_28v_max_feed_a': en2_fault_feed_max,
-            'fault_28v_resistor_power_w': (D('28') - D('2.978')) ** 2 / D('9900'),
-            'en2_load_at_3v_manufacturer_bounded': False,
+            'fault_28v_resistor_power_w': (D('28') - D('2.481')) ** 2 / D('9900'),
+            'en2_load_at_2v5_manufacturer_bounded': False,
             'startup_and_fault_waveforms_proven': False,
         },
         'off_current_allocations_ua': {'charger_reference_limit': D('6.5'), 'pack_protection_target': 10,

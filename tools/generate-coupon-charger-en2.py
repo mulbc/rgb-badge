@@ -15,18 +15,18 @@ h.SCOPE = uuid.UUID("eb56e9ca-7c2d-5f28-aabc-6fcf28f33f46")
 h.FILE_UUID = str(uuid.uuid5(h.SCOPE, "file"))
 h.PARTS = {
     "R88": ("ERJ2RKF1002X", "10k 1%", "R_Panasonic_ERJ2_0402", "Panasonic", "https://industrial.panasonic.com/ww/products/pt/general-purpose-chip-resistors/models/ERJ2RKF1002X", 2),
-    "U38": ("LM4040A30IDBZT", "3V shunt", "SOT23_TI_DBZ0003A", "Texas Instruments", "https://www.ti.com/lit/ds/symlink/lm4040.pdf", 3),
+    "U38": ("LM4040A25IDBZT", "2.5V shunt", "SOT23_TI_DBZ0003A", "Texas Instruments", "https://www.ti.com/lit/ds/symlink/lm4040.pdf", 3),
 }
 
 
 def generate():
     candidate = PROJECT / "staging/charger-en2"
     shunt_lib = (candidate / "charger-en2-candidate.kicad_sym").read_text()
-    shunt = shunt_lib[shunt_lib.index('(symbol "LM4040A30IDBZT"'):].rsplit('\n)', 1)[0]
-    shunt = shunt.replace('(symbol "LM4040A30IDBZT"', '(symbol "rgb-badge-coupon:LM4040A30IDBZT"', 1)
+    shunt = shunt_lib[shunt_lib.index('(symbol "LM4040A25IDBZT"'):].rsplit('\n)', 1)[0]
+    shunt = shunt.replace('(symbol "LM4040A25IDBZT"', '(symbol "rgb-badge-coupon:LM4040A25IDBZT"', 1)
     resistor = h.cached_symbol('ERJ2RKF1002X')
     local_resistor = resistor.replace('(symbol "rgb-badge-coupon:ERJ2RKF1002X"', '(symbol "ERJ2RKF1002X"', 1)
-    local_shunt = shunt.replace('(symbol "rgb-badge-coupon:LM4040A30IDBZT"', '(symbol "LM4040A30IDBZT"', 1)
+    local_shunt = shunt.replace('(symbol "rgb-badge-coupon:LM4040A25IDBZT"', '(symbol "LM4040A25IDBZT"', 1)
     (candidate / 'charger-en2-candidate-symbols.kicad_sym').write_text(
         '(kicad_symbol_lib (version 20251024) (generator "rgb_badge")\n'
         + local_resistor + '\n' + local_shunt + '\n)\n')

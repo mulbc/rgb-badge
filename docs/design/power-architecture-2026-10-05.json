@@ -149,15 +149,15 @@
   },
   "charger_en2_local_clamp_screen": {
     "status": "PROPOSED_DC_SCREEN_ISOLATED_KICAD_CANDIDATE_ONLY",
-    "shunt_exact_mpn": "LM4040A30IDBZT",
+    "shunt_exact_mpn": "LM4040A25IDBZT",
     "series_resistor_exact_mpn": "ERJ2RKF1002X",
-    "minimum_feed_at_bq_operating_input_a": "0.0001314851485148514851485148515",
+    "minimum_feed_at_bq_operating_input_a": "0.0001812871287128712871287128713",
     "assumed_en2_load_at_clamp_a": "0.000020",
-    "minimum_shunt_after_assumed_load_a": "0.0001114851485148514851485148515",
-    "lm4040_full_range_minimum_cathode_current_a": "0.000082",
-    "fault_28v_max_feed_a": "0.002527474747474747474747474747",
-    "fault_28v_resistor_power_w": "0.06324247313131313131313131313",
-    "en2_load_at_3v_manufacturer_bounded": false,
+    "minimum_shunt_after_assumed_load_a": "0.0001612871287128712871287128713",
+    "lm4040_full_range_minimum_cathode_current_a": "0.000080",
+    "fault_28v_max_feed_a": "0.002577676767676767676767676768",
+    "fault_28v_resistor_power_w": "0.06577973343434343434343434343",
+    "en2_load_at_2v5_manufacturer_bounded": false,
     "startup_and_fault_waveforms_proven": false
   },
   "off_current_allocations_ua": {

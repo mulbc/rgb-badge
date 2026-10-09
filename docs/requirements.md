@@ -72,7 +72,7 @@ The [proposal's six capture holds](design/power-architecture-2026-10-05.md#8-one
 
 **2026-10-07 USB-005/PWR-006/CHG-001 proposal:** [ADR 0022](decisions/0022-lower-fixed-usb-input-limit-proposal.md) screens one fixed 3.65 kΩ ILIM resistor, calculated at 0.361–0.476 A, to separate the charger's steady input limit from the screened eFuse breaker threshold. It is not accepted or captured. Before adoption, verify charge-through operation and pack-specific charge times at the lower input limit, as well as the complete USB load/startup/fault envelope. Existing current ceilings and safeguards remain in force.
 
-**2026-10-07 PWR-005/USB-003/005 proposal:** [ADR 0023](decisions/0023-charger-en2-local-clamp-proposal.md) screens an EN2 mode source from the admitted charger input with a 3 V local clamp. Before adoption, audit the shunt symbol/pads, confirm EN2 current across the intended clamp voltage, verify the resistor's local thermal rating, and capture attach/detach/downgrade/trip waveforms. This does not approve the charger gate or fixed-mode timing.
+**2026-10-07 PWR-005/USB-003/005 proposal:** [ADR 0023](decisions/0023-charger-en2-local-clamp-proposal.md) screens an EN2 mode source from the admitted charger input with a 2.5 V local clamp. Before adoption, audit the shunt symbol/pads, confirm EN2 current across the intended clamp voltage, verify the resistor's local thermal rating, and capture attach/detach/downgrade/trip waveforms. This does not approve the charger gate or fixed-mode timing.
 
 ## Row-package proposal verification addendum
 
