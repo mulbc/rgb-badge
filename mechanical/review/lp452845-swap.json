@@ -1,6 +1,6 @@
 {
   "SPDX-License-Identifier": "CERN-OHL-S-2.0",
-  "status": "GEOMETRIC_SWAP_SCREEN_NOT_PCB_FIT_OR_PACK_SELECTION",
+  "status": "SELECTED_DESIGN_TARGET_GEOMETRIC_SCREEN_NOT_QUALIFIED_PCB_FIT",
   "source_trial": "mechanical/review/fit-trial.json",
   "pack_drawing": "LiPol FD_6225_10 index 1, LP452845 with PCM and JST PHR-2",
   "old_pack_max_box_mm": {
@@ -10,14 +10,14 @@
     "y1": 31.5
   },
   "lp452845_max_body_box_mm": {
-    "x0": 29.5,
+    "x0": 31.0,
     "y0": 2.0,
-    "x1": 76.5,
+    "x1": 78.0,
     "y1": 30.5
   },
   "freed_projected_body_area_mm2": 368.5,
-  "old_under_pack_0402_positions_retained_without_move": 20,
-  "old_under_pack_0402_positions_needing_move": 57,
+  "old_under_pack_0402_positions_retained_without_move": 34,
+  "old_under_pack_0402_positions_needing_move": 43,
   "anchored_courtyards_now_overlapping_pack": [],
   "illustrative_ph_pocket_free_positions_before_repacking": {
     "8x9.6_mm": 0,
@@ -27,26 +27,268 @@
   "nominal_unused_in_11mm_case_mm": 0.75,
   "dual_row_package_variant": {
     "status": "CONDITIONAL_XY_REPACK_ONLY_NO_ROUTING_OR_ASSEMBLY_CLEARANCE",
-    "illustrative_ph_pocket_box_mm": {
-      "x0": 16.5,
-      "y0": 0.5,
-      "x1": 26.1,
-      "y1": 8.5
+    "jst_ph_candidate_courtyard_box_mm": {
+      "x0": 20.25,
+      "y0": 0.25,
+      "x1": 29.45,
+      "y1": 10.45
     },
+    "jst_ph_courtyard_source": "KiCad 10.0.6 Connector_JST S2B-PH-SM4-TB, 9.2 x 10.2 mm",
+    "minimum_pack_to_connector_courtyard_xy_gap_mm": 1.55,
+    "moved_c42_output_capacitor_xy_box_mm": {
+      "x0": 16.5,
+      "y0": 0.25,
+      "x1": 20.25,
+      "y1": 2.25
+    },
+    "battery_facing_sensor_cluster_reservation_box_mm": {
+      "x0": 49.5,
+      "y0": 12.25,
+      "x1": 59.5,
+      "y1": 20.25
+    },
+    "sensor_component_xy_boxes_mm": [
+      {
+        "part": "SN74AUP1G125DBVR temperature inhibit",
+        "box": {
+          "x0": 49.5,
+          "y0": 12.25,
+          "x1": 53.8,
+          "y1": 15.85
+        }
+      },
+      {
+        "part": "TMP390A2DRLR",
+        "box": {
+          "x0": 54.0,
+          "y0": 12.25,
+          "x1": 56.7,
+          "y1": 14.75
+        }
+      },
+      {
+        "part": "NCU15XH103F60RC BQ TS NTC",
+        "box": {
+          "x0": 57.0,
+          "y0": 12.25,
+          "x1": 59.0,
+          "y1": 13.25
+        }
+      },
+      {
+        "part": "ERJ2RKF2151X hot set",
+        "box": {
+          "x0": 54.0,
+          "y0": 15.25,
+          "x1": 56.0,
+          "y1": 16.25
+        }
+      },
+      {
+        "part": "ERJ2RKF1402X cold set",
+        "box": {
+          "x0": 56.5,
+          "y0": 15.25,
+          "x1": 58.5,
+          "y1": 16.25
+        }
+      },
+      {
+        "part": "ERJ2RKF1002X TEMP_OK pull-up",
+        "box": {
+          "x0": 49.5,
+          "y0": 16.5,
+          "x1": 51.5,
+          "y1": 17.5
+        }
+      },
+      {
+        "part": "GRM155R71C104KA88D TMP390 bypass",
+        "box": {
+          "x0": 52.0,
+          "y0": 16.5,
+          "x1": 54.0,
+          "y1": 17.5
+        }
+      },
+      {
+        "part": "GRM155R71C104KA88D AUP bypass",
+        "box": {
+          "x0": 54.5,
+          "y0": 17.0,
+          "x1": 56.5,
+          "y1": 18.0
+        }
+      }
+    ],
     "fixed_or_other_courtyard_collisions_with_new_pack_or_pocket": [],
-    "old_0402_positions_retained": 20,
-    "0402_positions_repacked": 57,
+    "old_0402_positions_retained": 34,
+    "0402_positions_repacked": 43,
     "0402_positions_total": 77,
     "0402_positions": [
       {
-        "ref": "R43",
-        "category": "other 0402 candidate",
+        "ref": "R7",
+        "category": "row pull-up candidate",
         "footprint": "R_Panasonic_ERJ2_0402",
         "box": {
-          "x0": 30.5,
-          "y0": 2.25,
-          "x1": 32.5,
-          "y1": 3.25
+          "x0": 76.0,
+          "y0": 3.075,
+          "x1": 78.0,
+          "y1": 4.075
+        }
+      },
+      {
+        "ref": "R8",
+        "category": "row pull-up candidate",
+        "footprint": "R_Panasonic_ERJ2_0402",
+        "box": {
+          "x0": 76.0,
+          "y0": 4.95,
+          "x1": 78.0,
+          "y1": 5.95
+        }
+      },
+      {
+        "ref": "R9",
+        "category": "row pull-up candidate",
+        "footprint": "R_Panasonic_ERJ2_0402",
+        "box": {
+          "x0": 76.0,
+          "y0": 6.825,
+          "x1": 78.0,
+          "y1": 7.825
+        }
+      },
+      {
+        "ref": "R10",
+        "category": "row pull-up candidate",
+        "footprint": "R_Panasonic_ERJ2_0402",
+        "box": {
+          "x0": 76.0,
+          "y0": 8.7,
+          "x1": 78.0,
+          "y1": 9.7
+        }
+      },
+      {
+        "ref": "R11",
+        "category": "row pull-up candidate",
+        "footprint": "R_Panasonic_ERJ2_0402",
+        "box": {
+          "x0": 76.0,
+          "y0": 10.575,
+          "x1": 78.0,
+          "y1": 11.575
+        }
+      },
+      {
+        "ref": "R12",
+        "category": "row pull-up candidate",
+        "footprint": "R_Panasonic_ERJ2_0402",
+        "box": {
+          "x0": 76.0,
+          "y0": 12.45,
+          "x1": 78.0,
+          "y1": 13.45
+        }
+      },
+      {
+        "ref": "R13",
+        "category": "row pull-up candidate",
+        "footprint": "R_Panasonic_ERJ2_0402",
+        "box": {
+          "x0": 76.0,
+          "y0": 14.325,
+          "x1": 78.0,
+          "y1": 15.325
+        }
+      },
+      {
+        "ref": "R14",
+        "category": "row pull-up candidate",
+        "footprint": "R_Panasonic_ERJ2_0402",
+        "box": {
+          "x0": 76.0,
+          "y0": 16.2,
+          "x1": 78.0,
+          "y1": 17.2
+        }
+      },
+      {
+        "ref": "R15",
+        "category": "row pull-up candidate",
+        "footprint": "R_Panasonic_ERJ2_0402",
+        "box": {
+          "x0": 76.0,
+          "y0": 18.075,
+          "x1": 78.0,
+          "y1": 19.075
+        }
+      },
+      {
+        "ref": "R16",
+        "category": "row pull-up candidate",
+        "footprint": "R_Panasonic_ERJ2_0402",
+        "box": {
+          "x0": 76.0,
+          "y0": 19.95,
+          "x1": 78.0,
+          "y1": 20.95
+        }
+      },
+      {
+        "ref": "R17",
+        "category": "row pull-up candidate",
+        "footprint": "R_Panasonic_ERJ2_0402",
+        "box": {
+          "x0": 76.0,
+          "y0": 21.825,
+          "x1": 78.0,
+          "y1": 22.825
+        }
+      },
+      {
+        "ref": "R18",
+        "category": "row pull-up candidate",
+        "footprint": "R_Panasonic_ERJ2_0402",
+        "box": {
+          "x0": 76.0,
+          "y0": 23.7,
+          "x1": 78.0,
+          "y1": 24.7
+        }
+      },
+      {
+        "ref": "R19",
+        "category": "row pull-up candidate",
+        "footprint": "R_Panasonic_ERJ2_0402",
+        "box": {
+          "x0": 76.0,
+          "y0": 25.575,
+          "x1": 78.0,
+          "y1": 26.575
+        }
+      },
+      {
+        "ref": "R20",
+        "category": "row pull-up candidate",
+        "footprint": "R_Panasonic_ERJ2_0402",
+        "box": {
+          "x0": 76.0,
+          "y0": 27.45,
+          "x1": 78.0,
+          "y1": 28.45
+        }
+      },
+      {
+        "ref": "R21",
+        "category": "row pull-up candidate",
+        "footprint": "R_Panasonic_ERJ2_0402",
+        "box": {
+          "x0": 76.0,
+          "y0": 29.325,
+          "x1": 78.0,
+          "y1": 30.325
         }
       },
       {
@@ -263,17 +505,6 @@
         "category": "row pull-up candidate",
         "footprint": "R_Panasonic_ERJ2_0402",
         "box": {
-          "x0": 29.75,
-          "y0": 3.5,
-          "x1": 31.75,
-          "y1": 4.5
-        }
-      },
-      {
-        "ref": "R22",
-        "category": "row pull-down candidate",
-        "footprint": "R_Panasonic_ERJ2_0402",
-        "box": {
           "x0": 32.0,
           "y0": 3.5,
           "x1": 34.0,
@@ -281,8 +512,8 @@
         }
       },
       {
-        "ref": "R7",
-        "category": "row pull-up candidate",
+        "ref": "R22",
+        "category": "row pull-down candidate",
         "footprint": "R_Panasonic_ERJ2_0402",
         "box": {
           "x0": 34.25,
@@ -303,35 +534,13 @@
         }
       },
       {
-        "ref": "R8",
-        "category": "row pull-up candidate",
+        "ref": "R24",
+        "category": "row pull-down candidate",
         "footprint": "R_Panasonic_ERJ2_0402",
         "box": {
           "x0": 38.75,
           "y0": 3.5,
           "x1": 40.75,
-          "y1": 4.5
-        }
-      },
-      {
-        "ref": "R24",
-        "category": "row pull-down candidate",
-        "footprint": "R_Panasonic_ERJ2_0402",
-        "box": {
-          "x0": 41.0,
-          "y0": 3.5,
-          "x1": 43.0,
-          "y1": 4.5
-        }
-      },
-      {
-        "ref": "R9",
-        "category": "row pull-up candidate",
-        "footprint": "R_Panasonic_ERJ2_0402",
-        "box": {
-          "x0": 43.25,
-          "y0": 3.5,
-          "x1": 45.25,
           "y1": 4.5
         }
       },
@@ -340,20 +549,9 @@
         "category": "row pull-down candidate",
         "footprint": "R_Panasonic_ERJ2_0402",
         "box": {
-          "x0": 45.5,
+          "x0": 41.0,
           "y0": 3.5,
-          "x1": 47.5,
-          "y1": 4.5
-        }
-      },
-      {
-        "ref": "R10",
-        "category": "row pull-up candidate",
-        "footprint": "R_Panasonic_ERJ2_0402",
-        "box": {
-          "x0": 47.75,
-          "y0": 3.5,
-          "x1": 49.75,
+          "x1": 43.0,
           "y1": 4.5
         }
       },
@@ -362,20 +560,9 @@
         "category": "row pull-down candidate",
         "footprint": "R_Panasonic_ERJ2_0402",
         "box": {
-          "x0": 50.0,
+          "x0": 43.25,
           "y0": 3.5,
-          "x1": 52.0,
-          "y1": 4.5
-        }
-      },
-      {
-        "ref": "R11",
-        "category": "row pull-up candidate",
-        "footprint": "R_Panasonic_ERJ2_0402",
-        "box": {
-          "x0": 52.25,
-          "y0": 3.5,
-          "x1": 54.25,
+          "x1": 45.25,
           "y1": 4.5
         }
       },
@@ -384,20 +571,9 @@
         "category": "row pull-down candidate",
         "footprint": "R_Panasonic_ERJ2_0402",
         "box": {
-          "x0": 54.5,
+          "x0": 45.5,
           "y0": 3.5,
-          "x1": 56.5,
-          "y1": 4.5
-        }
-      },
-      {
-        "ref": "R12",
-        "category": "row pull-up candidate",
-        "footprint": "R_Panasonic_ERJ2_0402",
-        "box": {
-          "x0": 56.75,
-          "y0": 3.5,
-          "x1": 58.75,
+          "x1": 47.5,
           "y1": 4.5
         }
       },
@@ -406,20 +582,9 @@
         "category": "row pull-down candidate",
         "footprint": "R_Panasonic_ERJ2_0402",
         "box": {
-          "x0": 59.0,
+          "x0": 47.75,
           "y0": 3.5,
-          "x1": 61.0,
-          "y1": 4.5
-        }
-      },
-      {
-        "ref": "R13",
-        "category": "row pull-up candidate",
-        "footprint": "R_Panasonic_ERJ2_0402",
-        "box": {
-          "x0": 61.25,
-          "y0": 3.5,
-          "x1": 63.25,
+          "x1": 49.75,
           "y1": 4.5
         }
       },
@@ -428,20 +593,9 @@
         "category": "row pull-down candidate",
         "footprint": "R_Panasonic_ERJ2_0402",
         "box": {
-          "x0": 63.5,
+          "x0": 50.0,
           "y0": 3.5,
-          "x1": 65.5,
-          "y1": 4.5
-        }
-      },
-      {
-        "ref": "R14",
-        "category": "row pull-up candidate",
-        "footprint": "R_Panasonic_ERJ2_0402",
-        "box": {
-          "x0": 65.75,
-          "y0": 3.5,
-          "x1": 67.75,
+          "x1": 52.0,
           "y1": 4.5
         }
       },
@@ -450,20 +604,9 @@
         "category": "row pull-down candidate",
         "footprint": "R_Panasonic_ERJ2_0402",
         "box": {
-          "x0": 68.0,
+          "x0": 52.25,
           "y0": 3.5,
-          "x1": 70.0,
-          "y1": 4.5
-        }
-      },
-      {
-        "ref": "R15",
-        "category": "row pull-up candidate",
-        "footprint": "R_Panasonic_ERJ2_0402",
-        "box": {
-          "x0": 70.25,
-          "y0": 3.5,
-          "x1": 72.25,
+          "x1": 54.25,
           "y1": 4.5
         }
       },
@@ -472,21 +615,10 @@
         "category": "row pull-down candidate",
         "footprint": "R_Panasonic_ERJ2_0402",
         "box": {
-          "x0": 72.5,
+          "x0": 54.5,
           "y0": 3.5,
-          "x1": 74.5,
+          "x1": 56.5,
           "y1": 4.5
-        }
-      },
-      {
-        "ref": "R16",
-        "category": "row pull-up candidate",
-        "footprint": "R_Panasonic_ERJ2_0402",
-        "box": {
-          "x0": 29.75,
-          "y0": 4.75,
-          "x1": 31.75,
-          "y1": 5.75
         }
       },
       {
@@ -494,21 +626,10 @@
         "category": "row pull-down candidate",
         "footprint": "R_Panasonic_ERJ2_0402",
         "box": {
-          "x0": 32.0,
-          "y0": 4.75,
-          "x1": 34.0,
-          "y1": 5.75
-        }
-      },
-      {
-        "ref": "R17",
-        "category": "row pull-up candidate",
-        "footprint": "R_Panasonic_ERJ2_0402",
-        "box": {
-          "x0": 34.25,
-          "y0": 4.75,
-          "x1": 36.25,
-          "y1": 5.75
+          "x0": 56.75,
+          "y0": 3.5,
+          "x1": 58.75,
+          "y1": 4.5
         }
       },
       {
@@ -516,21 +637,10 @@
         "category": "row pull-down candidate",
         "footprint": "R_Panasonic_ERJ2_0402",
         "box": {
-          "x0": 36.5,
-          "y0": 4.75,
-          "x1": 38.5,
-          "y1": 5.75
-        }
-      },
-      {
-        "ref": "R18",
-        "category": "row pull-up candidate",
-        "footprint": "R_Panasonic_ERJ2_0402",
-        "box": {
-          "x0": 38.75,
-          "y0": 4.75,
-          "x1": 40.75,
-          "y1": 5.75
+          "x0": 59.0,
+          "y0": 3.5,
+          "x1": 61.0,
+          "y1": 4.5
         }
       },
       {
@@ -538,21 +648,10 @@
         "category": "row pull-down candidate",
         "footprint": "R_Panasonic_ERJ2_0402",
         "box": {
-          "x0": 41.0,
-          "y0": 4.75,
-          "x1": 43.0,
-          "y1": 5.75
-        }
-      },
-      {
-        "ref": "R19",
-        "category": "row pull-up candidate",
-        "footprint": "R_Panasonic_ERJ2_0402",
-        "box": {
-          "x0": 43.25,
-          "y0": 4.75,
-          "x1": 45.25,
-          "y1": 5.75
+          "x0": 61.25,
+          "y0": 3.5,
+          "x1": 63.25,
+          "y1": 4.5
         }
       },
       {
@@ -560,21 +659,10 @@
         "category": "row pull-down candidate",
         "footprint": "R_Panasonic_ERJ2_0402",
         "box": {
-          "x0": 45.5,
-          "y0": 4.75,
-          "x1": 47.5,
-          "y1": 5.75
-        }
-      },
-      {
-        "ref": "R20",
-        "category": "row pull-up candidate",
-        "footprint": "R_Panasonic_ERJ2_0402",
-        "box": {
-          "x0": 47.75,
-          "y0": 4.75,
-          "x1": 49.75,
-          "y1": 5.75
+          "x0": 63.5,
+          "y0": 3.5,
+          "x1": 65.5,
+          "y1": 4.5
         }
       },
       {
@@ -582,21 +670,10 @@
         "category": "row pull-down candidate",
         "footprint": "R_Panasonic_ERJ2_0402",
         "box": {
-          "x0": 50.0,
-          "y0": 4.75,
-          "x1": 52.0,
-          "y1": 5.75
-        }
-      },
-      {
-        "ref": "R21",
-        "category": "row pull-up candidate",
-        "footprint": "R_Panasonic_ERJ2_0402",
-        "box": {
-          "x0": 52.25,
-          "y0": 4.75,
-          "x1": 54.25,
-          "y1": 5.75
+          "x0": 65.75,
+          "y0": 3.5,
+          "x1": 67.75,
+          "y1": 4.5
         }
       },
       {
@@ -604,10 +681,10 @@
         "category": "row pull-down candidate",
         "footprint": "R_Panasonic_ERJ2_0402",
         "box": {
-          "x0": 54.5,
-          "y0": 4.75,
-          "x1": 56.5,
-          "y1": 5.75
+          "x0": 68.0,
+          "y0": 3.5,
+          "x1": 70.0,
+          "y1": 4.5
         }
       },
       {
@@ -615,10 +692,10 @@
         "category": "other 0402 candidate",
         "footprint": "C_Murata_GRM15_0402",
         "box": {
-          "x0": 56.75,
-          "y0": 4.75,
-          "x1": 58.75,
-          "y1": 5.75
+          "x0": 70.25,
+          "y0": 3.5,
+          "x1": 72.25,
+          "y1": 4.5
         }
       },
       {
@@ -626,10 +703,10 @@
         "category": "other 0402 candidate",
         "footprint": "C_Murata_GRM15_0402",
         "box": {
-          "x0": 59.0,
-          "y0": 4.75,
-          "x1": 61.0,
-          "y1": 5.75
+          "x0": 72.5,
+          "y0": 3.5,
+          "x1": 74.5,
+          "y1": 4.5
         }
       },
       {
@@ -637,9 +714,9 @@
         "category": "other 0402 candidate",
         "footprint": "C_Murata_GRM15_0402",
         "box": {
-          "x0": 61.25,
+          "x0": 32.0,
           "y0": 4.75,
-          "x1": 63.25,
+          "x1": 34.0,
           "y1": 5.75
         }
       },
@@ -648,9 +725,9 @@
         "category": "other 0402 candidate",
         "footprint": "C_Murata_GRM15_0402",
         "box": {
-          "x0": 63.5,
+          "x0": 34.25,
           "y0": 4.75,
-          "x1": 65.5,
+          "x1": 36.25,
           "y1": 5.75
         }
       },
@@ -659,9 +736,9 @@
         "category": "other 0402 candidate",
         "footprint": "C_Murata_GRM15_0402",
         "box": {
-          "x0": 65.75,
+          "x0": 36.5,
           "y0": 4.75,
-          "x1": 67.75,
+          "x1": 38.5,
           "y1": 5.75
         }
       },
@@ -670,9 +747,9 @@
         "category": "other 0402 candidate",
         "footprint": "C_Murata_GRM15_0402",
         "box": {
-          "x0": 68.0,
+          "x0": 38.75,
           "y0": 4.75,
-          "x1": 70.0,
+          "x1": 40.75,
           "y1": 5.75
         }
       },
@@ -681,9 +758,9 @@
         "category": "other 0402 candidate",
         "footprint": "C_Murata_GRM15_0402",
         "box": {
-          "x0": 70.25,
+          "x0": 41.0,
           "y0": 4.75,
-          "x1": 72.25,
+          "x1": 43.0,
           "y1": 5.75
         }
       },
@@ -692,9 +769,9 @@
         "category": "other 0402 candidate",
         "footprint": "C_Murata_GRM15_0402",
         "box": {
-          "x0": 72.5,
+          "x0": 43.25,
           "y0": 4.75,
-          "x1": 74.5,
+          "x1": 45.25,
           "y1": 5.75
         }
       },
@@ -703,16 +780,148 @@
         "category": "other 0402 candidate",
         "footprint": "C_Murata_GRM15_0402",
         "box": {
-          "x0": 29.75,
-          "y0": 6.0,
-          "x1": 31.75,
-          "y1": 7.0
+          "x0": 45.5,
+          "y0": 4.75,
+          "x1": 47.5,
+          "y1": 5.75
         }
       },
       {
         "ref": "C36",
         "category": "other 0402 candidate",
         "footprint": "C_Murata_GRM15_0402",
+        "box": {
+          "x0": 47.75,
+          "y0": 4.75,
+          "x1": 49.75,
+          "y1": 5.75
+        }
+      },
+      {
+        "ref": "C37",
+        "category": "other 0402 candidate",
+        "footprint": "C_Murata_GRM15_0402",
+        "box": {
+          "x0": 50.0,
+          "y0": 4.75,
+          "x1": 52.0,
+          "y1": 5.75
+        }
+      },
+      {
+        "ref": "C38",
+        "category": "other 0402 candidate",
+        "footprint": "C_Murata_GRM15_0402",
+        "box": {
+          "x0": 52.25,
+          "y0": 4.75,
+          "x1": 54.25,
+          "y1": 5.75
+        }
+      },
+      {
+        "ref": "C39",
+        "category": "other 0402 candidate",
+        "footprint": "C_Murata_GRM15_0402",
+        "box": {
+          "x0": 54.5,
+          "y0": 4.75,
+          "x1": 56.5,
+          "y1": 5.75
+        }
+      },
+      {
+        "ref": "C4",
+        "category": "other 0402 candidate",
+        "footprint": "C_Murata_GRM15_0402",
+        "box": {
+          "x0": 56.75,
+          "y0": 4.75,
+          "x1": 58.75,
+          "y1": 5.75
+        }
+      },
+      {
+        "ref": "C5",
+        "category": "other 0402 candidate",
+        "footprint": "C_Murata_GRM15_0402",
+        "box": {
+          "x0": 59.0,
+          "y0": 4.75,
+          "x1": 61.0,
+          "y1": 5.75
+        }
+      },
+      {
+        "ref": "R1",
+        "category": "other 0402 candidate",
+        "footprint": "R_Panasonic_ERJ2_0402",
+        "box": {
+          "x0": 61.25,
+          "y0": 4.75,
+          "x1": 63.25,
+          "y1": 5.75
+        }
+      },
+      {
+        "ref": "R2",
+        "category": "other 0402 candidate",
+        "footprint": "R_Panasonic_ERJ2_0402",
+        "box": {
+          "x0": 63.5,
+          "y0": 4.75,
+          "x1": 65.5,
+          "y1": 5.75
+        }
+      },
+      {
+        "ref": "R3",
+        "category": "other 0402 candidate",
+        "footprint": "R_Panasonic_ERJ2_0402",
+        "box": {
+          "x0": 65.75,
+          "y0": 4.75,
+          "x1": 67.75,
+          "y1": 5.75
+        }
+      },
+      {
+        "ref": "R38",
+        "category": "other 0402 candidate",
+        "footprint": "R_Panasonic_ERJ2_0402",
+        "box": {
+          "x0": 68.0,
+          "y0": 4.75,
+          "x1": 70.0,
+          "y1": 5.75
+        }
+      },
+      {
+        "ref": "R39",
+        "category": "other 0402 candidate",
+        "footprint": "R_Panasonic_ERJ2_0402",
+        "box": {
+          "x0": 70.25,
+          "y0": 4.75,
+          "x1": 72.25,
+          "y1": 5.75
+        }
+      },
+      {
+        "ref": "R4",
+        "category": "other 0402 candidate",
+        "footprint": "R_Panasonic_ERJ2_0402",
+        "box": {
+          "x0": 72.5,
+          "y0": 4.75,
+          "x1": 74.5,
+          "y1": 5.75
+        }
+      },
+      {
+        "ref": "R40",
+        "category": "other 0402 candidate",
+        "footprint": "R_Panasonic_ERJ2_0402",
         "box": {
           "x0": 32.0,
           "y0": 6.0,
@@ -721,9 +930,9 @@
         }
       },
       {
-        "ref": "C37",
+        "ref": "R41",
         "category": "other 0402 candidate",
-        "footprint": "C_Murata_GRM15_0402",
+        "footprint": "R_Panasonic_ERJ2_0402",
         "box": {
           "x0": 34.25,
           "y0": 6.0,
@@ -732,9 +941,9 @@
         }
       },
       {
-        "ref": "C38",
+        "ref": "R42",
         "category": "other 0402 candidate",
-        "footprint": "C_Murata_GRM15_0402",
+        "footprint": "R_Panasonic_ERJ2_0402",
         "box": {
           "x0": 36.5,
           "y0": 6.0,
@@ -743,9 +952,9 @@
         }
       },
       {
-        "ref": "C39",
+        "ref": "R43",
         "category": "other 0402 candidate",
-        "footprint": "C_Murata_GRM15_0402",
+        "footprint": "R_Panasonic_ERJ2_0402",
         "box": {
           "x0": 38.75,
           "y0": 6.0,
@@ -754,134 +963,13 @@
         }
       },
       {
-        "ref": "C4",
-        "category": "other 0402 candidate",
-        "footprint": "C_Murata_GRM15_0402",
-        "box": {
-          "x0": 41.0,
-          "y0": 6.0,
-          "x1": 43.0,
-          "y1": 7.0
-        }
-      },
-      {
-        "ref": "C5",
-        "category": "other 0402 candidate",
-        "footprint": "C_Murata_GRM15_0402",
-        "box": {
-          "x0": 43.25,
-          "y0": 6.0,
-          "x1": 45.25,
-          "y1": 7.0
-        }
-      },
-      {
-        "ref": "R1",
-        "category": "other 0402 candidate",
-        "footprint": "R_Panasonic_ERJ2_0402",
-        "box": {
-          "x0": 45.5,
-          "y0": 6.0,
-          "x1": 47.5,
-          "y1": 7.0
-        }
-      },
-      {
-        "ref": "R2",
-        "category": "other 0402 candidate",
-        "footprint": "R_Panasonic_ERJ2_0402",
-        "box": {
-          "x0": 47.75,
-          "y0": 6.0,
-          "x1": 49.75,
-          "y1": 7.0
-        }
-      },
-      {
-        "ref": "R3",
-        "category": "other 0402 candidate",
-        "footprint": "R_Panasonic_ERJ2_0402",
-        "box": {
-          "x0": 50.0,
-          "y0": 6.0,
-          "x1": 52.0,
-          "y1": 7.0
-        }
-      },
-      {
-        "ref": "R38",
-        "category": "other 0402 candidate",
-        "footprint": "R_Panasonic_ERJ2_0402",
-        "box": {
-          "x0": 52.25,
-          "y0": 6.0,
-          "x1": 54.25,
-          "y1": 7.0
-        }
-      },
-      {
-        "ref": "R39",
-        "category": "other 0402 candidate",
-        "footprint": "R_Panasonic_ERJ2_0402",
-        "box": {
-          "x0": 54.5,
-          "y0": 6.0,
-          "x1": 56.5,
-          "y1": 7.0
-        }
-      },
-      {
-        "ref": "R4",
-        "category": "other 0402 candidate",
-        "footprint": "R_Panasonic_ERJ2_0402",
-        "box": {
-          "x0": 56.75,
-          "y0": 6.0,
-          "x1": 58.75,
-          "y1": 7.0
-        }
-      },
-      {
-        "ref": "R40",
-        "category": "other 0402 candidate",
-        "footprint": "R_Panasonic_ERJ2_0402",
-        "box": {
-          "x0": 59.0,
-          "y0": 6.0,
-          "x1": 61.0,
-          "y1": 7.0
-        }
-      },
-      {
-        "ref": "R41",
-        "category": "other 0402 candidate",
-        "footprint": "R_Panasonic_ERJ2_0402",
-        "box": {
-          "x0": 61.25,
-          "y0": 6.0,
-          "x1": 63.25,
-          "y1": 7.0
-        }
-      },
-      {
-        "ref": "R42",
-        "category": "other 0402 candidate",
-        "footprint": "R_Panasonic_ERJ2_0402",
-        "box": {
-          "x0": 63.5,
-          "y0": 6.0,
-          "x1": 65.5,
-          "y1": 7.0
-        }
-      },
-      {
         "ref": "R83",
         "category": "other 0402 candidate",
         "footprint": "R_Panasonic_ERJ2_0402",
         "box": {
-          "x0": 65.75,
+          "x0": 41.0,
           "y0": 6.0,
-          "x1": 67.75,
+          "x1": 43.0,
           "y1": 7.0
         }
       }
@@ -889,7 +977,7 @@
   },
   "limitations": [
     "dual-row-package proposal is unapproved",
-    "illustrative PH pocket is not a footprint",
+    "JST KiCad footprint is not yet project-local or independently audited",
     "no PCB routes, support, wire bend, local PCM shape or swelling measurement"
   ]
 }
