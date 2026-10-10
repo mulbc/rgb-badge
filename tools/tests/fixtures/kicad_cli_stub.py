@@ -422,7 +422,7 @@ def main():
                 os.environ.get("RGB_BADGE_TEST_MISSING_USB_CONNECTOR") == "1"):
             names.append("USB_C_GCT_USB4505-03-0-A_MidMount.svg")
     if stage in ("fabrication", "copper", "paste", "mechanical"):
-        names.extend(("VQFN_TI_RPW0010A_2x2mm_HotRod.svg", "R_Panasonic_ERA2_0402.svg", "LFCSP_ADI_CP16_22_3x3mm_P0.5mm_EP1.75mm.svg", "L_Murata_DFE252012P.svg", "C_Murata_GRM21_0805.svg", "SW_CK_JS202011JCQN.svg", "SOT563_TI_DRL0006A.svg", "NTC_Murata_NCU15_0402.svg", "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB.svg"))
+        names.extend(("VQFN_TI_RPW0010A_2x2mm_HotRod.svg", "R_Panasonic_ERA2_0402.svg", "LFCSP_ADI_CP16_22_3x3mm_P0.5mm_EP1.75mm.svg", "L_Murata_DFE252012P.svg", "C_Murata_GRM21_0805.svg", "SW_CK_JS202011JCQN.svg", "SOT563_TI_DRL0006A.svg", "NTC_Murata_NCU15_0402.svg", "JST_PH_S2B-PH-SM4-TB.svg", "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB.svg"))
     for name in names:
         if name == os.environ.get("RGB_BADGE_TEST_MISSING_NAMED"):
             continue

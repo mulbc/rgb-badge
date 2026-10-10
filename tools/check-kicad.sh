@@ -74,6 +74,8 @@ for required_path in \
     "${slide_switch_library_check}" \
     "${app_power_capture_check}" \
     "${temperature_capture_check}" \
+    "${repo_root}/tools/check-jst-ph-library.py" \
+    "${footprint_library}/JST_PH_S2B-PH-SM4-TB.kicad_mod" \
     "${project_dir}/app-control.kicad_sch" \
     "${project_dir}/3v3-converter.kicad_sch" \
     "${project_dir}/charger-temperature.kicad_sch" \
@@ -108,6 +110,7 @@ python3 "${converter_candidate_check}"
 python3 "${slide_switch_library_check}"
 python3 "${app_power_capture_check}"
 python3 "${temperature_capture_check}"
+python3 "${repo_root}/tools/check-jst-ph-library.py"
 
 kicad_version="$("${kicad_cli}" version)"
 
@@ -236,6 +239,12 @@ for footprint_name in SOT563_TI_DRL0006A NTC_Murata_NCU15_0402; do
             exit 1
         fi
     done
+done
+for view_dir in "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_paste_dir}" "${footprint_mechanical_dir}"; do
+    if [[ ! -s "${view_dir}/JST_PH_S2B-PH-SM4-TB.svg" ]]; then
+        echo "Expected non-empty staged JST PH footprint SVG: ${view_dir}" >&2
+        exit 1
+    fi
 done
 for view_dir in "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_paste_dir}" "${footprint_mechanical_dir}"; do
     if [[ ! -s "${view_dir}/SW_CK_JS202011JCQN.svg" ]]; then
