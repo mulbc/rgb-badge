@@ -34,6 +34,23 @@ class ProgrammingResistorTests(unittest.TestCase):
 
     def test_exact_libraries_pass(self):
         AUDIT['check_libraries'](PROJECT)
+        self.assertEqual(AUDIT['PARTS']['ERA2AEB2491X'], D('2490'))
+
+    def test_selected_iset_symbol_pin_swap_rejected(self):
+        with tempfile.TemporaryDirectory() as td:
+            project = Path(td)
+            for folder in ('symbols', 'footprints'):
+                shutil.copytree(PROJECT / folder, project / folder)
+            path = project / 'symbols/rgb-badge-coupon.kicad_sym'
+            text = path.read_text()
+            start = text.index('(symbol "ERA2AEB2491X"')
+            end = text.index('(symbol "ERA2AEB3481X"', start)
+            block = text[start:end]
+            self.assertIn('(number "1"', block)
+            block = block.replace('(number "1"', '(number "3"', 1)
+            path.write_text(text[:start] + block + text[end:])
+            with self.assertRaises(ValueError):
+                AUDIT['check_libraries'](project)
 
     def test_wrong_metadata_pin_and_land_geometry_rejected(self):
         symbol = 'symbols/rgb-badge-coupon.kicad_sym'

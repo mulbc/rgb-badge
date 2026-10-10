@@ -10,7 +10,7 @@ import runpy
 
 TOOLS=Path(__file__).resolve().parent
 LIB=runpy.run_path(str(TOOLS/'check-power-libraries.py'))
-PARTS={'ERA2AEB3651X':D('3650'),'ERA2AEB3481X':D('3480'),'ERA2AEB1131X':D('1130')}
+PARTS={'ERA2AEB3651X':D('3650'),'ERA2AEB3481X':D('3480'),'ERA2AEB1131X':D('1130'),'ERA2AEB2491X':D('2490')}
 TOTAL_ERROR=D('.01')
 FOOTPRINT='R_Panasonic_ERA2_0402'
 
@@ -37,6 +37,9 @@ def check_libraries(project=LIB['PROJECT']):
     parse,children,one=LIB['parse'],LIB['children'],LIB['one']
     symbols={s[1]:s for s in children(parse(project/'symbols/rgb-badge-coupon.kicad_sym'),'symbol')}
     for mpn in PARTS:
+        code=mpn.removeprefix('ERA2AEB').removesuffix('X')
+        if len(code)!=4 or D(int(code[:3])*10**int(code[3]))!=PARTS[mpn]:
+            raise ValueError(f'{mpn}: resistance order code mismatch')
         expected=json.dumps(symbols['ERJ2RKF1003X']).replace('ERJ2RKF1003X',mpn).replace('R_Panasonic_ERJ2_0402',FOOTPRINT).replace('RDA0000/AOA0000C304.pdf','RDM0000/AOA0000C307.pdf')
         if json.dumps(symbols[mpn])!=expected:
             raise ValueError(f'{mpn}: exact identity, source, passive pins or symbol geometry mismatch')
@@ -60,5 +63,5 @@ def check_libraries(project=LIB['PROJECT']):
 
 if __name__=='__main__':
     low,high=check_libraries()
-    print(f'Programming resistor audit passed: 3 exact ERA2 parts, one land pattern; allocated resistance factors {low}..{high} fit ±1%.')
-    print('Assembly/service drift allocation and whole-port current remain unqualified; no charger capture or native review claimed.')
+    print(f'Programming resistor audit passed: 4 exact ERA2 parts, one land pattern; allocated resistance factors {low}..{high} fit ±1%.')
+    print('Assembly/service drift allocation and whole-port current remain unqualified; this library check does not imply a connected charger.')

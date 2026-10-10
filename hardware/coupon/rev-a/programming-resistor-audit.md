@@ -4,7 +4,7 @@
 
 Status: first-author source audit, 2026-09-17; [native library rendering passed at 9e71bb5](../../../docs/development/precision-resistor-review-9e71bb5.md). No charger placement or procurement approval.
 
-[ADR 0012](../../../docs/decisions/0012-programming-resistor-error-budget.md) selects Panasonic `ERA2AEB3651X` (3.65 kohm base ILIM), `ERA2AEB3481X` (3.48 kohm boost) and `ERA2AEB1131X` (1.13 kohm ISET). Manufacturer exact-part pages are linked there. Each is a 0402, 0.1%, 25 ppm/K resistor. Symbols use two passive pins, 1 and 2; the resistor is nonpolar. Exact identity, manufacturer, source link and footprint are controlled separately from the displayed circuit value.
+[ADR 0012](../../../docs/decisions/0012-programming-resistor-error-budget.md) originally selected Panasonic `ERA2AEB3651X` (3.65 kohm base ILIM), `ERA2AEB3481X` (3.48 kohm boost) and `ERA2AEB1131X` (historical 1.13 kohm ISET). [ADR 0024](../../../docs/decisions/0024-lp452845-pack-and-temperature-window.md) now selects **`ERA2AEB2491X`** (2.49 kohm) for the exact LP452845 pack's forthcoming ISET capture; the old 1.13 kohm part remains in the library for historical checks and must not be populated. [Panasonic's exact 2.49 kohm page](https://industrial.panasonic.com/ww/products/pt/high-precision-chip-resistors/models/ERA2AEB2491X) specifies 0402, 0.1% and ±25 ppm/K. All four symbols use two passive pins, 1 and 2; the resistor is nonpolar. Exact identity, manufacturer, source link and footprint are controlled separately from the displayed circuit value.
 
 ## Land and package comparison
 
@@ -35,6 +35,8 @@ The drift allocation is not a manufacturer lifetime guarantee. Qualification mus
 | Recommended lands | `fc707b230cce91d464bc3aaf1ed614fa5b412f40cbe7df7cab1541d2c164a882` |
 
 `check-programming-resistors.py` checks the exact symbols, complete footprint geometry and conditional error allocation. Fault tests reject altered source identity, pins, pad dimensions, a reduced courtyard and an excessive error allocation. Wrapper tests require every new symbol and footprint view. These are host/source checks; CLI-stub results are not native KiCad evidence. The next owner-generated bundle must show 45 symbols and 26 footprints per raw view, with the existing 443-item / 1,636-pin circuit and zero ERC violations unchanged.
+
+2026-10-10 follow-on: the fourth exact symbol `ERA2AEB2491X` was added to the same controlled library and native SVG export, and the checker now verifies its 2491 resistance code. The root charger remains uncaptured, so the 420-item / 1,562-pin circuit count does not change. The 2026-09-17 count and pending-export statement above are historical evidence for the original three-part increment.
 
 Host validation on 2026-09-17: all 138 repository tests passed, including five new precision-budget/library tests and the missing-export wrapper cases. `git diff --check` passed. Rechecking the owner's unchanged 2bb0e08 circuit XML/ERC still passes 443 items / 1,636 pins and zero violations. The strict `check-power-design.py --require-usb-closure` gate returned 1 for the recorded unfinished power design. Native exports of the new libraries remain pending.
 

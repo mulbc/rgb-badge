@@ -76,6 +76,8 @@ The [proposal's six capture holds](design/power-architecture-2026-10-05.md#8-one
 
 **2026-10-09 CHG-001/002/003, SAF-001/002 design target:** [ADR 0024](decisions/0024-lp452845-pack-and-temperature-window.md) selects the protected `LP452845`/PHR-2 assembly of drawing FD_6225_10 index 1 and mating JST `S2B-PH-SM4-TB` for Rev A design. Keep its +10…+45 °C charge range, 450 mA charge ceiling and 4.20 V ±50 mV charge-voltage limit in the part-specific acceptance case. The BQ24074 TS NTC and safety timer remain active; an additional TMP390 hot/cold switch with a 10 kΩ output pull-up and AUP gate inhibits E1 at nominal 40/15 °C board temperatures. Prove combined sensor tolerance and cell-to-board thermal error leave the cell inside its charge range, test open/short and startup/fault states, and verify exact assembly polarity, discharge duty and current limits before BOM freeze. A source-design target is not a tested pack or fabrication approval.
 
+**2026-10-10 CHG-002 capture part:** ADR 0024 now selects exact Panasonic `ERA2AEB2491X` (2.49 kΩ, 0.1%, ±25 ppm/K) as the ISET source part for the forthcoming charger sheet. Preserve the ±1% total resistance allowance and calculated 396 mA maximum; selecting the MPN does not approve charge-current, pack thermal, ITERM/TMR or a fabrication BOM.
+
 ## Row-package proposal verification addendum
 
 2026-10-06: [ADR 0020](decisions/0020-dual-row-mosfet-package-proposal.md) proposes a complementary N/P package for each row to recover board area. It is **not accepted or implemented**. The following evidence is required before it could replace the captured row stage; the display, current and fail-safe requirements above remain unchanged.
