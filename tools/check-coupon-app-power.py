@@ -27,9 +27,9 @@ def check():
     driver = (PROJECT / 'driver.kicad_sch').read_text()
     if '(property "Reference" "#FLG01"' in driver:
         raise ValueError('Superseded +3V3_APP draft source flag remains in the driver')
-    if '(property "Reference" "#FLG07"' not in control:
-        raise ValueError('Unresolved SYS source is not marked as draft')
-    print('Provisional application-power source check passed: root-linked switch control and 3V3; unresolved SYS flag retained.')
+    if '(property "Reference" "#FLG07"' in control:
+        raise ValueError('Obsolete SYS draft source flag remains after charger OUT capture')
+    print('Provisional application-power source check passed: root-linked switch control and 3V3; charger OUT now supplies SYS.')
 
 
 if __name__ == '__main__':

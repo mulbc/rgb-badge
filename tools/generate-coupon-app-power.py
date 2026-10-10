@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 """Generate the provisional root-linked switch and 3V3 application sheets.
 
-The SYS PWR_FLAG represents a missing charger OUT source. The gauge pole stays
+The charger OUT now provides the provisional SYS source. The gauge pole stays
 unwired until bus isolation and contact-order behavior have been reviewed.
 """
 
@@ -77,8 +77,8 @@ def component(ref, mpn, x, y, pins, value, footprint, manufacturer='', datasheet
 def generate_control():
     lines = ['(kicad_sch', '(version 20260306)', '(generator "rgb_badge_app_power")', '(generator_version "1.0")',
              f'(uuid {q(SW_FILE_UUID)})', '(paper "A4")',
-             '(title_block (title "Coupon Rev A - provisional application control") (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "SYS PWR_FLAG is an unresolved charger OUT boundary; no fabrication"))',
-             '(lib_symbols\n' + cached_symbol('JS202011JCQN') + '\n' + cached_symbol('PWR_FLAG') + '\n)',
+             '(title_block (title "Coupon Rev A - provisional application control") (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "Charger OUT source staged; no fabrication"))',
+             '(lib_symbols\n' + cached_symbol('JS202011JCQN') + '\n)',
              f'(text "Pole 1 drives TPS631000 EN with a separate 100k OFF pull-down on the converter page." (at 20.320 20.320 0) {effects(justify="left")} (uuid {q(uid("note/control"))}))',
              f'(text "Pole 2 is reserved for the gauge; leave it open until I2C isolation and contact order are reviewed." (at 20.320 27.940 0) {effects(justify="left")} (uuid {q(uid("note/gauge"))}))',
              f'(text "JCQN mechanical/throw-direction review remains open. Do not populate a board from this draft." (at 20.320 35.560 0) {effects(justify="left")} (uuid {q(uid("note/fit"))}))']
@@ -89,8 +89,6 @@ def generate_control():
     lines += wire_label('APP_ON_SW_DRAFT', 130.81, 81.28, 163.83, 81.28, 'SW2/3')
     for pin, x, y in [(1,130.81,76.20),(4,130.81,91.44),(5,110.49,93.98),(6,130.81,96.52)]:
         lines.append(f'(no_connect (at {x:.3f} {y:.3f}) (uuid {q(uid("SW2/" + str(pin) + "/nc"))}))')
-    lines += component('#FLG07', 'PWR_FLAG', 120.65, 132.08, ['1'], 'PWR_FLAG', '')
-    lines += wire_label('+SYS_APP_IN_DRAFT', 120.65, 132.08, 87.63, 132.08, '#FLG07/1')
     lines += ['(embedded_fonts no)', ')']
     return '\n'.join(lines) + '\n'
 

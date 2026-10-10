@@ -334,6 +334,20 @@ def controller_coupon_netlist():
         part(ref,value,'C_Murata_GRM15_0402' if ref.startswith('C') else 'R_Panasonic_ERJ2_0402',{1:a,2:b})
     part('TP34','TestPoint_Pad','TestPoint_Pad_D1.0mm',{1:'CHARGER_TS'})
     part('TP35','TestPoint_Pad','TestPoint_Pad_D1.0mm',{1:'CHARGER_GATE_EN'})
+    part('U41','BQ24074RGTR','VQFN_TI_RGT0016C_3x3mm_P0.5mm_EP1.68mm',{
+        1:'CHARGER_TS',2:'+BAT_PROTECTED_DRAFT',3:'+BAT_PROTECTED_DRAFT',4:'GND',
+        5:'GND',6:'GND',7:'unconnected-(U41-PGOOD-Pad7)',8:'GND',
+        9:'unconnected-(U41-CHG-Pad9)',10:'+SYS_APP_IN_DRAFT',11:'+SYS_APP_IN_DRAFT',
+        12:'CHARGER_ILIM',13:'CHARGER_IN_DRAFT',14:'unconnected-(U41-TMR-Pad14)',
+        15:'unconnected-(U41-ITERM-Pad15)',16:'CHARGER_ISET',17:'GND'})
+    for ref,value,fp,positive in [
+        ('R92','2.49k 0.1%','R_Panasonic_ERA2_0402','CHARGER_ISET'),
+        ('R93','3.65k 0.1%','R_Panasonic_ERA2_0402','CHARGER_ILIM'),
+        ('C52','1u 10V X7S','C_Murata_GRM15_0402','CHARGER_IN_DRAFT'),
+        ('C53','10u 6.3V X5R','C_Murata_GRM18_0603','+BAT_PROTECTED_DRAFT'),
+        ('C54','10u 6.3V X5R','C_Murata_GRM18_0603','+SYS_APP_IN_DRAFT'),
+    ]:
+        part(ref,value,fp,{1:positive,2:'GND'})
     return root
 
 

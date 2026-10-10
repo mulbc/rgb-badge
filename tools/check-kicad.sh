@@ -30,6 +30,7 @@ converter_candidate_check="${repo_root}/tools/check-coupon-3v3.py"
 slide_switch_library_check="${repo_root}/tools/check-slide-switch-library.py"
 app_power_capture_check="${repo_root}/tools/check-coupon-app-power.py"
 temperature_capture_check="${repo_root}/tools/check-coupon-temperature.py"
+charger_core_check="${repo_root}/tools/check-coupon-charger-core.py"
 
 if [[ -n "${RGB_BADGE_KICAD_CLI:-}" ]]; then
     kicad_cli="${RGB_BADGE_KICAD_CLI}"
@@ -74,11 +75,13 @@ for required_path in \
     "${slide_switch_library_check}" \
     "${app_power_capture_check}" \
     "${temperature_capture_check}" \
+    "${charger_core_check}" \
     "${repo_root}/tools/check-jst-ph-library.py" \
     "${footprint_library}/JST_PH_S2B-PH-SM4-TB.kicad_mod" \
     "${project_dir}/app-control.kicad_sch" \
     "${project_dir}/3v3-converter.kicad_sch" \
     "${project_dir}/charger-temperature.kicad_sch" \
+    "${project_dir}/charger-core.kicad_sch" \
     "${project_dir}/staging/3v3-converter.kicad_sch"
 do
     if [[ ! -e "${required_path}" ]]; then
@@ -110,6 +113,7 @@ python3 "${converter_candidate_check}"
 python3 "${slide_switch_library_check}"
 python3 "${app_power_capture_check}"
 python3 "${temperature_capture_check}"
+python3 "${charger_core_check}"
 python3 "${repo_root}/tools/check-jst-ph-library.py"
 
 kicad_version="$("${kicad_cli}" version)"
@@ -331,6 +335,7 @@ python3 "${repo_root}/tools/check-erc-report.py" "${check_tmp_dir}/coupon-erc.rp
     "${schematic_file}"
 python3 "${controller_capture_check}" --netlist "${check_tmp_dir}/coupon-matrix.xml"
 python3 "${temperature_capture_check}" --netlist "${check_tmp_dir}/coupon-matrix.xml"
+python3 "${charger_core_check}" --netlist "${check_tmp_dir}/coupon-matrix.xml"
 
 "${kicad_cli}" sch export pdf \
     --black-and-white \
@@ -341,8 +346,8 @@ if [[ ! -s "${check_tmp_dir}/coupon-schematic.pdf" ]]; then
     exit 1
 fi
 
-echo "KiCad ${kicad_version}: libraries exported; connected temperature sheet, provisional app switch/3V3, staged gauge and earlier coupon connectivity and ERC passed."
-echo "Draft: SYS and +5V_USB source flags remain; input protection, charger, gauge switch/bus isolation and VLED supply/interlock are uncaptured."
+echo "KiCad ${kicad_version}: libraries exported; connected charger/temperature core, provisional app switch/3V3, staged gauge and earlier coupon connectivity and ERC passed."
+echo "Draft: charger IN/BAT and +5V_USB source flags remain; input protection, charger gate, pack connector, gauge switch/bus isolation and VLED supply/interlock are uncaptured."
 if [[ "${keep_check_output}" == yes ]]; then
     echo "Review SVG/PDF output and netlist in: ${check_tmp_dir}"
 fi

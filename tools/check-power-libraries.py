@@ -112,7 +112,7 @@ PARTS = {
             4: ("CE", "input"), 5: ("EN2", "input"), 6: ("EN1", "input"),
             7: ("PGOOD", "open_collector"), 8: ("VSS", "power_in"),
             9: ("CHG", "open_collector"), 10: ("OUT", "power_out"),
-            11: ("OUT", "power_out"), 12: ("ILIM", "input"), 13: ("IN", "power_in"),
+            11: ("OUT", "passive"), 12: ("ILIM", "input"), 13: ("IN", "power_in"),
             14: ("TMR", "input"), 15: ("ITERM", "input"), 16: ("ISET", "bidirectional"),
             17: ("VSS_EP", "power_in"),
         },
