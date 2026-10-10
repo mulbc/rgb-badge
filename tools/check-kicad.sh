@@ -29,6 +29,7 @@ gauge_check="${repo_root}/tools/check-coupon-gauge.py"
 converter_candidate_check="${repo_root}/tools/check-coupon-3v3.py"
 slide_switch_library_check="${repo_root}/tools/check-slide-switch-library.py"
 app_power_capture_check="${repo_root}/tools/check-coupon-app-power.py"
+temperature_capture_check="${repo_root}/tools/check-coupon-temperature.py"
 
 if [[ -n "${RGB_BADGE_KICAD_CLI:-}" ]]; then
     kicad_cli="${RGB_BADGE_KICAD_CLI}"
@@ -72,8 +73,10 @@ for required_path in \
     "${converter_candidate_check}" \
     "${slide_switch_library_check}" \
     "${app_power_capture_check}" \
+    "${temperature_capture_check}" \
     "${project_dir}/app-control.kicad_sch" \
     "${project_dir}/3v3-converter.kicad_sch" \
+    "${project_dir}/charger-temperature.kicad_sch" \
     "${project_dir}/staging/3v3-converter.kicad_sch"
 do
     if [[ ! -e "${required_path}" ]]; then
@@ -104,6 +107,7 @@ python3 "${gauge_check}"
 python3 "${converter_candidate_check}"
 python3 "${slide_switch_library_check}"
 python3 "${app_power_capture_check}"
+python3 "${temperature_capture_check}"
 
 kicad_version="$("${kicad_cli}" version)"
 
@@ -219,6 +223,20 @@ if [[ ! -s "${symbol_svg_dir}/JS202011JCQN_unit1.svg" ]]; then
     echo "Expected non-empty two-pole switch candidate symbol SVG." >&2
     exit 1
 fi
+for symbol_name in TMP390A2DRLR SN74AUP1G125DBVR NCU15XH103F60RC ERJ2RKF2151X ERJ2RKF1402X; do
+    if [[ ! -s "${symbol_svg_dir}/${symbol_name}_unit1.svg" ]]; then
+        echo "Expected non-empty temperature symbol SVG: ${symbol_name}" >&2
+        exit 1
+    fi
+done
+for footprint_name in SOT563_TI_DRL0006A NTC_Murata_NCU15_0402; do
+    for view_dir in "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_paste_dir}"; do
+        if [[ ! -s "${view_dir}/${footprint_name}.svg" ]]; then
+            echo "Expected non-empty temperature footprint SVG: ${view_dir}/${footprint_name}.svg" >&2
+            exit 1
+        fi
+    done
+done
 for view_dir in "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_paste_dir}" "${footprint_mechanical_dir}"; do
     if [[ ! -s "${view_dir}/SW_CK_JS202011JCQN.svg" ]]; then
         echo "Expected non-empty two-pole switch footprint SVG: ${view_dir}" >&2
@@ -303,6 +321,7 @@ python3 "${repo_root}/tools/check-erc-report.py" "${check_tmp_dir}/coupon-erc.rp
     --output "${check_tmp_dir}/coupon-matrix.xml" \
     "${schematic_file}"
 python3 "${controller_capture_check}" --netlist "${check_tmp_dir}/coupon-matrix.xml"
+python3 "${temperature_capture_check}" --netlist "${check_tmp_dir}/coupon-matrix.xml"
 
 "${kicad_cli}" sch export pdf \
     --black-and-white \
@@ -313,7 +332,7 @@ if [[ ! -s "${check_tmp_dir}/coupon-schematic.pdf" ]]; then
     exit 1
 fi
 
-echo "KiCad ${kicad_version}: libraries exported; provisional app switch/3V3, staged gauge and earlier coupon connectivity and ERC passed."
+echo "KiCad ${kicad_version}: libraries exported; connected temperature sheet, provisional app switch/3V3, staged gauge and earlier coupon connectivity and ERC passed."
 echo "Draft: SYS and +5V_USB source flags remain; input protection, charger, gauge switch/bus isolation and VLED supply/interlock are uncaptured."
 if [[ "${keep_check_output}" == yes ]]; then
     echo "Review SVG/PDF output and netlist in: ${check_tmp_dir}"

@@ -64,4 +64,4 @@ def check(project=PROJECT):
 if __name__ == "__main__":
     check()
     print("3V3 inductor library passed: exact Murata MPN, two passive pins, 2.8 mm span / 1.2 mm gap / 2.0 mm land width.")
-    print("Inductor remains unplaced; thermal/DC-bias, assembly, native rendering and Gate A remain open.")
+    print("Inductor is on the root-linked provisional converter; thermal/DC-bias, assembly and Gate A remain open.")

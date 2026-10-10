@@ -301,6 +301,39 @@ def controller_coupon_netlist():
     for ref,net in [('R79','SYS_I2C_SDA'),('R80','SYS_I2C_SCL')]:
         part(ref,'2.2k 1%','R_Panasonic_ERJ2_0402',{1:'+3V3_APP',2:net})
     part('C39','100n 16V X7R','C_Murata_GRM15_0402',{1:'+BAT_GAUGE_SW',2:'GND'})
+    # Provisional switched application supply and battery-facing temperature block.
+    part('SW2','JS202011JCQN','SW_CK_JS202011JCQN',{
+        1:'unconnected-(SW2-A1-Pad1)',2:'+SYS_APP_IN_DRAFT',3:'APP_ON_SW_DRAFT',
+        4:'unconnected-(SW2-A2-Pad4)',5:'unconnected-(SW2-COM2-Pad5)',6:'unconnected-(SW2-B2-Pad6)'})
+    part('U36','TPS631000DRLR','SOT5X3_TI_DRL0008A',{
+        1:'+3V3_APP',2:'Net-(U36-LX2)',3:'Net-(U36-LX1)',4:'+SYS_APP_IN_DRAFT',
+        5:'APP_ON_SW_DRAFT',6:'GND',7:'GND',8:'APP_3V3_FB'})
+    part('L1','1u 20%','L_Murata_DFE252012P',{1:'Net-(U36-LX1)',2:'Net-(U36-LX2)'})
+    for ref,value,fp,a,b in [
+        ('C40','22u 10V X5R','C_Murata_GRM18_0603','+SYS_APP_IN_DRAFT','GND'),
+        ('C41','22u 10V X5R','C_Murata_GRM18_0603','+SYS_APP_IN_DRAFT','GND'),
+        ('C42','47u 6.3V X5R','C_Murata_GRM21_0805','+3V3_APP','GND'),
+        ('C43','47u 6.3V X5R','C_Murata_GRM21_0805','+3V3_APP','GND'),
+        ('R81','511k 1%','R_Panasonic_ERJ2_0402','+3V3_APP','APP_3V3_FB'),
+        ('R82','91k 1%','R_Panasonic_ERJ2_0402','APP_3V3_FB','GND'),
+        ('R83','100k 1%','R_Panasonic_ERJ2_0402','APP_ON_SW_DRAFT','GND'),
+    ]:
+        part(ref,value,fp,{1:a,2:b})
+    part('TH1','10k NTC','NTC_Murata_NCU15_0402',{1:'CHARGER_TS',2:'GND'})
+    part('U39','TMP390A2DRLR','SOT563_TI_DRL0006A',{
+        1:'TMP_HOT_SET',2:'TMP_COLD_SET',3:'GND',4:'TEMP_OK',5:'+3V3_USB',6:'TEMP_OK'})
+    part('U40','SN74AUP1G125DBVR','SOT23_TI_DBV0005A',{
+        1:'TEMP_OK',2:'GND',3:'GND',4:'CHARGER_GATE_EN',5:'+3V3_USB'})
+    for ref,value,a,b in [
+        ('R89','2.15k 1%','TMP_HOT_SET','GND'),
+        ('R90','14k 1%','TMP_COLD_SET','GND'),
+        ('R91','10k 1%','+3V3_USB','TEMP_OK'),
+        ('C50','100n 16V X7R','+3V3_USB','GND'),
+        ('C51','100n 16V X7R','+3V3_USB','GND'),
+    ]:
+        part(ref,value,'C_Murata_GRM15_0402' if ref.startswith('C') else 'R_Panasonic_ERJ2_0402',{1:a,2:b})
+    part('TP34','TestPoint_Pad','TestPoint_Pad_D1.0mm',{1:'CHARGER_TS'})
+    part('TP35','TestPoint_Pad','TestPoint_Pad_D1.0mm',{1:'CHARGER_GATE_EN'})
     return root
 
 
@@ -383,13 +416,13 @@ def main():
     if os.environ.get("RGB_BADGE_TEST_FAIL") == stage:
         return 7
     if stage == "sym/export":
-        names.extend(n + "_unit1.svg" for n in ("TPS259472ARPWR", "TPS259474ARPWR", "USB4505-03-0-A", "ERJ2RKF6203X", "ERA2AEB3651X", "ERA2AEB3481X", "ERA2AEB1131X", "ADG4612BCPZ-REEL7", "DFE252012P-1R0M=P2"))
+        names.extend(n + "_unit1.svg" for n in ("TPS259472ARPWR", "TPS259474ARPWR", "USB4505-03-0-A", "ERJ2RKF6203X", "ERA2AEB3651X", "ERA2AEB3481X", "ERA2AEB1131X", "ADG4612BCPZ-REEL7", "DFE252012P-1R0M=P2", "DFE252012P-1R5M=P2", "ERJ2RKF1803X", "GRM187R61A226ME15", "GRM219R60J476ME44", "ERJ2RKF5113X", "ERJ2RKF9102X", "JS202011JCQN", "TMP390A2DRLR", "NCU15XH103F60RC", "SN74AUP1G125DBVR", "ERJ2RKF2151X", "ERJ2RKF1402X"))
     elif stage in ("fabrication", "copper", "paste", "mechanical"):
         if not (stage == "mechanical" and
                 os.environ.get("RGB_BADGE_TEST_MISSING_USB_CONNECTOR") == "1"):
             names.append("USB_C_GCT_USB4505-03-0-A_MidMount.svg")
     if stage in ("fabrication", "copper", "paste", "mechanical"):
-        names.extend(("VQFN_TI_RPW0010A_2x2mm_HotRod.svg", "R_Panasonic_ERA2_0402.svg", "LFCSP_ADI_CP16_22_3x3mm_P0.5mm_EP1.75mm.svg", "L_Murata_DFE252012P.svg"))
+        names.extend(("VQFN_TI_RPW0010A_2x2mm_HotRod.svg", "R_Panasonic_ERA2_0402.svg", "LFCSP_ADI_CP16_22_3x3mm_P0.5mm_EP1.75mm.svg", "L_Murata_DFE252012P.svg", "C_Murata_GRM21_0805.svg", "SW_CK_JS202011JCQN.svg", "SOT563_TI_DRL0006A.svg", "NTC_Murata_NCU15_0402.svg", "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB.svg"))
     for name in names:
         if name == os.environ.get("RGB_BADGE_TEST_MISSING_NAMED"):
             continue

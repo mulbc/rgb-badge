@@ -2,7 +2,7 @@
 
 # Charger permission pin boundary for coupon review
 
-2026-10-07, amended 2026-10-09. **Proposed pin and state contract, not a captured or qualified circuit.** This narrows H3 in [ADR 0018](../decisions/0018-complete-power-architecture-proposal.md) without changing the canonical KiCad project. It assumes the two-switch protected USB topology and may use the [lower fixed-ILIM option](../decisions/0022-lower-fixed-usb-input-limit-proposal.md). [ADR 0024](../decisions/0024-lp452845-pack-and-temperature-window.md) now selects the exact LP452845 assembly as the Rev A design target; charger resistor population and the board remain uncaptured.
+2026-10-07, amended 2026-10-10. **Proposed pin and state contract, not a qualified charger circuit.** This narrows H3 in [ADR 0018](../decisions/0018-complete-power-architecture-proposal.md). The temperature NTC/TMP390/AUP subcircuit is now [root-linked](../../hardware/coupon/rev-a/charger-temperature.kicad_sch), but its `CHARGER_TS` and `CHARGER_GATE_EN` nets still terminate before the BQ24074 and E1. The contract assumes the two-switch protected USB topology and may use the [lower fixed-ILIM option](../decisions/0022-lower-fixed-usb-input-limit-proposal.md). [ADR 0024](../decisions/0024-lp452845-pack-and-temperature-window.md) selects the exact LP452845 assembly as the Rev A design target; charger resistor population and the board remain uncaptured.
 
 | Function | Proposed connection | Why it remains conditional |
 |---|---|---|

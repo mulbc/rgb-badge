@@ -39,4 +39,4 @@ def check(project=PROJECT):
 
 if __name__ == "__main__":
     print(f"3.3 V feedback library check passed: {check()} exact Panasonic MPNs, passive pins and reused ERJ2 land.")
-    print("Resistors remain unplaced; native export, rail transients and Gate A remain open.")
+    print("Feedback resistors are on the root-linked provisional converter; rail transients and Gate A remain open.")

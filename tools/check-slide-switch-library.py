@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: Apache-2.0
-"""Check the unplaced exact-MPN DPDT switch symbol and six local lands."""
+"""Check the provisional exact-MPN DPDT switch symbol and six local lands."""
 
 from decimal import Decimal
 from pathlib import Path
