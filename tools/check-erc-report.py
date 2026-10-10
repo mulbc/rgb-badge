@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: Apache-2.0
-"""Reject every KiCad ERC violation except the staged USB boundary pair."""
+"""Reject every KiCad ERC violation; USB data boundaries are now connected."""
 
 import argparse
 from dataclasses import dataclass
@@ -22,14 +22,6 @@ class Violation:
     severity: str
     location: str
     item: str
-
-
-EXPECTED_USB_BOUNDARIES = {
-    Violation("/", "isolated_pin_label", "Label connected to only one pin", "warning",
-              "350.52 mm, 66.04 mm", "Global Label 'USB_D-'"),
-    Violation("/", "isolated_pin_label", "Label connected to only one pin", "warning",
-              "350.52 mm, 81.28 mm", "Global Label 'USB_D+'"),
-}
 
 
 def parse_report(text: str) -> tuple[tuple[int, int, int], list[Violation]]:
@@ -81,9 +73,6 @@ def check_report(path: Path) -> str:
     actual = set(records)
     if not actual:
         return "ERC report check passed: 0 violations."
-    if actual == EXPECTED_USB_BOUNDARIES and errors == 0 and warnings == 2:
-        return ("ERC report check passed with 2 temporary USB-boundary warnings: "
-                "USB_D- and USB_D+ are intentionally awaiting the power/input sheet.")
 
     details = "\n".join(f"- {record}" for record in records)
     raise ValueError("Unexpected ERC violation set:\n" + details)

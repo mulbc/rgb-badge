@@ -32,10 +32,10 @@ PARTS = {
 }
 PARTS.update({f"Q{i + 1}": ("DMP2066LSN-7", "DMP2066LSN-7", "rgb-badge-coupon:SC59_Diodes_DMP2066LSN") for i in range(16)})
 PARTS.update({f"Q{i + 17}": ("2N7002K-7", "2N7002K-7", "rgb-badge-coupon:SOT23_Diodes_2N7002K") for i in range(16)})
-PARTS.update({f"R{i + 6}": ("ERJ-2RKF1001X", "1k 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402") for i in range(16)})
-PARTS.update({f"R{i + 22}": ("ERJ-2RKF1003X", "100k 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402") for i in range(16)})
-PARTS.update({f"R{i + 38}": ("ERJ-2RKF1003X", "100k 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402") for i in range(4)})
-PARTS["R42"] = ("ERJ-2RKF1003X", "100k 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402")
+PARTS.update({f"R{i + 6}": ("ERJ2RKF1001X", "1k 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402") for i in range(16)})
+PARTS.update({f"R{i + 22}": ("ERJ2RKF1003X", "100k 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402") for i in range(16)})
+PARTS.update({f"R{i + 38}": ("ERJ2RKF1003X", "100k 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402") for i in range(4)})
+PARTS["R42"] = ("ERJ2RKF1003X", "100k 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402")
 FLAGS = {"#FLG03": "VLED"}
 
 
@@ -86,7 +86,7 @@ def check_sources(project=PROJECT):
     ROW_LIB["check_libraries"](project)
     root = parse(project / "rgb-badge-coupon.kicad_sch")
     sheets = children(root, "sheet")
-    require(len(sheets) == 7, "Expected four matrix, one driver, one row and one controller sheet")
+    require(len(sheets) == 15, "Expected matrix, driver, rows, controller, USB, gauge, application power, temperature and charger core")
     row_sheets = [sheet for sheet in sheets if props(sheet)["Sheetfile"] == "rows.kicad_sch"]
     require(len(row_sheets) == 1 and not children(root, "symbol"), "Row sheet missing/duplicated or root contains components")
     sheet_uuid = one(row_sheets[0], "uuid", "row sheet")[1]

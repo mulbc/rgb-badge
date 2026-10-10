@@ -10,9 +10,9 @@ Status: exact-part library, source checks and owner KiCad 10.0.6 ERC/render/netl
 |---|---|---|---|
 | Controller / BLE / native USB | `ESP32-S3-WROOM-1U-N16R8` | 18 × 19.2 × 3.2 mm external-antenna module; 16 MB flash; 8 MB octal PSRAM | [Espressif module datasheet v1.81](https://documentation.espressif.com/esp32-s3-wroom-1_wroom-1u_datasheet_en.pdf) and [hardware guidelines](https://docs.espressif.com/projects/esp-hardware-design-guidelines/en/latest/esp32s3/schematic-checklist.html) |
 | Mode / ROM-recovery button | `EVQP7J01P` | side-push SPST-NO, 1.6 N, 1.35 mm high | [Panasonic EVQP7/P3/9P7 drawing](https://industrial.panasonic.com/cdbs/www-data/pdf/ATK0000/ATK0000C378.pdf) and [current product page](https://industry.panasonic.com/global/en/products/control/switch/light-touch/number/evqp7j01p) |
-| EN and GPIO0 pull-ups | `ERJ-2RKF1002X` | 10 kΩ ±1%, 0402 | [Panasonic ERJ data sheet](https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf) |
-| Native USB series resistors | `ERJ-2RKF22R0X` | 22 Ω ±1%, 0402 | same Panasonic ERJ data sheet |
-| UART0 TX series resistor | `ERJ-2RKF4990X` | 499 Ω ±1%, 0402 | same Panasonic ERJ data sheet |
+| EN and GPIO0 pull-ups | `ERJ2RKF1002X` | 10 kΩ ±1%, 0402 | [Panasonic ERJ data sheet](https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf) |
+| Native USB series resistors | `ERJ2RKF22R0X` | 22 Ω ±1%, 0402 | same Panasonic ERJ data sheet |
+| UART0 TX series resistor | `ERJ2RKF4990X` | 499 Ω ±1%, 0402 | same Panasonic ERJ data sheet |
 | Local bulk capacitor | `GRM188R60J106ME47D` | 10 µF ±20%, 6.3 V, X5R, 0603 | [Murata product record](https://pim.murata.com/en-global/pim/details/?partNum=GRM188R60J106ME47D) |
 | EN-delay capacitor | `GRM155C71A105KE11D` | 1 µF ±10%, 10 V, X7S, 0402 | [Murata product record](https://pim.murata.com/en-global/pim/details/?partNum=GRM155C71A105KE11D) |
 | Local high-frequency capacitor | `GRM155R71C104KA88D` | 100 nF ±10%, 16 V, X7R, 0402 | controlled driver-library record |
@@ -56,7 +56,7 @@ The pending power sheet must make `DISPLAY_ENABLE` fail-safe: VLED remains off t
 
 Native USB remains available through the future USB-C receptacle when the application rail is on. R45/R46 belong beside U3 in layout; the receptacle, controlled-impedance pair, ESD array and Type-C circuits remain on the next power/input sheet.
 
-Until that sheet is captured, native ERC correctly reports the single-ended `USB_D-` and `USB_D+` global labels as isolated. The wrapper accepts only that exact two-warning set (or zero warnings after connection); any other ERC message remains fatal. This is a temporary staged-capture exception, not an electrical waiver.
+Historical controller-only checkpoint: before that sheet was captured, native ERC reported the single-ended `USB_D-` and `USB_D+` global labels as isolated. The former wrapper accepted only that exact pair. The USB interface now connects both nets, and the exception is retired: current ERC must have zero violations. Native review of the new interface is pending.
 
 ## Library provenance and checks
 

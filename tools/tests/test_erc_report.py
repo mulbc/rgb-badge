@@ -44,8 +44,9 @@ class ErcReportTests(unittest.TestCase):
     def test_zero_violations_pass(self):
         self.assertIn("0 violations", self.check(report("", 0, 0, 0)))
 
-    def test_exact_usb_boundary_pair_passes(self):
-        self.assertIn("temporary USB-boundary", self.check(report(USB_WARNINGS, 2, 0, 2)))
+    def test_retired_usb_boundary_pair_is_rejected(self):
+        with self.assertRaises(ValueError):
+            self.check(report(USB_WARNINGS, 2, 0, 2))
 
     def test_partial_pair_is_rejected(self):
         with self.assertRaises(ValueError):

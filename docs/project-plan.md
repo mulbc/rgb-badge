@@ -4,7 +4,17 @@
 
 Status: agreed design baseline and staged execution plan
 Date: 2026-09-05
-Project phase: matrix, driver, row-stage and controller native reviews passed; power capture and layout remain
+Project phase: simplified Type-C-only logic passed native review at 12a134f; the subsequent U29 voltage-headroom correction and candidate eFuse libraries passed first-author native review at bad43fa. Input protection, physical standby, charger, converters/gauges and layout remain unfinished.
+
+## Current amendment: simpler charging
+
+[ADR 0013](decisions/0013-type-c-only-fixed-current-charging.md), accepted 2026-09-18, supersedes the BC1.2/SDP charging and switched-current descriptions below. Only Type-C sources advertising 1.5 A/3 A charge, using one fixed current limit. USB-A/default sources support battery-powered data while ON, with no guaranteed depleted-battery recovery. OFF charging and charge-through operation remain. The three USB sheets passed the combined native review at 12a134f. [ADR 0014](decisions/0014-usb-voltage-envelope-and-logic-ldo.md) subsequently changes U29; its [native review](development/input-review-bad43fa.md) passed. The [pack screen](sourcing/pack-screen-2026-09-25.md) found that the current ISET charge ceiling exceeds all three documented pack candidates' charge ratings. Historical sections below are design history wherever they conflict with ADR 0013 or current pack evidence.
+
+The [LED volume-cost screen](sourcing/led-volume-cost-screen-2026-09-26.md) finds a substantial gap between the USD 500–800 all-in target and representative DigiKey LED prices for three assembled coupons plus five full boards. No budget or quantity is changed; exact-MPN, optical-bin-aware assembly quotations are needed before a production commitment.
+
+**Gauge amendment:** [ADR 0015](decisions/0015-switch-fuel-gauge-with-application.md) disconnects the MAX17048 using an independent pole of the latching switch. OFF charging remains autonomous; battery SOC is not tracked while OFF and can be provisional after switch-ON. The earlier upstream/always-on gauge statements below are historical.
+
+**Pack and timing amendment:** [ADR 0016](decisions/0016-runtime-and-fit-over-charge-speed.md) prioritizes roughly six hours of reference runtime and finished fit over the former 45–60 min / 75–100 min charge-time numbers. The old ISET/fast-charge descriptions below are historical numerical screens, not an approved charge setting. Define pack-specific planning times before Gate A, then measure them.
 
 ## 1. Outcome
 
@@ -18,7 +28,7 @@ Build a new, open-source, full-colour wearable LED badge inspired by the FOSSASI
 | Finished weight | aim for 75 g; absolute maximum 100 g, including battery, case and attachment |
 | Runtime | roughly 6 h for the defined mixed-content reference workload at a suitable fixed brightness |
 | Charging | USB-C, standard 5 V only, correct A-to-C and C-to-C behaviour |
-| Charge-time target | approximately 80% in 45–60 min and full in 75–100 min, with the display off and a capable USB-C source |
+| Charge timing | Exact-pack-specific 80% and full planning times before Gate A; measure both with display off on a qualified USB-C source (ADR 0016) |
 | Wireless | Bluetooth Low Energy, enabled only in programming mode |
 | Local controls | one momentary mode button and one latching on/off slide switch |
 | Assembly | turnkey PCBA; the user only plugs in the battery and assembles the case |
@@ -52,8 +62,8 @@ This is feasible, with one qualification: six hours cannot apply to arbitrary co
 ### Power and safety behaviour
 
 - A real slide switch controls the operating state. It controls regulator enables rather than carrying the complete LED current through a tiny mechanical contact.
-- Switch OFF removes power from the display and battery-powered application electronics. Charging and battery gauging remain available.
-- When USB is inserted while the switch is OFF, the standalone charger and hardware charge indicators operate, but the ESP32-S3, display drivers and both switched rails remain off. USB data is available only when the slide switch is ON.
+- Switch OFF removes power from the display, application electronics and fuel gauge. The charger remains connected to the protected battery for qualified-source OFF charging.
+- While OFF, a Type-C source advertising 1.5 A/3 A can charge autonomously after hardware qualification. USB-A and default-current Type-C sources do not charge. USB data is available only when the slide switch is ON.
 - The badge can operate while charging. The charger gives the system load priority and allocates remaining input power to the battery.
 - There is no ambient light sensor and no content-dependent dimming.
 - Firmware may blank the display on undervoltage, overtemperature or a detected electrical fault. That is a safety shutdown, not automatic brightness control.
@@ -77,7 +87,8 @@ This is feasible, with one qualification: six hours cannot apply to arbitrary co
 ```mermaid
 flowchart TD
     USB["USB-C 5 V + USB 2.0"] --> CC["Type-C detection and ESD"]
-    CC --> CHG["BQ25616J standalone charger and power path"]
+    CC --> PROT["Protected input and permission: pending"]
+    PROT --> CHG["BQ24074 charger and PowerPath"]
     BAT["Protected 1-cell LiPo + NTC"] <--> CHG
     CHG --> SYS["System/battery rail"]
     SYS --> P33["3.3 V buck-boost"]
@@ -134,23 +145,26 @@ The existing classic ESP32-WROOM-32 breadboard board can be used for content-fil
 
 The proposed input path is:
 
-1. A low-profile, mechanically anchored USB 2.0 Type-C receptacle on the right short edge. GCT USB4500/4505 is a candidate series; final selection depends on the 1.0 mm PCB variant and assembly stock.
+1. A low-profile, mechanically anchored USB 2.0 Type-C receptacle on the right short edge. The exact GCT USB4505-03-0-A candidate drawing recommends a 0.80 mm PCB; its cited 1.0 mm connector offset is a separate dimension. Board stack-up and assembly stock must be resolved before layout freeze.
 2. VBUS and USB data ESD protection close to the connector.
 3. TUSB320LAI configured as a USB device/sink in GPIO mode. It identifies attachment and whether the source advertises default, 1.5 A or 3 A current. TI documents these GPIO states in the [TUSB320LAI datasheet](https://www.ti.com/lit/gpn/TUSB320LAI).
-4. USB D+ and D− routed as a controlled differential pair to native ESP32-S3 USB, with the Espressif-recommended protection and series components.
-5. TI BQ25616J standalone switching charger/power-path manager. Its `ICHG` resistor fixes battery charge current at approximately 0.8–0.9 A, never above the selected pack rating.
-6. A fail-safe hardware resistor/analog-switch network on `ILIM`, controlled by TUSB320LAI `OUT1` (low only for an attached 1.5 A or 3 A advertisement), permits approximately 1.2 A input only in those states. Its unattached/default/passive state is 500 mA. Firmware is not in this safety loop.
+4. BQ24392RSER detects BC1.2 SDP/CDP/DCP and supported dedicated chargers. Its internal data switch connects only data-capable sources; `GOOD_BAT` remains high whenever VBUS is valid so a long OFF-state charge cannot expire its Dead Battery Provision timer.
+5. TS3USB31ERSER sits between the detector and native ESP32-S3 USB. It is powered only by switched `+3V3_APP`, with the detector-facing pair on `D+/D-` and active-low `OE` tied low, so its documented partial-power-down behavior provides hard-OFF isolation without using the BQ24392 timer.
+6. BQ24074RGTR standalone linear charger/PowerPath manager. Under ADR 0011, EN2 stays high and EN1 selects standby or external ILIM. A 3.65 kohm base resistor sets the configured-SDP limit; only source hardware enables the parallel 3.48 kohm boost. Charge current remains approximately 0.79 A nominal.
+7. VBUS-powered fail-safe logic combines BQ24392 charging-port detection, TUSB320 Type-C 1.5 A/3 A detection and a validated SDP configuration grant. Both charger mode pins pull high to standby unless permission is present; hardware high-current permission has priority and application firmware cannot generate it.
 
-The [BQ25616/BQ25616J datasheet](https://www.ti.com/lit/ds/symlink/bq25616.pdf) specifies an autonomous 3 A switch-mode charger, NVDC power path, resistor-programmed 0.3–3 A charge current, NTC monitoring, a 10-hour safety timer and 9.5 µA battery leakage with the system in standby. The BQ25616J variant applies a JEITA temperature profile. It can finish a charge with the MCU genuinely off and is a better thermal fit than dissipating roughly a watt in a linear 1 A charger inside a thin plastic badge.
+The [BQ2407x datasheet](https://www.ti.com/lit/ds/symlink/bq24074.pdf) specifies PowerPath, selectable USB input modes, resistor-programmed input/charge currents, NTC monitoring and programmable safety timers. The [ADR 0011](decisions/0011-usb-total-current-headroom.md) base 3.65 kΩ and switched parallel 3.48 kΩ resistors (1%) give ideal calculated low/high limits of 0.361–0.476 A and 0.834–0.975 A; a 1.13 kΩ, 1% `ISET` resistor gives 0.698–0.872 A charge current. The exact pack must permit the maximum charge value. [ADR 0012](decisions/0012-programming-resistor-error-budget.md) amends the resistor specification: exact ERA2AEB parts have 0.1% initial tolerance and 25 ppm/K TCR; the quoted ±1% interval now represents total qualified resistance error. The assembly/service drift allocation remains unqualified. Nominal values and current ceilings are unchanged.
 
-The charger's BC1.2 `D+`/`D−` pins are provisionally left isolated so native USB data belongs only to the ESP32-S3; the charger then treats the input as an unknown 5 V adapter and obeys `ILIM`. Gate A must verify this exact state, the TUSB320-to-`ILIM` truth table, resistor tolerances, startup transients and the passive 500 mA fallback against both TI datasheets before layout. If an engineer rejects that implementation, use a dedicated hardware USB-data switch or a different standalone charger—never an MCU-dependent current-limit increase.
+The [BQ24392 datasheet](https://www.ti.com/lit/ds/symlink/bq24392.pdf) supplies the BC1.2 classification and its first USB 2.0 switch. The [TS3USB31E datasheet](https://www.ti.com/lit/ds/symlink/ts3usb31e.pdf) supplies the second switch and partial-power-down isolation. OFF + SDP/default/unclassified and ON + unconfigured/suspended SDP select BQ24074 standby. OFF + charging port or Type-C 1.5 A/3 A selects the bounded external mode without MCU assistance. ON + configured, unsuspended SDP selects the low external ILIM setting, reserving current for VBUS auxiliaries. [ADR 0010](decisions/0010-source-qualified-off-charging.md), amended by [ADR 0011](decisions/0011-usb-total-current-headroom.md), controls the state table.
 
-Fast-charge timing is conditional:
+The BQ24074 is linear. A first-order low-cell estimate reaches roughly 1.6 W at 5 V, 0.8 A and 3.0 V battery voltage. Gate A must review copper/temperature estimates and the coupon must log charge current and case temperature; reduce the fixed current if normal operation enters thermal regulation or becomes unacceptably hot.
 
-- Target 80% in 45–60 min assumes a new 750–900 mAh cell whose datasheet allows approximately 1 C charging, display off or lightly loaded, and a USB-C source advertising at least 1.5 A.
-- A-to-C and default-current C-to-C sources are intentionally limited and take longer.
+Charging time depends on the exact pack and thermal behavior (ADR 0016 supersedes the old timing target):
+
+- The old 80% in 45–60 min target assumed a 750–900 mAh cell allowing approximately 1 C charging; it is withdrawn.
+- Under ADR 0013, A-to-C and default-current C-to-C sources do not charge the pack.
 - Heavy display use consumes input power first and extends charge time.
-- The final charge current is never set above the exact pack supplier's rating.
+- Set the charge current no higher than the exact terminated pack's rating; document expected times and measure them with the display OFF on a qualified source.
 
 Two tiny side-facing LEDs next to USB-C indicate red while charging and green when complete. The circuit should derive a useful indication from charger status even before full application firmware is installed.
 
@@ -158,32 +172,34 @@ Two tiny side-facing LEDs next to USB-C indicate red while charging and green wh
 
 | Rail | Provisional implementation | Purpose |
 |---|---|---|
-| SYS/BAT | BQ25616J power-path output | Selects USB/battery, supports autonomous charging and charge-through operation |
+| SYS/BAT | BQ24074 PowerPath output | Selects USB/battery, supports source-qualified autonomous charging and charge-through operation |
 | 3V3 | TPS631000-class 1.5 A buck-boost | ESP32-S3, TLC logic and low-voltage logic |
 | VLED | TPS63020-class high-current buck-boost at about 3.9 V | Row anodes and LED optical power |
-| Battery state | MAX17048G+ in 2 × 2 mm TDFN | State-of-charge independent of simple voltage readings |
-| Battery current | INA232 with approximately 10 mΩ shunt | Bidirectional current/power telemetry while the application is on |
+| Battery state | Switched MAX17048G+ in 2 × 2 mm TDFN | State of charge during ON; initial post-ON estimate may be provisional |
+| Battery current | External inline instrument during validation (ADR 0021) | No on-board current monitor or series measurement shunt |
 
-The [TPS631000](https://www.ti.com/product/TPS631000) provides a compact SOT-package buck-boost rail with 1.5 A output capability and low quiescent current. The [TPS63020](https://www.ti.com/product/TPS63020) is active, supports a 1.8–5.5 V input and substantially more current than the matrix requires. The [MAX17048](https://www.analog.com/en/products/max17048.html) uses ModelGauge without a current-sense resistor and is available in an assembly-friendly 2 × 2 mm TDFN package; its datasheet specifies 3 µA hibernate and 23 µA active current.
+The [TPS631000](https://www.ti.com/product/TPS631000) provides a compact SOT-package buck-boost rail with 1.5 A output capability and low quiescent current. The [TPS63020](https://www.ti.com/product/TPS63020) is active, supports a 1.8–5.5 V input and substantially more current than the matrix requires. The [MAX17048](https://www.analog.com/en/products/max17048.html) uses ModelGauge without a current-sense resistor and is available in a 2 × 2 mm TDFN package; its operating current depends on mode, and its active supply-current maximum is 40 µA. ADR 0015 disconnects its supply when the slide switch is OFF.
 
-The latching switch controls both switched-regulator enables. The charger, fuel gauge and hardware charge-status circuit are upstream of that switch:
+The latching switch controls the regulator enables and disconnects the gauge via an independent contact. The charger and hardware charge-status circuit remain upstream. The older charging rows below are superseded by ADR 0013:
 
 | Slide switch | USB present | Application/USB data | Charging | Display |
 |---|---|---|---|---|
 | OFF | No | Off | No | Off |
-| OFF | Yes | Off | Yes, autonomous | Off |
+| OFF | SDP/default-only/unclassified | Off | Standby / no charge | Off |
+| OFF | BC1.2 charging source or Type-C 1.5 A/3 A | Off | Autonomous, hardware-bounded | Off |
 | ON | No | Normal battery playback | No | On |
-| ON | Yes | Normal playback plus USB data | Yes, with power-path load priority | On |
+| ON | SDP | Normal playback plus USB data | Standby until configured; low external ILIM with auxiliary headroom while configured; standby on suspend | On |
+| ON | Qualified charging source | Normal playback; USB data where supported | Yes, with PowerPath load priority | On |
 
-The charger and fuel gauge stay connected to the protected cell. The INA232 is powered only with 3V3; its datasheet permits the monitored common-mode voltage to remain present with its supply off. The design target for switch-OFF battery drain, after USB removal, is below 50 µA.
+The charger remains connected to the protected cell when OFF; the gauge is disconnected. ADR 0021 removes the originally planned INA232/shunt from capture. The design target for switch-OFF battery drain with USB absent remains below 50 µA; the exact pack/switch leakage and SOC recovery after an OFF charge require coupon measurements.
 
 ### 3.7 Battery
 
-Start with a standard reputable LiPo cell and have the battery vendor add:
+Start with a documented protected LiPo pack. Under ADR 0019, a battery-facing PCB NTC may replace a pack-integrated NTC after thermal validation. Require:
 
 - a one-cell protection circuit;
-- a 10 kΩ NTC compatible with the charger profile;
-- a keyed three-wire low-profile connector;
+- an independently operating charger-connected 10 kΩ NTC compatible with the exact pack's charge-temperature range, on the pack or battery-facing PCB;
+- a keyed two- or three-wire low-profile connector, matching the chosen NTC arrangement;
 - strain relief and insulated protection-board terminations;
 - documentation for the exact assembled pack, not only a generic cell family.
 
@@ -191,7 +207,7 @@ The most promising standard cells are:
 
 | Candidate | Capacity | Cell dimensions | Cell weight | Status |
 |---|---:|---:|---:|---|
-| [EEMB LP603048](https://www.eemb.com/product-146) | 900 mAh | 30.5 × 32 × 6.3 mm | 18 g | Runtime favourite; thickness must be proven in CAD |
+| [EEMB LP603048](https://www.eemb.com/product-146) | 900 mAh | 30.5 × **length unverified** × 6.3 mm bare cell; product page says 32 mm but its 603048 code indicates 48 mm nominal | 18 g bare cell | Runtime candidate only; source discrepancy and terminated-pack thickness must be resolved. See [mechanical screen](../mechanical/envelope-screen-2026-09-26.md). |
 | [EEMB LP503048](https://www.eemb.com/product-201) | 750 mAh | 30.5 × 50 × 5.3 mm | 15 g | Safer thickness fallback |
 | [EEMB LP453048](https://www.eemb.com/product-209) | 710 mAh | 30.5 × 50 × 4.8 mm | 14.2 g | Thin fallback if enclosure stack is tight |
 
@@ -216,9 +232,11 @@ No pouch cell may be clamped between screw bosses or magnets. The case includes 
 
 These are layout starting values, not permission to exceed the finished envelope. The CadQuery model and KiCad STEP export must be assembled before layout freeze.
 
+**Unresolved preliminary dimensions:** the exact GCT USB4505 connector guide specifies a 0.80 mm board, while the historical 1.0 mm PCB estimate in this table has not been revised or validated. A centred 48 × 16 QT LED grid on the 106 mm draft board also has a [calculated last-column conflict with the USB opening](../mechanical/usb-led-edge-screen-2026-09-26.md). Set the board thickness, length and grid origin together during placement review; neither value here is a fabrication specification.
+
 ### 4.2 Final PCB recommendation
 
-- Six layers, 1.0 mm FR-4, standard through vias if routing can pass without HDI.
+- Six layers, provisional 1.0 mm FR-4 subject to review of the USB4505 candidate's 0.80 mm recommended board thickness; standard through vias if routing can pass without HDI.
 - ENIG finish for the fine LED/QFN pads and consistent coplanarity.
 - Black solder mask; minimal front silkscreen within the viewing area.
 - One uninterrupted ground reference layer and deliberate power layers/regions for VLED and row current.
@@ -252,13 +270,15 @@ After electrical validation, a final shell can use snaps/adhesive and rear-side 
 | Assembly | Design allocation |
 |---|---:|
 | Complete populated PCB | ≤18 g |
-| Protected 900 mAh pack, lead and connector | ≤21 g |
+| Protected pack, lead and connector | ≤21 g stretch allocation |
 | Printed shell and diffuser | ≤18 g |
 | Two magnets and garment backer | ≤15 g |
 | Antenna, screws, gasket and adhesive | ≤3 g |
 | **Target total** | **≤75 g** |
 
-A 106 × 32.5 × 1.0 mm FR-4 substrate is approximately 6.4 g before copper and components, so the allocation is realistic. Every physical revision is weighed; the 100 g limit is a hard stop, not a goal.
+A hypothetical 106 × 32.5 × 1.0 mm FR-4 substrate is approximately 6.4 g before copper and components; at 0.80 mm the same area would scale to approximately 5.1 g. Neither stack-up is frozen, and copper, components and mounting may change the actual weight. Every physical revision is weighed; the 100 g limit is a hard stop, not a goal.
+
+The stretch allocation is **not met by the screened GlobTek packs on paper**: the documented 700 mAh pack weighs about 22 g and the 800 mAh pack about 30 g. Recalculate the complete weight and measured runtime with the exact selected pack; the 100 g maximum remains controlling.
 
 ## 5. Runtime model
 
@@ -301,8 +321,7 @@ The first production-intent hardware is not an off-the-shelf HUB75 panel. It is 
 - One TLC59581, all 16 level-shifted row switches and the production row decoder/inhibit circuit.
 - ESP32-S3-WROOM-1U-N16R8 and external FPC antenna.
 - Production-intent USB-C, Type-C detection, ESD, charger, fuel gauge, 3V3/VLED converters, NTC interfaces, slide switch and mode button.
-- Production-intent INA232 and approximately 10 mΩ battery-path shunt for bidirectional voltage/current/power telemetry over USB serial while the badge is on.
-- Optional coupon-only second INA232 and shunt on VLED, if routing/cost permit, to separate display power from controller power.
+- External inline protected-pack current logging for charge, discharge, OFF leakage and runtime validation (ADR 0021); no on-board INA232 or series measurement shunt.
 - Test pads for VBUS, BAT, SYS, 3V3, VLED, ground, I²C, USB, SPI/GCLK/latch, row-decoder enable and row-address signals.
 - Factory Tag-Connect-compatible or custom pogo footprint for flashing and a minimal functional test.
 
@@ -341,7 +360,7 @@ The board remains self-reporting so ordinary bring-up does not require an oscill
 1. Vendor AOI, polarity inspection and resistance checks before power.
 2. Flash factory firmware through the pogo pads.
 3. Power from USB with no battery and VLED disabled.
-4. Turn the slide switch ON; confirm 3V3, native USB enumeration, reset/boot mode and the MAX17048/INA232 I²C device IDs.
+4. Turn the slide switch ON; confirm 3V3, native USB enumeration, reset/boot mode and the MAX17048 I²C device ID.
 5. With the application alternately ON and OFF, confirm Type-C default/1.5 A/3 A detection, hardware `ILIM` selection and conservative startup current.
 6. Enable VLED without scanning; confirm voltage, quiescent current and shutdown.
 7. Scan one pixel at the lowest current, then one colour, one row and walking rows.
@@ -392,7 +411,7 @@ Final acceptance:
 - user-selected fixed brightness with no automatic dimming;
 - approximately six hours at the published reference content/brightness with a new selected pack;
 - safe 5 V USB-C charging and USB data in both orientations;
-- target fast charge on a capable source, with slower compliant fallback;
+- published measured 80% and full charge times on a qualified Type-C source, with limits matched to the exact pack;
 - full operation during charging;
 - BLE off in playback and on only during programming mode;
 - correct button/switch/status indicators;
@@ -405,11 +424,11 @@ The coupon firmware is intentionally small but production-shaped:
 
 - board pin map and hardware revision held in one machine-readable definition;
 - native USB serial/JTAG recovery and diagnostic console;
-- MAX17048 and INA232 drivers with register/configuration readback, plus GPIO readback for Type-C and charger-status states;
+- MAX17048 driver with register/configuration readback, plus GPIO readback for Type-C and charger-status states;
 - deterministic TLC59581 scan engine using hardware timers/DMA where practical;
 - boot-time all-rows-off and VLED-off defaults;
 - test patterns, gamma LUT, colour correction and fixed brightness setting;
-- telemetry: battery voltage/current/power, state of charge, board temperature, USB attachment/current advertisement and charger `PG`/`STAT` state;
+- telemetry: battery voltage and state of charge, board temperature, USB attachment/current advertisement and charger `PG`/`STAT` state; validation current/power are logged externally under ADR 0021;
 - three-second mode-button state machine;
 - BLE programming-mode skeleton and a small CRC-checked test transfer into flash;
 - playback mode that explicitly releases/stops BLE resources;
@@ -548,8 +567,8 @@ Keep the independent review outside this build allocation, as agreed. Obtain its
 | Matrix routing fails standard rules | DRC congestion on 1.95 mm grid | Use six layers and tighter standard rules; HDI only after a cost review |
 | Camera banding/ghosting | Coupon photos or low-gray patterns fail | Raise GCLK/visual refresh, tune blanking/precharge and row timing |
 | BLE range is poor when worn | Dropouts around body/magnets | Move/tune FPC antenna within reserved case zones; keep 1U module |
-| Charger overheats during operation | Thermal log shows regulation or hot case | Lower the fixed charge current or add switch-state hardware derating; improve copper spreading; retain full operation |
-| USB source is overdrawn | Meter shows >default current without a valid higher-current advertisement | Passive 500 mA `ILIM`; hardware-only increase after valid Type-C detection; validate every attach/detach truth-table transition |
+| Linear charger overheats | Thermal log shows regulation or hot case | Lower the fixed charge current, improve BQ24074 copper spreading and remeasure; do not assume the time target survives |
+| USB source is overdrawn | Meter shows current without a valid BC1.2/Type-C/configuration permission | Passive standby; hardware-only high-current permission; low external SDP limit with auxiliary headroom; validate every attach/detach/suspend transition |
 | Marketplace substitution changes pinout/bin | Quote or incoming reel differs | Exact MPN lock, first-article photo, incoming inspection and re-coupon if needed |
 | LiPo mechanical damage | Fit interference or local pressure marks | Battery keepout, smooth cradle, swelling clearance and independent mechanical review |
 
@@ -560,7 +579,7 @@ Keep the independent review outside this build allocation, as agreed. Obtain its
 - Exact 1010 and 1515 MPNs locked; project-local footprints, polarity, tape orientation and optical bins independently checked.
 - Battery cell/terminated-pack drawing and electrical limits obtained.
 - Schematic ERC clean and power tree reviewed.
-- USB-C default-current behaviour, isolated charger data pins and TUSB320-to-`ILIM` hardware truth table proven by design review.
+- TUSB320 Type-C 1.5 A/3 A classification, protected input, TS3USB31E native-data isolation, fixed BQ24074 current and fail-safe charging permission proven by design review for switch ON/OFF, USB-A/default-current, source transitions, and suspend.
 - Converter calculations and layouts checked against manufacturer guidance.
 - Coupon PCB DRC and vendor DFM clean.
 - Independent electronics engineer reviews LiPo charging, high-current LED rail, USB-C and PCB layout.
@@ -585,8 +604,8 @@ Keep the independent review outside this build allocation, as agreed. Obtain its
 ### Immediate deliverable sequence
 
 1. Create the repository skeleton, requirements, pin map and decision records.
-2. Complete the owner KiCad review of the captured controller increment.
-3. Capture the exact USB-C, charger, gauges and switched 3.3 V/VLED power sheet with hardware-safe defaults.
+2. Record the completed owner KiCad review of the controller increment.
+3. Capture the exact USB-C, charger, gauge and switched 3.3 V/VLED power sheet with hardware-safe defaults.
 4. Review the complete schematic and run the power calculations against exact selected parts.
 5. Lay out the coupon, generate its STEP model and perform DFM.
 6. Produce Gerbers, BOM, placement file, assembly drawing, factory firmware and bring-up checklist.
@@ -603,7 +622,9 @@ This staged route validates the actual driver, LEDs, ESP32-S3, USB-C, charger, b
 - [TI TLC59581 multiplexed-panel application note](https://www.ti.com/lit/pdf/SLVA744)
 - [TI TIDA-00161 multiplexed RGB panel reference design](https://www.ti.com/tool/TIDA-00161)
 - [TI TIDA-00161 bill of materials](https://www.ti.com/lit/pdf/tidr688)
-- [TI BQ25616/BQ25616J standalone charger/power-path datasheet](https://www.ti.com/lit/ds/symlink/bq25616.pdf)
+- [TI BQ2407x standalone charger/PowerPath datasheet](https://www.ti.com/lit/ds/symlink/bq24074.pdf)
+- [TI BQ24392 BC1.2 detector/data-switch datasheet](https://www.ti.com/lit/ds/symlink/bq24392.pdf)
+- [TI TS3USB31E USB 2.0 switch datasheet](https://www.ti.com/lit/ds/symlink/ts3usb31e.pdf)
 - [TI TUSB320LAI USB-C controller datasheet](https://www.ti.com/lit/gpn/TUSB320LAI)
 - [TI INA232 current/power monitor datasheet](https://www.ti.com/lit/gpn/INA232)
 - [TI TPS63020 high-current buck-boost](https://www.ti.com/product/TPS63020)

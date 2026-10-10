@@ -15,9 +15,22 @@ numbered_review="${repo_root}/tools/number-footprint-review.py"
 matrix_check="${repo_root}/tools/check-coupon-matrix.py"
 driver_check="${repo_root}/tools/check-coupon-driver.py"
 row_library_check="${repo_root}/tools/check-row-libraries.py"
+dual_row_candidate_check="${repo_root}/tools/check-dual-row-candidate.py"
 row_capture_check="${repo_root}/tools/check-coupon-rows.py"
 controller_library_check="${repo_root}/tools/check-controller-libraries.py"
 controller_capture_check="${repo_root}/tools/check-coupon-controller.py"
+power_design_check="${repo_root}/tools/check-power-design.py"
+usb_permission_check="${repo_root}/tools/check-usb-permission.py"
+permission_capture_check="${repo_root}/tools/check-coupon-permission.py"
+usb_capture_check="${repo_root}/tools/check-coupon-usb.py"
+power_library_check="${repo_root}/tools/check-power-libraries.py"
+usb_connector_check="${repo_root}/tools/check-usb-connector.py"
+gauge_check="${repo_root}/tools/check-coupon-gauge.py"
+converter_candidate_check="${repo_root}/tools/check-coupon-3v3.py"
+slide_switch_library_check="${repo_root}/tools/check-slide-switch-library.py"
+app_power_capture_check="${repo_root}/tools/check-coupon-app-power.py"
+temperature_capture_check="${repo_root}/tools/check-coupon-temperature.py"
+charger_core_check="${repo_root}/tools/check-coupon-charger-core.py"
 
 if [[ -n "${RGB_BADGE_KICAD_CLI:-}" ]]; then
     kicad_cli="${RGB_BADGE_KICAD_CLI}"
@@ -42,9 +55,34 @@ for required_path in \
     "${matrix_check}" \
     "${driver_check}" \
     "${row_library_check}" \
+    "${dual_row_candidate_check}" \
     "${row_capture_check}" \
     "${controller_library_check}" \
-    "${controller_capture_check}"
+    "${controller_capture_check}" \
+    "${power_design_check}" \
+    "${repo_root}/tools/check-programming-resistors.py" \
+    "${repo_root}/tools/check-3v3-feedback-libraries.py" \
+    "${repo_root}/tools/check-3v3-capacitor-footprints.py" \
+    "${repo_root}/tools/check-3v3-inductor-library.py" \
+    "${usb_permission_check}" \
+    "${permission_capture_check}" \
+    "${usb_capture_check}" \
+    "${power_library_check}" \
+    "${usb_connector_check}" \
+    "${gauge_check}" \
+    "${project_dir}/gauge.kicad_sch" \
+    "${converter_candidate_check}" \
+    "${slide_switch_library_check}" \
+    "${app_power_capture_check}" \
+    "${temperature_capture_check}" \
+    "${charger_core_check}" \
+    "${repo_root}/tools/check-jst-ph-library.py" \
+    "${footprint_library}/JST_PH_S2B-PH-SM4-TB.kicad_mod" \
+    "${project_dir}/app-control.kicad_sch" \
+    "${project_dir}/3v3-converter.kicad_sch" \
+    "${project_dir}/charger-temperature.kicad_sch" \
+    "${project_dir}/charger-core.kicad_sch" \
+    "${project_dir}/staging/3v3-converter.kicad_sch"
 do
     if [[ ! -e "${required_path}" ]]; then
         echo "Required project path is missing: ${required_path}" >&2
@@ -56,9 +94,27 @@ python3 "${led_library_check}"
 python3 "${matrix_check}"
 python3 "${driver_check}"
 python3 "${row_library_check}"
+python3 "${dual_row_candidate_check}"
 python3 "${row_capture_check}"
 python3 "${controller_library_check}"
 python3 "${controller_capture_check}"
+python3 "${power_design_check}"
+python3 "${repo_root}/tools/check-programming-resistors.py"
+python3 "${repo_root}/tools/check-3v3-feedback-libraries.py"
+python3 "${repo_root}/tools/check-3v3-capacitor-footprints.py"
+python3 "${repo_root}/tools/check-3v3-inductor-library.py"
+python3 "${usb_permission_check}"
+python3 "${permission_capture_check}"
+python3 "${usb_capture_check}"
+python3 "${power_library_check}"
+python3 "${usb_connector_check}"
+python3 "${gauge_check}"
+python3 "${converter_candidate_check}"
+python3 "${slide_switch_library_check}"
+python3 "${app_power_capture_check}"
+python3 "${temperature_capture_check}"
+python3 "${charger_core_check}"
+python3 "${repo_root}/tools/check-jst-ph-library.py"
 
 kicad_version="$("${kicad_cli}" version)"
 
@@ -90,7 +146,8 @@ footprint_fab_dir="${check_tmp_dir}/footprints/fabrication"
 footprint_copper_dir="${check_tmp_dir}/footprints/copper"
 footprint_numbered_dir="${check_tmp_dir}/footprints/numbered"
 footprint_paste_dir="${check_tmp_dir}/footprints/paste"
-mkdir -p -- "${symbol_svg_dir}" "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_numbered_dir}" "${footprint_paste_dir}"
+footprint_mechanical_dir="${check_tmp_dir}/footprints/mechanical"
+mkdir -p -- "${symbol_svg_dir}" "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_numbered_dir}" "${footprint_paste_dir}" "${footprint_mechanical_dir}"
 
 "${kicad_cli}" sym export svg \
     --black-and-white \
@@ -119,6 +176,24 @@ mkdir -p -- "${symbol_svg_dir}" "${footprint_fab_dir}" "${footprint_copper_dir}"
     --output "${footprint_paste_dir}" \
     "${footprint_library}"
 
+# Mechanical datums are review guides, not a routed board outline.
+"${kicad_cli}" fp export svg \
+    --black-and-white \
+    --layers "F.Fab,Dwgs.User" \
+    --output "${footprint_mechanical_dir}" \
+    "${footprint_library}"
+
+if [[ ! -s "${symbol_svg_dir}/USB4505-03-0-A_unit1.svg" ]]; then
+    echo "Expected non-empty USB connector symbol SVG." >&2
+    exit 1
+fi
+for view_dir in "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_paste_dir}" "${footprint_mechanical_dir}"; do
+    if [[ ! -s "${view_dir}/USB_C_GCT_USB4505-03-0-A_MidMount.svg" ]]; then
+        echo "Expected non-empty USB connector footprint SVG: ${view_dir}" >&2
+        exit 1
+    fi
+done
+
 for expected_svg in \
     "${symbol_svg_dir}/EAST10105RGBA0_unit1.svg" \
     "${symbol_svg_dir}/QBLP1515A-RGB2A_unit1.svg" \
@@ -133,11 +208,75 @@ do
     fi
 done
 
-for symbol_name in TLC59581RTQT ERJ-2RKF3922X ERJ-2RKF1003X GRM155R71C104KA88D PWR_FLAG TestPoint_Pad '74HC4514PW,118' DMP2066LSN-7 2N7002K-7 ERJ-2RKF1001X ESP32-S3-WROOM-1U-N16R8 ERJ-2RKF1002X ERJ-2RKF22R0X ERJ-2RKF4990X GRM155C71A105KE11D GRM188R60J106ME47D EVQP7J01P; do
+for symbol_name in TLC59581RTQT ERJ2RKF3922X ERJ2RKF1003X GRM155R71C104KA88D PWR_FLAG TestPoint_Pad '74HC4514PW,118' DMP2066LSN-7 2N7002K-7 ERJ2RKF1001X ESP32-S3-WROOM-1U-N16R8 ERJ2RKF1002X ERJ2RKF2201X ERJ2RKF22R0X ERJ2RKF4990X GRM155C71A105KE11D GRM188R60J106ME47D EVQP7J01P BQ24074RGTR BQ24392RSER TS3USB31ERSER BQ25616JRTWT TPS631000DRLR TLV75533PDBVR SN74LVC1G04DBVR INA232AIDDFR TPD4E05U06DQAR TUSB320LAIRWBR TPS63020DSJT 'MAX17048G+T10' SN74LVC1G00DBVR SN74LVC1G06DBVR SN74LVC1G08DBVR SN74LVC1G11DBVR SN74LVC1G32DBVR TPS3808G01DBVR SN74LVC2G17DBVR ERJ2RKF8873X ERJ2RCF2R20X ERJ2RKF6203X ERA2AEB3651X ERA2AEB3481X ERA2AEB1131X ERA2AEB2491X ADG4612BCPZ-REEL7; do
     if [[ ! -s "${symbol_svg_dir}/${symbol_name}_unit1.svg" ]]; then
         echo "Expected non-empty controlled symbol SVG: ${symbol_name}" >&2
         exit 1
     fi
+done
+
+for view_dir in "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_paste_dir}" "${footprint_mechanical_dir}"; do
+    if [[ ! -s "${view_dir}/R_Panasonic_ERA2_0402.svg" ]]; then
+        echo "Expected non-empty ERA2 footprint SVG: ${view_dir}" >&2
+        exit 1
+    fi
+done
+
+if [[ ! -s "${symbol_svg_dir}/DFE252012P-1R0M=P2_unit1.svg" ]]; then
+    echo "Expected non-empty 3V3 inductor symbol SVG." >&2
+    exit 1
+fi
+if [[ ! -s "${symbol_svg_dir}/JS202011JCQN_unit1.svg" ]]; then
+    echo "Expected non-empty two-pole switch candidate symbol SVG." >&2
+    exit 1
+fi
+for symbol_name in TMP390A2DRLR SN74AUP1G125DBVR NCU15XH103F60RC ERJ2RKF2151X ERJ2RKF1402X; do
+    if [[ ! -s "${symbol_svg_dir}/${symbol_name}_unit1.svg" ]]; then
+        echo "Expected non-empty temperature symbol SVG: ${symbol_name}" >&2
+        exit 1
+    fi
+done
+for footprint_name in SOT563_TI_DRL0006A NTC_Murata_NCU15_0402; do
+    for view_dir in "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_paste_dir}"; do
+        if [[ ! -s "${view_dir}/${footprint_name}.svg" ]]; then
+            echo "Expected non-empty temperature footprint SVG: ${view_dir}/${footprint_name}.svg" >&2
+            exit 1
+        fi
+    done
+done
+for view_dir in "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_paste_dir}" "${footprint_mechanical_dir}"; do
+    if [[ ! -s "${view_dir}/JST_PH_S2B-PH-SM4-TB.svg" ]]; then
+        echo "Expected non-empty staged JST PH footprint SVG: ${view_dir}" >&2
+        exit 1
+    fi
+done
+for view_dir in "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_paste_dir}" "${footprint_mechanical_dir}"; do
+    if [[ ! -s "${view_dir}/SW_CK_JS202011JCQN.svg" ]]; then
+        echo "Expected non-empty two-pole switch footprint SVG: ${view_dir}" >&2
+        exit 1
+    fi
+done
+for view_dir in "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_paste_dir}" "${footprint_mechanical_dir}"; do
+    if [[ ! -s "${view_dir}/L_Murata_DFE252012P.svg" ]]; then
+        echo "Expected non-empty 3V3 inductor footprint SVG: ${view_dir}" >&2
+        exit 1
+    fi
+done
+
+for view_dir in "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_paste_dir}" "${footprint_mechanical_dir}"; do
+    if [[ ! -s "${view_dir}/LFCSP_ADI_CP16_22_3x3mm_P0.5mm_EP1.75mm.svg" ]]; then
+        echo "Expected non-empty ADG candidate footprint SVG: ${view_dir}" >&2
+        exit 1
+    fi
+done
+
+for footprint_name in VQFN_TI_RGT0016C_3x3mm_P0.5mm_EP1.68mm UQFN_TI_RSE0010A_2x1.5mm_P0.5mm UQFN_TI_RSE0008A_1.5x1.5mm_P0.5mm QFN_TI_RTW0024A_4x4mm_P0.5mm_EP2.7mm SOT5X3_TI_DRL0008A SOT23_TI_DBV0005A SOT23_THIN_TI_DDF0008A USON_TI_DQA0010A X2QFN_TI_RWB0012A_1.6x1.6mm_P0.4mm VSON_TI_DSJ0014_4x3mm_P0.5mm_EP2.85x1.58mm TDFN_Maxim_T822-3_2x2mm_P0.5mm_EP0.7x1.38mm SOT23_TI_DBV0006A; do
+    for view_dir in "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_paste_dir}"; do
+        if [[ ! -s "${view_dir}/${footprint_name}.svg" ]]; then
+            echo "Expected non-empty controlled power footprint SVG: ${view_dir}/${footprint_name}.svg" >&2
+            exit 1
+        fi
+    done
 done
 
 for footprint_name in ESP32-S3-WROOM-1U C_Murata_GRM18_0603 SW_Panasonic_EVQP7J01P; do
@@ -180,6 +319,10 @@ for footprint_name in LED_Everlight_EAST10105RGBA0 LED_QTBrightek_QBLP1515A-RGB2
         "${footprint_numbered_dir}/${footprint_name}.svg"
 done
 
+python3 "${numbered_review}" --profile rpw \
+    "${footprint_fab_dir}/VQFN_TI_RPW0010A_2x2mm_HotRod.svg" \
+    "${footprint_numbered_dir}/VQFN_TI_RPW0010A_2x2mm_HotRod.svg"
+
 "${kicad_cli}" sch erc \
     --severity-all \
     --output "${check_tmp_dir}/coupon-erc.rpt" \
@@ -191,6 +334,8 @@ python3 "${repo_root}/tools/check-erc-report.py" "${check_tmp_dir}/coupon-erc.rp
     --output "${check_tmp_dir}/coupon-matrix.xml" \
     "${schematic_file}"
 python3 "${controller_capture_check}" --netlist "${check_tmp_dir}/coupon-matrix.xml"
+python3 "${temperature_capture_check}" --netlist "${check_tmp_dir}/coupon-matrix.xml"
+python3 "${charger_core_check}" --netlist "${check_tmp_dir}/coupon-matrix.xml"
 
 "${kicad_cli}" sch export pdf \
     --black-and-white \
@@ -201,8 +346,8 @@ if [[ ! -s "${check_tmp_dir}/coupon-schematic.pdf" ]]; then
     exit 1
 fi
 
-echo "KiCad ${kicad_version}: libraries exported; complete matrix/driver/row/controller connectivity and Coupon Rev A ERC passed."
-echo "Matrix/driver/row/controller draft: USB-C, charging, gauging and switched power remain uncaptured; supply flags are draft boundary assumptions."
+echo "KiCad ${kicad_version}: libraries exported; connected charger/temperature core, provisional app switch/3V3, staged gauge and earlier coupon connectivity and ERC passed."
+echo "Draft: charger IN/BAT and +5V_USB source flags remain; input protection, charger gate, pack connector, gauge switch/bus isolation and VLED supply/interlock are uncaptured."
 if [[ "${keep_check_output}" == yes ]]; then
     echo "Review SVG/PDF output and netlist in: ${check_tmp_dir}"
 fi

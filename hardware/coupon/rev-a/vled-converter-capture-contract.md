@@ -1,0 +1,23 @@
+<!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
+
+# VLED converter capture contract — unlinked candidate
+
+2026-10-06. The [staged KiCad source](staging/vled-converter.kicad_sch) captures a default-disabled TPS63020 LED converter, not a completed or board-qualified power system. It is intentionally absent from the root sheet while the protected SYS source and display interlock remain unresolved under proposed [ADR 0018](../../../docs/decisions/0018-complete-power-architecture-proposal.md). VLED_ENABLE_DRAFT is held low by 100 kΩ; no controller GPIO is connected to it. PG is marked unused on this candidate. VLED itself remains sourced by the root sheet's draft flag until replacement is reviewed.
+
+| Function | Exact candidate and source | Capture |
+|---|---|---|
+| Converter | TI TPS63020DSJT, [Rev I datasheet](https://www.ti.com/lit/ds/symlink/tps63020.pdf) | VIN 10/11 and VINA 1 to draft SYS; VOUT 4/5 to VLED; EN 12 to pulled-low draft permission; PS/SYNC 13 to GND; FB 3 to divider; PG 14 no-connect; GND 2 and exposed PGND 15 to GND. The project symbol treats VOUT 5 as passive to avoid a false power-output-to-power-output ERC conflict on the common output. |
+| Inductor | Murata DFE252012P-1R5M=P2, [manufacturer sheet](https://www.murata.com/~/media/webrenewal/products/inductor/chip/tokoproducts/wirewoundmetalalloychiptype/m_dfe252012p.ashx) | 1.5 µH ±20%, 60 mΩ maximum DCR, 2.5 × 2.0 × 1.2 mm maximum height family, two nonpolar pins; reuses the [audited family land pattern](3v3-inductor-footprint-audit.md). Murata lists 3.5 A at 30% inductance loss and 2.6 A at 40°C temperature rise from 20°C ambient. These are separate conditions, not an enclosure current rating. |
+| Input | 2 × Murata GRM188R60J106ME47D | 10 µF, 6.3 V, X5R, 0603 each. SYS high/overshoot and effective capacitance still need board-specific review. |
+| Output | 4 × Murata GRM187R61A226ME15 | 22 µF, 10 V, X5R, 0603 each. Nominal total 88 µF. Effective capacitance, LED load steps and retained VLED energy remain unverified. |
+| VINA bypass | Murata GRM155R71C104KA88D | 100 nF, 16 V, X7R, 0402; tied from the VINA/VIN feed to GND. TI caps this bypass at 0.22 µF. |
+| Feedback | 2 × Panasonic ERJ2RKF6203X in series over ERJ2RKF1803X | 1.24 MΩ / 180 kΩ equivalent; 3.944 V at TI's nominal 0.5 V FB reference. Each resistor is 1%, 0402. The pair uses two 620 kΩ parts because that exact MPN is already audited locally. |
+| EN default | Panasonic ERJ2RKF1003X | 100 kΩ EN-to-GND; the future hardware interlock must drive EN HIGH only after physical ON, application validity and explicit post-reset arm. |
+
+The TI application guidance allows 1.5 µH with four nominal 22 µF output capacitors, and recommends input ceramic bypass and a 100 nF VINA bypass. At the currently calculated nominal maximum-row output of 233 mA, an illustrative 2.8 V SYS, 80% efficiency, 2.5 MHz and 1.2 µH low-tolerance inductor yield approximately 0.55 A peak from TI's boost-mode equation. That is a calculation using assumed operating conditions, not a bound on LED current, inductor temperature, SYS minimum, startup, short-circuit behavior or converter performance. Exact current and capacitor derating need Gate A analysis and coupon measurements.
+
+The reproducible source is tools/generate-coupon-vled.py. On 2026-10-06, native KiCad 10.0.6 exported a 13-component XML netlist. The separate-sheet ERC has only two expected source-declaration errors: its unconnected draft SYS source and GND have no driver in this isolated project. There are no other ERC categories. PDF rendering was visually inspected; the output is not a native project review or physical proof. Root-project ERC must stay at zero violations.
+
+Before linking, select and capture the protected SYS source, implement the hardware display interlock that blanks rows and disables VLED through boot/reset/programming/OFF, remove the root VLED draft source flag, rerun whole-project ERC/XML and review the power pages together. Check output hold-up/discharge and thermal layout before Gate A. No battery or fabrication approval follows from this candidate.
+
+The [unrouted local KiCad placement](staging/vled-layout-trial.kicad_pcb) and [magnified bay view](../../../mechanical/review/vled-cluster-detail.svg) place its actual footprints in the lower-right final-board trial region. The first input/output capacitors are close in plan view, but no switching-loop route, ground return, thermal copper or complete-board fit is verified. The KiCad file has correct exported pad nets and was plotted; a [local-board DRC run](../../../docs/development/vled-layout-trial-2026-10-06.md) found zero geometric violations and thirty expected unconnected items. Do not confuse the placement study with a routed PCB.

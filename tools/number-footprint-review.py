@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: Apache-2.0
-"""Make a legible review copy of a four-pad KiCad 10 fabrication SVG.
+"""Make a legible review copy of a supported KiCad 10 fabrication SVG.
 
 The original export is never rewritten. Copy KiCad's own numbered glyph paths
 above the drawing with a white halo; never infer a pin number or move geometry.
@@ -23,7 +23,12 @@ def tag(name):
     return f"{{{SVG}}}{name}"
 
 
-def numbered_review(source):
+def numbered_review(source, profile="led"):
+    expected = {str(n): 1 for n in range(1, 5)}
+    if profile == "rpw":
+        expected = {str(n): (2 if n in (1, 4, 7, 10) else 1) for n in range(1, 11)}
+    elif profile != "led":
+        raise ValueError("Unknown footprint profile")
     root = ET.fromstring(source)
     if root.tag != tag("svg") or root.find(".//*[@id='review-pad-labels']") is not None:
         raise ValueError("Expected an unprocessed KiCad fabrication SVG")
@@ -36,8 +41,8 @@ def numbered_review(source):
             number = glyph.findtext(tag("desc"), "")
             if not number.isdigit():
                 continue
-            if number not in {"1", "2", "3", "4"} or number in labels:
-                raise ValueError("Expected each pad number 1, 2, 3, 4 exactly once")
+            if number not in expected:
+                raise ValueError("Unexpected pad number for footprint profile")
             if any("transform" in item.attrib for item in (root, parent, *glyph.iter())):
                 raise ValueError("Transformed pad text requires a new review")
             if glyph.get("class") != "stroked-text" or not glyph.findall(tag("path")):
@@ -50,21 +55,29 @@ def numbered_review(source):
             width = float(style.get("stroke-width", "nan"))
             if style.get("stroke") != "#000000" or not 0 < width < 0.05:
                 raise ValueError("Expected black pad-number strokes in millimetres")
-            labels[number] = (glyph, parent.get("style"), width)
-    if set(labels) != {"1", "2", "3", "4"}:
-        raise ValueError("Expected each pad number 1, 2, 3, 4 exactly once")
+            labels.setdefault(number, []).append((glyph, parent.get("style"), width, parent))
+    if {n: len(items) for n, items in labels.items()} != expected:
+        raise ValueError("Pad-number multiplicities do not match footprint profile")
+    if profile == "rpw":
+        # Compound corner lands produce two overlapping glyphs. Hide numeric
+        # text only in this derived copy; redraw the first source glyph per pad.
+        # No pad/body geometry, glyph path or glyph position is changed.
+        for items in labels.values():
+            for glyph, _, _, parent in items:
+                parent.remove(glyph)
 
     title = root.find(tag("title"))
     if title is not None:
         title.text = "Numbered review copy — " + (title.text or "")
     metadata = ET.SubElement(root, tag("metadata"))
     metadata.text = (
-        "Derived review only; original KiCad glyphs overlaid with white halos. "
-        "Source SVG SHA-256: " + hashlib.sha256(source).hexdigest()
+        "Derived review only; first KiCad glyph per pad overlaid with white halos. "
+        + ("Duplicate compound-pad numerals removed in this copy only. " if profile == "rpw" else "")
+        + "Source SVG SHA-256: " + hashlib.sha256(source).hexdigest()
     )
     overlay = ET.SubElement(root, tag("g"), {"id": "review-pad-labels"})
-    for number in sorted(labels):
-        glyph, style, width = labels[number]
+    for number in sorted(labels, key=int):
+        glyph, style, width, _ = labels[number][0]
         layer = ET.SubElement(overlay, tag("g"), {"data-pad": number, "style": style})
         halo = deepcopy(glyph)
         halo.set("class", "review-label-halo")
@@ -88,9 +101,10 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("source", type=Path)
     parser.add_argument("output", type=Path, help="New derived SVG; must not already exist")
+    parser.add_argument("--profile", choices=("led", "rpw"), default="led")
     args = parser.parse_args()
     try:
-        result = numbered_review(args.source.read_bytes())
+        result = numbered_review(args.source.read_bytes(), args.profile)
         with args.output.open("xb") as output:
             output.write(result)
     except (OSError, ValueError, ET.ParseError) as error:

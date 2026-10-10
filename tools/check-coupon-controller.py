@@ -31,11 +31,11 @@ PARTS = {
     "C3": ("GRM188R60J106ME47D", "10u 6.3V X5R", "rgb-badge-coupon:C_Murata_GRM18_0603"),
     "C4": ("GRM155R71C104KA88D", "100n 16V X7R", "rgb-badge-coupon:C_Murata_GRM15_0402"),
     "C5": ("GRM155C71A105KE11D", "1u 10V X7S", "rgb-badge-coupon:C_Murata_GRM15_0402"),
-    "R43": ("ERJ-2RKF1002X", "10k 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
-    "R44": ("ERJ-2RKF1002X", "10k 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
-    "R45": ("ERJ-2RKF22R0X", "22R 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
-    "R46": ("ERJ-2RKF22R0X", "22R 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
-    "R47": ("ERJ-2RKF4990X", "499R 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
+    "R43": ("ERJ2RKF1002X", "10k 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
+    "R44": ("ERJ2RKF1002X", "10k 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
+    "R45": ("ERJ2RKF22R0X", "22R 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
+    "R46": ("ERJ2RKF22R0X", "22R 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
+    "R47": ("ERJ2RKF4990X", "499R 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
     "SW1": ("EVQP7J01P", "EVQP7J01P", "rgb-badge-coupon:SW_Panasonic_EVQP7J01P"),
 }
 PARTS.update({f"TP{i}": ("TestPoint_Pad", "TestPoint_Pad", "rgb-badge-coupon:TestPoint_Pad_D1.0mm") for i in range(2, 13)})
@@ -105,7 +105,7 @@ def check_sources(project=PROJECT):
     LIB["check_libraries"](project)
     root = parse(project / "rgb-badge-coupon.kicad_sch")
     sheets = children(root, "sheet")
-    require(len(sheets) == 7, "Expected four matrix, driver, row and controller sheets")
+    require(len(sheets) == 15, "Expected matrix, driver, rows, controller, USB, gauge, application power, temperature and charger core")
     targets = [s for s in sheets if props(s)["Sheetfile"] == "controller.kicad_sch"]
     require(len(targets) == 1 and not children(root, "symbol"), "Controller sheet missing/duplicated or root contains components")
     sheet_uuid = one(targets[0], "uuid", "controller sheet")[1]
@@ -200,6 +200,40 @@ def check_netlist(path):
     expected_nets.update(ROWS["expected_connections"]())
     expected_nets.update(expected_connections())
     expected_nets.update(expected_native_no_connects())
+    permission = runpy.run_path(str(TOOLS / "check-coupon-permission.py"))
+    expected_components.update({ref: (value, footprint) for ref, (_, value, footprint) in permission["PARTS"].items()})
+    expected_nets.update(permission["expected_connections"]())
+    expected_nets.update(permission["expected_native_no_connects"]())
+    usb = runpy.run_path(str(TOOLS / "check-coupon-usb.py"))
+    expected_components.update({ref: (value, footprint) for ref, (_, value, footprint) in usb["PARTS"].items()})
+    expected_nets.update(usb["expected_connections"]())
+    expected_nets.update(usb["expected_native_no_connects"]())
+    gauge = runpy.run_path(str(TOOLS / "check-coupon-gauge.py"))
+    expected_components.update({ref: (value, footprint) for ref, (_, value, footprint) in gauge["PARTS"].items() if not ref.startswith('#')})
+    expected_nets.update({pair: net for pair, net in gauge["CONNECTIONS"].items() if not pair[0].startswith('#')})
+    expected_nets[('U35','5')] = 'unconnected-(U35-ALRT-Pad5)'
+    converter = runpy.run_path(str(TOOLS / "check-coupon-3v3.py"))
+    generator = runpy.run_path(str(TOOLS / "generate-coupon-3v3.py"))
+    expected_components.update({ref: (value, 'rgb-badge-coupon:' + footprint)
+                                for ref, (_, value, footprint, _, _, _) in generator['PARTS'].items()})
+    expected_nets.update({pair: ('Net-(U36-' + net + ')' if net in ('LX1', 'LX2') else net)
+                          for pair, net in converter['EXPECTED'].items()})
+    temperature = runpy.run_path(str(TOOLS / "check-coupon-temperature.py"))
+    temperature_generator = runpy.run_path(str(TOOLS / "generate-coupon-temperature.py"))
+    expected_components.update({ref: (value, 'rgb-badge-coupon:' + footprint)
+                                for ref, (_, value, footprint, _, _, _) in temperature_generator['h'].PARTS.items()})
+    expected_nets.update(temperature['EXPECTED'])
+    charger = runpy.run_path(str(TOOLS / "check-coupon-charger-core.py"))
+    charger_generator = runpy.run_path(str(TOOLS / "generate-coupon-charger-core.py"))
+    expected_components.update({ref: (value, 'rgb-badge-coupon:' + footprint)
+                                for ref, (_, value, footprint, _, _, _) in charger_generator['h'].PARTS.items()})
+    expected_nets.update(charger['EXPECTED'])
+    expected_components['SW2'] = ('JS202011JCQN', 'rgb-badge-coupon:SW_CK_JS202011JCQN')
+    expected_nets.update({('SW2','2'): '+SYS_APP_IN_DRAFT', ('SW2','3'): 'APP_ON_SW_DRAFT',
+                          ('SW2','1'): 'unconnected-(SW2-A1-Pad1)',
+                          ('SW2','4'): 'unconnected-(SW2-A2-Pad4)',
+                          ('SW2','5'): 'unconnected-(SW2-COM2-Pad5)',
+                          ('SW2','6'): 'unconnected-(SW2-B2-Pad6)'})
     require(components == expected_components, "Complete coupon XML population/value/footprint mismatch")
     require(connections == expected_nets,
             "Complete coupon XML pin-to-net mismatch: " + mapping_difference(connections, expected_nets))
@@ -213,7 +247,7 @@ def main():
     try:
         if args.netlist:
             check_netlist(args.netlist)
-            print("KiCad XML complete coupon check passed: 356 PCB items, 1360 logical pins; matrix + driver + rows + controller.")
+            print("KiCad XML complete coupon check passed: 426 PCB items, 1589 logical pins; connected charger/temperature core, provisional switch/3V3 and staged gauge.")
         else:
             check_sources(args.project_dir)
             print("Controller source connectivity check passed: N16R8 module, safe boot/reset, USB/UART boundaries and 11 test pads (not KiCad ERC).")

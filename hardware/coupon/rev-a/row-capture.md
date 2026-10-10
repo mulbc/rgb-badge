@@ -13,10 +13,10 @@ Status: native KiCad 10.0.6 ERC, complete exported connectivity and seven-page d
 | U2 | `74HC4514PW,118` | Active-high 4-to-16 decoder; pin 23 `E` is active-low enable |
 | Q1–Q16 | `DMP2066LSN-7` | P-channel high-side switches for rows 00–15 |
 | Q17–Q32 | `2N7002K-7` | N-channel P-gate pull-down/level shifters for rows 00–15 |
-| R6–R21 | `ERJ-2RKF1001X`, 1 kΩ ±1% | P-gate pull-ups to VLED |
-| R22–R37 | `ERJ-2RKF1003X`, 100 kΩ ±1% | N-gate pull-downs |
-| R38–R41 | `ERJ-2RKF1003X`, 100 kΩ ±1% | A0–A3 default-low pull-downs |
-| R42 | `ERJ-2RKF1003X`, 100 kΩ ±1% | `ROW_ENABLE_N` default-high pull-up |
+| R6–R21 | `ERJ2RKF1001X`, 1 kΩ ±1% | P-gate pull-ups to VLED |
+| R22–R37 | `ERJ2RKF1003X`, 100 kΩ ±1% | N-gate pull-downs |
+| R38–R41 | `ERJ2RKF1003X`, 100 kΩ ±1% | A0–A3 default-low pull-downs |
+| R42 | `ERJ2RKF1003X`, 100 kΩ ±1% | `ROW_ENABLE_N` default-high pull-up |
 | C2 | `GRM155R71C104KA88D`, 100 nF, 16 V, X7R | U2 local decoupling |
 | #FLG03 | virtual `PWR_FLAG` | Draft declaration that a future circuit supplies VLED |
 
