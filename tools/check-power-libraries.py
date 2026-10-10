@@ -23,6 +23,11 @@ PROJECT = Path(__file__).resolve().parents[1] / "hardware" / "coupon" / "rev-a"
 FP_PREFIX = "rgb-badge-coupon:"
 
 PARTS = {
+    "LM4040A25IDBZT": {
+        "footprint": "SOT23_TI_DBZ0003A",
+        "datasheet": "https://www.ti.com/lit/ds/symlink/lm4040.pdf",
+        "pins": {1: ("K", "passive"), 2: ("A", "passive"), 3: ("A/float", "passive")},
+    },
     "TPS259472ARPWR": {
         "footprint": "VQFN_TI_RPW0010A_2x2mm_HotRod",
         "datasheet": "https://www.ti.com/lit/ds/symlink/tps25947.pdf",
@@ -305,6 +310,22 @@ def check_copper_separation(root):
         gaps = [abs(ap[i] - bp[i]) - (az[i] + bz[i]) / 2 for i in (0, 1)]
         require(max(gaps) > 0,
                 f"{root[1]}: copper pads {a[1]}/{b[1]} touch or overlap in bounding boxes")
+
+
+def check_dbz_footprint(project):
+    """TI DBZ0003A example land and pin-one orientation, Rev Q page 54."""
+    root = footprint(project, "SOT23_TI_DBZ0003A")
+    pads = children(root, "pad")
+    require(len(pads) == 3, "DBZ footprint must contain exactly three pads")
+    actual = {p[1]: (pad_position(p), pad_size(p), tuple(pad_layers(p))) for p in pads}
+    layers = ("F.Cu", "F.Paste", "F.Mask")
+    expected = {"1": (dec(("-0.95", "1.05")), dec(("0.6", "1.3")), layers),
+                "2": (dec(("0.95", "1.05")), dec(("0.6", "1.3")), layers),
+                "3": (dec(("0", "-1.05")), dec(("0.6", "1.3")), layers)}
+    require(actual == expected, "DBZ pad size, position, number or layer mismatch")
+    circles = children(root, "fp_circle")
+    require(len(circles) == 1 and dec(one(circles[0], "center", "marker")[1:]) == dec(("-1.55", "0.95")),
+            "DBZ pin-one mark mismatch")
 
 
 def check_symbol_header_clearance(symbol):
@@ -812,6 +833,7 @@ def check_libraries(project=PROJECT):
     check_t822_footprint(project)
     check_adg_footprint(project)
     check_rpw_footprint(project)
+    check_dbz_footprint(project)
     return symbols
 
 
@@ -835,6 +857,7 @@ def main():
         print("- 15 TPS63020 logical pins and DSJ signal/thermal/stencil maps match TI drawings")
         print("- 9 MAX17048 logical pins and T822+3 land map match Analog Devices drawings")
         print("- USB4505 is checked separately by check-usb-connector.py")
+        print("- LM4040 DBZ pin map, three lands and pin-one mark match TI Rev Q")
     except (OSError, ValueError, KeyError, IndexError) as error:
         print(f"Power library check failed: {error}", file=sys.stderr)
         return 1

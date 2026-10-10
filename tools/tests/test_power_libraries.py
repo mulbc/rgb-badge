@@ -15,6 +15,16 @@ PROJECT = REPO / "hardware" / "coupon" / "rev-a"
 
 
 class PowerLibraryTests(unittest.TestCase):
+    def test_dbz_pin_one_land_shift_is_rejected(self):
+        project = self.project_copy()
+        path = project / 'footprints/rgb-badge-coupon.pretty/SOT23_TI_DBZ0003A.kicad_mod'
+        source = path.read_text(encoding='utf-8')
+        old = '(pad "1" smd roundrect (at -0.95 1.05)'
+        self.assertIn(old, source)
+        path.write_text(source.replace(old, '(pad "1" smd roundrect (at -0.75 1.05)', 1), encoding='utf-8')
+        with self.assertRaisesRegex(ValueError, 'DBZ pad size, position, number or layer mismatch'):
+            CHECK['check_libraries'](project)
+
     def test_rpw_rail_identity_and_stencil_regressions(self):
         cases = [
             ('(pad "5" smd', '(pad "8" smd'),

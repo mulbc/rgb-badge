@@ -19,6 +19,8 @@ spec.loader.exec_module(h)
 h.SCOPE = SCOPE
 h.FILE_UUID = FILE_UUID
 h.PARTS = {
+    'R88': ('ERJ2RKF1002X', '10k 1%', 'R_Panasonic_ERJ2_0402', 'Panasonic', 'https://industrial.panasonic.com/ww/products/pt/general-purpose-chip-resistors/models/ERJ2RKF1002X', 2),
+    'U38': ('LM4040A25IDBZT', '2.5V shunt', 'SOT23_TI_DBZ0003A', 'Texas Instruments', 'https://www.ti.com/lit/ds/symlink/lm4040.pdf', 3),
     'U41': ('BQ24074RGTR', 'BQ24074RGTR', 'VQFN_TI_RGT0016C_3x3mm_P0.5mm_EP1.68mm', 'Texas Instruments', 'https://www.ti.com/lit/ds/symlink/bq24074.pdf', 17),
     'R92': ('ERA2AEB2491X', '2.49k 0.1%', 'R_Panasonic_ERA2_0402', 'Panasonic', 'https://industrial.panasonic.com/ww/products/pt/high-precision-chip-resistors/models/ERA2AEB2491X', 2),
     'R93': ('ERA2AEB3651X', '3.65k 0.1%', 'R_Panasonic_ERA2_0402', 'Panasonic', 'https://industrial.panasonic.com/ww/products/pt/high-precision-chip-resistors/models/ERA2AEB3651X', 2),
@@ -69,13 +71,14 @@ def generate():
     lines = [
         '(kicad_sch', '(version 20260306)', '(generator "rgb_badge_charger_core")', '(generator_version "1.0")',
         f'(uuid {h.q(FILE_UUID)})', '(paper "A3")',
-        '(title_block (title "Coupon Rev A - provisional BQ24074 charger core") (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "IN and BAT are unbuilt boundary nets; EN2 temporarily grounded"))',
+        '(title_block (title "Coupon Rev A - provisional BQ24074 charger core") (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "IN and BAT are unbuilt boundary nets; EN2 uses local clamp"))',
         '(lib_symbols\n' + '\n'.join(h.cached_symbol(mpn) for mpn in symbols) + '\n' + h.cached_symbol('PWR_FLAG') + '\n)',
         f'(text "CHARGER_TS physically joins TH1 via global net. IN and BAT await E1 and pack connector." (at 20.320 20.320 0) {h.effects(justify="left")} (uuid {h.q(h.uid("note/1"))}))',
-        f'(text "EN2=0, EN1=0 gives 100 mA fallback; R93 ILIM setting is inactive until EN2 drive is captured." (at 20.320 27.940 0) {h.effects(justify="left")} (uuid {h.q(h.uid("note/2"))}))',
+        f'(text "R88/U38 derive EN2 from admitted input; EN1=0 selects fixed ILIM when clamped high." (at 20.320 27.940 0) {h.effects(justify="left")} (uuid {h.q(h.uid("note/2"))}))',
         f'(text "ITERM open selects 10% default termination; TMR open selects live 30 min/5 h safety timers." (at 20.320 35.560 0) {h.effects(justify="left")} (uuid {h.q(h.uid("note/3"))}))',
     ]
-    for ref, x, y in [('U41', 152.40, 116.84), ('R92', 254.00, 175.26), ('R93', 76.20, 175.26),
+    for ref, x, y in [('U41', 152.40, 116.84), ('R88', 76.20, 60.96), ('U38', 190.50, 60.96),
+                      ('R92', 254.00, 175.26), ('R93', 76.20, 175.26),
                       ('C52', 76.20, 76.20), ('C53', 254.00, 76.20), ('C54', 254.00, 96.52)]:
         lines.extend(part(ref, x, y))
     left = 138.43
@@ -84,7 +87,7 @@ def generate():
         ('13', 'CHARGER_IN_DRAFT', 106.68, 101.60, 106.68),
         ('1', 'CHARGER_TS', 111.76, 101.60, 111.76),
         ('4', 'GND', 114.30, 101.60, 114.30),
-        ('5', 'GND', 116.84, 101.60, 116.84),
+        ('5', 'CHARGER_EN2', 116.84, 101.60, 116.84),
         ('6', 'GND', 119.38, 101.60, 119.38),
         ('12', 'CHARGER_ILIM', 121.92, 101.60, 121.92),
     ]:
@@ -101,6 +104,11 @@ def generate():
         lines.extend(terminal('GND', x, 132.08, x + (-20.32 if pin == '8' else 20.32), 154.94, 'U41/' + pin))
     for pin, x, y in [('7', right, 119.38), ('9', right, 121.92), ('14', left, 124.46), ('15', left, 127.00)]:
         lines.append(nc(x, y, 'U41/' + pin + '/nc'))
+    lines.extend(terminal('CHARGER_IN_DRAFT', 71.12, 60.96, 50.80, 60.96, 'R88/1'))
+    lines.extend(terminal('CHARGER_EN2', 81.28, 60.96, 101.60, 60.96, 'R88/2'))
+    lines.extend(terminal('CHARGER_EN2', 182.88, 60.96, 162.56, 60.96, 'U38/1'))
+    lines.extend(terminal('GND', 198.12, 60.96, 218.44, 60.96, 'U38/2'))
+    lines.extend(terminal('GND', 198.12, 63.50, 218.44, 63.50, 'U38/3'))
     for ref, x, y, net in [
         ('R92', 254.00, 175.26, 'CHARGER_ISET'), ('R93', 76.20, 175.26, 'CHARGER_ILIM'),
         ('C52', 76.20, 76.20, 'CHARGER_IN_DRAFT'), ('C53', 254.00, 76.20, '+BAT_PROTECTED_DRAFT'),

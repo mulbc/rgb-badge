@@ -336,7 +336,7 @@ def controller_coupon_netlist():
     part('TP35','TestPoint_Pad','TestPoint_Pad_D1.0mm',{1:'CHARGER_GATE_EN'})
     part('U41','BQ24074RGTR','VQFN_TI_RGT0016C_3x3mm_P0.5mm_EP1.68mm',{
         1:'CHARGER_TS',2:'+BAT_PROTECTED_DRAFT',3:'+BAT_PROTECTED_DRAFT',4:'GND',
-        5:'GND',6:'GND',7:'unconnected-(U41-PGOOD-Pad7)',8:'GND',
+        5:'CHARGER_EN2',6:'GND',7:'unconnected-(U41-PGOOD-Pad7)',8:'GND',
         9:'unconnected-(U41-CHG-Pad9)',10:'+SYS_APP_IN_DRAFT',11:'+SYS_APP_IN_DRAFT',
         12:'CHARGER_ILIM',13:'CHARGER_IN_DRAFT',14:'unconnected-(U41-TMR-Pad14)',
         15:'unconnected-(U41-ITERM-Pad15)',16:'CHARGER_ISET',17:'GND'})
@@ -348,6 +348,8 @@ def controller_coupon_netlist():
         ('C54','10u 6.3V X5R','C_Murata_GRM18_0603','+SYS_APP_IN_DRAFT'),
     ]:
         part(ref,value,fp,{1:positive,2:'GND'})
+    part('R88','10k 1%','R_Panasonic_ERJ2_0402',{1:'CHARGER_IN_DRAFT',2:'CHARGER_EN2'})
+    part('U38','2.5V shunt','SOT23_TI_DBZ0003A',{1:'CHARGER_EN2',2:'GND',3:'GND'})
     return root
 
 
@@ -381,7 +383,7 @@ def main():
         output.write_text('Stub only: not a PDF or KiCad render.\n')
         return 0
     elif args[:3] == ["sym", "export", "svg"]:
-        names = [n + "_unit1.svg" for n in ("EAST10105RGBA0", "QBLP1515A-RGB2A", "TLC59581RTQT", "ERJ2RKF3922X", "ERJ2RKF1003X", "GRM155R71C104KA88D", "PWR_FLAG", "TestPoint_Pad", "74HC4514PW,118", "DMP2066LSN-7", "2N7002K-7", "ERJ2RKF1001X", "ESP32-S3-WROOM-1U-N16R8", "ERJ2RKF1002X", "ERJ2RKF22R0X", "ERJ2RKF4990X", "GRM155C71A105KE11D", "GRM188R60J106ME47D", "EVQP7J01P", "BQ24074RGTR", "BQ24392RSER", "TS3USB31ERSER", "BQ25616JRTWT", "TPS631000DRLR", "TPS70933DBVR", "TLV75533PDBVR", "SN74LVC1G04DBVR", "INA232AIDDFR", "TPD4E05U06DQAR", "TUSB320LAIRWBR", "TPS63020DSJT", "MAX17048G+T10", "SN74LVC1G00DBVR", "SN74LVC1G06DBVR", "SN74LVC1G08DBVR", "SN74LVC1G11DBVR", "SN74LVC1G32DBVR", "TPS3808G01DBVR", "SN74LVC2G17DBVR", "ERJ2RKF8873X", "ERJ2RCF2R20X")]
+        names = [n + "_unit1.svg" for n in ("EAST10105RGBA0", "QBLP1515A-RGB2A", "TLC59581RTQT", "ERJ2RKF3922X", "ERJ2RKF1003X", "GRM155R71C104KA88D", "PWR_FLAG", "TestPoint_Pad", "74HC4514PW,118", "DMP2066LSN-7", "2N7002K-7", "ERJ2RKF1001X", "ESP32-S3-WROOM-1U-N16R8", "ERJ2RKF1002X", "ERJ2RKF2201X", "ERJ2RKF22R0X", "ERJ2RKF4990X", "GRM155C71A105KE11D", "GRM188R60J106ME47D", "EVQP7J01P", "BQ24074RGTR", "BQ24392RSER", "TS3USB31ERSER", "BQ25616JRTWT", "TPS631000DRLR", "TPS70933DBVR", "TLV75533PDBVR", "SN74LVC1G04DBVR", "INA232AIDDFR", "TPD4E05U06DQAR", "TUSB320LAIRWBR", "TPS63020DSJT", "MAX17048G+T10", "SN74LVC1G00DBVR", "SN74LVC1G06DBVR", "SN74LVC1G08DBVR", "SN74LVC1G11DBVR", "SN74LVC1G32DBVR", "TPS3808G01DBVR", "SN74LVC2G17DBVR", "ERJ2RKF8873X", "ERJ2RCF2R20X", "LM4040A25IDBZT")]
         names.append("ERJ2RKF2201X_unit1.svg")
     elif args[:3] == ["fp", "export", "svg"]:
         # Added independently of the source parser: exercise wrapper requirements.
@@ -399,7 +401,7 @@ def main():
         else:
             raise AssertionError(f"Unexpected footprint export destination: {output}")
         stage = output.name
-        names = [n + ".svg" for n in ("LED_Everlight_EAST10105RGBA0", "LED_QTBrightek_QBLP1515A-RGB2A", "QFN_TI_RTQ0056E_8x8mm_P0.5mm_EP5.7mm", "R_Panasonic_ERJ2_0402", "C_Murata_GRM15_0402", "TestPoint_Pad_D1.0mm", "TSSOP_Nexperia_SOT355-1_24", "SC59_Diodes_DMP2066LSN", "SOT23_Diodes_2N7002K", "ESP32-S3-WROOM-1U", "C_Murata_GRM18_0603", "SW_Panasonic_EVQP7J01P", "VQFN_TI_RGT0016C_3x3mm_P0.5mm_EP1.68mm", "UQFN_TI_RSE0010A_2x1.5mm_P0.5mm", "UQFN_TI_RSE0008A_1.5x1.5mm_P0.5mm", "QFN_TI_RTW0024A_4x4mm_P0.5mm_EP2.7mm", "SOT5X3_TI_DRL0008A", "SOT23_TI_DBV0005A", "SOT23_THIN_TI_DDF0008A", "USON_TI_DQA0010A", "X2QFN_TI_RWB0012A_1.6x1.6mm_P0.4mm", "VSON_TI_DSJ0014_4x3mm_P0.5mm_EP2.85x1.58mm", "TDFN_Maxim_T822-3_2x2mm_P0.5mm_EP0.7x1.38mm", "SOT23_TI_DBV0006A")]
+        names = [n + ".svg" for n in ("LED_Everlight_EAST10105RGBA0", "LED_QTBrightek_QBLP1515A-RGB2A", "QFN_TI_RTQ0056E_8x8mm_P0.5mm_EP5.7mm", "R_Panasonic_ERJ2_0402", "C_Murata_GRM15_0402", "TestPoint_Pad_D1.0mm", "TSSOP_Nexperia_SOT355-1_24", "SC59_Diodes_DMP2066LSN", "SOT23_Diodes_2N7002K", "ESP32-S3-WROOM-1U", "C_Murata_GRM18_0603", "SW_Panasonic_EVQP7J01P", "VQFN_TI_RGT0016C_3x3mm_P0.5mm_EP1.68mm", "UQFN_TI_RSE0010A_2x1.5mm_P0.5mm", "UQFN_TI_RSE0008A_1.5x1.5mm_P0.5mm", "QFN_TI_RTW0024A_4x4mm_P0.5mm_EP2.7mm", "SOT5X3_TI_DRL0008A", "SOT23_TI_DBV0005A", "SOT23_THIN_TI_DDF0008A", "USON_TI_DQA0010A", "X2QFN_TI_RWB0012A_1.6x1.6mm_P0.4mm", "VSON_TI_DSJ0014_4x3mm_P0.5mm_EP2.85x1.58mm", "TDFN_Maxim_T822-3_2x2mm_P0.5mm_EP0.7x1.38mm", "SOT23_TI_DBV0006A", "SOT23_TI_DBZ0003A")]
     elif args[:2] == ["sch", "erc"]:
         assert "--severity-all" in args and "--exit-code-violations" not in args
         if os.environ.get("RGB_BADGE_TEST_FAIL") == stage:
