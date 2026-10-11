@@ -22,6 +22,8 @@ Status: matrix, driver, row-stage and controller staged electrical reviews passe
 
 **2026-10-11 provisional E1 gate:** The [root-linked gate sheet](charger-gate.kicad_sch) connects exact TPS259474ARPWR E1 between a draft protected-USB boundary and BQ IN. Three independent AUP sinks inhibit EN for source request, supervisor reset and battery temperature. [The first-author review](../../../docs/development/charger-gate-capture-review-2026-10-11.md) records native ERC and XML evidence. E0 protection and exact pack connection remain absent; source checks are not bench qualification.
 
+**2026-10-11 provisional E0 source:** The [root-linked input protector](usb-protection.kicad_sch) now connects connector VBUS to the protected USB rail and E1 input. The [source review](../../../docs/development/e0-capture-review-2026-10-11.md) records native ERC/XML and remaining USB fault work. No input-fault or inrush behavior has been measured.
+
 ## Purpose
 
 Validate the production electrical architecture and compare 1010 versus 1515 RGB LEDs before scaling to the 48 × 16 badge.

@@ -49,3 +49,7 @@ The 2026-09-20 [shared package audit](input-protection-library-audit.md) adds un
 ## Charger-path gating alternative
 
 The [2026-09-24 assessment](charger-input-gating-assessment.md) evaluates using the input switch itself for charge permission, with upstream USB logic. It also records the TPS259472 recommended-input/clamp limitation; the earlier static downstream headroom calculation alone does not establish normal 5.5 V operation. This alternative is not selected or captured.
+
+## E0 source selection and capture
+
+The candidate-only statements above are historical screening results. [ADR 0027](../../../docs/decisions/0027-e0-protected-usb-source-selection.md) selects TPS259474ARPWR as E0 with exact 38.3 kΩ/10 kΩ OVLO, 3.32 kΩ ILM and 390 kΩ EN parts. The [root-linked KiCad source](usb-protection.kicad_sch) now connects connector VBUS through E0 to USB logic and E1. [Source validation](../../../docs/development/e0-capture-review-2026-10-11.md) checks this connectivity; the source-current and fault qualification described above remains open.

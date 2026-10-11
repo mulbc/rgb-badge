@@ -51,26 +51,13 @@ def nc(x,y,key):
     return f'(no_connect (at {x:.3f} {y:.3f}) (uuid {h.q(h.uid(key))}))'
 
 
-def source_flag(x,y):
-    ref='#FLG08'
-    lines=[f'(symbol (lib_id "rgb-badge-coupon:PWR_FLAG") (at {x:.3f} {y:.3f} 0) (unit 1)',
-           '(exclude_from_sim no) (in_bom no) (on_board no) (dnp no)',
-           f'(uuid {h.q(h.uid(ref))})',h.prop('Reference',ref,x,y-5.08),
-           h.prop('Value','PWR_FLAG',x,y-2.54),h.prop('Footprint','',x,y,True),
-           h.prop('Datasheet','',x,y,True),h.prop('Manufacturer','',x,y,True),h.prop('MPN','',x,y,True),
-           f'(pin "1" (uuid {h.q(h.uid(ref + "/1"))}))',
-           f'(instances (project "rgb-badge-coupon" (path "/{ROOT_UUID}/{SHEET_UUID}" (reference "{ref}") (unit 1)))))']
-    lines.extend(terminal('USB_PROTECTED_DRAFT',x,y,x+20.32,y,ref+'/net'))
-    return lines
-
-
 def generate():
     symbols=dict.fromkeys(row[0] for row in h.PARTS.values())
     lines=['(kicad_sch','(version 20260306)','(generator "rgb_badge_charger_gate")','(generator_version "1.0")',
            f'(uuid {h.q(FILE_UUID)})','(paper "A3")',
-           '(title_block (title "Coupon Rev A - provisional E1 charger gate") (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "E0 upstream source still absent; gate operating behavior unqualified"))',
+           '(title_block (title "Coupon Rev A - provisional E1 charger gate") (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "E0 source captured; gate operating behavior unqualified"))',
            '(lib_symbols\n'+'\n'.join(h.cached_symbol(mpn) for mpn in symbols)+'\n'+h.cached_symbol('PWR_FLAG')+'\n)',
-           f'(text "E1 IN is a draft protected-USB boundary. E1 OUT joins BQ IN and EN2 clamp." (at 20.320 20.320 0) {h.effects(justify="left")} (uuid {h.q(h.uid("note/1"))}))',
+           f'(text "E1 IN joins E0 protected +5V_USB; E1 OUT joins BQ IN and EN2 clamp." (at 20.320 20.320 0) {h.effects(justify="left")} (uuid {h.q(h.uid("note/1"))}))',
            f'(text "Three AUP sinks: source request, supervisor RESET, and temperature on the other sheet." (at 20.320 27.940 0) {h.effects(justify="left")} (uuid {h.q(h.uid("note/2"))}))',
            f'(text "Static divider screen assumes 1.6uA leakage; no startup, inrush or E0 fault qualification." (at 20.320 35.560 0) {h.effects(justify="left")} (uuid {h.q(h.uid("note/3"))}))']
     for ref,x,y in [('U44',170.18,106.68),('U42',91.44,182.88),('U43',223.52,182.88),
@@ -79,7 +66,7 @@ def generate():
                     ('C58',76.20,223.52),('C59',254.00,223.52)]:
         lines.extend(part(ref,x,y))
     for pin,net,x,y,ex,ey in [
-        ('5','USB_PROTECTED_DRAFT',154.94,96.52,124.46,96.52),
+        ('5','+5V_USB',154.94,96.52,124.46,96.52),
         ('1','CHARGER_GATE_EN',154.94,101.60,124.46,101.60),
         ('2','GND',154.94,106.68,124.46,106.68),
         ('6','CHARGER_IN_DRAFT',185.42,96.52,215.90,96.52),
@@ -96,7 +83,7 @@ def generate():
         lines.extend(terminal('CHARGER_GATE_EN',x+12.70,y,x+38.10,y,ref+'/4'))
         lines.extend(terminal('+3V3_USB',x,y-10.16,x+20.32,y-20.32,ref+'/5'))
     for ref,x,y,net in [('R94',76.20,71.12,'+3V3_USB'),('R95',76.20,91.44,'CHARGER_GATE_EN'),
-                         ('R96',254.00,132.08,'E1_ILM'),('C55',76.20,111.76,'USB_PROTECTED_DRAFT'),
+                         ('R96',254.00,132.08,'E1_ILM'),('C55',76.20,111.76,'+5V_USB'),
                          ('C56',254.00,71.12,'CHARGER_IN_DRAFT'),('C57',254.00,91.44,'E1_DVDT'),
                          ('C58',76.20,223.52,'+3V3_USB'),('C59',254.00,223.52,'+3V3_USB')]:
         if ref=='R94':
@@ -105,7 +92,6 @@ def generate():
         else:
             lines.extend(terminal(net,x-5.08,y,x-25.40,y,ref+'/1'))
             lines.extend(terminal('GND',x+5.08,y,x+25.40,y,ref+'/2'))
-    lines.extend(source_flag(76.20,157.48))
     return '\n'.join(lines+['(embedded_fonts no)',')'])+'\n'
 
 

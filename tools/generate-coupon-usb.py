@@ -12,8 +12,8 @@ BASE = runpy.run_path(str(Path(__file__).with_name('generate-coupon-permission.p
 def interface():
     s = BASE['Sheet']('usb-interface', 'Coupon Rev A - USB detection, data and logic supply')
     s.note('USB interface: connector, Type-C-only permission, switched data and USB-only logic supply',20.32,20.32,'title',2)
-    s.note('VBUS_CONNECTOR and +5V_USB are NOT bridged: input protection is still missing. No charger is connected.',20.32,30.48,'boundary')
-    s.note('Draft +5V_USB boundary: 4.80-5.50 V normal; protection, low-voltage operation and transients remain unqualified.',20.32,38.10,'voltage')
+    s.note('VBUS_CONNECTOR feeds E0; E0 OUT supplies +5V_USB and E1 IN. Input faults remain unqualified.',20.32,30.48,'boundary')
+    s.note('Protected +5V_USB is provisionally sourced by E0; 4.80-5.50 V normal, faults unqualified.',20.32,38.10,'voltage')
     s.component('J1','USB4505-03-0-A',60.96,91.44,{
         'A1_B12':'GND','A4_B9':'VBUS_CONNECTOR','A5':'USB_CC1',
         'B7':'USB_CONN_DM','A6':'USB_CONN_DP','A7':'USB_CONN_DM','B6':'USB_CONN_DP',
@@ -43,7 +43,7 @@ def interface():
     s.note('D pins face connector; HSD pins face ESP32.',426.72,299.72,'direction',1.016)
     s.note('OFF isolation specified at VCC = 0; ramp testing pending.',426.72,309.88,'ramp',1.016)
     s.component('TP33','TestPoint_Pad',83.82,355.60,{'1':'+5V_USB'},'5V_USB_BOUNDARY')
-    s.component('#FLG05','PWR_FLAG',289.56,355.60,{'1':'+5V_USB'})
+    s.component('#FLG05','PWR_FLAG',289.56,355.60,{'1':'VBUS_CONNECTOR'})
     s.note('Effective capacitance, inrush, total-port current, undervoltage/ramp behavior and input protection remain open.',20.32,381,'limits')
     s.note('R60/R61 provide Type-C output pull-ups. USB-A/default-current sources: data only while ON, no charging.',20.32,391.16,'pullups',1.016)
     return s

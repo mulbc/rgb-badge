@@ -14,7 +14,7 @@ PARTS=GEN['h'].PARTS
 EXPECTED={
  ('U44','1'):'CHARGER_GATE_EN',('U44','2'):'GND',
  ('U44','3'):'unconnected-(U44-PG-Pad3)',('U44','4'):'unconnected-(U44-PGTH-Pad4)',
- ('U44','5'):'USB_PROTECTED_DRAFT',('U44','6'):'CHARGER_IN_DRAFT',
+ ('U44','5'):'+5V_USB',('U44','6'):'CHARGER_IN_DRAFT',
  ('U44','7'):'E1_DVDT',('U44','8'):'GND',('U44','9'):'E1_ILM',
  ('U44','10'):'unconnected-(U44-ITIMER-Pad10)',
  ('U42','1'):'USB_CHARGE_REQ',('U42','2'):'GND',('U42','3'):'GND',
@@ -24,7 +24,7 @@ EXPECTED={
  ('R94','1'):'+3V3_USB',('R94','2'):'CHARGER_GATE_EN',
  ('R95','1'):'CHARGER_GATE_EN',('R95','2'):'GND',
  ('R96','1'):'E1_ILM',('R96','2'):'GND',
- ('C55','1'):'USB_PROTECTED_DRAFT',('C55','2'):'GND',
+ ('C55','1'):'+5V_USB',('C55','2'):'GND',
  ('C56','1'):'CHARGER_IN_DRAFT',('C56','2'):'GND',
  ('C57','1'):'E1_DVDT',('C57','2'):'GND',
  ('C58','1'):'+3V3_USB',('C58','2'):'GND',
@@ -41,8 +41,8 @@ def check_source():
         raise ValueError('E1 gate must be root-linked exactly once')
     if len(PARTS)!=11 or sum(row[5] for row in PARTS.values())!=len(EXPECTED):
         raise ValueError('E1 gate component/pin inventory mismatch')
-    if '(property "Reference" "#FLG08"' not in actual:
-        raise ValueError('Missing provisional E0 source marker')
+    if '(property "Reference" "#FLG08"' in actual:
+        raise ValueError('Old provisional E0 source marker remains in parallel with physical E0 output')
     if '(property "Reference" "#FLG08"' in (PROJECT/'charger-core.kicad_sch').read_text():
         raise ValueError('Old BQ input source marker remains in parallel with E1 output')
 
@@ -74,7 +74,8 @@ def check_netlist(xml_path):
     for net,pin in [('CHARGER_GATE_EN',('U40','4')),
                     ('CHARGER_IN_DRAFT',('U41','13')),
                     ('USB_CHARGE_REQ',('U17','4')),
-                    ('USB_RAW_LOGIC_READY',('U34','1'))]:
+                    ('USB_RAW_LOGIC_READY',('U34','1')),
+                    ('+5V_USB',('U45','6'))]:
         if pin not in nets.get(net,set()):
             raise ValueError(f'E1 boundary lacks {pin} on {net}')
 

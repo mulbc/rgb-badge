@@ -3,7 +3,7 @@
 """Check the staged USB interface, exact passive additions and complete pin map.
 
 Source connectivity is not native ERC, USB compliance or transient simulation.
-The protected 5 V input is a deliberately unclosed power boundary.
+The protected 5 V input is now sourced by provisional E0; operating faults remain open.
 """
 
 import argparse
@@ -87,7 +87,7 @@ def check_added_libraries(project=PROJECT):
 def check_sources(project=PROJECT):
     check_added_libraries(project)
     runpy.run_path(str(TOOLS/'check-usb-connector.py'))['check_libraries'](project)
-    actual=TRACE['trace_sheet_set'](project,SHEETS,PARTS,set(NC_NAMES),{'#FLG05':'+5V_USB'})
+    actual=TRACE['trace_sheet_set'](project,SHEETS,PARTS,set(NC_NAMES),{'#FLG05':'VBUS_CONNECTOR'})
     require(actual==expected_connections(),'USB interface pin-to-net mismatch')
     # The logic supply must have a real source, without the old parallel flag.
     conditioning=parse(project/'usb-conditioning.kicad_sch')
@@ -101,7 +101,7 @@ def main():
     args=p.parse_args()
     try:
         check_sources(args.project_dir)
-        print('USB interface source checks passed: 13 PCB items / 62 pins; connector, ESD, detectors, switched data, USB LDO. Protected input remains staged; not native ERC.')
+        print('USB interface source checks passed: 13 PCB items / 62 pins; connector, ESD, detectors, switched data, USB LDO. E0 now sources protected USB; not native ERC.')
     except (OSError,ValueError,KeyError,IndexError) as e:
         print(f'USB interface check failed: {e}',file=sys.stderr);return 1
     return 0
