@@ -63,3 +63,7 @@ Run the normal native wrapper and review the lower-right supervisor group on pag
 ## Follow-up native disposition
 
 The [2bb0e08 evidence record](../../../docs/development/logic-supervisor-review-2bb0e08.md) accepts the supervisor-stage native ERC/XML and visual review and closes the USB symbol-heading findings. This does not close the remaining power-design or independent Gate A requirements.
+
+## 2026-10-11 logic-rail amendment
+
+[ADR 0025](../../../docs/decisions/0025-usb-supervisor-logic-rail.md) supersedes the original `+5V_USB` supply entries above. U34 VDD pin 6 and MR pin 3, C38 pin 1, and R77 pin 1 now connect to `+3V3_USB` in the root-linked sheet. SENSE divider values and the selected CT release interval are unchanged. The earlier table and native checkpoint remain historical evidence for the prior circuit; they do not validate this amendment. This moves the supervisor into the same domain as its proposed E1 control logic, but RESET is still only a staged logic output until the charger gate is connected and reviewed.

@@ -37,7 +37,8 @@ class SupervisionTests(unittest.TestCase):
         self.assertLess(CALC['threshold_bounds']('560000')[0],D('2.7'))
 
     def test_wrong_supervisor_supply_sense_and_ct_paths_rejected(self):
-        for old,new in [('(global_label "+5V_USB"','(global_label "+3V3_APP"'),
+        for old,new in [('(global_label "+3V3_USB" (shape passive) (at 454.660 187.960 0)',
+                         '(global_label "+5V_USB" (shape passive) (at 454.660 187.960 0)'),
                         ('(global_label "USB_LOGIC_SENSE"','(global_label "+3V3_USB"'),
                         ('(global_label "USB_LOGIC_CT"','(global_label "GND"'),
                         ('(property "Value" "620k 1%"','(property "Value" "680k 1%"')]:

@@ -82,6 +82,8 @@ The [proposal's six capture holds](design/power-architecture-2026-10-05.md#8-one
 
 **2026-10-10 CHG-003/USB-005 EN2 amendment:** [ADR 0023](decisions/0023-charger-en2-local-clamp-proposal.md) selects an exact 10 kΩ `ERJ2RKF1002X` feed from admitted `CHARGER_IN_DRAFT` into a 2.5 V `LM4040A25IDBZT` shunt on BQ EN2. EN1 and CE remain low; ILIM will set the limit when the input and clamp are valid. The previous direct EN2-to-ground capture is superseded. The shunt load margin still assumes an unverified EN2 current at approximately 2.5 V; check that, E1 fault voltage, input-valid/mode timing, compact-board resistor heat and source transitions before approving the gate. The source flags remain nonphysical boundaries, and no fabrication release follows.
 
+**2026-10-11 USB-005/PWR-005 supervisor domain:** [ADR 0025](decisions/0025-usb-supervisor-logic-rail.md) moves U34 VDD/MR and its local bypass/CT pull-up to `+3V3_USB` in the root-linked conditioning sheet, retaining the 2.916 V nominal logic-rail sense threshold and 180–420 ms fixed release interval. The exact connected E1 EN circuit must still bound RESET loading, rail-sequencing/injection and rapid brownout before charger permission can be accepted. This does not alter a current limit or release the charger input gate.
+
 ## Row-package proposal verification addendum
 
 2026-10-06: [ADR 0020](decisions/0020-dual-row-mosfet-package-proposal.md) proposes a complementary N/P package for each row to recover board area. It is **not accepted or implemented**. The following evidence is required before it could replace the captured row stage; the display, current and fail-safe requirements above remain unchanged.

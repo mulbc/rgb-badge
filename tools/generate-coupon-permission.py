@@ -143,15 +143,15 @@ def conditioning():
     for i,name in enumerate(RAW):
         x,y=83.82+(i%5)*106.68,325.12+(i//5)*25.4
         s.component(f'TP{20+i}','TestPoint_Pad',x,y,{'1':'USB_OUT2' if name=='OUT2' else 'USB_RAW_'+name},name)
-    s.note('Logic-rail supervisor: input-domain powered, delayed release',383.54,175.26,'supervisor',1.016)
+    s.note('Logic-rail supervisor: USB 3.3 V powered, delayed release',383.54,175.26,'supervisor',1.016)
     s.component('U34','TPS3808G01DBVR',444.50,195.58,
-                {'1':'USB_RAW_LOGIC_READY','2':'GND','3':'+5V_USB',
-                 '4':'USB_LOGIC_CT','5':'USB_LOGIC_SENSE','6':'+5V_USB'})
-    s.component('C38','GRM155R71C104KA88D',444.50,218.44,{'1':'+5V_USB','2':'GND'},'100n 16V X7R')
+                {'1':'USB_RAW_LOGIC_READY','2':'GND','3':'+3V3_USB',
+                 '4':'USB_LOGIC_CT','5':'USB_LOGIC_SENSE','6':'+3V3_USB'})
+    s.component('C38','GRM155R71C104KA88D',444.50,218.44,{'1':'+3V3_USB','2':'GND'},'100n 16V X7R')
     for ref,mpn,y,a,b,value in [
         ('R75','ERJ2RKF6203X',238.76,'+3V3_USB','USB_LOGIC_SENSE','620k 1%'),
         ('R76','ERJ2RKF1003X',259.08,'USB_LOGIC_SENSE','GND','100k 1%'),
-        ('R77','ERJ2RKF1003X',279.40,'+5V_USB','USB_LOGIC_CT','100k 1%'),
+        ('R77','ERJ2RKF1003X',279.40,'+3V3_USB','USB_LOGIC_CT','100k 1%'),
         ('R78','ERJ2RKF1002X',299.72,'+3V3_USB','USB_RAW_LOGIC_READY','10k 1%')]:
         s.component(ref,mpn,444.50,y,{'1':a,'2':b},value)
     s.note('Default pull-ups: 10 kohm. Default pull-downs: 100 kohm. Source/leakage/suspend budgets remain to be qualified.',20.32,375.92,'pulls')
