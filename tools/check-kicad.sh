@@ -31,6 +31,7 @@ slide_switch_library_check="${repo_root}/tools/check-slide-switch-library.py"
 app_power_capture_check="${repo_root}/tools/check-coupon-app-power.py"
 temperature_capture_check="${repo_root}/tools/check-coupon-temperature.py"
 charger_core_check="${repo_root}/tools/check-coupon-charger-core.py"
+charger_gate_check="${repo_root}/tools/check-coupon-charger-gate.py"
 
 if [[ -n "${RGB_BADGE_KICAD_CLI:-}" ]]; then
     kicad_cli="${RGB_BADGE_KICAD_CLI}"
@@ -77,6 +78,7 @@ for required_path in \
     "${app_power_capture_check}" \
     "${temperature_capture_check}" \
     "${charger_core_check}" \
+    "${charger_gate_check}" \
     "${repo_root}/tools/check-jst-ph-library.py" \
     "${footprint_library}/JST_PH_S2B-PH-SM4-TB.kicad_mod" \
     "${footprint_library}/SOT23_TI_DBZ0003A.kicad_mod" \
@@ -84,6 +86,7 @@ for required_path in \
     "${project_dir}/3v3-converter.kicad_sch" \
     "${project_dir}/charger-temperature.kicad_sch" \
     "${project_dir}/charger-core.kicad_sch" \
+    "${project_dir}/charger-gate.kicad_sch" \
     "${project_dir}/staging/3v3-converter.kicad_sch"
 do
     if [[ ! -e "${required_path}" ]]; then
@@ -117,6 +120,7 @@ python3 "${slide_switch_library_check}"
 python3 "${app_power_capture_check}"
 python3 "${temperature_capture_check}"
 python3 "${charger_core_check}"
+python3 "${charger_gate_check}"
 python3 "${repo_root}/tools/check-jst-ph-library.py"
 
 kicad_version="$("${kicad_cli}" version)"
@@ -211,7 +215,7 @@ do
     fi
 done
 
-for symbol_name in TLC59581RTQT ERJ2RKF3922X ERJ2RKF1003X ERJ2RKF1004X GRM155R71C104KA88D PWR_FLAG TestPoint_Pad '74HC4514PW,118' DMP2066LSN-7 2N7002K-7 ERJ2RKF1001X ESP32-S3-WROOM-1U-N16R8 ERJ2RKF1002X ERJ2RKF2201X ERJ2RKF22R0X ERJ2RKF4990X GRM155C71A105KE11D GRM188R60J106ME47D EVQP7J01P BQ24074RGTR BQ24392RSER TS3USB31ERSER BQ25616JRTWT TPS631000DRLR TLV75533PDBVR SN74LVC1G04DBVR INA232AIDDFR TPD4E05U06DQAR TUSB320LAIRWBR TPS63020DSJT 'MAX17048G+T10' SN74LVC1G00DBVR SN74LVC1G06DBVR SN74LVC1G08DBVR SN74LVC1G11DBVR SN74LVC1G32DBVR TPS3808G01DBVR SN74LVC2G17DBVR ERJ2RKF8873X ERJ2RCF2R20X ERJ2RKF6203X ERA2AEB3651X ERA2AEB3481X ERA2AEB1131X ERA2AEB2491X ADG4612BCPZ-REEL7 LM4040A25IDBZT; do
+for symbol_name in TLC59581RTQT ERJ2RKF3922X ERJ2RKF1003X ERJ2RKF1004X ERJ2RKF2203X ERJ2RKF2703X ERJ2RKF3321X GRM1555C1H222GA01D GRM155R71C104KA88D PWR_FLAG TestPoint_Pad '74HC4514PW,118' DMP2066LSN-7 2N7002K-7 ERJ2RKF1001X ESP32-S3-WROOM-1U-N16R8 ERJ2RKF1002X ERJ2RKF2201X ERJ2RKF22R0X ERJ2RKF4990X GRM155C71A105KE11D GRM188R60J106ME47D EVQP7J01P BQ24074RGTR BQ24392RSER TS3USB31ERSER BQ25616JRTWT TPS631000DRLR TLV75533PDBVR SN74LVC1G04DBVR INA232AIDDFR TPD4E05U06DQAR TUSB320LAIRWBR TPS63020DSJT 'MAX17048G+T10' SN74LVC1G00DBVR SN74LVC1G06DBVR SN74LVC1G08DBVR SN74LVC1G11DBVR SN74LVC1G32DBVR TPS3808G01DBVR SN74LVC2G17DBVR ERJ2RKF8873X ERJ2RCF2R20X ERJ2RKF6203X ERA2AEB3651X ERA2AEB3481X ERA2AEB1131X ERA2AEB2491X ADG4612BCPZ-REEL7 LM4040A25IDBZT; do
     if [[ ! -s "${symbol_svg_dir}/${symbol_name}_unit1.svg" ]]; then
         echo "Expected non-empty controlled symbol SVG: ${symbol_name}" >&2
         exit 1
@@ -339,6 +343,7 @@ python3 "${repo_root}/tools/check-erc-report.py" "${check_tmp_dir}/coupon-erc.rp
 python3 "${controller_capture_check}" --netlist "${check_tmp_dir}/coupon-matrix.xml"
 python3 "${temperature_capture_check}" --netlist "${check_tmp_dir}/coupon-matrix.xml"
 python3 "${charger_core_check}" --netlist "${check_tmp_dir}/coupon-matrix.xml"
+python3 "${charger_gate_check}" --netlist "${check_tmp_dir}/coupon-matrix.xml"
 
 "${kicad_cli}" sch export pdf \
     --black-and-white \
@@ -349,8 +354,8 @@ if [[ ! -s "${check_tmp_dir}/coupon-schematic.pdf" ]]; then
     exit 1
 fi
 
-echo "KiCad ${kicad_version}: libraries exported; connected charger/temperature core, provisional app switch/3V3, staged gauge and earlier coupon connectivity and ERC passed."
-echo "Draft: charger IN/BAT and +5V_USB source flags remain; input protection, charger gate, pack connector, gauge switch/bus isolation and VLED supply/interlock are uncaptured."
+echo "KiCad ${kicad_version}: libraries exported; connected provisional E1/BQ/temperature capture, app switch/3V3, staged gauge and earlier coupon connectivity and ERC passed."
+echo "Draft: protected-USB, BAT and +5V_USB source flags remain; E0 input protection, pack connector, gauge switch/bus isolation and VLED supply/interlock are uncaptured."
 if [[ "${keep_check_output}" == yes ]]; then
     echo "Review SVG/PDF output and netlist in: ${check_tmp_dir}"
 fi

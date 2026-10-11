@@ -42,7 +42,7 @@ class CheckKiCadWrapperTests(unittest.TestCase):
     def test_separate_raw_views_and_numbered_copies(self):
         result = self.run_check()
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertEqual(len(list((self.output / "symbols").glob("*.svg"))), 66)
+        self.assertEqual(len(list((self.output / "symbols").glob("*.svg"))), 70)
         for view in ("fabrication", "copper", "paste", "numbered", "mechanical"):
             self.assertEqual(len(list((self.output / "footprints" / view).glob("*.svg"))), 3 if view == "numbered" else 36)
         self.assertTrue((self.output / "coupon-erc.rpt").is_file())
@@ -141,6 +141,12 @@ class CheckKiCadWrapperTests(unittest.TestCase):
         result = self.run_check(RGB_BADGE_TEST_BAD_CONTROLLER="1")
         self.assertEqual(result.returncode, 1)
         self.assertIn("Controller check failed", result.stderr)
+        self.assertFalse((self.output / "coupon-schematic.pdf").exists())
+
+    def test_e1_output_pin_fault_is_rejected(self):
+        result = self.run_check(RGB_BADGE_TEST_BAD_E1="1")
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("('U44', '6'): expected 'CHARGER_IN_DRAFT'", result.stderr)
         self.assertFalse((self.output / "coupon-schematic.pdf").exists())
 
     def test_missing_driver_paste_export_is_rejected(self):

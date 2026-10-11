@@ -71,9 +71,9 @@ def generate():
     lines = [
         '(kicad_sch', '(version 20260306)', '(generator "rgb_badge_charger_core")', '(generator_version "1.0")',
         f'(uuid {h.q(FILE_UUID)})', '(paper "A3")',
-        '(title_block (title "Coupon Rev A - provisional BQ24074 charger core") (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "IN and BAT are unbuilt boundary nets; EN2 uses local clamp"))',
+        '(title_block (title "Coupon Rev A - provisional BQ24074 charger core") (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "IN joins provisional E1; BAT remains unbuilt; EN2 uses local clamp"))',
         '(lib_symbols\n' + '\n'.join(h.cached_symbol(mpn) for mpn in symbols) + '\n' + h.cached_symbol('PWR_FLAG') + '\n)',
-        f'(text "CHARGER_TS physically joins TH1 via global net. IN and BAT await E1 and pack connector." (at 20.320 20.320 0) {h.effects(justify="left")} (uuid {h.q(h.uid("note/1"))}))',
+        f'(text "CHARGER_TS joins TH1; IN joins provisional E1; BAT awaits pack connector." (at 20.320 20.320 0) {h.effects(justify="left")} (uuid {h.q(h.uid("note/1"))}))',
         f'(text "R88/U38 derive EN2 from admitted input; EN1=0 selects fixed ILIM when clamped high." (at 20.320 27.940 0) {h.effects(justify="left")} (uuid {h.q(h.uid("note/2"))}))',
         f'(text "ITERM open selects 10% default termination; TMR open selects live 30 min/5 h safety timers." (at 20.320 35.560 0) {h.effects(justify="left")} (uuid {h.q(h.uid("note/3"))}))',
     ]
@@ -116,7 +116,6 @@ def generate():
     ]:
         lines.extend(terminal(net, x - 5.08, y, x - 25.40, y, ref + '/1'))
         lines.extend(terminal('GND', x + 5.08, y, x + 25.40, y, ref + '/2'))
-    lines.extend(source_boundary('#FLG08', 76.20, 208.28, 'CHARGER_IN_DRAFT'))
     lines.extend(source_boundary('#FLG09', 254.00, 208.28, '+BAT_PROTECTED_DRAFT'))
     return '\n'.join(lines + ['(embedded_fonts no)', ')']) + '\n'
 

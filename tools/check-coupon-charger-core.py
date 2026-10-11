@@ -41,7 +41,7 @@ def check_source():
         raise ValueError('Charger core must be root-linked exactly once')
     if len(PARTS) != 8 or sum(row[5] for row in PARTS.values()) != len(EXPECTED):
         raise ValueError('Charger core component/pin inventory mismatch')
-    for ref in ('#FLG08', '#FLG09'):
+    for ref in ('#FLG09',):
         if f'(property "Reference" "{ref}"' not in actual:
             raise ValueError(f'Missing provisional external supply marker {ref}')
 

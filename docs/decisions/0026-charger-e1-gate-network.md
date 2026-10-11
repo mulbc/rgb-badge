@@ -2,7 +2,7 @@
 
 # ADR 0026: Isolate charger-gate inhibition from USB logic-ready
 
-Date: 2026-10-11. Status: selected for provisional Rev A capture; operating qualification remains open.
+Date: 2026-10-11. Status: selected and provisionally captured in Rev A; operating qualification remains open.
 
 Use the exact `TPS259474ARPWR` as E1, between the future E0 protected USB rail and BQ24074 IN. Its pin 1 `EN/UVLO` is the common `CHARGER_GATE_EN` node. Drive it only from the USB 3.3 V logic domain through an exact Panasonic `ERJ2RKF2203X` 220 kΩ pull-up and `ERJ2RKF2703X` 270 kΩ pull-down. The passive divider makes EN low with that rail absent; no raw VBUS or battery voltage drives EN. Use three independent `SN74AUP1G125DBVR` active-low OE sinks with A grounded and Y tied to EN: the already captured U40 for `TEMP_OK`, a new source-permission sink controlled by `USB_CHARGE_REQ`, and a new supervisor sink controlled by U34's `USB_RAW_LOGIC_READY`. Each new AUP has its own exact `GRM155R71C104KA88D` 100 nF bypass. A sink is active when its controlling signal is low, so E1 can turn on only after all three release. E1's output joins the existing BQ `CHARGER_IN_DRAFT` source net; its input remains a clearly marked protected-USB draft boundary until E0 is captured. Do not use U23's `USB_EN1_RAW_N` test output as an actuator.
 

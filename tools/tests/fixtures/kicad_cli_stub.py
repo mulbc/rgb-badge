@@ -350,6 +350,25 @@ def controller_coupon_netlist():
         part(ref,value,fp,{1:positive,2:'GND'})
     part('R88','10k 1%','R_Panasonic_ERJ2_0402',{1:'CHARGER_IN_DRAFT',2:'CHARGER_EN2'})
     part('U38','2.5V shunt','SOT23_TI_DBZ0003A',{1:'CHARGER_EN2',2:'GND',3:'GND'})
+    part('U44','TPS259474ARPWR','VQFN_TI_RPW0010A_2x2mm_HotRod',{
+        1:'CHARGER_GATE_EN',2:'GND',3:'unconnected-(U44-PG-Pad3)',
+        4:'unconnected-(U44-PGTH-Pad4)',5:'USB_PROTECTED_DRAFT',6:'CHARGER_IN_DRAFT',
+        7:'E1_DVDT',8:'GND',9:'E1_ILM',10:'unconnected-(U44-ITIMER-Pad10)'})
+    for ref,request in [('U42','USB_CHARGE_REQ'),('U43','USB_RAW_LOGIC_READY')]:
+        part(ref,'SN74AUP1G125DBVR','SOT23_TI_DBV0005A',{
+            1:request,2:'GND',3:'GND',4:'CHARGER_GATE_EN',5:'+3V3_USB'})
+    for ref,value,positive,negative in [
+        ('R94','220k 1%','+3V3_USB','CHARGER_GATE_EN'),
+        ('R95','270k 1%','CHARGER_GATE_EN','GND'),
+        ('R96','3.32k 1%','E1_ILM','GND')]:
+        part(ref,value,'R_Panasonic_ERJ2_0402',{1:positive,2:negative})
+    for ref,value,footprint,positive in [
+        ('C55','100n 16V X7R','C_Murata_GRM15_0402','USB_PROTECTED_DRAFT'),
+        ('C56','22u 10V X5R','C_Murata_GRM18_0603','CHARGER_IN_DRAFT'),
+        ('C57','2.2n 50V C0G','C_Murata_GRM15_0402','E1_DVDT'),
+        ('C58','100n 16V X7R','C_Murata_GRM15_0402','+3V3_USB'),
+        ('C59','100n 16V X7R','C_Murata_GRM15_0402','+3V3_USB')]:
+        part(ref,value,footprint,{1:positive,2:'GND'})
     return root
 
 
@@ -374,6 +393,8 @@ def main():
             root.find("./nets/net/node[@ref='U2'][@pin='23']").set('pin', '24')
         if os.environ.get('RGB_BADGE_TEST_BAD_CONTROLLER') == '1':
             root.find("./nets/net/node[@ref='U3'][@pin='27']").set('pin', '26')
+        if os.environ.get('RGB_BADGE_TEST_BAD_E1') == '1':
+            root.find("./nets/net/node[@ref='U44'][@pin='6']").set('pin', '99')
         output.write_bytes(ET.tostring(root))
         return 0
     elif args[:3] == ["sch", "export", "pdf"]:
@@ -383,7 +404,7 @@ def main():
         output.write_text('Stub only: not a PDF or KiCad render.\n')
         return 0
     elif args[:3] == ["sym", "export", "svg"]:
-        names = [n + "_unit1.svg" for n in ("EAST10105RGBA0", "QBLP1515A-RGB2A", "TLC59581RTQT", "ERJ2RKF3922X", "ERJ2RKF1003X", "ERJ2RKF1004X", "GRM155R71C104KA88D", "PWR_FLAG", "TestPoint_Pad", "74HC4514PW,118", "DMP2066LSN-7", "2N7002K-7", "ERJ2RKF1001X", "ESP32-S3-WROOM-1U-N16R8", "ERJ2RKF1002X", "ERJ2RKF2201X", "ERJ2RKF22R0X", "ERJ2RKF4990X", "GRM155C71A105KE11D", "GRM188R60J106ME47D", "EVQP7J01P", "BQ24074RGTR", "BQ24392RSER", "TS3USB31ERSER", "BQ25616JRTWT", "TPS631000DRLR", "TPS70933DBVR", "TLV75533PDBVR", "SN74LVC1G04DBVR", "INA232AIDDFR", "TPD4E05U06DQAR", "TUSB320LAIRWBR", "TPS63020DSJT", "MAX17048G+T10", "SN74LVC1G00DBVR", "SN74LVC1G06DBVR", "SN74LVC1G08DBVR", "SN74LVC1G11DBVR", "SN74LVC1G32DBVR", "TPS3808G01DBVR", "SN74LVC2G17DBVR", "ERJ2RKF8873X", "ERJ2RCF2R20X", "LM4040A25IDBZT")]
+        names = [n + "_unit1.svg" for n in ("EAST10105RGBA0", "QBLP1515A-RGB2A", "TLC59581RTQT", "ERJ2RKF3922X", "ERJ2RKF1003X", "ERJ2RKF1004X", "ERJ2RKF2203X", "ERJ2RKF2703X", "ERJ2RKF3321X", "GRM1555C1H222GA01D", "GRM155R71C104KA88D", "PWR_FLAG", "TestPoint_Pad", "74HC4514PW,118", "DMP2066LSN-7", "2N7002K-7", "ERJ2RKF1001X", "ESP32-S3-WROOM-1U-N16R8", "ERJ2RKF1002X", "ERJ2RKF2201X", "ERJ2RKF22R0X", "ERJ2RKF4990X", "GRM155C71A105KE11D", "GRM188R60J106ME47D", "EVQP7J01P", "BQ24074RGTR", "BQ24392RSER", "TS3USB31ERSER", "BQ25616JRTWT", "TPS631000DRLR", "TPS70933DBVR", "TLV75533PDBVR", "SN74LVC1G04DBVR", "INA232AIDDFR", "TPD4E05U06DQAR", "TUSB320LAIRWBR", "TPS63020DSJT", "MAX17048G+T10", "SN74LVC1G00DBVR", "SN74LVC1G06DBVR", "SN74LVC1G08DBVR", "SN74LVC1G11DBVR", "SN74LVC1G32DBVR", "TPS3808G01DBVR", "SN74LVC2G17DBVR", "ERJ2RKF8873X", "ERJ2RCF2R20X", "LM4040A25IDBZT")]
         names.append("ERJ2RKF2201X_unit1.svg")
     elif args[:3] == ["fp", "export", "svg"]:
         # Added independently of the source parser: exercise wrapper requirements.
