@@ -46,6 +46,19 @@ def check(project=LIB['PROJECT']):
     # fields and the manufacturer source URL against the controlled template.
     if json.dumps(symbols[mpn]).replace(mpn,'ERJ2RKF1003X')!=json.dumps(symbols['ERJ2RKF1003X']):
         raise ValueError('Supervisor divider resistor identity/geometry mismatch')
+    reset_pull=symbols['ERJ2RKF1004X']
+    props=LIB['property_map'](reset_pull)
+    if any(props.get(key)!=value for key,value in {
+        'Value':'ERJ2RKF1004X', 'MPN':'ERJ2RKF1004X',
+        'Manufacturer':'Panasonic',
+        'Footprint':'rgb-badge-coupon:R_Panasonic_ERJ2_0402',
+        'Datasheet':'https://industrial.panasonic.com/ww/products/pt/general-purpose-chip-resistors/models/ERJ2RKF1004X',
+    }.items()):
+        raise ValueError('RESET 1M resistor identity mismatch')
+    pins=[pin for unit in LIB['children'](reset_pull,'symbol') for pin in LIB['children'](unit,'pin')]
+    pin_numbers={LIB['one'](pin,'number','pin number')[1] for pin in pins}
+    if pin_numbers!={'1','2'} or any(pin[1]!='passive' for pin in pins):
+        raise ValueError('RESET 1M resistor pin map mismatch')
     lo,hi,release=threshold_bounds()
     if not D('2.7')<lo<hi<release<D('3.2'):
         raise ValueError('Logic supervisor divider outside static design window')

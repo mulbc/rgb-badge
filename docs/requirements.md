@@ -84,6 +84,8 @@ The [proposal's six capture holds](design/power-architecture-2026-10-05.md#8-one
 
 **2026-10-11 USB-005/PWR-005 supervisor domain:** [ADR 0025](decisions/0025-usb-supervisor-logic-rail.md) moves U34 VDD/MR and its local bypass/CT pull-up to `+3V3_USB` in the root-linked conditioning sheet, retaining the 2.916 V nominal logic-rail sense threshold and 180–420 ms fixed release interval. The exact connected E1 EN circuit must still bound RESET loading, rail-sequencing/injection and rapid brownout before charger permission can be accepted. This does not alter a current limit or release the charger input gate.
 
+**2026-10-11 USB-005/CHG-003 E1 capture selection:** [ADR 0026](decisions/0026-charger-e1-gate-network.md) selects the exact E1 breaker and a passive-low EN divider with three independent hardware sinks for Type-C source permission, temperature and USB supervisor. The existing supervisor RESET pull-up/pull-down are now revalued to reduce low-voltage load before connecting the third sink. Keep BQ's lower hardware ILIM and E1's own ILM resistor, safety timers, NTC and pack protection. The calculation in ADR 0026 is a source-capture screen; verify E0 fault containment, full-port current, gate rise/fall and startup/brownout waveforms, capacitor effective values and physical layout before charge operation or fabrication release.
+
 ## Row-package proposal verification addendum
 
 2026-10-06: [ADR 0020](decisions/0020-dual-row-mosfet-package-proposal.md) proposes a complementary N/P package for each row to recover board area. It is **not accepted or implemented**. The following evidence is required before it could replace the captured row stage; the display, current and fail-safe requirements above remain unchanged.

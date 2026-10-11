@@ -240,7 +240,7 @@ def permission_coupon_netlist():
         add(f'C{i}',1,'+3V3_USB');add(f'C{i}',2,'GND')
     for i,name in enumerate(raw):
         up = i in (0,1)
-        part(f'R{60+i}','10k 1%' if up else '100k 1%','R_Panasonic_ERJ2_0402')
+        part(f'R{60+i}','10k 1%' if up else ('1M 1%' if name=='LOGIC_READY' else '100k 1%'),'R_Panasonic_ERJ2_0402')
         add(f'R{60+i}',1,'USB_RAW_'+name);add(f'R{60+i}',2,'+3V3_USB' if up else 'GND')
         part(f'TP{20+i}',name,'TestPoint_Pad_D1.0mm');add(f'TP{20+i}',1,'USB_OUT2' if i==1 else 'USB_RAW_'+name)
     part('R70','10k 1%','R_Panasonic_ERJ2_0402');add('R70',1,'+3V3_USB');add('R70',2,'USB_EN1_RAW_N')
@@ -253,7 +253,7 @@ def permission_coupon_netlist():
     for ref,value,a,b in [('R75','620k 1%','+3V3_USB','USB_LOGIC_SENSE'),
                          ('R76','100k 1%','USB_LOGIC_SENSE','GND'),
                          ('R77','100k 1%','+3V3_USB','USB_LOGIC_CT'),
-                         ('R78','10k 1%','+3V3_USB','USB_RAW_LOGIC_READY')]:
+                         ('R78','100k 1%','+3V3_USB','USB_RAW_LOGIC_READY')]:
         part(ref,value,'R_Panasonic_ERJ2_0402');add(ref,1,a);add(ref,2,b)
     return root
 
@@ -383,7 +383,7 @@ def main():
         output.write_text('Stub only: not a PDF or KiCad render.\n')
         return 0
     elif args[:3] == ["sym", "export", "svg"]:
-        names = [n + "_unit1.svg" for n in ("EAST10105RGBA0", "QBLP1515A-RGB2A", "TLC59581RTQT", "ERJ2RKF3922X", "ERJ2RKF1003X", "GRM155R71C104KA88D", "PWR_FLAG", "TestPoint_Pad", "74HC4514PW,118", "DMP2066LSN-7", "2N7002K-7", "ERJ2RKF1001X", "ESP32-S3-WROOM-1U-N16R8", "ERJ2RKF1002X", "ERJ2RKF2201X", "ERJ2RKF22R0X", "ERJ2RKF4990X", "GRM155C71A105KE11D", "GRM188R60J106ME47D", "EVQP7J01P", "BQ24074RGTR", "BQ24392RSER", "TS3USB31ERSER", "BQ25616JRTWT", "TPS631000DRLR", "TPS70933DBVR", "TLV75533PDBVR", "SN74LVC1G04DBVR", "INA232AIDDFR", "TPD4E05U06DQAR", "TUSB320LAIRWBR", "TPS63020DSJT", "MAX17048G+T10", "SN74LVC1G00DBVR", "SN74LVC1G06DBVR", "SN74LVC1G08DBVR", "SN74LVC1G11DBVR", "SN74LVC1G32DBVR", "TPS3808G01DBVR", "SN74LVC2G17DBVR", "ERJ2RKF8873X", "ERJ2RCF2R20X", "LM4040A25IDBZT")]
+        names = [n + "_unit1.svg" for n in ("EAST10105RGBA0", "QBLP1515A-RGB2A", "TLC59581RTQT", "ERJ2RKF3922X", "ERJ2RKF1003X", "ERJ2RKF1004X", "GRM155R71C104KA88D", "PWR_FLAG", "TestPoint_Pad", "74HC4514PW,118", "DMP2066LSN-7", "2N7002K-7", "ERJ2RKF1001X", "ESP32-S3-WROOM-1U-N16R8", "ERJ2RKF1002X", "ERJ2RKF2201X", "ERJ2RKF22R0X", "ERJ2RKF4990X", "GRM155C71A105KE11D", "GRM188R60J106ME47D", "EVQP7J01P", "BQ24074RGTR", "BQ24392RSER", "TS3USB31ERSER", "BQ25616JRTWT", "TPS631000DRLR", "TPS70933DBVR", "TLV75533PDBVR", "SN74LVC1G04DBVR", "INA232AIDDFR", "TPD4E05U06DQAR", "TUSB320LAIRWBR", "TPS63020DSJT", "MAX17048G+T10", "SN74LVC1G00DBVR", "SN74LVC1G06DBVR", "SN74LVC1G08DBVR", "SN74LVC1G11DBVR", "SN74LVC1G32DBVR", "TPS3808G01DBVR", "SN74LVC2G17DBVR", "ERJ2RKF8873X", "ERJ2RCF2R20X", "LM4040A25IDBZT")]
         names.append("ERJ2RKF2201X_unit1.svg")
     elif args[:3] == ["fp", "export", "svg"]:
         # Added independently of the source parser: exercise wrapper requirements.

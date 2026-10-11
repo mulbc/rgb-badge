@@ -138,8 +138,10 @@ def conditioning():
         for j,name in enumerate((a,b)):
             n=2*i+j
             up=name in ('OUT1','OUT2')
-            s.component(f'R{60+n}','ERJ2RKF1002X' if up else 'ERJ2RKF1003X',x,y+45.72+j*20.32,
-                        {'1':'USB_RAW_'+name,'2':'+3V3_USB' if up else 'GND'},'10k 1%' if up else '100k 1%')
+            resistor = 'ERJ2RKF1002X' if up else ('ERJ2RKF1004X' if name == 'LOGIC_READY' else 'ERJ2RKF1003X')
+            value = '10k 1%' if up else ('1M 1%' if name == 'LOGIC_READY' else '100k 1%')
+            s.component(f'R{60+n}',resistor,x,y+45.72+j*20.32,
+                        {'1':'USB_RAW_'+name,'2':'+3V3_USB' if up else 'GND'},value)
     for i,name in enumerate(RAW):
         x,y=83.82+(i%5)*106.68,325.12+(i//5)*25.4
         s.component(f'TP{20+i}','TestPoint_Pad',x,y,{'1':'USB_OUT2' if name=='OUT2' else 'USB_RAW_'+name},name)
@@ -152,9 +154,9 @@ def conditioning():
         ('R75','ERJ2RKF6203X',238.76,'+3V3_USB','USB_LOGIC_SENSE','620k 1%'),
         ('R76','ERJ2RKF1003X',259.08,'USB_LOGIC_SENSE','GND','100k 1%'),
         ('R77','ERJ2RKF1003X',279.40,'+3V3_USB','USB_LOGIC_CT','100k 1%'),
-        ('R78','ERJ2RKF1002X',299.72,'+3V3_USB','USB_RAW_LOGIC_READY','10k 1%')]:
+        ('R78','ERJ2RKF1003X',299.72,'+3V3_USB','USB_RAW_LOGIC_READY','100k 1%')]:
         s.component(ref,mpn,444.50,y,{'1':a,'2':b},value)
-    s.note('Default pull-ups: 10 kohm. Default pull-downs: 100 kohm. Source/leakage/suspend budgets remain to be qualified.',20.32,375.92,'pulls')
+    s.note('Most default pulls: 10k up / 100k down. RESET uses 100k up / 1M down for gate isolation.',20.32,375.92,'pulls')
     s.note('U34: nominal trip 2.916 V; CT via 100k selects 180-420 ms release. Fast brownout/actuator inhibition remain unproven.',20.32,386.08,'reset-limits',1.016)
     return s
 

@@ -67,3 +67,7 @@ The [2bb0e08 evidence record](../../../docs/development/logic-supervisor-review-
 ## 2026-10-11 logic-rail amendment
 
 [ADR 0025](../../../docs/decisions/0025-usb-supervisor-logic-rail.md) supersedes the original `+5V_USB` supply entries above. U34 VDD pin 6 and MR pin 3, C38 pin 1, and R77 pin 1 now connect to `+3V3_USB` in the root-linked sheet. SENSE divider values and the selected CT release interval are unchanged. The earlier table and native checkpoint remain historical evidence for the prior circuit; they do not validate this amendment. This moves the supervisor into the same domain as its proposed E1 control logic, but RESET is still only a staged logic output until the charger gate is connected and reviewed.
+
+## 2026-10-11 RESET loading amendment
+
+[ADR 0026](../../../docs/decisions/0026-charger-e1-gate-network.md) revalues R78 to exact Panasonic `ERJ2RKF1003X` 100 kΩ and R63 to exact `ERJ2RKF1004X` 1 MΩ. The latter has the same audited ERJ2 0402 land and passive pin map; Panasonic specifies 1 MΩ, ±1% and ±100 ppm/K for that exact MPN. The nominal unloaded RESET high remains 3.0 V at a 3.3 V rail, while the 0.8 V pull-up current falls from 80 µA to 8 µA. This is source arithmetic, not a qualified reset waveform. The selected third AUP isolation sink and E1 remain to be captured and tested.
