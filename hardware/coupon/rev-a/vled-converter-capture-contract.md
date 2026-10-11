@@ -1,8 +1,8 @@
 <!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
 
-# VLED converter capture contract — unlinked candidate
+# VLED converter capture contract — dark root-linked stage
 
-2026-10-06. The [staged KiCad source](staging/vled-converter.kicad_sch) captures a default-disabled TPS63020 LED converter, not a completed or board-qualified power system. It is intentionally absent from the root sheet while the protected SYS source and display interlock remain unresolved under proposed [ADR 0018](../../../docs/decisions/0018-complete-power-architecture-proposal.md). VLED_ENABLE_DRAFT is held low by 100 kΩ; no controller GPIO is connected to it. PG is marked unused on this candidate. VLED itself remains sourced by the root sheet's draft flag until replacement is reviewed.
+The [staged KiCad source](staging/vled-converter.kicad_sch) remains a deterministic isolated candidate. [ADR 0028](../../../docs/decisions/0028-root-link-dark-vled-converter.md) now permits a [root-linked copy](vled-converter.kicad_sch) with the same exact power components and a renamed `C63` VINA bypass, avoiding the charger-temperature sheet's `C50`. The converter input joins provisional BQ SYS; its output joins VLED and replaces the old row-sheet source flag. `VLED_ENABLE_DRAFT` is still held low by 100 kΩ with no controller connection. PG is explicitly unused. This is an intentionally dark source capture, not a completed or board-qualified power system.
 
 | Function | Exact candidate and source | Capture |
 |---|---|---|
@@ -18,6 +18,6 @@ The TI application guidance allows 1.5 µH with four nominal 22 µF output capac
 
 The reproducible source is tools/generate-coupon-vled.py. On 2026-10-06, native KiCad 10.0.6 exported a 13-component XML netlist. The separate-sheet ERC has only two expected source-declaration errors: its unconnected draft SYS source and GND have no driver in this isolated project. There are no other ERC categories. PDF rendering was visually inspected; the output is not a native project review or physical proof. Root-project ERC must stay at zero violations.
 
-Before linking, select and capture the protected SYS source, implement the hardware display interlock that blanks rows and disables VLED through boot/reset/programming/OFF, remove the root VLED draft source flag, rerun whole-project ERC/XML and review the power pages together. Check output hold-up/discharge and thermal layout before Gate A. No battery or fabrication approval follows from this candidate.
+The source-link sequence now precedes interlock selection under ADR 0028. Before enabling this stage, implement the hardware display interlock that blanks rows and disables VLED through boot/reset/programming/OFF. Check output hold-up/discharge and thermal layout before Gate A. No battery or fabrication approval follows from this candidate.
 
 The [unrouted local KiCad placement](staging/vled-layout-trial.kicad_pcb) and [magnified bay view](../../../mechanical/review/vled-cluster-detail.svg) place its actual footprints in the lower-right final-board trial region. The first input/output capacitors are close in plan view, but no switching-loop route, ground return, thermal copper or complete-board fit is verified. The KiCad file has correct exported pad nets and was plotted; a [local-board DRC run](../../../docs/development/vled-layout-trial-2026-10-06.md) found zero geometric violations and thirty expected unconnected items. Do not confuse the placement study with a routed PCB.

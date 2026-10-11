@@ -1,0 +1,11 @@
+<!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
+
+# Dark VLED power-stage source review, 2026-10-11
+
+[ADR 0028](../decisions/0028-root-link-dark-vled-converter.md) connects the [root-linked TPS63020DSJT sheet](../../hardware/coupon/rev-a/vled-converter.kicad_sch) to provisional BQ `+SYS_APP_IN_DRAFT` and the existing `VLED` row rail. The row-sheet VLED source flag is gone. The thirteen exact components and local LX nets match the earlier [isolated candidate](../../hardware/coupon/rev-a/vled-converter-capture-contract.md); VINA bypass `C63` uses the same exact Murata value and land as the isolated candidate's `C50`, avoiding the charger-temperature sheet's `C50` reference. PG is explicitly unconnected. Native netlist inspection shows EN pin U37.12 shares `VLED_ENABLE_DRAFT` only with R87.1, whose other end is GND. The converter therefore has no arm source in this draft.
+
+KiCad CLI 10.0.6 on macOS reports **zero configured ERC violations** in the 19-page root schematic. Full native XML checks pass with **460 PCB items / 1,693 logical pins**. The linked VLED checker verifies all 39 converter-stage pin nets, and the isolated candidate still passes its separate 13-item/39-pin export check. Pages 7 and 19 of `/private/tmp/rgb-dark-vled-review-20261011.pdf` were rendered to `/private/tmp/rgb-dark-vled-page7.png` and `/private/tmp/rgb-dark-vled-page19.png` and visually inspected. The full native check log is `/private/tmp/rgb-vled-full-check-20261011.log`; the focused first ERC/XML are `/private/tmp/rgb-vled-erc-first.rpt` and `/private/tmp/rgb-vled-first.xml`. These are source checks, not an energized converter or LED test.
+
+The complete host suite passed **172 tests** on 2026-10-11, including a fault test that disconnects the VLED EN pin and requires the native-netlist checker to reject the result.
+
+**Open:** SYS depends on an unconnected physical pack, and the VLED enable/row-blanking interlock has not been selected. No display operation is claimed. VIN and output capacitor effective values, switching-loop layout, residual VLED energy, protection under faults, thermal behavior, pack fit and independent Gate A review remain required. The local VLED placement study is not a routed/full-board PCB. Do not fabricate from this source increment.

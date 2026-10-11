@@ -155,6 +155,12 @@ class CheckKiCadWrapperTests(unittest.TestCase):
         self.assertIn("('U45', '6'): expected '+5V_USB'", result.stderr)
         self.assertFalse((self.output / "coupon-schematic.pdf").exists())
 
+    def test_vled_enable_pin_fault_is_rejected(self):
+        result = self.run_check(RGB_BADGE_TEST_BAD_VLED="1")
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("('U37', '12'): expected 'VLED_ENABLE_DRAFT'", result.stderr)
+        self.assertFalse((self.output / "coupon-schematic.pdf").exists())
+
     def test_missing_driver_paste_export_is_rejected(self):
         result = self.run_check(RGB_BADGE_TEST_MISSING_PASTE="1")
         self.assertEqual(result.returncode, 1)

@@ -36,7 +36,7 @@ PARTS.update({f"R{i + 6}": ("ERJ2RKF1001X", "1k 1%", "rgb-badge-coupon:R_Panason
 PARTS.update({f"R{i + 22}": ("ERJ2RKF1003X", "100k 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402") for i in range(16)})
 PARTS.update({f"R{i + 38}": ("ERJ2RKF1003X", "100k 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402") for i in range(4)})
 PARTS["R42"] = ("ERJ2RKF1003X", "100k 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402")
-FLAGS = {"#FLG03": "VLED"}
+FLAGS = {}
 
 
 def require(condition, message):
@@ -86,7 +86,7 @@ def check_sources(project=PROJECT):
     ROW_LIB["check_libraries"](project)
     root = parse(project / "rgb-badge-coupon.kicad_sch")
     sheets = children(root, "sheet")
-    require(len(sheets) == 17, "Expected matrix, driver, rows, controller, USB, gauge, application power, temperature and charger core")
+    require(len(sheets) == 18, "Expected matrix, driver, rows, controller, USB, gauge, application power, temperature, charger and VLED")
     row_sheets = [sheet for sheet in sheets if props(sheet)["Sheetfile"] == "rows.kicad_sch"]
     require(len(row_sheets) == 1 and not children(root, "symbol"), "Row sheet missing/duplicated or root contains components")
     sheet_uuid = one(row_sheets[0], "uuid", "row sheet")[1]
@@ -194,7 +194,7 @@ def main():
             print("KiCad XML complete coupon check passed: 335 PCB items, 1290 physical pins; matrix + driver + row selectors.")
         else:
             check_sources(args.project_dir)
-            print("Row source connectivity check passed: decoder, 16 P/N-MOSFET stages, 37 resistors, C2 and VLED boundary flag (not KiCad ERC).")
+            print("Row source connectivity check passed: decoder, 16 P/N-MOSFET stages, 37 resistors and C2; VLED sourced from U37 (not KiCad ERC).")
     except (OSError, ValueError, KeyError, IndexError, ET.ParseError) as error:
         print(f"Row check failed: {error}", file=sys.stderr)
         return 1

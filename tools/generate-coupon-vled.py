@@ -41,8 +41,11 @@ def junction(x, y, name):
     return f'(junction (at {x:.3f} {y:.3f}) (diameter 0) (color 0 0 0 0) (uuid {helper.q(helper.uid(name))}))'
 
 
-def generate():
+def generate(linked=False):
     h = helper
+    bypass = "C63" if linked else "C50"
+    if linked:
+        h.PARTS[bypass] = h.PARTS["C50"]
     symbols = dict.fromkeys(part[0] for part in h.PARTS.values())
     lines = [
         "(kicad_sch", "(version 20260306)", '(generator "rgb_badge_vled_candidate")',
@@ -54,7 +57,7 @@ def generate():
     ]
     positions = {
         "U37": (147.32, 96.52), "L2": (147.32, 137.16),
-        "C44": (76.20, 55.88), "C45": (76.20, 73.66), "C50": (76.20, 139.70),
+        "C44": (76.20, 55.88), "C45": (76.20, 73.66), bypass: (76.20, 139.70),
         "C46": (254.00, 66.04), "C47": (254.00, 83.82),
         "C48": (254.00, 101.60), "C49": (254.00, 119.38),
         "R84": (254.00, 139.70), "R85": (254.00, 157.48),
@@ -97,7 +100,7 @@ def generate():
     two_pin_nets = {
         "C44": ("+SYS_APP_IN_DRAFT", "GND"),
         "C45": ("+SYS_APP_IN_DRAFT", "GND"),
-        "C50": ("+SYS_APP_IN_DRAFT", "GND"),
+        bypass: ("+SYS_APP_IN_DRAFT", "GND"),
         "C46": ("VLED", "GND"), "C47": ("VLED", "GND"),
         "C48": ("VLED", "GND"), "C49": ("VLED", "GND"),
         "R84": ("VLED", "VLED_FB_TOP_MID"),
@@ -110,15 +113,31 @@ def generate():
         lines.extend(h.labelled(upper, x - 5.08, y, x - 20.32, y, ref + "/1"))
         lines.extend(h.labelled(lower, x + 5.08, y, x + 20.32, y, ref + "/2"))
     lines.extend(["(embedded_fonts no)", ")"])
-    return "\n".join(lines) + "\n"
+    source = "\n".join(lines) + "\n"
+    if linked:
+        source = source.replace(
+            'Coupon Rev A - unlinked VLED converter candidate',
+            'Coupon Rev A - provisional dark VLED converter',
+        ).replace(
+            'DO NOT LINK: SYS and display interlock pending',
+            'Root-linked power stage; EN held low until independent interlock',
+        ).replace(
+            'Default-disabled power stage. EN requires hardware interlock; input source remains draft.',
+            'VLED source joins provisional SYS; EN only has a 100k pull-down. Display remains disabled.',
+        ).replace(
+            f'(path "/{h.FILE_UUID}"',
+            '(path "/207fb68e-2ddb-46bb-8712-eba2f8c5eef6/9bf642b6-7f6a-5049-9d07-0f522408a3c4"',
+        )
+    return source
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--linked", action="store_true", help="write the root-linked default-disabled sheet")
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=False)
-    (args.output / "vled-converter.kicad_sch").write_text(generate(), encoding="utf-8")
+    (args.output / "vled-converter.kicad_sch").write_text(generate(args.linked), encoding="utf-8")
 
 
 if __name__ == "__main__":

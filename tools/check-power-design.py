@@ -106,7 +106,7 @@ def usb_capture_blockers():
         "ADR 0013 removes BC1.2, firmware charging grants and switched ILIM; E0/E1/BQ are provisionally captured, but the pack is absent.",
         "Protected-input fault behavior, VBUS qualification and physical charger standby/startup inhibition remain unproven.",
         "Whole-port current, standby, inrush, source transitions and thermal behavior remain unqualified.",
-        "LP452845 is the design target; BQ TS, default timers and E1 are captured, but pack interface, capacitor bias, programming-resistor drift, gate transient/temperature qualification and VLED source remain open.",
+        "LP452845 is the design target; BQ TS, default timers, E0/E1 and dark VLED source are captured, but pack interface, capacitor bias, programming-resistor drift, gate transient/temperature qualification and VLED interlock remain open.",
     )
 
 

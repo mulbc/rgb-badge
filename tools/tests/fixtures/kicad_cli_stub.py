@@ -382,6 +382,26 @@ def controller_coupon_netlist():
     part('C60','1u 50V X7R','C_TDK_C1608_0603',{1:'VBUS_CONNECTOR',2:'GND'})
     part('C61','22u 10V X5R','C_Murata_GRM18_0603',{1:'+5V_USB',2:'GND'})
     part('C62','2.2n 50V C0G','C_Murata_GRM15_0402',{1:'E0_DVDT',2:'GND'})
+    part('U37','TPS63020DSJT','VSON_TI_DSJ0014_4x3mm_P0.5mm_EP2.85x1.58mm',{
+        1:'+SYS_APP_IN_DRAFT',2:'GND',3:'VLED_FB',4:'VLED',5:'VLED',
+        6:'Net-(L2-~-Pad2)',7:'Net-(L2-~-Pad2)',8:'Net-(L2-~-Pad1)',9:'Net-(L2-~-Pad1)',
+        10:'+SYS_APP_IN_DRAFT',11:'+SYS_APP_IN_DRAFT',12:'VLED_ENABLE_DRAFT',
+        13:'GND',14:'unconnected-(U37-PG-Pad14)',15:'GND'})
+    part('L2','1.5u 20%','L_Murata_DFE252012P',{1:'Net-(L2-~-Pad1)',2:'Net-(L2-~-Pad2)'})
+    for ref,value,fp,left,right in [
+        ('C44','10u 6.3V X5R','C_Murata_GRM18_0603','+SYS_APP_IN_DRAFT','GND'),
+        ('C45','10u 6.3V X5R','C_Murata_GRM18_0603','+SYS_APP_IN_DRAFT','GND'),
+        ('C46','22u 10V X5R','C_Murata_GRM18_0603','VLED','GND'),
+        ('C47','22u 10V X5R','C_Murata_GRM18_0603','VLED','GND'),
+        ('C48','22u 10V X5R','C_Murata_GRM18_0603','VLED','GND'),
+        ('C49','22u 10V X5R','C_Murata_GRM18_0603','VLED','GND'),
+        ('C63','100n 16V X7R','C_Murata_GRM15_0402','+SYS_APP_IN_DRAFT','GND'),
+        ('R84','620k 1%','R_Panasonic_ERJ2_0402','VLED','VLED_FB_TOP_MID'),
+        ('R85','620k 1%','R_Panasonic_ERJ2_0402','VLED_FB_TOP_MID','VLED_FB'),
+        ('R86','180k 1%','R_Panasonic_ERJ2_0402','VLED_FB','GND'),
+        ('R87','100k 1%','R_Panasonic_ERJ2_0402','VLED_ENABLE_DRAFT','GND'),
+    ]:
+        part(ref,value,fp,{1:left,2:right})
     return root
 
 
@@ -410,6 +430,8 @@ def main():
             root.find("./nets/net/node[@ref='U44'][@pin='6']").set('pin', '99')
         if os.environ.get('RGB_BADGE_TEST_BAD_E0') == '1':
             root.find("./nets/net/node[@ref='U45'][@pin='6']").set('pin', '99')
+        if os.environ.get('RGB_BADGE_TEST_BAD_VLED') == '1':
+            root.find("./nets/net/node[@ref='U37'][@pin='12']").set('pin', '99')
         output.write_bytes(ET.tostring(root))
         return 0
     elif args[:3] == ["sch", "export", "pdf"]:

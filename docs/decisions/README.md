@@ -30,3 +30,7 @@ Decision records explain choices that materially constrain later work. Accepted 
 | [0022](0022-lower-fixed-usb-input-limit-proposal.md) | Evaluate one existing 3.65 kΩ ILIM resistor to simplify charger/eFuse current coordination | Proposed; no schematic or BOM change |
 | [0023](0023-charger-en2-local-clamp-proposal.md) | Feed charger EN2 from admitted input through a local 2.5 V clamp | Proposed; transient and EN2-load checks pending |
 | [0024](0024-lp452845-pack-and-temperature-window.md) | Design Rev A around the exact protected LP452845/PHR-2 assembly with NTC and buffered hardware temperature inhibit | Accepted design target; source capture and physical qualification pending |
+| [0025](0025-usb-supervisor-logic-rail.md) | Power USB-side supervision from the USB-only logic rail | Provisional source capture; timing qualification pending |
+| [0026](0026-charger-e1-gate-network.md) | Capture three independent hardware inhibits on the E1 charger gate | Provisional source capture; fault and timing qualification pending |
+| [0027](0027-e0-protected-usb-source-selection.md) | Bridge connector VBUS to protected USB logic and E1 through autonomous E0 | Provisional source capture; input fault qualification pending |
+| [0028](0028-root-link-dark-vled-converter.md) | Link the VLED power stage with EN held low until the display interlock exists | Provisional source capture; display operation blocked |

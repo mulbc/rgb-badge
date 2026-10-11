@@ -33,6 +33,7 @@ temperature_capture_check="${repo_root}/tools/check-coupon-temperature.py"
 charger_core_check="${repo_root}/tools/check-coupon-charger-core.py"
 charger_gate_check="${repo_root}/tools/check-coupon-charger-gate.py"
 e0_capture_check="${repo_root}/tools/check-coupon-e0.py"
+vled_capture_check="${repo_root}/tools/check-coupon-vled.py"
 
 if [[ -n "${RGB_BADGE_KICAD_CLI:-}" ]]; then
     kicad_cli="${RGB_BADGE_KICAD_CLI}"
@@ -82,6 +83,7 @@ for required_path in \
     "${charger_core_check}" \
     "${charger_gate_check}" \
     "${e0_capture_check}" \
+    "${vled_capture_check}" \
     "${repo_root}/tools/check-jst-ph-library.py" \
     "${footprint_library}/JST_PH_S2B-PH-SM4-TB.kicad_mod" \
     "${footprint_library}/SOT23_TI_DBZ0003A.kicad_mod" \
@@ -91,6 +93,7 @@ for required_path in \
     "${project_dir}/charger-core.kicad_sch" \
     "${project_dir}/charger-gate.kicad_sch" \
     "${project_dir}/usb-protection.kicad_sch" \
+    "${project_dir}/vled-converter.kicad_sch" \
     "${project_dir}/staging/3v3-converter.kicad_sch"
 do
     if [[ ! -e "${required_path}" ]]; then
@@ -351,6 +354,7 @@ python3 "${temperature_capture_check}" --netlist "${check_tmp_dir}/coupon-matrix
 python3 "${charger_core_check}" --netlist "${check_tmp_dir}/coupon-matrix.xml"
 python3 "${charger_gate_check}" --netlist "${check_tmp_dir}/coupon-matrix.xml"
 python3 "${e0_capture_check}" --netlist "${check_tmp_dir}/coupon-matrix.xml"
+python3 "${vled_capture_check}" --linked-netlist "${check_tmp_dir}/coupon-matrix.xml"
 
 "${kicad_cli}" sch export pdf \
     --black-and-white \
@@ -361,8 +365,8 @@ if [[ ! -s "${check_tmp_dir}/coupon-schematic.pdf" ]]; then
     exit 1
 fi
 
-echo "KiCad ${kicad_version}: libraries exported; connected provisional E0/E1/BQ/temperature capture, app switch/3V3, staged gauge and earlier coupon connectivity and ERC passed."
-echo "Draft: connector VBUS and BAT external source flags remain; pack connector, gauge switch/bus isolation and VLED supply/interlock are uncaptured. E0/E1 fault and startup behavior are unqualified."
+echo "KiCad ${kicad_version}: libraries exported; connected provisional E0/E1/BQ/temperature capture, app switch/3V3, dark VLED stage, staged gauge and earlier coupon connectivity and ERC passed."
+echo "Draft: connector VBUS and BAT external source flags remain; pack connector, gauge switch/bus isolation and VLED interlock are uncaptured. VLED EN is held low. E0/E1 fault and startup behavior are unqualified."
 if [[ "${keep_check_output}" == yes ]]; then
     echo "Review SVG/PDF output and netlist in: ${check_tmp_dir}"
 fi

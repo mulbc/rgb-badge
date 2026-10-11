@@ -64,7 +64,6 @@ METADATA = {
     "ERJ2RKF1001X": ("Panasonic", "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
     "ERJ2RKF1003X": ("Panasonic", "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
     "GRM155R71C104KA88D": ("Murata", "https://pim.murata.com/asset/pim4/ceramicCapacitorSMD/GRM155R71C104KA88-01A-EN_PDF_CERAMICCAPACITORSMD", "rgb-badge-coupon:C_Murata_GRM15_0402"),
-    "PWR_FLAG": ("", "", ""),
 }
 
 
@@ -146,11 +145,11 @@ def stage(index, x, y):
 
 def generate():
     ROW["check_libraries"](PROJECT_DIR)
-    used_symbols = ["74HC4514PW,118", "DMP2066LSN-7", "2N7002K-7", "ERJ2RKF1001X", "ERJ2RKF1003X", "GRM155R71C104KA88D", "PWR_FLAG"]
+    used_symbols = ["74HC4514PW,118", "DMP2066LSN-7", "2N7002K-7", "ERJ2RKF1001X", "ERJ2RKF1003X", "GRM155R71C104KA88D"]
     lines = [
         '(kicad_sch', '(version 20260306)', '(generator "rgb_badge_rows")', '(generator_version "1.0")',
         f'(uuid {quote(FILE_UUID)})', '(paper "A2")',
-        '(title_block (title "Coupon Rev A - 16 row selectors") (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "Controller captured; VLED source and interlock pending"))',
+        '(title_block (title "Coupon Rev A - 16 row selectors") (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "VLED stage present but held disabled; row interlock pending"))',
         '(lib_symbols\n' + '\n'.join(cached_symbol(name) for name in used_symbols) + '\n)',
         note('16 decoded high-side row selectors', 20.32, 20.32, 'title', 2.0),
         note('E=HIGH blanks every decoder output. Firmware must blank, change A0..A3, wait, then enable.', 20.32, 27.94, 'timing'),
@@ -182,11 +181,9 @@ def generate():
     lines += component("ERJ2RKF1003X", "R42", "100k 1%", 193.04, 38.10)
     lines += wire_label("+3V3_APP", 187.96, 38.10, 177.80, 38.10, 180, "R42/1")
     lines += wire_label("ROW_ENABLE_N", 198.12, 38.10, 208.28, 38.10, 0, "R42/2")
-    lines += component("PWR_FLAG", "#FLG03", "PWR_FLAG", 193.04, 58.42)
-    lines += wire_label("VLED", 193.04, 58.42, 208.28, 58.42, 0, "#FLG03/1")
     lines += [
-        note('DRAFT VLED boundary flag only; it is not a regulator or startup interlock.', 177.80, 73.66, 'flag-note'),
-        note('The later power sheet must hold VLED off through boot/reset/rail sequencing.', 177.80, 81.28, 'power-note'),
+        note('VLED is sourced by U37, whose EN is held LOW; no active display is permitted yet.', 177.80, 73.66, 'flag-note'),
+        note('Hardware interlock must hold VLED and every row off through boot/reset/programming.', 177.80, 81.28, 'power-note'),
         note('2N7002K at 3.3 V sinks only the 1 kΩ pull-up current; Gate A acceptance and coupon measurement required.', 177.80, 88.90, 'nmos-note', 1.016),
     ]
 
