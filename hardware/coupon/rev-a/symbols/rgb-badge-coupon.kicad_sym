@@ -1679,4 +1679,19 @@
 (symbol "C1608X7R1H105K080AB_0_1" (polyline (pts (xy -0.508 -1.778) (xy -0.508 1.778)) (stroke (width 0.254) (type default)) (fill (type none))) (polyline (pts (xy 0.508 -1.778) (xy 0.508 1.778)) (stroke (width 0.254) (type default)) (fill (type none))))
 (symbol "C1608X7R1H105K080AB_1_1" (pin passive line (at -5.08 0 0) (length 4.572) (name "~" (effects (font (size 1.016 1.016)))) (number "1" (effects (font (size 1.016 1.016))))) (pin passive line (at 5.08 0 180) (length 4.572) (name "~" (effects (font (size 1.016 1.016)))) (number "2" (effects (font (size 1.016 1.016))))))
 	)
+
+	(symbol "S2B-PH-SM4-TB"
+ (pin_names (offset 1.016) hide) (in_bom yes) (on_board yes)
+ (property "Reference" "J" (at 0 8.89 0) (effects (font (size 1.27 1.27))))
+ (property "Value" "S2B-PH-SM4-TB" (at 0 6.35 0) (effects (font (size 1.27 1.27))))
+ (property "Footprint" "rgb-badge-coupon:JST_PH_S2B-PH-SM4-TB" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
+ (property "Datasheet" "https://www.jst-mfg.com/product/pdf/eng/ePH.pdf" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
+ (property "Manufacturer" "JST" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
+ (property "MPN" "S2B-PH-SM4-TB" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
+ (symbol "S2B-PH-SM4-TB_0_1" (rectangle (start -2.54 5.08) (end 2.54 -5.08) (stroke (width 0.254) (type default)) (fill (type background))))
+ (symbol "S2B-PH-SM4-TB_1_1"
+  (pin passive line (at -7.62 2.54 0) (length 5.08) (name "1" (effects (font (size 1.016 1.016)))) (number "1" (effects (font (size 1.016 1.016)))))
+  (pin passive line (at -7.62 -2.54 0) (length 5.08) (name "2" (effects (font (size 1.016 1.016)))) (number "2" (effects (font (size 1.016 1.016)))))
+ )
+	)
 )

@@ -19,6 +19,7 @@ spec.loader.exec_module(h)
 h.SCOPE = SCOPE
 h.FILE_UUID = FILE_UUID
 h.PARTS = {
+    'J2': ('S2B-PH-SM4-TB', 'S2B-PH-SM4-TB', 'JST_PH_S2B-PH-SM4-TB', 'JST', 'https://www.jst-mfg.com/product/pdf/eng/ePH.pdf', 2),
     'R88': ('ERJ2RKF1002X', '10k 1%', 'R_Panasonic_ERJ2_0402', 'Panasonic', 'https://industrial.panasonic.com/ww/products/pt/general-purpose-chip-resistors/models/ERJ2RKF1002X', 2),
     'U38': ('LM4040A25IDBZT', '2.5V shunt', 'SOT23_TI_DBZ0003A', 'Texas Instruments', 'https://www.ti.com/lit/ds/symlink/lm4040.pdf', 3),
     'U41': ('BQ24074RGTR', 'BQ24074RGTR', 'VQFN_TI_RGT0016C_3x3mm_P0.5mm_EP1.68mm', 'Texas Instruments', 'https://www.ti.com/lit/ds/symlink/bq24074.pdf', 17),
@@ -31,8 +32,15 @@ h.PARTS = {
 
 
 def part(ref, x, y):
-    return [line.replace(f'(path "/{FILE_UUID}"', f'(path "/{ROOT_UUID}/{SHEET_UUID}"')
-            for line in h.component(ref, x, y)]
+    lines = [line.replace(f'(path "/{FILE_UUID}"', f'(path "/{ROOT_UUID}/{SHEET_UUID}"')
+             for line in h.component(ref, x, y)]
+    if ref == 'J2':
+        lines = [line.replace(h.prop('Reference', ref, x, y - 6.35),
+                              h.prop('Reference', ref, x + 20.32, y - 2.54))
+                     .replace(h.prop('Value', 'S2B-PH-SM4-TB', x, y - 3.81),
+                              h.prop('Value', 'S2B-PH-SM4-TB', x + 20.32, y + 2.54))
+                 for line in lines]
+    return lines
 
 
 def terminal(net, x, y, end_x, end_y, key):
@@ -71,13 +79,13 @@ def generate():
     lines = [
         '(kicad_sch', '(version 20260306)', '(generator "rgb_badge_charger_core")', '(generator_version "1.0")',
         f'(uuid {h.q(FILE_UUID)})', '(paper "A3")',
-        '(title_block (title "Coupon Rev A - provisional BQ24074 charger core") (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "IN joins provisional E1; BAT remains unbuilt; EN2 uses local clamp"))',
+        '(title_block (title "Coupon Rev A - provisional BQ24074 charger core") (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "IN joins provisional E1; J2 polarity must be verified before mating; EN2 local clamp"))',
         '(lib_symbols\n' + '\n'.join(h.cached_symbol(mpn) for mpn in symbols) + '\n' + h.cached_symbol('PWR_FLAG') + '\n)',
-        f'(text "CHARGER_TS joins TH1; IN joins provisional E1; BAT awaits pack connector." (at 20.320 20.320 0) {h.effects(justify="left")} (uuid {h.q(h.uid("note/1"))}))',
+        f'(text "CHARGER_TS joins TH1; IN joins E1; J2 pad 1 is BAT+, pad 2 GND. Check/repin pack before mating." (at 20.320 20.320 0) {h.effects(justify="left")} (uuid {h.q(h.uid("note/1"))}))',
         f'(text "R88/U38 derive EN2 from admitted input; EN1=0 selects fixed ILIM when clamped high." (at 20.320 27.940 0) {h.effects(justify="left")} (uuid {h.q(h.uid("note/2"))}))',
         f'(text "ITERM open selects 10% default termination; TMR open selects live 30 min/5 h safety timers." (at 20.320 35.560 0) {h.effects(justify="left")} (uuid {h.q(h.uid("note/3"))}))',
     ]
-    for ref, x, y in [('U41', 152.40, 116.84), ('R88', 76.20, 60.96), ('U38', 190.50, 60.96),
+    for ref, x, y in [('J2', 254.00, 214.63), ('U41', 152.40, 116.84), ('R88', 76.20, 60.96), ('U38', 190.50, 60.96),
                       ('R92', 254.00, 175.26), ('R93', 76.20, 175.26),
                       ('C52', 76.20, 76.20), ('C53', 254.00, 76.20), ('C54', 254.00, 96.52)]:
         lines.extend(part(ref, x, y))
@@ -116,7 +124,9 @@ def generate():
     ]:
         lines.extend(terminal(net, x - 5.08, y, x - 25.40, y, ref + '/1'))
         lines.extend(terminal('GND', x + 5.08, y, x + 25.40, y, ref + '/2'))
-    lines.extend(source_boundary('#FLG09', 254.00, 208.28, '+BAT_PROTECTED_DRAFT'))
+    lines.extend(terminal('+BAT_PROTECTED_DRAFT', 246.38, 212.09, 220.98, 212.09, 'J2/1'))
+    lines.extend(terminal('GND', 246.38, 217.17, 220.98, 217.17, 'J2/2'))
+    lines.extend(source_boundary('#FLG09', 254.00, 233.68, '+BAT_PROTECTED_DRAFT'))
     return '\n'.join(lines + ['(embedded_fonts no)', ')']) + '\n'
 
 

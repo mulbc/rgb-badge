@@ -263,7 +263,7 @@ def main():
     try:
         if args.netlist:
             check_netlist(args.netlist)
-            print("KiCad XML complete coupon check passed: 460 PCB items, 1693 logical pins; provisional E0/E1 protection, charger/temperature core, switch/3V3, dark VLED and staged gauge.")
+            print("KiCad XML complete coupon check passed: 461 PCB items, 1695 logical pins; provisional E0/E1 protection, charger/temperature core with pack header, switch/3V3, dark VLED and staged gauge.")
         else:
             check_sources(args.project_dir)
             print("Controller source connectivity check passed: N16R8 module, safe boot/reset, USB/UART boundaries and 11 test pads (not KiCad ERC).")

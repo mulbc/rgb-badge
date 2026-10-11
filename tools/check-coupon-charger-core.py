@@ -12,6 +12,7 @@ PROJECT = ROOT / 'hardware/coupon/rev-a'
 GEN = runpy.run_path(str(ROOT / 'tools/generate-coupon-charger-core.py'))
 PARTS = GEN['h'].PARTS
 EXPECTED = {
+    ('J2', '1'): '+BAT_PROTECTED_DRAFT', ('J2', '2'): 'GND',
     ('R88', '1'): 'CHARGER_IN_DRAFT', ('R88', '2'): 'CHARGER_EN2',
     ('U38', '1'): 'CHARGER_EN2', ('U38', '2'): 'GND', ('U38', '3'): 'GND',
     ('U41', '1'): 'CHARGER_TS', ('U41', '2'): '+BAT_PROTECTED_DRAFT',
@@ -39,11 +40,10 @@ def check_source():
     root = (PROJECT / 'rgb-badge-coupon.kicad_sch').read_text(encoding='utf-8')
     if root.count('(property "Sheetfile" "charger-core.kicad_sch"') != 1:
         raise ValueError('Charger core must be root-linked exactly once')
-    if len(PARTS) != 8 or sum(row[5] for row in PARTS.values()) != len(EXPECTED):
+    if len(PARTS) != 9 or sum(row[5] for row in PARTS.values()) != len(EXPECTED):
         raise ValueError('Charger core component/pin inventory mismatch')
-    for ref in ('#FLG09',):
-        if f'(property "Reference" "{ref}"' not in actual:
-            raise ValueError(f'Missing provisional external supply marker {ref}')
+    if '(property "Reference" "#FLG09"' not in actual:
+        raise ValueError('External pack source marker is missing')
 
 
 def check_netlist(xml_path):
@@ -77,9 +77,9 @@ def main():
     check_source()
     if len(sys.argv) == 3 and sys.argv[1] == '--netlist':
         check_netlist(Path(sys.argv[2]))
-        print('Charger KiCad XML: 8 items, 32 exact pins; NTC connected to TS and EN2 to local clamp.')
+        print('Charger KiCad XML: 9 items, 34 exact pins; physical J2 BAT entry, NTC on TS and EN2 local clamp.')
     elif len(sys.argv) == 1:
-        print('Charger sheet matches deterministic source: 8 items, 32 pins.')
+        print('Charger sheet matches deterministic source: 9 items, 34 pins.')
     else:
         raise SystemExit('Usage: check-coupon-charger-core.py [--netlist PATH]')
 

@@ -34,3 +34,4 @@ Decision records explain choices that materially constrain later work. Accepted 
 | [0026](0026-charger-e1-gate-network.md) | Capture three independent hardware inhibits on the E1 charger gate | Provisional source capture; fault and timing qualification pending |
 | [0027](0027-e0-protected-usb-source-selection.md) | Bridge connector VBUS to protected USB logic and E1 through autonomous E0 | Provisional source capture; input fault qualification pending |
 | [0028](0028-root-link-dark-vled-converter.md) | Link the VLED power stage with EN held low until the display interlock exists | Provisional source capture; display operation blocked |
+| [0029](0029-provisional-battery-header-polarity.md) | Assign J2 pad 1 to protected BAT+ and pad 2 to ground, with measured/re-pinned harness acceptance | Provisional source capture; delivered pack polarity unverified |

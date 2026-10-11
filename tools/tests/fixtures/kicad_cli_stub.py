@@ -334,6 +334,7 @@ def controller_coupon_netlist():
         part(ref,value,'C_Murata_GRM15_0402' if ref.startswith('C') else 'R_Panasonic_ERJ2_0402',{1:a,2:b})
     part('TP34','TestPoint_Pad','TestPoint_Pad_D1.0mm',{1:'CHARGER_TS'})
     part('TP35','TestPoint_Pad','TestPoint_Pad_D1.0mm',{1:'CHARGER_GATE_EN'})
+    part('J2','S2B-PH-SM4-TB','JST_PH_S2B-PH-SM4-TB',{1:'+BAT_PROTECTED_DRAFT',2:'GND'})
     part('U41','BQ24074RGTR','VQFN_TI_RGT0016C_3x3mm_P0.5mm_EP1.68mm',{
         1:'CHARGER_TS',2:'+BAT_PROTECTED_DRAFT',3:'+BAT_PROTECTED_DRAFT',4:'GND',
         5:'CHARGER_EN2',6:'GND',7:'unconnected-(U41-PGOOD-Pad7)',8:'GND',
@@ -432,6 +433,8 @@ def main():
             root.find("./nets/net/node[@ref='U45'][@pin='6']").set('pin', '99')
         if os.environ.get('RGB_BADGE_TEST_BAD_VLED') == '1':
             root.find("./nets/net/node[@ref='U37'][@pin='12']").set('pin', '99')
+        if os.environ.get('RGB_BADGE_TEST_BAD_BAT_HEADER') == '1':
+            root.find("./nets/net/node[@ref='J2'][@pin='1']").set('pin', '99')
         output.write_bytes(ET.tostring(root))
         return 0
     elif args[:3] == ["sch", "export", "pdf"]:

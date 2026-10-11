@@ -366,7 +366,7 @@ if [[ ! -s "${check_tmp_dir}/coupon-schematic.pdf" ]]; then
 fi
 
 echo "KiCad ${kicad_version}: libraries exported; connected provisional E0/E1/BQ/temperature capture, app switch/3V3, dark VLED stage, staged gauge and earlier coupon connectivity and ERC passed."
-echo "Draft: connector VBUS and BAT external source flags remain; pack connector, gauge switch/bus isolation and VLED interlock are uncaptured. VLED EN is held low. E0/E1 fault and startup behavior are unqualified."
+echo "Draft: connector VBUS and J2 BAT external source flags remain; delivered-pack polarity, gauge switch/bus isolation and VLED interlock are unqualified. VLED EN is held low. E0/E1 fault and startup behavior are unqualified."
 if [[ "${keep_check_output}" == yes ]]; then
     echo "Review SVG/PDF output and netlist in: ${check_tmp_dir}"
 fi

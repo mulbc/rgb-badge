@@ -47,6 +47,8 @@ Source: requirements interview completed 2026-09-05
 | MFG-002 | PCBA delivery shall require no manual SMT soldering by the user. | Purchase package and incoming inspection | Coupon/final |
 | MFG-003 | Critical component substitutions require a written engineering review and updated BOM. | Release audit | Coupon/final |
 | SAF-001 | Use a protected, documented and keyed connectorized LiPo pack. A two-wire pack is permitted when the charger has the independently operating battery-facing NTC arrangement and validation in ADR 0019. | Supplier documentation, connector/polarity inspection and temperature-sensing qualification | Coupon/final |
+
+**2026-10-11 SAF-001 assembly rule (ADR 0029):** Rev A schematic pad J2.1 is protected battery positive and J2.2 is GND. The selected LP452845/PHR-2 lead order is unverified. Before first mating, measure protected pack polarity at its keyed cavities, repin the harness if necessary, and independently check board-header pad polarity and mating orientation. Record lot, drawing revision and readings. Schematic capture alone does not satisfy this requirement.
 | SAF-002 | No cell surface may contact a component, solder joint, magnet or screw boss; swelling clearance is required. | CAD interference and physical inspection | Final |
 | SAF-003 | An experienced hardware engineer shall review the coupon schematic and preliminary layout before fabrication. | Recorded review disposition | Coupon |
 | SRC-001 | Quote JLCPCB, PCBWay and a vetted Alibaba turnkey PCBA supplier against the same frozen package. | Quote comparison | Final |

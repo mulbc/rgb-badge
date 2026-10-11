@@ -161,6 +161,12 @@ class CheckKiCadWrapperTests(unittest.TestCase):
         self.assertIn("('U37', '12'): expected 'VLED_ENABLE_DRAFT'", result.stderr)
         self.assertFalse((self.output / "coupon-schematic.pdf").exists())
 
+    def test_battery_header_pin_fault_is_rejected(self):
+        result = self.run_check(RGB_BADGE_TEST_BAD_BAT_HEADER="1")
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("('J2', '1'): expected '+BAT_PROTECTED_DRAFT'", result.stderr)
+        self.assertFalse((self.output / "coupon-schematic.pdf").exists())
+
     def test_missing_driver_paste_export_is_rejected(self):
         result = self.run_check(RGB_BADGE_TEST_MISSING_PASTE="1")
         self.assertEqual(result.returncode, 1)
