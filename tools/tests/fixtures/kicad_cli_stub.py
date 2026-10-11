@@ -294,17 +294,24 @@ def controller_coupon_netlist():
         part(ref,'100n 16V X7R','C_Murata_GRM15_0402',{1:rail,2:'GND'})
     for ref,value,net in [('TP32','VBUS_CONNECTOR','VBUS_CONNECTOR'),('TP33','5V_USB_BOUNDARY','+5V_USB')]:
         part(ref,value,'TestPoint_Pad_D1.0mm',{1:net})
-    # Staged gauge boundary: the switch is not in this source or fixture.
+    # Switched gauge and two-segment I2C buffer.
     part('U35','MAX17048G+T10','TDFN_Maxim_T822-3_2x2mm_P0.5mm_EP0.7x1.38mm',{
         1:'GND',2:'+BAT_GAUGE_SW',3:'+BAT_GAUGE_SW',4:'GND',
-        5:'unconnected-(U35-ALRT-Pad5)',6:'GND',7:'SYS_I2C_SCL',8:'SYS_I2C_SDA',9:'GND'})
+        5:'unconnected-(U35-ALRT-Pad5)',6:'GND',7:'GAUGE_I2C_SCL',8:'GAUGE_I2C_SDA',9:'GND'})
     for ref,net in [('R79','SYS_I2C_SDA'),('R80','SYS_I2C_SCL')]:
         part(ref,'2.2k 1%','R_Panasonic_ERJ2_0402',{1:'+3V3_APP',2:net})
     part('C39','100n 16V X7R','C_Murata_GRM15_0402',{1:'+BAT_GAUGE_SW',2:'GND'})
+    part('U46','TCA9517ADGKR','VSSOP_TI_DGK0008A',{
+        1:'+BAT_GAUGE_SW',2:'GAUGE_I2C_SCL',3:'GAUGE_I2C_SDA',4:'GND',
+        5:'+3V3_APP',6:'SYS_I2C_SDA',7:'SYS_I2C_SCL',8:'+3V3_APP'})
+    for ref,net in [('R101','GAUGE_I2C_SDA'),('R102','GAUGE_I2C_SCL')]:
+        part(ref,'2.2k 1%','R_Panasonic_ERJ2_0402',{1:'+BAT_GAUGE_SW',2:net})
+    part('C64','100n 16V X7R','C_Murata_GRM15_0402',{1:'+BAT_GAUGE_SW',2:'GND'})
+    part('C65','100n 16V X7R','C_Murata_GRM15_0402',{1:'+3V3_APP',2:'GND'})
     # Provisional switched application supply and battery-facing temperature block.
     part('SW2','JS202011JCQN','SW_CK_JS202011JCQN',{
         1:'unconnected-(SW2-A1-Pad1)',2:'+SYS_APP_IN_DRAFT',3:'APP_ON_SW_DRAFT',
-        4:'unconnected-(SW2-A2-Pad4)',5:'unconnected-(SW2-COM2-Pad5)',6:'unconnected-(SW2-B2-Pad6)'})
+        4:'unconnected-(SW2-A2-Pad4)',5:'+BAT_PROTECTED_DRAFT',6:'+BAT_GAUGE_SW'})
     part('U36','TPS631000DRLR','SOT5X3_TI_DRL0008A',{
         1:'+3V3_APP',2:'Net-(U36-LX2)',3:'Net-(U36-LX1)',4:'+SYS_APP_IN_DRAFT',
         5:'APP_ON_SW_DRAFT',6:'GND',7:'GND',8:'APP_3V3_FB'})
@@ -435,6 +442,8 @@ def main():
             root.find("./nets/net/node[@ref='U37'][@pin='12']").set('pin', '99')
         if os.environ.get('RGB_BADGE_TEST_BAD_BAT_HEADER') == '1':
             root.find("./nets/net/node[@ref='J2'][@pin='1']").set('pin', '99')
+        if os.environ.get('RGB_BADGE_TEST_BAD_GAUGE_BUFFER') == '1':
+            root.find("./nets/net/node[@ref='U46'][@pin='2']").set('pin', '99')
         output.write_bytes(ET.tostring(root))
         return 0
     elif args[:3] == ["sch", "export", "pdf"]:
@@ -446,6 +455,7 @@ def main():
     elif args[:3] == ["sym", "export", "svg"]:
         names = [n + "_unit1.svg" for n in ("EAST10105RGBA0", "QBLP1515A-RGB2A", "TLC59581RTQT", "ERJ2RKF3922X", "ERJ2RKF1003X", "ERJ2RKF1004X", "ERJ2RKF2203X", "ERJ2RKF2703X", "ERJ2RKF3321X", "ERJ2RKF3832X", "ERJ2RKF3903X", "C1608X7R1H105K080AB", "GRM1555C1H222GA01D", "GRM155R71C104KA88D", "PWR_FLAG", "TestPoint_Pad", "74HC4514PW,118", "DMP2066LSN-7", "2N7002K-7", "ERJ2RKF1001X", "ESP32-S3-WROOM-1U-N16R8", "ERJ2RKF1002X", "ERJ2RKF2201X", "ERJ2RKF22R0X", "ERJ2RKF4990X", "GRM155C71A105KE11D", "GRM188R60J106ME47D", "EVQP7J01P", "BQ24074RGTR", "BQ24392RSER", "TS3USB31ERSER", "BQ25616JRTWT", "TPS631000DRLR", "TPS70933DBVR", "TLV75533PDBVR", "SN74LVC1G04DBVR", "INA232AIDDFR", "TPD4E05U06DQAR", "TUSB320LAIRWBR", "TPS63020DSJT", "MAX17048G+T10", "SN74LVC1G00DBVR", "SN74LVC1G06DBVR", "SN74LVC1G08DBVR", "SN74LVC1G11DBVR", "SN74LVC1G32DBVR", "TPS3808G01DBVR", "SN74LVC2G17DBVR", "ERJ2RKF8873X", "ERJ2RCF2R20X", "LM4040A25IDBZT")]
         names.append("ERJ2RKF2201X_unit1.svg")
+        names.append("TCA9517ADGKR_unit1.svg")
     elif args[:3] == ["fp", "export", "svg"]:
         # Added independently of the source parser: exercise wrapper requirements.
         layers = args[args.index("--layers") + 1]
@@ -499,7 +509,7 @@ def main():
                 os.environ.get("RGB_BADGE_TEST_MISSING_USB_CONNECTOR") == "1"):
             names.append("USB_C_GCT_USB4505-03-0-A_MidMount.svg")
     if stage in ("fabrication", "copper", "paste", "mechanical"):
-        names.extend(("VQFN_TI_RPW0010A_2x2mm_HotRod.svg", "R_Panasonic_ERA2_0402.svg", "LFCSP_ADI_CP16_22_3x3mm_P0.5mm_EP1.75mm.svg", "L_Murata_DFE252012P.svg", "C_Murata_GRM21_0805.svg", "SW_CK_JS202011JCQN.svg", "SOT563_TI_DRL0006A.svg", "NTC_Murata_NCU15_0402.svg", "JST_PH_S2B-PH-SM4-TB.svg", "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB.svg"))
+        names.extend(("VQFN_TI_RPW0010A_2x2mm_HotRod.svg", "R_Panasonic_ERA2_0402.svg", "LFCSP_ADI_CP16_22_3x3mm_P0.5mm_EP1.75mm.svg", "L_Murata_DFE252012P.svg", "C_Murata_GRM21_0805.svg", "SW_CK_JS202011JCQN.svg", "SOT563_TI_DRL0006A.svg", "NTC_Murata_NCU15_0402.svg", "JST_PH_S2B-PH-SM4-TB.svg", "VSSOP_TI_DGK0008A.svg", "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB.svg"))
     for name in names:
         if name == os.environ.get("RGB_BADGE_TEST_MISSING_NAMED"):
             continue

@@ -85,7 +85,9 @@ for required_path in \
     "${e0_capture_check}" \
     "${vled_capture_check}" \
     "${repo_root}/tools/check-jst-ph-library.py" \
+    "${repo_root}/tools/check-gauge-buffer-library.py" \
     "${footprint_library}/JST_PH_S2B-PH-SM4-TB.kicad_mod" \
+    "${footprint_library}/VSSOP_TI_DGK0008A.kicad_mod" \
     "${footprint_library}/SOT23_TI_DBZ0003A.kicad_mod" \
     "${project_dir}/app-control.kicad_sch" \
     "${project_dir}/3v3-converter.kicad_sch" \
@@ -111,6 +113,7 @@ python3 "${row_capture_check}"
 python3 "${controller_library_check}"
 python3 "${controller_capture_check}"
 python3 "${power_design_check}"
+python3 "${repo_root}/tools/check-gauge-buffer-library.py"
 python3 "${repo_root}/tools/check-charger-gate-screen.py"
 python3 "${repo_root}/tools/check-programming-resistors.py"
 python3 "${repo_root}/tools/check-3v3-feedback-libraries.py"
@@ -252,6 +255,16 @@ for symbol_name in TMP390A2DRLR SN74AUP1G125DBVR NCU15XH103F60RC ERJ2RKF2151X ER
         exit 1
     fi
 done
+if [[ ! -s "${symbol_svg_dir}/TCA9517ADGKR_unit1.svg" ]]; then
+    echo "Expected non-empty exact gauge buffer symbol SVG." >&2
+    exit 1
+fi
+for view_dir in "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_paste_dir}" "${footprint_mechanical_dir}"; do
+    if [[ ! -s "${view_dir}/VSSOP_TI_DGK0008A.svg" ]]; then
+        echo "Expected non-empty exact gauge buffer land SVG: ${view_dir}" >&2
+        exit 1
+    fi
+done
 for footprint_name in SOT563_TI_DRL0006A NTC_Murata_NCU15_0402; do
     for view_dir in "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_paste_dir}"; do
         if [[ ! -s "${view_dir}/${footprint_name}.svg" ]]; then
@@ -365,8 +378,8 @@ if [[ ! -s "${check_tmp_dir}/coupon-schematic.pdf" ]]; then
     exit 1
 fi
 
-echo "KiCad ${kicad_version}: libraries exported; connected provisional E0/E1/BQ/temperature capture, app switch/3V3, dark VLED stage, staged gauge and earlier coupon connectivity and ERC passed."
-echo "Draft: connector VBUS and J2 BAT external source flags remain; delivered-pack polarity, gauge switch/bus isolation and VLED interlock are unqualified. VLED EN is held low. E0/E1 fault and startup behavior are unqualified."
+echo "KiCad ${kicad_version}: libraries exported; connected provisional E0/E1/BQ/temperature capture, switched/isolated gauge, app 3V3, dark VLED stage and earlier coupon connectivity and ERC passed."
+echo "Draft: connector VBUS and J2 BAT external source flags remain; delivered-pack polarity, switched-gauge bus transitions and VLED interlock are unqualified. VLED EN is held low. E0/E1 fault and startup behavior are unqualified."
 if [[ "${keep_check_output}" == yes ]]; then
     echo "Review SVG/PDF output and netlist in: ${check_tmp_dir}"
 fi

@@ -21,15 +21,28 @@ PARTS = {
     'R79': ('ERJ2RKF2201X', '2.2k 1%', 'rgb-badge-coupon:R_Panasonic_ERJ2_0402'),
     'R80': ('ERJ2RKF2201X', '2.2k 1%', 'rgb-badge-coupon:R_Panasonic_ERJ2_0402'),
     'C39': ('GRM155R71C104KA88D', '100n 16V X7R', 'rgb-badge-coupon:C_Murata_GRM15_0402'),
+    'U46': ('TCA9517ADGKR', 'TCA9517ADGKR', 'rgb-badge-coupon:VSSOP_TI_DGK0008A'),
+    'R101': ('ERJ2RKF2201X', '2.2k 1%', 'rgb-badge-coupon:R_Panasonic_ERJ2_0402'),
+    'R102': ('ERJ2RKF2201X', '2.2k 1%', 'rgb-badge-coupon:R_Panasonic_ERJ2_0402'),
+    'C64': ('GRM155R71C104KA88D', '100n 16V X7R', 'rgb-badge-coupon:C_Murata_GRM15_0402'),
+    'C65': ('GRM155R71C104KA88D', '100n 16V X7R', 'rgb-badge-coupon:C_Murata_GRM15_0402'),
     '#FLG06': ('PWR_FLAG', 'PWR_FLAG', ''),
 }
 CONNECTIONS = {
     ('U35','1'): 'GND', ('U35','2'): '+BAT_GAUGE_SW', ('U35','3'): '+BAT_GAUGE_SW',
-    ('U35','4'): 'GND', ('U35','6'): 'GND', ('U35','7'): 'SYS_I2C_SCL',
-    ('U35','8'): 'SYS_I2C_SDA', ('U35','9'): 'GND',
+    ('U35','4'): 'GND', ('U35','6'): 'GND', ('U35','7'): 'GAUGE_I2C_SCL',
+    ('U35','8'): 'GAUGE_I2C_SDA', ('U35','9'): 'GND',
     ('R79','1'): '+3V3_APP', ('R79','2'): 'SYS_I2C_SDA',
     ('R80','1'): '+3V3_APP', ('R80','2'): 'SYS_I2C_SCL',
     ('C39','1'): '+BAT_GAUGE_SW', ('C39','2'): 'GND',
+    ('U46','1'): '+BAT_GAUGE_SW', ('U46','2'): 'GAUGE_I2C_SCL',
+    ('U46','3'): 'GAUGE_I2C_SDA', ('U46','4'): 'GND',
+    ('U46','5'): '+3V3_APP', ('U46','6'): 'SYS_I2C_SDA',
+    ('U46','7'): 'SYS_I2C_SCL', ('U46','8'): '+3V3_APP',
+    ('R101','1'): '+BAT_GAUGE_SW', ('R101','2'): 'GAUGE_I2C_SDA',
+    ('R102','1'): '+BAT_GAUGE_SW', ('R102','2'): 'GAUGE_I2C_SCL',
+    ('C64','1'): '+BAT_GAUGE_SW', ('C64','2'): 'GND',
+    ('C65','1'): '+3V3_APP', ('C65','2'): 'GND',
     ('#FLG06','1'): '+BAT_GAUGE_SW',
 }
 
@@ -49,6 +62,9 @@ def library_pins(symbol):
 
 
 def check_sources(project=PROJECT):
+    generated = runpy.run_path(str(TOOLS / 'generate-coupon-gauge.py'))['generate']()
+    require((project / 'gauge.kicad_sch').read_text(encoding='utf-8') == generated,
+            'Gauge sheet differs from deterministic generator')
     root = parse(project / 'rgb-badge-coupon.kicad_sch')
     sheet = [s for s in children(root, 'sheet') if props(s).get('Sheetfile') == 'gauge.kicad_sch']
     require(len(sheet) == 1 and one(sheet[0], 'uuid', 'gauge sheet')[1] == SHEET_UUID, 'Missing or changed gauge sheet')
@@ -106,7 +122,7 @@ def check_sources(project=PROJECT):
                 require(start not in nc and len(names)==1,'Gauge pin not on exactly one net: '+ref+'.'+number)
                 connections[ref,number]=names.pop()
     require(found==set(PARTS) and connections==CONNECTIONS,'Gauge population or net map differs from expected')
-    # The PWR_FLAG declares a missing source, not a physical ON/OFF switch.
+    # The PWR_FLAG represents conditional source through SW2 for ERC.
     return connections
 
 
@@ -116,7 +132,7 @@ def main():
     args=parser.parse_args()
     try:
         check_sources(args.project_dir)
-        print('Staged gauge source check passed: 5 symbols, 14 connected pins, one explicit NC (not native ERC or switch capture).')
+        print('Switched gauge source check passed: 10 symbols, 31 connected pins, one explicit NC; buffer A/B nets isolated.')
         return 0
     except (ValueError,OSError,KeyError,IndexError) as error:
         print('Gauge check failed: '+str(error),file=sys.stderr)

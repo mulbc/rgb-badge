@@ -1,10 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: Apache-2.0
-"""Generate a staged MAX17048 sheet into a new directory, never in place.
-
-The switched battery input is an explicit draft boundary. Neither a switch nor
-a charger/battery path exists in this sheet; a power flag is an ERC assumption.
-"""
+"""Generate the provisional switched MAX17048 and isolated two-domain I2C sheet."""
 
 import argparse
 import json
@@ -23,6 +19,7 @@ SOURCE = {
     "MAX17048G+T10": ("Analog Devices (Maxim Integrated)", "https://www.analog.com/media/en/technical-documentation/data-sheets/MAX17048-MAX17049.pdf", "TDFN_Maxim_T822-3_2x2mm_P0.5mm_EP0.7x1.38mm", list(map(str, range(1, 10)))),
     "ERJ2RKF2201X": ("Panasonic", "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf", "R_Panasonic_ERJ2_0402", ["1", "2"]),
     "GRM155R71C104KA88D": ("Murata", "https://pim.murata.com/asset/pim4/ceramicCapacitorSMD/GRM155R71C104KA88-01A-EN_PDF_CERAMICCAPACITORSMD", "C_Murata_GRM15_0402", ["1", "2"]),
+    "TCA9517ADGKR": ("Texas Instruments", "https://www.ti.com/lit/ds/symlink/tca9517a.pdf", "VSSOP_TI_DGK0008A", list(map(str, range(1, 9)))),
     "PWR_FLAG": ("", "", "", ["1"]),
 }
 
@@ -86,10 +83,10 @@ def wire_label(net, x, y, end_x, end_y, name):
 def generate():
     lines = ['(kicad_sch', '(version 20260306)', '(generator "rgb_badge_gauge")', '(generator_version "1.0")',
              f'(uuid {q(FILE_UUID)})', '(paper "A4")',
-             '(title_block (title "Coupon Rev A - staged switched fuel gauge") (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "Switched BAT source and actual DPDT switch are NOT captured"))',
+             '(title_block (title "Coupon Rev A - switched fuel gauge and I2C buffer") (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "SW2 pole captured; bus and OFF transitions unqualified"))',
              '(lib_symbols\n' + '\n'.join(controlled_symbol(mpn) for mpn in SOURCE) + '\n)',
-             f'(text "MAX17048: switched gauge domain; no charger, pack, or mechanical switch here" (at 20.320 20.320 0) {effects(justify="left")} (uuid {q(uid("note/title"))}))',
-             f'(text "PWR_FLAG is a temporary switched-BAT source assumption, NOT a physical connection." (at 20.320 30.480 0) {effects(justify="left")} (uuid {q(uid("note/boundary"))}))']
+             f'(text "MAX17048 and TCA9517A port A share switched BAT. Port B joins 3V3 application I2C." (at 20.320 20.320 0) {effects(justify="left")} (uuid {q(uid("note/title"))}))',
+             f'(text "PWR_FLAG marks switched BAT through SW2 for ERC. Contact bounce and rail decay remain unqualified." (at 20.320 30.480 0) {effects(justify="left")} (uuid {q(uid("note/boundary"))}))']
     gx, gy = 99.06, 83.82
     lines += component("U35", "MAX17048G+T10", "MAX17048G+T10", gx, gy)
     lines += wire_label("+BAT_GAUGE_SW", gx - 12.70, gy - 7.62, 63.50, gy - 7.62, "U35/VDD")
@@ -98,8 +95,8 @@ def generate():
     for index, (pin, x) in enumerate((("CTG", gx - 2.54), ("GND", gx), ("EP", gx + 2.54))):
         # Native rendering showed all three GND labels overlapping at one Y.
         lines += wire_label("GND", x, gy + 12.70, x + 17.78, gy + 25.40 + index * 7.62, "U35/" + pin)
-    lines += wire_label("SYS_I2C_SDA", gx + 12.70, gy - 2.54, 134.62, gy - 2.54, "U35/SDA")
-    lines += wire_label("SYS_I2C_SCL", gx + 12.70, gy, 134.62, gy, "U35/SCL")
+    lines += wire_label("GAUGE_I2C_SDA", gx + 12.70, gy - 2.54, 134.62, gy - 2.54, "U35/SDA")
+    lines += wire_label("GAUGE_I2C_SCL", gx + 12.70, gy, 134.62, gy, "U35/SCL")
     lines.append(f'(no_connect (at {gx + 12.70:.3f} {gy - 7.62:.3f}) (uuid {q(uid("U35/ALRT/nc"))}))')
     for ref, y, net in (("R79", 71.12, "SYS_I2C_SDA"), ("R80", 91.44, "SYS_I2C_SCL")):
         x = 198.12
@@ -110,6 +107,30 @@ def generate():
     lines += component("C39", "GRM155R71C104KA88D", "100n 16V X7R", x, y)
     lines += wire_label("+BAT_GAUGE_SW", x - 5.08, y, x - 20.32, y, "C39/1")
     lines += wire_label("GND", x + 5.08, y, x + 20.32, y, "C39/2")
+    bx, by = 99.06, 156.21
+    lines += component("U46", "TCA9517ADGKR", "TCA9517ADGKR", bx, by)
+    for pin, net, y in (("1", "+BAT_GAUGE_SW", by - 7.62),
+                         ("2", "GAUGE_I2C_SCL", by - 2.54),
+                         ("3", "GAUGE_I2C_SDA", by + 2.54),
+                         ("4", "GND", by + 7.62)):
+        lines += wire_label(net, bx - 12.70, y, 53.34, y, "U46/" + pin)
+    for pin, net, y in (("8", "+3V3_APP", by - 7.62),
+                         ("7", "SYS_I2C_SCL", by - 2.54),
+                         ("6", "SYS_I2C_SDA", by + 2.54),
+                         ("5", "+3V3_APP", by + 7.62)):
+        lines += wire_label(net, bx + 12.70, y, 144.78, y, "U46/" + pin)
+    for ref, y, net in (("R101", 106.68, "GAUGE_I2C_SDA"),
+                        ("R102", 121.92, "GAUGE_I2C_SCL")):
+        x = 50.80
+        lines += component(ref, "ERJ2RKF2201X", "2.2k 1%", x, y)
+        lines += wire_label("+BAT_GAUGE_SW", x - 5.08, y, x - 17.78, y, ref + "/1")
+        lines += wire_label(net, x + 5.08, y, x + 17.78, y, ref + "/2")
+    for ref, y, net in (("C64", 53.34, "+BAT_GAUGE_SW"),
+                        ("C65", 134.62, "+3V3_APP")):
+        x = 198.12
+        lines += component(ref, "GRM155R71C104KA88D", "100n 16V X7R", x, y)
+        lines += wire_label(net, x - 5.08, y, x - 20.32, y, ref + "/1")
+        lines += wire_label("GND", x + 5.08, y, x + 20.32, y, ref + "/2")
     lines += component("#FLG06", "PWR_FLAG", "PWR_FLAG", 198.12, 144.78)
     lines += wire_label("+BAT_GAUGE_SW", 198.12, 144.78, 177.80, 144.78, "#FLG06/1")
     lines += ['(embedded_fonts no)', ')']

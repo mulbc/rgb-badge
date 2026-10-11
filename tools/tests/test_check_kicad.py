@@ -42,9 +42,9 @@ class CheckKiCadWrapperTests(unittest.TestCase):
     def test_separate_raw_views_and_numbered_copies(self):
         result = self.run_check()
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertEqual(len(list((self.output / "symbols").glob("*.svg"))), 73)
+        self.assertEqual(len(list((self.output / "symbols").glob("*.svg"))), 74)
         for view in ("fabrication", "copper", "paste", "numbered", "mechanical"):
-            self.assertEqual(len(list((self.output / "footprints" / view).glob("*.svg"))), 3 if view == "numbered" else 37)
+            self.assertEqual(len(list((self.output / "footprints" / view).glob("*.svg"))), 3 if view == "numbered" else 38)
         self.assertTrue((self.output / "coupon-erc.rpt").is_file())
         self.assertTrue((self.output / "coupon-matrix.xml").is_file())
         self.assertTrue((self.output / "coupon-schematic.pdf").is_file())
@@ -165,6 +165,12 @@ class CheckKiCadWrapperTests(unittest.TestCase):
         result = self.run_check(RGB_BADGE_TEST_BAD_BAT_HEADER="1")
         self.assertEqual(result.returncode, 1)
         self.assertIn("('J2', '1'): expected '+BAT_PROTECTED_DRAFT'", result.stderr)
+        self.assertFalse((self.output / "coupon-schematic.pdf").exists())
+
+    def test_gauge_buffer_a_side_pin_fault_is_rejected(self):
+        result = self.run_check(RGB_BADGE_TEST_BAD_GAUGE_BUFFER="1")
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("('U46', '2'): expected 'GAUGE_I2C_SCL'", result.stderr)
         self.assertFalse((self.output / "coupon-schematic.pdf").exists())
 
     def test_missing_driver_paste_export_is_rejected(self):

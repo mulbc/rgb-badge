@@ -248,8 +248,8 @@ def check_netlist(path):
     expected_nets.update({('SW2','2'): '+SYS_APP_IN_DRAFT', ('SW2','3'): 'APP_ON_SW_DRAFT',
                           ('SW2','1'): 'unconnected-(SW2-A1-Pad1)',
                           ('SW2','4'): 'unconnected-(SW2-A2-Pad4)',
-                          ('SW2','5'): 'unconnected-(SW2-COM2-Pad5)',
-                          ('SW2','6'): 'unconnected-(SW2-B2-Pad6)'})
+                          ('SW2','5'): '+BAT_PROTECTED_DRAFT',
+                          ('SW2','6'): '+BAT_GAUGE_SW'})
     require(components == expected_components, "Complete coupon XML population/value/footprint mismatch")
     require(connections == expected_nets,
             "Complete coupon XML pin-to-net mismatch: " + mapping_difference(connections, expected_nets))
@@ -263,7 +263,7 @@ def main():
     try:
         if args.netlist:
             check_netlist(args.netlist)
-            print("KiCad XML complete coupon check passed: 461 PCB items, 1695 logical pins; provisional E0/E1 protection, charger/temperature core with pack header, switch/3V3, dark VLED and staged gauge.")
+            print("KiCad XML complete coupon check passed: 466 PCB items, 1711 logical pins; provisional E0/E1 protection, charger/temperature core with pack header, switched/isolated gauge, app 3V3 and dark VLED.")
         else:
             check_sources(args.project_dir)
             print("Controller source connectivity check passed: N16R8 module, safe boot/reset, USB/UART boundaries and 11 test pads (not KiCad ERC).")

@@ -95,7 +95,7 @@
 (pin passive line (at 5.080 0.000 180) (length 2.54) (name "~" (effects (font (size 1.016 1.016)))) (number "2" (effects (font (size 1.016 1.016))))))
 	)
 )
-(text "SYS is a draft source boundary. SW2 control contact drives EN; gauge pole remains open." (at 20.320 20.320 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "9937e8b2-b46a-5d07-8c11-cd4198fba2ad"))
+(text "SYS is a draft source boundary. SW2 pole 1 drives EN; pole 2 supplies the isolated gauge." (at 20.320 20.320 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "9937e8b2-b46a-5d07-8c11-cd4198fba2ad"))
 (text "LX1/LX2 wires are local switching nodes. No PCB, thermal or load validation." (at 20.320 27.940 0) (effects (font (size 1.27 1.27)) (justify left)) (uuid "1bf73080-ae2e-52a5-b8e5-a58164eeaecf"))
 (symbol (lib_id "rgb-badge-coupon:TPS631000DRLR") (at 147.320 96.520 0) (unit 1)
 (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no)
