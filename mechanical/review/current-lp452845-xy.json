@@ -4948,6 +4948,36 @@
       }
     ]
   },
+  "board_width_sensitivity": {
+    "status": "geometric option only; PCB and 110mm case mechanical fit unverified",
+    "assumptions": [
+      "Board is lengthened at the right edge",
+      "USB J1, decoder U2 and switch SW1 shift right with the edge",
+      "Pack, sensor, three driver projections and 7x12mm interlock reservation stay at their 106mm-trial positions"
+    ],
+    "dual_package_results": [
+      {
+        "board_width_mm": 106.0,
+        "order": "area first",
+        "unplaced_count": 1,
+        "unplaced_refs": [
+          "U33"
+        ]
+      },
+      {
+        "board_width_mm": 108.0,
+        "order": "area first",
+        "unplaced_count": 0,
+        "unplaced_refs": []
+      },
+      {
+        "board_width_mm": 110.0,
+        "order": "area first",
+        "unplaced_count": 0,
+        "unplaced_refs": []
+      }
+    ]
+  },
   "limitations": [
     "Only the selected pack's maximum body rectangle is modeled; no wires, PCM protrusion, swell or support",
     "Three final driver bodies are projected from the one-driver coupon",

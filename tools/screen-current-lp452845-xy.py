@@ -36,7 +36,7 @@ def overlap(a, b):
     return a[0] < b[2] and a[2] > b[0] and a[1] < b[3] and a[3] > b[1]
 
 
-def fixed_boxes(parts):
+def fixed_boxes(parts, right_shift=0):
     by_ref = {p["ref"]: p for p in parts}
     fixed_xy = {"J2": (20.25, 0.25), "SW2": (0.5, 0.3),
                 "SW1": (91.1, 0.3), "U2": (97.0, 0.5)}
@@ -49,10 +49,13 @@ def fixed_boxes(parts):
     driver = layout.analyze()["rear_trial"]["drivers"]
     for index, item in enumerate(driver, 1):
         fixed[f"U1-project-{index}"] = tuple(item[key] for key in ("x0", "y0", "x1", "y1"))
+    for ref in ("J1", "U2", "SW1"):
+        x0, y0, x1, y1 = fixed[ref]
+        fixed[ref] = (x0 + right_shift, y0, x1 + right_shift, y1)
     return fixed
 
 
-def place(parts, variant, order, fixed, pack, sensor_reserve):
+def place(parts, variant, order, fixed, pack, sensor_reserve, board_width=BOARD_W):
     used = dict(fixed)
     remaining = [p for p in parts if p["ref"] not in {"J2", "SW1", "SW2", "U2"}]
     if variant == "dual-package candidate":
@@ -75,7 +78,7 @@ def place(parts, variant, order, fixed, pack, sensor_reserve):
         w = math.ceil((part["width_mm"] + EXTRA_BOX_MM) / GRID) * GRID
         h = math.ceil((part["height_mm"] + EXTRA_BOX_MM) / GRID) * GRID
         x_start = math.ceil(pack[0] / GRID) if under_pack else 0
-        x_end = math.floor((pack[2] - w) / GRID) if under_pack else math.floor((BOARD_W - w) / GRID)
+        x_end = math.floor((pack[2] - w) / GRID) if under_pack else math.floor((board_width - w) / GRID)
         y_start = math.ceil(pack[1] / GRID) if under_pack else 0
         y_end = math.floor((pack[3] - h) / GRID) if under_pack else math.floor((BOARD_H - h) / GRID)
         for yi in range(y_start, y_end + 1):
@@ -107,7 +110,7 @@ def place(parts, variant, order, fixed, pack, sensor_reserve):
         else:
             used[part["ref"]] = found
     for index, (ref, rect) in enumerate(used.items()):
-        if ref != "J1" and (rect[0] < 0 or rect[1] < 0 or rect[2] > BOARD_W or rect[3] > BOARD_H):
+        if ref != "J1" and (rect[0] < 0 or rect[1] < 0 or rect[2] > board_width or rect[3] > BOARD_H):
             raise ValueError(f"{ref} outside trial board")
         if any(overlap(rect, other) for other in list(used.values())[index + 1:]):
             raise ValueError(f"{ref} overlaps another courtyard box")
@@ -151,6 +154,15 @@ def report(xml):
                          {**fixed, "INTERLOCK_RESERVE": narrow_pocket}, pack, sensor)
         reduced_pad_sensitivity.append({"order": order, "unplaced_count": screened["unplaced_count"],
                                         "unplaced_refs": screened["unplaced_refs"]})
+    width_sensitivity = []
+    for width in (106.0, 108.0, 110.0):
+        shifted_fixed = fixed_boxes(parts, right_shift=width - BOARD_W)
+        screened = place(parts, "dual-package candidate", "area first",
+                         {**shifted_fixed, "INTERLOCK_RESERVE": narrow_pocket}, pack, sensor,
+                         board_width=width)
+        width_sensitivity.append({"board_width_mm": width, "order": "area first",
+                                  "unplaced_count": screened["unplaced_count"],
+                                  "unplaced_refs": screened["unplaced_refs"]})
     return {"SPDX-License-Identifier": "CERN-OHL-S-2.0",
             "status": "GEOMETRIC_FIRST_FIT_STRESS_SCREEN_NOT_A_PCB_OR_FIT_APPROVAL",
             "native_xml_sha256": hashlib.sha256(xml.read_bytes()).hexdigest(),
@@ -165,6 +177,12 @@ def report(xml):
                 "omitted_test_pad_count": 22 - len(retained_test_pads),
                 "interlock_reserve_box_mm": list(narrow_pocket),
                 "dual_package_results": reduced_pad_sensitivity,
+            },
+            "board_width_sensitivity": {
+                "status": "geometric option only; PCB and 110mm case mechanical fit unverified",
+                "assumptions": ["Board is lengthened at the right edge", "USB J1, decoder U2 and switch SW1 shift right with the edge",
+                                "Pack, sensor, three driver projections and 7x12mm interlock reservation stay at their 106mm-trial positions"],
+                "dual_package_results": width_sensitivity,
             },
             "limitations": ["Only the selected pack's maximum body rectangle is modeled; no wires, PCM protrusion, swell or support",
                             "Three final driver bodies are projected from the one-driver coupon",
@@ -224,6 +242,9 @@ def main():
     for item in result["test_pad_omission_sensitivity"]["dual_package_results"]:
         print(f"dual-package candidate with 14 coupon test pads omitted and 7x12 reserve, "
               f"{item['order']}: {item['unplaced_count']} unplaced")
+    for item in result["board_width_sensitivity"]["dual_package_results"]:
+        print(f"dual-package candidate with 7x12 reserve on {item['board_width_mm']:.0f}mm board: "
+              f"{item['unplaced_count']} unplaced")
 
 
 if __name__ == "__main__":

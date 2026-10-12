@@ -16,6 +16,8 @@ The [2026-10-06 board/battery fit trial](fit-trial-2026-10-06.md) adds a grouped
 
 The [fresh LP452845 XY screen](current-lp452845-xy-screen-2026-10-11.md) uses all current captured courtyards and the exact J2 land. Greedy placement leaves 16–18 boxes unplaced with the canonical 32 row FETs, while a *geometric-only* substitution of 16 proposed dual packages leaves none unplaced **before** reserving the interlock. A 7 × 12 mm trial interlock reservation makes the latter leave one or two packages unplaced. This supports an electrical audit of the dual package and a real layout study, not a fit or routing approval.
 
+An additional board-width screen finds that lengthening the trial PCB from 106 to 108 mm clears the one remaining area-first courtyard miss with the dual package and a 7 × 12 mm interlock reservation. The 110 mm outer-case target leaves only 1 mm nominal at each end for a centered 108 mm PCB, so this is a layout direction to verify against the real enclosure and USB opening, not an accepted dimension change.
+
 The [battery-connector screen](battery-connector-screen-2026-10-06.md) compares JST GH/PH and Molex PicoBlade families for the LP503055's bare AWG 28 wires. An illustrative PH mated pocket has no free position in the original grouped plan, even before small-part packing. No pack termination or polarity has been selected.
 
 The [connector-first follow-on](connector-first-trial-2026-10-06.md) adds a compact Molex PicoBlade candidate and moves the switch, decoder and row FETs around its illustrative 8 × 8 mm pocket. It leaves 11 captured parts unplaced before the missing power hardware. The added connector is a geometric reservation, not a qualified footprint or selected pack termination.
