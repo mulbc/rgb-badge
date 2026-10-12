@@ -8,7 +8,7 @@
 
 **2026-10-12 interlock fit stress:** The [IC-body-only XY screen](mechanical/display-interlock-body-fit-2026-10-12.md) adds the nine proposed interlock packages to the current inventory and dual-row trial, with existing local DBV/RSE courtyard floors. At 106 mm, 1–6 boxes miss across body allowances; at 108 mm only the optimistic body allowance clears; at 110 mm both allowances clear before any interlock passives, routing or case walls. ADR 0032 now selects compact interlock packages for provisional library work; no board width or dual-row substitution is accepted.
 The follow-on compact-package sensitivity clears both body allowances at 108 mm, with the optimistic one also clearing 106 mm before support parts. Adding twenty outside-pack 0402 courtyard boxes to the compact 108 mm trial still gives zero greedy misses, but does not establish circuit-local placement, assembly, routing or enclosure fit.
-The [first compact land audit](hardware/coupon/rev-a/display-interlock-library-audit.md) adds TI DSF and DCU project-local footprints for four proposed logic ICs. Their exact geometry guard and native KiCad export passed; the 108 mm fit-screen count is unchanged with actual courtyard floors. DSE and DRY lands, all new symbols, interlock source connections and hardware fault qualification remain open.
+The [first compact library audit](hardware/coupon/rev-a/display-interlock-library-audit.md) adds TI DSF and DCU project-local footprints and six exact supervisor/DFF/gate symbols. Their geometry and 41-pin guards plus native KiCad export passed; the 108 mm fit-screen count is unchanged with actual courtyard floors. DSE and DRY lands, their two symbols, interlock source connections and hardware fault qualification remain open.
 
 ## Purpose
 
