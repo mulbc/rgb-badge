@@ -1,0 +1,125 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "assumed_ic_bodies_mm": [
+    {
+      "height_mm": 1.6,
+      "mpn": "TPS3823A-33DBVR",
+      "width_mm": 2.9
+    },
+    {
+      "height_mm": 3.1,
+      "mpn": "SN74LVC1G74DCUR-A",
+      "width_mm": 2.0
+    },
+    {
+      "height_mm": 3.1,
+      "mpn": "SN74LVC1G74DCUR-B",
+      "width_mm": 2.0
+    },
+    {
+      "height_mm": 1.5,
+      "mpn": "TLV6700DSER",
+      "width_mm": 1.5
+    },
+    {
+      "height_mm": 1.6,
+      "mpn": "SN74LVC1G04DRLR",
+      "width_mm": 1.6
+    },
+    {
+      "height_mm": 2.1,
+      "mpn": "SN74LVC1G11DCKR",
+      "width_mm": 2.0
+    },
+    {
+      "height_mm": 1.6,
+      "mpn": "SN74LVC1G08DRLR",
+      "width_mm": 1.6
+    },
+    {
+      "height_mm": 3.1,
+      "mpn": "SN74LVC2G00DCUR",
+      "width_mm": 2.0
+    },
+    {
+      "height_mm": 3.1,
+      "mpn": "SN74LVC2G08DCUR",
+      "width_mm": 2.0
+    }
+  ],
+  "cases": [
+    {
+      "board_width_mm": 106.0,
+      "body_margin_each_dimension_mm": 0.5,
+      "interlock_unplaced_refs": [
+        "INT_SN74LVC1G11DCKR"
+      ],
+      "unplaced_count": 3,
+      "unplaced_refs": [
+        "INT_SN74LVC1G11DCKR",
+        "U33",
+        "U32"
+      ]
+    },
+    {
+      "board_width_mm": 108.0,
+      "body_margin_each_dimension_mm": 0.5,
+      "interlock_unplaced_refs": [],
+      "unplaced_count": 0,
+      "unplaced_refs": []
+    },
+    {
+      "board_width_mm": 110.0,
+      "body_margin_each_dimension_mm": 0.5,
+      "interlock_unplaced_refs": [],
+      "unplaced_count": 0,
+      "unplaced_refs": []
+    },
+    {
+      "board_width_mm": 106.0,
+      "body_margin_each_dimension_mm": 1.0,
+      "interlock_unplaced_refs": [
+        "INT_SN74LVC1G04DRLR",
+        "INT_SN74LVC1G08DRLR"
+      ],
+      "unplaced_count": 4,
+      "unplaced_refs": [
+        "U45",
+        "INT_SN74LVC1G04DRLR",
+        "INT_SN74LVC1G08DRLR",
+        "U32"
+      ]
+    },
+    {
+      "board_width_mm": 108.0,
+      "body_margin_each_dimension_mm": 1.0,
+      "interlock_unplaced_refs": [],
+      "unplaced_count": 3,
+      "unplaced_refs": [
+        "U39",
+        "U33",
+        "U32"
+      ]
+    },
+    {
+      "board_width_mm": 110.0,
+      "body_margin_each_dimension_mm": 1.0,
+      "interlock_unplaced_refs": [],
+      "unplaced_count": 0,
+      "unplaced_refs": []
+    }
+  ],
+  "inherited_extra_box_each_dimension_mm": 0.5,
+  "inherited_grid_mm": 0.25,
+  "limitations": [
+    "No interlock resistors, capacitors, test pads, traces or via/thermal/RF clearance",
+    "Body dimensions are not footprint courtyards or manufacturer land patterns",
+    "The dual row package substitution is still proposed, not captured",
+    "Under-pack 0402 placement is conditional and not circuit-local",
+    "110mm case wall, USB opening, mounting and routing tolerances are absent"
+  ],
+  "native_xml_sha256": "4794253497d78b0c9d7e278cc80d91dcacd7eea7246e1503ea479db2f7fe0020",
+  "source_coupon_pcb_items": 466,
+  "source_coupon_rear_parts": 207,
+  "status": "IC_BODY_ONLY_GEOMETRIC_LOWER_BOUND_NOT_A_PCB_OR_FIT_APPROVAL"
+}
