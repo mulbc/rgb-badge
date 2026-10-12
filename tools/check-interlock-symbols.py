@@ -50,6 +50,13 @@ EXPECTED = {
     }),
 }
 
+NEW_RESISTORS = {
+    "ERJ2RKF1603X": 160_000,
+    "ERJ2RKF1963X": 196_000,
+    "ERJ2RKF2002X": 20_000,
+    "ERJ2RKF4701X": 4_700,
+}
+
 
 def main():
     root = LIB["parse"](PROJECT / "symbols/rgb-badge-coupon.kicad_sym")
@@ -65,7 +72,23 @@ def main():
         actual = {int(number): (one(pin, "name", "pin")[1], pin[1], pin[2])
                   for number, pin in pins(symbol).items()}
         assert actual == pin_table, f"{mpn}: manufacturer pin number/function/type mismatch"
+    for mpn, ohms in NEW_RESISTORS.items():
+        code = mpn[7:11]
+        assert int(code[:3]) * 10 ** int(code[3]) == ohms
+        symbol = by_name[mpn]
+        properties = props(symbol)
+        assert properties["MPN"] == mpn and properties["Value"] == mpn
+        assert properties["Manufacturer"] == "Panasonic"
+        assert properties["Footprint"] == "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
+        assert properties["Datasheet"] == (
+            "https://industrial.panasonic.com/ww/products/pt/general-purpose-chip-resistors/models/" + mpn)
+        assert {int(n): (p[1], p[2]) for n, p in pins(symbol).items()} == {
+            1: ("passive", "line"), 2: ("passive", "line")}
+    for mpn in ("ERJ2RKF1001X", "ERJ2RKF1002X", "ERJ2RKF1003X",
+                "GRM155R71C104KA88D"):
+        assert mpn in by_name, f"existing first-schedule support part is missing: {mpn}"
     print("Six TI interlock symbols: exact MPN, land and 41 numbered pin functions passed")
+    print("Four new Panasonic resistor symbols plus existing bias/bypass parts passed")
 
 
 if __name__ == "__main__":
