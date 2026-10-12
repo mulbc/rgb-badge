@@ -37,3 +37,4 @@ Decision records explain choices that materially constrain later work. Accepted 
 | [0029](0029-provisional-battery-header-polarity.md) | Assign J2 pad 1 to protected BAT+ and pad 2 to ground, with measured/re-pinned harness acceptance | Provisional source capture; delivered pack polarity unverified |
 | [0030](0030-gauge-bus-buffer-selection.md) | Use exact TCA9517ADGKR with switched gauge on A and application bus on B | Accepted for library and source capture; transitions and LOW levels unqualified |
 | [0031](0031-separate-row-request-from-decoder-enable.md) | Separate GPIO8 row request from decoder E before hardware gating | Provisional source capture; hardware display interlock absent |
+| [0032](0032-two-event-display-interlock-proposal.md) | Require a heartbeat followed by a distinct arm pulse before hardware can enable the display | Proposed; exact clear circuit, footprint fit and fault timing pending |

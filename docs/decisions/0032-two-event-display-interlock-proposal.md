@@ -1,0 +1,11 @@
+<!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
+
+# ADR 0032: Require a heartbeat and a distinct display-arm edge
+
+Date: 2026-10-12. Status: proposed for source capture; not electrically qualified.
+
+Use two reset-dominant hardware flip-flops for the display permission. The first remembers a dedicated watchdog heartbeat after the application rail and controller are ready. The second may arm only on a separate rising `DISPLAY_ARM_CLK` edge while the first is set. A common asynchronous clear removes both permissions on application-rail supervision failure, `ESP_EN` reset, mode-button press, or withdrawal of the firmware `DISPLAY_ENABLE` request. The independent watchdog also clears both; its output returning high does not recreate either clock edge. GPIO15/module pad 8 is the heartbeat and GPIO16/module pad 9 is the arm pulse, subject to the exact module-library audit. The firmware must issue the heartbeat before a deliberate arm pulse and must not pulse arm in programming mode.
+
+The converter enable is the armed state **and** the live `DISPLAY_ENABLE` request, with the existing 100 kΩ pull-down retained. Decoder E is high unless the arm is set, VLED is inside a measured-ready voltage window, and GPIO8 requests a row. `ROW_ENABLE_REQ_N` and `ROW_ENABLE_N` stay distinct. The TPS63020 PG output is not the voltage qualification. The row output must be forced high when GPIO8 is stuck low and any permission is removed. This implements the [interface contract](../design/display-interlock-interface-2026-10-05.md) without raising a current limit or changing the accepted row topology.
+
+The [pin-level proposal](../design/display-interlock-circuit-proposal-2026-10-12.md) names the candidate orderable ICs and the signal/state equations. It is a design input, **not approval to connect VLED EN**. Before capture, finish the clear-net electrical/footprint audit, bound threshold and propagation corners, decide VLED discharge, screen the added courtyard against the final-board fit, and confirm the software-reset GPIO defaults. Capture must then pass complete native ERC/XML/PDF review. Gate A and coupon fault-injection measurements remain mandatory before fabrication or a claim of safe operation.

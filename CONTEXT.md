@@ -4,6 +4,8 @@
 
 **2026-10-11 display boundary:** [ADR 0031](docs/decisions/0031-separate-row-request-from-decoder-enable.md) separates ESP32 GPIO8 `ROW_ENABLE_REQ_N` from decoder E `ROW_ENABLE_N`. R42 holds the decoder disabled and the VLED converter EN still has only its pull-down. The hardware interlock remains to be designed and qualified; this source change cannot operate the display.
 
+**2026-10-12 interlock proposal:** [ADR 0032](docs/decisions/0032-two-event-display-interlock-proposal.md) and the [circuit study](docs/design/display-interlock-circuit-proposal-2026-10-12.md) propose a watchdog-observed heartbeat, a separate arm pulse, reset-dominant permission memory and a direct VLED voltage window. Exact clear/edge implementation, GPIO defaults, discharge, physical fit and fault timing remain unresolved. No source connection or hardware test has enabled the display.
+
 ## Purpose
 
 Create a small, manufacturable 48 × 16 RGB wearable badge that preserves the 1.95 mm pixel pitch of the referenced FOSSASIA Badge Magic board. The owner intends to develop the electronics, firmware and enclosure with AI assistance, then have a turnkey PCBA supplier assemble the SMT hardware.
