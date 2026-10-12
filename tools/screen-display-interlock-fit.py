@@ -48,6 +48,23 @@ COMPACT_IC_BODIES = (
     ("SN74LVC2G08DCUR", 2.0, 3.1),
 )
 
+# Existing project-local courtyards are stronger evidence than a generic body
+# allowance. The placement engine adds 0.5 mm, so subtract that before passing
+# these floors to it. Other interlock ICs still use estimated body allowances.
+LOCAL_COURTYARD_FLOORS_MM = {
+    "TPS3823A-33DBVR": (4.3, 3.6),  # SOT23_TI_DBV0005A
+    "SN74LVC1G74RSER-A": (2.4, 2.4),  # UQFN_TI_RSE0008A
+    "SN74LVC1G74RSER-B": (2.4, 2.4),
+}
+
+
+def estimated_box(name, body_width, body_height, body_margin):
+    floor_w, floor_h = LOCAL_COURTYARD_FLOORS_MM.get(name, (0.0, 0.0))
+    width = max(body_width + body_margin, floor_w - fit.EXTRA_BOX_MM)
+    height = max(body_height + body_margin, floor_h - fit.EXTRA_BOX_MM)
+    return {"ref": "INT_" + name, "footprint": "ESTIMATED_IC_BODY",
+            "width_mm": width, "height_mm": height, "area_mm2": width * height}
+
 
 def screen(xml: Path) -> dict:
     parts, counts = fit.space.component_inventory(xml)
@@ -60,9 +77,7 @@ def screen(xml: Path) -> dict:
         for body_margin in (0.5, 1.0):
             candidate_parts = list(parts)
             for name, width, height in bodies:
-                w, h = width + body_margin, height + body_margin
-                candidate_parts.append({"ref": "INT_" + name, "footprint": "ESTIMATED_IC_BODY",
-                                        "width_mm": w, "height_mm": h, "area_mm2": w * h})
+                candidate_parts.append(estimated_box(name, width, height, body_margin))
             for board_width in (106.0, 108.0, 110.0):
                 fixed = fit.fixed_boxes(parts, right_shift=board_width - fit.BOARD_W)
                 placed = fit.place(candidate_parts, "dual-package candidate", "area first",
@@ -77,9 +92,7 @@ def screen(xml: Path) -> dict:
     support_cases = []
     support_parts = list(parts)
     for name, width, height in COMPACT_IC_BODIES:
-        w, h = width + 1.0, height + 1.0
-        support_parts.append({"ref": "INT_" + name, "footprint": "ESTIMATED_IC_BODY",
-                              "width_mm": w, "height_mm": h, "area_mm2": w * h})
+        support_parts.append(estimated_box(name, width, height, 1.0))
     # Sensitivity only: twenty proposed 0402 courtyard boxes, all forced
     # outside the pack. These do not represent a captured support-circuit BOM.
     for index in range(20):
@@ -102,6 +115,7 @@ def screen(xml: Path) -> dict:
                                   for name, w, h in IC_BODIES],
             "compact_assumed_ic_bodies_mm": [{"mpn": name, "width_mm": w, "height_mm": h}
                                           for name, w, h in COMPACT_IC_BODIES],
+            "local_courtyard_floors_mm": LOCAL_COURTYARD_FLOORS_MM,
             "inherited_grid_mm": fit.GRID,
             "inherited_extra_box_each_dimension_mm": fit.EXTRA_BOX_MM,
             "cases": cases_for(IC_BODIES),

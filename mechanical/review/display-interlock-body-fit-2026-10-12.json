@@ -54,11 +54,9 @@
       "interlock_unplaced_refs": [
         "INT_SN74LVC1G11DCKR"
       ],
-      "unplaced_count": 3,
+      "unplaced_count": 1,
       "unplaced_refs": [
-        "INT_SN74LVC1G11DCKR",
-        "U33",
-        "U32"
+        "INT_SN74LVC1G11DCKR"
       ]
     },
     {
@@ -82,12 +80,14 @@
         "INT_SN74LVC1G04DRLR",
         "INT_SN74LVC1G08DRLR"
       ],
-      "unplaced_count": 4,
+      "unplaced_count": 6,
       "unplaced_refs": [
+        "U44",
         "U45",
         "INT_SN74LVC1G04DRLR",
         "INT_SN74LVC1G08DRLR",
-        "U32"
+        "U36",
+        "U39"
       ]
     },
     {
@@ -161,10 +161,8 @@
       "board_width_mm": 106.0,
       "body_margin_each_dimension_mm": 0.5,
       "interlock_unplaced_refs": [],
-      "unplaced_count": 1,
-      "unplaced_refs": [
-        "U32"
-      ]
+      "unplaced_count": 0,
+      "unplaced_refs": []
     },
     {
       "board_width_mm": 108.0,
@@ -187,11 +185,10 @@
         "INT_SN74LVC1G74RSER-B",
         "INT_TLV6700DSER"
       ],
-      "unplaced_count": 4,
+      "unplaced_count": 3,
       "unplaced_refs": [
         "INT_SN74LVC1G74RSER-B",
         "INT_TLV6700DSER",
-        "U33",
         "U32"
       ]
     },
@@ -217,8 +214,8 @@
       "unplaced_refs": [
         "INT_SN74LVC1G74RSER-B",
         "INT_TLV6700DSER",
-        "U33",
-        "U32"
+        "U32",
+        "INT_SUPPORT_20"
       ]
     },
     {
@@ -241,6 +238,20 @@
     "Under-pack 0402 placement is conditional and not circuit-local",
     "110mm case wall, USB opening, mounting and routing tolerances are absent"
   ],
+  "local_courtyard_floors_mm": {
+    "SN74LVC1G74RSER-A": [
+      2.4,
+      2.4
+    ],
+    "SN74LVC1G74RSER-B": [
+      2.4,
+      2.4
+    ],
+    "TPS3823A-33DBVR": [
+      4.3,
+      3.6
+    ]
+  },
   "native_xml_sha256": "4794253497d78b0c9d7e278cc80d91dcacd7eea7246e1503ea479db2f7fe0020",
   "source_coupon_pcb_items": 466,
   "source_coupon_rear_parts": 207,

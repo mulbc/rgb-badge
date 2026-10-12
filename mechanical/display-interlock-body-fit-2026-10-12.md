@@ -6,11 +6,11 @@ Date: 2026-10-12. Calculation from canonical coupon KiCad netlist, **not** a PCB
 
 The screen carries forward the LP452845 47 × 28.5 mm pack body, 10 × 8 mm sensor reservation, fixed connector/switch/decoder/MCU/three-driver projections and the *proposed* 16 dual row-package substitution from the [current XY trial](current-lp452845-xy-screen-2026-10-11.md). It adds the nine candidate IC package bodies named by the [interlock proposal](../docs/design/display-interlock-circuit-proposal-2026-10-12.md). Their nominal body areas sum to **41.01 mm²** before lands, passives, routing and clearance. Package body dimensions come from the corresponding [TI supervisor](https://www.ti.com/product/TPS3823), [flip-flop](https://www.ti.com/product/SN74LVC1G74), [comparator](https://www.ti.com/product/TLV6700), [NAND](https://www.ti.com/product/SN74LVC2G00), [AND](https://www.ti.com/product/SN74LVC2G08), [inverter](https://www.ti.com/product/SN74LVC1G04) and [3-input AND](https://www.ti.com/product/SN74LVC1G11) product pages. They are **not** audited courtyard dimensions.
 
-The existing first-fit engine adds 0.5 mm to each candidate box dimension and snaps to a 0.25 mm grid. This stress screen adds another 0.5 or 1.0 mm per body dimension to approximate land/courtyard demand, then reruns the existing area-first heuristic.
+The existing first-fit engine adds 0.5 mm to each candidate box dimension and snaps to a 0.25 mm grid. This stress screen adds another 0.5 or 1.0 mm per body dimension to approximate land/courtyard demand, then reruns the existing area-first heuristic. Where an audited local land already exists, the screen also uses its actual courtyard as a minimum: 4.3 × 3.6 mm for the TI DBV five-pin supervisor and 2.4 × 2.4 mm for each compact TI RSE flip-flop. This prevents a small body estimate from understating those two existing lands; all other new IC footprints remain estimated.
 
 | Trial PCB width | +0.5 mm body allowance | +1.0 mm body allowance |
 |---:|---:|---:|
-| 106 mm | 3 unplaced | 4 unplaced |
+| 106 mm | 1 unplaced | 6 unplaced |
 | 108 mm | 0 unplaced | 3 unplaced |
 | 110 mm | 0 unplaced | 0 unplaced |
 
@@ -20,10 +20,11 @@ An additional **package-only** sensitivity keeps all nine logic functions but ch
 
 | Trial PCB width | Compact +0.5 mm body allowance | Compact +1.0 mm body allowance |
 |---:|---:|---:|
-| 106 mm | 1 unplaced | 4 unplaced |
+| 106 mm | 0 unplaced | 3 unplaced |
 | 108 mm | 0 unplaced | 0 unplaced |
 | 110 mm | 0 unplaced | 0 unplaced |
 
 The compact option makes the 108 mm *IC-body* result less sensitive to the two allowances. The table above still leaves every support passive and the enclosure walls unmodeled. It is an option for the actual-land/assembler screen, not a package selection.
+The compact DFF's TI RSE0008A land already exists locally and was audited for an exact USB switch sharing that package drawing; it can be reused after a DFF-specific pin-to-pad check. The comparator and other small logic package lands still need audits.
 
 A further coarse stress case adds **twenty** 2.0 × 1.0 mm project-local 0402 courtyard boxes to the compact +1.0 mm body case and forces all twenty outside the pack outline. They represent the first support-part schedule in the [interlock proposal](../docs/design/display-interlock-circuit-proposal-2026-10-12.md): nine IC bypass capacitors and eleven divider, default, watchdog, window-pull-up and bleed resistors. This is **not** a captured or frozen BOM. The engine still adds its 0.5 mm box allowance to each. This run leaves four boxes unplaced at 106 mm and none at 108 or 110 mm. The first-fit algorithm may scatter support parts far from their ICs, so the zero count at 108 mm gives only a target for a grouped real-footprint placement. It cannot establish signal integrity, converter loops, assembly access or the 110 mm case's wall thickness.
