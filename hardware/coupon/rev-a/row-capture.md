@@ -42,13 +42,13 @@ References deliberately preserve a mechanical one-to-one pattern: row `n` uses P
 
 With 3.3 V established and the controller high-impedance, R42 holds decoder enable high, R38–R41 hold the address at zero, every decoder output is low, R22–R37 hold every N-MOS gate low, and R6–R21 pull every P-MOS gate up to its source. All rows are therefore commanded off.
 
-That statement is conditional; it is not a complete startup interlock. During rail ramp, power-down or an unpowered decoder, semiconductor states may be indeterminate. #FLG03 only prevents a false ERC missing-driver result. The future power sheet must inhibit the VLED converter in hardware until the application rail and control state are valid, and must remove VLED when the latching switch is off. Firmware must then use this break-before-make sequence:
+That statement is conditional; it is not a complete startup interlock. During rail ramp, power-down or an unpowered decoder, semiconductor states may be indeterminate. [ADR 0031](../../../docs/decisions/0031-separate-row-request-from-decoder-enable.md) now leaves U2 E disconnected from GPIO8 and held high by R42; the VLED converter also remains disabled. A future hardware interlock must qualify both rails and row selection. Once that circuit has been captured and tested, firmware must use this break-before-make request sequence:
 
-1. drive `ROW_ENABLE_N` high;
+1. drive `ROW_ENABLE_REQ_N` high;
 2. wait for the selected P-MOS to turn off and row capacitance to discharge;
 3. update `ROW_A0..A3`;
 4. wait for decoder/address settling;
-5. drive `ROW_ENABLE_N` low for the next row interval.
+5. drive `ROW_ENABLE_REQ_N` low for the next row interval only while hardware arm permits it.
 
 Dead-time values are not selected from schematic appearance. Gate B must measure U2 output timing, N/P-MOS edges, simultaneous-row overlap, row-anode discharge and visible low-gray ghosting. A watchdog/fault path must blank rows and disable VLED; firmware cannot replace the hardware-off default.
 

@@ -103,10 +103,10 @@ def actuator_supply_screen(*, local_drop_v="0", fall_slew_v_per_us="0",
 def usb_capture_blockers():
     """Selected topology tasks not yet closed by calculation alone."""
     return (
-        "ADR 0013 removes BC1.2, firmware charging grants and switched ILIM; E0/E1/BQ are provisionally captured, but the pack is absent.",
+        "ADR 0013 removes BC1.2, firmware charging grants and switched ILIM; E0/E1/BQ and the provisional J2 pack header are captured, but no pack is fitted or qualified.",
         "Protected-input fault behavior, VBUS qualification and physical charger standby/startup inhibition remain unproven.",
         "Whole-port current, standby, inrush, source transitions and thermal behavior remain unqualified.",
-        "LP452845 is the design target; BQ TS, default timers, E0/E1 and dark VLED source are captured, but pack interface, capacitor bias, programming-resistor drift, gate transient/temperature qualification and VLED interlock remain open.",
+        "LP452845 is the design target; BQ TS, default timers, E0/E1, provisional J2 and dark VLED source are captured, but delivered-pack polarity, capacitor bias, programming-resistor drift, gate transient/temperature qualification and VLED interlock remain open.",
     )
 
 

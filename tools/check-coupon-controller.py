@@ -43,7 +43,7 @@ PARTS.update({f"TP{i}": ("TestPoint_Pad", "TestPoint_Pad", "rgb-badge-coupon:Tes
 MODULE_NETS = {
     "1": "GND", "2": "+3V3_APP", "3": "ESP_EN", "4": "ROW_A0", "5": "ROW_A1",
     "6": "ROW_A2", "7": "ROW_A3", "10": "SYS_I2C_SDA", "11": "SYS_I2C_SCL",
-    "12": "ROW_ENABLE_N", "13": "USB_DN_MCU", "14": "USB_DP_MCU",
+    "12": "ROW_ENABLE_REQ_N", "13": "USB_DN_MCU", "14": "USB_DP_MCU",
     "17": "DISPLAY_ENABLE", "18": "LED_LAT", "19": "LED_SIN", "20": "LED_SCLK",
     "21": "LED_GCLK", "22": "LED_SOUT", "27": "MODE_BOOT_N", "36": "UART0_RX",
     "37": "UART0_TX_RAW", "40": "GND", "41": "GND",
@@ -78,7 +78,7 @@ def expected_connections():
         ("SW1", "1"): "MODE_BOOT_N", ("SW1", "2"): "GND",
     })
     for i, net in enumerate(("ESP_EN", "MODE_BOOT_N", "UART0_TX", "UART0_RX", "LED_GCLK",
-                             "ROW_ENABLE_N", "+3V3_APP", "GND", "DISPLAY_ENABLE",
+                             "ROW_ENABLE_REQ_N", "+3V3_APP", "GND", "DISPLAY_ENABLE",
                              "SYS_I2C_SDA", "SYS_I2C_SCL"), 2):
         result[(f"TP{i}", "1")] = net
     return result

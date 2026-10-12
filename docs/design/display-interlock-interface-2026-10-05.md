@@ -10,6 +10,8 @@ The [controller capture](../../hardware/coupon/rev-a/controller-capture.md) conn
 
 **Required net migration:** rename the GPIO8 side to `ROW_ENABLE_REQ_N` and retain `ROW_ENABLE_N` only on the decoder side of a hardware gate. The logical contract is `ROW_ENABLE_N = ROW_ENABLE_REQ_N OR NOT ROW_ARM`. A push-pull gate or properly isolated equivalent must create the decoder-side net. Connecting a second driver directly to the current GPIO8 net would create contention when firmware requests a row. R42 must remain on the decoder-side net or be replaced by an audited default-high arrangement. `DISPLAY_ENABLE` remains only a GPIO9 *request*, never the TPS63020 EN connection by itself. Any revised net names, parts and pin numbers require full library, netlist and native-export review before capture acceptance.
 
+**2026-10-11 source-capture update:** [ADR 0031](../decisions/0031-separate-row-request-from-decoder-enable.md) implements only that net separation. The opening inventory above describes the former direct connection. No row-arm gate or VLED EN arm is yet captured, so the current schematic is intentionally display-dark.
+
 ## Two permissions, with separate jobs
 
 1. `POWER_ARM` may enable the TPS63020 LED converter only after the physical switch is ON, application rail qualified, ESP reset released, programming inhibited, a deliberate post-reset arm handshake accepted, **at least one qualified watchdog heartbeat observed**, and an independent watchdog has not timed out. Its converter EN node needs a passive OFF default. A controller GPIO high by itself must not establish `POWER_ARM`.

@@ -24,7 +24,7 @@ The obsolete `GRM155R61A105KE15D` was explicitly rejected during capture and rep
 | Module pad / GPIO | Coupon net | Purpose |
 |---|---|---|
 | 4–7 / GPIO4–7 | `ROW_A0`–`ROW_A3` | row-decoder address |
-| 12 / GPIO8 | `ROW_ENABLE_N` | active-high hardware-safe row blanking request; existing 100 kΩ pull-up keeps rows off |
+| 12 / GPIO8 | `ROW_ENABLE_REQ_N` | controller row request; isolated from decoder E until the hardware gate is captured |
 | 17 / GPIO9 | `DISPLAY_ENABLE` | request to the pending hardware VLED gate; firmware alone is not the safety interlock |
 | 18–22 / GPIO10–14 | `LED_LAT`, `LED_SIN`, `LED_SCLK`, `LED_GCLK`, `LED_SOUT` | TLC59581 control and readback |
 | 10–11 / GPIO17–18 | `SYS_I2C_SDA`, `SYS_I2C_SCL` | charger/gauge/current-monitor service bus |
@@ -49,7 +49,7 @@ The pending power sheet must make `DISPLAY_ENABLE` fail-safe: VLED remains off t
 |---|---|
 | `TP2`, `TP3` | `ESP_EN`, `MODE_BOOT_N` |
 | `TP4`, `TP5` | `UART0_TX`, `UART0_RX` |
-| `TP6`, `TP7` | `LED_GCLK`, `ROW_ENABLE_N` |
+| `TP6`, `TP7` | `LED_GCLK`, `ROW_ENABLE_REQ_N` |
 | `TP8`, `TP9` | `+3V3_APP`, `GND` |
 | `TP10` | `DISPLAY_ENABLE` |
 | `TP11`, `TP12` | `SYS_I2C_SDA`, `SYS_I2C_SCL` |

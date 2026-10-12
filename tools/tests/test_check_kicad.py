@@ -143,6 +143,12 @@ class CheckKiCadWrapperTests(unittest.TestCase):
         self.assertIn("Controller check failed", result.stderr)
         self.assertFalse((self.output / "coupon-schematic.pdf").exists())
 
+    def test_direct_gpio8_to_decoder_enable_is_rejected(self):
+        result = self.run_check(RGB_BADGE_TEST_BYPASS_ROW_INTERLOCK="1")
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("('U3', '12'): expected 'ROW_ENABLE_REQ_N', got 'ROW_ENABLE_N'", result.stderr)
+        self.assertFalse((self.output / "coupon-schematic.pdf").exists())
+
     def test_e1_output_pin_fault_is_rejected(self):
         result = self.run_check(RGB_BADGE_TEST_BAD_E1="1")
         self.assertEqual(result.returncode, 1)

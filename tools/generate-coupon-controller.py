@@ -157,7 +157,7 @@ def generate():
     nets = {
         "1": "GND", "2": "+3V3_APP", "3": "ESP_EN",
         "4": "ROW_A0", "5": "ROW_A1", "6": "ROW_A2", "7": "ROW_A3",
-        "10": "SYS_I2C_SDA", "11": "SYS_I2C_SCL", "12": "ROW_ENABLE_N",
+        "10": "SYS_I2C_SDA", "11": "SYS_I2C_SCL", "12": "ROW_ENABLE_REQ_N",
         "13": "USB_DN_MCU", "14": "USB_DP_MCU", "17": "DISPLAY_ENABLE",
         "18": "LED_LAT", "19": "LED_SIN", "20": "LED_SCLK", "21": "LED_GCLK",
         "22": "LED_SOUT", "27": "MODE_BOOT_N", "36": "UART0_RX",
@@ -195,7 +195,7 @@ def generate():
     lines += two_pin("ERJ2RKF4990X", "R47", "499R 1%", 335.28, 127.00, "UART0_TX_RAW", "UART0_TX")
     for ref, net, y in (
         ("TP4", "UART0_TX", 142.24), ("TP5", "UART0_RX", 154.94),
-        ("TP6", "LED_GCLK", 167.64), ("TP7", "ROW_ENABLE_N", 180.34),
+        ("TP6", "LED_GCLK", 167.64), ("TP7", "ROW_ENABLE_REQ_N", 180.34),
         ("TP8", "+3V3_APP", 193.04), ("TP9", "GND", 205.74),
         ("TP10", "DISPLAY_ENABLE", 218.44), ("TP11", "SYS_I2C_SDA", 231.14),
         ("TP12", "SYS_I2C_SCL", 243.84),
@@ -203,7 +203,7 @@ def generate():
         lines += testpoint(ref, net, 335.28, y)
 
     lines += [
-        note('DISPLAY_ENABLE is only a controller request. The pending power sheet must default VLED OFF without firmware.', 20.32, 248.92, 'display-safety-note', 1.016),
+        note('GPIO8 ROW_ENABLE_REQ_N is isolated from decoder E; DISPLAY_ENABLE is only a request. Hardware interlock pending.', 20.32, 248.92, 'display-safety-note', 1.016),
         note('External antenna: Taoglas FXP75.07.0045B candidate on the module U.FL connector; fitted part, no PCB footprint.', 20.32, 256.54, 'antenna-note', 1.016),
         note('Never fabricate from this sheet alone. Power completion, DRC/DFM, Gate A review and coupon measurements remain.', 20.32, 264.16, 'release-note', 1.016),
         '(embedded_fonts no)', ')',

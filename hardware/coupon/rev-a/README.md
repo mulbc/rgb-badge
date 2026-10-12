@@ -2,6 +2,8 @@
 
 # Coupon Rev A
 
+**2026-10-11 row-request boundary:** [ADR 0031](../../../docs/decisions/0031-separate-row-request-from-decoder-enable.md) moves GPIO8 and TP7 to `ROW_ENABLE_REQ_N`. Decoder U2 E and R42 remain on `ROW_ENABLE_N`, disconnected from GPIO8 and pulled high while the hardware interlock is absent. The [native source review](../../../docs/development/row-request-split-review-2026-10-11.md) records the separate nets and zero configured ERC violations. Display operation remains blocked; source validation is not a powered-board test.
+
 **2026-10-06 VLED increment:** An [unlinked, default-disabled converter candidate](vled-converter-capture-contract.md) now captures the TI LED buck-boost, exact passives and local switching nodes. A separate [native local placement trial](staging/vled-layout-trial.kicad_pcb) carries the thirteen exact project footprints and schematic pad nets, with no routing or full-board DRC. It does not close the SYS source or display-interlock holds and is not a fabrication release.
 
 **2026-10-11 dark VLED source increment:** [ADR 0028](../../../docs/decisions/0028-root-link-dark-vled-converter.md) links the same 13-part converter stage into the full schematic and retires the row-sheet VLED source flag. Its EN has only a 100 kΩ pull-down; there is no arm driver and display operation remains blocked. The isolated staging source and placement trial above remain comparison evidence. Full-board routing, hardware interlock and Gate A are still outstanding.
