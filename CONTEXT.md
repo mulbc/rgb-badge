@@ -4,10 +4,10 @@
 
 **2026-10-11 display boundary:** [ADR 0031](docs/decisions/0031-separate-row-request-from-decoder-enable.md) separates ESP32 GPIO8 `ROW_ENABLE_REQ_N` from decoder E `ROW_ENABLE_N`. R42 holds the decoder disabled and the VLED converter EN still has only its pull-down. The hardware interlock remains to be designed and qualified; this source change cannot operate the display.
 
-**2026-10-12 interlock proposal:** [ADR 0032](docs/decisions/0032-two-event-display-interlock-proposal.md) and the [circuit study](docs/design/display-interlock-circuit-proposal-2026-10-12.md) propose a watchdog-observed heartbeat, a separate arm pulse, reset-dominant permission memory and a direct VLED voltage window. Exact clear/edge implementation, GPIO defaults, discharge, physical fit and fault timing remain unresolved. No source connection or hardware test has enabled the display.
+**2026-10-12 interlock proposal:** [ADR 0032](docs/decisions/0032-two-event-display-interlock-proposal.md) and the [circuit study](docs/design/display-interlock-circuit-proposal-2026-10-12.md) propose a watchdog-observed heartbeat, a separate arm pulse, reset-dominant permission memory, a direct VLED voltage window and an exact 4.7 kΩ passive bleed. The study lists nine candidate ICs and twenty first-pass support parts. Clear/edge electrical qualification, GPIO defaults, measured discharge, physical fit and fault timing remain unresolved. No source connection or hardware test has enabled the display.
 
 **2026-10-12 interlock fit stress:** The [IC-body-only XY screen](mechanical/display-interlock-body-fit-2026-10-12.md) adds the nine proposed interlock packages to the current inventory and dual-row trial. At 106 mm, 3–4 boxes miss; at 108 mm only the optimistic body allowance clears; at 110 mm both allowances clear before any interlock passives, routing or case walls. No board-width or package substitution is accepted.
-The follow-on compact-package sensitivity clears both body allowances at 108 mm but still misses at least one box at 106 mm. It also omits support passives and does not establish assembly or enclosure fit.
+The follow-on compact-package sensitivity clears both body allowances at 108 mm but still misses at least one box at 106 mm. Adding twenty outside-pack 0402 courtyard boxes to the compact 108 mm trial still gives zero greedy misses, but does not establish circuit-local placement, assembly, routing or enclosure fit.
 
 ## Purpose
 

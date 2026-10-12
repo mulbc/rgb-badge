@@ -80,9 +80,9 @@ def screen(xml: Path) -> dict:
         w, h = width + 1.0, height + 1.0
         support_parts.append({"ref": "INT_" + name, "footprint": "ESTIMATED_IC_BODY",
                               "width_mm": w, "height_mm": h, "area_mm2": w * h})
-    # Sensitivity only: eighteen project-local 0402 courtyard boxes, all forced
-    # outside the pack. These do not represent a frozen support-circuit BOM.
-    for index in range(18):
+    # Sensitivity only: twenty proposed 0402 courtyard boxes, all forced
+    # outside the pack. These do not represent a captured support-circuit BOM.
+    for index in range(20):
         support_parts.append({"ref": f"INT_SUPPORT_{index + 1:02d}",
                               "footprint": "ESTIMATED_INTERLOCK_SUPPORT_0402",
                               "width_mm": 2.0, "height_mm": 1.0, "area_mm2": 2.0})
@@ -106,7 +106,7 @@ def screen(xml: Path) -> dict:
             "inherited_extra_box_each_dimension_mm": fit.EXTRA_BOX_MM,
             "cases": cases_for(IC_BODIES),
             "compact_cases": cases_for(COMPACT_IC_BODIES),
-            "compact_plus_18_support_0402_cases": support_cases,
+            "compact_plus_20_support_0402_cases": support_cases,
             "limitations": [
                 "No interlock resistors, capacitors, test pads, traces or via/thermal/RF clearance",
                 "Body dimensions are not footprint courtyards or manufacturer land patterns",
@@ -132,8 +132,8 @@ def main() -> None:
         print(f"compact margin {case['body_margin_each_dimension_mm']:.1f} mm, "
               f"board {case['board_width_mm']:.0f} mm: "
               f"{case['unplaced_count']} unplaced")
-    for case in result["compact_plus_18_support_0402_cases"]:
-        print(f"compact + 18 outside-pack 0402, board {case['board_width_mm']:.0f} mm: "
+    for case in result["compact_plus_20_support_0402_cases"]:
+        print(f"compact + 20 outside-pack 0402, board {case['board_width_mm']:.0f} mm: "
               f"{case['unplaced_count']} unplaced")
 
 
