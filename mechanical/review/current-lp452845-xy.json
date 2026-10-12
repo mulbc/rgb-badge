@@ -4846,6 +4846,71 @@
       }
     }
   ],
+  "interlock_reservation_sensitivity": [
+    {
+      "reservation": "10x10 left of pack",
+      "box_mm": [
+        20.25,
+        11.0,
+        30.25,
+        21.0
+      ],
+      "order": "area first",
+      "unplaced_count": 4,
+      "unplaced_refs": [
+        "U45",
+        "U36",
+        "U39",
+        "U32"
+      ]
+    },
+    {
+      "reservation": "10x10 left of pack",
+      "box_mm": [
+        20.25,
+        11.0,
+        30.25,
+        21.0
+      ],
+      "order": "rows first",
+      "unplaced_count": 4,
+      "unplaced_refs": [
+        "U42",
+        "U43",
+        "U41",
+        "U39"
+      ]
+    },
+    {
+      "reservation": "7x12 beside decoder",
+      "box_mm": [
+        91.0,
+        10.0,
+        98.0,
+        22.0
+      ],
+      "order": "area first",
+      "unplaced_count": 1,
+      "unplaced_refs": [
+        "U33"
+      ]
+    },
+    {
+      "reservation": "7x12 beside decoder",
+      "box_mm": [
+        91.0,
+        10.0,
+        98.0,
+        22.0
+      ],
+      "order": "rows first",
+      "unplaced_count": 2,
+      "unplaced_refs": [
+        "U41",
+        "U39"
+      ]
+    }
+  ],
   "limitations": [
     "Only the selected pack's maximum body rectangle is modeled; no wires, PCM protrusion, swell or support",
     "Three final driver bodies are projected from the one-driver coupon",

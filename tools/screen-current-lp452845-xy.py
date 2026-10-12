@@ -131,6 +131,17 @@ def report(xml):
     results = [place(parts, variant, order, fixed, pack, sensor)
                for variant in ("canonical 32 separate row FETs", "dual-package candidate")
                for order in ("area first", "rows first")]
+    reserve_sensitivity = []
+    for name, pocket in (("10x10 left of pack", box(20.25, 11.0, 10.0, 10.0)),
+                         ("7x12 beside decoder", box(91.0, 10.0, 7.0, 12.0))):
+        if overlap(pocket, pack) or any(overlap(pocket, item) for item in fixed.values()):
+            raise ValueError(f"Interlock reservation overlaps a fixed envelope: {name}")
+        for order in ("area first", "rows first"):
+            screened = place(parts, "dual-package candidate", order,
+                             {**fixed, "INTERLOCK_RESERVE": pocket}, pack, sensor)
+            reserve_sensitivity.append({"reservation": name, "box_mm": list(pocket),
+                                        "order": order, "unplaced_count": screened["unplaced_count"],
+                                        "unplaced_refs": screened["unplaced_refs"]})
     return {"SPDX-License-Identifier": "CERN-OHL-S-2.0",
             "status": "GEOMETRIC_FIRST_FIT_STRESS_SCREEN_NOT_A_PCB_OR_FIT_APPROVAL",
             "native_xml_sha256": hashlib.sha256(xml.read_bytes()).hexdigest(),
@@ -138,7 +149,7 @@ def report(xml):
             "pack_body_box_mm": list(pack), "sensor_cluster_reserved_box_mm": list(sensor),
             "additional_box_width_and_height_mm": EXTRA_BOX_MM,
             "fixed_envelopes_mm": {ref: list(rect) for ref, rect in fixed.items()},
-            "variants": results,
+            "variants": results, "interlock_reservation_sensitivity": reserve_sensitivity,
             "limitations": ["Only the selected pack's maximum body rectangle is modeled; no wires, PCM protrusion, swell or support",
                             "Three final driver bodies are projected from the one-driver coupon",
                             "Under-pack placement is conditional on insulation, height and sensor coupling",
@@ -191,6 +202,9 @@ def main():
         args.svg.write_text(svg(result), encoding="utf-8")
     for item in result["variants"]:
         print(f"{item['variant']}, {item['order']}: {item['unplaced_count']} unplaced")
+    for item in result["interlock_reservation_sensitivity"]:
+        print(f"dual-package candidate with {item['reservation']}, {item['order']}: "
+              f"{item['unplaced_count']} unplaced")
 
 
 if __name__ == "__main__":
