@@ -4911,6 +4911,43 @@
       ]
     }
   ],
+  "test_pad_omission_sensitivity": {
+    "status": "trial only; not an approved final-board test-access plan",
+    "retained_test_pad_refs": [
+      "TP10",
+      "TP2",
+      "TP3",
+      "TP34",
+      "TP35",
+      "TP7",
+      "TP8",
+      "TP9"
+    ],
+    "omitted_test_pad_count": 14,
+    "interlock_reserve_box_mm": [
+      91.0,
+      10.0,
+      98.0,
+      22.0
+    ],
+    "dual_package_results": [
+      {
+        "order": "area first",
+        "unplaced_count": 1,
+        "unplaced_refs": [
+          "U33"
+        ]
+      },
+      {
+        "order": "rows first",
+        "unplaced_count": 2,
+        "unplaced_refs": [
+          "U41",
+          "U39"
+        ]
+      }
+    ]
+  },
   "limitations": [
     "Only the selected pack's maximum body rectangle is modeled; no wires, PCM protrusion, swell or support",
     "Three final driver bodies are projected from the one-driver coupon",

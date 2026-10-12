@@ -142,6 +142,15 @@ def report(xml):
             reserve_sensitivity.append({"reservation": name, "box_mm": list(pocket),
                                         "order": order, "unplaced_count": screened["unplaced_count"],
                                         "unplaced_refs": screened["unplaced_refs"]})
+    retained_test_pads = {"TP2", "TP3", "TP7", "TP8", "TP9", "TP10", "TP34", "TP35"}
+    reduced_pad_parts = [p for p in parts if not p["ref"].startswith("TP") or p["ref"] in retained_test_pads]
+    reduced_pad_sensitivity = []
+    narrow_pocket = box(91.0, 10.0, 7.0, 12.0)
+    for order in ("area first", "rows first"):
+        screened = place(reduced_pad_parts, "dual-package candidate", order,
+                         {**fixed, "INTERLOCK_RESERVE": narrow_pocket}, pack, sensor)
+        reduced_pad_sensitivity.append({"order": order, "unplaced_count": screened["unplaced_count"],
+                                        "unplaced_refs": screened["unplaced_refs"]})
     return {"SPDX-License-Identifier": "CERN-OHL-S-2.0",
             "status": "GEOMETRIC_FIRST_FIT_STRESS_SCREEN_NOT_A_PCB_OR_FIT_APPROVAL",
             "native_xml_sha256": hashlib.sha256(xml.read_bytes()).hexdigest(),
@@ -150,6 +159,13 @@ def report(xml):
             "additional_box_width_and_height_mm": EXTRA_BOX_MM,
             "fixed_envelopes_mm": {ref: list(rect) for ref, rect in fixed.items()},
             "variants": results, "interlock_reservation_sensitivity": reserve_sensitivity,
+            "test_pad_omission_sensitivity": {
+                "status": "trial only; not an approved final-board test-access plan",
+                "retained_test_pad_refs": sorted(retained_test_pads),
+                "omitted_test_pad_count": 22 - len(retained_test_pads),
+                "interlock_reserve_box_mm": list(narrow_pocket),
+                "dual_package_results": reduced_pad_sensitivity,
+            },
             "limitations": ["Only the selected pack's maximum body rectangle is modeled; no wires, PCM protrusion, swell or support",
                             "Three final driver bodies are projected from the one-driver coupon",
                             "Under-pack placement is conditional on insulation, height and sensor coupling",
@@ -205,6 +221,9 @@ def main():
     for item in result["interlock_reservation_sensitivity"]:
         print(f"dual-package candidate with {item['reservation']}, {item['order']}: "
               f"{item['unplaced_count']} unplaced")
+    for item in result["test_pad_omission_sensitivity"]["dual_package_results"]:
+        print(f"dual-package candidate with 14 coupon test pads omitted and 7x12 reserve, "
+              f"{item['order']}: {item['unplaced_count']} unplaced")
 
 
 if __name__ == "__main__":
