@@ -210,6 +210,28 @@
       "unplaced_refs": []
     }
   ],
+  "compact_plus_18_support_0402_cases": [
+    {
+      "board_width_mm": 106.0,
+      "unplaced_count": 4,
+      "unplaced_refs": [
+        "INT_SN74LVC1G74RSER-B",
+        "INT_TLV6700DSER",
+        "U33",
+        "U32"
+      ]
+    },
+    {
+      "board_width_mm": 108.0,
+      "unplaced_count": 0,
+      "unplaced_refs": []
+    },
+    {
+      "board_width_mm": 110.0,
+      "unplaced_count": 0,
+      "unplaced_refs": []
+    }
+  ],
   "inherited_extra_box_each_dimension_mm": 0.5,
   "inherited_grid_mm": 0.25,
   "limitations": [

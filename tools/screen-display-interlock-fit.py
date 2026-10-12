@@ -74,6 +74,25 @@ def screen(xml: Path) -> dict:
                               "interlock_unplaced_refs": [ref for ref in placed["unplaced_refs"]
                                                           if ref.startswith("INT_")]})
         return cases
+    support_cases = []
+    support_parts = list(parts)
+    for name, width, height in COMPACT_IC_BODIES:
+        w, h = width + 1.0, height + 1.0
+        support_parts.append({"ref": "INT_" + name, "footprint": "ESTIMATED_IC_BODY",
+                              "width_mm": w, "height_mm": h, "area_mm2": w * h})
+    # Sensitivity only: eighteen project-local 0402 courtyard boxes, all forced
+    # outside the pack. These do not represent a frozen support-circuit BOM.
+    for index in range(18):
+        support_parts.append({"ref": f"INT_SUPPORT_{index + 1:02d}",
+                              "footprint": "ESTIMATED_INTERLOCK_SUPPORT_0402",
+                              "width_mm": 2.0, "height_mm": 1.0, "area_mm2": 2.0})
+    for board_width in (106.0, 108.0, 110.0):
+        fixed = fit.fixed_boxes(parts, right_shift=board_width - fit.BOARD_W)
+        placed = fit.place(support_parts, "dual-package candidate", "area first",
+                           fixed, pack, sensor, board_width=board_width)
+        support_cases.append({"board_width_mm": board_width,
+                              "unplaced_count": placed["unplaced_count"],
+                              "unplaced_refs": placed["unplaced_refs"]})
     return {"SPDX-License-Identifier": "CERN-OHL-S-2.0",
             "status": "IC_BODY_ONLY_GEOMETRIC_LOWER_BOUND_NOT_A_PCB_OR_FIT_APPROVAL",
             "native_xml_sha256": hashlib.sha256(xml.read_bytes()).hexdigest(),
@@ -87,6 +106,7 @@ def screen(xml: Path) -> dict:
             "inherited_extra_box_each_dimension_mm": fit.EXTRA_BOX_MM,
             "cases": cases_for(IC_BODIES),
             "compact_cases": cases_for(COMPACT_IC_BODIES),
+            "compact_plus_18_support_0402_cases": support_cases,
             "limitations": [
                 "No interlock resistors, capacitors, test pads, traces or via/thermal/RF clearance",
                 "Body dimensions are not footprint courtyards or manufacturer land patterns",
@@ -111,6 +131,9 @@ def main() -> None:
     for case in result["compact_cases"]:
         print(f"compact margin {case['body_margin_each_dimension_mm']:.1f} mm, "
               f"board {case['board_width_mm']:.0f} mm: "
+              f"{case['unplaced_count']} unplaced")
+    for case in result["compact_plus_18_support_0402_cases"]:
+        print(f"compact + 18 outside-pack 0402, board {case['board_width_mm']:.0f} mm: "
               f"{case['unplaced_count']} unplaced")
 
 

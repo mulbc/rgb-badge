@@ -24,4 +24,6 @@ An additional **package-only** sensitivity keeps all nine logic functions but ch
 | 108 mm | 0 unplaced | 0 unplaced |
 | 110 mm | 0 unplaced | 0 unplaced |
 
-The compact option makes the 108 mm *IC-body* result less sensitive to the two allowances but still leaves every support passive and the enclosure walls unmodeled. It is an option for the actual-land/assembler screen, not a package selection.
+The compact option makes the 108 mm *IC-body* result less sensitive to the two allowances. The table above still leaves every support passive and the enclosure walls unmodeled. It is an option for the actual-land/assembler screen, not a package selection.
+
+A further coarse stress case adds **eighteen** 2.0 × 1.0 mm project-local 0402 courtyard boxes to the compact +1.0 mm body case and forces all eighteen outside the pack outline. Eighteen is a provisional allowance for voltage dividers, request defaults, watchdog bias, the window pull-up and local bypass capacitors, **not** a frozen schematic count or BOM. The engine still adds its 0.5 mm box allowance to each. This run leaves four boxes unplaced at 106 mm and none at 108 or 110 mm. The first-fit algorithm may scatter support parts far from their ICs, so the zero count at 108 mm gives only a target for a grouped real-footprint placement. It cannot establish signal integrity, converter loops, assembly access or the 110 mm case's wall thickness.
