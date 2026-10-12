@@ -34,6 +34,20 @@ IC_BODIES = (
     ("SN74LVC2G08DCUR", 2.0, 3.1),
 )
 
+# Alternative package-only sensitivity. Logic functions and chip count are unchanged.
+# Leadless lands, solder process and sourcing are NOT qualified by this screen.
+COMPACT_IC_BODIES = (
+    ("TPS3823A-33DBVR", 2.9, 1.6),
+    ("SN74LVC1G74RSER-A", 1.5, 1.5),
+    ("SN74LVC1G74RSER-B", 1.5, 1.5),
+    ("TLV6700DSER", 1.5, 1.5),
+    ("SN74LVC1G04DSFR", 1.0, 1.0),
+    ("SN74LVC1G11DRYR", 1.45, 1.0),
+    ("SN74LVC1G08DSFR", 1.0, 1.0),
+    ("SN74LVC2G00DCUR", 2.0, 3.1),
+    ("SN74LVC2G08DCUR", 2.0, 3.1),
+)
+
 
 def screen(xml: Path) -> dict:
     parts, counts = fit.space.component_inventory(xml)
@@ -41,23 +55,25 @@ def screen(xml: Path) -> dict:
         raise ValueError("Current coupon inventory changed; re-audit the screen")
     pack = fit.box(31.0, 2.0, 47.0, 28.5)
     sensor = fit.box(49.5, 12.25, 10.0, 8.0)
-    cases = []
-    for body_margin in (0.5, 1.0):
-        candidate_parts = list(parts)
-        for name, width, height in IC_BODIES:
-            w, h = width + body_margin, height + body_margin
-            candidate_parts.append({"ref": "INT_" + name, "footprint": "ESTIMATED_IC_BODY",
-                                    "width_mm": w, "height_mm": h, "area_mm2": w * h})
-        for board_width in (106.0, 108.0, 110.0):
-            fixed = fit.fixed_boxes(parts, right_shift=board_width - fit.BOARD_W)
-            placed = fit.place(candidate_parts, "dual-package candidate", "area first",
-                               fixed, pack, sensor, board_width=board_width)
-            cases.append({"body_margin_each_dimension_mm": body_margin,
-                          "board_width_mm": board_width,
-                          "unplaced_count": placed["unplaced_count"],
-                          "unplaced_refs": placed["unplaced_refs"],
-                          "interlock_unplaced_refs": [ref for ref in placed["unplaced_refs"]
-                                                      if ref.startswith("INT_")]})
+    def cases_for(bodies):
+        cases = []
+        for body_margin in (0.5, 1.0):
+            candidate_parts = list(parts)
+            for name, width, height in bodies:
+                w, h = width + body_margin, height + body_margin
+                candidate_parts.append({"ref": "INT_" + name, "footprint": "ESTIMATED_IC_BODY",
+                                        "width_mm": w, "height_mm": h, "area_mm2": w * h})
+            for board_width in (106.0, 108.0, 110.0):
+                fixed = fit.fixed_boxes(parts, right_shift=board_width - fit.BOARD_W)
+                placed = fit.place(candidate_parts, "dual-package candidate", "area first",
+                                   fixed, pack, sensor, board_width=board_width)
+                cases.append({"body_margin_each_dimension_mm": body_margin,
+                              "board_width_mm": board_width,
+                              "unplaced_count": placed["unplaced_count"],
+                              "unplaced_refs": placed["unplaced_refs"],
+                              "interlock_unplaced_refs": [ref for ref in placed["unplaced_refs"]
+                                                          if ref.startswith("INT_")]})
+        return cases
     return {"SPDX-License-Identifier": "CERN-OHL-S-2.0",
             "status": "IC_BODY_ONLY_GEOMETRIC_LOWER_BOUND_NOT_A_PCB_OR_FIT_APPROVAL",
             "native_xml_sha256": hashlib.sha256(xml.read_bytes()).hexdigest(),
@@ -65,9 +81,12 @@ def screen(xml: Path) -> dict:
             "source_coupon_rear_parts": len(parts),
             "assumed_ic_bodies_mm": [{"mpn": name, "width_mm": w, "height_mm": h}
                                   for name, w, h in IC_BODIES],
+            "compact_assumed_ic_bodies_mm": [{"mpn": name, "width_mm": w, "height_mm": h}
+                                          for name, w, h in COMPACT_IC_BODIES],
             "inherited_grid_mm": fit.GRID,
             "inherited_extra_box_each_dimension_mm": fit.EXTRA_BOX_MM,
-            "cases": cases,
+            "cases": cases_for(IC_BODIES),
+            "compact_cases": cases_for(COMPACT_IC_BODIES),
             "limitations": [
                 "No interlock resistors, capacitors, test pads, traces or via/thermal/RF clearance",
                 "Body dimensions are not footprint courtyards or manufacturer land patterns",
@@ -87,6 +106,10 @@ def main() -> None:
     args.output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
     for case in result["cases"]:
         print(f"margin {case['body_margin_each_dimension_mm']:.1f} mm, "
+              f"board {case['board_width_mm']:.0f} mm: "
+              f"{case['unplaced_count']} unplaced")
+    for case in result["compact_cases"]:
+        print(f"compact margin {case['body_margin_each_dimension_mm']:.1f} mm, "
               f"board {case['board_width_mm']:.0f} mm: "
               f"{case['unplaced_count']} unplaced")
 

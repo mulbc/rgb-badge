@@ -15,3 +15,13 @@ The existing first-fit engine adds 0.5 mm to each candidate box dimension and sn
 | 110 mm | 0 unplaced | 0 unplaced |
 
 The result is more restrictive than reserving one empty 7 × 12 mm rectangle: the actual proposal distributes nine ICs and cannot assume they pack into that single box. Even the 110 mm run omits the interlock resistors, capacitors, test access and routing, while the case limit is 110 mm *outside*, with no wall or USB-opening allowance modeled. Thus none of these widths is approved. The practical next work is to audit actual lands and build a grouped placement with support passives, possibly simplify the interlock logic, and then check case section and wiring. A fitted heuristic is not evidence that PCB routing or assembly will work.
+
+An additional **package-only** sensitivity keeps all nine logic functions but changes both flops to `SN74LVC1G74RSER` UQFN, the inverter to `SN74LVC1G04DSFR` X2SON, the 3-input AND to `SN74LVC1G11DRYR` USON and the 2-input AND to `SN74LVC1G08DSFR` X2SON. TI lists these exact orderable packages; their nominal IC-body sum falls to **27.24 mm²**. This does not change the circuit decision or approve sub-0.5 mm-pitch assembly. The same screen gives:
+
+| Trial PCB width | Compact +0.5 mm body allowance | Compact +1.0 mm body allowance |
+|---:|---:|---:|
+| 106 mm | 1 unplaced | 4 unplaced |
+| 108 mm | 0 unplaced | 0 unplaced |
+| 110 mm | 0 unplaced | 0 unplaced |
+
+The compact option makes the 108 mm *IC-body* result less sensitive to the two allowances but still leaves every support passive and the enclosure walls unmodeled. It is an option for the actual-land/assembler screen, not a package selection.

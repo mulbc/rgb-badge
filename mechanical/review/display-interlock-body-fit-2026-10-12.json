@@ -109,6 +109,107 @@
       "unplaced_refs": []
     }
   ],
+  "compact_assumed_ic_bodies_mm": [
+    {
+      "height_mm": 1.6,
+      "mpn": "TPS3823A-33DBVR",
+      "width_mm": 2.9
+    },
+    {
+      "height_mm": 1.5,
+      "mpn": "SN74LVC1G74RSER-A",
+      "width_mm": 1.5
+    },
+    {
+      "height_mm": 1.5,
+      "mpn": "SN74LVC1G74RSER-B",
+      "width_mm": 1.5
+    },
+    {
+      "height_mm": 1.5,
+      "mpn": "TLV6700DSER",
+      "width_mm": 1.5
+    },
+    {
+      "height_mm": 1.0,
+      "mpn": "SN74LVC1G04DSFR",
+      "width_mm": 1.0
+    },
+    {
+      "height_mm": 1.0,
+      "mpn": "SN74LVC1G11DRYR",
+      "width_mm": 1.45
+    },
+    {
+      "height_mm": 1.0,
+      "mpn": "SN74LVC1G08DSFR",
+      "width_mm": 1.0
+    },
+    {
+      "height_mm": 3.1,
+      "mpn": "SN74LVC2G00DCUR",
+      "width_mm": 2.0
+    },
+    {
+      "height_mm": 3.1,
+      "mpn": "SN74LVC2G08DCUR",
+      "width_mm": 2.0
+    }
+  ],
+  "compact_cases": [
+    {
+      "board_width_mm": 106.0,
+      "body_margin_each_dimension_mm": 0.5,
+      "interlock_unplaced_refs": [],
+      "unplaced_count": 1,
+      "unplaced_refs": [
+        "U32"
+      ]
+    },
+    {
+      "board_width_mm": 108.0,
+      "body_margin_each_dimension_mm": 0.5,
+      "interlock_unplaced_refs": [],
+      "unplaced_count": 0,
+      "unplaced_refs": []
+    },
+    {
+      "board_width_mm": 110.0,
+      "body_margin_each_dimension_mm": 0.5,
+      "interlock_unplaced_refs": [],
+      "unplaced_count": 0,
+      "unplaced_refs": []
+    },
+    {
+      "board_width_mm": 106.0,
+      "body_margin_each_dimension_mm": 1.0,
+      "interlock_unplaced_refs": [
+        "INT_SN74LVC1G74RSER-B",
+        "INT_TLV6700DSER"
+      ],
+      "unplaced_count": 4,
+      "unplaced_refs": [
+        "INT_SN74LVC1G74RSER-B",
+        "INT_TLV6700DSER",
+        "U33",
+        "U32"
+      ]
+    },
+    {
+      "board_width_mm": 108.0,
+      "body_margin_each_dimension_mm": 1.0,
+      "interlock_unplaced_refs": [],
+      "unplaced_count": 0,
+      "unplaced_refs": []
+    },
+    {
+      "board_width_mm": 110.0,
+      "body_margin_each_dimension_mm": 1.0,
+      "interlock_unplaced_refs": [],
+      "unplaced_count": 0,
+      "unplaced_refs": []
+    }
+  ],
   "inherited_extra_box_each_dimension_mm": 0.5,
   "inherited_grid_mm": 0.25,
   "limitations": [
