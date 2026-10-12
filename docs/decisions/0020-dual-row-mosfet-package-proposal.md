@@ -32,3 +32,5 @@ The 0.605 mm package height cannot be credited automatically beneath the battery
 5. Run native KiCad ERC/netlist/visual checks, real PCB DRC, assembly/thermal review and independent Gate A before fabrication. No current, charge or enclosure limit changes through this proposal.
 
 This is the highest-leverage component-area option found in the connector-first screen. It is not an accepted design change or a PCB release.
+
+**2026-10-11 follow-on:** The [current-inventory LP452845 screen](../../mechanical/current-lp452845-xy-screen-2026-10-11.md) uses all 466 captured coupon items and finds 16–18 unplaced boxes with the canonical row parts, versus zero with sixteen *geometric* dual-package substitutions in two greedy orders. The [electrical decision screen](../design/dual-row-electrical-screen-2026-10-11.md) finds nominal P-channel loss manageable as an initial calculation, while exact numeric pad sequence, compact-board hot behavior and real row-current/edge limits remain open. Status stays proposed; the canonical schematic is unchanged.
