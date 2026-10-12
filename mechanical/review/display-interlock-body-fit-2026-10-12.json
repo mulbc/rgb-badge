@@ -239,6 +239,14 @@
     "110mm case wall, USB opening, mounting and routing tolerances are absent"
   ],
   "local_courtyard_floors_mm": {
+    "SN74LVC1G04DSFR": [
+      1.9,
+      1.5
+    ],
+    "SN74LVC1G08DSFR": [
+      1.9,
+      1.5
+    ],
     "SN74LVC1G74RSER-A": [
       2.4,
       2.4
@@ -246,6 +254,14 @@
     "SN74LVC1G74RSER-B": [
       2.4,
       2.4
+    ],
+    "SN74LVC2G00DCUR": [
+      3.7,
+      3.7
+    ],
+    "SN74LVC2G08DCUR": [
+      3.7,
+      3.7
     ],
     "TPS3823A-33DBVR": [
       4.3,

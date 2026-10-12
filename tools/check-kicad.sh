@@ -34,6 +34,7 @@ charger_core_check="${repo_root}/tools/check-coupon-charger-core.py"
 charger_gate_check="${repo_root}/tools/check-coupon-charger-gate.py"
 e0_capture_check="${repo_root}/tools/check-coupon-e0.py"
 vled_capture_check="${repo_root}/tools/check-coupon-vled.py"
+interlock_footprint_check="${repo_root}/tools/check-interlock-footprints.py"
 
 if [[ -n "${RGB_BADGE_KICAD_CLI:-}" ]]; then
     kicad_cli="${RGB_BADGE_KICAD_CLI}"
@@ -84,11 +85,14 @@ for required_path in \
     "${charger_gate_check}" \
     "${e0_capture_check}" \
     "${vled_capture_check}" \
+    "${interlock_footprint_check}" \
     "${repo_root}/tools/check-jst-ph-library.py" \
     "${repo_root}/tools/check-gauge-buffer-library.py" \
     "${footprint_library}/JST_PH_S2B-PH-SM4-TB.kicad_mod" \
     "${footprint_library}/VSSOP_TI_DGK0008A.kicad_mod" \
     "${footprint_library}/SOT23_TI_DBZ0003A.kicad_mod" \
+    "${footprint_library}/X2SON_TI_DSF0006A_1x1mm_P0.35mm.kicad_mod" \
+    "${footprint_library}/VSSOP_TI_DCU0008A.kicad_mod" \
     "${project_dir}/app-control.kicad_sch" \
     "${project_dir}/3v3-converter.kicad_sch" \
     "${project_dir}/charger-temperature.kicad_sch" \
@@ -299,7 +303,7 @@ for view_dir in "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_pa
     fi
 done
 
-for footprint_name in VQFN_TI_RGT0016C_3x3mm_P0.5mm_EP1.68mm UQFN_TI_RSE0010A_2x1.5mm_P0.5mm UQFN_TI_RSE0008A_1.5x1.5mm_P0.5mm QFN_TI_RTW0024A_4x4mm_P0.5mm_EP2.7mm SOT5X3_TI_DRL0008A SOT23_TI_DBV0005A SOT23_THIN_TI_DDF0008A USON_TI_DQA0010A X2QFN_TI_RWB0012A_1.6x1.6mm_P0.4mm VSON_TI_DSJ0014_4x3mm_P0.5mm_EP2.85x1.58mm TDFN_Maxim_T822-3_2x2mm_P0.5mm_EP0.7x1.38mm SOT23_TI_DBV0006A SOT23_TI_DBZ0003A; do
+for footprint_name in VQFN_TI_RGT0016C_3x3mm_P0.5mm_EP1.68mm UQFN_TI_RSE0010A_2x1.5mm_P0.5mm UQFN_TI_RSE0008A_1.5x1.5mm_P0.5mm QFN_TI_RTW0024A_4x4mm_P0.5mm_EP2.7mm SOT5X3_TI_DRL0008A SOT23_TI_DBV0005A SOT23_THIN_TI_DDF0008A USON_TI_DQA0010A X2QFN_TI_RWB0012A_1.6x1.6mm_P0.4mm VSON_TI_DSJ0014_4x3mm_P0.5mm_EP2.85x1.58mm TDFN_Maxim_T822-3_2x2mm_P0.5mm_EP0.7x1.38mm SOT23_TI_DBV0006A SOT23_TI_DBZ0003A X2SON_TI_DSF0006A_1x1mm_P0.35mm VSSOP_TI_DCU0008A; do
     for view_dir in "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_paste_dir}"; do
         if [[ ! -s "${view_dir}/${footprint_name}.svg" ]]; then
             echo "Expected non-empty controlled power footprint SVG: ${view_dir}/${footprint_name}.svg" >&2
@@ -368,6 +372,7 @@ python3 "${charger_core_check}" --netlist "${check_tmp_dir}/coupon-matrix.xml"
 python3 "${charger_gate_check}" --netlist "${check_tmp_dir}/coupon-matrix.xml"
 python3 "${e0_capture_check}" --netlist "${check_tmp_dir}/coupon-matrix.xml"
 python3 "${vled_capture_check}" --linked-netlist "${check_tmp_dir}/coupon-matrix.xml"
+python3 "${interlock_footprint_check}"
 
 "${kicad_cli}" sch export pdf \
     --black-and-white \
