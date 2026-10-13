@@ -46,13 +46,22 @@ def source():
         pack = fit.box(31.0, 2.0, 47.0, 28.5)
         sensor = fit.box(49.5, 12.25, 10.0, 8.0)
         fixed = fit.fixed_boxes(rear, right_shift=WIDTH - fit.BOARD_W)
+        # Keep the protected USB input stages close to the physical connector
+        # before the area-first pass consumes this routing corridor.
+        fixed["U45"] = fit.box(104.0, 13.25, 3.5, 3.5)
+        fixed["U44"] = fit.box(104.0, 17.25, 3.5, 3.5)
+        fixed["C60"] = fit.box(108.0, 13.25, 3.0, 1.5)
+        fixed["C61"] = fit.box(108.0, 15.25, 3.5, 1.5)
+        fixed["C62"] = fit.box(101.0, 13.25, 2.5, 1.5)
+        fixed["C52"] = fit.box(108.0, 18.25, 2.5, 1.5)
+        fixed["C57"] = fit.box(101.0, 18.25, 2.5, 1.5)
         placement = fit.place(rear, "canonical 32 separate row FETs", "area first",
                               fixed, pack, sensor, board_width=WIDTH)
     components = {part.get("ref"): part for part in root.findall("./components/comp")}
     pins = {(node.get("ref"), node.get("pin")): net.get("name")
             for net in root.findall("./nets/net") for node in net.findall("node")}
     assert len(components) == 497 and sum(counts.values()) == 497
-    assert placement["unplaced_count"] == 0
+    assert placement["unplaced_count"] == 0, placement["unplaced_refs"]
     return components, pins, placement["boxes_mm"]
 
 
@@ -81,7 +90,7 @@ def target(ref, boxes):
     if ref == "Q1":
         y += 0.15
     elif ref == "TP4":
-        x -= 0.15
+        x += 0.15 if box[0] < 0.5 else -0.15
     return (x, y), box
 
 
@@ -137,6 +146,28 @@ def normalize(contents):
     return updated
 
 
+def verify_saved_board(board, components, pins):
+    footprints = {part.GetReference(): part for part in board.GetFootprints()}
+    assert len(footprints) == len(components)
+    assert set(footprints) == set(components)
+    seen = set()
+    for ref, part in footprints.items():
+        library, name = components[ref].findtext("footprint").split(":", 1)
+        assert part.GetFPID().GetLibNickname() == library, ref
+        assert part.GetFPID().GetLibItemName() == name, ref
+        for pad in part.Pads():
+            number = pad.GetNumber()
+            if not number or (ref, number) == ("J2", "MP"):
+                continue
+            key = ref, number
+            assert key in pins, key
+            expected = pins[key]
+            actual = pad.GetNetname()
+            assert actual == ("" if expected.startswith("unconnected-") else expected), (key, expected, actual)
+            seen.add(key)
+    assert seen == set(pins), (len(seen), len(pins))
+
+
 def generate():
     components, pins, boxes = source()
     project_file = BOARD.with_suffix(".kicad_pro")
@@ -190,11 +221,11 @@ def generate():
     assert pcb.SaveBoard(str(BOARD), board)
     BOARD.write_text(normalize(BOARD.read_text()))
     loaded = pcb.LoadBoard(str(BOARD))
-    assert len(loaded.GetFootprints()) == len(components)
+    verify_saved_board(loaded, components, pins)
     assert not list(loaded.GetTracks())
     if not project_existed and project_file.is_file():
         project_file.unlink()
-    print(f"Staged {len(components)} exact footprints and {len(assigned)} unique numbered pad nets")
+    print(f"Staged and round-trip-checked {len(components)} exact footprints and {len(assigned)} unique numbered pad nets")
     print("120 mm study outline, no routing, no USB cutout or fabrication status")
 
 

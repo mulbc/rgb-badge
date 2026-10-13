@@ -58,7 +58,7 @@ def fixed_boxes(parts, right_shift=0):
 def place(parts, variant, order, fixed, pack, sensor_reserve, board_width=BOARD_W,
           nearby=None, near_gap_mm=3.0):
     used = dict(fixed)
-    remaining = [p for p in parts if p["ref"] not in {"J2", "SW1", "SW2", "U2"}]
+    remaining = [p for p in parts if p["ref"] not in set(fixed) | {"J2", "SW1", "SW2", "U2"}]
     if variant == "dual-package candidate":
         remaining = [p for p in remaining if not (p["ref"].startswith("Q") and p["ref"][1:].isdigit())]
         pair = layout.courtyard(layout.FOOTPRINTS / f"{PAIR_FOOTPRINT}.kicad_mod")
