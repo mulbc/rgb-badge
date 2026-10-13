@@ -205,6 +205,8 @@ def generate():
     project_file = BOARD.with_suffix(".kicad_pro")
     project_existed = project_file.exists()
     board = pcb.BOARD()
+    board.SetCopperLayerCount(6)
+    board.GetDesignSettings().SetBoardThickness(pcb.FromMM(1.0))
     add_outline(board)
     nets = {}
     for name in sorted(set(pins.values())):
@@ -254,6 +256,8 @@ def generate():
     assert pcb.SaveBoard(str(BOARD), board)
     BOARD.write_text(normalize(BOARD.read_text()))
     loaded = pcb.LoadBoard(str(BOARD))
+    assert loaded.GetCopperLayerCount() == 6
+    assert loaded.GetDesignSettings().GetBoardThickness() == pcb.FromMM(1.0)
     verify_saved_board(loaded, components, pins)
     tracks = list(loaded.GetTracks())
     assert len(tracks) == 8
