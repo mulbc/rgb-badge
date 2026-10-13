@@ -1,0 +1,161 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "captured_interlock_refs": [
+    "C66",
+    "C67",
+    "C68",
+    "C69",
+    "C70",
+    "C71",
+    "C72",
+    "C73",
+    "C74",
+    "R103",
+    "R104",
+    "R105",
+    "R106",
+    "R107",
+    "R108",
+    "R109",
+    "R110",
+    "R111",
+    "R112",
+    "R113",
+    "TP13",
+    "TP14",
+    "U47",
+    "U48",
+    "U49",
+    "U50",
+    "U51",
+    "U52",
+    "U53",
+    "U54",
+    "U55"
+  ],
+  "cases": [
+    {
+      "board_width_mm": 106.0,
+      "interlock_unplaced_refs": [
+        "U50"
+      ],
+      "row_topology": "canonical 32 separate row FETs",
+      "unplaced_count": 23,
+      "unplaced_refs": [
+        "Q17",
+        "Q18",
+        "Q19",
+        "Q20",
+        "Q21",
+        "Q22",
+        "Q23",
+        "Q24",
+        "Q25",
+        "Q26",
+        "Q27",
+        "Q28",
+        "Q29",
+        "Q30",
+        "Q31",
+        "Q32",
+        "L1",
+        "L2",
+        "U35",
+        "U44",
+        "U45",
+        "U39",
+        "U50"
+      ]
+    },
+    {
+      "board_width_mm": 108.0,
+      "interlock_unplaced_refs": [
+        "U49",
+        "U50"
+      ],
+      "row_topology": "canonical 32 separate row FETs",
+      "unplaced_count": 20,
+      "unplaced_refs": [
+        "Q22",
+        "Q23",
+        "Q24",
+        "Q25",
+        "Q26",
+        "Q27",
+        "Q28",
+        "Q29",
+        "Q30",
+        "Q31",
+        "Q32",
+        "L1",
+        "L2",
+        "U35",
+        "U44",
+        "U45",
+        "U39",
+        "U32",
+        "U49",
+        "U50"
+      ]
+    },
+    {
+      "board_width_mm": 110.0,
+      "interlock_unplaced_refs": [],
+      "row_topology": "canonical 32 separate row FETs",
+      "unplaced_count": 13,
+      "unplaced_refs": [
+        "Q24",
+        "Q25",
+        "Q26",
+        "Q27",
+        "Q28",
+        "Q29",
+        "Q30",
+        "Q31",
+        "Q32",
+        "L2",
+        "U35",
+        "U44",
+        "U45"
+      ]
+    },
+    {
+      "board_width_mm": 106.0,
+      "interlock_unplaced_refs": [
+        "U49",
+        "U50"
+      ],
+      "row_topology": "dual-package candidate",
+      "unplaced_count": 3,
+      "unplaced_refs": [
+        "U33",
+        "U49",
+        "U50"
+      ]
+    },
+    {
+      "board_width_mm": 108.0,
+      "interlock_unplaced_refs": [],
+      "row_topology": "dual-package candidate",
+      "unplaced_count": 0,
+      "unplaced_refs": []
+    },
+    {
+      "board_width_mm": 110.0,
+      "interlock_unplaced_refs": [],
+      "row_topology": "dual-package candidate",
+      "unplaced_count": 0,
+      "unplaced_refs": []
+    }
+  ],
+  "coupon_pcb_items": 497,
+  "limitations": [
+    "Dual row package substitution remains proposed, not source-captured",
+    "Greedy placement has no circuit-local routing or bypass proximity constraints",
+    "No traces, vias, thermal copper, antenna exclusion or assembly access",
+    "110 mm case walls, USB opening and mechanical tolerances are absent"
+  ],
+  "native_xml_sha256": "8d1cd3dfa20954ad8df72ed00d006857c1fb4148ec843239d52e00be7cc38d7a",
+  "rear_screened_parts": 238,
+  "status": "COARSE_COURTYARD_SCREEN_NOT_PLACEMENT_OR_CASE_APPROVAL"
+}

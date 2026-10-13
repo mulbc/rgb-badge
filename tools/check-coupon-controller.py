@@ -42,7 +42,8 @@ PARTS.update({f"TP{i}": ("TestPoint_Pad", "TestPoint_Pad", "rgb-badge-coupon:Tes
 
 MODULE_NETS = {
     "1": "GND", "2": "+3V3_APP", "3": "ESP_EN", "4": "ROW_A0", "5": "ROW_A1",
-    "6": "ROW_A2", "7": "ROW_A3", "10": "SYS_I2C_SDA", "11": "SYS_I2C_SCL",
+    "6": "ROW_A2", "7": "ROW_A3", "8": "DISPLAY_HEARTBEAT",
+    "9": "DISPLAY_ARM_CLK", "10": "SYS_I2C_SDA", "11": "SYS_I2C_SCL",
     "12": "ROW_ENABLE_REQ_N", "13": "USB_DN_MCU", "14": "USB_DP_MCU",
     "17": "DISPLAY_ENABLE", "18": "LED_LAT", "19": "LED_SIN", "20": "LED_SCLK",
     "21": "LED_GCLK", "22": "LED_SOUT", "27": "MODE_BOOT_N", "36": "UART0_RX",
@@ -105,7 +106,7 @@ def check_sources(project=PROJECT):
     LIB["check_libraries"](project)
     root = parse(project / "rgb-badge-coupon.kicad_sch")
     sheets = children(root, "sheet")
-    require(len(sheets) == 18, "Expected matrix, driver, rows, controller, USB, gauge, application power, temperature, charger and VLED")
+    require(len(sheets) == 19, "Expected matrix, driver, rows, controller, USB, gauge, application power, temperature, charger, VLED and isolated interlock")
     targets = [s for s in sheets if props(s)["Sheetfile"] == "controller.kicad_sch"]
     require(len(targets) == 1 and not children(root, "symbol"), "Controller sheet missing/duplicated or root contains components")
     sheet_uuid = one(targets[0], "uuid", "controller sheet")[1]
@@ -244,6 +245,23 @@ def check_netlist(path):
                                 for ref, (_, value, footprint, _, _, _) in vled_generator['helper'].PARTS.items()})
     expected_nets.update({(('C63' if ref == 'C50' else ref), pin): net for net, nodes in vled['EXPECTED'].items()
                           for ref, pin in (node.split('.') for node in nodes)})
+    interlock = runpy.run_path(str(TOOLS / "generate-coupon-display-interlock.py"))
+    expected_components.update({ref: (value, 'rgb-badge-coupon:' + footprint)
+                                for ref, (_, value, footprint, _, _, _) in interlock['h'].PARTS.items()})
+    for ref, pin_nets in interlock['PIN_NETS'].items():
+        expected_nets.update({(ref, str(pin)): net for pin, net in pin_nets.items()})
+        mpn = interlock['h'].PARTS[ref][0]
+        symbol = interlock['symbols'][mpn]
+        for pin, node in interlock['lib']['library_pins'](symbol).items():
+            if int(pin) not in pin_nets:
+                name = interlock['lib']['one'](node, 'name', 'pin')[1]
+                expected_nets[(ref, pin)] = f'unconnected-({ref}-{name}-Pad{pin})'
+    for ref in (f'C{n}' for n in range(66, 75)):
+        expected_nets.update({(ref, '1'): '+3V3_APP', (ref, '2'): 'GND'})
+    for ref, (left, right) in interlock['RESISTOR_NETS'].items():
+        expected_nets.update({(ref, '1'): left, (ref, '2'): right})
+    expected_nets.update({('TP13', '1'): 'VLED_ENABLE_CANDIDATE',
+                          ('TP14', '1'): 'ROW_ENABLE_N_CANDIDATE'})
     expected_components['SW2'] = ('JS202011JCQN', 'rgb-badge-coupon:SW_CK_JS202011JCQN')
     expected_nets.update({('SW2','2'): '+SYS_APP_IN_DRAFT', ('SW2','3'): 'APP_ON_SW_DRAFT',
                           ('SW2','1'): 'unconnected-(SW2-A1-Pad1)',
@@ -263,7 +281,7 @@ def main():
     try:
         if args.netlist:
             check_netlist(args.netlist)
-            print("KiCad XML complete coupon check passed: 466 PCB items, 1711 logical pins; provisional E0/E1 protection, charger/temperature core with pack header, switched/isolated gauge, app 3V3 and dark VLED.")
+            print("KiCad XML complete coupon check passed: 497 PCB items, 1814 logical pins; isolated interlock trial plus provisional E0/E1/charger/gauge/app 3V3 and dark VLED.")
         else:
             check_sources(args.project_dir)
             print("Controller source connectivity check passed: N16R8 module, safe boot/reset, USB/UART boundaries and 11 test pads (not KiCad ERC).")

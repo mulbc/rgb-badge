@@ -36,6 +36,7 @@ e0_capture_check="${repo_root}/tools/check-coupon-e0.py"
 vled_capture_check="${repo_root}/tools/check-coupon-vled.py"
 interlock_footprint_check="${repo_root}/tools/check-interlock-footprints.py"
 interlock_symbol_check="${repo_root}/tools/check-interlock-symbols.py"
+interlock_capture_check="${repo_root}/tools/check-coupon-display-interlock.py"
 
 if [[ -n "${RGB_BADGE_KICAD_CLI:-}" ]]; then
     kicad_cli="${RGB_BADGE_KICAD_CLI}"
@@ -88,6 +89,8 @@ for required_path in \
     "${vled_capture_check}" \
     "${interlock_footprint_check}" \
     "${interlock_symbol_check}" \
+    "${interlock_capture_check}" \
+    "${repo_root}/tools/generate-coupon-display-interlock.py" \
     "${repo_root}/tools/check-jst-ph-library.py" \
     "${repo_root}/tools/check-gauge-buffer-library.py" \
     "${footprint_library}/JST_PH_S2B-PH-SM4-TB.kicad_mod" \
@@ -104,6 +107,7 @@ for required_path in \
     "${project_dir}/charger-gate.kicad_sch" \
     "${project_dir}/usb-protection.kicad_sch" \
     "${project_dir}/vled-converter.kicad_sch" \
+    "${project_dir}/display-interlock.kicad_sch" \
     "${project_dir}/staging/3v3-converter.kicad_sch"
 do
     if [[ ! -e "${required_path}" ]]; then
@@ -378,6 +382,7 @@ python3 "${e0_capture_check}" --netlist "${check_tmp_dir}/coupon-matrix.xml"
 python3 "${vled_capture_check}" --linked-netlist "${check_tmp_dir}/coupon-matrix.xml"
 python3 "${interlock_footprint_check}"
 python3 "${interlock_symbol_check}"
+python3 "${interlock_capture_check}" --netlist "${check_tmp_dir}/coupon-matrix.xml"
 
 "${kicad_cli}" sch export pdf \
     --black-and-white \
@@ -388,8 +393,8 @@ if [[ ! -s "${check_tmp_dir}/coupon-schematic.pdf" ]]; then
     exit 1
 fi
 
-echo "KiCad ${kicad_version}: libraries exported; connected provisional E0/E1/BQ/temperature capture, switched/isolated gauge, app 3V3, dark VLED stage and earlier coupon connectivity and ERC passed."
-echo "Draft: connector VBUS and J2 BAT external source flags remain; delivered-pack polarity, switched-gauge bus transitions and VLED interlock are unqualified. GPIO8 row request is disconnected from decoder E; VLED EN is held low. E0/E1 fault and startup behavior are unqualified."
+echo "KiCad ${kicad_version}: libraries exported; source-connected, output-isolated display interlock and provisional E0/E1/BQ/temperature/gauge/3V3/VLED captures passed native connectivity and ERC."
+echo "Draft: delivered-pack polarity, switched-gauge bus transitions and interlock fault behavior are unqualified. GPIO8 row request remains disconnected from decoder E; VLED EN remains held low. E0/E1 fault and startup behavior are unqualified."
 if [[ "${keep_check_output}" == yes ]]; then
     echo "Review SVG/PDF output and netlist in: ${check_tmp_dir}"
 fi

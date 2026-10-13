@@ -86,7 +86,7 @@ def check_sources(project=PROJECT):
     ROW_LIB["check_libraries"](project)
     root = parse(project / "rgb-badge-coupon.kicad_sch")
     sheets = children(root, "sheet")
-    require(len(sheets) == 18, "Expected matrix, driver, rows, controller, USB, gauge, application power, temperature, charger and VLED")
+    require(len(sheets) == 19, "Expected matrix, driver, rows, controller, USB, gauge, application power, temperature, charger, VLED and isolated interlock")
     row_sheets = [sheet for sheet in sheets if props(sheet)["Sheetfile"] == "rows.kicad_sch"]
     require(len(row_sheets) == 1 and not children(root, "symbol"), "Row sheet missing/duplicated or root contains components")
     sheet_uuid = one(row_sheets[0], "uuid", "row sheet")[1]

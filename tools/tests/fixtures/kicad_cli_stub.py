@@ -4,6 +4,7 @@
 
 import os
 from pathlib import Path
+import runpy
 import sys
 import xml.etree.ElementTree as ET
 
@@ -171,7 +172,8 @@ def legacy_controller_coupon_netlist():
 
     module = {
         1: 'GND', 2: '+3V3_APP', 3: 'ESP_EN', 4: 'ROW_A0', 5: 'ROW_A1',
-        6: 'ROW_A2', 7: 'ROW_A3', 10: 'SYS_I2C_SDA', 11: 'SYS_I2C_SCL',
+        6: 'ROW_A2', 7: 'ROW_A3', 8: 'DISPLAY_HEARTBEAT', 9: 'DISPLAY_ARM_CLK',
+        10: 'SYS_I2C_SDA', 11: 'SYS_I2C_SCL',
         12: 'ROW_ENABLE_REQ_N', 13: 'USB_DN_MCU', 14: 'USB_DP_MCU',
         17: 'DISPLAY_ENABLE', 18: 'LED_LAT', 19: 'LED_SIN', 20: 'LED_SCLK',
         21: 'LED_GCLK', 22: 'LED_SOUT', 27: 'MODE_BOOT_N', 36: 'UART0_RX',
@@ -181,7 +183,7 @@ def legacy_controller_coupon_netlist():
     # KiCad's native XML exporter includes explicitly no-connected pins as
     # one-node nets. Keep this fixture aligned with the captured native export.
     unused_module_pins = {
-        8: 'GPIO15', 9: 'GPIO16', 15: 'GPIO3', 16: 'GPIO46', 23: 'GPIO21',
+        15: 'GPIO3', 16: 'GPIO46', 23: 'GPIO21',
         24: 'GPIO47', 25: 'GPIO48', 26: 'GPIO45', 28: 'GPIO35/PSRAM',
         29: 'GPIO36/PSRAM', 30: 'GPIO37/PSRAM', 31: 'GPIO38', 32: 'GPIO39',
         33: 'GPIO40', 34: 'GPIO41', 35: 'GPIO42', 38: 'GPIO2', 39: 'GPIO1',
@@ -410,6 +412,22 @@ def controller_coupon_netlist():
         ('R87','100k 1%','R_Panasonic_ERJ2_0402','VLED_ENABLE_DRAFT','GND'),
     ]:
         part(ref,value,fp,{1:left,2:right})
+    interlock = runpy.run_path(str(Path(__file__).resolve().parents[3] / 'tools/generate-coupon-display-interlock.py'))
+    for ref, (mpn, value, footprint, _, _, count) in interlock['h'].PARTS.items():
+        if ref in interlock['PIN_NETS']:
+            pin_nets = dict(interlock['PIN_NETS'][ref])
+            for number, node in interlock['lib']['library_pins'](interlock['symbols'][mpn]).items():
+                if int(number) not in pin_nets:
+                    name = interlock['lib']['one'](node, 'name', 'pin')[1]
+                    pin_nets[int(number)] = f'unconnected-({ref}-{name}-Pad{number})'
+        elif ref.startswith('C'):
+            pin_nets = {1: '+3V3_APP', 2: 'GND'}
+        elif ref in interlock['RESISTOR_NETS']:
+            pin_nets = dict(enumerate(interlock['RESISTOR_NETS'][ref], 1))
+        else:
+            pin_nets = {1: 'VLED_ENABLE_CANDIDATE' if ref == 'TP13' else 'ROW_ENABLE_N_CANDIDATE'}
+        assert len(pin_nets) == count
+        part(ref, value, footprint, pin_nets)
     return root
 
 

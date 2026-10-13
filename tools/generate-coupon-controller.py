@@ -157,6 +157,7 @@ def generate():
     nets = {
         "1": "GND", "2": "+3V3_APP", "3": "ESP_EN",
         "4": "ROW_A0", "5": "ROW_A1", "6": "ROW_A2", "7": "ROW_A3",
+        "8": "DISPLAY_HEARTBEAT", "9": "DISPLAY_ARM_CLK",
         "10": "SYS_I2C_SDA", "11": "SYS_I2C_SCL", "12": "ROW_ENABLE_REQ_N",
         "13": "USB_DN_MCU", "14": "USB_DP_MCU", "17": "DISPLAY_ENABLE",
         "18": "LED_LAT", "19": "LED_SIN", "20": "LED_SCLK", "21": "LED_GCLK",
