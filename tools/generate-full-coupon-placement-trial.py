@@ -64,6 +64,8 @@ def source():
         # 13-part standalone cluster cannot fit this first-fit inventory.
         fixed["U37"] = fit.box(91.0, 25.5, 4.9, 3.9)
         fixed["L2"] = fit.box(96.15, 25.8, 2.7, 3.3)
+        fixed["U41"] = fit.box(111.5, 23.0, 4.5, 4.5)
+        fixed["C56"] = fit.box(111.5, 28.0, 3.5, 1.5)
         placement = fit.place(rear, "canonical 32 separate row FETs", "area first",
                               fixed, pack, sensor, board_width=WIDTH)
     components = {part.get("ref"): part for part in root.findall("./components/comp")}
@@ -151,7 +153,7 @@ def normalize(contents):
         return match.group(1)
     contents = sort_native_blocks(contents, "footprint", 497, reference)
     # pcbnew can interleave segments and vias, so sort their shared block.
-    contents = sort_native_blocks(contents, "(?:segment|via)", 185,
+    contents = sort_native_blocks(contents, "(?:segment|via)", 190,
                                   lambda block: re.sub(r'\(uuid "[0-9a-f-]{36}"\)', '', block))
     count = iter(range(contents.count('(uuid "')))
     updated = re.sub(r'\(uuid "[0-9a-f-]{36}"\)',
@@ -349,6 +351,35 @@ def route_e1_output_capacitor(board):
         board.Add(track)
 
 
+def route_charger_input_cluster(board):
+    """Join the locally grouped charger IN pad and C56 to the E1 output."""
+    parts = {part.GetReference(): part for part in board.GetFootprints()}
+    charger = next(p for p in parts["U41"].Pads() if p.GetNumber() == "13")
+    bulk = next(p for p in parts["C56"].Pads() if p.GetNumber() == "1")
+    assert charger.GetNetname() == bulk.GetNetname() == "CHARGER_IN_DRAFT"
+    point = lambda x, y: pcb.VECTOR2I(pcb.FromMM(x), pcb.FromMM(y))
+    position = point(114.5, 27.5)
+    via = pcb.PCB_VIA(board)
+    via.SetPosition(position)
+    via.SetViaType(pcb.VIATYPE_THROUGH)
+    via.SetLayerPair(pcb.F_Cu, pcb.B_Cu)
+    via.SetWidth(pcb.FromMM(0.6))
+    via.SetDrill(pcb.FromMM(0.3))
+    via.SetNet(charger.GetNet())
+    board.Add(via)
+    for start, end, layer in ((charger.GetPosition(), point(114.5, 28.3), pcb.B_Cu),
+                              (point(114.5, 28.3), bulk.GetPosition(), pcb.B_Cu),
+                              (point(110.5, 19.0), point(110.5, 23.5), pcb.In4_Cu),
+                              (point(110.5, 23.5), position, pcb.In4_Cu)):
+        track = pcb.PCB_TRACK(board)
+        track.SetStart(start)
+        track.SetEnd(end)
+        track.SetWidth(pcb.FromMM(0.2))
+        track.SetLayer(layer)
+        track.SetNet(charger.GetNet())
+        board.Add(track)
+
+
 def route_everlight_row_anodes(board):
     """Link the eight Everlight anodes in each row with a front-copper trial trunk."""
     parts = {part.GetReference(): part for part in board.GetFootprints()}
@@ -437,6 +468,8 @@ def generate():
             part.SetOrientationDegrees(0)
         elif ref == "L2":
             part.SetOrientationDegrees(270)
+        elif ref == "U41":
+            part.SetOrientationDegrees(0)
         elif ref.startswith("D") and component.findtext("value") == "QBLP1515A-RGB2A":
             index = int(ref[1:]) - 1
             row, col = divmod(index, 16)
@@ -466,6 +499,7 @@ def generate():
     route_j1_second_vbus(board)
     route_e1_input(board)
     route_e1_output_capacitor(board)
+    route_charger_input_cluster(board)
     route_everlight_row_anodes(board)
     route_vled_switching_pair(board)
     assert pcb.SaveBoard(str(BOARD), board)
@@ -476,11 +510,11 @@ def generate():
     verify_saved_board(loaded, components, pins)
     tracks = [item for item in loaded.GetTracks() if not isinstance(item, pcb.PCB_VIA)]
     vias = [item for item in loaded.GetTracks() if isinstance(item, pcb.PCB_VIA)]
-    assert len(tracks) == 178 and len(vias) == 7
+    assert len(tracks) == 182 and len(vias) == 8
     rear = [track for track in tracks if track.GetLayer() == pcb.B_Cu]
     front = [track for track in tracks if track.GetLayer() == pcb.F_Cu]
     inner = [track for track in tracks if track.GetLayer() == pcb.In4_Cu]
-    assert len(rear) == 23 and len(front) == 147 and len(inner) == 8
+    assert len(rear) == 25 and len(front) == 147 and len(inner) == 10
     assert {track.GetNetname() for track in rear} == {"E0_DVDT", "E1_DVDT", "E0_ILM", "E1_ILM",
                                                        "Net-(L2-~-Pad1)", "Net-(L2-~-Pad2)", "+5V_USB",
                                                        "VBUS_CONNECTOR", "CHARGER_IN_DRAFT"}
@@ -493,7 +527,7 @@ def generate():
     if not project_existed and project_file.is_file():
         project_file.unlink()
     print(f"Staged and round-trip-checked {len(components)} exact footprints and {len(assigned)} unique numbered pad nets")
-    print("120 mm study: J1/E0/E1 charger-entry chain, eFuse support, VLED switching pair and 16 Everlight half-row trunks; other routing remains open")
+    print("120 mm study: J1/E0/E1/U41 charger-input chain, eFuse support, VLED switching pair and 16 Everlight half-row trunks; other routing remains open")
 
 
 if __name__ == "__main__":
