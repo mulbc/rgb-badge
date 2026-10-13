@@ -60,7 +60,10 @@ def source():
         fixed["R97"] = fit.box(98.0, 13.25, 2.5, 1.5)
         fixed["R98"] = fit.box(98.0, 15.25, 2.5, 1.5)
         fixed["R96"] = fit.box(101.0, 16.75, 2.5, 1.5)
-        fixed["U50"] = fit.box(94.25, 29.5, 2.5, 2.5)
+        # Keep the VLED inductor at the IC's switching pads. The full
+        # 13-part standalone cluster cannot fit this first-fit inventory.
+        fixed["U37"] = fit.box(91.0, 25.5, 4.9, 3.9)
+        fixed["L2"] = fit.box(96.15, 25.8, 2.7, 3.3)
         placement = fit.place(rear, "canonical 32 separate row FETs", "area first",
                               fixed, pack, sensor, board_width=WIDTH)
     components = {part.get("ref"): part for part in root.findall("./components/comp")}
@@ -147,7 +150,7 @@ def normalize(contents):
         assert match
         return match.group(1)
     contents = sort_native_blocks(contents, "footprint", 497, reference)
-    contents = sort_native_blocks(contents, "segment", 152,
+    contents = sort_native_blocks(contents, "segment", 158,
                                   lambda block: re.sub(r'\(uuid "[0-9a-f-]{36}"\)', '', block))
     count = iter(range(contents.count('(uuid "')))
     updated = re.sub(r'\(uuid "[0-9a-f-]{36}"\)',
@@ -230,6 +233,36 @@ def route_everlight_row_anodes(board):
             board.Add(track)
 
 
+def route_vled_switching_pair(board):
+    """Probe the two short converter-to-inductor connections on rear copper."""
+    parts = {part.GetReference(): part for part in board.GetFootprints()}
+    for u_pin, l_pin, bend in (("8", "1", (97.1, 26.05)),
+                               ("7", "2", (97.1, 28.85))):
+        u_pad = next(p for p in parts["U37"].Pads() if p.GetNumber() == u_pin)
+        l_pad = next(p for p in parts["L2"].Pads() if p.GetNumber() == l_pin)
+        assert u_pad.GetNetname() and u_pad.GetNetname() == l_pad.GetNetname()
+        corner = pcb.VECTOR2I(pcb.FromMM(bend[0]), pcb.FromMM(bend[1]))
+        for start, end in ((u_pad.GetPosition(), corner), (corner, l_pad.GetPosition())):
+            track = pcb.PCB_TRACK(board)
+            track.SetStart(start)
+            track.SetEnd(end)
+            track.SetWidth(pcb.FromMM(0.2))
+            track.SetLayer(pcb.B_Cu)
+            track.SetNet(u_pad.GetNet())
+            board.Add(track)
+    for first, second in (("8", "9"), ("7", "6")):
+        a = next(p for p in parts["U37"].Pads() if p.GetNumber() == first)
+        b = next(p for p in parts["U37"].Pads() if p.GetNumber() == second)
+        assert a.GetNetname() and a.GetNetname() == b.GetNetname()
+        track = pcb.PCB_TRACK(board)
+        track.SetStart(a.GetPosition())
+        track.SetEnd(b.GetPosition())
+        track.SetWidth(pcb.FromMM(0.2))
+        track.SetLayer(pcb.B_Cu)
+        track.SetNet(a.GetNet())
+        board.Add(track)
+
+
 def generate():
     components, pins, boxes = source()
     project_file = BOARD.with_suffix(".kicad_pro")
@@ -259,6 +292,10 @@ def generate():
             part.Flip(pcb.VECTOR2I(0, 0), False)
         if ref == "J1":
             part.SetOrientationDegrees(90)
+        elif ref == "U37":
+            part.SetOrientationDegrees(0)
+        elif ref == "L2":
+            part.SetOrientationDegrees(270)
         elif ref.startswith("D") and component.findtext("value") == "QBLP1515A-RGB2A":
             index = int(ref[1:]) - 1
             row, col = divmod(index, 16)
@@ -284,6 +321,7 @@ def generate():
     assert assigned == set(pins)
     route_local_efuse_support(board)
     route_everlight_row_anodes(board)
+    route_vled_switching_pair(board)
     assert pcb.SaveBoard(str(BOARD), board)
     BOARD.write_text(normalize(BOARD.read_text()))
     loaded = pcb.LoadBoard(str(BOARD))
@@ -291,17 +329,18 @@ def generate():
     assert loaded.GetDesignSettings().GetBoardThickness() == pcb.FromMM(1.0)
     verify_saved_board(loaded, components, pins)
     tracks = list(loaded.GetTracks())
-    assert len(tracks) == 152
+    assert len(tracks) == 158
     rear = [track for track in tracks if track.GetLayer() == pcb.B_Cu]
     front = [track for track in tracks if track.GetLayer() == pcb.F_Cu]
-    assert len(rear) == 8 and len(front) == 144
-    assert {track.GetNetname() for track in rear} == {"E0_DVDT", "E1_DVDT", "E0_ILM", "E1_ILM"}
+    assert len(rear) == 14 and len(front) == 144
+    assert {track.GetNetname() for track in rear} == {"E0_DVDT", "E1_DVDT", "E0_ILM", "E1_ILM",
+                                                       "Net-(L2-~-Pad1)", "Net-(L2-~-Pad2)"}
     assert {track.GetNetname() for track in front} == {f"ROW_{row:02d}_A" for row in range(16)}
     assert all(track.GetWidth() == pcb.FromMM(0.2) for track in tracks)
     if not project_existed and project_file.is_file():
         project_file.unlink()
     print(f"Staged and round-trip-checked {len(components)} exact footprints and {len(assigned)} unique numbered pad nets")
-    print("120 mm study: four eFuse links and 16 Everlight half-row anode trunks; other routing remains open")
+    print("120 mm study: eFuse support, VLED switching pair and 16 Everlight half-row trunks; other routing remains open")
 
 
 if __name__ == "__main__":

@@ -1804,7 +1804,7 @@
 	(footprint "rgb-badge-coupon:C_Murata_GRM21_0805"
 		(layer "B.Cu")
 		(uuid "e68ba0f8-bb28-591c-a2bb-4f763ef2b42f")
-		(at 2.125 31 180)
+		(at 93.125 30.75 180)
 		(descr "GRM21 0805 reflow land, midpoint of Murata GRM219R60J476ME44 recommended ranges; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "C42"
 			(at 0 1.55 0)
@@ -1899,7 +1899,7 @@
 	(footprint "rgb-badge-coupon:C_Murata_GRM21_0805"
 		(layer "B.Cu")
 		(uuid "858d232b-de6f-585e-9417-b23c4c80be56")
-		(at 6.375 31 180)
+		(at 2.125 31 180)
 		(descr "GRM21 0805 reflow land, midpoint of Murata GRM219R60J476ME44 recommended ranges; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "C43"
 			(at 0 1.55 0)
@@ -37064,10 +37064,10 @@
 	(footprint "rgb-badge-coupon:L_Murata_DFE252012P"
 		(layer "B.Cu")
 		(uuid "9b158c75-b387-55e4-b150-47013c0a2ad6")
-		(at 109 29.625 180)
+		(at 97.5 27.45 -90)
 		(descr "Murata DFE252012P 2.8 x 2.0 mm recommended lands, 1.2 mm inner gap; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "L2"
-			(at 0 1.7 0)
+			(at 0 1.7 90)
 			(layer "B.SilkS")
 			(hide yes)
 			(uuid "fb281fe6-d9ea-5fa3-bc6e-68c9dcdb29f8")
@@ -37080,7 +37080,7 @@
 			)
 		)
 		(property "Value" "1.5u 20%"
-			(at 0 -1.7 0)
+			(at 0 -1.7 90)
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "44dae3d9-6ac5-562e-8bf9-cc7db32e1594")
@@ -37093,7 +37093,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 0)
+			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "38619e2b-25f2-5892-9e1d-c8772f4786e5")
@@ -37105,7 +37105,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 0 0 0)
+			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "28437ec9-ac31-521a-aab2-65fdf43f3244")
@@ -37141,14 +37141,14 @@
 			(uuid "e790d292-44e5-59f2-b23a-239f32ad5392")
 		)
 		(pad "1" smd rect
-			(at -1 0 180)
+			(at -1 0 270)
 			(size 0.8 2)
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "Net-(L2-~-Pad1)")
 			(uuid "4817d46d-d41a-524b-b3ff-67247348b970")
 		)
 		(pad "2" smd rect
-			(at 1 0 180)
+			(at 1 0 270)
 			(size 0.8 2)
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(net "Net-(L2-~-Pad2)")
@@ -37594,7 +37594,7 @@
 	(footprint "rgb-badge-coupon:SC59_Diodes_DMP2066LSN"
 		(layer "B.Cu")
 		(uuid "84ea4a1a-414c-5747-8f03-d871a00170d4")
-		(at 26.5 12.625 180)
+		(at 22.25 12.625 180)
 		(descr "Diodes Incorporated SC-59 suggested pad layout for DMP2066LSN; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q12"
 			(at 0 2.15 0)
@@ -37739,7 +37739,7 @@
 	(footprint "rgb-badge-coupon:SC59_Diodes_DMP2066LSN"
 		(layer "B.Cu")
 		(uuid "4b89bb27-5d7d-5d34-8a63-331f533f92c4")
-		(at 80 14.875 180)
+		(at 26.25 12.625 180)
 		(descr "Diodes Incorporated SC-59 suggested pad layout for DMP2066LSN; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q13"
 			(at 0 2.15 0)
@@ -37884,7 +37884,7 @@
 	(footprint "rgb-badge-coupon:SC59_Diodes_DMP2066LSN"
 		(layer "B.Cu")
 		(uuid "97158270-83c2-5bdd-bc77-f8efd9715504")
-		(at 93 14.875 180)
+		(at 80 14.875 180)
 		(descr "Diodes Incorporated SC-59 suggested pad layout for DMP2066LSN; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q14"
 			(at 0 2.15 0)
@@ -38029,7 +38029,7 @@
 	(footprint "rgb-badge-coupon:SC59_Diodes_DMP2066LSN"
 		(layer "B.Cu")
 		(uuid "edb21cf5-1448-564f-9534-de68141fe4b4")
-		(at 22.25 16.875 180)
+		(at 93 15.125 180)
 		(descr "Diodes Incorporated SC-59 suggested pad layout for DMP2066LSN; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q15"
 			(at 0 2.15 0)
@@ -38174,7 +38174,7 @@
 	(footprint "rgb-badge-coupon:SC59_Diodes_DMP2066LSN"
 		(layer "B.Cu")
 		(uuid "e54821ac-b5d8-5b4d-bb57-42c85820382c")
-		(at 26.25 16.875 180)
+		(at 22.25 16.875 180)
 		(descr "Diodes Incorporated SC-59 suggested pad layout for DMP2066LSN; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q16"
 			(at 0 2.15 0)
@@ -38319,7 +38319,7 @@
 	(footprint "rgb-badge-coupon:SOT23_Diodes_2N7002K"
 		(layer "B.Cu")
 		(uuid "9dd69aef-4ea9-5fcf-98c6-b1495807ab25")
-		(at 80 23.25 180)
+		(at 103 2 180)
 		(descr "Diodes Incorporated SOT23 suggested pad layout for 2N7002K; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q17"
 			(at 0 1.95 0)
@@ -38464,7 +38464,7 @@
 	(footprint "rgb-badge-coupon:SOT23_Diodes_2N7002K"
 		(layer "B.Cu")
 		(uuid "4acf1373-3057-56d5-8f0e-f9306ffba4f0")
-		(at 93 23.25 180)
+		(at 97 23 180)
 		(descr "Diodes Incorporated SOT23 suggested pad layout for 2N7002K; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q18"
 			(at 0 1.95 0)
@@ -38609,7 +38609,7 @@
 	(footprint "rgb-badge-coupon:SOT23_Diodes_2N7002K"
 		(layer "B.Cu")
 		(uuid "5f8f7e82-91d4-5c76-8182-28c7531cefca")
-		(at 113.5 24.75 180)
+		(at 80 23.25 180)
 		(descr "Diodes Incorporated SOT23 suggested pad layout for 2N7002K; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q19"
 			(at 0 1.95 0)
@@ -38754,7 +38754,7 @@
 	(footprint "rgb-badge-coupon:SC59_Diodes_DMP2066LSN"
 		(layer "B.Cu")
 		(uuid "b574ab11-0e91-55b5-8acc-79cfbf7a3f83")
-		(at 97 18.875 180)
+		(at 26.25 16.875 180)
 		(descr "Diodes Incorporated SC-59 suggested pad layout for DMP2066LSN; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q2"
 			(at 0 2.15 0)
@@ -38899,7 +38899,7 @@
 	(footprint "rgb-badge-coupon:SOT23_Diodes_2N7002K"
 		(layer "B.Cu")
 		(uuid "4eb7e679-4fa3-5ec9-9df0-f4e3479cd81f")
-		(at 117.5 24.75 180)
+		(at 93 23.5 180)
 		(descr "Diodes Incorporated SOT23 suggested pad layout for 2N7002K; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q20"
 			(at 0 1.95 0)
@@ -39044,7 +39044,7 @@
 	(footprint "rgb-badge-coupon:SOT23_Diodes_2N7002K"
 		(layer "B.Cu")
 		(uuid "e70c519c-b93e-5c92-8b76-4889ad92ce2d")
-		(at 22.25 25.25 180)
+		(at 113.5 24.75 180)
 		(descr "Diodes Incorporated SOT23 suggested pad layout for 2N7002K; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q21"
 			(at 0 1.95 0)
@@ -39189,7 +39189,7 @@
 	(footprint "rgb-badge-coupon:SOT23_Diodes_2N7002K"
 		(layer "B.Cu")
 		(uuid "92c742ea-796f-5944-a09f-eb20d6de9b9b")
-		(at 26.25 25.25 180)
+		(at 117.5 24.75 180)
 		(descr "Diodes Incorporated SOT23 suggested pad layout for 2N7002K; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q22"
 			(at 0 1.95 0)
@@ -39334,7 +39334,7 @@
 	(footprint "rgb-badge-coupon:SOT23_Diodes_2N7002K"
 		(layer "B.Cu")
 		(uuid "e868e94f-184f-5617-974d-8662d6f723bd")
-		(at 101 26 180)
+		(at 22.25 25.25 180)
 		(descr "Diodes Incorporated SOT23 suggested pad layout for 2N7002K; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q23"
 			(at 0 1.95 0)
@@ -39479,7 +39479,7 @@
 	(footprint "rgb-badge-coupon:SOT23_Diodes_2N7002K"
 		(layer "B.Cu")
 		(uuid "a7a1b4a4-db1d-5389-9bc4-520dec059d18")
-		(at 109 26 180)
+		(at 26.25 25.25 180)
 		(descr "Diodes Incorporated SOT23 suggested pad layout for 2N7002K; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q24"
 			(at 0 1.95 0)
@@ -39624,7 +39624,7 @@
 	(footprint "rgb-badge-coupon:SOT23_Diodes_2N7002K"
 		(layer "B.Cu")
 		(uuid "d4b966f9-4be9-5d09-9af6-3644218f80a9")
-		(at 105 27 180)
+		(at 101 26 180)
 		(descr "Diodes Incorporated SOT23 suggested pad layout for 2N7002K; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q25"
 			(at 0 1.95 0)
@@ -39769,7 +39769,7 @@
 	(footprint "rgb-badge-coupon:SOT23_Diodes_2N7002K"
 		(layer "B.Cu")
 		(uuid "8ed62a98-1352-5ec9-9cf1-4e89c86b54dc")
-		(at 80 27.25 180)
+		(at 109 26 180)
 		(descr "Diodes Incorporated SOT23 suggested pad layout for 2N7002K; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q26"
 			(at 0 1.95 0)
@@ -39914,7 +39914,7 @@
 	(footprint "rgb-badge-coupon:SOT23_Diodes_2N7002K"
 		(layer "B.Cu")
 		(uuid "b7aae0a0-fe42-5b66-a0a7-3287c7e00a8e")
-		(at 93 27.25 180)
+		(at 105 27 180)
 		(descr "Diodes Incorporated SOT23 suggested pad layout for 2N7002K; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q27"
 			(at 0 1.95 0)
@@ -40059,7 +40059,7 @@
 	(footprint "rgb-badge-coupon:SOT23_Diodes_2N7002K"
 		(layer "B.Cu")
 		(uuid "1aad928f-bfb9-5647-b3f5-85b88de58060")
-		(at 97 27.25 180)
+		(at 80 27.25 180)
 		(descr "Diodes Incorporated SOT23 suggested pad layout for 2N7002K; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q28"
 			(at 0 1.95 0)
@@ -40349,7 +40349,7 @@
 	(footprint "rgb-badge-coupon:SC59_Diodes_DMP2066LSN"
 		(layer "B.Cu")
 		(uuid "8e7b061f-c044-51e7-94e3-eeb9303efc82")
-		(at 80 19.125 180)
+		(at 97 18.875 180)
 		(descr "Diodes Incorporated SC-59 suggested pad layout for DMP2066LSN; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q3"
 			(at 0 2.15 0)
@@ -40929,7 +40929,7 @@
 	(footprint "rgb-badge-coupon:SC59_Diodes_DMP2066LSN"
 		(layer "B.Cu")
 		(uuid "ec36a31f-4143-5ede-a9d2-0d2bdfb9ebe5")
-		(at 93 19.125 180)
+		(at 80 19.125 180)
 		(descr "Diodes Incorporated SC-59 suggested pad layout for DMP2066LSN; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q4"
 			(at 0 2.15 0)
@@ -41074,7 +41074,7 @@
 	(footprint "rgb-badge-coupon:SC59_Diodes_DMP2066LSN"
 		(layer "B.Cu")
 		(uuid "18009b1f-c51d-5e6a-80b8-78a21baecfc6")
-		(at 22.25 21.125 180)
+		(at 93 19.375 180)
 		(descr "Diodes Incorporated SC-59 suggested pad layout for DMP2066LSN; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q5"
 			(at 0 2.15 0)
@@ -41219,7 +41219,7 @@
 	(footprint "rgb-badge-coupon:SC59_Diodes_DMP2066LSN"
 		(layer "B.Cu")
 		(uuid "e05fc521-764f-5aa1-9f3c-bcb0e299fa18")
-		(at 26.25 21.125 180)
+		(at 22.25 21.125 180)
 		(descr "Diodes Incorporated SC-59 suggested pad layout for DMP2066LSN; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q6"
 			(at 0 2.15 0)
@@ -41364,7 +41364,7 @@
 	(footprint "rgb-badge-coupon:SC59_Diodes_DMP2066LSN"
 		(layer "B.Cu")
 		(uuid "22c39b83-cd37-57e5-8157-66ab70a352ea")
-		(at 101 21.875 180)
+		(at 26.25 21.125 180)
 		(descr "Diodes Incorporated SC-59 suggested pad layout for DMP2066LSN; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q7"
 			(at 0 2.15 0)
@@ -41509,7 +41509,7 @@
 	(footprint "rgb-badge-coupon:SC59_Diodes_DMP2066LSN"
 		(layer "B.Cu")
 		(uuid "39c739f3-ff6c-5a0f-acf4-a6f3b55203db")
-		(at 109.5 21.875 180)
+		(at 101 21.875 180)
 		(descr "Diodes Incorporated SC-59 suggested pad layout for DMP2066LSN; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q8"
 			(at 0 2.15 0)
@@ -41654,7 +41654,7 @@
 	(footprint "rgb-badge-coupon:SC59_Diodes_DMP2066LSN"
 		(layer "B.Cu")
 		(uuid "74113d1d-8ba4-5f4f-8f4a-42e5f7ad9057")
-		(at 105 22.875 180)
+		(at 109.5 21.875 180)
 		(descr "Diodes Incorporated SC-59 suggested pad layout for DMP2066LSN; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q9"
 			(at 0 2.15 0)
@@ -51262,7 +51262,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "a5015439-f7e5-5180-9e2b-f476421f7d4c")
-		(at 29.501261 11.5 180)
+		(at 100.001261 17.75 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP12"
 			(at 0 1.15 0)
@@ -51350,7 +51350,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "048732b5-d1a1-5749-a4e9-aed6d89139ee")
-		(at 29.501261 13.5 180)
+		(at 29.251261 20.25 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP13"
 			(at 0 1.15 0)
@@ -51438,7 +51438,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "a315e029-f7da-55f7-93ed-69f89ec1feee")
-		(at 100.001261 17.75 180)
+		(at 83.001261 21.75 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP14"
 			(at 0 1.15 0)
@@ -51526,7 +51526,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "daa4e595-bbb6-54fb-8c2e-b4cbc737617f")
-		(at 29.251261 18.5 180)
+		(at 85.001261 21.75 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP2"
 			(at 0 1.15 0)
@@ -51614,7 +51614,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "27190d81-79b0-58ee-ba86-aaa3135b9f37")
-		(at 29.251261 20.5 180)
+		(at 87.001261 21.75 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP20"
 			(at 0 1.15 0)
@@ -51702,7 +51702,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "8a2c82b3-653a-53ca-bdf2-ffcba0bfb695")
-		(at 83.001261 21.75 180)
+		(at 89.001261 21.75 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP21"
 			(at 0 1.15 0)
@@ -51790,7 +51790,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "499ccd5f-4331-5a1c-a594-539c02cc1e85")
-		(at 85.001261 21.75 180)
+		(at 29.251261 22.25 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP22"
 			(at 0 1.15 0)
@@ -51878,7 +51878,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "fbd52486-6334-5262-b6a5-b7b4abb06ecb")
-		(at 87.001261 21.75 180)
+		(at 29.251261 24.25 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP23"
 			(at 0 1.15 0)
@@ -51966,7 +51966,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "2660c781-0c07-57f2-85a4-d33131857c21")
-		(at 89.001261 21.75 180)
+		(at 29.251261 26.25 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP3"
 			(at 0 1.15 0)
@@ -52054,7 +52054,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "75b1020c-195d-5fc3-b68d-981b944f315e")
-		(at 29.251261 22.5 180)
+		(at 29.251261 28.25 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP30"
 			(at 0 1.15 0)
@@ -52142,7 +52142,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "6301e507-90be-5d6d-baf7-ded9a56e9506")
-		(at 29.251261 24.5 180)
+		(at 29.251261 30.25 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP31"
 			(at 0 1.15 0)
@@ -52230,7 +52230,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "f3d02080-ab78-5f36-b9b5-2de67a445ab6")
-		(at 29.251261 26.5 180)
+		(at 5.251261 30.75 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP32"
 			(at 0 1.15 0)
@@ -52318,7 +52318,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "926eeb84-9342-5c8f-a069-7674141b02fd")
-		(at 29.251261 28.5 180)
+		(at 7.251261 30.75 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP33"
 			(at 0 1.15 0)
@@ -52406,7 +52406,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "536b9cbc-b7d2-5e72-939b-b3c260c81144")
-		(at 97.751261 30.25 180)
+		(at 9.251261 30.75 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP34"
 			(at 0 1.15 0)
@@ -52494,7 +52494,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "ccc30261-8f29-51c1-8d97-af722cde9f8a")
-		(at 29.251261 30.5 180)
+		(at 11.251261 30.75 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP35"
 			(at 0 1.15 0)
@@ -52582,7 +52582,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "327605d7-a675-564c-b5c6-9c8415071c36")
-		(at 12.351261 30.75 180)
+		(at 13.101261 30.75 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP4"
 			(at 0 1.15 0)
@@ -52670,7 +52670,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "4e14ecee-42a7-552d-89ec-41f5e5a82832")
-		(at 14.501261 30.75 180)
+		(at 15.251261 30.75 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP5"
 			(at 0 1.15 0)
@@ -52758,7 +52758,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "c80db1c3-84b0-52bb-9753-c3ea6e9a11a3")
-		(at 16.501261 30.75 180)
+		(at 17.251261 30.75 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP6"
 			(at 0 1.15 0)
@@ -52846,7 +52846,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "812fd91f-8a65-54c0-8e97-60b25372401c")
-		(at 18.501261 30.75 180)
+		(at 19.251261 30.75 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP7"
 			(at 0 1.15 0)
@@ -53808,7 +53808,7 @@
 	(footprint "rgb-badge-coupon:SOT23_TI_DBV0005A"
 		(layer "B.Cu")
 		(uuid "6ba80f5c-c7fc-5553-8576-a7d9b54f98a0")
-		(at 99 2.125 180)
+		(at 93.5 2.125 180)
 		(descr "TI DBV0005A SOT-23-5 manufacturer land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U11"
 			(at 0 2.25 0)
@@ -53939,7 +53939,7 @@
 	(footprint "rgb-badge-coupon:SOT23_TI_DBV0006A"
 		(layer "B.Cu")
 		(uuid "686aa910-5e36-5b85-8058-fd69da98ee49")
-		(at 104 6.125 180)
+		(at 98.5 2.125 180)
 		(descr "TI DBV0006A SOT-23-6 manufacturer land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U17"
 			(at 0 2.25 0)
@@ -54425,7 +54425,7 @@
 	(footprint "rgb-badge-coupon:SOT23_TI_DBV0005A"
 		(layer "B.Cu")
 		(uuid "9b51d882-9dd4-55f8-bd87-72bf4753707f")
-		(at 93.5 6.375 180)
+		(at 103.5 6.125 180)
 		(descr "TI DBV0005A SOT-23-5 manufacturer land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U23"
 			(at 0 2.25 0)
@@ -54556,7 +54556,7 @@
 	(footprint "rgb-badge-coupon:SOT23_TI_DBV0006A"
 		(layer "B.Cu")
 		(uuid "fae74a82-262d-522c-abc1-17b0454c8674")
-		(at 98.5 6.375 180)
+		(at 108.5 6.125 180)
 		(descr "TI DBV0006A SOT-23-6 manufacturer land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U24"
 			(at 0 2.25 0)
@@ -54699,7 +54699,7 @@
 	(footprint "rgb-badge-coupon:SOT23_TI_DBV0006A"
 		(layer "B.Cu")
 		(uuid "daa41818-9407-5955-ab5a-abb0671872f6")
-		(at 12.75 6.625 180)
+		(at 12.75 6.375 180)
 		(descr "TI DBV0006A SOT-23-6 manufacturer land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U25"
 			(at 0 2.25 0)
@@ -54842,7 +54842,7 @@
 	(footprint "rgb-badge-coupon:SOT23_TI_DBV0005A"
 		(layer "B.Cu")
 		(uuid "1001842a-bbcd-51c2-91a2-5e8deeea04f8")
-		(at 17.75 6.625 180)
+		(at 17.75 6.375 180)
 		(descr "TI DBV0005A SOT-23-5 manufacturer land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U29"
 			(at 0 2.25 0)
@@ -55422,7 +55422,7 @@
 	(footprint "rgb-badge-coupon:X2QFN_TI_RWB0012A_1.6x1.6mm_P0.4mm"
 		(layer "B.Cu")
 		(uuid "99293264-f61c-56f1-a128-42f2d5db7e6f")
-		(at 29.625 16.125 180)
+		(at 29.625 15.375 180)
 		(descr "TI RWB0012A 1.6 x 1.6 mm X2QFN-12 manufacturer land and stencil patterns for TUSB320LAIRWBR; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U31"
 			(at 0 2 0)
@@ -55635,7 +55635,7 @@
 	(footprint "rgb-badge-coupon:UQFN_TI_RSE0008A_1.5x1.5mm_P0.5mm"
 		(layer "B.Cu")
 		(uuid "978dd7a6-40a3-5eec-8da2-31af21ebf038")
-		(at 79.5 30.75 180)
+		(at 96.5 14.5 180)
 		(descr "TI manufacturer land/stencil transcription; see power-replacement-library-audit.md; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U32"
 			(at 0 1.8 0)
@@ -55791,7 +55791,7 @@
 	(footprint "rgb-badge-coupon:USON_TI_DQA0010A"
 		(layer "B.Cu")
 		(uuid "a1798839-873b-56e2-baf3-eaadd86283cd")
-		(at 96.375 14.5 180)
+		(at 29.625 12.25 180)
 		(descr "TI DQA0010A USON-10 manufacturer land pattern for TPD4E05U06DQAR; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U33"
 			(at 0 1.8 0)
@@ -55959,7 +55959,7 @@
 	(footprint "rgb-badge-coupon:SOT23_TI_DBV0006A"
 		(layer "B.Cu")
 		(uuid "5a3c76e0-eb86-5e87-8457-11bdc54beeb6")
-		(at 2.5 7.125 180)
+		(at 93.5 6.375 180)
 		(descr "TI DBV0006A SOT-23-6 manufacturer land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U34"
 			(at 0 2.25 0)
@@ -56102,7 +56102,7 @@
 	(footprint "rgb-badge-coupon:TDFN_Maxim_T822-3_2x2mm_P0.5mm_EP0.7x1.38mm"
 		(layer "B.Cu")
 		(uuid "879df97c-5d9c-511d-b1bb-9abbb38642a0")
-		(at 105 30.625 180)
+		(at 109 29.625 180)
 		(descr "Maxim T822+3 2 x 2 mm TDFN-EP land pattern 90-0065 for MAX17048G+T10; full-area exposed-pad paste is provisional for assembler DFM; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U35"
 			(at 0 1.9 0)
@@ -56256,7 +56256,7 @@
 	(footprint "rgb-badge-coupon:SOT5X3_TI_DRL0008A"
 		(layer "B.Cu")
 		(uuid "f0a764a4-d28d-5bf4-af49-76ad71113569")
-		(at 103.125 1.5 180)
+		(at 110.125 10.5 180)
 		(descr "TI DRL0008A SOT-5X3, 0.5 mm pitch manufacturer land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U36"
 			(at 0 1.75 0)
@@ -56422,10 +56422,10 @@
 	(footprint "rgb-badge-coupon:VSON_TI_DSJ0014_4x3mm_P0.5mm_EP2.85x1.58mm"
 		(layer "B.Cu")
 		(uuid "ab2d92ff-7b53-5368-82ac-8ab6d5053b56")
-		(at 13 2.25 180)
+		(at 93.45 27.45)
 		(descr "TI DSJ R-PVSON-N14 manufacturer board/stencil pattern for TPS63020DSJT; thermal fingers and paste segmentation retained; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U37"
-			(at 0 2.45 0)
+			(at 0 2.45 180)
 			(layer "B.SilkS")
 			(hide yes)
 			(uuid "36d149ee-df23-533a-bbc5-ebf3346383b4")
@@ -56438,7 +56438,7 @@
 			)
 		)
 		(property "Value" "TPS63020DSJT"
-			(at 0 -2.45 0)
+			(at 0 -2.45 180)
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "ba93e280-f2de-521a-a16f-77010b856ee6")
@@ -56451,7 +56451,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 0)
+			(at 0 0 180)
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "45f50e48-d732-53df-b4a3-53f9babd035a")
@@ -56463,7 +56463,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 0 0 0)
+			(at 0 0 180)
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "8930e82b-d6b8-5efc-9875-0f6f98f6294c")
@@ -56510,79 +56510,79 @@
 			(uuid "56bc85e4-ba8f-5817-bcaa-8bc8c4be6705")
 		)
 		(pad "" smd rect
-			(at -1.775 -0.69 180)
+			(at -1.775 -0.69)
 			(size 0.85 0.2)
 			(layers "B.Paste")
 			(uuid "255417a8-71f8-5670-9658-b2457849a810")
 		)
 		(pad "" smd rect
-			(at -1.775 -0.23 180)
+			(at -1.775 -0.23)
 			(size 0.85 0.2)
 			(layers "B.Paste")
 			(uuid "b00bd44d-931f-52f0-8797-bdef421f0b86")
 		)
 		(pad "" smd rect
-			(at -1.775 0.23 180)
+			(at -1.775 0.23)
 			(size 0.85 0.2)
 			(layers "B.Paste")
 			(uuid "cce40d35-1fc2-5df1-9051-99afb208cd0c")
 		)
 		(pad "" smd rect
-			(at -1.775 0.69 180)
+			(at -1.775 0.69)
 			(size 0.85 0.2)
 			(layers "B.Paste")
 			(uuid "e177cd0f-592e-5223-8dce-3cc8952ed801")
 		)
 		(pad "" smd rect
-			(at -0.725 -0.46 180)
+			(at -0.725 -0.46)
 			(size 1.25 0.66)
 			(layers "B.Paste")
 			(uuid "4a52106c-6061-5793-8778-4de07a967001")
 		)
 		(pad "" smd rect
-			(at -0.725 0.46 180)
+			(at -0.725 0.46)
 			(size 1.25 0.66)
 			(layers "B.Paste")
 			(uuid "93ad3780-91a5-5330-a06e-043050939f24")
 		)
 		(pad "" smd rect
-			(at 0.725 -0.46 180)
+			(at 0.725 -0.46)
 			(size 1.25 0.66)
 			(layers "B.Paste")
 			(uuid "7451dab7-cb76-5dea-8c88-856741122a02")
 		)
 		(pad "" smd rect
-			(at 0.725 0.46 180)
+			(at 0.725 0.46)
 			(size 1.25 0.66)
 			(layers "B.Paste")
 			(uuid "6cd445d7-648d-56c5-a2db-529f57c1cdac")
 		)
 		(pad "" smd rect
-			(at 1.775 -0.69 180)
+			(at 1.775 -0.69)
 			(size 0.85 0.2)
 			(layers "B.Paste")
 			(uuid "ddce2c61-edd3-58c5-9e82-5ed37084872c")
 		)
 		(pad "" smd rect
-			(at 1.775 -0.23 180)
+			(at 1.775 -0.23)
 			(size 0.85 0.2)
 			(layers "B.Paste")
 			(uuid "657f491e-6d60-5162-9011-ca1715b1a2d1")
 		)
 		(pad "" smd rect
-			(at 1.775 0.23 180)
+			(at 1.775 0.23)
 			(size 0.85 0.2)
 			(layers "B.Paste")
 			(uuid "45bf8199-52bd-5e24-a4ea-86c98a0b1826")
 		)
 		(pad "" smd rect
-			(at 1.775 0.69 180)
+			(at 1.775 0.69)
 			(size 0.85 0.2)
 			(layers "B.Paste")
 			(uuid "2fd6c523-77f3-59b3-b46b-062aabaeff01")
 		)
 		(pad "1" smd roundrect
-			(at -1.5 1.4 180)
+			(at -1.5 1.4)
 			(size 0.24 0.6)
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.5)
@@ -56591,7 +56591,7 @@
 			(uuid "84d8a680-058d-5ce6-9b41-34b9f39d3f6d")
 		)
 		(pad "2" smd roundrect
-			(at -1 1.4 180)
+			(at -1 1.4)
 			(size 0.24 0.6)
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.5)
@@ -56600,7 +56600,7 @@
 			(uuid "50fda75d-4eea-5a01-96b7-058df87324eb")
 		)
 		(pad "3" smd roundrect
-			(at -0.5 1.4 180)
+			(at -0.5 1.4)
 			(size 0.24 0.6)
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.5)
@@ -56609,7 +56609,7 @@
 			(uuid "497b51eb-ca5b-52e1-b92c-685e81de7511")
 		)
 		(pad "4" smd roundrect
-			(at 0 1.4 180)
+			(at 0 1.4)
 			(size 0.24 0.6)
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.5)
@@ -56618,7 +56618,7 @@
 			(uuid "323aa700-6f42-5e6c-abb5-a1357ddb3b49")
 		)
 		(pad "5" smd roundrect
-			(at 0.5 1.4 180)
+			(at 0.5 1.4)
 			(size 0.24 0.6)
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.5)
@@ -56627,7 +56627,7 @@
 			(uuid "58208d7f-16ad-5d9a-a954-c9ba70d7726f")
 		)
 		(pad "6" smd roundrect
-			(at 1 1.4 180)
+			(at 1 1.4)
 			(size 0.24 0.6)
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.5)
@@ -56636,7 +56636,7 @@
 			(uuid "3b1c9d54-a113-5e44-ba8f-cdc3680e055b")
 		)
 		(pad "7" smd roundrect
-			(at 1.5 1.4 180)
+			(at 1.5 1.4)
 			(size 0.24 0.6)
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.5)
@@ -56645,7 +56645,7 @@
 			(uuid "db4b16d2-bce2-54e9-9e65-c598a556ebc6")
 		)
 		(pad "8" smd roundrect
-			(at 1.5 -1.4 180)
+			(at 1.5 -1.4)
 			(size 0.24 0.6)
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.5)
@@ -56654,7 +56654,7 @@
 			(uuid "0251b7c3-5e20-5302-9186-b9392c79e718")
 		)
 		(pad "9" smd roundrect
-			(at 1 -1.4 180)
+			(at 1 -1.4)
 			(size 0.24 0.6)
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.5)
@@ -56663,7 +56663,7 @@
 			(uuid "b53cc3e0-15c9-5698-9cbe-1994e57f0cc3")
 		)
 		(pad "10" smd roundrect
-			(at 0.5 -1.4 180)
+			(at 0.5 -1.4)
 			(size 0.24 0.6)
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.5)
@@ -56672,7 +56672,7 @@
 			(uuid "3adde946-1662-5c82-a031-dd611d843d22")
 		)
 		(pad "11" smd roundrect
-			(at 0 -1.4 180)
+			(at 0 -1.4)
 			(size 0.24 0.6)
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.5)
@@ -56681,7 +56681,7 @@
 			(uuid "57495c93-b1f9-5698-8d50-8f17adc98a52")
 		)
 		(pad "12" smd roundrect
-			(at -0.5 -1.4 180)
+			(at -0.5 -1.4)
 			(size 0.24 0.6)
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.5)
@@ -56690,7 +56690,7 @@
 			(uuid "ba8ff0d0-c28a-54a0-bf03-b19856cba8b7")
 		)
 		(pad "13" smd roundrect
-			(at -1 -1.4 180)
+			(at -1 -1.4)
 			(size 0.24 0.6)
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.5)
@@ -56699,7 +56699,7 @@
 			(uuid "f005aa7f-ffb6-57e4-8dae-ab33e144a759")
 		)
 		(pad "14" smd roundrect
-			(at -1.5 -1.4 180)
+			(at -1.5 -1.4)
 			(size 0.24 0.6)
 			(layers "B.Cu" "B.Mask" "B.Paste")
 			(roundrect_rratio 0.5)
@@ -56707,63 +56707,63 @@
 			(uuid "a0c265e4-c2b2-598a-9c16-57bf7241ad54")
 		)
 		(pad "15" smd rect
-			(at -1.8125 -0.69 180)
+			(at -1.8125 -0.69)
 			(size 0.775 0.2)
 			(layers "B.Cu" "B.Mask")
 			(net "GND")
 			(uuid "54ade120-a8c9-5e36-9c7e-51f9118137f0")
 		)
 		(pad "15" smd rect
-			(at -1.8125 -0.23 180)
+			(at -1.8125 -0.23)
 			(size 0.775 0.2)
 			(layers "B.Cu" "B.Mask")
 			(net "GND")
 			(uuid "b2660163-772a-508f-b4c3-b515d08af906")
 		)
 		(pad "15" smd rect
-			(at -1.8125 0.23 180)
+			(at -1.8125 0.23)
 			(size 0.775 0.2)
 			(layers "B.Cu" "B.Mask")
 			(net "GND")
 			(uuid "d98f7cd2-ea1b-5579-b1f1-bd2885f4b08a")
 		)
 		(pad "15" smd rect
-			(at -1.8125 0.69 180)
+			(at -1.8125 0.69)
 			(size 0.775 0.2)
 			(layers "B.Cu" "B.Mask")
 			(net "GND")
 			(uuid "0290ca73-f2af-5654-b044-3e4b5e990a2f")
 		)
 		(pad "15" smd rect
-			(at 0 0 180)
+			(at 0 0)
 			(size 2.85 1.58)
 			(layers "B.Cu" "B.Mask")
 			(net "GND")
 			(uuid "e7a6640d-0773-5b27-818c-f63af9a4b234")
 		)
 		(pad "15" smd rect
-			(at 1.8125 -0.69 180)
+			(at 1.8125 -0.69)
 			(size 0.775 0.2)
 			(layers "B.Cu" "B.Mask")
 			(net "GND")
 			(uuid "372dc0f8-dc7f-5587-b02f-972345870c72")
 		)
 		(pad "15" smd rect
-			(at 1.8125 -0.23 180)
+			(at 1.8125 -0.23)
 			(size 0.775 0.2)
 			(layers "B.Cu" "B.Mask")
 			(net "GND")
 			(uuid "9d95aecd-8b2e-57a1-9cbf-6570ce01f8cb")
 		)
 		(pad "15" smd rect
-			(at 1.8125 0.23 180)
+			(at 1.8125 0.23)
 			(size 0.775 0.2)
 			(layers "B.Cu" "B.Mask")
 			(net "GND")
 			(uuid "95220c76-f0a0-5fb1-b736-7ed1f6df045f")
 		)
 		(pad "15" smd rect
-			(at 1.8125 0.69 180)
+			(at 1.8125 0.69)
 			(size 0.775 0.2)
 			(layers "B.Cu" "B.Mask")
 			(net "GND")
@@ -56774,7 +56774,7 @@
 	(footprint "rgb-badge-coupon:SOT23_TI_DBZ0003A"
 		(layer "B.Cu")
 		(uuid "ae3dc06a-f571-5079-9a4c-09a85bcb6f3c")
-		(at 97 23.125 180)
+		(at 105 22.875 180)
 		(descr "TI DBZ0003A SOT-23-3 example land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U38"
 			(at 0 2.25 0)
@@ -56890,7 +56890,7 @@
 	(footprint "rgb-badge-coupon:SOT563_TI_DRL0006A"
 		(layer "B.Cu")
 		(uuid "3ab4997c-f2ae-5499-a3c8-e42035bd5a87")
-		(at 110.125 10.5 180)
+		(at 104.625 30.5 180)
 		(descr "TI DRL0006A SOT-563 six-pad land from TMP390 Rev A package drawing, page 25; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U39"
 			(at 0 1.75 0)
@@ -57030,7 +57030,7 @@
 	(footprint "rgb-badge-coupon:SOT23_TI_DBV0005A"
 		(layer "B.Cu")
 		(uuid "392cd465-991c-56f0-b5d1-a651a476ea7f")
-		(at 7.5 7.125 180)
+		(at 98.5 6.375 180)
 		(descr "TI DBV0005A SOT-23-5 manufacturer land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U40"
 			(at 0 2.25 0)
@@ -57162,7 +57162,7 @@
 	(footprint "rgb-badge-coupon:VQFN_TI_RGT0016C_3x3mm_P0.5mm_EP1.68mm"
 		(layer "B.Cu")
 		(uuid "25ee7ebf-4aa5-552c-be62-57f2cffb11f8")
-		(at 18 2.25 180)
+		(at 93.25 10.75 180)
 		(descr "TI manufacturer land/stencil transcription; see power-replacement-library-audit.md; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U41"
 			(at 0 2.55 0)
@@ -57394,7 +57394,7 @@
 	(footprint "rgb-badge-coupon:SOT23_TI_DBV0005A"
 		(layer "B.Cu")
 		(uuid "98005cd4-b4d2-5648-9065-a1cc4112ddea")
-		(at 106 10.375 180)
+		(at 2.5 7.125 180)
 		(descr "TI DBV0005A SOT-23-5 manufacturer land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U42"
 			(at 0 2.25 0)
@@ -57526,7 +57526,7 @@
 	(footprint "rgb-badge-coupon:SOT23_TI_DBV0005A"
 		(layer "B.Cu")
 		(uuid "1965459a-670d-5782-b2c9-3cf8babbdb40")
-		(at 93.5 10.625 180)
+		(at 7.5 7.125 180)
 		(descr "TI DBV0005A SOT-23-5 manufacturer land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U43"
 			(at 0 2.25 0)
@@ -58226,7 +58226,7 @@
 	(footprint "rgb-badge-coupon:VSSOP_TI_DGK0008A"
 		(layer "B.Cu")
 		(uuid "386760d2-29ef-5748-9ac1-552bdbb3e223")
-		(at 93.75 2.125 180)
+		(at 13 2.125 180)
 		(descr "TI DGK0008A VSSOP8; manufacturer example 1.4 x 0.45 mm lands at 0.65 mm pitch; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U46"
 			(at 0 2.65 0)
@@ -58403,7 +58403,7 @@
 	(footprint "rgb-badge-coupon:SOT23_TI_DBV0005A"
 		(layer "B.Cu")
 		(uuid "1a04049c-9cd0-5dd1-bbd7-dc7f5a6e35f9")
-		(at 98.5 10.625 180)
+		(at 106 10.375 180)
 		(descr "TI DBV0005A SOT-23-5 manufacturer land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U47"
 			(at 0 2.25 0)
@@ -58716,7 +58716,7 @@
 	(footprint "rgb-badge-coupon:UQFN_TI_RSE0008A_1.5x1.5mm_P0.5mm"
 		(layer "B.Cu")
 		(uuid "90676b82-fcac-55ab-89b1-8aeaf8a7821a")
-		(at 92.5 30.75 180)
+		(at 79.5 30.75 180)
 		(descr "TI manufacturer land/stencil transcription; see power-replacement-library-audit.md; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U49"
 			(at 0 1.8 0)
@@ -58872,7 +58872,7 @@
 	(footprint "rgb-badge-coupon:UQFN_TI_RSE0008A_1.5x1.5mm_P0.5mm"
 		(layer "B.Cu")
 		(uuid "d64a7970-33bc-54de-8fc9-a272901bc259")
-		(at 95.5 30.75 180)
+		(at 97.5 30.75 180)
 		(descr "TI manufacturer land/stencil transcription; see power-replacement-library-audit.md; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U50"
 			(at 0 1.8 0)
@@ -59028,7 +59028,7 @@
 	(footprint "rgb-badge-coupon:USON_TI_DRY0006A_1p45x1mm_P0p5mm"
 		(layer "B.Cu")
 		(uuid "9fa61e7e-d37e-527e-9672-f6f885f83a94")
-		(at 102.125 9.5 180)
+		(at 29.375 18 180)
 		(descr "TI DRY0006A land/stencil 4222894/A; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U51"
 			(at 0 1.45 0)
@@ -59351,7 +59351,7 @@
 	(footprint "rgb-badge-coupon:WSON_TI_DSE0006A_1p5x1p5mm_P0p5mm"
 		(layer "B.Cu")
 		(uuid "938d613d-241d-5633-90d0-65ba561ebe81")
-		(at 10 31.125 180)
+		(at 101.25 9.875 180)
 		(descr "TI DSE0006A land/stencil 4220552/B; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U53"
 			(at 0 1.55 0)
@@ -59492,7 +59492,7 @@
 	(footprint "rgb-badge-coupon:VSSOP_TI_DCU0008A"
 		(layer "B.Cu")
 		(uuid "277c9a0a-8511-5cab-b792-6f5b75e79d53")
-		(at 108.625 6.125 180)
+		(at 17.875 2.125 180)
 		(descr "TI DCU0008A land/stencil 4225266/A; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U54"
 			(at 0 2.35 0)
@@ -59649,7 +59649,7 @@
 	(footprint "rgb-badge-coupon:VSSOP_TI_DCU0008A"
 		(layer "B.Cu")
 		(uuid "b6177df5-a6e6-52fd-b132-81888b5f63e6")
-		(at 22.375 12.625 180)
+		(at 97.625 10.625 180)
 		(descr "TI DCU0008A land/stencil 4225266/A; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U55"
 			(at 0 2.35 0)
@@ -61058,6 +61058,54 @@
 		(layer "F.Cu")
 		(net "ROW_04_A")
 		(uuid "d915dac0-bdfb-5163-a5f3-86bfd35c49cf")
+	)
+	(segment
+		(start 94.95 26.05)
+		(end 94.45 26.05)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "Net-(L2-~-Pad1)")
+		(uuid "7b65ebbc-4a65-54d3-86fd-fe081cc2a820")
+	)
+	(segment
+		(start 94.95 26.05)
+		(end 97.1 26.05)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "Net-(L2-~-Pad1)")
+		(uuid "e2d74be4-e994-5be5-b430-5a37670db267")
+	)
+	(segment
+		(start 94.95 28.85)
+		(end 94.45 28.85)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "Net-(L2-~-Pad2)")
+		(uuid "5dfe2da0-55ae-5218-8694-5ce1a7268962")
+	)
+	(segment
+		(start 94.95 28.85)
+		(end 97.1 28.85)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "Net-(L2-~-Pad2)")
+		(uuid "c02111c5-0e60-5898-8539-88bf95f3a279")
+	)
+	(segment
+		(start 97.1 26.05)
+		(end 97.5 26.45)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "Net-(L2-~-Pad1)")
+		(uuid "e4c942f1-9302-5936-9fdc-94ce6fde90e1")
+	)
+	(segment
+		(start 97.1 28.85)
+		(end 97.5 28.45)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "Net-(L2-~-Pad2)")
+		(uuid "f5108825-1311-5e17-8c39-40d3b82097f1")
 	)
 	(embedded_fonts no)
 )
