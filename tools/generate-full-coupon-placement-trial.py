@@ -150,7 +150,8 @@ def normalize(contents):
         assert match
         return match.group(1)
     contents = sort_native_blocks(contents, "footprint", 497, reference)
-    contents = sort_native_blocks(contents, "segment", 158,
+    # pcbnew can interleave segments and vias, so sort their shared block.
+    contents = sort_native_blocks(contents, "(?:segment|via)", 176,
                                   lambda block: re.sub(r'\(uuid "[0-9a-f-]{36}"\)', '', block))
     count = iter(range(contents.count('(uuid "')))
     updated = re.sub(r'\(uuid "[0-9a-f-]{36}"\)',
@@ -206,6 +207,96 @@ def route_local_efuse_support(board):
             track.SetLayer(pcb.B_Cu)
             track.SetNet(start_pad.GetNet())
             board.Add(track)
+
+
+def route_e0_output_capacitor(board):
+    """Trial a standard through-via escape from E0 OUT to its bulk capacitor."""
+    parts = {part.GetReference(): part for part in board.GetFootprints()}
+    start = next(p for p in parts["U45"].Pads() if p.GetNumber() == "6")
+    end = next(p for p in parts["C61"].Pads() if p.GetNumber() == "1")
+    assert start.GetNetname() == end.GetNetname() == "+5V_USB"
+    point = lambda x, y: pcb.VECTOR2I(pcb.FromMM(x), pcb.FromMM(y))
+    first, second = point(105.5, 17.0), point(110.55, 16.8)
+    for position in (first, second):
+        via = pcb.PCB_VIA(board)
+        via.SetPosition(position)
+        via.SetViaType(pcb.VIATYPE_THROUGH)
+        via.SetLayerPair(pcb.F_Cu, pcb.B_Cu)
+        via.SetWidth(pcb.FromMM(0.6))
+        via.SetDrill(pcb.FromMM(0.3))
+        via.SetNet(start.GetNet())
+        board.Add(via)
+    for a, b, layer in ((start.GetPosition(), first, pcb.B_Cu),
+                        (first, point(110.35, 17.0), pcb.In4_Cu),
+                        (point(110.35, 17.0), second, pcb.In4_Cu),
+                        (second, end.GetPosition(), pcb.B_Cu)):
+        track = pcb.PCB_TRACK(board)
+        track.SetStart(a)
+        track.SetEnd(b)
+        track.SetWidth(pcb.FromMM(0.2))
+        track.SetLayer(layer)
+        track.SetNet(start.GetNet())
+        board.Add(track)
+
+
+def route_e0_input_path(board):
+    """Trial J1 VBUS through C60 and the E0 input with a standard via pair."""
+    parts = {part.GetReference(): part for part in board.GetFootprints()}
+    e0 = next(p for p in parts["U45"].Pads() if p.GetNumber() == "5")
+    cap = next(p for p in parts["C60"].Pads() if p.GetNumber() == "1")
+    jack = next(p for p in parts["J1"].Pads() if p.GetNumber() == "B4_A9")
+    assert e0.GetNetname() == cap.GetNetname() == jack.GetNetname() == "VBUS_CONNECTOR"
+    point = lambda x, y: pcb.VECTOR2I(pcb.FromMM(x), pcb.FromMM(y))
+    first, second = point(106.0, 12.5), point(110.2, 13.2)
+    for position in (first, second):
+        via = pcb.PCB_VIA(board)
+        via.SetPosition(position)
+        via.SetViaType(pcb.VIATYPE_THROUGH)
+        via.SetLayerPair(pcb.F_Cu, pcb.B_Cu)
+        via.SetWidth(pcb.FromMM(0.6))
+        via.SetDrill(pcb.FromMM(0.3))
+        via.SetNet(e0.GetNet())
+        board.Add(via)
+    for a, b, layer in ((e0.GetPosition(), first, pcb.B_Cu),
+                        (first, point(109.5, 12.5), pcb.In4_Cu),
+                        (point(109.5, 12.5), second, pcb.In4_Cu),
+                        (second, cap.GetPosition(), pcb.B_Cu),
+                        (second, point(110.85, 13.85), pcb.F_Cu),
+                        (point(110.85, 13.85), jack.GetPosition(), pcb.F_Cu)):
+        track = pcb.PCB_TRACK(board)
+        track.SetStart(a)
+        track.SetEnd(b)
+        track.SetWidth(pcb.FromMM(0.2))
+        track.SetLayer(layer)
+        track.SetNet(e0.GetNet())
+        board.Add(track)
+
+
+def route_j1_second_vbus(board):
+    """Join the other connector VBUS pad to the same screened inner path."""
+    jack = next(part for part in board.GetFootprints() if part.GetReference() == "J1")
+    pad = next(item for item in jack.Pads() if item.GetNumber() == "A4_B9")
+    assert pad.GetNetname() == "VBUS_CONNECTOR"
+    point = lambda x, y: pcb.VECTOR2I(pcb.FromMM(x), pcb.FromMM(y))
+    position = point(112.2, 18.65)
+    via = pcb.PCB_VIA(board)
+    via.SetPosition(position)
+    via.SetViaType(pcb.VIATYPE_THROUGH)
+    via.SetLayerPair(pcb.F_Cu, pcb.B_Cu)
+    via.SetWidth(pcb.FromMM(0.6))
+    via.SetDrill(pcb.FromMM(0.3))
+    via.SetNet(pad.GetNet())
+    board.Add(via)
+    for start, end, layer in ((pad.GetPosition(), position, pcb.F_Cu),
+                              (position, point(112.2, 15.2), pcb.In4_Cu),
+                              (point(112.2, 15.2), point(110.2, 13.2), pcb.In4_Cu)):
+        track = pcb.PCB_TRACK(board)
+        track.SetStart(start)
+        track.SetEnd(end)
+        track.SetWidth(pcb.FromMM(0.2))
+        track.SetLayer(layer)
+        track.SetNet(pad.GetNet())
+        board.Add(track)
 
 
 def route_everlight_row_anodes(board):
@@ -320,6 +411,9 @@ def generate():
             assigned.add(key)
     assert assigned == set(pins)
     route_local_efuse_support(board)
+    route_e0_output_capacitor(board)
+    route_e0_input_path(board)
+    route_j1_second_vbus(board)
     route_everlight_row_anodes(board)
     route_vled_switching_pair(board)
     assert pcb.SaveBoard(str(BOARD), board)
@@ -328,19 +422,26 @@ def generate():
     assert loaded.GetCopperLayerCount() == 6
     assert loaded.GetDesignSettings().GetBoardThickness() == pcb.FromMM(1.0)
     verify_saved_board(loaded, components, pins)
-    tracks = list(loaded.GetTracks())
-    assert len(tracks) == 158
+    tracks = [item for item in loaded.GetTracks() if not isinstance(item, pcb.PCB_VIA)]
+    vias = [item for item in loaded.GetTracks() if isinstance(item, pcb.PCB_VIA)]
+    assert len(tracks) == 171 and len(vias) == 5
     rear = [track for track in tracks if track.GetLayer() == pcb.B_Cu]
     front = [track for track in tracks if track.GetLayer() == pcb.F_Cu]
-    assert len(rear) == 14 and len(front) == 144
+    inner = [track for track in tracks if track.GetLayer() == pcb.In4_Cu]
+    assert len(rear) == 18 and len(front) == 147 and len(inner) == 6
     assert {track.GetNetname() for track in rear} == {"E0_DVDT", "E1_DVDT", "E0_ILM", "E1_ILM",
-                                                       "Net-(L2-~-Pad1)", "Net-(L2-~-Pad2)"}
-    assert {track.GetNetname() for track in front} == {f"ROW_{row:02d}_A" for row in range(16)}
+                                                       "Net-(L2-~-Pad1)", "Net-(L2-~-Pad2)", "+5V_USB",
+                                                       "VBUS_CONNECTOR"}
+    assert {track.GetNetname() for track in front} == {f"ROW_{row:02d}_A" for row in range(16)} | {"VBUS_CONNECTOR"}
+    assert {track.GetNetname() for track in inner} == {"+5V_USB", "VBUS_CONNECTOR"}
     assert all(track.GetWidth() == pcb.FromMM(0.2) for track in tracks)
+    assert all(via.GetWidth(pcb.F_Cu) == pcb.FromMM(0.6) and via.GetDrillValue() == pcb.FromMM(0.3)
+               for via in vias)
+    assert {via.GetNetname() for via in vias} == {"+5V_USB", "VBUS_CONNECTOR"}
     if not project_existed and project_file.is_file():
         project_file.unlink()
     print(f"Staged and round-trip-checked {len(components)} exact footprints and {len(assigned)} unique numbered pad nets")
-    print("120 mm study: eFuse support, VLED switching pair and 16 Everlight half-row trunks; other routing remains open")
+    print("120 mm study: both J1 VBUS pads to E0 input, E0 output, eFuse support, VLED switching pair and 16 Everlight half-row trunks; other routing remains open")
 
 
 if __name__ == "__main__":
