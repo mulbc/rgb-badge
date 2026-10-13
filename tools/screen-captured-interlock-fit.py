@@ -47,6 +47,24 @@ def screen(xml):
                           "unplaced_refs": placed["unplaced_refs"],
                           "bypass_to_ic_edge_gap_mm": bypass_gaps,
                           "interlock_unplaced_refs": sorted(expected & set(placed["unplaced_refs"]))})
+    grouped_cases = []
+    bypass_pairs = {f"C{66 + index}": f"U{47 + index}" for index in range(9)}
+    for width in (108.0, 110.0):
+        fixed = fit.fixed_boxes(parts, right_shift=width - fit.BOARD_W)
+        placed = fit.place(parts, "dual-package candidate", "area first", fixed,
+                           pack, sensor, board_width=width, nearby=bypass_pairs,
+                           near_gap_mm=3.0)
+        boxes = placed["boxes_mm"]
+        placed_gaps = {f"{anchor_ref}/{cap_ref}": edge_gap_mm(boxes[anchor_ref], boxes[cap_ref])
+                       for cap_ref, anchor_ref in bypass_pairs.items()
+                       if anchor_ref in boxes and cap_ref in boxes}
+        if any(gap > 3.0 for gap in placed_gaps.values()):
+            raise ValueError("Bypass-locality placement exceeded its trial gap")
+        grouped_cases.append({"board_width_mm": width, "trial_bypass_edge_gap_mm": 3.0,
+                              "unplaced_count": placed["unplaced_count"],
+                              "unplaced_refs": placed["unplaced_refs"],
+                              "placed_bypass_edge_gaps_mm": placed_gaps,
+                              "bypass_unplaced_refs": sorted(set(bypass_pairs) & set(placed["unplaced_refs"]))})
     return {"SPDX-License-Identifier": "CERN-OHL-S-2.0",
             "status": "COARSE_COURTYARD_SCREEN_NOT_PLACEMENT_OR_CASE_APPROVAL",
             "native_xml_sha256": hashlib.sha256(xml.read_bytes()).hexdigest(),
@@ -54,9 +72,11 @@ def screen(xml):
             "rear_screened_parts": len(parts),
             "captured_interlock_refs": sorted(expected),
             "cases": cases,
+            "local_bypass_trial_cases": grouped_cases,
             "limitations": [
                 "Dual row package substitution remains proposed, not source-captured",
-                "Greedy placement has no circuit-local routing or bypass proximity constraints",
+                "Free first-fit cases have no circuit-local routing or bypass proximity constraints",
+                "3 mm bypass trial constrains only IC/cap courtyard gaps and remains placement-order dependent",
                 "Reported bypass edge gaps diagnose dispersal; no electrical distance limit is implied",
                 "No traces, vias, thermal copper, antenna exclusion or assembly access",
                 "110 mm case walls, USB opening and mechanical tolerances are absent",
@@ -75,6 +95,9 @@ def main():
         print(f'{case["row_topology"]}, {case["board_width_mm"]:.0f} mm: '
               f'{case["unplaced_count"]} unplaced; '
               f'interlock misses: {case["interlock_unplaced_refs"]}')
+    for case in result["local_bypass_trial_cases"]:
+        print(f'3 mm bypass trial, {case["board_width_mm"]:.0f} mm: '
+              f'{case["unplaced_count"]} unplaced; bypass misses: {case["bypass_unplaced_refs"]}')
 
 
 if __name__ == "__main__":

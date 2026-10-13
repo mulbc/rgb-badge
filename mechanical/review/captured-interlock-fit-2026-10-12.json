@@ -212,10 +212,57 @@
   "coupon_pcb_items": 497,
   "limitations": [
     "Dual row package substitution remains proposed, not source-captured",
-    "Greedy placement has no circuit-local routing or bypass proximity constraints",
+    "Free first-fit cases have no circuit-local routing or bypass proximity constraints",
+    "3 mm bypass trial constrains only IC/cap courtyard gaps and remains placement-order dependent",
     "Reported bypass edge gaps diagnose dispersal; no electrical distance limit is implied",
     "No traces, vias, thermal copper, antenna exclusion or assembly access",
     "110 mm case walls, USB opening and mechanical tolerances are absent"
+  ],
+  "local_bypass_trial_cases": [
+    {
+      "board_width_mm": 108.0,
+      "bypass_unplaced_refs": [
+        "C67",
+        "C70",
+        "C71"
+      ],
+      "placed_bypass_edge_gaps_mm": {
+        "U47/C66": 0.0,
+        "U49/C68": 0.0,
+        "U50/C69": 0.0,
+        "U53/C72": 0.0,
+        "U54/C73": 0.0,
+        "U55/C74": 0.0
+      },
+      "trial_bypass_edge_gap_mm": 3.0,
+      "unplaced_count": 3,
+      "unplaced_refs": [
+        "C70",
+        "C67",
+        "C71"
+      ]
+    },
+    {
+      "board_width_mm": 110.0,
+      "bypass_unplaced_refs": [
+        "C67"
+      ],
+      "placed_bypass_edge_gaps_mm": {
+        "U47/C66": 0.0,
+        "U49/C68": 0.0,
+        "U50/C69": 0.0,
+        "U51/C70": 0.0,
+        "U52/C71": 0.0,
+        "U53/C72": 0.0,
+        "U54/C73": 1.5,
+        "U55/C74": 0.0
+      },
+      "trial_bypass_edge_gap_mm": 3.0,
+      "unplaced_count": 1,
+      "unplaced_refs": [
+        "C67"
+      ]
+    }
   ],
   "native_xml_sha256": "8d1cd3dfa20954ad8df72ed00d006857c1fb4148ec843239d52e00be7cc38d7a",
   "rear_screened_parts": 238,

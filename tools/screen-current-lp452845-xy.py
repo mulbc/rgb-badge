@@ -55,7 +55,8 @@ def fixed_boxes(parts, right_shift=0):
     return fixed
 
 
-def place(parts, variant, order, fixed, pack, sensor_reserve, board_width=BOARD_W):
+def place(parts, variant, order, fixed, pack, sensor_reserve, board_width=BOARD_W,
+          nearby=None, near_gap_mm=3.0):
     used = dict(fixed)
     remaining = [p for p in parts if p["ref"] not in {"J2", "SW1", "SW2", "U2"}]
     if variant == "dual-package candidate":
@@ -91,15 +92,56 @@ def place(parts, variant, order, fixed, pack, sensor_reserve, board_width=BOARD_
                 return candidate
         return None
 
+    def find_near(part, anchor_ref):
+        if anchor_ref not in used:
+            return None
+        anchor = used[anchor_ref]
+        w = math.ceil((part["width_mm"] + EXTRA_BOX_MM) / GRID) * GRID
+        h = math.ceil((part["height_mm"] + EXTRA_BOX_MM) / GRID) * GRID
+        xlo = max(0, math.floor((anchor[0] - near_gap_mm - w) / GRID))
+        xhi = min(math.floor((board_width - w) / GRID),
+                  math.ceil((anchor[2] + near_gap_mm) / GRID))
+        ylo = max(0, math.floor((anchor[1] - near_gap_mm - h) / GRID))
+        yhi = min(math.floor((BOARD_H - h) / GRID),
+                  math.ceil((anchor[3] + near_gap_mm) / GRID))
+        candidates = []
+        for yi in range(ylo, yhi + 1):
+            for xi in range(xlo, xhi + 1):
+                candidate = box(xi * GRID, yi * GRID, w, h)
+                dx = max(anchor[0] - candidate[2], candidate[0] - anchor[2], 0)
+                dy = max(anchor[1] - candidate[3], candidate[1] - anchor[3], 0)
+                gap = math.hypot(dx, dy)
+                if gap > near_gap_mm or overlap(candidate, pack) or overlap(candidate, sensor_reserve):
+                    continue
+                if any(overlap(candidate, other) for other in used.values()):
+                    continue
+                candidates.append((gap, yi, xi, candidate))
+        return min(candidates)[3] if candidates else None
+
     unplaced = []
     under_count = 0
+    nearby = nearby or {}
+    nearby_parts = {part["ref"]: part for part in small if part["ref"] in nearby}
+    near_by_anchor = {}
+    for near_ref, anchor_ref in nearby.items():
+        if near_ref not in nearby_parts:
+            raise ValueError(f"{near_ref} is not a screened small part")
+        near_by_anchor.setdefault(anchor_ref, []).append(near_ref)
     for part in large:
         found = find(part, False)
         if found is None:
             unplaced.append(part["ref"])
         else:
             used[part["ref"]] = found
+        for near_ref in near_by_anchor.get(part["ref"], []):
+            near_found = find_near(nearby_parts[near_ref], part["ref"])
+            if near_found is None:
+                unplaced.append(near_ref)
+            else:
+                used[near_ref] = near_found
     for part in small:
+        if part["ref"] in nearby:
+            continue
         found = find(part, True)
         if found is not None:
             under_count += 1
