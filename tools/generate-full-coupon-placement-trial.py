@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: Apache-2.0
-"""Stage every captured coupon footprint on a 120 mm unrouted study board.
+"""Stage every coupon footprint and four local USB links on a 120 mm study board.
 
 This deliberately exceeds the final 110 mm case target. It is a wiring and
 clearance discovery artifact, not the canonical PCB or a fabrication release.
@@ -52,11 +52,11 @@ def source():
         fixed["U44"] = fit.box(104.0, 17.25, 3.5, 3.5)
         fixed["C60"] = fit.box(108.0, 13.25, 3.0, 1.5)
         fixed["C61"] = fit.box(108.0, 15.25, 3.5, 1.5)
-        fixed["C62"] = fit.box(101.0, 13.25, 2.5, 1.5)
+        fixed["C62"] = fit.box(101.0, 15.25, 2.5, 1.5)
         fixed["C52"] = fit.box(108.0, 18.25, 2.5, 1.5)
         fixed["C57"] = fit.box(101.0, 18.25, 2.5, 1.5)
         fixed["R99"] = fit.box(101.0, 11.25, 2.5, 1.5)
-        fixed["R100"] = fit.box(101.0, 15.25, 2.5, 1.5)
+        fixed["R100"] = fit.box(101.0, 13.25, 2.5, 1.5)
         fixed["R97"] = fit.box(98.0, 13.25, 2.5, 1.5)
         fixed["R98"] = fit.box(98.0, 15.25, 2.5, 1.5)
         fixed["R96"] = fit.box(101.0, 16.75, 2.5, 1.5)
@@ -174,6 +174,32 @@ def verify_saved_board(board, components, pins):
     assert seen == set(pins), (len(seen), len(pins))
 
 
+def route_local_efuse_support(board):
+    """Capture four short, native-DRC-screened support links in the USB cluster."""
+    parts = {part.GetReference(): part for part in board.GetFootprints()}
+    routes = (
+        ("C62", "1", "U45", "7", 0, ()),
+        ("C57", "1", "U44", "7", 1, ()),
+        ("R100", "1", "U45", "9", 0, ((103.75, 14.0), (103.75, 14.78))),
+        ("R96", "1", "U44", "9", 0, ((103.75, 17.5), (103.75, 18.77))),
+    )
+    for start_ref, start_pin, end_ref, end_pin, end_index, waypoints in routes:
+        start_pad = next(pad for pad in parts[start_ref].Pads() if pad.GetNumber() == start_pin)
+        end_pad = [pad for pad in parts[end_ref].Pads() if pad.GetNumber() == end_pin][end_index]
+        assert start_pad.GetNetname() and start_pad.GetNetname() == end_pad.GetNetname()
+        points = [start_pad.GetPosition()]
+        points.extend(pcb.VECTOR2I(pcb.FromMM(x), pcb.FromMM(y)) for x, y in waypoints)
+        points.append(end_pad.GetPosition())
+        for start, end in zip(points, points[1:]):
+            track = pcb.PCB_TRACK(board)
+            track.SetStart(start)
+            track.SetEnd(end)
+            track.SetWidth(pcb.FromMM(0.2))
+            track.SetLayer(pcb.B_Cu)
+            track.SetNet(start_pad.GetNet())
+            board.Add(track)
+
+
 def generate():
     components, pins, boxes = source()
     project_file = BOARD.with_suffix(".kicad_pro")
@@ -224,15 +250,20 @@ def generate():
                 pad.SetNet(nets[name])
             assigned.add(key)
     assert assigned == set(pins)
+    route_local_efuse_support(board)
     assert pcb.SaveBoard(str(BOARD), board)
     BOARD.write_text(normalize(BOARD.read_text()))
     loaded = pcb.LoadBoard(str(BOARD))
     verify_saved_board(loaded, components, pins)
-    assert not list(loaded.GetTracks())
+    tracks = list(loaded.GetTracks())
+    assert len(tracks) == 8
+    assert {track.GetNetname() for track in tracks} == {"E0_DVDT", "E1_DVDT", "E0_ILM", "E1_ILM"}
+    assert all(track.GetLayer() == pcb.B_Cu and track.GetWidth() == pcb.FromMM(0.2)
+               for track in tracks)
     if not project_existed and project_file.is_file():
         project_file.unlink()
     print(f"Staged and round-trip-checked {len(components)} exact footprints and {len(assigned)} unique numbered pad nets")
-    print("120 mm study outline, no routing, no USB cutout or fabrication status")
+    print("120 mm study outline, four local eFuse support nets; other routing and USB cutout remain open")
 
 
 if __name__ == "__main__":
