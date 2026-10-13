@@ -6,6 +6,7 @@ import argparse
 import hashlib
 import importlib.util
 import json
+import math
 from pathlib import Path
 
 
@@ -13,6 +14,12 @@ ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location("current_fit", ROOT / "tools/screen-current-lp452845-xy.py")
 fit = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(fit)
+
+
+def edge_gap_mm(first, second):
+    dx = max(first[0] - second[2], second[0] - first[2], 0)
+    dy = max(first[1] - second[3], second[1] - first[3], 0)
+    return round(math.hypot(dx, dy), 2)
 
 
 def screen(xml):
@@ -30,9 +37,15 @@ def screen(xml):
             fixed = fit.fixed_boxes(parts, right_shift=width - fit.BOARD_W)
             placed = fit.place(parts, variant, "area first", fixed,
                                pack, sensor, board_width=width)
+            boxes = placed["boxes_mm"]
+            bypass_gaps = {f"U{47 + index}/C{66 + index}":
+                           edge_gap_mm(boxes[f"U{47 + index}"], boxes[f"C{66 + index}"])
+                           for index in range(9)
+                           if f"U{47 + index}" in boxes and f"C{66 + index}" in boxes}
             cases.append({"row_topology": variant, "board_width_mm": width,
                           "unplaced_count": placed["unplaced_count"],
                           "unplaced_refs": placed["unplaced_refs"],
+                          "bypass_to_ic_edge_gap_mm": bypass_gaps,
                           "interlock_unplaced_refs": sorted(expected & set(placed["unplaced_refs"]))})
     return {"SPDX-License-Identifier": "CERN-OHL-S-2.0",
             "status": "COARSE_COURTYARD_SCREEN_NOT_PLACEMENT_OR_CASE_APPROVAL",
@@ -44,6 +57,7 @@ def screen(xml):
             "limitations": [
                 "Dual row package substitution remains proposed, not source-captured",
                 "Greedy placement has no circuit-local routing or bypass proximity constraints",
+                "Reported bypass edge gaps diagnose dispersal; no electrical distance limit is implied",
                 "No traces, vias, thermal copper, antenna exclusion or assembly access",
                 "110 mm case walls, USB opening and mechanical tolerances are absent",
             ]}

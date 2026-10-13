@@ -36,6 +36,16 @@
   "cases": [
     {
       "board_width_mm": 106.0,
+      "bypass_to_ic_edge_gap_mm": {
+        "U47/C66": 39.3,
+        "U48/C67": 19.06,
+        "U49/C68": 50.68,
+        "U51/C70": 32.75,
+        "U52/C71": 22.45,
+        "U53/C72": 59.86,
+        "U54/C73": 46.17,
+        "U55/C74": 44.51
+      },
       "interlock_unplaced_refs": [
         "U50"
       ],
@@ -69,6 +79,15 @@
     },
     {
       "board_width_mm": 108.0,
+      "bypass_to_ic_edge_gap_mm": {
+        "U47/C66": 39.3,
+        "U48/C67": 19.06,
+        "U51/C70": 33.0,
+        "U52/C71": 30.54,
+        "U53/C72": 59.86,
+        "U54/C73": 25.32,
+        "U55/C74": 23.96
+      },
       "interlock_unplaced_refs": [
         "U49",
         "U50"
@@ -100,6 +119,17 @@
     },
     {
       "board_width_mm": 110.0,
+      "bypass_to_ic_edge_gap_mm": {
+        "U47/C66": 27.53,
+        "U48/C67": 19.06,
+        "U49/C68": 52.75,
+        "U50/C69": 51.77,
+        "U51/C70": 36.61,
+        "U52/C71": 22.45,
+        "U53/C72": 26.28,
+        "U54/C73": 25.5,
+        "U55/C74": 42.63
+      },
       "interlock_unplaced_refs": [],
       "row_topology": "canonical 32 separate row FETs",
       "unplaced_count": 13,
@@ -121,6 +151,15 @@
     },
     {
       "board_width_mm": 106.0,
+      "bypass_to_ic_edge_gap_mm": {
+        "U47/C66": 39.3,
+        "U48/C67": 19.06,
+        "U51/C70": 32.75,
+        "U52/C71": 22.7,
+        "U53/C72": 67.69,
+        "U54/C73": 46.17,
+        "U55/C74": 44.51
+      },
       "interlock_unplaced_refs": [
         "U49",
         "U50"
@@ -135,6 +174,17 @@
     },
     {
       "board_width_mm": 108.0,
+      "bypass_to_ic_edge_gap_mm": {
+        "U47/C66": 39.3,
+        "U48/C67": 19.06,
+        "U49/C68": 49.66,
+        "U50/C69": 40.86,
+        "U51/C70": 33.0,
+        "U52/C71": 30.54,
+        "U53/C72": 43.06,
+        "U54/C73": 25.32,
+        "U55/C74": 23.96
+      },
       "interlock_unplaced_refs": [],
       "row_topology": "dual-package candidate",
       "unplaced_count": 0,
@@ -142,6 +192,17 @@
     },
     {
       "board_width_mm": 110.0,
+      "bypass_to_ic_edge_gap_mm": {
+        "U47/C66": 27.53,
+        "U48/C67": 19.06,
+        "U49/C68": 45.4,
+        "U50/C69": 45.84,
+        "U51/C70": 48.86,
+        "U52/C71": 22.7,
+        "U53/C72": 33.58,
+        "U54/C73": 25.5,
+        "U55/C74": 42.63
+      },
       "interlock_unplaced_refs": [],
       "row_topology": "dual-package candidate",
       "unplaced_count": 0,
@@ -152,6 +213,7 @@
   "limitations": [
     "Dual row package substitution remains proposed, not source-captured",
     "Greedy placement has no circuit-local routing or bypass proximity constraints",
+    "Reported bypass edge gaps diagnose dispersal; no electrical distance limit is implied",
     "No traces, vias, thermal copper, antenna exclusion or assembly access",
     "110 mm case walls, USB opening and mechanical tolerances are absent"
   ],
