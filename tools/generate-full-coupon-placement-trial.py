@@ -66,6 +66,7 @@ def source():
         fixed["L2"] = fit.box(96.15, 25.8, 2.7, 3.3)
         fixed["U41"] = fit.box(111.5, 23.0, 4.5, 4.5)
         fixed["C56"] = fit.box(111.5, 28.0, 3.5, 1.5)
+        fixed["R93"] = fit.box(116.25, 27.75, 2.0, 1.0)
         placement = fit.place(rear, "canonical 32 separate row FETs", "area first",
                               fixed, pack, sensor, board_width=WIDTH)
     components = {part.get("ref"): part for part in root.findall("./components/comp")}
@@ -153,7 +154,7 @@ def normalize(contents):
         return match.group(1)
     contents = sort_native_blocks(contents, "footprint", 497, reference)
     # pcbnew can interleave segments and vias, so sort their shared block.
-    contents = sort_native_blocks(contents, "(?:segment|via)", 190,
+    contents = sort_native_blocks(contents, "(?:segment|via)", 203,
                                   lambda block: re.sub(r'\(uuid "[0-9a-f-]{36}"\)', '', block))
     count = iter(range(contents.count('(uuid "')))
     updated = re.sub(r'\(uuid "[0-9a-f-]{36}"\)',
@@ -380,6 +381,60 @@ def route_charger_input_cluster(board):
         board.Add(track)
 
 
+def route_charger_ilim_resistor(board):
+    """Probe the short positive-side hardware input-current limit link."""
+    parts = {part.GetReference(): part for part in board.GetFootprints()}
+    charger = next(p for p in parts["U41"].Pads() if p.GetNumber() == "12")
+    resistor = next(p for p in parts["R93"].Pads() if p.GetNumber() == "1")
+    assert charger.GetNetname() == resistor.GetNetname() == "CHARGER_ILIM"
+    points = [charger.GetPosition()]
+    points.extend(pcb.VECTOR2I(pcb.FromMM(x), pcb.FromMM(y))
+                  for x, y in ((116.0, 26.0), (117.75, 27.75)))
+    points.append(resistor.GetPosition())
+    for start, end in zip(points, points[1:]):
+        track = pcb.PCB_TRACK(board)
+        track.SetStart(start)
+        track.SetEnd(end)
+        track.SetWidth(pcb.FromMM(0.2))
+        track.SetLayer(pcb.B_Cu)
+        track.SetNet(charger.GetNet())
+        board.Add(track)
+
+
+def route_local_charger_ground(board):
+    """Trial the R93, C56 and one U41 ground-pin return on In3.Cu."""
+    parts = {part.GetReference(): part for part in board.GetFootprints()}
+    resistor = next(p for p in parts["R93"].Pads() if p.GetNumber() == "2")
+    bulk = next(p for p in parts["C56"].Pads() if p.GetNumber() == "2")
+    charger = next(p for p in parts["U41"].Pads() if p.GetNumber() == "4")
+    assert resistor.GetNetname() == bulk.GetNetname() == charger.GetNetname() == "GND"
+    point = lambda x, y: pcb.VECTOR2I(pcb.FromMM(x), pcb.FromMM(y))
+    first, second, third = point(115.75, 28.25), point(112.45, 27.5), point(110.5, 24.5)
+    for position in (first, second, third):
+        via = pcb.PCB_VIA(board)
+        via.SetPosition(position)
+        via.SetViaType(pcb.VIATYPE_THROUGH)
+        via.SetLayerPair(pcb.F_Cu, pcb.B_Cu)
+        via.SetWidth(pcb.FromMM(0.6))
+        via.SetDrill(pcb.FromMM(0.3))
+        via.SetNet(resistor.GetNet())
+        board.Add(via)
+    for start, end, layer in ((resistor.GetPosition(), first, pcb.B_Cu),
+                              (first, point(113.2, 28.25), pcb.In3_Cu),
+                              (point(113.2, 28.25), second, pcb.In3_Cu),
+                              (second, bulk.GetPosition(), pcb.B_Cu),
+                              (charger.GetPosition(), third, pcb.B_Cu),
+                              (third, point(110.5, 25.55), pcb.In3_Cu),
+                              (point(110.5, 25.55), second, pcb.In3_Cu)):
+        track = pcb.PCB_TRACK(board)
+        track.SetStart(start)
+        track.SetEnd(end)
+        track.SetWidth(pcb.FromMM(0.2))
+        track.SetLayer(layer)
+        track.SetNet(resistor.GetNet())
+        board.Add(track)
+
+
 def route_everlight_row_anodes(board):
     """Link the eight Everlight anodes in each row with a front-copper trial trunk."""
     parts = {part.GetReference(): part for part in board.GetFootprints()}
@@ -500,6 +555,8 @@ def generate():
     route_e1_input(board)
     route_e1_output_capacitor(board)
     route_charger_input_cluster(board)
+    route_charger_ilim_resistor(board)
+    route_local_charger_ground(board)
     route_everlight_row_anodes(board)
     route_vled_switching_pair(board)
     assert pcb.SaveBoard(str(BOARD), board)
@@ -515,24 +572,26 @@ def generate():
     assert pcb.ToMM(charger_box.GetY() - jack_box.GetBottom()) >= 0.5
     tracks = [item for item in loaded.GetTracks() if not isinstance(item, pcb.PCB_VIA)]
     vias = [item for item in loaded.GetTracks() if isinstance(item, pcb.PCB_VIA)]
-    assert len(tracks) == 182 and len(vias) == 8
+    assert len(tracks) == 192 and len(vias) == 11
     rear = [track for track in tracks if track.GetLayer() == pcb.B_Cu]
     front = [track for track in tracks if track.GetLayer() == pcb.F_Cu]
     inner = [track for track in tracks if track.GetLayer() == pcb.In4_Cu]
-    assert len(rear) == 25 and len(front) == 147 and len(inner) == 10
+    ground_inner = [track for track in tracks if track.GetLayer() == pcb.In3_Cu]
+    assert len(rear) == 31 and len(front) == 147 and len(inner) == 10 and len(ground_inner) == 4
     assert {track.GetNetname() for track in rear} == {"E0_DVDT", "E1_DVDT", "E0_ILM", "E1_ILM",
                                                        "Net-(L2-~-Pad1)", "Net-(L2-~-Pad2)", "+5V_USB",
-                                                       "VBUS_CONNECTOR", "CHARGER_IN_DRAFT"}
+                                                       "VBUS_CONNECTOR", "CHARGER_IN_DRAFT", "CHARGER_ILIM", "GND"}
     assert {track.GetNetname() for track in front} == {f"ROW_{row:02d}_A" for row in range(16)} | {"VBUS_CONNECTOR"}
     assert {track.GetNetname() for track in inner} == {"+5V_USB", "VBUS_CONNECTOR", "CHARGER_IN_DRAFT"}
+    assert {track.GetNetname() for track in ground_inner} == {"GND"}
     assert all(track.GetWidth() == pcb.FromMM(0.2) for track in tracks)
     assert all(via.GetWidth(pcb.F_Cu) == pcb.FromMM(0.6) and via.GetDrillValue() == pcb.FromMM(0.3)
                for via in vias)
-    assert {via.GetNetname() for via in vias} == {"+5V_USB", "VBUS_CONNECTOR", "CHARGER_IN_DRAFT"}
+    assert {via.GetNetname() for via in vias} == {"+5V_USB", "VBUS_CONNECTOR", "CHARGER_IN_DRAFT", "GND"}
     if not project_existed and project_file.is_file():
         project_file.unlink()
     print(f"Staged and round-trip-checked {len(components)} exact footprints and {len(assigned)} unique numbered pad nets")
-    print("120 mm study: J1/E0/E1/U41 charger-input chain, eFuse support, VLED switching pair and 16 Everlight half-row trunks; other routing remains open")
+    print("120 mm study: J1/E0/E1/U41 charger-input chain, ILIM and local ground links, eFuse support, VLED switching pair and 16 Everlight half-row trunks; other routing remains open")
 
 
 if __name__ == "__main__":
