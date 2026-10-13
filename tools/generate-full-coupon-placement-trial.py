@@ -111,39 +111,44 @@ def align_courtyard(part, xy):
 
 
 def normalize(contents):
-    starts = [match.start() for match in re.finditer(r'\n\t\(footprint ', contents)]
-    assert len(starts) == 497
-    blocks = []
-    for start in starts:
-        depth = 0
-        quoted = escaped = False
-        for pos in range(start + 2, len(contents)):
-            char = contents[pos]
-            if quoted:
-                if escaped:
-                    escaped = False
-                elif char == "\\":
-                    escaped = True
+    def sort_native_blocks(contents, kind, expected, key):
+        starts = [match.start() for match in re.finditer(r'\n\t\(' + kind + r'(?=\s)', contents)]
+        assert len(starts) == expected, (kind, len(starts), expected)
+        blocks = []
+        for start in starts:
+            depth = 0
+            quoted = escaped = False
+            for pos in range(start + 2, len(contents)):
+                char = contents[pos]
+                if quoted:
+                    if escaped:
+                        escaped = False
+                    elif char == "\\":
+                        escaped = True
+                    elif char == '"':
+                        quoted = False
                 elif char == '"':
-                    quoted = False
-            elif char == '"':
-                quoted = True
-            elif char == '(':
-                depth += 1
-            elif char == ')':
-                depth -= 1
-                if depth == 0:
-                    blocks.append((start, pos + 1, contents[start:pos + 1]))
-                    break
-        else:
-            raise ValueError("Unclosed footprint in native board export")
-    assert all(not contents[a[1]:b[0]].strip() for a, b in zip(blocks, blocks[1:]))
+                    quoted = True
+                elif char == '(':
+                    depth += 1
+                elif char == ')':
+                    depth -= 1
+                    if depth == 0:
+                        blocks.append((start, pos + 1, contents[start:pos + 1]))
+                        break
+            else:
+                raise ValueError(f"Unclosed {kind} in native board export")
+        assert all(not contents[a[1]:b[0]].strip() for a, b in zip(blocks, blocks[1:]))
+        ordered = sorted((block[2] for block in blocks), key=key)
+        return contents[:blocks[0][0]] + ''.join(ordered) + contents[blocks[-1][1]:]
+
     def reference(block):
         match = re.search(r'\(property "Reference" "([^"]+)"', block)
         assert match
         return match.group(1)
-    ordered = sorted((block[2] for block in blocks), key=reference)
-    contents = contents[:blocks[0][0]] + ''.join(ordered) + contents[blocks[-1][1]:]
+    contents = sort_native_blocks(contents, "footprint", 497, reference)
+    contents = sort_native_blocks(contents, "segment", 152,
+                                  lambda block: re.sub(r'\(uuid "[0-9a-f-]{36}"\)', '', block))
     count = iter(range(contents.count('(uuid "')))
     updated = re.sub(r'\(uuid "[0-9a-f-]{36}"\)',
                      lambda _: '(uuid "' + str(uuid.uuid5(SCOPE, str(next(count)))) + '")',
