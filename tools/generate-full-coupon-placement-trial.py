@@ -76,7 +76,13 @@ def target(ref, boxes):
         return ((WIDTH - 15 * PITCH) / 2 + col * PITCH,
                 (HEIGHT - 15 * PITCH) / 2 + row * PITCH), None
     box = boxes["U1-project-1" if ref == "U1" else ref]
-    return ((box[0] + box[2]) / 2, (box[1] + box[3]) / 2), box
+    x, y = (box[0] + box[2]) / 2, (box[1] + box[3]) / 2
+    # Small native-DRC corrections to the first-fit courtyard coordinates.
+    if ref == "Q1":
+        y += 0.15
+    elif ref == "TP4":
+        x -= 0.15
+    return (x, y), box
 
 
 def align_courtyard(part, xy):

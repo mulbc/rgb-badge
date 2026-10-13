@@ -37155,7 +37155,7 @@
 	(footprint "rgb-badge-coupon:SC59_Diodes_DMP2066LSN"
 		(layer "B.Cu")
 		(uuid "cc16659f-1cbc-558e-8a32-1a0258c778fd")
-		(at 80 2.125 180)
+		(at 80 2.275 180)
 		(descr "Diodes Incorporated SC-59 suggested pad layout for DMP2066LSN; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q1"
 			(at 0 2.15 0)
@@ -50610,8 +50610,8 @@
 			(uuid "726033dd-a5d6-535a-ac4d-7845d799e506")
 		)
 		(fp_circle
-			(center -2.05 1.25)
-			(end -1.9 1.25)
+			(center -2.05 0.65)
+			(end -1.9 0.65)
 			(stroke
 				(width 0.1)
 				(type default)
@@ -52578,7 +52578,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "327605d7-a675-564c-b5c6-9c8415071c36")
-		(at 119.001261 30.25 180)
+		(at 118.851261 30.25 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP4"
 			(at 0 1.15 0)
@@ -55054,8 +55054,8 @@
 			(uuid "5273e732-e494-5bef-b91a-323a39f467a2")
 		)
 		(fp_circle
-			(center -9.35 8.26)
-			(end -9.15 8.26)
+			(center -9.4 9.15)
+			(end -9.2 9.15)
 			(stroke
 				(width 0.1)
 				(type default)
