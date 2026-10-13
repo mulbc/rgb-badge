@@ -55,6 +55,12 @@ def source():
         fixed["C62"] = fit.box(101.0, 13.25, 2.5, 1.5)
         fixed["C52"] = fit.box(108.0, 18.25, 2.5, 1.5)
         fixed["C57"] = fit.box(101.0, 18.25, 2.5, 1.5)
+        fixed["R99"] = fit.box(101.0, 11.25, 2.5, 1.5)
+        fixed["R100"] = fit.box(101.0, 15.25, 2.5, 1.5)
+        fixed["R97"] = fit.box(98.0, 13.25, 2.5, 1.5)
+        fixed["R98"] = fit.box(98.0, 15.25, 2.5, 1.5)
+        fixed["R96"] = fit.box(101.0, 16.75, 2.5, 1.5)
+        fixed["U50"] = fit.box(94.25, 29.5, 2.5, 2.5)
         placement = fit.place(rear, "canonical 32 separate row FETs", "area first",
                               fixed, pack, sensor, board_width=WIDTH)
     components = {part.get("ref"): part for part in root.findall("./components/comp")}

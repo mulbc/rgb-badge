@@ -1800,7 +1800,7 @@
 	(footprint "rgb-badge-coupon:C_Murata_GRM21_0805"
 		(layer "B.Cu")
 		(uuid "e68ba0f8-bb28-591c-a2bb-4f763ef2b42f")
-		(at 101.125 30 180)
+		(at 2.125 31 180)
 		(descr "GRM21 0805 reflow land, midpoint of Murata GRM219R60J476ME44 recommended ranges; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "C42"
 			(at 0 1.55 0)
@@ -1895,7 +1895,7 @@
 	(footprint "rgb-badge-coupon:C_Murata_GRM21_0805"
 		(layer "B.Cu")
 		(uuid "858d232b-de6f-585e-9417-b23c4c80be56")
-		(at 105.375 30 180)
+		(at 6.375 31 180)
 		(descr "GRM21 0805 reflow land, midpoint of Murata GRM219R60J476ME44 recommended ranges; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "C43"
 			(at 0 1.55 0)
@@ -36965,7 +36965,7 @@
 	(footprint "rgb-badge-coupon:L_Murata_DFE252012P"
 		(layer "B.Cu")
 		(uuid "a807d3a0-1a14-5cc0-88a9-3d4a85bb43ab")
-		(at 101 16.375 180)
+		(at 101 29.625 180)
 		(descr "Murata DFE252012P 2.8 x 2.0 mm recommended lands, 1.2 mm inner gap; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "L1"
 			(at 0 1.7 0)
@@ -37060,7 +37060,7 @@
 	(footprint "rgb-badge-coupon:L_Murata_DFE252012P"
 		(layer "B.Cu")
 		(uuid "9b158c75-b387-55e4-b150-47013c0a2ad6")
-		(at 22.25 28.875 180)
+		(at 109 29.625 180)
 		(descr "Murata DFE252012P 2.8 x 2.0 mm recommended lands, 1.2 mm inner gap; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "L2"
 			(at 0 1.7 0)
@@ -37590,7 +37590,7 @@
 	(footprint "rgb-badge-coupon:SC59_Diodes_DMP2066LSN"
 		(layer "B.Cu")
 		(uuid "84ea4a1a-414c-5747-8f03-d871a00170d4")
-		(at 22.25 12.625 180)
+		(at 26.5 12.625 180)
 		(descr "Diodes Incorporated SC-59 suggested pad layout for DMP2066LSN; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q12"
 			(at 0 2.15 0)
@@ -37735,7 +37735,7 @@
 	(footprint "rgb-badge-coupon:SC59_Diodes_DMP2066LSN"
 		(layer "B.Cu")
 		(uuid "4b89bb27-5d7d-5d34-8a63-331f533f92c4")
-		(at 26.25 12.625 180)
+		(at 80 14.875 180)
 		(descr "Diodes Incorporated SC-59 suggested pad layout for DMP2066LSN; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q13"
 			(at 0 2.15 0)
@@ -37880,7 +37880,7 @@
 	(footprint "rgb-badge-coupon:SC59_Diodes_DMP2066LSN"
 		(layer "B.Cu")
 		(uuid "97158270-83c2-5bdd-bc77-f8efd9715504")
-		(at 80 14.875 180)
+		(at 93 14.875 180)
 		(descr "Diodes Incorporated SC-59 suggested pad layout for DMP2066LSN; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q14"
 			(at 0 2.15 0)
@@ -38025,7 +38025,7 @@
 	(footprint "rgb-badge-coupon:SC59_Diodes_DMP2066LSN"
 		(layer "B.Cu")
 		(uuid "edb21cf5-1448-564f-9534-de68141fe4b4")
-		(at 93 14.875 180)
+		(at 22.25 16.875 180)
 		(descr "Diodes Incorporated SC-59 suggested pad layout for DMP2066LSN; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q15"
 			(at 0 2.15 0)
@@ -38170,7 +38170,7 @@
 	(footprint "rgb-badge-coupon:SC59_Diodes_DMP2066LSN"
 		(layer "B.Cu")
 		(uuid "e54821ac-b5d8-5b4d-bb57-42c85820382c")
-		(at 97 14.875 180)
+		(at 26.25 16.875 180)
 		(descr "Diodes Incorporated SC-59 suggested pad layout for DMP2066LSN; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q16"
 			(at 0 2.15 0)
@@ -38315,7 +38315,7 @@
 	(footprint "rgb-badge-coupon:SOT23_Diodes_2N7002K"
 		(layer "B.Cu")
 		(uuid "9dd69aef-4ea9-5fcf-98c6-b1495807ab25")
-		(at 105 22.75 180)
+		(at 80 23.25 180)
 		(descr "Diodes Incorporated SOT23 suggested pad layout for 2N7002K; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q17"
 			(at 0 1.95 0)
@@ -38460,7 +38460,7 @@
 	(footprint "rgb-badge-coupon:SOT23_Diodes_2N7002K"
 		(layer "B.Cu")
 		(uuid "4acf1373-3057-56d5-8f0e-f9306ffba4f0")
-		(at 80 23.25 180)
+		(at 93 23.25 180)
 		(descr "Diodes Incorporated SOT23 suggested pad layout for 2N7002K; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q18"
 			(at 0 1.95 0)
@@ -38605,7 +38605,7 @@
 	(footprint "rgb-badge-coupon:SOT23_Diodes_2N7002K"
 		(layer "B.Cu")
 		(uuid "5f8f7e82-91d4-5c76-8182-28c7531cefca")
-		(at 93 23.25 180)
+		(at 113.5 24.75 180)
 		(descr "Diodes Incorporated SOT23 suggested pad layout for 2N7002K; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q19"
 			(at 0 1.95 0)
@@ -38750,7 +38750,7 @@
 	(footprint "rgb-badge-coupon:SC59_Diodes_DMP2066LSN"
 		(layer "B.Cu")
 		(uuid "b574ab11-0e91-55b5-8acc-79cfbf7a3f83")
-		(at 22.25 16.875 180)
+		(at 97 18.875 180)
 		(descr "Diodes Incorporated SC-59 suggested pad layout for DMP2066LSN; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q2"
 			(at 0 2.15 0)
@@ -38895,7 +38895,7 @@
 	(footprint "rgb-badge-coupon:SOT23_Diodes_2N7002K"
 		(layer "B.Cu")
 		(uuid "4eb7e679-4fa3-5ec9-9df0-f4e3479cd81f")
-		(at 97 23.25 180)
+		(at 117.5 24.75 180)
 		(descr "Diodes Incorporated SOT23 suggested pad layout for 2N7002K; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q20"
 			(at 0 1.95 0)
@@ -39040,7 +39040,7 @@
 	(footprint "rgb-badge-coupon:SOT23_Diodes_2N7002K"
 		(layer "B.Cu")
 		(uuid "e70c519c-b93e-5c92-8b76-4889ad92ce2d")
-		(at 113.5 24.75 180)
+		(at 22.25 25.25 180)
 		(descr "Diodes Incorporated SOT23 suggested pad layout for 2N7002K; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q21"
 			(at 0 1.95 0)
@@ -39185,7 +39185,7 @@
 	(footprint "rgb-badge-coupon:SOT23_Diodes_2N7002K"
 		(layer "B.Cu")
 		(uuid "92c742ea-796f-5944-a09f-eb20d6de9b9b")
-		(at 117.5 24.75 180)
+		(at 26.25 25.25 180)
 		(descr "Diodes Incorporated SOT23 suggested pad layout for 2N7002K; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q22"
 			(at 0 1.95 0)
@@ -39330,7 +39330,7 @@
 	(footprint "rgb-badge-coupon:SOT23_Diodes_2N7002K"
 		(layer "B.Cu")
 		(uuid "e868e94f-184f-5617-974d-8662d6f723bd")
-		(at 22.25 25.25 180)
+		(at 101 26 180)
 		(descr "Diodes Incorporated SOT23 suggested pad layout for 2N7002K; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q23"
 			(at 0 1.95 0)
@@ -39475,7 +39475,7 @@
 	(footprint "rgb-badge-coupon:SOT23_Diodes_2N7002K"
 		(layer "B.Cu")
 		(uuid "a7a1b4a4-db1d-5389-9bc4-520dec059d18")
-		(at 26.25 25.25 180)
+		(at 109 26 180)
 		(descr "Diodes Incorporated SOT23 suggested pad layout for 2N7002K; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q24"
 			(at 0 1.95 0)
@@ -39620,7 +39620,7 @@
 	(footprint "rgb-badge-coupon:SOT23_Diodes_2N7002K"
 		(layer "B.Cu")
 		(uuid "d4b966f9-4be9-5d09-9af6-3644218f80a9")
-		(at 101 26 180)
+		(at 105 27 180)
 		(descr "Diodes Incorporated SOT23 suggested pad layout for 2N7002K; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q25"
 			(at 0 1.95 0)
@@ -39765,7 +39765,7 @@
 	(footprint "rgb-badge-coupon:SOT23_Diodes_2N7002K"
 		(layer "B.Cu")
 		(uuid "8ed62a98-1352-5ec9-9cf1-4e89c86b54dc")
-		(at 109 26 180)
+		(at 80 27.25 180)
 		(descr "Diodes Incorporated SOT23 suggested pad layout for 2N7002K; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q26"
 			(at 0 1.95 0)
@@ -39910,7 +39910,7 @@
 	(footprint "rgb-badge-coupon:SOT23_Diodes_2N7002K"
 		(layer "B.Cu")
 		(uuid "b7aae0a0-fe42-5b66-a0a7-3287c7e00a8e")
-		(at 105 26.75 180)
+		(at 93 27.25 180)
 		(descr "Diodes Incorporated SOT23 suggested pad layout for 2N7002K; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q27"
 			(at 0 1.95 0)
@@ -40055,7 +40055,7 @@
 	(footprint "rgb-badge-coupon:SOT23_Diodes_2N7002K"
 		(layer "B.Cu")
 		(uuid "1aad928f-bfb9-5647-b3f5-85b88de58060")
-		(at 80 27.25 180)
+		(at 97 27.25 180)
 		(descr "Diodes Incorporated SOT23 suggested pad layout for 2N7002K; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q28"
 			(at 0 1.95 0)
@@ -40200,7 +40200,7 @@
 	(footprint "rgb-badge-coupon:SOT23_Diodes_2N7002K"
 		(layer "B.Cu")
 		(uuid "81ada4be-ada8-5694-ba14-de9a46971137")
-		(at 93 27.25 180)
+		(at 113 28.75 180)
 		(descr "Diodes Incorporated SOT23 suggested pad layout for 2N7002K; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q29"
 			(at 0 1.95 0)
@@ -40345,7 +40345,7 @@
 	(footprint "rgb-badge-coupon:SC59_Diodes_DMP2066LSN"
 		(layer "B.Cu")
 		(uuid "8e7b061f-c044-51e7-94e3-eeb9303efc82")
-		(at 26.25 16.875 180)
+		(at 80 19.125 180)
 		(descr "Diodes Incorporated SC-59 suggested pad layout for DMP2066LSN; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q3"
 			(at 0 2.15 0)
@@ -40490,7 +40490,7 @@
 	(footprint "rgb-badge-coupon:SOT23_Diodes_2N7002K"
 		(layer "B.Cu")
 		(uuid "581fb462-899d-5d86-ad14-bb2b8369c731")
-		(at 97 27.25 180)
+		(at 117 28.75 180)
 		(descr "Diodes Incorporated SOT23 suggested pad layout for 2N7002K; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q30"
 			(at 0 1.95 0)
@@ -40635,7 +40635,7 @@
 	(footprint "rgb-badge-coupon:SOT23_Diodes_2N7002K"
 		(layer "B.Cu")
 		(uuid "d18baf2e-0524-58a8-822a-00ad9c475acc")
-		(at 113 28.75 180)
+		(at 22.25 29.25 180)
 		(descr "Diodes Incorporated SOT23 suggested pad layout for 2N7002K; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q31"
 			(at 0 1.95 0)
@@ -40780,7 +40780,7 @@
 	(footprint "rgb-badge-coupon:SOT23_Diodes_2N7002K"
 		(layer "B.Cu")
 		(uuid "4d7072dc-735a-5946-8037-b01de5ce9904")
-		(at 117 28.75 180)
+		(at 26.25 29.25 180)
 		(descr "Diodes Incorporated SOT23 suggested pad layout for 2N7002K; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q32"
 			(at 0 1.95 0)
@@ -40925,7 +40925,7 @@
 	(footprint "rgb-badge-coupon:SC59_Diodes_DMP2066LSN"
 		(layer "B.Cu")
 		(uuid "ec36a31f-4143-5ede-a9d2-0d2bdfb9ebe5")
-		(at 80 19.125 180)
+		(at 93 19.125 180)
 		(descr "Diodes Incorporated SC-59 suggested pad layout for DMP2066LSN; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q4"
 			(at 0 2.15 0)
@@ -41070,7 +41070,7 @@
 	(footprint "rgb-badge-coupon:SC59_Diodes_DMP2066LSN"
 		(layer "B.Cu")
 		(uuid "18009b1f-c51d-5e6a-80b8-78a21baecfc6")
-		(at 93 19.125 180)
+		(at 22.25 21.125 180)
 		(descr "Diodes Incorporated SC-59 suggested pad layout for DMP2066LSN; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q5"
 			(at 0 2.15 0)
@@ -41215,7 +41215,7 @@
 	(footprint "rgb-badge-coupon:SC59_Diodes_DMP2066LSN"
 		(layer "B.Cu")
 		(uuid "e05fc521-764f-5aa1-9f3c-bcb0e299fa18")
-		(at 97 19.125 180)
+		(at 26.25 21.125 180)
 		(descr "Diodes Incorporated SC-59 suggested pad layout for DMP2066LSN; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q6"
 			(at 0 2.15 0)
@@ -41360,7 +41360,7 @@
 	(footprint "rgb-badge-coupon:SC59_Diodes_DMP2066LSN"
 		(layer "B.Cu")
 		(uuid "22c39b83-cd37-57e5-8157-66ab70a352ea")
-		(at 22.25 21.125 180)
+		(at 101 21.875 180)
 		(descr "Diodes Incorporated SC-59 suggested pad layout for DMP2066LSN; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q7"
 			(at 0 2.15 0)
@@ -41505,7 +41505,7 @@
 	(footprint "rgb-badge-coupon:SC59_Diodes_DMP2066LSN"
 		(layer "B.Cu")
 		(uuid "39c739f3-ff6c-5a0f-acf4-a6f3b55203db")
-		(at 26.25 21.125 180)
+		(at 109.5 21.875 180)
 		(descr "Diodes Incorporated SC-59 suggested pad layout for DMP2066LSN; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q8"
 			(at 0 2.15 0)
@@ -41650,7 +41650,7 @@
 	(footprint "rgb-badge-coupon:SC59_Diodes_DMP2066LSN"
 		(layer "B.Cu")
 		(uuid "74113d1d-8ba4-5f4f-8f4a-42e5f7ad9057")
-		(at 101 21.875 180)
+		(at 105 22.875 180)
 		(descr "Diodes Incorporated SC-59 suggested pad layout for DMP2066LSN; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "Q9"
 			(at 0 2.15 0)
@@ -41985,7 +41985,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "3737440b-7f1d-5a36-9b1b-965f8cb71351")
-		(at 72.25 4.25 180)
+		(at 102.25 16 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R100"
 			(at 0 1 0)
@@ -42080,7 +42080,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "eed26227-e2a8-5921-bde3-568a06935c42")
-		(at 74.75 4.25 180)
+		(at 72.25 4.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R101"
 			(at 0 1 0)
@@ -42175,7 +42175,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "a7a39b69-34f0-5264-ae03-c18a429f1209")
-		(at 32.25 5.75 180)
+		(at 74.75 4.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R102"
 			(at 0 1 0)
@@ -42270,7 +42270,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "9b22b5ed-49b6-54f8-866e-4117a50bae3f")
-		(at 34.75 5.75 180)
+		(at 32.25 5.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R103"
 			(at 0 1 0)
@@ -42365,7 +42365,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "4286ba6f-d289-5e09-ba2d-65360419b9a4")
-		(at 37.25 5.75 180)
+		(at 34.75 5.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R104"
 			(at 0 1 0)
@@ -42460,7 +42460,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "cccb14b8-bbde-5ccc-afe1-57f02d3eb9f1")
-		(at 39.75 5.75 180)
+		(at 37.25 5.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R105"
 			(at 0 1 0)
@@ -42555,7 +42555,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "27b8032e-f7de-5cff-b21a-5197c8dd7e23")
-		(at 42.25 5.75 180)
+		(at 39.75 5.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R106"
 			(at 0 1 0)
@@ -42650,7 +42650,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "17a028d6-7663-5858-9687-28167154f448")
-		(at 44.75 5.75 180)
+		(at 42.25 5.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R107"
 			(at 0 1 0)
@@ -42745,7 +42745,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "04e657d8-9d72-5d78-bcd1-609f0373c5fc")
-		(at 47.25 5.75 180)
+		(at 44.75 5.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R108"
 			(at 0 1 0)
@@ -42840,7 +42840,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "ccc35e6d-54a9-5aa6-8d65-075983bdadae")
-		(at 49.75 5.75 180)
+		(at 47.25 5.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R109"
 			(at 0 1 0)
@@ -42935,7 +42935,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "c73160e3-b8b1-5978-b65d-9033e77948e5")
-		(at 52.25 5.75 180)
+		(at 49.75 5.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R11"
 			(at 0 1 0)
@@ -43030,7 +43030,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "bc37d138-cfe7-5bf0-a34a-bcd4411e2887")
-		(at 54.75 5.75 180)
+		(at 52.25 5.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R110"
 			(at 0 1 0)
@@ -43125,7 +43125,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "a7bf0820-9e25-5fff-9b89-49d9b1c5caf5")
-		(at 57.25 5.75 180)
+		(at 54.75 5.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R111"
 			(at 0 1 0)
@@ -43220,7 +43220,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "4ed61069-f8e1-52f2-8645-aab1a88383ed")
-		(at 59.75 5.75 180)
+		(at 57.25 5.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R112"
 			(at 0 1 0)
@@ -43315,7 +43315,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "e8d1a2bf-67eb-53e2-b206-f021052d06a4")
-		(at 62.25 5.75 180)
+		(at 59.75 5.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R113"
 			(at 0 1 0)
@@ -43410,7 +43410,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "0805b3a5-b436-58f1-b317-f109786c4353")
-		(at 64.75 5.75 180)
+		(at 62.25 5.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R12"
 			(at 0 1 0)
@@ -43505,7 +43505,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "67851382-bb4a-524d-bf5d-97ee1212b8ec")
-		(at 67.25 5.75 180)
+		(at 64.75 5.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R13"
 			(at 0 1 0)
@@ -43600,7 +43600,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "25bad6bd-b2dc-5ad8-8799-480643a3b551")
-		(at 69.75 5.75 180)
+		(at 67.25 5.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R14"
 			(at 0 1 0)
@@ -43695,7 +43695,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "f0cb1990-1e75-5fb6-ab4b-5182cb22b132")
-		(at 72.25 5.75 180)
+		(at 69.75 5.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R15"
 			(at 0 1 0)
@@ -43790,7 +43790,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "0a75a03a-0063-59f4-9f3b-6b50002941b9")
-		(at 74.75 5.75 180)
+		(at 72.25 5.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R16"
 			(at 0 1 0)
@@ -43885,7 +43885,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "a415aa02-7c4e-5566-ada7-753d091b51ec")
-		(at 32.25 7.25 180)
+		(at 74.75 5.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R17"
 			(at 0 1 0)
@@ -43980,7 +43980,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "dfe9a6c8-8816-537c-92ab-25c673552d6d")
-		(at 34.75 7.25 180)
+		(at 32.25 7.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R18"
 			(at 0 1 0)
@@ -44075,7 +44075,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "c7beba2e-0a9a-52f9-ac1c-fcb0b9ee552e")
-		(at 37.25 7.25 180)
+		(at 34.75 7.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R19"
 			(at 0 1 0)
@@ -44170,7 +44170,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "60b48236-7556-59ab-89d0-6c4b40e001fe")
-		(at 39.75 7.25 180)
+		(at 37.25 7.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R2"
 			(at 0 1 0)
@@ -44265,7 +44265,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "cff367ee-268e-5150-a6e5-aad31c975799")
-		(at 42.25 7.25 180)
+		(at 39.75 7.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R20"
 			(at 0 1 0)
@@ -44360,7 +44360,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "e47a5b5a-8589-5777-aa78-2279efee77bc")
-		(at 44.75 7.25 180)
+		(at 42.25 7.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R21"
 			(at 0 1 0)
@@ -44455,7 +44455,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "ca9f0fb4-b8d2-5006-ad48-4b8518694878")
-		(at 47.25 7.25 180)
+		(at 44.75 7.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R22"
 			(at 0 1 0)
@@ -44550,7 +44550,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "9dec7a8c-728f-51b9-b895-9a7f6469f069")
-		(at 49.75 7.25 180)
+		(at 47.25 7.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R23"
 			(at 0 1 0)
@@ -44645,7 +44645,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "7e8dd07d-22ce-5b05-a72b-bf235b1e8999")
-		(at 52.25 7.25 180)
+		(at 49.75 7.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R24"
 			(at 0 1 0)
@@ -44740,7 +44740,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "552d31d7-b2f7-580c-be34-79f60ea30ede")
-		(at 54.75 7.25 180)
+		(at 52.25 7.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R25"
 			(at 0 1 0)
@@ -44835,7 +44835,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "43dece82-557f-5aa0-9fe4-e1dd9ea817aa")
-		(at 57.25 7.25 180)
+		(at 54.75 7.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R26"
 			(at 0 1 0)
@@ -44930,7 +44930,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "c2e554d7-461d-5d2c-a16b-52524f25e6ca")
-		(at 59.75 7.25 180)
+		(at 57.25 7.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R27"
 			(at 0 1 0)
@@ -45025,7 +45025,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "a7efc796-8834-5e37-9f29-f733dfda360c")
-		(at 62.25 7.25 180)
+		(at 59.75 7.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R28"
 			(at 0 1 0)
@@ -45120,7 +45120,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "c5388604-208b-51b0-85bc-8cb6b52fdd98")
-		(at 64.75 7.25 180)
+		(at 62.25 7.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R29"
 			(at 0 1 0)
@@ -45215,7 +45215,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "f4fd555c-6b57-56ba-b26b-e5d02f6cbe0b")
-		(at 67.25 7.25 180)
+		(at 64.75 7.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R3"
 			(at 0 1 0)
@@ -45310,7 +45310,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "c22daae2-54f1-5b63-aefd-e4ac4430e198")
-		(at 69.75 7.25 180)
+		(at 67.25 7.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R30"
 			(at 0 1 0)
@@ -45405,7 +45405,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "89caf868-c40d-5758-83e3-05feb900228d")
-		(at 72.25 7.25 180)
+		(at 69.75 7.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R31"
 			(at 0 1 0)
@@ -45500,7 +45500,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "32589725-efbd-50ac-85fc-b7edffd3224b")
-		(at 74.75 7.25 180)
+		(at 72.25 7.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R32"
 			(at 0 1 0)
@@ -45595,7 +45595,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "c71a2f01-6b6b-5b9f-8e1b-42c77569e6bb")
-		(at 32.25 8.75 180)
+		(at 74.75 7.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R33"
 			(at 0 1 0)
@@ -45690,7 +45690,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "598e911c-c852-5d7b-a9b3-76b91d697a46")
-		(at 34.75 8.75 180)
+		(at 32.25 8.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R34"
 			(at 0 1 0)
@@ -45785,7 +45785,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "b5ca955e-db66-59c1-beef-8c9c1e576daf")
-		(at 37.25 8.75 180)
+		(at 34.75 8.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R35"
 			(at 0 1 0)
@@ -45880,7 +45880,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "8c1917b0-3942-58ad-a409-c370c7356869")
-		(at 39.75 8.75 180)
+		(at 37.25 8.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R36"
 			(at 0 1 0)
@@ -45975,7 +45975,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "1f573669-8e06-55ea-a2b5-a9740353405d")
-		(at 42.25 8.75 180)
+		(at 39.75 8.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R37"
 			(at 0 1 0)
@@ -46070,7 +46070,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "bcdd4844-848c-50c3-9cdd-149ceae8be3a")
-		(at 44.75 8.75 180)
+		(at 42.25 8.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R38"
 			(at 0 1 0)
@@ -46165,7 +46165,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "92fadfa2-2bb4-58f0-b4b1-513bc98cb89e")
-		(at 47.25 8.75 180)
+		(at 44.75 8.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R39"
 			(at 0 1 0)
@@ -46260,7 +46260,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "a3971360-ab93-5817-9f50-4e11440201e0")
-		(at 49.75 8.75 180)
+		(at 47.25 8.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R4"
 			(at 0 1 0)
@@ -46355,7 +46355,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "411b5b60-b9c8-5a7a-b529-cf5ba0d6bd23")
-		(at 52.25 8.75 180)
+		(at 49.75 8.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R40"
 			(at 0 1 0)
@@ -46450,7 +46450,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "706bb0b3-8377-50ba-b0ad-4d55ba15b006")
-		(at 54.75 8.75 180)
+		(at 52.25 8.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R41"
 			(at 0 1 0)
@@ -46545,7 +46545,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "5ad2836d-e5f9-5f06-b440-780d2bc6fe09")
-		(at 57.25 8.75 180)
+		(at 54.75 8.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R42"
 			(at 0 1 0)
@@ -46640,7 +46640,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "16146178-4e9b-5a54-b0a9-df7b0868d24e")
-		(at 59.75 8.75 180)
+		(at 57.25 8.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R43"
 			(at 0 1 0)
@@ -46735,7 +46735,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "78b60990-2b1a-5d4a-98e0-95dee7070350")
-		(at 62.25 8.75 180)
+		(at 59.75 8.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R44"
 			(at 0 1 0)
@@ -46830,7 +46830,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "6536de5f-4970-5397-9705-c35eb7b2d0bd")
-		(at 64.75 8.75 180)
+		(at 62.25 8.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R45"
 			(at 0 1 0)
@@ -46925,7 +46925,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "04bcb11c-c93f-5773-b007-e50ce06c80f9")
-		(at 67.25 8.75 180)
+		(at 64.75 8.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R46"
 			(at 0 1 0)
@@ -47020,7 +47020,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "05d6f818-26ab-550e-8d66-3d11dc08e2d0")
-		(at 69.75 8.75 180)
+		(at 67.25 8.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R47"
 			(at 0 1 0)
@@ -47115,7 +47115,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "0d8aeafb-5653-5cb4-92ef-026c7a44b793")
-		(at 72.25 8.75 180)
+		(at 69.75 8.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R5"
 			(at 0 1 0)
@@ -47210,7 +47210,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "42e57096-829e-5940-ae39-430e8f6eca57")
-		(at 74.75 8.75 180)
+		(at 72.25 8.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R6"
 			(at 0 1 0)
@@ -47305,7 +47305,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "918f5298-57ef-554c-8ef8-ec3814c7b76e")
-		(at 32.25 10.25 180)
+		(at 74.75 8.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R60"
 			(at 0 1 0)
@@ -47400,7 +47400,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "b36e3a43-8201-5274-b512-cace16b20ee8")
-		(at 34.75 10.25 180)
+		(at 32.25 10.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R61"
 			(at 0 1 0)
@@ -47495,7 +47495,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "221ea59b-4694-5947-aeaa-cc60874d7205")
-		(at 37.25 10.25 180)
+		(at 34.75 10.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R62"
 			(at 0 1 0)
@@ -47590,7 +47590,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "6ddc8e59-e94a-511f-91ad-4574c352f843")
-		(at 39.75 10.25 180)
+		(at 37.25 10.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R63"
 			(at 0 1 0)
@@ -47685,7 +47685,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "56da1080-1cd6-516d-8dd3-4c589636b47d")
-		(at 42.25 10.25 180)
+		(at 39.75 10.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R7"
 			(at 0 1 0)
@@ -47780,7 +47780,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "616a9095-28ef-5b87-8b4c-ce201d9702be")
-		(at 44.75 10.25 180)
+		(at 42.25 10.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R70"
 			(at 0 1 0)
@@ -47875,7 +47875,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "c7f2c8d4-084d-5ad5-86e6-4861bcf812e2")
-		(at 47.25 10.25 180)
+		(at 44.75 10.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R71"
 			(at 0 1 0)
@@ -47970,7 +47970,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "2f68a6ac-e9c5-5c42-96b8-1bb0be98d668")
-		(at 49.75 10.25 180)
+		(at 47.25 10.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R75"
 			(at 0 1 0)
@@ -48065,7 +48065,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "9d7e5087-4686-5d0d-8bbb-9946f3d6a4b3")
-		(at 52.25 10.25 180)
+		(at 49.75 10.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R76"
 			(at 0 1 0)
@@ -48160,7 +48160,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "b7ea5604-d1a4-5d15-8925-d6e6e72c8ffe")
-		(at 54.75 10.25 180)
+		(at 52.25 10.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R77"
 			(at 0 1 0)
@@ -48255,7 +48255,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "14a6be1e-111e-553c-8306-3d99ba033eb0")
-		(at 57.25 10.25 180)
+		(at 54.75 10.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R78"
 			(at 0 1 0)
@@ -48350,7 +48350,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "0823fa70-5e98-56e2-acec-d62fda28de39")
-		(at 59.75 10.25 180)
+		(at 57.25 10.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R79"
 			(at 0 1 0)
@@ -48445,7 +48445,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "28d9881e-3b6e-5b98-a8e5-a1542113df28")
-		(at 62.25 10.25 180)
+		(at 59.75 10.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R8"
 			(at 0 1 0)
@@ -48540,7 +48540,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "d774db54-4347-5c7e-b7b5-60e5a42e002e")
-		(at 64.75 10.25 180)
+		(at 62.25 10.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R80"
 			(at 0 1 0)
@@ -48635,7 +48635,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "913aab00-365b-52f6-aa12-f20fd543a085")
-		(at 67.25 10.25 180)
+		(at 64.75 10.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R81"
 			(at 0 1 0)
@@ -48730,7 +48730,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "23b744fc-d4ee-560c-87ae-a80a353a6c2f")
-		(at 69.75 10.25 180)
+		(at 67.25 10.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R82"
 			(at 0 1 0)
@@ -48825,7 +48825,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "d0a923f2-d423-58e6-936e-5f0dc6439331")
-		(at 72.25 10.25 180)
+		(at 69.75 10.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R83"
 			(at 0 1 0)
@@ -48920,7 +48920,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "a46c65da-5158-5bf2-9f1f-4f4834d3dd0d")
-		(at 74.75 10.25 180)
+		(at 72.25 10.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R84"
 			(at 0 1 0)
@@ -49015,7 +49015,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "71915fc9-2fec-57dc-9ac5-4c90c200c342")
-		(at 32.25 11.75 180)
+		(at 74.75 10.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R85"
 			(at 0 1 0)
@@ -49110,7 +49110,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "e0c1537e-aab3-5f44-be3b-b41eb45cb24f")
-		(at 34.75 11.75 180)
+		(at 32.25 11.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R86"
 			(at 0 1 0)
@@ -49205,7 +49205,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "7c1c5bb7-9512-52df-9036-354660e640c8")
-		(at 37.25 11.75 180)
+		(at 34.75 11.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R87"
 			(at 0 1 0)
@@ -49300,7 +49300,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "ff76a932-6be9-5b81-82a5-00a4bdab8370")
-		(at 39.75 11.75 180)
+		(at 37.25 11.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R88"
 			(at 0 1 0)
@@ -49395,7 +49395,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "9a588f4b-2fc8-5363-94eb-ef20a138d6c1")
-		(at 42.25 11.75 180)
+		(at 39.75 11.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R89"
 			(at 0 1 0)
@@ -49490,7 +49490,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "ac640035-c83e-52a4-b73b-dadd4044ee16")
-		(at 44.75 11.75 180)
+		(at 42.25 11.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R9"
 			(at 0 1 0)
@@ -49585,7 +49585,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "eac9a4a8-8773-55fd-9bd9-2407972e68bf")
-		(at 47.25 11.75 180)
+		(at 44.75 11.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R90"
 			(at 0 1 0)
@@ -49680,7 +49680,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "66d40e4b-a45c-506a-9df9-2db2e828ff6d")
-		(at 60.75 11.75 180)
+		(at 47.25 11.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R91"
 			(at 0 1 0)
@@ -49775,7 +49775,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERA2_0402"
 		(layer "B.Cu")
 		(uuid "3b0e479c-1ba8-5164-a93a-d0873a693e6d")
-		(at 63.25 11.875 180)
+		(at 60.75 11.875 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R92"
 			(at 0 1 0)
@@ -49870,7 +49870,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERA2_0402"
 		(layer "B.Cu")
 		(uuid "a1d644ae-ccab-5e41-a791-2c460a80e0d2")
-		(at 65.75 11.875 180)
+		(at 63.25 11.875 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R93"
 			(at 0 1 0)
@@ -49965,7 +49965,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "e6aa31ae-febf-5523-8000-58650ca29649")
-		(at 68.25 11.75 180)
+		(at 65.75 11.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R94"
 			(at 0 1 0)
@@ -50060,7 +50060,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "f6c63240-5c56-5a24-82fa-213a91833cb2")
-		(at 70.75 11.75 180)
+		(at 68.25 11.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R95"
 			(at 0 1 0)
@@ -50155,7 +50155,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "52379ccc-4583-53c6-886b-ea32572aa6c1")
-		(at 73.25 11.75 180)
+		(at 102.25 17.5 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R96"
 			(at 0 1 0)
@@ -50250,7 +50250,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "ec4df099-ea34-5e6d-9784-5e3f57e52fcc")
-		(at 75.75 11.75 180)
+		(at 99.25 14 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R97"
 			(at 0 1 0)
@@ -50345,7 +50345,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "f797faa6-6fd4-5ba0-9770-e463b9c7c30e")
-		(at 32.25 13.25 180)
+		(at 99.25 16 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R98"
 			(at 0 1 0)
@@ -50440,7 +50440,7 @@
 	(footprint "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
 		(layer "B.Cu")
 		(uuid "d0962c88-2600-585f-af1f-14e4bdeac9c7")
-		(at 34.75 13.25 180)
+		(at 102.25 12 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "R99"
 			(at 0 1 0)
@@ -50899,7 +50899,7 @@
 	(footprint "rgb-badge-coupon:NTC_Murata_NCU15_0402"
 		(layer "B.Cu")
 		(uuid "daa995b5-fbc5-5896-b410-dc30d4fdeb93")
-		(at 37.125 13.375 180)
+		(at 70.625 11.875 180)
 		(descr "Murata NCU15 1005 NTC, reflow land a=0.4 b=0.45 c=0.5 mm; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TH1"
 			(at 0 1.3 0)
@@ -51258,7 +51258,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "a5015439-f7e5-5180-9e2b-f476421f7d4c")
-		(at 100.001261 13.75 180)
+		(at 29.501261 11.5 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP12"
 			(at 0 1.15 0)
@@ -51346,7 +51346,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "048732b5-d1a1-5749-a4e9-aed6d89139ee")
-		(at 29.251261 20.25 180)
+		(at 29.501261 13.5 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP13"
 			(at 0 1.15 0)
@@ -51434,7 +51434,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "a315e029-f7da-55f7-93ed-69f89ec1feee")
-		(at 83.001261 21.75 180)
+		(at 100.001261 17.75 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP14"
 			(at 0 1.15 0)
@@ -51522,7 +51522,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "daa4e595-bbb6-54fb-8c2e-b4cbc737617f")
-		(at 85.001261 21.75 180)
+		(at 29.251261 18.5 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP2"
 			(at 0 1.15 0)
@@ -51610,7 +51610,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "27190d81-79b0-58ee-ba86-aaa3135b9f37")
-		(at 87.001261 21.75 180)
+		(at 29.251261 20.5 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP20"
 			(at 0 1.15 0)
@@ -51698,7 +51698,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "8a2c82b3-653a-53ca-bdf2-ffcba0bfb695")
-		(at 89.001261 21.75 180)
+		(at 83.001261 21.75 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP21"
 			(at 0 1.15 0)
@@ -51786,7 +51786,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "499ccd5f-4331-5a1c-a594-539c02cc1e85")
-		(at 29.251261 22.25 180)
+		(at 85.001261 21.75 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP22"
 			(at 0 1.15 0)
@@ -51874,7 +51874,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "fbd52486-6334-5262-b6a5-b7b4abb06ecb")
-		(at 29.251261 24.25 180)
+		(at 87.001261 21.75 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP23"
 			(at 0 1.15 0)
@@ -51962,7 +51962,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "2660c781-0c07-57f2-85a4-d33131857c21")
-		(at 29.251261 26.25 180)
+		(at 89.001261 21.75 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP3"
 			(at 0 1.15 0)
@@ -52050,7 +52050,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "75b1020c-195d-5fc3-b68d-981b944f315e")
-		(at 29.251261 28.25 180)
+		(at 29.251261 22.5 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP30"
 			(at 0 1.15 0)
@@ -52138,7 +52138,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "6301e507-90be-5d6d-baf7-ded9a56e9506")
-		(at 29.251261 30.25 180)
+		(at 29.251261 24.5 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP31"
 			(at 0 1.15 0)
@@ -52226,7 +52226,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "f3d02080-ab78-5f36-b9b5-2de67a445ab6")
-		(at 98.001261 30.25 180)
+		(at 29.251261 26.5 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP32"
 			(at 0 1.15 0)
@@ -52314,7 +52314,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "926eeb84-9342-5c8f-a069-7674141b02fd")
-		(at 4.001261 30.75 180)
+		(at 29.251261 28.5 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP33"
 			(at 0 1.15 0)
@@ -52402,7 +52402,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "536b9cbc-b7d2-5e72-939b-b3c260c81144")
-		(at 6.001261 30.75 180)
+		(at 97.751261 30.25 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP34"
 			(at 0 1.15 0)
@@ -52490,7 +52490,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "ccc30261-8f29-51c1-8d97-af722cde9f8a")
-		(at 8.001261 30.75 180)
+		(at 29.251261 30.5 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP35"
 			(at 0 1.15 0)
@@ -52578,7 +52578,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "327605d7-a675-564c-b5c6-9c8415071c36")
-		(at 9.851261 30.75 180)
+		(at 12.351261 30.75 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP4"
 			(at 0 1.15 0)
@@ -52666,7 +52666,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "4e14ecee-42a7-552d-89ec-41f5e5a82832")
-		(at 12.001261 30.75 180)
+		(at 14.501261 30.75 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP5"
 			(at 0 1.15 0)
@@ -52754,7 +52754,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "c80db1c3-84b0-52bb-9753-c3ea6e9a11a3")
-		(at 14.001261 30.75 180)
+		(at 16.501261 30.75 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP6"
 			(at 0 1.15 0)
@@ -52842,7 +52842,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "812fd91f-8a65-54c0-8e97-60b25372401c")
-		(at 16.001261 30.75 180)
+		(at 18.501261 30.75 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP7"
 			(at 0 1.15 0)
@@ -52930,7 +52930,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "58c0cbbf-2b2c-5c5f-aa27-a6b1f7e5405b")
-		(at 18.001261 30.75 180)
+		(at 31.251261 31.5 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP8"
 			(at 0 1.15 0)
@@ -53018,7 +53018,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "1701900b-4d36-52a8-8ebb-89629ed98093")
-		(at 20.001261 31.5 180)
+		(at 33.251261 31.5 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP9"
 			(at 0 1.15 0)
@@ -55418,7 +55418,7 @@
 	(footprint "rgb-badge-coupon:X2QFN_TI_RWB0012A_1.6x1.6mm_P0.4mm"
 		(layer "B.Cu")
 		(uuid "99293264-f61c-56f1-a128-42f2d5db7e6f")
-		(at 29.625 15.375 180)
+		(at 29.625 16.125 180)
 		(descr "TI RWB0012A 1.6 x 1.6 mm X2QFN-12 manufacturer land and stencil patterns for TUSB320LAIRWBR; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U31"
 			(at 0 2 0)
@@ -55787,7 +55787,7 @@
 	(footprint "rgb-badge-coupon:USON_TI_DQA0010A"
 		(layer "B.Cu")
 		(uuid "a1798839-873b-56e2-baf3-eaadd86283cd")
-		(at 29.625 12.25 180)
+		(at 96.375 14.5 180)
 		(descr "TI DQA0010A USON-10 manufacturer land pattern for TPD4E05U06DQAR; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U33"
 			(at 0 1.8 0)
@@ -56098,7 +56098,7 @@
 	(footprint "rgb-badge-coupon:TDFN_Maxim_T822-3_2x2mm_P0.5mm_EP0.7x1.38mm"
 		(layer "B.Cu")
 		(uuid "879df97c-5d9c-511d-b1bb-9abbb38642a0")
-		(at 26.25 28.875 180)
+		(at 105 30.625 180)
 		(descr "Maxim T822+3 2 x 2 mm TDFN-EP land pattern 90-0065 for MAX17048G+T10; full-area exposed-pad paste is provisional for assembler DFM; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U35"
 			(at 0 1.9 0)
@@ -56770,7 +56770,7 @@
 	(footprint "rgb-badge-coupon:SOT23_TI_DBZ0003A"
 		(layer "B.Cu")
 		(uuid "ae3dc06a-f571-5079-9a4c-09a85bcb6f3c")
-		(at 109.5 21.875 180)
+		(at 97 23.125 180)
 		(descr "TI DBZ0003A SOT-23-3 example land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U38"
 			(at 0 2.25 0)
@@ -56886,7 +56886,7 @@
 	(footprint "rgb-badge-coupon:SOT563_TI_DRL0006A"
 		(layer "B.Cu")
 		(uuid "3ab4997c-f2ae-5499-a3c8-e42035bd5a87")
-		(at 109.125 29.5 180)
+		(at 110.125 10.5 180)
 		(descr "TI DRL0006A SOT-563 six-pad land from TMP390 Rev A package drawing, page 25; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U39"
 			(at 0 1.75 0)
@@ -57390,7 +57390,7 @@
 	(footprint "rgb-badge-coupon:SOT23_TI_DBV0005A"
 		(layer "B.Cu")
 		(uuid "98005cd4-b4d2-5648-9065-a1cc4112ddea")
-		(at 103.5 10.375 180)
+		(at 106 10.375 180)
 		(descr "TI DBV0005A SOT-23-5 manufacturer land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U42"
 			(at 0 2.25 0)
@@ -57522,7 +57522,7 @@
 	(footprint "rgb-badge-coupon:SOT23_TI_DBV0005A"
 		(layer "B.Cu")
 		(uuid "1965459a-670d-5782-b2c9-3cf8babbdb40")
-		(at 108.5 10.375 180)
+		(at 93.5 10.625 180)
 		(descr "TI DBV0005A SOT-23-5 manufacturer land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U43"
 			(at 0 2.25 0)
@@ -58399,7 +58399,7 @@
 	(footprint "rgb-badge-coupon:SOT23_TI_DBV0005A"
 		(layer "B.Cu")
 		(uuid "1a04049c-9cd0-5dd1-bbd7-dc7f5a6e35f9")
-		(at 93.5 10.625 180)
+		(at 98.5 10.625 180)
 		(descr "TI DBV0005A SOT-23-5 manufacturer land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U47"
 			(at 0 2.25 0)
@@ -59024,7 +59024,7 @@
 	(footprint "rgb-badge-coupon:USON_TI_DRY0006A_1p45x1mm_P0p5mm"
 		(layer "B.Cu")
 		(uuid "9fa61e7e-d37e-527e-9672-f6f885f83a94")
-		(at 29.375 18 180)
+		(at 102.125 9.5 180)
 		(descr "TI DRY0006A land/stencil 4222894/A; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U51"
 			(at 0 1.45 0)
@@ -59347,7 +59347,7 @@
 	(footprint "rgb-badge-coupon:WSON_TI_DSE0006A_1p5x1p5mm_P0p5mm"
 		(layer "B.Cu")
 		(uuid "938d613d-241d-5633-90d0-65ba561ebe81")
-		(at 1.5 31.125 180)
+		(at 10 31.125 180)
 		(descr "TI DSE0006A land/stencil 4220552/B; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U53"
 			(at 0 1.55 0)
@@ -59645,7 +59645,7 @@
 	(footprint "rgb-badge-coupon:VSSOP_TI_DCU0008A"
 		(layer "B.Cu")
 		(uuid "b6177df5-a6e6-52fd-b132-81888b5f63e6")
-		(at 98.125 10.625 180)
+		(at 22.375 12.625 180)
 		(descr "TI DCU0008A land/stencil 4225266/A; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U55"
 			(at 0 2.35 0)
