@@ -200,6 +200,31 @@ def route_local_efuse_support(board):
             board.Add(track)
 
 
+def route_everlight_row_anodes(board):
+    """Link the eight Everlight anodes in each row with a front-copper trial trunk."""
+    parts = {part.GetReference(): part for part in board.GetFootprints()}
+    for row in range(16):
+        pads = []
+        for col in range(8):
+            part = parts[f"D{row * 16 + col + 1}"]
+            assert part.GetValue() == "EAST10105RGBA0"
+            pads.append(next(pad for pad in part.Pads() if pad.GetNumber() == "1"))
+        assert {pad.GetNetname() for pad in pads} == {f"ROW_{row:02d}_A"}
+        y = pads[0].GetPosition().y - pcb.FromMM(0.55)
+        pairs = [(pcb.VECTOR2I(pads[0].GetPosition().x, y),
+                  pcb.VECTOR2I(pads[-1].GetPosition().x, y))]
+        pairs.extend((pad.GetPosition(), pcb.VECTOR2I(pad.GetPosition().x, y))
+                     for pad in pads)
+        for start, end in pairs:
+            track = pcb.PCB_TRACK(board)
+            track.SetStart(start)
+            track.SetEnd(end)
+            track.SetWidth(pcb.FromMM(0.2))
+            track.SetLayer(pcb.F_Cu)
+            track.SetNet(pads[0].GetNet())
+            board.Add(track)
+
+
 def generate():
     components, pins, boxes = source()
     project_file = BOARD.with_suffix(".kicad_pro")
@@ -253,6 +278,7 @@ def generate():
             assigned.add(key)
     assert assigned == set(pins)
     route_local_efuse_support(board)
+    route_everlight_row_anodes(board)
     assert pcb.SaveBoard(str(BOARD), board)
     BOARD.write_text(normalize(BOARD.read_text()))
     loaded = pcb.LoadBoard(str(BOARD))
@@ -260,14 +286,17 @@ def generate():
     assert loaded.GetDesignSettings().GetBoardThickness() == pcb.FromMM(1.0)
     verify_saved_board(loaded, components, pins)
     tracks = list(loaded.GetTracks())
-    assert len(tracks) == 8
-    assert {track.GetNetname() for track in tracks} == {"E0_DVDT", "E1_DVDT", "E0_ILM", "E1_ILM"}
-    assert all(track.GetLayer() == pcb.B_Cu and track.GetWidth() == pcb.FromMM(0.2)
-               for track in tracks)
+    assert len(tracks) == 152
+    rear = [track for track in tracks if track.GetLayer() == pcb.B_Cu]
+    front = [track for track in tracks if track.GetLayer() == pcb.F_Cu]
+    assert len(rear) == 8 and len(front) == 144
+    assert {track.GetNetname() for track in rear} == {"E0_DVDT", "E1_DVDT", "E0_ILM", "E1_ILM"}
+    assert {track.GetNetname() for track in front} == {f"ROW_{row:02d}_A" for row in range(16)}
+    assert all(track.GetWidth() == pcb.FromMM(0.2) for track in tracks)
     if not project_existed and project_file.is_file():
         project_file.unlink()
     print(f"Staged and round-trip-checked {len(components)} exact footprints and {len(assigned)} unique numbered pad nets")
-    print("120 mm study outline, four local eFuse support nets; other routing and USB cutout remain open")
+    print("120 mm study: four eFuse links and 16 Everlight half-row anode trunks; other routing remains open")
 
 
 if __name__ == "__main__":
