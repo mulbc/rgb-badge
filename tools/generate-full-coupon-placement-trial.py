@@ -508,6 +508,11 @@ def generate():
     assert loaded.GetCopperLayerCount() == 6
     assert loaded.GetDesignSettings().GetBoardThickness() == pcb.FromMM(1.0)
     verify_saved_board(loaded, components, pins)
+    footprints = {part.GetReference(): part for part in loaded.GetFootprints()}
+    jack_box = footprints["J1"].GetCourtyard(pcb.F_CrtYd).BBox()
+    charger_box = footprints["U41"].GetCourtyard(pcb.B_CrtYd).BBox()
+    assert jack_box.GetX() < charger_box.GetRight() and charger_box.GetX() < jack_box.GetRight()
+    assert pcb.ToMM(charger_box.GetY() - jack_box.GetBottom()) >= 0.5
     tracks = [item for item in loaded.GetTracks() if not isinstance(item, pcb.PCB_VIA)]
     vias = [item for item in loaded.GetTracks() if isinstance(item, pcb.PCB_VIA)]
     assert len(tracks) == 182 and len(vias) == 8
