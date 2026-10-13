@@ -186,15 +186,20 @@ def total_usb_current(charger_max, auxiliary_max, programming_allowance="0"):
 
 
 def results():
-    charge_low, _, charge_high = bounded_ratio("797", "975", "1130", PRECISION['TOTAL_ERROR'])
-    charge = (charge_low, D("890") / D("1130"), charge_high)
-    input_external = selected_input_bounds(boost=True)
+    # Current root-linked BQ24074 population: R92=2.49k ISET, R93=3.65k ILIM.
+    # The 3.48k parallel branch below is retained only for historical tests.
+    charge_low, _, charge_high = bounded_ratio("797", "975", "2490", PRECISION['TOTAL_ERROR'])
+    charge = (charge_low, D("890") / D("2490"), charge_high)
+    input_low, _, input_high = bounded_ratio("1330", "1720", "3650", PRECISION['TOTAL_ERROR'])
+    input_external = (input_low, D("1525") / D("3650"), input_high)
     input_sdp = selected_input_bounds()
     historical_input_default = bounded_ratio("459", "500", "1000", "0.01")
     historical_input_high = bounded_ratio("459", "500", parallel("1000", "665"), "0.01")
     rail_3v3 = divider("0.500", "511000", "91000")
     rail_vled = divider("0.500", "1240000", "180000")
-    always_on_max = D("6.5") + D("5")
+    # Historical BQ + always-on MAX17048 screen. The gauge now has an OFF switch,
+    # while E0/E1 and other physical leakage paths need a fresh whole-board budget.
+    historical_always_on_max = D("6.5") + D("5")
     return {
         "charge": charge,
         "input_external": input_external,
@@ -209,31 +214,34 @@ def results():
         "historical_input_high": historical_input_high,
         "rail_3v3": rail_3v3,
         "rail_vled": rail_vled,
-        "always_on_max_uA": always_on_max,
-        "off_budget_remaining_uA": D("50") - always_on_max,
+        "historical_always_on_max_uA": historical_always_on_max,
+        "historical_off_budget_remaining_uA": D("50") - historical_always_on_max,
     }
 
 
 def check():
     PRECISION['check_budget']()
+    parts = runpy.run_path(str(Path(__file__).with_name('generate-coupon-charger-core.py')))['h'].PARTS
+    if parts['R92'][0] != 'ERA2AEB2491X' or parts['R93'][0] != 'ERA2AEB3651X':
+        raise ValueError('Selected charge/input calculations no longer match captured R92/R93')
     value = results()
     charge_min, charge_nom, charge_max = value["charge"]
     input_min, input_nom, input_max = value["input_external"]
 
-    if not (D("0.698") < charge_min < D("0.699")):
+    if not (D("0.316") < charge_min < D("0.318")):
         raise ValueError("BQ24074 minimum charge-current calculation changed")
-    if not (D("0.787") < charge_nom < D("0.789")):
+    if not (D("0.357") < charge_nom < D("0.358")):
         raise ValueError("BQ24074 nominal charge-current calculation changed")
-    if not (D("0.871") < charge_max < D("0.873")):
+    if not (D("0.395") < charge_max < D("0.396")):
         raise ValueError("BQ24074 maximum charge-current calculation changed")
-    if not (D("0.833") < input_min < D("0.834")):
+    if not (D("0.360") < input_min < D("0.362")):
         raise ValueError("BQ24074 minimum external input-current calculation changed")
-    if not (D("0.903") < input_nom < D("0.904")):
+    if not (D("0.417") < input_nom < D("0.419")):
         raise ValueError("BQ24074 nominal external input-current calculation changed")
-    if not (D("0.975") < input_max < D("0.976")):
+    if not (D("0.475") < input_max < D("0.477")):
         raise ValueError("BQ24074 maximum external input-current calculation changed")
-    if input_max > value["historical_single_resistor_high"][2]:
-        raise ValueError("Hardware boost increased the previous high-current maximum")
+    if input_max >= D('0.5'):
+        raise ValueError("Selected external input-current limit reached 500 mA before auxiliaries")
     if not D("0.497") < value["configured_sdp_allocated_total"] < D("0.5"):
         raise ValueError("Configured SDP allocation no longer fits 500 mA")
     if value['sdp_temperature_counterexample']<=D('.5'):
@@ -242,8 +250,8 @@ def check():
         raise ValueError("TPS631000 3.3-V divider calculation changed")
     if not (D("3.944") < value["rail_vled"] < D("3.945")):
         raise ValueError("TPS63020 VLED divider calculation changed")
-    if value["off_budget_remaining_uA"] != D("38.5"):
-        raise ValueError("Always-on IC current budget changed")
+    if value["historical_off_budget_remaining_uA"] != D("38.5"):
+        raise ValueError("Historical always-on gauge budget changed")
 
     for switch_on in (False, True):
         for type_c in TYPE_C_STATES - {"none"}:
@@ -278,8 +286,8 @@ def main():
         value = check()
         runpy.run_path(str(Path(__file__).with_name('check-usb-permission.py')))['check']()
         print("ADR 0013 fixed-current power calculations passed:")
-        print(f"- permanent 3.65 || 3.48 kohm input setting: {value['input_external'][0]:.3f} to {value['input_external'][2]:.3f} A; no switch")
-        print(f"- provisional charge-current range: {value['charge'][0]:.3f} to {value['charge'][2]:.3f} A; exact pack qualification pending")
+        print(f"- captured single 3.65 kohm ILIM setting: {value['input_external'][0]:.3f} to {value['input_external'][2]:.3f} A; auxiliary input current and transients not included")
+        print(f"- captured 2.49 kohm ISET charge-current range: {value['charge'][0]:.3f} to {value['charge'][2]:.3f} A; exact pack qualification pending")
         print("- only qualified Type-C 1.5 A / 3 A sources can request charge; no BC or firmware grant")
         print("- ±1% total resistance envelope retained; assembly/service allocation remains unqualified")
         print("- historical dual-limit calculations remain regression evidence, not the active policy")
@@ -287,7 +295,7 @@ def main():
             low, _, high = screen_pack_charge(args.candidate_iset_ohm, args.pack_max_charge_ma)
             print(f'- pack-current SCREEN ONLY: {low*1000:.2f}–{high*1000:.2f} mA; pack maximum {D(args.pack_max_charge_ma)} mA')
         blockers = usb_capture_blockers()
-        print("USB/input capture remains BLOCKED:")
+        print("USB/input operating qualification remains OPEN:")
         for finding in blockers:
             print(f"- {finding}")
         if args.require_usb_closure and blockers:

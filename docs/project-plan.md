@@ -4,7 +4,7 @@
 
 Status: agreed design baseline and staged execution plan
 Date: 2026-09-05
-Project phase: simplified Type-C-only logic passed native review at 12a134f; the subsequent U29 voltage-headroom correction and candidate eFuse libraries passed first-author native review at bad43fa. Input protection, physical standby, charger, converters/gauges and layout remain unfinished.
+Project phase (2026-10-13): E0/E1 input switches, BQ24074 charger, protected-pack connector, temperature circuit, switched gauge, both converters and an output-isolated display interlock are root-linked in a 20-page draft schematic. Native ERC passes, but charger standby/startup, pack behavior, display enabling, routed PCB and independent Gate A are not qualified. The current captured BQ settings are a single 3.65 kΩ ILIM and 2.49 kΩ ISET, calculated at 0.361–0.476 A input limit and 0.317–0.396 A charge setting under the retained ±1% total-resistance assumption. Older two-resistor ILIM and 1.13 kΩ ISET passages below are historical.
 
 ## Current amendment: simpler charging
 

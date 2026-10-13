@@ -31,7 +31,15 @@ class UsbPermissionTests(unittest.TestCase):
 
     def test_advertisement_reduction_selects_standby(self):
         self.assertTrue(GPIO['permission'](**pins('1.5A'))['charge'])
-        self.assertEqual(GPIO['permission'](**pins('default'))['mode'],'standby')
+        self.assertEqual(GPIO['permission'](**pins('default'))['mode'],'input-disconnected')
+        self.assertFalse(GPIO['permission'](**pins('default'))['charger_gate_enable'])
+
+    def test_policy_controls_e1_not_bq_mode_pins(self):
+        for tc in GPIO['TYPE_C_PINS']:
+            result = GPIO['permission'](**pins(tc))
+            self.assertNotIn('en1', result)
+            self.assertNotIn('en2', result)
+            self.assertEqual(result['charger_gate_enable'], result['charge'])
 
     def test_application_or_bc_grant_is_not_an_input(self):
         for field in ('usb_request','switch_on','esp_running','chg_det','chg_al_n','sw_open'):

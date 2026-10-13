@@ -13,6 +13,13 @@ CHECK = runpy.run_path(str(Path(__file__).resolve().parents[1] / "check-power-de
 
 
 class PowerDesignTests(unittest.TestCase):
+    def test_selected_calculations_track_root_linked_charger_parts(self):
+        values = CHECK['check']()
+        self.assertEqual(values['charge'][1], D('890') / D('2490'))
+        self.assertLess(values['charge'][2], D('0.396'))
+        self.assertEqual(values['input_external'][1], D('1525') / D('3650'))
+        self.assertLess(values['input_external'][2], D('0.476'))
+
     def test_pack_charge_limit_checks_the_high_corner(self):
         for resistance, limit in (("1500", "700"), ("2490", "400")):
             with self.subTest(resistance=resistance):
@@ -77,12 +84,12 @@ class PowerDesignTests(unittest.TestCase):
         result = subprocess.run([sys.executable, str(script), "--require-usb-closure"],
                                 capture_output=True, text=True)
         self.assertEqual(result.returncode, 1)
-        self.assertIn("USB/input capture remains BLOCKED", result.stdout)
+        self.assertIn("USB/input operating qualification remains OPEN", result.stdout)
 
     def test_frozen_results(self):
         result = CHECK["check"]()
-        self.assertEqual(result["always_on_max_uA"], D("11.5"))
-        self.assertEqual(result["off_budget_remaining_uA"], D("38.5"))
+        self.assertEqual(result["historical_always_on_max_uA"], D("11.5"))
+        self.assertEqual(result["historical_off_budget_remaining_uA"], D("38.5"))
 
     def test_off_charging_requires_hardware_qualified_source(self):
         for type_c, bc12 in (("default", "SDP"), ("default", "none"),
