@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: Apache-2.0
-"""Audit the first two TI display-interlock lands against published drawings."""
+"""Audit four TI display-interlock lands against published drawings."""
 
 from decimal import Decimal as D
 from pathlib import Path
@@ -60,7 +60,29 @@ def main():
     check("VSSOP_TI_DCU0008A", dcu,
           ((D("-1.85"), D("-1.85")), (D("1.85"), D("1.85"))),
           ((D("-1.2"), D("-1.6")), (D("1.2"), D("1.6"))), "0.05")
-    print("TI DSF0006A and DCU0008A copper, paste, numbering and courtyard checks passed")
+
+    dse = {}
+    positions = [(D("-0.6"), y) for y in map(D, ("-0.5", "0", "0.5"))]
+    positions += [(D("0.6"), y) for y in map(D, ("0.5", "0", "-0.5"))]
+    for number, position in enumerate(positions, 1):
+        dse[(str(number), ("F.Cu", "F.Paste", "F.Mask"))] = [
+            (position, (D("0.8") if number == 1 else D("0.7"), D("0.25")))
+        ]
+    check("WSON_TI_DSE0006A_1p5x1p5mm_P0p5mm", dse,
+          ((D("-1.25"), D("-1.05")), (D("1.25"), D("1.05"))),
+          ((D("-0.775"), D("-0.775")), (D("0.775"), D("0.775"))), "0.05")
+
+    dry = {}
+    positions = [(D("-0.3"), y) for y in map(D, ("-0.5", "0", "0.5"))]
+    positions += [(D("0.3"), y) for y in map(D, ("0.5", "0", "-0.5"))]
+    for number, position in enumerate(positions, 1):
+        dry[(str(number), ("F.Cu", "F.Paste", "F.Mask"))] = [
+            (position, (D("0.35") if number == 1 else D("0.3"), D("0.2")))
+        ]
+    check("USON_TI_DRY0006A_1p45x1mm_P0p5mm", dry,
+          ((D("-0.8"), D("-1")), (D("0.8"), D("1"))),
+          ((D("-0.525"), D("-0.75")), (D("0.525"), D("0.75"))), "0.05")
+    print("TI DSF0006A, DCU0008A, DSE0006A and DRY0006A copper, paste, numbering and courtyard checks passed")
 
 
 if __name__ == "__main__":

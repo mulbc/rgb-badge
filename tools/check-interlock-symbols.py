@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: Apache-2.0
-"""Check the first exact interlock symbols against TI package pin tables."""
+"""Check exact interlock symbols against TI package pin tables."""
 
 from pathlib import Path
 import runpy
@@ -48,6 +48,16 @@ EXPECTED = {
         5: ("2A", "input", "line"), 6: ("2B", "input", "line"),
         7: ("1Y", "output", "line"), 8: ("VCC", "power_in", "line"),
     }),
+    "TLV6700DSER": ("WSON_TI_DSE0006A_1p5x1p5mm_P0p5mm", "tlv6700", {
+        1: ("OUTB", "open_collector", "line"), 2: ("VDD", "power_in", "line"),
+        3: ("INB-", "input", "line"), 4: ("INA+", "input", "line"),
+        5: ("GND", "power_in", "line"), 6: ("OUTA", "open_collector", "line"),
+    }),
+    "SN74LVC1G11DRYR": ("USON_TI_DRY0006A_1p45x1mm_P0p5mm", "sn74lvc1g11", {
+        1: ("A", "input", "line"), 2: ("GND", "power_in", "line"),
+        3: ("B", "input", "line"), 4: ("Y", "output", "line"),
+        5: ("VCC", "power_in", "line"), 6: ("C", "input", "line"),
+    }),
 }
 
 NEW_RESISTORS = {
@@ -87,7 +97,7 @@ def main():
     for mpn in ("ERJ2RKF1001X", "ERJ2RKF1002X", "ERJ2RKF1003X",
                 "GRM155R71C104KA88D"):
         assert mpn in by_name, f"existing first-schedule support part is missing: {mpn}"
-    print("Six TI interlock symbols: exact MPN, land and 41 numbered pin functions passed")
+    print("Eight TI interlock symbols: exact MPN, land and 53 numbered pin functions passed")
     print("Four new Panasonic resistor symbols plus existing bias/bypass parts passed")
 
 
