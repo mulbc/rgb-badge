@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: Apache-2.0
-"""Probe five local charger connections on the 114 mm placement-only board."""
+"""Probe a USB-to-charger copper path on the 114 mm placement-only board."""
 
 import importlib.util
 from pathlib import Path
@@ -45,7 +45,7 @@ def add_through_via(board, position, net):
 def sorted_native_tracks(contents):
     pattern = r'\n\t\((?:segment|via)(?=\s)'
     starts = [match.start() for match in re.finditer(pattern, contents)]
-    assert len(starts) == 18
+    assert len(starts) == 49
     blocks = []
     for start in starts:
         depth = 0
@@ -111,7 +111,58 @@ def generate():
                               (second, charger.GetPosition(), pcb.B_Cu)):
         add_segment(board, start, end, layer, cap.GetNet())
 
-    assert len(list(board.GetTracks())) == 18
+    gate = pad('U44', 6, 'CHARGER_IN_DRAFT')
+    input_cap = pad('C52', 1, 'CHARGER_IN_DRAFT')
+    assert gate.GetNetname() == input_cap.GetNetname() == pad('U41', 13, 'CHARGER_IN_DRAFT').GetNetname()
+    gate_via = point(100.7, 20.8)
+    cap_via = point(105.5, 19.0)
+    input_via = point(109.5, 27.5)
+    for position in (gate_via, cap_via, input_via):
+        add_through_via(board, position, gate.GetNet())
+    for start, end, layer in ((gate.GetPosition(), point(100.5, 20.5), pcb.B_Cu),
+                              (point(100.5, 20.5), gate_via, pcb.B_Cu),
+                              (gate_via, point(103.7, 20.8), pcb.In4_Cu),
+                              (point(103.7, 20.8), cap_via, pcb.In4_Cu),
+                              (cap_via, input_cap.GetPosition(), pcb.B_Cu),
+                              (cap_via, point(105.5, 23.5), pcb.In4_Cu),
+                              (point(105.5, 23.5), input_via, pcb.In4_Cu),
+                              (input_via, point(109.0, 27.5), pcb.B_Cu)):
+        add_segment(board, start, end, layer, gate.GetNet())
+
+    e0_out = pad('U45', 6, '+5V_USB')
+    e1_in = pad('U44', 5, '+5V_USB')
+    usb_cap = pad('C61', 1, '+5V_USB')
+    usb_first, usb_second = point(100.5, 17.0), point(105.55, 16.8)
+    for position in (usb_first, usb_second):
+        add_through_via(board, position, e0_out.GetNet())
+    for start, end, layer in ((e0_out.GetPosition(), usb_first, pcb.B_Cu),
+                              (usb_first, point(105.35, 17.0), pcb.In4_Cu),
+                              (point(105.35, 17.0), usb_second, pcb.In4_Cu),
+                              (usb_second, usb_cap.GetPosition(), pcb.B_Cu),
+                              (e1_in.GetPosition(), point(101.0, 17.5), pcb.B_Cu),
+                              (point(101.0, 17.5), usb_first, pcb.B_Cu)):
+        add_segment(board, start, end, layer, e0_out.GetNet())
+
+    e0_in = pad('U45', 5, 'VBUS_CONNECTOR')
+    connector_a = pad('J1', 'B4_A9', 'VBUS_CONNECTOR')
+    connector_b = pad('J1', 'A4_B9', 'VBUS_CONNECTOR')
+    connector_cap = pad('C60', 1, 'VBUS_CONNECTOR')
+    vbus_first, vbus_second = point(101.0, 12.5), point(105.2, 13.2)
+    vbus_third = point(107.2, 18.65)
+    for position in (vbus_first, vbus_second, vbus_third):
+        add_through_via(board, position, e0_in.GetNet())
+    for start, end, layer in ((e0_in.GetPosition(), vbus_first, pcb.B_Cu),
+                              (vbus_first, point(104.5, 12.5), pcb.In4_Cu),
+                              (point(104.5, 12.5), vbus_second, pcb.In4_Cu),
+                              (vbus_second, connector_cap.GetPosition(), pcb.B_Cu),
+                              (vbus_second, point(105.85, 13.85), pcb.F_Cu),
+                              (point(105.85, 13.85), connector_a.GetPosition(), pcb.F_Cu),
+                              (connector_b.GetPosition(), vbus_third, pcb.F_Cu),
+                              (vbus_third, point(107.2, 15.2), pcb.In4_Cu),
+                              (point(107.2, 15.2), vbus_second, pcb.In4_Cu)):
+        add_segment(board, start, end, layer, e0_in.GetNet())
+
+    assert len(list(board.GetTracks())) == 49
     pcb.SaveBoard(str(OUTPUT), board)
     contents = sorted_native_tracks(OUTPUT.read_text())
     serial = iter(range(contents.count('(uuid "')))
@@ -119,7 +170,7 @@ def generate():
                       lambda _: '(uuid "' + str(uuid.uuid5(SCOPE, str(next(serial)))) + '")',
                       contents)
     OUTPUT.write_text(contents)
-    print(f'{OUTPUT}: 16 trace segments, 2 through vias, five local charger nets')
+    print(f'{OUTPUT}: 39 trace segments, 10 through vias; staged USB VBUS through E0/E1 to BQ IN')
 
 
 if __name__ == '__main__':
