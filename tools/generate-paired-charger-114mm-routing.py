@@ -45,7 +45,7 @@ def add_through_via(board, position, net):
 def sorted_native_tracks(contents):
     pattern = r'\n\t\((?:segment|via)(?=\s)'
     starts = [match.start() for match in re.finditer(pattern, contents)]
-    assert len(starts) == 162
+    assert len(starts) == 169
     blocks = []
     for start in starts:
         depth = 0
@@ -366,7 +366,19 @@ def generate():
         (point(99.4, 18.775), pad('U44', 9, 'E1_ILM').GetPosition(), pcb.B_Cu),
     ):
         add_segment(board, start, end, layer, e1_ilm)
-    assert len(list(board.GetTracks())) == 162
+    charger_gate = pad('U42', 4, 'CHARGER_GATE_EN').GetNet()
+    gate_logic_via, gate_efuse_via = point(91.2, 16.075), point(102.3, 17.9)
+    for position in (gate_logic_via, gate_efuse_via):
+        add_through_via(board, position, charger_gate)
+    for start, end, layer in (
+        (pad('U42', 4, 'CHARGER_GATE_EN').GetPosition(), gate_logic_via, pcb.B_Cu),
+        (gate_logic_via, point(93.0, 14.3), pcb.In1_Cu),
+        (point(93.0, 14.3), point(101.0, 14.3), pcb.In1_Cu),
+        (point(101.0, 14.3), gate_efuse_via, pcb.In1_Cu),
+        (gate_efuse_via, side_pad('U44', 1, 'CHARGER_GATE_EN').GetPosition(), pcb.B_Cu),
+    ):
+        add_segment(board, start, end, layer, charger_gate)
+    assert len(list(board.GetTracks())) == 169
     pcb.SaveBoard(str(OUTPUT), board)
     contents = sorted_native_tracks(OUTPUT.read_text())
     serial = iter(range(contents.count('(uuid "')))
@@ -374,7 +386,7 @@ def generate():
                       lambda _: '(uuid "' + str(uuid.uuid5(SCOPE, str(next(serial)))) + '")',
                       contents)
     OUTPUT.write_text(contents)
-    print(f'{OUTPUT}: 124 trace segments, 38 through vias; staged USB, shell, charger and battery links')
+    print(f'{OUTPUT}: 129 trace segments, 40 through vias; staged USB, shell, charger and battery links')
 
 
 if __name__ == '__main__':
