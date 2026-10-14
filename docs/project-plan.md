@@ -24,7 +24,7 @@ Build a new, open-source, full-colour wearable LED badge inspired by the FOSSASI
 |---|---:|
 | Display | 48 × 16 individually controlled RGB pixels (768 pixels) |
 | Pixel pitch | 1.95 mm, equal to the measured Badge Magic pitch |
-| Finished envelope | no more than 110 × 35 × 11 mm, attachment excluded from thickness |
+| Finished envelope | no more than 118 × 35 × 11 mm, attachment excluded from thickness; 114 mm PCB length target (ADR 0033) |
 | Finished weight | aim for 75 g; absolute maximum 100 g, including battery, case and attachment |
 | Runtime | roughly 6 h for the defined mixed-content reference workload at a suitable fixed brightness |
 | Charging | USB-C, standard 5 V only, correct A-to-C and C-to-C behaviour |
@@ -405,7 +405,7 @@ Only after coupon sign-off:
 
 Final acceptance:
 
-- complete case no larger than 110 × 35 × 11 mm;
+- complete case no larger than 118 × 35 × 11 mm, with a 114 mm PCB length target (ADR 0033);
 - each complete badge below 100 g and design target at or below 75 g;
 - 48 × 16 RGB pixels at 1.95 mm pitch;
 - user-selected fixed brightness with no automatic dimming;

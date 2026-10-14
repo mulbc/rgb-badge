@@ -7,7 +7,7 @@ Source: requirements interview completed 2026-09-05
 
 “Coupon” means the production-intent 16 × 16 validation board. “Final” means a complete cased 48 × 16 badge.
 
-**Proposed MEC-001 sensitivity, 2026-10-14 (ADR 0033):** Evaluate a 114 × 32.5 mm PCB in an approximately 118 × 35 × 11 mm complete case to give the grouped charger and interlock-bypass placement more length. This is not an adopted replacement for MEC-001. Select a new maximum only after native PCB placement and enclosure/USB/weight checks; do not treat the 114 mm courtyard result as demonstrated case fit.
+**MEC-001 revision, 2026-10-14 (ADR 0033):** The owner accepted 4 mm more PCB length for the working final-badge design. The 114 × 32.5 mm PCB target requires a 118 × 35 × 11 mm outer-case limit in this layout direction. Native placement has not established routing or enclosure fit; the case, USB opening, mass and battery stack remain verification work.
 
 | ID | Requirement | Verification | Applies to |
 |---|---|---|---|
@@ -19,7 +19,7 @@ Source: requirements interview completed 2026-09-05
 | DSP-006 | Safety logic may disable the display on an electrical or thermal fault, but shall not silently dim it. | Fault-injection test | Coupon/final |
 | DSP-007 | Coupon columns 0–7 shall use `EAST10105RGBA0` and columns 8–15 shall use `QBLP1515A-RGB2A`, both at 1.95 mm pitch; substitutions require written design review. | BOM, placement and incoming-part inspection | Coupon |
 | DSP-008 | QBLP1515 LEDs shall keep the manufacturer-recommended pad geometry and use the non-mirrored 0°/90° checkerboard placement defined by ADR 0008. | Footprint audit, generated placement check, PCB DRC, assembly plot and AOI | Coupon |
-| MEC-001 | Complete case shall not exceed 110 × 35 × 11 mm, excluding attachment thickness. | Caliper inspection | Final |
+| MEC-001 | Complete case shall not exceed 118 × 35 × 11 mm, excluding attachment thickness. The working PCB length is 114 mm. | Caliper inspection and PCB/case fit review | Final |
 | MEC-002 | Complete badge shall aim for ≤75 g and shall never exceed 100 g, including cell, case and magnetic attachment. | Calibrated scale | Final |
 | MEC-003 | Development case shall use two M2 screws plus tabs and support a replaceable diffuser. | Fit inspection | Coupon/final prototype |
 | MEC-004 | Final design shall tolerate sweat and incidental splashes without claiming an IP rating. | Defined splash demonstration and inspection | Final |

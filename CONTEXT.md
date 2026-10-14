@@ -2,9 +2,11 @@
 
 # Project context
 
-**2026-10-14 length sensitivity:** [ADR 0033](docs/decisions/0033-badge-length-relaxation-proposal.md) proposes studying a 114 × 32.5 mm final PCB in an approximately 118 × 35 × 11 mm case. The grouped-power paired-row first-fit screen places all counted boxes with nine interlock bypass capacitors each within a trial 3 mm courtyard-edge gap of its IC in one priority order at 114 mm; the same run misses three boxes at 110 mm and one at 112 mm. This is a conditional XY result with 109 small parts under the pack, no routing or case section. MEC-001's 110 mm outer-case maximum remains the accepted requirement until native PCB and enclosure/USB/weight review supports a change.
+**2026-10-14 length decision:** [ADR 0033](docs/decisions/0033-badge-length-relaxation-proposal.md) adopts a 114 × 32.5 mm working final PCB and 118 × 35 × 11 mm maximum outer case after the owner accepted 4 mm more PCB length. The grouped-power paired-row first-fit screen places all counted boxes with nine interlock bypass capacitors each within a trial 3 mm courtyard-edge gap of its IC in one priority order at 114 mm; the same run misses three boxes at 110 mm and one at 112 mm. This is a conditional XY result with 109 small parts under the pack, no routing or case section. USB, enclosure and weight fit remain unverified.
 
-**2026-10-14 native placement follow-on:** A deterministic [114 mm KiCad footprint-only board](docs/development/paired-charger-114mm-placement-study-2026-10-14.md) carries 483 real lands, including sixteen netless provisional row-pair packages and two netless projected final drivers. Native DRC reports 104 known intrinsic fine-pitch land gaps (96 in the proposed pairs, eight in U48/U52), no new edge/courtyard issue, and a capped 499-item unconnected listing. It has no routes or enclosure model and does not select the pair package or relax MEC-001.
+**2026-10-14 native placement follow-on:** A deterministic [114 mm KiCad footprint-only board](docs/development/paired-charger-114mm-placement-study-2026-10-14.md) carries 483 real lands, including sixteen netless provisional row-pair packages and two netless projected final drivers. Native DRC reports 104 known intrinsic fine-pitch land gaps (96 in the proposed pairs, eight in U48/U52), no new edge/courtyard issue, and a capped 499-item unconnected listing. It has no routes or enclosure model and does not select the pair package.
+
+**2026-10-14 114 mm charger route start:** A [separate generated trial](docs/development/paired-charger-114mm-local-routing-2026-10-14.md) connects C53/BAT, C54/SYS, C56/IN, R92/ISET and R93/ILIM to BQ24074 U41 with sixteen 0.20 mm segments and two standard vias. Native DRC still shows only the 104 intrinsic footprint gaps; all return-current/copper sizing, USB input, row topology and case-fit work remains open.
 
 **2026-10-13 power calculation reconciliation:** The current root-linked BQ24074 uses one exact 3.65 kΩ `ILIM` resistor and one exact 2.49 kΩ `ISET` resistor. The current design calculation is **0.361–0.476 A charger input limit** and **0.317–0.396 A charge-current setting**, each using the retained ±1% total-resistance envelope and published factor extremes. `tools/check-power-design.py` now reports those captured values; its older parallel-ILIM/1.13 kΩ calculations remain historical tests only. The stable Type-C policy checker now names E1 charger-input permission rather than the obsolete BQ EN1/EN2 standby scheme. Native XML confirms the `DRAFT`-named BAT, SYS, switch, and charger-input nets join actual component pins; their names are historical, not isolated source flags. These checks exclude other USB loads, transients, thermal effects and physical pack qualification; they do not prove standby or charge operation.
 
@@ -138,7 +140,7 @@ The [charger thermal sensitivity screen](hardware/coupon/rev-a/charger-thermal-s
 | Area | Constraint |
 |---|---|
 | Matrix | 48 × 16 true RGB; pixel pitch must not exceed 1.95 mm |
-| Size | Complete case no larger than 110 × 35 × 11 mm |
+| Size | Complete case no larger than 118 × 35 × 11 mm; working PCB 114 × 32.5 mm (ADR 0033) |
 | Weight | Aim ≤75 g; never exceed 100 g including cell, case and magnets |
 | Runtime | Roughly 6 h for the published reference workload; no automatic brightness reduction |
 | Charging | USB-C at 5 V; correct A-to-C/C-to-C behaviour; charge while operating |
