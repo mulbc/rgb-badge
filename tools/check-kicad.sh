@@ -17,6 +17,7 @@ driver_check="${repo_root}/tools/check-coupon-driver.py"
 row_library_check="${repo_root}/tools/check-row-libraries.py"
 dual_row_candidate_check="${repo_root}/tools/check-dual-row-candidate.py"
 row_capture_check="${repo_root}/tools/check-coupon-rows.py"
+onsemi_row_candidate_check="${repo_root}/tools/check-onsemi-row-candidate.py"
 controller_library_check="${repo_root}/tools/check-controller-libraries.py"
 controller_capture_check="${repo_root}/tools/check-coupon-controller.py"
 power_design_check="${repo_root}/tools/check-power-design.py"
@@ -63,6 +64,8 @@ for required_path in \
     "${row_library_check}" \
     "${dual_row_candidate_check}" \
     "${row_capture_check}" \
+    "${onsemi_row_candidate_check}" \
+    "${project_dir}/staging/onsemi-row-candidate/rows.kicad_sch" \
     "${controller_library_check}" \
     "${controller_capture_check}" \
     "${power_design_check}" \
@@ -383,6 +386,18 @@ python3 "${vled_capture_check}" --linked-netlist "${check_tmp_dir}/coupon-matrix
 python3 "${interlock_footprint_check}"
 python3 "${interlock_symbol_check}"
 python3 "${interlock_capture_check}" --netlist "${check_tmp_dir}/coupon-matrix.xml"
+
+"${kicad_cli}" sch export netlist \
+    --format kicadxml \
+    --output "${check_tmp_dir}/onsemi-row-candidate.xml" \
+    "${project_dir}/staging/onsemi-row-candidate/rows.kicad_sch"
+"${kicad_cli}" sch erc \
+    --format json \
+    --output "${check_tmp_dir}/onsemi-row-candidate-erc.json" \
+    "${project_dir}/staging/onsemi-row-candidate/rows.kicad_sch"
+python3 "${onsemi_row_candidate_check}" \
+    --netlist "${check_tmp_dir}/onsemi-row-candidate.xml" \
+    --erc "${check_tmp_dir}/onsemi-row-candidate-erc.json"
 
 "${kicad_cli}" sch export pdf \
     --black-and-white \
