@@ -752,6 +752,23 @@ def route_vled_switching_pair(board):
         board.Add(track)
 
 
+def widen_trial_power_traces(board):
+    """Use 0.30 mm where staged USB/power copper clears; retain tight IC necks."""
+    power_nets = {"VBUS_CONNECTOR", "+5V_USB", "CHARGER_IN_DRAFT", "GND"}
+    narrow_ground_starts = {(104.85, 15.225), (104.85, 19.225), (106.65, 18.775)}
+    widened = 0
+    for item in board.GetTracks():
+        if isinstance(item, pcb.PCB_VIA) or item.GetNetname() not in power_nets:
+            continue
+        start = item.GetStart()
+        xy = pcb.ToMM(start.x), pcb.ToMM(start.y)
+        if item.GetLayer() == pcb.B_Cu and item.GetNetname() == "GND" and xy in narrow_ground_starts:
+            continue
+        item.SetWidth(pcb.FromMM(0.3))
+        widened += 1
+    assert widened == 55
+
+
 def generate():
     components, pins, boxes = source()
     project_file = BOARD.with_suffix(".kicad_pro")
@@ -830,6 +847,7 @@ def generate():
     route_e1_ground_pad(board)
     route_everlight_row_anodes(board)
     route_vled_switching_pair(board)
+    widen_trial_power_traces(board)
     assert pcb.SaveBoard(str(BOARD), board)
     BOARD.write_text(normalize(BOARD.read_text()))
     loaded = pcb.LoadBoard(str(BOARD))
@@ -855,7 +873,8 @@ def generate():
     assert {track.GetNetname() for track in front} == {f"ROW_{row:02d}_A" for row in range(16)} | {"VBUS_CONNECTOR", "GND"}
     assert {track.GetNetname() for track in inner} == {"+5V_USB", "VBUS_CONNECTOR", "CHARGER_IN_DRAFT"}
     assert {track.GetNetname() for track in ground_inner} == {"GND"}
-    assert all(track.GetWidth() == pcb.FromMM(0.2) for track in tracks)
+    assert sum(track.GetWidth() == pcb.FromMM(0.3) for track in tracks) == 55
+    assert sum(track.GetWidth() == pcb.FromMM(0.2) for track in tracks) == 166
     assert all(via.GetWidth(pcb.F_Cu) == pcb.FromMM(0.6) and via.GetDrillValue() == pcb.FromMM(0.3)
                for via in vias)
     assert {via.GetNetname() for via in vias} == {"+5V_USB", "VBUS_CONNECTOR", "CHARGER_IN_DRAFT", "GND"}
