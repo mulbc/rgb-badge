@@ -27,3 +27,5 @@ The [dual-row package screen](dual-row-package-screen-2026-10-06.md) evaluates o
 The [110 mm grouped-power XY screen](paired-charger-110mm-screen-2026-10-14.md) is a separate, unselected candidate with sixteen paired-row courtyard boxes and local E0/E1/BQ support reservations. One packing order places every candidate rear box; routing, battery height, connector cutout and row-part approval remain open.
 
 [ADR 0033](../docs/decisions/0033-badge-length-relaxation-proposal.md) now proposes studying a 114 mm PCB in an approximately 118 mm case: the grouped-power first-fit screen can then keep all nine interlock bypass boxes near their ICs with zero unplaced boxes in one ordering. MEC-001's 110 mm outer-case limit is unchanged pending actual PCB and enclosure checks.
+
+The [native 114 mm placement study](../docs/development/paired-charger-114mm-placement-study-2026-10-14.md) now checks actual pads and edge geometry for that option. It has only the 104 already-known fine-pitch land-gap DRC findings, but no routing or case fit.
