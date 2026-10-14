@@ -31861,7 +31861,7 @@
 	(footprint "rgb-badge-coupon:C_Murata_GRM15_0402"
 		(layer "B.Cu")
 		(uuid "56de25fa-6d46-5ae4-b345-89df16ebcfa2")
-		(at 89.75 21.5 180)
+		(at 24 21.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "C74"
 			(at 0 1 0)
@@ -31956,7 +31956,7 @@
 	(footprint "rgb-badge-coupon:VSSOP_TI_DCU0008A"
 		(layer "B.Cu")
 		(uuid "6f66360a-661c-5841-8c63-5da367646987")
-		(at 93.125 19.375 180)
+		(at 27.375 21.125 180)
 		(descr "TI DCU0008A land/stencil 4225266/A; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U55"
 			(at 0 2.35 0)
@@ -32113,7 +32113,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "a007f447-0421-5ca0-af15-32fb825750ef")
-		(at 29.751262 20.000001 180)
+		(at 79.001262 29.500001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP3"
 			(at 0 1.15 0)
@@ -32296,7 +32296,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "d09c10ec-090f-5e2f-b047-0e00c41d32be")
-		(at 86.501262 10.500001 180)
+		(at 86.501262 21.750001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP22"
 			(at 0 1.15 0)
@@ -32566,7 +32566,7 @@
 	(footprint "rgb-badge-coupon:C_Murata_GRM21_0805"
 		(layer "B.Cu")
 		(uuid "0a6ceed2-ac66-57b9-852a-74614955e2d9")
-		(at 93.125 28 180)
+		(at 22.375 28 180)
 		(descr "GRM21 0805 reflow land, midpoint of Murata GRM219R60J476ME44 recommended ranges; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "C43"
 			(at 0 1.55 0)
@@ -33114,7 +33114,7 @@
 	(footprint "rgb-badge-coupon:C_Murata_GRM15_0402"
 		(layer "B.Cu")
 		(uuid "b8137f8a-bd86-5c55-a1ca-883f24a48dec")
-		(at 28.5 29.25 180)
+		(at 26.25 30.5 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "C68"
 			(at 0 1 0)
@@ -33542,7 +33542,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "f4b2ade7-57f0-555a-8778-8525c9ca04b9")
-		(at 13.001262 8.250001 180)
+		(at 82.501262 10.500001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP11"
 			(at 0 1.15 0)
@@ -33915,7 +33915,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "f59104d3-3611-58bf-9061-c73b229f93fc")
-		(at 84.501262 10.500001 180)
+		(at 84.501262 21.750001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP21"
 			(at 0 1.15 0)
@@ -34098,7 +34098,7 @@
 	(footprint "rgb-badge-coupon:TDFN_Maxim_T822-3_2x2mm_P0.5mm_EP0.7x1.38mm"
 		(layer "B.Cu")
 		(uuid "3bf8edef-4323-597a-89e3-ea4f66b79227")
-		(at 22.25 27.625 180)
+		(at 93 28.125 180)
 		(descr "Maxim T822+3 2 x 2 mm TDFN-EP land pattern 90-0065 for MAX17048G+T10; full-area exposed-pad paste is provisional for assembler DFM; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U35"
 			(at 0 1.9 0)
@@ -35184,7 +35184,7 @@
 	(footprint "rgb-badge-coupon:U-DFN2020-6_TypeB_Diodes_DMC1229UFDB"
 		(layer "B.Cu")
 		(uuid "0624a1de-bb15-5c07-b57e-8f563c5f87ef")
-		(at 27 20.75 180)
+		(at 79.75 16.5 180)
 		(descr "Candidate Diodes U-DFN2020-6 Type B suggested lands for DMC1229UFDB-7; unpopulated; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "PAIR07"
 			(at 0 2.05 0)
@@ -35778,7 +35778,7 @@
 	(footprint "rgb-badge-coupon:U-DFN2020-6_TypeB_Diodes_DMC1229UFDB"
 		(layer "B.Cu")
 		(uuid "0fa32bba-5eb2-5da2-b6a3-182c2055b2a2")
-		(at 79.75 13 180)
+		(at 15.25 7.5 180)
 		(descr "Candidate Diodes U-DFN2020-6 Type B suggested lands for DMC1229UFDB-7; unpopulated; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "PAIR04"
 			(at 0 2.05 0)
@@ -35957,7 +35957,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "00abd6fb-71ea-5cf2-bbfe-2ee1ef7916f9")
-		(at 21.251262 25.000001 180)
+		(at 96.001262 30.000001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP33"
 			(at 0 1.15 0)
@@ -36045,7 +36045,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "9e9d4fae-978a-55c3-acdb-462114d1fdd7")
-		(at 92.001262 30.250001 180)
+		(at 23.251262 30.250001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP7"
 			(at 0 1.15 0)
@@ -37059,7 +37059,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "19bfb795-a38b-5263-ab64-e0ca00e95ce4")
-		(at 94.001262 30.250001 180)
+		(at 106.001262 30.500001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP8"
 			(at 0 1.15 0)
@@ -37527,7 +37527,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "1863045b-2530-5eef-98c2-5690b8cf518c")
-		(at 97.001262 9.250001 180)
+		(at 21.251262 20.000001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP2"
 			(at 0 1.15 0)
@@ -37710,7 +37710,7 @@
 	(footprint "rgb-badge-coupon:U-DFN2020-6_TypeB_Diodes_DMC1229UFDB"
 		(layer "B.Cu")
 		(uuid "4ee680ac-3129-55aa-bd02-53fb17a10b32")
-		(at 104.25 21.5 180)
+		(at 79.75 20 180)
 		(descr "Candidate Diodes U-DFN2020-6 Type B suggested lands for DMC1229UFDB-7; unpopulated; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "PAIR08"
 			(at 0 2.05 0)
@@ -38079,7 +38079,7 @@
 	(footprint "rgb-badge-coupon:U-DFN2020-6_TypeB_Diodes_DMC1229UFDB"
 		(layer "B.Cu")
 		(uuid "829c24f2-8e4c-53a8-8b27-4e4fbfa0542e")
-		(at 25.5 24.25 180)
+		(at 22 23.75 180)
 		(descr "Candidate Diodes U-DFN2020-6 Type B suggested lands for DMC1229UFDB-7; unpopulated; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "PAIR13"
 			(at 0 2.05 0)
@@ -38828,7 +38828,7 @@
 	(footprint "rgb-badge-coupon:VSSOP_TI_DGK0008A"
 		(layer "B.Cu")
 		(uuid "cc951f92-c0b7-554f-ac6a-feff0ba26d50")
-		(at 13 5.125 180)
+		(at 16 3.625 180)
 		(descr "TI DGK0008A VSSOP8; manufacturer example 1.4 x 0.45 mm lands at 0.65 mm pitch; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U46"
 			(at 0 2.65 0)
@@ -39893,7 +39893,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "2d47df40-45f9-51fa-9ec9-29045d2dc463")
-		(at 17.001262 8.250001 180)
+		(at 86.501262 10.500001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP13"
 			(at 0 1.15 0)
@@ -39981,7 +39981,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "90f9e21b-4967-515f-853c-ab1724e91c02")
-		(at 82.501262 21.750001 180)
+		(at 81.001262 29.500001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP30"
 			(at 0 1.15 0)
@@ -40069,7 +40069,7 @@
 	(footprint "rgb-badge-coupon:U-DFN2020-6_TypeB_Diodes_DMC1229UFDB"
 		(layer "B.Cu")
 		(uuid "f55dad8f-26fa-5e59-a221-7a5089189939")
-		(at 96.25 25 180)
+		(at 29 25 180)
 		(descr "Candidate Diodes U-DFN2020-6 Type B suggested lands for DMC1229UFDB-7; unpopulated; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "PAIR16"
 			(at 0 2.05 0)
@@ -40248,7 +40248,7 @@
 	(footprint "rgb-badge-coupon:SOT5X3_TI_DRL0008A"
 		(layer "B.Cu")
 		(uuid "24be6417-5eb5-5d5f-9fd8-86eaf1775e64")
-		(at 96.875 29 180)
+		(at 18.625 7.25 180)
 		(descr "TI DRL0008A SOT-5X3, 0.5 mm pitch manufacturer land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U36"
 			(at 0 1.75 0)
@@ -40688,7 +40688,7 @@
 	(footprint "rgb-badge-coupon:U-DFN2020-6_TypeB_Diodes_DMC1229UFDB"
 		(layer "B.Cu")
 		(uuid "3c7729c7-ab51-589d-8bcc-fc3ea5de31fc")
-		(at 29 24.25 180)
+		(at 112.25 24.5 180)
 		(descr "Candidate Diodes U-DFN2020-6 Type B suggested lands for DMC1229UFDB-7; unpopulated; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "PAIR14"
 			(at 0 2.05 0)
@@ -41200,7 +41200,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "d8eecf27-0479-5015-ac52-9ac93e4d102f")
-		(at 29.501262 27.000001 180)
+		(at 98.001262 30.000001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP34"
 			(at 0 1.15 0)
@@ -41615,7 +41615,7 @@
 	(footprint "rgb-badge-coupon:SOT563_TI_DRL0006A"
 		(layer "B.Cu")
 		(uuid "a6bc47d3-120b-563b-9a23-feebca1ca0bd")
-		(at 11.875 1.5 180)
+		(at 57.625 15.5 180)
 		(descr "TI DRL0006A SOT-563 six-pad land from TMP390 Rev A package drawing, page 25; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U39"
 			(at 0 1.75 0)
@@ -41981,7 +41981,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "ce5d410b-36f4-5051-84ca-9067da1dec45")
-		(at 104.501262 30.000001 180)
+		(at 102.001262 30.000001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP4"
 			(at 0 1.15 0)
@@ -43506,7 +43506,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "7e578e47-fcc0-5d07-b73d-92cb793bab54")
-		(at 19.001262 8.250001 180)
+		(at 88.501262 10.500001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP14"
 			(at 0 1.15 0)
@@ -43726,7 +43726,7 @@
 	(footprint "rgb-badge-coupon:VSSOP_TI_DCU0008A"
 		(layer "B.Cu")
 		(uuid "e6d9d6b8-8004-522c-b17c-fcd9870b988a")
-		(at 17.875 5.125 180)
+		(at 93.125 19.375 180)
 		(descr "TI DCU0008A land/stencil 4225266/A; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U54"
 			(at 0 2.35 0)
@@ -44168,7 +44168,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "d2514d0c-475d-534d-b5aa-d5e66afcef76")
-		(at 23.251262 30.250001 180)
+		(at 21.251262 30.250001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP6"
 			(at 0 1.15 0)
@@ -45634,7 +45634,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "e5de9750-894e-5497-a7f5-9b9e3373e9fc")
-		(at 15.001262 8.250001 180)
+		(at 84.501262 10.500001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP12"
 			(at 0 1.15 0)
@@ -46375,7 +46375,7 @@
 	(footprint "rgb-badge-coupon:UQFN_TI_RSE0008A_1.5x1.5mm_P0.5mm"
 		(layer "B.Cu")
 		(uuid "82f0c5c8-1bd7-5bf0-b0c6-7f348473adf6")
-		(at 25.75 30 180)
+		(at 29 28.25 180)
 		(descr "TI manufacturer land/stencil transcription; see power-replacement-library-audit.md; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U49"
 			(at 0 1.8 0)
@@ -47457,7 +47457,7 @@
 	(footprint "rgb-badge-coupon:U-DFN2020-6_TypeB_Diodes_DMC1229UFDB"
 		(layer "B.Cu")
 		(uuid "a9031471-43e1-5a6a-82e3-9c0280c21d49")
-		(at 79.75 16.5 180)
+		(at 79.75 9.5 180)
 		(descr "Candidate Diodes U-DFN2020-6 Type B suggested lands for DMC1229UFDB-7; unpopulated; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "PAIR05"
 			(at 0 2.05 0)
@@ -47731,7 +47731,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "14679199-1730-5919-8633-62cf5f6bfc8e")
-		(at 106.501262 30.500001 180)
+		(at 108.001262 30.500001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP9"
 			(at 0 1.15 0)
@@ -48009,7 +48009,7 @@
 	(footprint "rgb-badge-coupon:U-DFN2020-6_TypeB_Diodes_DMC1229UFDB"
 		(layer "B.Cu")
 		(uuid "aa7911f9-164e-5f50-a7a1-9304ace0de24")
-		(at 79.75 20 180)
+		(at 79.75 13 180)
 		(descr "Candidate Diodes U-DFN2020-6 Type B suggested lands for DMC1229UFDB-7; unpopulated; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "PAIR06"
 			(at 0 2.05 0)
@@ -48283,7 +48283,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "78086467-a128-5498-af16-c5c9d33aac79")
-		(at 102.501262 30.000001 180)
+		(at 100.001262 30.000001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP35"
 			(at 0 1.15 0)
@@ -48740,7 +48740,7 @@
 	(footprint "rgb-badge-coupon:C_Murata_GRM15_0402"
 		(layer "B.Cu")
 		(uuid "10e2d663-26bd-5adb-a1a5-c35ba5a2b3a5")
-		(at 17.75 2.25 180)
+		(at 89.75 21.5 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "C73"
 			(at 0 1 0)
@@ -49297,7 +49297,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "7d40ab1c-8c7c-578d-8d86-1a270968509d")
-		(at 88.501262 10.500001 180)
+		(at 100.251262 28.000001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP23"
 			(at 0 1.15 0)
@@ -50393,7 +50393,7 @@
 	(footprint "rgb-badge-coupon:U-DFN2020-6_TypeB_Diodes_DMC1229UFDB"
 		(layer "B.Cu")
 		(uuid "53691e51-3617-57b7-a14e-6840d9aa5e82")
-		(at 22 22.25 180)
+		(at 104.25 21.5 180)
 		(descr "Candidate Diodes U-DFN2020-6 Type B suggested lands for DMC1229UFDB-7; unpopulated; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "PAIR09"
 			(at 0 2.05 0)
@@ -50572,7 +50572,7 @@
 	(footprint "rgb-badge-coupon:C_Murata_GRM15_0402"
 		(layer "B.Cu")
 		(uuid "c3cfb3b9-42a8-52d7-a667-a44b58a95ddf")
-		(at 17.75 0.75 180)
+		(at 14.5 0.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "C69"
 			(at 0 1 0)
@@ -50857,7 +50857,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "f7bb3d9c-b091-544e-a5fb-f90c91c2bdbc")
-		(at 84.501262 21.750001 180)
+		(at 110.501262 29.750001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP31"
 			(at 0 1.15 0)
@@ -52106,7 +52106,7 @@
 	(footprint "rgb-badge-coupon:NTC_Murata_NCU15_0402"
 		(layer "B.Cu")
 		(uuid "21ccb5db-f7eb-5975-96b4-76b5accea70b")
-		(at 32.125 11.875 180)
+		(at 54.375 16.125 180)
 		(descr "Murata NCU15 1005 NTC, reflow land a=0.4 b=0.45 c=0.5 mm; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TH1"
 			(at 0 1.3 0)
@@ -52380,7 +52380,7 @@
 	(footprint "rgb-badge-coupon:UQFN_TI_RSE0008A_1.5x1.5mm_P0.5mm"
 		(layer "B.Cu")
 		(uuid "3dc0e46a-7dc1-5e87-a82d-d89f4de44d9a")
-		(at 15 1.5 180)
+		(at 11.75 1.5 180)
 		(descr "TI manufacturer land/stencil transcription; see power-replacement-library-audit.md; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U50"
 			(at 0 1.8 0)
@@ -52821,7 +52821,7 @@
 	(footprint "rgb-badge-coupon:U-DFN2020-6_TypeB_Diodes_DMC1229UFDB"
 		(layer "B.Cu")
 		(uuid "55153050-23ed-5b3c-aa26-b179a5ddf496")
-		(at 79.75 9.5 180)
+		(at 11.75 7.5 180)
 		(descr "Candidate Diodes U-DFN2020-6 Type B suggested lands for DMC1229UFDB-7; unpopulated; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "PAIR03"
 			(at 0 2.05 0)
@@ -53095,7 +53095,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "c4adc66d-dbc7-5328-88f8-4e036a0293de")
-		(at 86.501262 21.750001 180)
+		(at 112.501262 29.750001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP32"
 			(at 0 1.15 0)
@@ -55298,7 +55298,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "8be17804-b442-58e1-824f-c54194e30126")
-		(at 21.251262 30.250001 180)
+		(at 104.001262 30.000001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP5"
 			(at 0 1.15 0)
@@ -55481,7 +55481,7 @@
 	(footprint "rgb-badge-coupon:C_Murata_GRM21_0805"
 		(layer "B.Cu")
 		(uuid "93b9dbb7-3fef-5b5e-b798-0343eafde9d6")
-		(at 26.375 27.25 180)
+		(at 97.125 27.75 180)
 		(descr "GRM21 0805 reflow land, midpoint of Murata GRM219R60J476ME44 recommended ranges; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "C42"
 			(at 0 1.55 0)
@@ -55956,7 +55956,7 @@
 	(footprint "rgb-badge-coupon:UQFN_TI_RSE0008A_1.5x1.5mm_P0.5mm"
 		(layer "B.Cu")
 		(uuid "daf1891f-a8e4-5527-8b18-b7597e0540d4")
-		(at 100 29 180)
+		(at 26 28.25 180)
 		(descr "TI manufacturer land/stencil transcription; see power-replacement-library-audit.md; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U32"
 			(at 0 1.8 0)
@@ -56492,7 +56492,7 @@
 	(footprint "rgb-badge-coupon:L_Murata_DFE252012P"
 		(layer "B.Cu")
 		(uuid "b6ac8536-61df-55c0-bada-ff1eebd6666b")
-		(at 100 25.875 180)
+		(at 96.5 24.875 180)
 		(descr "Murata DFE252012P 2.8 x 2.0 mm recommended lands, 1.2 mm inner gap; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "L1"
 			(at 0 1.7 0)
@@ -56587,7 +56587,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "cefd58db-685e-5f87-90be-e9e4ec2725df")
-		(at 11.001262 8.250001 180)
+		(at 97.001262 9.250001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP10"
 			(at 0 1.15 0)
@@ -56865,7 +56865,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "72514b7b-f7a8-53f7-832b-7e1f10be13d8")
-		(at 82.501262 10.500001 180)
+		(at 82.501262 21.750001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP20"
 			(at 0 1.15 0)
@@ -56953,7 +56953,7 @@
 	(footprint "rgb-badge-coupon:X2QFN_TI_RWB0012A_1.6x1.6mm_P0.4mm"
 		(layer "B.Cu")
 		(uuid "3bdde445-f07b-5f76-9171-c33d3040fecd")
-		(at 110.875 30.125 180)
+		(at 100.625 25.625 180)
 		(descr "TI RWB0012A 1.6 x 1.6 mm X2QFN-12 manufacturer land and stencil patterns for TUSB320LAIRWBR; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U31"
 			(at 0 2 0)
@@ -57261,7 +57261,7 @@
 	(footprint "rgb-badge-coupon:U-DFN2020-6_TypeB_Diodes_DMC1229UFDB"
 		(layer "B.Cu")
 		(uuid "a0c6d230-5895-5b5c-ae5d-bb5f40085330")
-		(at 112.25 24.5 180)
+		(at 25.5 25 180)
 		(descr "Candidate Diodes U-DFN2020-6 Type B suggested lands for DMC1229UFDB-7; unpopulated; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "PAIR15"
 			(at 0 2.05 0)
@@ -58221,7 +58221,7 @@
 	(footprint "rgb-badge-coupon:WSON_TI_DSE0006A_1p5x1p5mm_P0p5mm"
 		(layer "B.Cu")
 		(uuid "f07f5c6f-420b-5b65-8064-74e96390cca1")
-		(at 79.5 29.875 180)
+		(at 11.75 4.375 180)
 		(descr "TI DSE0006A land/stencil 4220552/B; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U53"
 			(at 0 1.55 0)
@@ -59027,7 +59027,7 @@
 	(footprint "rgb-badge-coupon:C_Murata_GRM15_0402"
 		(layer "B.Cu")
 		(uuid "75c4a3c4-b48b-5a36-ba01-7a622b723b9f")
-		(at 76.75 31.25 180)
+		(at 17 0.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "C72"
 			(at 0 1 0)
@@ -59422,12 +59422,108 @@
 		(uuid "264299b6-b6f1-5ce8-ae0b-81dd969d7d73")
 	)
 	(segment
+		(start 101.65 18.775)
+		(end 102.2 18.775)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "GND")
+		(uuid "5df33bc0-e0ca-5031-bedf-69e91f446b46")
+	)
+	(segment
+		(start 102.2 18.775)
+		(end 103.1 19)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "GND")
+		(uuid "d525595c-d791-587a-9b85-1158457604f0")
+	)
+	(segment
+		(start 102.95 24.75)
+		(end 102.95 26.75)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "GND")
+		(uuid "3a79291e-bc1b-5e91-8e18-0ea7f4eefdfd")
+	)
+	(segment
+		(start 102.95 26.75)
+		(end 103.5 28.5)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "GND")
+		(uuid "eb4c9a13-0985-5883-a809-27a1ad159711")
+	)
+	(segment
+		(start 103 23.1)
+		(end 106.8 23.1)
+		(width 0.2)
+		(layer "In2.Cu")
+		(net "GND")
+		(uuid "02e6114b-7f3c-50b4-b33f-bca24bf5a5c6")
+	)
+	(segment
+		(start 103 28.5)
+		(end 103 23.1)
+		(width 0.2)
+		(layer "In2.Cu")
+		(net "GND")
+		(uuid "f9b5fe5e-88d2-55e8-aae3-cc0ddad9c787")
+	)
+	(segment
+		(start 103.1 19)
+		(end 103.8 13.5)
+		(width 0.2)
+		(layer "In3.Cu")
+		(net "GND")
+		(uuid "3068bd2a-1819-55ca-b5da-ac3479732ed0")
+	)
+	(segment
+		(start 103.5 28.5)
+		(end 103 28.5)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "GND")
+		(uuid "60b1793b-ac1d-5433-a965-45a3ec806104")
+	)
+	(segment
 		(start 103.7 20.8)
 		(end 105.5 19)
 		(width 0.2)
 		(layer "In4.Cu")
 		(net "CHARGER_IN_DRAFT")
-		(uuid "5df33bc0-e0ca-5031-bedf-69e91f446b46")
+		(uuid "4c7a8997-1ab6-5150-b604-72586ce556fd")
+	)
+	(segment
+		(start 103.8 13.5)
+		(end 105.2 15)
+		(width 0.2)
+		(layer "In3.Cu")
+		(net "GND")
+		(uuid "0411edfc-c67b-5c07-a86e-66c1e3ca7313")
+	)
+	(segment
+		(start 103.8 14)
+		(end 103.8 13.5)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "GND")
+		(uuid "79203547-0d5f-5378-9f9b-17bda10edae9")
+	)
+	(segment
+		(start 103.85 19)
+		(end 103.1 19)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "GND")
+		(uuid "06277295-c137-5b95-9112-98654c4b5a13")
+	)
+	(segment
+		(start 104 20)
+		(end 103.1 19)
+		(width 0.2)
+		(layer "In3.Cu")
+		(net "GND")
+		(uuid "9ed6c014-3c2c-5725-aa35-8305034e608b")
 	)
 	(segment
 		(start 104.5 12.5)
@@ -59435,7 +59531,7 @@
 		(width 0.2)
 		(layer "In4.Cu")
 		(net "VBUS_CONNECTOR")
-		(uuid "d525595c-d791-587a-9b85-1158457604f0")
+		(uuid "aa5e4977-7b22-50d9-98e8-84ef4437dedb")
 	)
 	(segment
 		(start 104.5 28.5)
@@ -59443,7 +59539,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "CHARGER_ISET")
-		(uuid "3a79291e-bc1b-5e91-8e18-0ea7f4eefdfd")
+		(uuid "6019234d-73f5-529a-b9c6-900be7688755")
 	)
 	(segment
 		(start 104.55 24.75)
@@ -59451,7 +59547,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+BAT_PROTECTED_DRAFT")
-		(uuid "eb4c9a13-0985-5883-a809-27a1ad159711")
+		(uuid "6874beb5-8bb7-57f7-87d3-832ce62bef58")
 	)
 	(segment
 		(start 104.55 26.75)
@@ -59459,7 +59555,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+SYS_APP_IN_DRAFT")
-		(uuid "02e6114b-7f3c-50b4-b33f-bca24bf5a5c6")
+		(uuid "d4df5038-73ea-5efe-9126-8e39122a9cb2")
 	)
 	(segment
 		(start 105.2 13.2)
@@ -59467,7 +59563,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "VBUS_CONNECTOR")
-		(uuid "f9b5fe5e-88d2-55e8-aae3-cc0ddad9c787")
+		(uuid "f3da38b8-1e72-5f88-b3c1-7d0844c14cd5")
 	)
 	(segment
 		(start 105.2 13.2)
@@ -59475,7 +59571,15 @@
 		(width 0.2)
 		(layer "F.Cu")
 		(net "VBUS_CONNECTOR")
-		(uuid "3068bd2a-1819-55ca-b5da-ac3479732ed0")
+		(uuid "c282b1aa-edea-5336-8722-ae7bd5d6d498")
+	)
+	(segment
+		(start 105.2 15)
+		(end 107.5 12.3)
+		(width 0.2)
+		(layer "In3.Cu")
+		(net "GND")
+		(uuid "313472ec-4519-5f29-944c-eec936332c0f")
 	)
 	(segment
 		(start 105.3 26)
@@ -59483,7 +59587,7 @@
 		(width 0.2)
 		(layer "In3.Cu")
 		(net "+SYS_APP_IN_DRAFT")
-		(uuid "60b1793b-ac1d-5433-a965-45a3ec806104")
+		(uuid "359722b2-9e1f-5be2-ab58-bd3ebd0ff134")
 	)
 	(segment
 		(start 105.35 17)
@@ -59491,7 +59595,7 @@
 		(width 0.2)
 		(layer "In4.Cu")
 		(net "+5V_USB")
-		(uuid "4c7a8997-1ab6-5150-b604-72586ce556fd")
+		(uuid "bb26021f-0baf-57f9-a4a8-be6504337598")
 	)
 	(segment
 		(start 105.4 27.6)
@@ -59499,7 +59603,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "CHARGER_ISET")
-		(uuid "0411edfc-c67b-5c07-a86e-66c1e3ca7313")
+		(uuid "d37b23fc-3286-55a2-b5a0-86cc9218c0de")
 	)
 	(segment
 		(start 105.4 28.5)
@@ -59507,7 +59611,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "CHARGER_ISET")
-		(uuid "79203547-0d5f-5378-9f9b-17bda10edae9")
+		(uuid "9fcd7588-cfc8-56c9-8493-5474887bdf76")
 	)
 	(segment
 		(start 105.5 19)
@@ -59515,7 +59619,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "CHARGER_IN_DRAFT")
-		(uuid "06277295-c137-5b95-9112-98654c4b5a13")
+		(uuid "d1d87e55-e668-50cc-968e-7b6b41aedb70")
 	)
 	(segment
 		(start 105.5 19)
@@ -59523,7 +59627,7 @@
 		(width 0.2)
 		(layer "In4.Cu")
 		(net "CHARGER_IN_DRAFT")
-		(uuid "9ed6c014-3c2c-5725-aa35-8305034e608b")
+		(uuid "aa3bef49-2748-506a-822c-1ffff9a2b004")
 	)
 	(segment
 		(start 105.5 23.5)
@@ -59531,7 +59635,7 @@
 		(width 0.2)
 		(layer "In4.Cu")
 		(net "CHARGER_IN_DRAFT")
-		(uuid "aa5e4977-7b22-50d9-98e8-84ef4437dedb")
+		(uuid "08279673-a2f6-578b-9d0d-8bf83a2f2bd4")
 	)
 	(segment
 		(start 105.5 24.75)
@@ -59539,7 +59643,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+BAT_PROTECTED_DRAFT")
-		(uuid "6019234d-73f5-529a-b9c6-900be7688755")
+		(uuid "516477d0-f01e-5b18-a7c5-4de513ee6a67")
 	)
 	(segment
 		(start 105.55 16.8)
@@ -59547,7 +59651,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+5V_USB")
-		(uuid "6874beb5-8bb7-57f7-87d3-832ce62bef58")
+		(uuid "f20cefb0-a1c7-566f-bbed-a1a3274d412f")
 	)
 	(segment
 		(start 105.85 13.85)
@@ -59555,7 +59659,7 @@
 		(width 0.2)
 		(layer "F.Cu")
 		(net "VBUS_CONNECTOR")
-		(uuid "d4df5038-73ea-5efe-9126-8e39122a9cb2")
+		(uuid "3aac0ce7-9015-5e00-ab46-ae8ebd87ecec")
 	)
 	(segment
 		(start 106 27)
@@ -59563,7 +59667,15 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "CHARGER_ISET")
-		(uuid "f3da38b8-1e72-5f88-b3c1-7d0844c14cd5")
+		(uuid "d8bc07df-585e-5b98-a951-c1eabbf72d7c")
+	)
+	(segment
+		(start 106.2 20)
+		(end 104 20)
+		(width 0.2)
+		(layer "In3.Cu")
+		(net "GND")
+		(uuid "482149b7-1be0-566a-9746-e435c65302cf")
 	)
 	(segment
 		(start 106.25 25.5)
@@ -59571,7 +59683,39 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+BAT_PROTECTED_DRAFT")
-		(uuid "c282b1aa-edea-5336-8722-ae7bd5d6d498")
+		(uuid "66e204d1-56ae-5bb3-b9e3-537fef4d2451")
+	)
+	(segment
+		(start 106.25 29.5)
+		(end 103 28.5)
+		(width 0.2)
+		(layer "In2.Cu")
+		(net "GND")
+		(uuid "d893e4b1-3bf7-5842-8ba1-f0582546f640")
+	)
+	(segment
+		(start 106.8 23.1)
+		(end 103.1 19)
+		(width 0.2)
+		(layer "In3.Cu")
+		(net "GND")
+		(uuid "7b5f4573-aee9-5648-a0ee-4b19601ba629")
+	)
+	(segment
+		(start 106.85 24.5)
+		(end 106.8 23.1)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "GND")
+		(uuid "dd72ccbb-a49c-5df5-943f-3c5f3c0cf22a")
+	)
+	(segment
+		(start 106.95 28.75)
+		(end 106.25 29.5)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "GND")
+		(uuid "46650d28-e720-5435-b0cb-f998ad4188a7")
 	)
 	(segment
 		(start 107.2 15.2)
@@ -59579,7 +59723,7 @@
 		(width 0.2)
 		(layer "In4.Cu")
 		(net "VBUS_CONNECTOR")
-		(uuid "313472ec-4519-5f29-944c-eec936332c0f")
+		(uuid "d680e6c9-6780-5f43-85d4-04ae0e66143e")
 	)
 	(segment
 		(start 107.2 18.65)
@@ -59587,7 +59731,15 @@
 		(width 0.2)
 		(layer "In4.Cu")
 		(net "VBUS_CONNECTOR")
-		(uuid "359722b2-9e1f-5be2-ab58-bd3ebd0ff134")
+		(uuid "9211c224-01bb-58c9-8beb-88e2a57d5f00")
+	)
+	(segment
+		(start 107.2 19.45)
+		(end 106.2 20)
+		(width 0.2)
+		(layer "F.Cu")
+		(net "GND")
+		(uuid "260121b5-ea39-5ebe-b41f-b10ea49ddb47")
 	)
 	(segment
 		(start 107.25 18.65)
@@ -59595,7 +59747,23 @@
 		(width 0.2)
 		(layer "F.Cu")
 		(net "VBUS_CONNECTOR")
-		(uuid "bb26021f-0baf-57f9-a4a8-be6504337598")
+		(uuid "789bacc5-39b5-5ee8-9612-673c2d9e1f11")
+	)
+	(segment
+		(start 107.25 19.45)
+		(end 107.2 19.45)
+		(width 0.2)
+		(layer "F.Cu")
+		(net "GND")
+		(uuid "7138f0aa-2b6d-597c-b46f-7b4b4583b53d")
+	)
+	(segment
+		(start 107.5 12.3)
+		(end 107.25 13.05)
+		(width 0.2)
+		(layer "F.Cu")
+		(net "GND")
+		(uuid "72515945-50f7-5c1e-a5db-041093b221df")
 	)
 	(segment
 		(start 108.55 28.75)
@@ -59603,7 +59771,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "CHARGER_IN_DRAFT")
-		(uuid "d37b23fc-3286-55a2-b5a0-86cc9218c0de")
+		(uuid "c915a5c6-900f-5584-8ec1-7c97e2d5cc34")
 	)
 	(segment
 		(start 109 28.3)
@@ -59611,7 +59779,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "CHARGER_IN_DRAFT")
-		(uuid "9fcd7588-cfc8-56c9-8493-5474887bdf76")
+		(uuid "73f8a296-0b71-59d6-8242-f406ff0f7cae")
 	)
 	(segment
 		(start 109.5 27.5)
@@ -59619,7 +59787,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "CHARGER_IN_DRAFT")
-		(uuid "d1d87e55-e668-50cc-968e-7b6b41aedb70")
+		(uuid "9a9b39a2-c6af-51a6-b7ca-9b2d1f083b83")
 	)
 	(segment
 		(start 110 25.5)
@@ -59627,7 +59795,7 @@
 		(width 0.2)
 		(layer "In3.Cu")
 		(net "+SYS_APP_IN_DRAFT")
-		(uuid "aa3bef49-2748-506a-822c-1ffff9a2b004")
+		(uuid "996773a1-52d8-5226-aec4-faba56e2796a")
 	)
 	(segment
 		(start 110.5 25)
@@ -59635,7 +59803,23 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+SYS_APP_IN_DRAFT")
-		(uuid "08279673-a2f6-578b-9d0d-8bf83a2f2bd4")
+		(uuid "0bd6912a-5fb4-5f20-a7ed-681ae7c6fc56")
+	)
+	(segment
+		(start 110.75 28.25)
+		(end 106.25 29.5)
+		(width 0.2)
+		(layer "In2.Cu")
+		(net "GND")
+		(uuid "723c668f-7734-5591-9701-8c4548fbe82b")
+	)
+	(segment
+		(start 111.25 28.25)
+		(end 110.75 28.25)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "GND")
+		(uuid "2e091a72-f5f2-535e-81ea-88f59e538a8c")
 	)
 	(segment
 		(start 111.9 26)
@@ -59643,7 +59827,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "CHARGER_ILIM")
-		(uuid "516477d0-f01e-5b18-a7c5-4de513ee6a67")
+		(uuid "377fa540-a450-507a-8333-469c38409232")
 	)
 	(segment
 		(start 111.9 27.9)
@@ -59651,7 +59835,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "CHARGER_ILIM")
-		(uuid "f20cefb0-a1c7-566f-bbed-a1a3274d412f")
+		(uuid "c595ff24-0d42-5f0e-91b2-918012132e79")
 	)
 	(segment
 		(start 112.25 28.25)
@@ -59659,7 +59843,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "CHARGER_ILIM")
-		(uuid "3aac0ce7-9015-5e00-ab46-ae8ebd87ecec")
+		(uuid "33177231-f21f-52be-b377-c433e7d9b16a")
 	)
 	(via
 		(at 100.5 17)
@@ -59667,7 +59851,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "+5V_USB")
-		(uuid "d8bc07df-585e-5b98-a951-c1eabbf72d7c")
+		(uuid "9473d2a5-8b06-5ff2-81d0-8565dd4200ba")
 	)
 	(via
 		(at 100.7 20.8)
@@ -59675,7 +59859,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "CHARGER_IN_DRAFT")
-		(uuid "482149b7-1be0-566a-9746-e435c65302cf")
+		(uuid "e3e2aa7d-2357-51c5-a5d0-97e8fea12411")
 	)
 	(via
 		(at 101 12.5)
@@ -59683,7 +59867,31 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "VBUS_CONNECTOR")
-		(uuid "66e204d1-56ae-5bb3-b9e3-537fef4d2451")
+		(uuid "a5b5ca6f-2825-5acd-b59e-a60f2b6438b0")
+	)
+	(via
+		(at 103 28.5)
+		(size 0.6)
+		(drill 0.3)
+		(layers "F.Cu" "B.Cu")
+		(net "GND")
+		(uuid "79d8b1a5-a5da-5ac6-8aff-809aef721e8f")
+	)
+	(via
+		(at 103.1 19)
+		(size 0.6)
+		(drill 0.3)
+		(layers "F.Cu" "B.Cu")
+		(net "GND")
+		(uuid "6aa29c97-ccac-5759-b022-569a48d1085a")
+	)
+	(via
+		(at 103.8 13.5)
+		(size 0.6)
+		(drill 0.3)
+		(layers "F.Cu" "B.Cu")
+		(net "GND")
+		(uuid "8d332117-91c2-5600-ae87-53c2c1dc7fd0")
 	)
 	(via
 		(at 105.2 13.2)
@@ -59691,7 +59899,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "VBUS_CONNECTOR")
-		(uuid "d893e4b1-3bf7-5842-8ba1-f0582546f640")
+		(uuid "6a37f562-a736-5cc8-83fd-d4dd0031da23")
 	)
 	(via
 		(at 105.3 26)
@@ -59699,7 +59907,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "+SYS_APP_IN_DRAFT")
-		(uuid "7b5f4573-aee9-5648-a0ee-4b19601ba629")
+		(uuid "ebee1d19-9b01-5ab4-acb5-6136bb3dc335")
 	)
 	(via
 		(at 105.5 19)
@@ -59707,7 +59915,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "CHARGER_IN_DRAFT")
-		(uuid "dd72ccbb-a49c-5df5-943f-3c5f3c0cf22a")
+		(uuid "8f96ffba-12e9-5966-aeb7-18a4f3670d67")
 	)
 	(via
 		(at 105.55 16.8)
@@ -59715,7 +59923,31 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "+5V_USB")
-		(uuid "46650d28-e720-5435-b0cb-f998ad4188a7")
+		(uuid "b5cf2729-9a85-5d92-a7b3-e09a709b3626")
+	)
+	(via
+		(at 106.2 20)
+		(size 0.6)
+		(drill 0.3)
+		(layers "F.Cu" "B.Cu")
+		(net "GND")
+		(uuid "ee6abaed-285d-5565-a0fd-f8271f6678c8")
+	)
+	(via
+		(at 106.25 29.5)
+		(size 0.6)
+		(drill 0.3)
+		(layers "F.Cu" "B.Cu")
+		(net "GND")
+		(uuid "f6980704-c2c9-5f1f-8836-1f3bea949001")
+	)
+	(via
+		(at 106.8 23.1)
+		(size 0.6)
+		(drill 0.3)
+		(layers "F.Cu" "B.Cu")
+		(net "GND")
+		(uuid "c580ab4b-9220-5902-ba2a-0eaec602cbe7")
 	)
 	(via
 		(at 107.2 18.65)
@@ -59723,7 +59955,15 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "VBUS_CONNECTOR")
-		(uuid "d680e6c9-6780-5f43-85d4-04ae0e66143e")
+		(uuid "1b75bab4-b98d-5923-b693-4a24fe5681cb")
+	)
+	(via
+		(at 107.5 12.3)
+		(size 0.6)
+		(drill 0.3)
+		(layers "F.Cu" "B.Cu")
+		(net "GND")
+		(uuid "74941c84-0403-5d47-8a43-517b0f819513")
 	)
 	(via
 		(at 109.5 27.5)
@@ -59731,7 +59971,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "CHARGER_IN_DRAFT")
-		(uuid "9211c224-01bb-58c9-8beb-88e2a57d5f00")
+		(uuid "39fb7673-7a28-5a83-9654-44c0178fe3d1")
 	)
 	(via
 		(at 110.5 25)
@@ -59739,7 +59979,15 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "+SYS_APP_IN_DRAFT")
-		(uuid "260121b5-ea39-5ebe-b41f-b10ea49ddb47")
+		(uuid "ac37555c-6926-54a6-b531-3eee5734563c")
+	)
+	(via
+		(at 110.75 28.25)
+		(size 0.6)
+		(drill 0.3)
+		(layers "F.Cu" "B.Cu")
+		(net "GND")
+		(uuid "4f353c9b-8673-5d4d-a40c-230f60255742")
 	)
 	(embedded_fonts no)
 )

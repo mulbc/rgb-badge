@@ -17,6 +17,8 @@ For the next design pass, allow a protected **two-wire** pack and a board-mounte
 
 This direction broadens sourcing; it does **not** approve an exact pack, PCB location or temperature accuracy. Keep a keyed battery connector and verify its actual polarity. Do not place the pouch against components or consume the reserved swelling clearance to improve thermal contact.
 
+**2026-10-14 placement follow-on:** The [114 mm KiCad study](../development/paired-charger-114mm-placement-study-2026-10-14.md) fixes TH1 and independent TMP390 U39 within the central 10 × 8 mm battery-facing reservation. Native pad/courtyard DRC adds no new geometry findings, but cell insulation, component height, swelling clearance and measured cell-to-board temperature error remain unqualified. This does not freeze the sensing arrangement.
+
 ## Verification before battery/board freeze
 
 1. In the coupon, temporarily measure actual pack-surface temperature independently while logging board NTC temperature. Compare both through cold/warm starts, display OFF and ON charging, and representative warm enclosure operation at the selected pack's allowed ambient limits. Record hardware revision, pack MPN, setup and raw logs.

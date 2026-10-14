@@ -30,4 +30,6 @@ The [110 mm grouped-power XY screen](paired-charger-110mm-screen-2026-10-14.md) 
 
 The [native 114 mm placement study](../docs/development/paired-charger-114mm-placement-study-2026-10-14.md) now checks actual pads and edge geometry for that option. It has only the 104 already-known fine-pitch land-gap DRC findings, but no routing or case fit.
 
+Its corrected generator places both battery-facing temperature devices, TH1 and U39, within the central sensor reservation while retaining a zero-miss 114 mm first-fit. Insulation, component height and cell-to-board temperature error remain physical acceptance work.
+
 A [separate local routing trial](../docs/development/paired-charger-114mm-local-routing-2026-10-14.md) links five BQ24074 support nets without new native DRC geometric findings; most board nets and all enclosure checks remain open.

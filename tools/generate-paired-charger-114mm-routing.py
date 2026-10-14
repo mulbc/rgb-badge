@@ -45,7 +45,7 @@ def add_through_via(board, position, net):
 def sorted_native_tracks(contents):
     pattern = r'\n\t\((?:segment|via)(?=\s)'
     starts = [match.start() for match in re.finditer(pattern, contents)]
-    assert len(starts) == 49
+    assert len(starts) == 80
     blocks = []
     for start in starts:
         depth = 0
@@ -162,7 +162,63 @@ def generate():
                               (point(107.2, 15.2), vbus_second, pcb.In4_Cu)):
         add_segment(board, start, end, layer, e0_in.GetNet())
 
-    assert len(list(board.GetTracks())) == 49
+    ground = pad('C60', 2, 'GND').GetNet()
+    def ground_path(start, end, layer):
+        add_segment(board, start, end, layer, ground)
+    input_ground = pad('C60', 2, 'GND')
+    connector_ground = pad('J1', 'B1_A12', 'GND')
+    ground_cap_via, ground_jack_via = point(103.8, 13.5), point(107.5, 12.3)
+    for position in (ground_cap_via, ground_jack_via):
+        add_through_via(board, position, ground)
+    for start, end, layer in ((input_ground.GetPosition(), ground_cap_via, pcb.B_Cu),
+                              (ground_cap_via, point(105.2, 15.0), pcb.In3_Cu),
+                              (point(105.2, 15.0), ground_jack_via, pcb.In3_Cu),
+                              (ground_jack_via, connector_ground.GetPosition(), pcb.F_Cu)):
+        ground_path(start, end, layer)
+    gate_ground = pad('C52', 2, 'GND')
+    gate_ground_via = point(103.1, 19.0)
+    add_through_via(board, gate_ground_via, ground)
+    ground_path(gate_ground.GetPosition(), gate_ground_via, pcb.B_Cu)
+    ground_path(gate_ground_via, ground_cap_via, pcb.In3_Cu)
+    charger_ground = pad('U41', 4, 'GND')
+    charger_ground_via = point(106.8, 23.1)
+    add_through_via(board, charger_ground_via, ground)
+    ground_path(charger_ground.GetPosition(), charger_ground_via, pcb.B_Cu)
+    ground_path(charger_ground_via, gate_ground_via, pcb.In3_Cu)
+
+    for first, second in ((pad('C53', 2, 'GND'), pad('C54', 2, 'GND')),
+                          (pad('C54', 2, 'GND'), pad('R92', 2, 'GND'))):
+        ground_path(first.GetPosition(), second.GetPosition(), pcb.B_Cu)
+    resistor_ground = pad('R92', 2, 'GND')
+    resistor_ground_via = point(103.0, 28.5)
+    add_through_via(board, resistor_ground_via, ground)
+    ground_path(resistor_ground.GetPosition(), resistor_ground_via, pcb.B_Cu)
+    ground_path(resistor_ground_via, point(103.0, 23.1), pcb.In2_Cu)
+    ground_path(point(103.0, 23.1), charger_ground_via, pcb.In2_Cu)
+    input_bulk_ground = pad('C56', 2, 'GND')
+    input_bulk_via = point(106.25, 29.5)
+    add_through_via(board, input_bulk_via, ground)
+    ground_path(input_bulk_ground.GetPosition(), input_bulk_via, pcb.B_Cu)
+    ground_path(input_bulk_via, resistor_ground_via, pcb.In2_Cu)
+    ilim_ground = pad('R93', 2, 'GND')
+    ilim_ground_via = point(110.75, 28.25)
+    add_through_via(board, ilim_ground_via, ground)
+    ground_path(ilim_ground.GetPosition(), ilim_ground_via, pcb.B_Cu)
+    ground_path(ilim_ground_via, input_bulk_via, pcb.In2_Cu)
+
+    other_connector_ground = pad('J1', 'A1_B12', 'GND')
+    other_ground_via = point(106.2, 20.0)
+    add_through_via(board, other_ground_via, ground)
+    for start, end, layer in ((other_connector_ground.GetPosition(), point(107.2, 19.45), pcb.F_Cu),
+                              (point(107.2, 19.45), other_ground_via, pcb.F_Cu),
+                              (other_ground_via, point(104.0, 20.0), pcb.In3_Cu),
+                              (point(104.0, 20.0), gate_ground_via, pcb.In3_Cu)):
+        ground_path(start, end, layer)
+    efuse_ground = pad('U44', 2, 'GND')
+    ground_path(efuse_ground.GetPosition(), point(102.2, 18.775), pcb.B_Cu)
+    ground_path(point(102.2, 18.775), gate_ground_via, pcb.B_Cu)
+
+    assert len(list(board.GetTracks())) == 80
     pcb.SaveBoard(str(OUTPUT), board)
     contents = sorted_native_tracks(OUTPUT.read_text())
     serial = iter(range(contents.count('(uuid "')))
@@ -170,7 +226,7 @@ def generate():
                       lambda _: '(uuid "' + str(uuid.uuid5(SCOPE, str(next(serial)))) + '")',
                       contents)
     OUTPUT.write_text(contents)
-    print(f'{OUTPUT}: 39 trace segments, 10 through vias; staged USB VBUS through E0/E1 to BQ IN')
+    print(f'{OUTPUT}: 62 trace segments, 18 through vias; staged USB rails and local ground returns')
 
 
 if __name__ == '__main__':

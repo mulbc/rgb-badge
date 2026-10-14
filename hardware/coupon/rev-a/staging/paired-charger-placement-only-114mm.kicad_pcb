@@ -1804,7 +1804,7 @@
 	(footprint "rgb-badge-coupon:C_Murata_GRM21_0805"
 		(layer "B.Cu")
 		(uuid "d5d90edd-fade-5710-846f-0d3f446baf08")
-		(at 26.375 27.25 180)
+		(at 97.125 27.75 180)
 		(descr "GRM21 0805 reflow land, midpoint of Murata GRM219R60J476ME44 recommended ranges; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "C42"
 			(at 0 1.55 0)
@@ -1899,7 +1899,7 @@
 	(footprint "rgb-badge-coupon:C_Murata_GRM21_0805"
 		(layer "B.Cu")
 		(uuid "0faf7a0f-7918-56f2-ba40-c9c502f59cb1")
-		(at 93.125 28 180)
+		(at 22.375 28 180)
 		(descr "GRM21 0805 reflow land, midpoint of Murata GRM219R60J476ME44 recommended ranges; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "C43"
 			(at 0 1.55 0)
@@ -4369,7 +4369,7 @@
 	(footprint "rgb-badge-coupon:C_Murata_GRM15_0402"
 		(layer "B.Cu")
 		(uuid "172fa426-b9e3-54af-9bde-41a6547356df")
-		(at 28.5 29.25 180)
+		(at 26.25 30.5 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "C68"
 			(at 0 1 0)
@@ -4464,7 +4464,7 @@
 	(footprint "rgb-badge-coupon:C_Murata_GRM15_0402"
 		(layer "B.Cu")
 		(uuid "9a19d354-4c05-530e-8f97-63a6002462b4")
-		(at 17.75 0.75 180)
+		(at 14.5 0.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "C69"
 			(at 0 1 0)
@@ -4749,7 +4749,7 @@
 	(footprint "rgb-badge-coupon:C_Murata_GRM15_0402"
 		(layer "B.Cu")
 		(uuid "fe77ed3a-dba8-56f0-995e-88a0445216c8")
-		(at 76.75 31.25 180)
+		(at 17 0.75 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "C72"
 			(at 0 1 0)
@@ -4844,7 +4844,7 @@
 	(footprint "rgb-badge-coupon:C_Murata_GRM15_0402"
 		(layer "B.Cu")
 		(uuid "86437c9a-c2b0-52e2-884f-2c54d0433473")
-		(at 17.75 2.25 180)
+		(at 89.75 21.5 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "C73"
 			(at 0 1 0)
@@ -4939,7 +4939,7 @@
 	(footprint "rgb-badge-coupon:C_Murata_GRM15_0402"
 		(layer "B.Cu")
 		(uuid "019e41ca-3dc3-5cd0-a9df-9fa50d9a0087")
-		(at 89.75 21.5 180)
+		(at 24 21.25 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "C74"
 			(at 0 1 0)
@@ -36969,7 +36969,7 @@
 	(footprint "rgb-badge-coupon:L_Murata_DFE252012P"
 		(layer "B.Cu")
 		(uuid "e2fbf53c-3ab2-51e0-bc63-a4943142d725")
-		(at 100 25.875 180)
+		(at 96.5 24.875 180)
 		(descr "Murata DFE252012P 2.8 x 2.0 mm recommended lands, 1.2 mm inner gap; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "L1"
 			(at 0 1.7 0)
@@ -37517,7 +37517,7 @@
 	(footprint "rgb-badge-coupon:U-DFN2020-6_TypeB_Diodes_DMC1229UFDB"
 		(layer "B.Cu")
 		(uuid "adb2ba9e-7619-5f50-add1-d1659ed94b51")
-		(at 79.75 9.5 180)
+		(at 11.75 7.5 180)
 		(descr "Candidate Diodes U-DFN2020-6 Type B suggested lands for DMC1229UFDB-7; unpopulated; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "PAIR03"
 			(at 0 2.05 0)
@@ -37696,7 +37696,7 @@
 	(footprint "rgb-badge-coupon:U-DFN2020-6_TypeB_Diodes_DMC1229UFDB"
 		(layer "B.Cu")
 		(uuid "33efa3c7-15e1-57a9-b737-690b3e809f34")
-		(at 79.75 13 180)
+		(at 15.25 7.5 180)
 		(descr "Candidate Diodes U-DFN2020-6 Type B suggested lands for DMC1229UFDB-7; unpopulated; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "PAIR04"
 			(at 0 2.05 0)
@@ -37875,7 +37875,7 @@
 	(footprint "rgb-badge-coupon:U-DFN2020-6_TypeB_Diodes_DMC1229UFDB"
 		(layer "B.Cu")
 		(uuid "7c5696cb-7522-5af3-97c6-7e6760664216")
-		(at 79.75 16.5 180)
+		(at 79.75 9.5 180)
 		(descr "Candidate Diodes U-DFN2020-6 Type B suggested lands for DMC1229UFDB-7; unpopulated; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "PAIR05"
 			(at 0 2.05 0)
@@ -38054,7 +38054,7 @@
 	(footprint "rgb-badge-coupon:U-DFN2020-6_TypeB_Diodes_DMC1229UFDB"
 		(layer "B.Cu")
 		(uuid "80f30a31-ad42-5713-a10f-b229938b3b6d")
-		(at 79.75 20 180)
+		(at 79.75 13 180)
 		(descr "Candidate Diodes U-DFN2020-6 Type B suggested lands for DMC1229UFDB-7; unpopulated; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "PAIR06"
 			(at 0 2.05 0)
@@ -38233,7 +38233,7 @@
 	(footprint "rgb-badge-coupon:U-DFN2020-6_TypeB_Diodes_DMC1229UFDB"
 		(layer "B.Cu")
 		(uuid "2e3e529a-e937-53a2-8c63-ac8a30c8b931")
-		(at 27 20.75 180)
+		(at 79.75 16.5 180)
 		(descr "Candidate Diodes U-DFN2020-6 Type B suggested lands for DMC1229UFDB-7; unpopulated; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "PAIR07"
 			(at 0 2.05 0)
@@ -38412,7 +38412,7 @@
 	(footprint "rgb-badge-coupon:U-DFN2020-6_TypeB_Diodes_DMC1229UFDB"
 		(layer "B.Cu")
 		(uuid "42201dd6-7e65-5e5b-8ed7-63107c67906d")
-		(at 104.25 21.5 180)
+		(at 79.75 20 180)
 		(descr "Candidate Diodes U-DFN2020-6 Type B suggested lands for DMC1229UFDB-7; unpopulated; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "PAIR08"
 			(at 0 2.05 0)
@@ -38591,7 +38591,7 @@
 	(footprint "rgb-badge-coupon:U-DFN2020-6_TypeB_Diodes_DMC1229UFDB"
 		(layer "B.Cu")
 		(uuid "9993a288-a0a5-5e49-ba47-4c403f4dbdcf")
-		(at 22 22.25 180)
+		(at 104.25 21.5 180)
 		(descr "Candidate Diodes U-DFN2020-6 Type B suggested lands for DMC1229UFDB-7; unpopulated; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "PAIR09"
 			(at 0 2.05 0)
@@ -39307,7 +39307,7 @@
 	(footprint "rgb-badge-coupon:U-DFN2020-6_TypeB_Diodes_DMC1229UFDB"
 		(layer "B.Cu")
 		(uuid "43801b9f-2bb3-51da-a7d6-25305e1a1de1")
-		(at 25.5 24.25 180)
+		(at 22 23.75 180)
 		(descr "Candidate Diodes U-DFN2020-6 Type B suggested lands for DMC1229UFDB-7; unpopulated; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "PAIR13"
 			(at 0 2.05 0)
@@ -39486,7 +39486,7 @@
 	(footprint "rgb-badge-coupon:U-DFN2020-6_TypeB_Diodes_DMC1229UFDB"
 		(layer "B.Cu")
 		(uuid "55325c6b-2d01-5e34-af2d-bd0f8f080e1f")
-		(at 29 24.25 180)
+		(at 112.25 24.5 180)
 		(descr "Candidate Diodes U-DFN2020-6 Type B suggested lands for DMC1229UFDB-7; unpopulated; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "PAIR14"
 			(at 0 2.05 0)
@@ -39665,7 +39665,7 @@
 	(footprint "rgb-badge-coupon:U-DFN2020-6_TypeB_Diodes_DMC1229UFDB"
 		(layer "B.Cu")
 		(uuid "e8b34c52-3bd4-560c-b758-952c2327e7ca")
-		(at 112.25 24.5 180)
+		(at 25.5 25 180)
 		(descr "Candidate Diodes U-DFN2020-6 Type B suggested lands for DMC1229UFDB-7; unpopulated; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "PAIR15"
 			(at 0 2.05 0)
@@ -39844,7 +39844,7 @@
 	(footprint "rgb-badge-coupon:U-DFN2020-6_TypeB_Diodes_DMC1229UFDB"
 		(layer "B.Cu")
 		(uuid "50e80bf3-aa01-539d-bf65-daaa500e4fd4")
-		(at 96.25 25 180)
+		(at 29 25 180)
 		(descr "Candidate Diodes U-DFN2020-6 Type B suggested lands for DMC1229UFDB-7; unpopulated; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "PAIR16"
 			(at 0 2.05 0)
@@ -50409,7 +50409,7 @@
 	(footprint "rgb-badge-coupon:NTC_Murata_NCU15_0402"
 		(layer "B.Cu")
 		(uuid "a593d3d2-4856-575b-a842-24a387f38723")
-		(at 32.125 11.875 180)
+		(at 54.375 16.125 180)
 		(descr "Murata NCU15 1005 NTC, reflow land a=0.4 b=0.45 c=0.5 mm; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TH1"
 			(at 0 1.3 0)
@@ -50592,7 +50592,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "e33d5680-0e8a-5550-81fa-c2e522a1009f")
-		(at 11.001262 8.250001 180)
+		(at 97.001262 9.250001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP10"
 			(at 0 1.15 0)
@@ -50680,7 +50680,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "1bda9497-ea9f-524b-a8a0-60e5f3e6559e")
-		(at 13.001262 8.250001 180)
+		(at 82.501262 10.500001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP11"
 			(at 0 1.15 0)
@@ -50768,7 +50768,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "765aa868-6e5a-5f6f-8089-8073c1e0a919")
-		(at 15.001262 8.250001 180)
+		(at 84.501262 10.500001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP12"
 			(at 0 1.15 0)
@@ -50856,7 +50856,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "50072426-0e30-55b6-a1d0-ec1f4c635a0c")
-		(at 17.001262 8.250001 180)
+		(at 86.501262 10.500001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP13"
 			(at 0 1.15 0)
@@ -50944,7 +50944,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "61970ed4-eb5b-5aa4-a581-265ffa208e09")
-		(at 19.001262 8.250001 180)
+		(at 88.501262 10.500001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP14"
 			(at 0 1.15 0)
@@ -51032,7 +51032,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "40495da5-fe5f-5e5c-9d32-7df106b66983")
-		(at 97.001262 9.250001 180)
+		(at 21.251262 20.000001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP2"
 			(at 0 1.15 0)
@@ -51120,7 +51120,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "e4fe5673-4575-5fc9-be21-9f9cdb46da41")
-		(at 82.501262 10.500001 180)
+		(at 82.501262 21.750001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP20"
 			(at 0 1.15 0)
@@ -51208,7 +51208,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "1e4286f4-f588-5d92-8f82-47d47e77b396")
-		(at 84.501262 10.500001 180)
+		(at 84.501262 21.750001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP21"
 			(at 0 1.15 0)
@@ -51296,7 +51296,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "056eb7d9-50fa-5295-9891-dcb6ca1d58a7")
-		(at 86.501262 10.500001 180)
+		(at 86.501262 21.750001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP22"
 			(at 0 1.15 0)
@@ -51384,7 +51384,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "929cf264-a142-5858-9987-dc0ce3060f29")
-		(at 88.501262 10.500001 180)
+		(at 100.251262 28.000001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP23"
 			(at 0 1.15 0)
@@ -51472,7 +51472,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "03aeef9b-6465-5b42-8a1c-50a2575fdb19")
-		(at 29.751262 20.000001 180)
+		(at 79.001262 29.500001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP3"
 			(at 0 1.15 0)
@@ -51560,7 +51560,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "50b2fbcc-0003-5d51-a8e3-4b750b04a0e5")
-		(at 82.501262 21.750001 180)
+		(at 81.001262 29.500001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP30"
 			(at 0 1.15 0)
@@ -51648,7 +51648,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "9da82ac5-4872-5a86-8a88-ba09cde9c792")
-		(at 84.501262 21.750001 180)
+		(at 110.501262 29.750001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP31"
 			(at 0 1.15 0)
@@ -51736,7 +51736,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "b0f5f112-7649-54b3-9bf0-cf9ae7d424dd")
-		(at 86.501262 21.750001 180)
+		(at 112.501262 29.750001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP32"
 			(at 0 1.15 0)
@@ -51824,7 +51824,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "3435bede-b7c0-5c34-9c67-620eca174406")
-		(at 21.251262 25.000001 180)
+		(at 96.001262 30.000001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP33"
 			(at 0 1.15 0)
@@ -51912,7 +51912,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "5719f711-0163-5c40-a6a7-3dd160047199")
-		(at 29.501262 27.000001 180)
+		(at 98.001262 30.000001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP34"
 			(at 0 1.15 0)
@@ -52000,7 +52000,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "81971d57-ee05-589f-b579-5a7d1ec5e10f")
-		(at 102.501262 30.000001 180)
+		(at 100.001262 30.000001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP35"
 			(at 0 1.15 0)
@@ -52088,7 +52088,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "5b8efa46-d9a0-5a55-9209-3b6457e2f595")
-		(at 104.501262 30.000001 180)
+		(at 102.001262 30.000001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP4"
 			(at 0 1.15 0)
@@ -52176,7 +52176,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "d1ef49e5-f944-5580-a9e7-521a7c28700f")
-		(at 21.251262 30.250001 180)
+		(at 104.001262 30.000001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP5"
 			(at 0 1.15 0)
@@ -52264,7 +52264,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "655a3277-99ca-5e25-a627-3486d499409b")
-		(at 23.251262 30.250001 180)
+		(at 21.251262 30.250001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP6"
 			(at 0 1.15 0)
@@ -52352,7 +52352,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "38c444f4-9151-5950-97cf-6d4e6ff9c11f")
-		(at 92.001262 30.250001 180)
+		(at 23.251262 30.250001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP7"
 			(at 0 1.15 0)
@@ -52440,7 +52440,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "3d828abf-33de-50e6-a092-882ab232fb3a")
-		(at 94.001262 30.250001 180)
+		(at 106.001262 30.500001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP8"
 			(at 0 1.15 0)
@@ -52528,7 +52528,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "7e59d4a8-1244-5279-960d-b3710d4be6fc")
-		(at 106.501262 30.500001 180)
+		(at 108.001262 30.500001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP9"
 			(at 0 1.15 0)
@@ -54928,7 +54928,7 @@
 	(footprint "rgb-badge-coupon:X2QFN_TI_RWB0012A_1.6x1.6mm_P0.4mm"
 		(layer "B.Cu")
 		(uuid "e54b41b2-6832-5a99-9493-55ac295d4601")
-		(at 110.875 30.125 180)
+		(at 100.625 25.625 180)
 		(descr "TI RWB0012A 1.6 x 1.6 mm X2QFN-12 manufacturer land and stencil patterns for TUSB320LAIRWBR; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U31"
 			(at 0 2 0)
@@ -55141,7 +55141,7 @@
 	(footprint "rgb-badge-coupon:UQFN_TI_RSE0008A_1.5x1.5mm_P0.5mm"
 		(layer "B.Cu")
 		(uuid "e073c508-8b74-5d04-b7f5-cbac13bb228a")
-		(at 100 29 180)
+		(at 26 28.25 180)
 		(descr "TI manufacturer land/stencil transcription; see power-replacement-library-audit.md; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U32"
 			(at 0 1.8 0)
@@ -55608,7 +55608,7 @@
 	(footprint "rgb-badge-coupon:TDFN_Maxim_T822-3_2x2mm_P0.5mm_EP0.7x1.38mm"
 		(layer "B.Cu")
 		(uuid "21a75667-c9f1-5f4d-a11d-6997aae58946")
-		(at 22.25 27.625 180)
+		(at 93 28.125 180)
 		(descr "Maxim T822+3 2 x 2 mm TDFN-EP land pattern 90-0065 for MAX17048G+T10; full-area exposed-pad paste is provisional for assembler DFM; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U35"
 			(at 0 1.9 0)
@@ -55762,7 +55762,7 @@
 	(footprint "rgb-badge-coupon:SOT5X3_TI_DRL0008A"
 		(layer "B.Cu")
 		(uuid "50f2525d-00f3-5d0c-90be-64978c80f911")
-		(at 96.875 29 180)
+		(at 18.625 7.25 180)
 		(descr "TI DRL0008A SOT-5X3, 0.5 mm pitch manufacturer land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U36"
 			(at 0 1.75 0)
@@ -56396,7 +56396,7 @@
 	(footprint "rgb-badge-coupon:SOT563_TI_DRL0006A"
 		(layer "B.Cu")
 		(uuid "590ddbd8-9432-52d1-bbf1-b61ed5a136a4")
-		(at 11.875 1.5 180)
+		(at 57.625 15.5 180)
 		(descr "TI DRL0006A SOT-563 six-pad land from TMP390 Rev A package drawing, page 25; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U39"
 			(at 0 1.75 0)
@@ -57732,7 +57732,7 @@
 	(footprint "rgb-badge-coupon:VSSOP_TI_DGK0008A"
 		(layer "B.Cu")
 		(uuid "49e204a4-19d0-505a-9105-c1c6ffa48ccc")
-		(at 13 5.125 180)
+		(at 16 3.625 180)
 		(descr "TI DGK0008A VSSOP8; manufacturer example 1.4 x 0.45 mm lands at 0.65 mm pitch; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U46"
 			(at 0 2.65 0)
@@ -58222,7 +58222,7 @@
 	(footprint "rgb-badge-coupon:UQFN_TI_RSE0008A_1.5x1.5mm_P0.5mm"
 		(layer "B.Cu")
 		(uuid "790d13dd-bc0c-5f69-9044-c0e873ca8105")
-		(at 25.75 30 180)
+		(at 29 28.25 180)
 		(descr "TI manufacturer land/stencil transcription; see power-replacement-library-audit.md; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U49"
 			(at 0 1.8 0)
@@ -58378,7 +58378,7 @@
 	(footprint "rgb-badge-coupon:UQFN_TI_RSE0008A_1.5x1.5mm_P0.5mm"
 		(layer "B.Cu")
 		(uuid "a70f9a96-9762-50eb-9379-a752de3524d8")
-		(at 15 1.5 180)
+		(at 11.75 1.5 180)
 		(descr "TI manufacturer land/stencil transcription; see power-replacement-library-audit.md; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U50"
 			(at 0 1.8 0)
@@ -58857,7 +58857,7 @@
 	(footprint "rgb-badge-coupon:WSON_TI_DSE0006A_1p5x1p5mm_P0p5mm"
 		(layer "B.Cu")
 		(uuid "f597de7e-2fe0-5dd6-9865-5bceaddd32ee")
-		(at 79.5 29.875 180)
+		(at 11.75 4.375 180)
 		(descr "TI DSE0006A land/stencil 4220552/B; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U53"
 			(at 0 1.55 0)
@@ -58998,7 +58998,7 @@
 	(footprint "rgb-badge-coupon:VSSOP_TI_DCU0008A"
 		(layer "B.Cu")
 		(uuid "63850457-da8d-5af2-978f-6cec25aee052")
-		(at 17.875 5.125 180)
+		(at 93.125 19.375 180)
 		(descr "TI DCU0008A land/stencil 4225266/A; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U54"
 			(at 0 2.35 0)
@@ -59155,7 +59155,7 @@
 	(footprint "rgb-badge-coupon:VSSOP_TI_DCU0008A"
 		(layer "B.Cu")
 		(uuid "02756990-38c5-5f30-9dd0-20faf565630b")
-		(at 93.125 19.375 180)
+		(at 27.375 21.125 180)
 		(descr "TI DCU0008A land/stencil 4225266/A; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "U55"
 			(at 0 2.35 0)

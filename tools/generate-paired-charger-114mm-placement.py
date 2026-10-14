@@ -39,10 +39,14 @@ def candidate_boxes():
     fixed = fit.fixed_boxes(rear, right_shift=WIDTH-fit.BOARD_W)
     fixed.update({ref: fit.box(box[0]+extra, box[1], box[2], box[3])
                   for ref, box in screen.GROUPED.items()})
+    # Unlike the older free first-fit screen, reserve actual battery-facing
+    # positions for both independent temperature devices in the central box.
+    fixed['TH1'] = fit.box(53.25, 15.25, 2.25, 1.75)
+    fixed['U39'] = fit.box(56.0, 14.0, 3.25, 3.0)
     near = {f'C{66+i}': f'U{47+i}' for i in range(9)}
     placed = fit.place(rear, 'dual-package candidate', 'area first', fixed,
                        fit.box(31, 2, 47, 28.5), fit.box(49.5, 12.25, 10, 8),
-                       board_width=WIDTH, priority_refs=('U39', 'U50'),
+                       board_width=WIDTH, priority_refs=('U50',),
                        nearby=near, near_gap_mm=3.0)
     assert placed['unplaced_count'] == 0 and placed['placed_boxes'] == 227
     return placed['boxes_mm']
