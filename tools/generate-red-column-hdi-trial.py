@@ -63,9 +63,9 @@ def generate():
     assert pcb.SaveBoard(str(OUTPUT), board)
     loaded = pcb.LoadBoard(str(OUTPUT))
     assert len(list(loaded.GetFootprints())) == 497
-    assert loaded.GetConnectivity().GetUnconnectedCount(False) == 1209
+    assert loaded.GetConnectivity().GetUnconnectedCount(False) == 1207
     print(f"Saved 256 microvias and 240 red-column segments to {OUTPUT}")
-    print("1209 remaining KiCad connectivity edges; geometry/process still unqualified")
+    print("1207 remaining KiCad connectivity edges; geometry/process still unqualified")
 
 
 if __name__ == "__main__":

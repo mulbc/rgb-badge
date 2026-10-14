@@ -154,7 +154,7 @@ def normalize(contents):
         return match.group(1)
     contents = sort_native_blocks(contents, "footprint", 497, reference)
     # pcbnew can interleave segments and vias, so sort their shared block.
-    contents = sort_native_blocks(contents, "(?:segment|via)", 235,
+    contents = sort_native_blocks(contents, "(?:segment|via)", 243,
                                   lambda block: re.sub(r'\(uuid "[0-9a-f-]{36}"\)', '', block))
     count = iter(range(contents.count('(uuid "')))
     updated = re.sub(r'\(uuid "[0-9a-f-]{36}"\)',
@@ -191,7 +191,7 @@ def route_local_efuse_support(board):
     parts = {part.GetReference(): part for part in board.GetFootprints()}
     routes = (
         ("C62", "1", "U45", "7", 0, ()),
-        ("C57", "1", "U44", "7", 1, ()),
+        ("C57", "1", "U44", "7", 1, ((102.65, 20.0), (104.0, 20.0))),
         ("R100", "1", "U45", "9", 0, ((103.75, 14.0), (103.75, 14.78))),
         ("R96", "1", "U44", "9", 0, ((103.75, 17.5), (103.75, 18.77))),
     )
@@ -582,6 +582,64 @@ def route_e1_secondary_ground_pad(board):
         board.Add(track)
 
 
+def route_e0_ground_pad(board):
+    """Escape E0 pad 8 between its two support nets to the C62 return."""
+    parts = {part.GetReference(): part for part in board.GetFootprints()}
+    ground = next(pad for pad in parts["U45"].Pads() if pad.GetNumber() == "8")
+    assert ground.GetNetname() == "GND"
+    point = lambda x, y: pcb.VECTOR2I(pcb.FromMM(x), pcb.FromMM(y))
+    position = point(102.0, 15.225)
+    destination = point(101.3, 16.0)
+    assert any(isinstance(item, pcb.PCB_VIA) and item.GetPosition() == destination
+               and item.GetNetname() == "GND" for item in board.GetTracks())
+    via = pcb.PCB_VIA(board)
+    via.SetPosition(position)
+    via.SetViaType(pcb.VIATYPE_THROUGH)
+    via.SetLayerPair(pcb.F_Cu, pcb.B_Cu)
+    via.SetWidth(pcb.FromMM(0.6))
+    via.SetDrill(pcb.FromMM(0.3))
+    via.SetNet(ground.GetNet())
+    board.Add(via)
+    for start, end, layer in ((ground.GetPosition(), position, pcb.B_Cu),
+                              (position, destination, pcb.In3_Cu)):
+        track = pcb.PCB_TRACK(board)
+        track.SetStart(start)
+        track.SetEnd(end)
+        track.SetWidth(pcb.FromMM(0.2))
+        track.SetLayer(layer)
+        track.SetNet(ground.GetNet())
+        board.Add(track)
+
+
+def route_e1_ground_pad(board):
+    """Escape E1 pad 8 through the corridor below its rerouted dVdt net."""
+    parts = {part.GetReference(): part for part in board.GetFootprints()}
+    ground = next(pad for pad in parts["U44"].Pads() if pad.GetNumber() == "8")
+    assert ground.GetNetname() == "GND"
+    point = lambda x, y: pcb.VECTOR2I(pcb.FromMM(x), pcb.FromMM(y))
+    position = point(103.4, 19.3)
+    destination = point(101.3, 19.0)
+    assert any(isinstance(item, pcb.PCB_VIA) and item.GetPosition() == destination
+               and item.GetNetname() == "GND" for item in board.GetTracks())
+    via = pcb.PCB_VIA(board)
+    via.SetPosition(position)
+    via.SetViaType(pcb.VIATYPE_THROUGH)
+    via.SetLayerPair(pcb.F_Cu, pcb.B_Cu)
+    via.SetWidth(pcb.FromMM(0.6))
+    via.SetDrill(pcb.FromMM(0.3))
+    via.SetNet(ground.GetNet())
+    board.Add(via)
+    for start, end, layer in ((ground.GetPosition(), position, pcb.B_Cu),
+                              (position, destination, pcb.In3_Cu)):
+        track = pcb.PCB_TRACK(board)
+        track.SetStart(start)
+        track.SetEnd(end)
+        track.SetWidth(pcb.FromMM(0.2))
+        track.SetLayer(layer)
+        track.SetNet(ground.GetNet())
+        board.Add(track)
+
+
 def route_e0_output_ground(board):
     """Join the E0 output reservoir to the input-ground return trial."""
     parts = {part.GetReference(): part for part in board.GetFootprints()}
@@ -768,6 +826,8 @@ def generate():
     route_efuse_timing_cap_grounds(board)
     route_second_usb_ground_contact(board)
     route_e1_secondary_ground_pad(board)
+    route_e0_ground_pad(board)
+    route_e1_ground_pad(board)
     route_everlight_row_anodes(board)
     route_vled_switching_pair(board)
     assert pcb.SaveBoard(str(BOARD), board)
@@ -783,12 +843,12 @@ def generate():
     assert pcb.ToMM(charger_box.GetY() - jack_box.GetBottom()) >= 0.5
     tracks = [item for item in loaded.GetTracks() if not isinstance(item, pcb.PCB_VIA)]
     vias = [item for item in loaded.GetTracks() if isinstance(item, pcb.PCB_VIA)]
-    assert len(tracks) == 215 and len(vias) == 20
+    assert len(tracks) == 221 and len(vias) == 22
     rear = [track for track in tracks if track.GetLayer() == pcb.B_Cu]
     front = [track for track in tracks if track.GetLayer() == pcb.F_Cu]
     inner = [track for track in tracks if track.GetLayer() == pcb.In4_Cu]
     ground_inner = [track for track in tracks if track.GetLayer() == pcb.In3_Cu]
-    assert len(rear) == 41 and len(front) == 150 and len(inner) == 10 and len(ground_inner) == 14
+    assert len(rear) == 45 and len(front) == 150 and len(inner) == 10 and len(ground_inner) == 16
     assert {track.GetNetname() for track in rear} == {"E0_DVDT", "E1_DVDT", "E0_ILM", "E1_ILM",
                                                        "Net-(L2-~-Pad1)", "Net-(L2-~-Pad2)", "+5V_USB",
                                                        "VBUS_CONNECTOR", "CHARGER_IN_DRAFT", "CHARGER_ILIM", "GND"}
