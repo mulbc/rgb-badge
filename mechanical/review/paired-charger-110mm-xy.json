@@ -126,6 +126,28 @@
     "All five USB support resistors are grouped in XY but not electrically routed here.",
     "No full-size badge, fabrication files, or independent Gate A review exists."
   ],
+  "narrow_108mm_sensitivity": {
+    "assumption": "Shift the grouped USB/charger boxes and three projected drivers 2 mm left",
+    "default_order_unplaced_refs": [
+      "PAIR14",
+      "PAIR15",
+      "PAIR16",
+      "L1",
+      "L2",
+      "U35"
+    ],
+    "priority_order_unplaced_refs": [
+      "PAIR11",
+      "PAIR12",
+      "PAIR13",
+      "PAIR14",
+      "PAIR15",
+      "PAIR16",
+      "L1",
+      "L2",
+      "U35"
+    ]
+  },
   "pack_body_box_mm": [
     31.0,
     2.0,

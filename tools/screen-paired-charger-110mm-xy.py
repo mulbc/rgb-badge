@@ -89,6 +89,16 @@ def main():
                        pack, sensor, board_width=WIDTH, priority_refs=('U39', 'U50'))
     assert result['unplaced_count'] == 0
     assert len([ref for ref in result['boxes_mm'] if ref.startswith('PAIR')]) == 16
+    narrow_fixed = fit.fixed_boxes(rear, right_shift=108.0-fit.BOARD_W)
+    for ref in [name for name in narrow_fixed if name.startswith('U1-project-')]:
+        narrow_fixed[ref] = tuple(value-2.0 if index % 2 == 0 else value
+                                  for index, value in enumerate(narrow_fixed[ref]))
+    narrow_fixed.update({ref: fit.box(box[0]-2.0, box[1], box[2], box[3])
+                         for ref, box in GROUPED.items()})
+    narrow_default = fit.place(rear, 'dual-package candidate', 'area first', narrow_fixed,
+                               pack, sensor, board_width=108.0)
+    narrow_priority = fit.place(rear, 'dual-package candidate', 'area first', narrow_fixed,
+                                pack, sensor, board_width=108.0, priority_refs=('U39', 'U50'))
     report = {
         'SPDX-License-Identifier': 'CERN-OHL-S-2.0',
         'status': 'UNSELECTED_XY_FIRST_FIT_SCREEN_NOT_A_PCB_OR_110MM_CASE_APPROVAL',
@@ -103,6 +113,11 @@ def main():
         'sensor_reservation_box_mm': list(sensor),
         'grouped_fixed_boxes_mm': {ref: list(fixed[ref]) for ref in sorted(GROUPED)},
         'default_area_order_unplaced_refs': default_order['unplaced_refs'],
+        'narrow_108mm_sensitivity': {
+            'assumption': 'Shift the grouped USB/charger boxes and three projected drivers 2 mm left',
+            'default_order_unplaced_refs': narrow_default['unplaced_refs'],
+            'priority_order_unplaced_refs': narrow_priority['unplaced_refs'],
+        },
         'placement': result,
         'limitations': [
             'The paired-row part remains unconnected; its numeric pin map and assembly process are unapproved.',
