@@ -45,7 +45,7 @@ def add_through_via(board, position, net):
 def sorted_native_tracks(contents):
     pattern = r'\n\t\((?:segment|via)(?=\s)'
     starts = [match.start() for match in re.finditer(pattern, contents)]
-    assert len(starts) == 80
+    assert len(starts) == 101
     blocks = []
     for start in starts:
         depth = 0
@@ -218,7 +218,46 @@ def generate():
     ground_path(efuse_ground.GetPosition(), point(102.2, 18.775), pcb.B_Cu)
     ground_path(point(102.2, 18.775), gate_ground_via, pcb.B_Cu)
 
-    assert len(list(board.GetTracks())) == 80
+    # Continue the local return network on the trial board. Each branch is
+    # checked against the native DRC before being retained in this study.
+    c61_ground = pad('C61', 2, 'GND')
+    c61_via = point(103.7, 15.45)
+    add_through_via(board, c61_via, ground)
+    ground_path(c61_ground.GetPosition(), c61_via, pcb.B_Cu)
+    ground_path(c61_via, ground_cap_via, pcb.In3_Cu)
+
+    e0_ground = pad('U45', 8, 'GND')
+    e0_ground_via = point(99.1, 15.2)
+    add_through_via(board, e0_ground_via, ground)
+    ground_path(e0_ground.GetPosition(), e0_ground_via, pcb.B_Cu)
+    ground_path(e0_ground_via, c61_via, pcb.In3_Cu)
+
+    e1_ground = pad('U44', 8, 'GND')
+    e1_ground_via = point(99.0, 19.225)
+    add_through_via(board, e1_ground_via, ground)
+    ground_path(e1_ground.GetPosition(), e1_ground_via, pcb.B_Cu)
+    ground_path(e1_ground_via, gate_ground_via, pcb.In3_Cu)
+
+    c62_ground = pad('C62', 2, 'GND')
+    c62_via = point(96.85, 15.3)
+    add_through_via(board, c62_via, ground)
+    ground_path(c62_ground.GetPosition(), c62_via, pcb.B_Cu)
+    ground_path(c62_via, e0_ground_via, pcb.In3_Cu)
+
+    c57_ground = pad('C57', 2, 'GND')
+    c57_via = point(96.85, 19.6)
+    add_through_via(board, c57_via, ground)
+    ground_path(c57_ground.GetPosition(), c57_via, pcb.B_Cu)
+    ground_path(c57_via, e1_ground_via, pcb.In3_Cu)
+
+    for number, via_x in ((6, 108.0), (8, 109.0)):
+        charger_pad = pad('U41', number, 'GND')
+        local_via = point(via_x, 23.1)
+        add_through_via(board, local_via, ground)
+        ground_path(charger_pad.GetPosition(), local_via, pcb.B_Cu)
+        ground_path(local_via, charger_ground_via, pcb.In2_Cu)
+
+    assert len(list(board.GetTracks())) == 101
     pcb.SaveBoard(str(OUTPUT), board)
     contents = sorted_native_tracks(OUTPUT.read_text())
     serial = iter(range(contents.count('(uuid "')))
@@ -226,7 +265,7 @@ def generate():
                       lambda _: '(uuid "' + str(uuid.uuid5(SCOPE, str(next(serial)))) + '")',
                       contents)
     OUTPUT.write_text(contents)
-    print(f'{OUTPUT}: 62 trace segments, 18 through vias; staged USB rails and local ground returns')
+    print(f'{OUTPUT}: 76 trace segments, 25 through vias; staged USB rails and local ground returns')
 
 
 if __name__ == '__main__':
