@@ -25,10 +25,13 @@ SHEET_UUID = "bb12d62e-fd97-516e-9e94-af2c7615caf5"
 FILE_UUID = "2a21bafc-2155-5152-9b8f-db9a5063a2ae"
 NAMESPACE = uuid.UUID(ROOT_UUID)
 PROJECT = "rgb-badge-coupon"
+ACTIVE_VARIANT = "canonical"
+ACTIVE_SHEET_UUID = SHEET_UUID
 
 
 def uid(name):
-    return str(uuid.uuid5(NAMESPACE, "rows-rev-a/" + name))
+    prefix = "rows-rev-a/" if ACTIVE_VARIANT == "canonical" else "rows-onsemi-candidate/"
+    return str(uuid.uuid5(NAMESPACE, prefix + name))
 
 
 def quote(value):
@@ -61,6 +64,7 @@ METADATA = {
     "74HC4514PW,118": ("Nexperia", "https://assets.nexperia.com/documents/data-sheet/74HC_HCT4514.pdf", "rgb-badge-coupon:TSSOP_Nexperia_SOT355-1_24"),
     "DMP2066LSN-7": ("Diodes Incorporated", "https://www.diodes.com/datasheet/download/DMP2066LSN.pdf", "rgb-badge-coupon:SC59_Diodes_DMP2066LSN"),
     "2N7002K-7": ("Diodes Incorporated", "https://www.diodes.com/assets/Datasheets/2N7002K.pdf", "rgb-badge-coupon:SOT23_Diodes_2N7002K"),
+    "NTLJD3119CTBG": ("onsemi", "https://www.onsemi.com/pdf/datasheet/ntljd3119c-d.pdf", "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C"),
     "ERJ2RKF1001X": ("Panasonic", "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
     "ERJ2RKF1003X": ("Panasonic", "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
     "GRM155R71C104KA88D": ("Murata", "https://pim.murata.com/asset/pim4/ceramicCapacitorSMD/GRM155R71C104KA88-01A-EN_PDF_CERAMICCAPACITORSMD", "rgb-badge-coupon:C_Murata_GRM15_0402"),
@@ -71,6 +75,7 @@ PIN_NUMBERS = {
     "74HC4514PW,118": [str(i) for i in range(1, 25)],
     "DMP2066LSN-7": ["1", "2", "3"],
     "2N7002K-7": ["1", "2", "3"],
+    "NTLJD3119CTBG": ["1", "2", "3", "4", "5", "6"],
     "ERJ2RKF1001X": ["1", "2"],
     "ERJ2RKF1003X": ["1", "2"],
     "GRM155R71C104KA88D": ["1", "2"],
@@ -85,6 +90,8 @@ def component(mpn, ref, value, x, y):
         reference_y, value_y = y - 29.21, y - 26.67
     elif mpn in {"DMP2066LSN-7", "2N7002K-7"}:
         reference_y, value_y = y - 8.89, y - 6.35
+    elif mpn == "NTLJD3119CTBG":
+        reference_y, value_y = y - 12.70, y - 10.16
     elif mpn == "GRM155R71C104KA88D":
         reference_y, value_y = y - 6.35, y - 3.81
     else:
@@ -101,7 +108,7 @@ def component(mpn, ref, value, x, y):
         prop("MPN", "" if virtual else mpn, x, y, hidden=True),
     ]
     lines.extend(f'(pin {quote(number)} (uuid {quote(uid(ref + "/pin/" + number))}))' for number in PIN_NUMBERS[mpn])
-    lines.append(f'(instances (project {quote(PROJECT)} (path "/{ROOT_UUID}/{SHEET_UUID}" (reference {quote(ref)}) (unit 1)))))')
+    lines.append(f'(instances (project {quote(PROJECT)} (path "/{ROOT_UUID}/{ACTIVE_SHEET_UUID}" (reference {quote(ref)}) (unit 1)))))')
     return lines
 
 
@@ -123,19 +130,30 @@ def stage(index, x, y):
     p_ref, n_ref = f"Q{index + 1}", f"Q{index + 17}"
     pullup_ref, pulldown_ref = f"R{index + 6}", f"R{index + 22}"
     result = [note(f"ROW {row}", x - 22.86, y - 10.16, f"row-{row}/title", 1.27)]
-    result += component("DMP2066LSN-7", p_ref, "DMP2066LSN-7", x, y)
-    result += wire_label("VLED", x - 6.35, y, x - 16.51, y, 180, p_ref + "/S")
-    result += wire_label(f"ROW_{row}_A", x + 6.35, y, x + 16.51, y, 0, p_ref + "/D")
-    result += wire_label(f"ROW_GATE_{row}", x, y + 5.08, x + 15.24, y + 10.16, 0, p_ref + "/G")
+    if ACTIVE_VARIANT == "onsemi-candidate":
+        pair_y = y + 15.24
+        result += component("NTLJD3119CTBG", p_ref, "NTLJD3119CTBG", x, pair_y)
+        result += wire_label("VLED", x - 12.70, pair_y - 5.08, x - 22.86, pair_y - 5.08, 180, p_ref + "/S2")
+        result += wire_label(f"ROW_{row}_A", x + 12.70, pair_y - 5.08, x + 22.86, pair_y - 5.08, 0, p_ref + "/D2")
+        result += wire_label(f"ROW_GATE_{row}", x - 12.70, pair_y, x - 22.86, pair_y, 180, p_ref + "/G2")
+        result += wire_label("GND", x - 12.70, pair_y + 5.08, x - 22.86, pair_y + 5.08, 180, p_ref + "/S1")
+        result += wire_label(f"ROW_GATE_{row}", x + 12.70, pair_y + 5.08, x + 22.86, pair_y + 5.08, 0, p_ref + "/D1")
+        result += wire_label(f"ROW_SEL_{row}", x + 12.70, pair_y, x + 22.86, pair_y, 0, p_ref + "/G1")
+    else:
+        result += component("DMP2066LSN-7", p_ref, "DMP2066LSN-7", x, y)
+        result += wire_label("VLED", x - 6.35, y, x - 16.51, y, 180, p_ref + "/S")
+        result += wire_label(f"ROW_{row}_A", x + 6.35, y, x + 16.51, y, 0, p_ref + "/D")
+        result += wire_label(f"ROW_GATE_{row}", x, y + 5.08, x + 15.24, y + 10.16, 0, p_ref + "/G")
 
     result += component("ERJ2RKF1001X", pullup_ref, "1k 1%", x + 55.88, y + 12.70)
     result += wire_label("VLED", x + 50.80, y + 12.70, x + 40.64, y + 12.70, 180, pullup_ref + "/1")
     result += wire_label(f"ROW_GATE_{row}", x + 60.96, y + 12.70, x + 71.12, y + 12.70, 0, pullup_ref + "/2")
 
-    result += component("2N7002K-7", n_ref, "2N7002K-7", x, y + 30.48)
-    result += wire_label("GND", x - 6.35, y + 30.48, x - 16.51, y + 30.48, 180, n_ref + "/S")
-    result += wire_label(f"ROW_GATE_{row}", x + 6.35, y + 30.48, x + 16.51, y + 30.48, 0, n_ref + "/D")
-    result += wire_label(f"ROW_SEL_{row}", x, y + 35.56, x + 15.24, y + 40.64, 0, n_ref + "/G")
+    if ACTIVE_VARIANT == "canonical":
+        result += component("2N7002K-7", n_ref, "2N7002K-7", x, y + 30.48)
+        result += wire_label("GND", x - 6.35, y + 30.48, x - 16.51, y + 30.48, 180, n_ref + "/S")
+        result += wire_label(f"ROW_GATE_{row}", x + 6.35, y + 30.48, x + 16.51, y + 30.48, 0, n_ref + "/D")
+        result += wire_label(f"ROW_SEL_{row}", x, y + 35.56, x + 15.24, y + 40.64, 0, n_ref + "/G")
 
     result += component("ERJ2RKF1003X", pulldown_ref, "100k 1%", x + 55.88, y + 43.18)
     result += wire_label(f"ROW_SEL_{row}", x + 50.80, y + 43.18, x + 40.64, y + 43.18, 180, pulldown_ref + "/1")
@@ -143,12 +161,20 @@ def stage(index, x, y):
     return result
 
 
-def generate():
+def generate(variant="canonical"):
+    global ACTIVE_VARIANT, ACTIVE_SHEET_UUID
+    if variant not in {"canonical", "onsemi-candidate"}:
+        raise ValueError(variant)
+    ACTIVE_VARIANT = variant
+    ACTIVE_SHEET_UUID = (SHEET_UUID if variant == "canonical"
+                         else str(uuid.uuid5(NAMESPACE, "onsemi-candidate-sheet")))
     ROW["check_libraries"](PROJECT_DIR)
-    used_symbols = ["74HC4514PW,118", "DMP2066LSN-7", "2N7002K-7", "ERJ2RKF1001X", "ERJ2RKF1003X", "GRM155R71C104KA88D"]
+    row_symbols = (["DMP2066LSN-7", "2N7002K-7"] if variant == "canonical"
+                   else ["NTLJD3119CTBG"])
+    used_symbols = ["74HC4514PW,118", *row_symbols, "ERJ2RKF1001X", "ERJ2RKF1003X", "GRM155R71C104KA88D"]
     lines = [
         '(kicad_sch', '(version 20260306)', '(generator "rgb_badge_rows")', '(generator_version "1.0")',
-        f'(uuid {quote(FILE_UUID)})', '(paper "A2")',
+        f'(uuid {quote(FILE_UUID if variant == "canonical" else str(uuid.uuid5(NAMESPACE, "onsemi-candidate-file")))})', '(paper "A2")',
         '(title_block (title "Coupon Rev A - 16 row selectors") (rev "A-draft") (comment 1 "SPDX-License-Identifier: CERN-OHL-S-2.0") (comment 2 "VLED stage present but held disabled; row interlock pending"))',
         '(lib_symbols\n' + '\n'.join(cached_symbol(name) for name in used_symbols) + '\n)',
         note('16 decoded high-side row selectors', 20.32, 20.32, 'title', 2.0),
@@ -184,7 +210,10 @@ def generate():
     lines += [
         note('VLED is sourced by U37, whose EN is held LOW; no active display is permitted yet.', 177.80, 73.66, 'flag-note'),
         note('Hardware interlock must hold VLED and every row off through boot/reset/programming.', 177.80, 81.28, 'power-note'),
-        note('2N7002K at 3.3 V sinks only the 1 kΩ pull-up current; Gate A acceptance and coupon measurement required.', 177.80, 88.90, 'nmos-note', 1.016),
+        note(('2N7002K at 3.3 V sinks only the 1 kΩ pull-up current; Gate A acceptance and coupon measurement required.'
+              if variant == "canonical" else
+              'onsemi row-pair trial only: numbered pins are sourced, but copper, heat, mask and Gate A remain open.'),
+             177.80, 88.90, 'nmos-note', 1.016),
     ]
 
     for index in range(16):
@@ -203,10 +232,13 @@ def generate():
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', required=True, type=Path, help='New directory; existing paths are rejected')
+    parser.add_argument('--variant', choices=('canonical', 'onsemi-candidate'), default='canonical')
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=False)
-    (args.output / 'rows.kicad_sch').write_text(generate(), encoding='utf-8')
-    print(f'Generated row-selection draft: U2, 16 P-MOSFETs, 16 N-MOSFETs, 37 resistors and C2 in {args.output}')
+    (args.output / 'rows.kicad_sch').write_text(generate(args.variant), encoding='utf-8')
+    count = ('16 P-MOSFETs, 16 N-MOSFETs' if args.variant == 'canonical'
+             else '16 unapproved onsemi N/P pairs')
+    print(f'Generated row-selection draft: U2, {count}, 37 resistors and C2 in {args.output}')
 
 
 if __name__ == '__main__':

@@ -1,0 +1,13 @@
+<!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
+
+# Numbered-pin onsemi row-pair trial, 2026-10-14
+
+The separate [candidate schematic](../../hardware/coupon/rev-a/staging/onsemi-row-candidate/README.md) and [114 mm placement trial](../../hardware/coupon/rev-a/staging/onsemi-row-placement-trial-114mm.kicad_pcb) now exercise exact onsemi `NTLJD3119CTBG` in sixteen row positions. The [generator](../../tools/generate-onsemi-row-placement-trial.py) replaces the previous **netless** Diodes pair geometry on the separately routed 114 mm study; it does not change the canonical coupon root, row sheet or BOM. The routed charger traces remain as a study, and the row pads have **assigned nets but no row tracks**. Two projected final-driver footprints also remain netless geometry. This mixed-source board is not a schematic-synchronized or fabrication candidate.
+
+The manufacturer [NTLJD3119C/D Rev. 6 datasheet](https://www.onsemi.com/pdf/datasheet/ntljd3119c-d.pdf), page 1, explicitly numbers the top view. In the standalone KiCad XML netlist, all sixteen candidate pairs have pin 1 = GND, 2 = decoder `ROW_SEL`, 3 = unique `ROW_A` anode, 4 = VLED, and 5/6 = shared `ROW_GATE` with the existing 1 kΩ pull-up. Each select node also has its 100 kΩ pull-down. The netlist has 55 components; all 160 checked pair/resistor terminal memberships matched. The default generator still reproduces the unchanged canonical row sheet SHA-256 `e332b3a7d50a1e66fba1797a9481fff820d7df3dd5a5181797295764b742aa28`.
+
+KiCad 10.0.6 exported the standalone candidate netlist and SVG. Its isolated ERC has 18 boundary findings: two power input pins await physical sources and sixteen `ROW_A` outputs await the LED matrix. It has no library/footprint findings. The full canonical project check still passes with zero ERC violations and 497 PCB items/1,814 logical pins.
+
+Native DRC on the net-assigned placement board reports **104 clearance violations**: six intrinsic manufacturer-land gaps in each of sixteen onsemi pair packages (96 total), plus the existing eight U48/U52 fine-pitch gaps. There are no new inter-footprint or trace clearances in this run. The board has 499 unconnected items according to the CLI's capped listing. The reproducible board SHA-256 is `52f3b61da85703c842bf96a2e08984801039a9eafd0d5c8cf106608d857b54d9`.
+
+This source result does not resolve onsemi's solder-mask-defined land recommendation, assembly stencil, hot P-channel loss, actual row routing, under-cell height, cell temperature or the independent Gate A review. The candidate must not be populated or treated as electrically or mechanically qualified from these checks alone.

@@ -12,7 +12,7 @@ The project is currently in **draft schematic development**. Several coupon circ
 |---|---:|
 | Display | 48 × 16 individually controlled RGB pixels |
 | Pixel pitch | 1.95 mm |
-| Finished envelope | ≤110 × 35 × 11 mm |
+| Finished envelope | ≤118 × 35 × 11 mm working limit; 114 × 32.5 mm PCB target |
 | Finished weight | ≤75 g target; 100 g absolute maximum |
 | Reference runtime | Approximately 6 h at the defined mixed-content workload and fixed indoor brightness |
 | Charging/data | USB-C, 5 V, A-to-C and C-to-C; native USB data |

@@ -1920,4 +1920,23 @@
   (pin input line (at -10.16 -2.54 0) (length 2.54) (name "C" (effects (font (size 1.016 1.016)))) (number "6" (effects (font (size 1.016 1.016)))))
  )
 	)
+
+	(symbol "NTLJD3119CTBG"
+ (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
+ (property "Reference" "Q" (at 0 12.70 0) (effects (font (size 1.27 1.27))))
+ (property "Value" "NTLJD3119CTBG" (at 0 10.16 0) (effects (font (size 1.27 1.27))))
+ (property "Footprint" "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
+ (property "Datasheet" "https://www.onsemi.com/pdf/datasheet/ntljd3119c-d.pdf" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
+ (property "Manufacturer" "onsemi" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
+ (property "MPN" "NTLJD3119CTBG" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
+ (symbol "NTLJD3119CTBG_0_1" (rectangle (start -10.16 7.62) (end 10.16 -7.62) (stroke (width 0.254) (type default)) (fill (type background))))
+ (symbol "NTLJD3119CTBG_1_1"
+  (pin passive line (at -12.70 -5.08 0) (length 2.54) (name "S1" (effects (font (size 1.016 1.016)))) (number "1" (effects (font (size 1.016 1.016)))))
+  (pin input line (at 12.70 0 180) (length 2.54) (name "G1" (effects (font (size 1.016 1.016)))) (number "2" (effects (font (size 1.016 1.016)))))
+  (pin passive line (at 12.70 5.08 180) (length 2.54) (name "D2" (effects (font (size 1.016 1.016)))) (number "3" (effects (font (size 1.016 1.016)))))
+  (pin passive line (at -12.70 5.08 0) (length 2.54) (name "S2" (effects (font (size 1.016 1.016)))) (number "4" (effects (font (size 1.016 1.016)))))
+  (pin input line (at -12.70 0 0) (length 2.54) (name "G2" (effects (font (size 1.016 1.016)))) (number "5" (effects (font (size 1.016 1.016)))))
+  (pin passive line (at 12.70 -5.08 180) (length 2.54) (name "D1" (effects (font (size 1.016 1.016)))) (number "6" (effects (font (size 1.016 1.016)))))
+ )
+	)
 )
