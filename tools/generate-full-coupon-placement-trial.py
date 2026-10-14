@@ -154,7 +154,7 @@ def normalize(contents):
         return match.group(1)
     contents = sort_native_blocks(contents, "footprint", 497, reference)
     # pcbnew can interleave segments and vias, so sort their shared block.
-    contents = sort_native_blocks(contents, "(?:segment|via)", 213,
+    contents = sort_native_blocks(contents, "(?:segment|via)", 219,
                                   lambda block: re.sub(r'\(uuid "[0-9a-f-]{36}"\)', '', block))
     count = iter(range(contents.count('(uuid "')))
     updated = re.sub(r'\(uuid "[0-9a-f-]{36}"\)',
@@ -501,6 +501,36 @@ def route_e1_output_cap_ground(board):
         board.Add(track)
 
 
+def route_usb_input_ground(board):
+    """Join connector GND contact to the E0 input capacitor return."""
+    parts = {part.GetReference(): part for part in board.GetFootprints()}
+    cap = next(pad for pad in parts["C60"].Pads() if pad.GetNumber() == "2")
+    jack = next(pad for pad in parts["J1"].Pads() if pad.GetNumber() == "B1_A12")
+    assert cap.GetNetname() == jack.GetNetname() == "GND"
+    point = lambda x, y: pcb.VECTOR2I(pcb.FromMM(x), pcb.FromMM(y))
+    cap_via, jack_via = point(108.8, 13.5), point(112.5, 12.3)
+    for position in (cap_via, jack_via):
+        via = pcb.PCB_VIA(board)
+        via.SetPosition(position)
+        via.SetViaType(pcb.VIATYPE_THROUGH)
+        via.SetLayerPair(pcb.F_Cu, pcb.B_Cu)
+        via.SetWidth(pcb.FromMM(0.6))
+        via.SetDrill(pcb.FromMM(0.3))
+        via.SetNet(cap.GetNet())
+        board.Add(via)
+    for start, end, layer in ((cap.GetPosition(), cap_via, pcb.B_Cu),
+                              (cap_via, point(110.2, 15.0), pcb.In3_Cu),
+                              (point(110.2, 15.0), jack_via, pcb.In3_Cu),
+                              (jack_via, jack.GetPosition(), pcb.F_Cu)):
+        track = pcb.PCB_TRACK(board)
+        track.SetStart(start)
+        track.SetEnd(end)
+        track.SetWidth(pcb.FromMM(0.2))
+        track.SetLayer(layer)
+        track.SetNet(cap.GetNet())
+        board.Add(track)
+
+
 def route_everlight_row_anodes(board):
     """Link the eight Everlight anodes in each row with a front-copper trial trunk."""
     parts = {part.GetReference(): part for part in board.GetFootprints()}
@@ -625,6 +655,7 @@ def generate():
     route_local_charger_ground(board)
     route_charger_ground_pins(board)
     route_e1_output_cap_ground(board)
+    route_usb_input_ground(board)
     route_everlight_row_anodes(board)
     route_vled_switching_pair(board)
     assert pcb.SaveBoard(str(BOARD), board)
@@ -640,16 +671,16 @@ def generate():
     assert pcb.ToMM(charger_box.GetY() - jack_box.GetBottom()) >= 0.5
     tracks = [item for item in loaded.GetTracks() if not isinstance(item, pcb.PCB_VIA)]
     vias = [item for item in loaded.GetTracks() if isinstance(item, pcb.PCB_VIA)]
-    assert len(tracks) == 199 and len(vias) == 14
+    assert len(tracks) == 203 and len(vias) == 16
     rear = [track for track in tracks if track.GetLayer() == pcb.B_Cu]
     front = [track for track in tracks if track.GetLayer() == pcb.F_Cu]
     inner = [track for track in tracks if track.GetLayer() == pcb.In4_Cu]
     ground_inner = [track for track in tracks if track.GetLayer() == pcb.In3_Cu]
-    assert len(rear) == 35 and len(front) == 147 and len(inner) == 10 and len(ground_inner) == 7
+    assert len(rear) == 36 and len(front) == 148 and len(inner) == 10 and len(ground_inner) == 9
     assert {track.GetNetname() for track in rear} == {"E0_DVDT", "E1_DVDT", "E0_ILM", "E1_ILM",
                                                        "Net-(L2-~-Pad1)", "Net-(L2-~-Pad2)", "+5V_USB",
                                                        "VBUS_CONNECTOR", "CHARGER_IN_DRAFT", "CHARGER_ILIM", "GND"}
-    assert {track.GetNetname() for track in front} == {f"ROW_{row:02d}_A" for row in range(16)} | {"VBUS_CONNECTOR"}
+    assert {track.GetNetname() for track in front} == {f"ROW_{row:02d}_A" for row in range(16)} | {"VBUS_CONNECTOR", "GND"}
     assert {track.GetNetname() for track in inner} == {"+5V_USB", "VBUS_CONNECTOR", "CHARGER_IN_DRAFT"}
     assert {track.GetNetname() for track in ground_inner} == {"GND"}
     assert all(track.GetWidth() == pcb.FromMM(0.2) for track in tracks)
