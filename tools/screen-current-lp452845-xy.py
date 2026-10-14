@@ -56,7 +56,7 @@ def fixed_boxes(parts, right_shift=0):
 
 
 def place(parts, variant, order, fixed, pack, sensor_reserve, board_width=BOARD_W,
-          nearby=None, near_gap_mm=3.0):
+          nearby=None, near_gap_mm=3.0, priority_refs=()):
     used = dict(fixed)
     remaining = [p for p in parts if p["ref"] not in set(fixed) | {"J2", "SW1", "SW2", "U2"}]
     if variant == "dual-package candidate":
@@ -69,7 +69,9 @@ def place(parts, variant, order, fixed, pack, sensor_reserve, board_width=BOARD_
     large = [p for p in remaining if p["footprint"] not in LOW_FOOTPRINTS]
     small = [p for p in remaining if p["footprint"] in LOW_FOOTPRINTS]
     if order == "area first":
-        large.sort(key=lambda p: (-p["area_mm2"], p["ref"]))
+        priority = set(priority_refs)
+        large.sort(key=lambda p: (0 if p["ref"] in priority else 1,
+                                  -p["area_mm2"], p["ref"]))
     else:
         large.sort(key=lambda p: (0 if p["ref"].startswith(("Q", "PAIR")) else 1,
                                   -p["area_mm2"], p["ref"]))

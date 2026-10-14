@@ -81,3 +81,5 @@ The tool's selected output now matches the root-linked `R92` 2.49 kΩ ISET and `
 ## Input protection screening
 
 `python3 tools/check-input-protection.py` calculates candidate OVLO and PGTH divider corners with signed leakage and total resistor error, and records fixed-clamp/current-threshold limitations. It does not select a protection IC or validate transients. `--require-closure` deliberately fails until the input circuit is qualified. See ADR 0014 and `hardware/coupon/rev-a/usb-input-protection-screening.md`.
+
+`screen-paired-charger-110mm-xy.py` exports the current source XML and produces a deterministic [110 mm placement manifest](../mechanical/review/paired-charger-110mm-xy.json) and [SVG](../mechanical/review/paired-charger-110mm-xy.svg). It reserves the previously displaced charger capacitors/ISET resistor and five eFuse support resistors near their ICs, using sixteen *geometric* DMC1229UFDB row boxes. The [review](../mechanical/paired-charger-110mm-screen-2026-10-14.md) records zero misses for one order and the many routing, pin-map and height limits; it does not edit the canonical schematic or PCB.
