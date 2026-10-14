@@ -45,7 +45,7 @@ def add_through_via(board, position, net):
 def sorted_native_tracks(contents):
     pattern = r'\n\t\((?:segment|via)(?=\s)'
     starts = [match.start() for match in re.finditer(pattern, contents)]
-    assert len(starts) == 105
+    assert len(starts) == 129
     blocks = []
     for start in starts:
         depth = 0
@@ -227,7 +227,7 @@ def generate():
     ground_path(c61_via, ground_cap_via, pcb.In3_Cu)
 
     e0_ground = pad('U45', 8, 'GND')
-    e0_ground_via = point(99.1, 15.2)
+    e0_ground_via = point(96.0, 15.225)
     add_through_via(board, e0_ground_via, ground)
     ground_path(e0_ground.GetPosition(), e0_ground_via, pcb.B_Cu)
     ground_path(e0_ground_via, c61_via, pcb.In3_Cu)
@@ -266,7 +266,49 @@ def generate():
     connect(pad('C62', 1, 'E0_DVDT'), side_pad('U45', 7, 'E0_DVDT'), [])
     connect(pad('C57', 1, 'E1_DVDT'), side_pad('U44', 7, 'E1_DVDT'),
             [(97.65, 20.0), (100.025, 20.0)])
-    assert len(list(board.GetTracks())) == 105
+    connect(pad('R100', 1, 'E0_ILM'), pad('U45', 9, 'E0_ILM'),
+            [(97.75, 14.775)])
+    ground_path(pad('R100', 2, 'GND').GetPosition(), e0_ground_via, pcb.B_Cu)
+    ground_path(pad('R96', 2, 'GND').GetPosition(),
+                pad('R98', 2, 'GND').GetPosition(), pcb.B_Cu)
+    ground_path(pad('R98', 2, 'GND').GetPosition(), c57_via, pcb.B_Cu)
+    ovlo = pad('R97', 2, 'E0_OVLO').GetNet()
+    ovlo_divider_via = point(95.9, 17.5)
+    ovlo_low_via = point(98.6, 20.75)
+    ovlo_ic_via = point(102.5, 14.775)
+    for position in (ovlo_divider_via, ovlo_low_via, ovlo_ic_via):
+        add_through_via(board, position, ovlo)
+    for start, end, layer in (
+        (pad('R97', 2, 'E0_OVLO').GetPosition(), ovlo_divider_via, pcb.B_Cu),
+        (pad('R98', 1, 'E0_OVLO').GetPosition(), ovlo_low_via, pcb.B_Cu),
+        (pad('U45', 2, 'E0_OVLO').GetPosition(), ovlo_ic_via, pcb.B_Cu),
+        (ovlo_low_via, ovlo_divider_via, pcb.In2_Cu),
+        (ovlo_divider_via, ovlo_ic_via, pcb.In2_Cu),
+    ):
+        add_segment(board, start, end, layer, ovlo)
+    e0_enable = pad('R99', 2, 'E0_EN').GetNet()
+    enable_resistor_via = point(95.9, 12.0)
+    enable_ic_via = point(102.5, 13.4)
+    for position in (enable_resistor_via, enable_ic_via):
+        add_through_via(board, position, e0_enable)
+    for start, end, layer in (
+        (pad('R99', 2, 'E0_EN').GetPosition(), enable_resistor_via, pcb.B_Cu),
+        (enable_resistor_via, point(100.0, 11.5), pcb.In2_Cu),
+        (point(100.0, 11.5), point(102.5, 11.5), pcb.In2_Cu),
+        (point(102.5, 11.5), enable_ic_via, pcb.In2_Cu),
+        (enable_ic_via, side_pad('U45', 1, 'E0_EN').GetPosition(), pcb.B_Cu),
+    ):
+        add_segment(board, start, end, layer, e0_enable)
+    vbus = pad('R99', 1, 'VBUS_CONNECTOR').GetNet()
+    ovlo_supply_via = point(98.5, 17.5)
+    add_through_via(board, ovlo_supply_via, vbus)
+    for start, end, layer in (
+        (pad('R99', 1, 'VBUS_CONNECTOR').GetPosition(), vbus_first, pcb.B_Cu),
+        (pad('R97', 1, 'VBUS_CONNECTOR').GetPosition(), ovlo_supply_via, pcb.B_Cu),
+        (ovlo_supply_via, vbus_first, pcb.In4_Cu),
+    ):
+        add_segment(board, start, end, layer, vbus)
+    assert len(list(board.GetTracks())) == 129
     pcb.SaveBoard(str(OUTPUT), board)
     contents = sorted_native_tracks(OUTPUT.read_text())
     serial = iter(range(contents.count('(uuid "')))
@@ -274,7 +316,7 @@ def generate():
                       lambda _: '(uuid "' + str(uuid.uuid5(SCOPE, str(next(serial)))) + '")',
                       contents)
     OUTPUT.write_text(contents)
-    print(f'{OUTPUT}: 80 trace segments, 25 through vias; staged USB rails and local ground returns')
+    print(f'{OUTPUT}: 98 trace segments, 31 through vias; staged USB rails and local ground returns')
 
 
 if __name__ == '__main__':
