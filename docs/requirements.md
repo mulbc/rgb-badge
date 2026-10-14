@@ -7,6 +7,8 @@ Source: requirements interview completed 2026-09-05
 
 “Coupon” means the production-intent 16 × 16 validation board. “Final” means a complete cased 48 × 16 badge.
 
+**Proposed MEC-001 sensitivity, 2026-10-14 (ADR 0033):** Evaluate a 114 × 32.5 mm PCB in an approximately 118 × 35 × 11 mm complete case to give the grouped charger and interlock-bypass placement more length. This is not an adopted replacement for MEC-001. Select a new maximum only after native PCB placement and enclosure/USB/weight checks; do not treat the 114 mm courtyard result as demonstrated case fit.
+
 | ID | Requirement | Verification | Applies to |
 |---|---|---|---|
 | DSP-001 | Provide 48 × 16 individually controlled RGB pixels. | Design inspection and pixel self-test | Final |

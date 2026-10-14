@@ -118,11 +118,183 @@
       16.75
     ]
   },
+  "length_sensitivity": {
+    "assumption": "Keep the pack/sensor fixed and move J1, U2, SW1 and the grouped USB/charger parts with the right edge; constrain each of nine interlock bypass capacitors to within 3 mm courtyard-edge gap of its IC in the locality runs",
+    "case_length_note": "A 114 mm PCB would need a case longer than the current 110 mm maximum; 118 mm gives only 2 mm nominal at each end before wall, connector and assembly checks.",
+    "results": [
+      {
+        "board_length_mm": 110.0,
+        "cases": [
+          {
+            "interlock_bypass_gap_limit_mm": null,
+            "priority_refs": [],
+            "under_pack_small_parts": 118,
+            "unplaced_refs": [
+              "U50"
+            ]
+          },
+          {
+            "interlock_bypass_gap_limit_mm": 3.0,
+            "priority_refs": [],
+            "under_pack_small_parts": 109,
+            "unplaced_refs": [
+              "C73",
+              "U32",
+              "U49",
+              "C68",
+              "U50",
+              "C69",
+              "C70"
+            ]
+          },
+          {
+            "interlock_bypass_gap_limit_mm": null,
+            "priority_refs": [
+              "U39",
+              "U50"
+            ],
+            "under_pack_small_parts": 118,
+            "unplaced_refs": []
+          },
+          {
+            "interlock_bypass_gap_limit_mm": 3.0,
+            "priority_refs": [
+              "U39",
+              "U50"
+            ],
+            "under_pack_small_parts": 109,
+            "unplaced_refs": [
+              "U33",
+              "U49",
+              "C68"
+            ]
+          }
+        ]
+      },
+      {
+        "board_length_mm": 112.0,
+        "cases": [
+          {
+            "interlock_bypass_gap_limit_mm": null,
+            "priority_refs": [],
+            "under_pack_small_parts": 118,
+            "unplaced_refs": []
+          },
+          {
+            "interlock_bypass_gap_limit_mm": 3.0,
+            "priority_refs": [],
+            "under_pack_small_parts": 109,
+            "unplaced_refs": [
+              "C73",
+              "C70"
+            ]
+          },
+          {
+            "interlock_bypass_gap_limit_mm": null,
+            "priority_refs": [
+              "U39",
+              "U50"
+            ],
+            "under_pack_small_parts": 118,
+            "unplaced_refs": []
+          },
+          {
+            "interlock_bypass_gap_limit_mm": 3.0,
+            "priority_refs": [
+              "U39",
+              "U50"
+            ],
+            "under_pack_small_parts": 109,
+            "unplaced_refs": [
+              "C70"
+            ]
+          }
+        ]
+      },
+      {
+        "board_length_mm": 114.0,
+        "cases": [
+          {
+            "interlock_bypass_gap_limit_mm": null,
+            "priority_refs": [],
+            "under_pack_small_parts": 118,
+            "unplaced_refs": []
+          },
+          {
+            "interlock_bypass_gap_limit_mm": 3.0,
+            "priority_refs": [],
+            "under_pack_small_parts": 109,
+            "unplaced_refs": [
+              "C73",
+              "C72"
+            ]
+          },
+          {
+            "interlock_bypass_gap_limit_mm": null,
+            "priority_refs": [
+              "U39",
+              "U50"
+            ],
+            "under_pack_small_parts": 118,
+            "unplaced_refs": []
+          },
+          {
+            "interlock_bypass_gap_limit_mm": 3.0,
+            "priority_refs": [
+              "U39",
+              "U50"
+            ],
+            "under_pack_small_parts": 109,
+            "unplaced_refs": []
+          }
+        ]
+      },
+      {
+        "board_length_mm": 116.0,
+        "cases": [
+          {
+            "interlock_bypass_gap_limit_mm": null,
+            "priority_refs": [],
+            "under_pack_small_parts": 118,
+            "unplaced_refs": []
+          },
+          {
+            "interlock_bypass_gap_limit_mm": 3.0,
+            "priority_refs": [],
+            "under_pack_small_parts": 109,
+            "unplaced_refs": [
+              "C73",
+              "C70"
+            ]
+          },
+          {
+            "interlock_bypass_gap_limit_mm": null,
+            "priority_refs": [
+              "U39",
+              "U50"
+            ],
+            "under_pack_small_parts": 118,
+            "unplaced_refs": []
+          },
+          {
+            "interlock_bypass_gap_limit_mm": 3.0,
+            "priority_refs": [
+              "U39",
+              "U50"
+            ],
+            "under_pack_small_parts": 109,
+            "unplaced_refs": []
+          }
+        ]
+      }
+    ]
+  },
   "limitations": [
     "The paired-row part remains unconnected; its numeric pin map and assembly process are unapproved.",
     "Courtyard boxes are not copper routes, thermal copper, via escapes or signal integrity.",
     "The USB4505 board cutout and 0.80 mm thickness guidance are not resolved.",
     "Battery insulation, enclosure height and wire exit are not represented.",
+    "The 3 mm bypass-locality limit is a placement screen, not an electrical specification or routing proof.",
     "All five USB support resistors are grouped in XY but not electrically routed here.",
     "No full-size badge, fabrication files, or independent Gate A review exists."
   ],

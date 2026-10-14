@@ -99,6 +99,28 @@ def main():
                                pack, sensor, board_width=108.0)
     narrow_priority = fit.place(rear, 'dual-package candidate', 'area first', narrow_fixed,
                                 pack, sensor, board_width=108.0, priority_refs=('U39', 'U50'))
+    bypass_pairs = {f'C{66 + index}': f'U{47 + index}' for index in range(9)}
+    length_sensitivity = []
+    for length in (110.0, 112.0, 114.0, 116.0):
+        extra = length - WIDTH
+        widened_fixed = fit.fixed_boxes(rear, right_shift=length-fit.BOARD_W)
+        widened_fixed.update({ref: fit.box(box[0]+extra, box[1], box[2], box[3])
+                              for ref, box in GROUPED.items()})
+        cases = []
+        for priority in ((), ('U39', 'U50')):
+            for local_bypass in (False, True):
+                screened = fit.place(rear, 'dual-package candidate', 'area first',
+                                     widened_fixed, pack, sensor, board_width=length,
+                                     priority_refs=priority,
+                                     nearby=bypass_pairs if local_bypass else None,
+                                     near_gap_mm=3.0)
+                cases.append({'priority_refs': list(priority),
+                              'interlock_bypass_gap_limit_mm': 3.0 if local_bypass else None,
+                              'unplaced_refs': screened['unplaced_refs'],
+                              'under_pack_small_parts': screened['small_parts_placed_under_pack']})
+        length_sensitivity.append({'board_length_mm': length, 'cases': cases})
+    assert next(case for case in length_sensitivity[2]['cases']
+                if case['priority_refs'] and case['interlock_bypass_gap_limit_mm'])['unplaced_refs'] == []
     report = {
         'SPDX-License-Identifier': 'CERN-OHL-S-2.0',
         'status': 'UNSELECTED_XY_FIRST_FIT_SCREEN_NOT_A_PCB_OR_110MM_CASE_APPROVAL',
@@ -118,12 +140,18 @@ def main():
             'default_order_unplaced_refs': narrow_default['unplaced_refs'],
             'priority_order_unplaced_refs': narrow_priority['unplaced_refs'],
         },
+        'length_sensitivity': {
+            'assumption': 'Keep the pack/sensor fixed and move J1, U2, SW1 and the grouped USB/charger parts with the right edge; constrain each of nine interlock bypass capacitors to within 3 mm courtyard-edge gap of its IC in the locality runs',
+            'results': length_sensitivity,
+            'case_length_note': 'A 114 mm PCB would need a case longer than the current 110 mm maximum; 118 mm gives only 2 mm nominal at each end before wall, connector and assembly checks.',
+        },
         'placement': result,
         'limitations': [
             'The paired-row part remains unconnected; its numeric pin map and assembly process are unapproved.',
             'Courtyard boxes are not copper routes, thermal copper, via escapes or signal integrity.',
             'The USB4505 board cutout and 0.80 mm thickness guidance are not resolved.',
             'Battery insulation, enclosure height and wire exit are not represented.',
+            'The 3 mm bypass-locality limit is a placement screen, not an electrical specification or routing proof.',
             'All five USB support resistors are grouped in XY but not electrically routed here.',
             'No full-size badge, fabrication files, or independent Gate A review exists.',
         ],
