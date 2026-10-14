@@ -45,7 +45,7 @@ def add_through_via(board, position, net):
 def sorted_native_tracks(contents):
     pattern = r'\n\t\((?:segment|via)(?=\s)'
     starts = [match.start() for match in re.finditer(pattern, contents)]
-    assert len(starts) == 150
+    assert len(starts) == 162
     blocks = []
     for start in starts:
         depth = 0
@@ -350,7 +350,23 @@ def generate():
     ground_path(shell_pads[0].GetPosition(), ground_jack_via, pcb.In3_Cu)
     ground_path(shell_pads[2].GetPosition(), shell_pads[3].GetPosition(), pcb.In2_Cu)
     ground_path(shell_pads[2].GetPosition(), charger_ground_via, pcb.In2_Cu)
-    assert len(list(board.GetTracks())) == 150
+    e1_ilm = pad('R96', 1, 'E1_ILM').GetNet()
+    ilm_resistor_via, ilm_ic_via = point(98.5, 25.5), point(98.5, 18.4)
+    for position in (ilm_resistor_via, ilm_ic_via):
+        add_through_via(board, position, e1_ilm)
+    ilm_waypoints = [(98.5, 25.5), (99.0, 24.5), (99.0, 22.5),
+                     (97.7, 21.6), (97.7, 19.5), (98.5, 18.4)]
+    for start, end, layer in (
+        (pad('R96', 1, 'E1_ILM').GetPosition(), point(98.5, 22.5), pcb.B_Cu),
+        (point(98.5, 22.5), ilm_resistor_via, pcb.B_Cu),
+        *[(point(*a), point(*b), pcb.In4_Cu)
+          for a, b in zip(ilm_waypoints, ilm_waypoints[1:])],
+        (ilm_ic_via, point(99.2, 18.4), pcb.B_Cu),
+        (point(99.2, 18.4), point(99.4, 18.775), pcb.B_Cu),
+        (point(99.4, 18.775), pad('U44', 9, 'E1_ILM').GetPosition(), pcb.B_Cu),
+    ):
+        add_segment(board, start, end, layer, e1_ilm)
+    assert len(list(board.GetTracks())) == 162
     pcb.SaveBoard(str(OUTPUT), board)
     contents = sorted_native_tracks(OUTPUT.read_text())
     serial = iter(range(contents.count('(uuid "')))
@@ -358,7 +374,7 @@ def generate():
                       lambda _: '(uuid "' + str(uuid.uuid5(SCOPE, str(next(serial)))) + '")',
                       contents)
     OUTPUT.write_text(contents)
-    print(f'{OUTPUT}: 114 trace segments, 36 through vias; staged USB, shell, charger and battery links')
+    print(f'{OUTPUT}: 124 trace segments, 38 through vias; staged USB, shell, charger and battery links')
 
 
 if __name__ == '__main__':
