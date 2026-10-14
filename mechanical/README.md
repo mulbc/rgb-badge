@@ -32,4 +32,6 @@ The [native 114 mm placement study](../docs/development/paired-charger-114mm-pla
 
 Its corrected generator places both battery-facing temperature devices, TH1 and U39, within the central sensor reservation while retaining a zero-miss 114 mm first-fit. Insulation, component height and cell-to-board temperature error remain physical acceptance work.
 
+The [114 mm row-topology comparison](review/paired-charger-114mm-topology.json) finds 15–17 unplaced boxes with the current separate row FETs in this greedy grouped arrangement, versus zero with provisional paired-row geometry. This makes the pair pin-map/assembly qualification important but does not prove another arrangement of separate parts impossible.
+
 A [separate local routing trial](../docs/development/paired-charger-114mm-local-routing-2026-10-14.md) links five BQ24074 support nets without new native DRC geometric findings; most board nets and all enclosure checks remain open.

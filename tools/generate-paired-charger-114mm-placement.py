@@ -3,6 +3,7 @@
 """Generate a net-incomplete 114 mm paired-row placement study, never fabrication data."""
 
 import importlib.util
+import json
 from pathlib import Path
 import re
 import subprocess
@@ -16,6 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 STAGING = ROOT / 'hardware/coupon/rev-a/staging'
 SOURCE = STAGING / 'full-coupon-placement-trial-120mm.kicad_pcb'
 OUTPUT = STAGING / 'paired-charger-placement-only-114mm.kicad_pcb'
+TOPOLOGY_REPORT = ROOT / 'mechanical/review/paired-charger-114mm-topology.json'
 LIBRARY = ROOT / 'hardware/coupon/rev-a/footprints/rgb-badge-coupon.pretty'
 CLI = Path('/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli')
 SCOPE = uuid.UUID('0dc6c48a-c42b-5a94-a660-f45ee8030204')
@@ -44,10 +46,37 @@ def candidate_boxes():
     fixed['TH1'] = fit.box(53.25, 15.25, 2.25, 1.75)
     fixed['U39'] = fit.box(56.0, 14.0, 3.25, 3.0)
     near = {f'C{66+i}': f'U{47+i}' for i in range(9)}
-    placed = fit.place(rear, 'dual-package candidate', 'area first', fixed,
-                       fit.box(31, 2, 47, 28.5), fit.box(49.5, 12.25, 10, 8),
-                       board_width=WIDTH, priority_refs=('U50',),
-                       nearby=near, near_gap_mm=3.0)
+    pack, sensor = fit.box(31, 2, 47, 28.5), fit.box(49.5, 12.25, 10, 8)
+    comparisons = {}
+    for topology in ('canonical 32 separate row FETs', 'dual-package candidate'):
+        for nearby in (False, True):
+            result = fit.place(rear, topology, 'area first', fixed, pack, sensor,
+                               board_width=WIDTH, priority_refs=('U50',),
+                               nearby=near if nearby else None, near_gap_mm=3.0)
+            comparisons[f'{topology}; bypass_local={nearby}'] = {
+                'unplaced_refs': result['unplaced_refs'],
+                'under_pack_small_parts': result['small_parts_placed_under_pack'],
+            }
+            if topology == 'dual-package candidate' and nearby:
+                placed = result
+    TOPOLOGY_REPORT.write_text(json.dumps({
+        'SPDX-License-Identifier': 'CERN-OHL-S-2.0',
+        'status': 'GREEDY_XY_SCREEN_NOT_ELECTRICAL_OR_CASE_FIT',
+        'board_mm': [WIDTH, HEIGHT],
+        'source_coupon_items': sum(counts.values()),
+        'battery_body_box_mm': list(pack),
+        'sensor_reservation_box_mm': list(sensor),
+        'fixed_sensor_boxes_mm': {ref: list(fixed[ref]) for ref in ('TH1', 'U39')},
+        'priority_refs': ['U50'],
+        'trial_bypass_courtyard_gap_limit_mm': 3.0,
+        'comparisons': comparisons,
+        'limitations': [
+            'Placement order can change the miss count; zero misses do not prove routability.',
+            'Paired row package numeric pin map and 0.15 mm land-gap process are unapproved.',
+            'Under-pack parts require insulation, height, swelling and thermal qualification.',
+            'No case, USB cutout, current-rated copper, RF keepout or fabrication review is represented.',
+        ],
+    }, indent=2, sort_keys=True) + '\n')
     assert placed['unplaced_count'] == 0 and placed['placed_boxes'] == 227
     return placed['boxes_mm']
 
