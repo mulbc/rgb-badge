@@ -45,7 +45,7 @@ def add_through_via(board, position, net):
 def sorted_native_tracks(contents):
     pattern = r'\n\t\((?:segment|via)(?=\s)'
     starts = [match.start() for match in re.finditer(pattern, contents)]
-    assert len(starts) == 129
+    assert len(starts) == 146
     blocks = []
     for start in starts:
         depth = 0
@@ -308,7 +308,41 @@ def generate():
         (ovlo_supply_via, vbus_first, pcb.In4_Cu),
     ):
         add_segment(board, start, end, layer, vbus)
-    assert len(list(board.GetTracks())) == 129
+    battery = pad('J2', 1, '+BAT_PROTECTED_DRAFT').GetNet()
+    battery_header_via = point(27.0, 3.0)
+    battery_charger_via = point(105.5, 24.75)
+    for position in (battery_header_via, battery_charger_via):
+        add_through_via(board, position, battery)
+    add_segment(board, pad('J2', 1, '+BAT_PROTECTED_DRAFT').GetPosition(),
+                battery_header_via, pcb.B_Cu, battery)
+    add_segment(board, battery_header_via, battery_charger_via, pcb.In1_Cu, battery,
+                width=0.5)
+    battery_switch_via = point(6.5, 4.8)
+    add_through_via(board, battery_switch_via, battery)
+    add_segment(board, pad('SW2', 5, '+BAT_PROTECTED_DRAFT').GetPosition(),
+                battery_switch_via, pcb.B_Cu, battery)
+    add_segment(board, battery_switch_via, battery_header_via, pcb.In1_Cu, battery,
+                width=0.5)
+    battery_ground_via = point(22.5, 1.8)
+    add_through_via(board, battery_ground_via, ground)
+    ground_path(pad('J2', 2, 'GND').GetPosition(), battery_ground_via, pcb.B_Cu)
+    add_segment(board, battery_ground_via, point(30.0, 1.8), pcb.In2_Cu,
+                ground, width=0.5)
+    add_segment(board, point(30.0, 1.8), resistor_ground_via, pcb.In2_Cu,
+                ground, width=0.5)
+    connect(pad('U41', 17, 'GND'), pad('U41', 6, 'GND'), [])
+    connect(pad('U41', 3, '+BAT_PROTECTED_DRAFT'),
+            pad('U41', 2, '+BAT_PROTECTED_DRAFT'), [])
+    connect(pad('U41', 11, '+SYS_APP_IN_DRAFT'),
+            pad('U41', 10, '+SYS_APP_IN_DRAFT'), [])
+    sys_rail = pad('SW2', 2, '+SYS_APP_IN_DRAFT').GetNet()
+    sys_switch_via = point(6.5, 1.4)
+    add_through_via(board, sys_switch_via, sys_rail)
+    add_segment(board, pad('SW2', 2, '+SYS_APP_IN_DRAFT').GetPosition(),
+                sys_switch_via, pcb.B_Cu, sys_rail)
+    add_segment(board, sys_switch_via, point(105.3, 26.0), pcb.In3_Cu, sys_rail,
+                width=0.5)
+    assert len(list(board.GetTracks())) == 146
     pcb.SaveBoard(str(OUTPUT), board)
     contents = sorted_native_tracks(OUTPUT.read_text())
     serial = iter(range(contents.count('(uuid "')))
@@ -316,7 +350,7 @@ def generate():
                       lambda _: '(uuid "' + str(uuid.uuid5(SCOPE, str(next(serial)))) + '")',
                       contents)
     OUTPUT.write_text(contents)
-    print(f'{OUTPUT}: 98 trace segments, 31 through vias; staged USB rails and local ground returns')
+    print(f'{OUTPUT}: 110 trace segments, 36 through vias; staged USB, charger and battery links')
 
 
 if __name__ == '__main__':
