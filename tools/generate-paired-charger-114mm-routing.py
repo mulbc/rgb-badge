@@ -45,7 +45,7 @@ def add_through_via(board, position, net):
 def sorted_native_tracks(contents):
     pattern = r'\n\t\((?:segment|via)(?=\s)'
     starts = [match.start() for match in re.finditer(pattern, contents)]
-    assert len(starts) == 230
+    assert len(starts) == 252
     blocks = []
     for start in starts:
         depth = 0
@@ -479,7 +479,38 @@ def generate():
         (point(94, 14.7), point(96, 15.22), pcb.In2_Cu),
     ):
         add_segment(board, start, end, layer, ground)
-    assert len(list(board.GetTracks())) == 230
+    temp_ok = pad('U39', 6, 'TEMP_OK').GetNet()
+    temp_sink_via, temp_edge_via = point(29.9, 11.675), point(77.5, 12.5)
+    for position in (temp_sink_via, temp_edge_via):
+        add_through_via(board, position, temp_ok)
+    for start, end, layer in (
+        (pad('U40', 1, 'TEMP_OK').GetPosition(), temp_sink_via, pcb.B_Cu),
+        (pad('U39', 6, 'TEMP_OK').GetPosition(), point(56, 15), pcb.B_Cu),
+        (point(56, 15), point(56, 16), pcb.B_Cu),
+        (point(56, 16), pad('U39', 4, 'TEMP_OK').GetPosition(), pcb.B_Cu),
+        (point(56, 15), point(56, 13.5), pcb.B_Cu),
+        (point(56, 13.5), point(67.5, 13.5), pcb.B_Cu),
+        (point(67.5, 13.5), point(69.25, 11.75), pcb.B_Cu),
+        (point(69.25, 11.75), pad('R91', 2, 'TEMP_OK').GetPosition(), pcb.B_Cu),
+        (point(69.25, 11.75), point(69.25, 12.1), pcb.B_Cu),
+        (point(69.25, 12.1), point(77.5, 12.1), pcb.B_Cu),
+        (point(77.5, 12.1), temp_edge_via, pcb.B_Cu),
+        (temp_sink_via, point(30, 9.5), pcb.In4_Cu),
+        (point(30, 9.5), point(77.5, 9.5), pcb.In4_Cu),
+        (point(77.5, 9.5), temp_edge_via, pcb.In4_Cu),
+    ):
+        add_segment(board, start, end, layer, temp_ok)
+    left_ground_via, supervisor_ground_via = point(31, 13.575), point(25, 18.5)
+    for position in (left_ground_via, supervisor_ground_via):
+        add_through_via(board, position, ground)
+    for start, end, layer in (
+        (pad('U40', 3, 'GND').GetPosition(), left_ground_via, pcb.B_Cu),
+        (pad('U43', 3, 'GND').GetPosition(), supervisor_ground_via, pcb.B_Cu),
+        (supervisor_ground_via, left_ground_via, pcb.In2_Cu),
+        (left_ground_via, point(31, 2.166), pcb.In2_Cu),
+    ):
+        add_segment(board, start, end, layer, ground)
+    assert len(list(board.GetTracks())) == 252
     pcb.SaveBoard(str(OUTPUT), board)
     contents = sorted_native_tracks(OUTPUT.read_text())
     serial = iter(range(contents.count('(uuid "')))
@@ -487,7 +518,7 @@ def generate():
                       lambda _: '(uuid "' + str(uuid.uuid5(SCOPE, str(next(serial)))) + '")',
                       contents)
     OUTPUT.write_text(contents)
-    print(f'{OUTPUT}: 174 trace segments, 56 through vias; staged USB, shell, charger and battery links')
+    print(f'{OUTPUT}: 192 trace segments, 60 through vias; staged USB, shell, charger and battery links')
 
 
 if __name__ == '__main__':
