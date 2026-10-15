@@ -55,7 +55,7 @@ def generate():
             pad.SetUuid(pcb.KIID(str(uuid.uuid5(SCOPE, f'{ref}/pad/{number}/{ordinal}'))))
         assert seen == {'1': 1, '2': 1, '3': 2, '4': 1, '5': 1, '6': 2}, (ref, seen)
     assert len(list(board.GetFootprints())) == 483
-    assert len(list(board.GetTracks())) == 209
+    assert len(list(board.GetTracks())) == 230
     pcb.SaveBoard(str(OUTPUT), board)
     contents = OUTPUT.read_text()
     serial = iter(range(contents.count('(uuid "')))
