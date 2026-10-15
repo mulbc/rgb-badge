@@ -45,7 +45,7 @@ def add_through_via(board, position, net):
 def sorted_native_tracks(contents):
     pattern = r'\n\t\((?:segment|via)(?=\s)'
     starts = [match.start() for match in re.finditer(pattern, contents)]
-    assert len(starts) == 252
+    assert len(starts) == 278
     blocks = []
     for start in starts:
         depth = 0
@@ -510,7 +510,43 @@ def generate():
         (left_ground_via, point(31, 2.166), pcb.In2_Cu),
     ):
         add_segment(board, start, end, layer, ground)
-    assert len(list(board.GetTracks())) == 252
+    for start, end, layer in (
+        (logic_supply_via, source_supply_via, pcb.In2_Cu),
+        (pad('R91', 1, '+3V3_USB').GetPosition(), point(70.25, 11.4), pcb.B_Cu),
+        (point(70.25, 11.4), point(72.8, 11.4), pcb.B_Cu),
+        (point(72.8, 11.4), bias_supply_via, pcb.B_Cu),
+        (pad('U40', 5, '+3V3_USB').GetPosition(), point(26.45, 11), pcb.B_Cu),
+        (point(26.45, 11), point(32.75, 11), pcb.B_Cu),
+        (point(32.75, 11), pad('R78', 1, '+3V3_USB').GetPosition(), pcb.B_Cu),
+        (pad('R78', 1, '+3V3_USB').GetPosition(), point(32.75, 9.5), pcb.B_Cu),
+        (point(32.75, 9.5), point(70.25, 9.5), pcb.B_Cu),
+        (point(70.25, 9.5), pad('R91', 1, '+3V3_USB').GetPosition(), pcb.B_Cu),
+        (pad('U40', 5, '+3V3_USB').GetPosition(), point(26.45, 10.5), pcb.B_Cu),
+        (point(26.45, 10.5), point(21.45, 10.5), pcb.B_Cu),
+        (point(21.45, 10.5), pad('U34', 6, '+3V3_USB').GetPosition(), pcb.B_Cu),
+    ):
+        add_segment(board, start, end, layer, usb_logic)
+    sensor_supply_via, sensor_ground_via = point(77.5, 16), point(76.3, 15.7)
+    add_through_via(board, sensor_supply_via, usb_logic)
+    for start, end, layer in (
+        (pad('U39', 5, '+3V3_USB').GetPosition(), point(57.625, 15.5), pcb.B_Cu),
+        (point(57.625, 15.5), point(57.625, 16.7), pcb.B_Cu),
+        (point(57.625, 16.7), point(77.5, 16.7), pcb.B_Cu),
+        (point(77.5, 16.7), sensor_supply_via, pcb.B_Cu),
+        (sensor_supply_via, point(78.5, 16), pcb.In2_Cu),
+        (point(78.5, 16), point(78.5, 8.75), pcb.In2_Cu),
+        (point(78.5, 8.75), logic_supply_via, pcb.In2_Cu),
+    ):
+        add_segment(board, start, end, layer, usb_logic)
+    add_through_via(board, sensor_ground_via, ground)
+    for start, end, layer in (
+        (pad('U39', 3, 'GND').GetPosition(), point(59.2, 16), pcb.B_Cu),
+        (point(59.2, 16), point(76.3, 16), pcb.B_Cu),
+        (point(76.3, 16), sensor_ground_via, pcb.B_Cu),
+        (sensor_ground_via, point(76.3, 18.73), pcb.In2_Cu),
+    ):
+        add_segment(board, start, end, layer, ground)
+    assert len(list(board.GetTracks())) == 278
     pcb.SaveBoard(str(OUTPUT), board)
     contents = sorted_native_tracks(OUTPUT.read_text())
     serial = iter(range(contents.count('(uuid "')))
@@ -518,7 +554,7 @@ def generate():
                       lambda _: '(uuid "' + str(uuid.uuid5(SCOPE, str(next(serial)))) + '")',
                       contents)
     OUTPUT.write_text(contents)
-    print(f'{OUTPUT}: 192 trace segments, 60 through vias; staged USB, shell, charger and battery links')
+    print(f'{OUTPUT}: 216 trace segments, 62 through vias; staged USB, shell, charger and battery links')
 
 
 if __name__ == '__main__':
