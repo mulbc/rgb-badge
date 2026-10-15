@@ -82,6 +82,32 @@
     "Under-pack parts require insulation, height, swelling and thermal qualification.",
     "No case, USB cutout, current-rated copper, RF keepout or fabrication review is represented."
   ],
+  "post_screen_local_ldo_cap_boxes_mm": {
+    "C30": [
+      96.0,
+      8.25,
+      98.5,
+      9.75
+    ],
+    "C32": [
+      87.5,
+      9.5,
+      91.0,
+      11.5
+    ],
+    "TP10": [
+      92.0,
+      30.0,
+      94.0,
+      32.0
+    ],
+    "TP14": [
+      33.0,
+      0.0,
+      35.0,
+      2.0
+    ]
+  },
   "priority_refs": [
     "U50"
   ],

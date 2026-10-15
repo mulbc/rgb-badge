@@ -45,7 +45,7 @@ def add_through_via(board, position, net):
 def sorted_native_tracks(contents):
     pattern = r'\n\t\((?:segment|via)(?=\s)'
     starts = [match.start() for match in re.finditer(pattern, contents)]
-    assert len(starts) == 288
+    assert len(starts) == 301
     blocks = []
     for start in starts:
         depth = 0
@@ -565,7 +565,30 @@ def generate():
         (point(97, 9.925), point(100.5, 17), pcb.F_Cu),
     ):
         add_segment(board, start, end, layer, usb_five_volt)
-    assert len(list(board.GetTracks())) == 288
+    add_segment(board, pad('C32', 1, '+3V3_USB').GetPosition(),
+                ldo_output_via, pcb.B_Cu, usb_logic)
+    output_cap_ground_via = point(88.45, 11.4)
+    add_through_via(board, output_cap_ground_via, ground)
+    add_segment(board, pad('C32', 2, 'GND').GetPosition(),
+                output_cap_ground_via, pcb.B_Cu, ground)
+    add_segment(board, output_cap_ground_via, ldo_ground_via, pcb.In3_Cu, ground)
+    for start, end in (
+        (pad('C30', 1, '+5V_USB').GetPosition(), point(97.65, 8.3)),
+        (point(97.65, 8.3), point(94, 8.3)),
+        (point(94, 8.3), point(94, 9.925)),
+        (point(94, 9.925), pad('U29', 1, '+5V_USB').GetPosition()),
+    ):
+        add_segment(board, start, end, pcb.B_Cu, usb_five_volt)
+    input_cap_ground_via = point(96.2, 9.15)
+    add_through_via(board, input_cap_ground_via, ground)
+    for start, end, layer in (
+        (pad('C30', 2, 'GND').GetPosition(), input_cap_ground_via, pcb.B_Cu),
+        (input_cap_ground_via, point(94, 9.15), pcb.In3_Cu),
+        (point(94, 9.15), point(94, 10.875), pcb.In3_Cu),
+        (point(94, 10.875), ldo_ground_via, pcb.In3_Cu),
+    ):
+        add_segment(board, start, end, layer, ground)
+    assert len(list(board.GetTracks())) == 301
     pcb.SaveBoard(str(OUTPUT), board)
     contents = sorted_native_tracks(OUTPUT.read_text())
     serial = iter(range(contents.count('(uuid "')))
@@ -573,7 +596,7 @@ def generate():
                       lambda _: '(uuid "' + str(uuid.uuid5(SCOPE, str(next(serial)))) + '")',
                       contents)
     OUTPUT.write_text(contents)
-    print(f'{OUTPUT}: 223 trace segments, 65 through vias; staged USB, shell, charger and battery links')
+    print(f'{OUTPUT}: 234 trace segments, 67 through vias; staged USB, shell, charger and battery links')
 
 
 if __name__ == '__main__':

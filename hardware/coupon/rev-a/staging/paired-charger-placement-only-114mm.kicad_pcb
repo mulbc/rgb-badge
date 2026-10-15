@@ -854,7 +854,7 @@
 	(footprint "rgb-badge-coupon:C_Murata_GRM15_0402"
 		(layer "B.Cu")
 		(uuid "e29923cd-ed95-5de7-b2ad-6f7d71358070")
-		(at 49.75 2.75 180)
+		(at 97.25 9 180)
 		(descr "Manufacturer range-based reflow land pattern; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "C30"
 			(at 0 1 0)
@@ -1044,7 +1044,7 @@
 	(footprint "rgb-badge-coupon:C_Murata_GRM18_0603"
 		(layer "B.Cu")
 		(uuid "2cb7dc87-441a-5f68-a4e0-964ff73b3b37")
-		(at 34.75 1 180)
+		(at 89.25 10.5 180)
 		(descr "GRM18 0603 reflow land pattern, midpoint of Murata recommended ranges; SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "C32"
 			(at 0 1.25 0)
@@ -50592,7 +50592,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "e33d5680-0e8a-5550-81fa-c2e522a1009f")
-		(at 97.001262 9.250001 180)
+		(at 93.001262 31.000001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP10"
 			(at 0 1.15 0)
@@ -50944,7 +50944,7 @@
 	(footprint "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "61970ed4-eb5b-5aa4-a581-265ffa208e09")
-		(at 88.501262 10.500001 180)
+		(at 34.001262 1.000001 180)
 		(descr "Bare 1.0 mm copper probe pad; no purchased component or solder paste. SPDX-License-Identifier: CERN-OHL-S-2.0")
 		(property "Reference" "TP14"
 			(at 0 1.15 0)

@@ -59,6 +59,18 @@ def candidate_boxes():
             }
             if topology == 'dual-package candidate' and nearby:
                 placed = result
+    # The greedy screen put the TPS709 capacitors far from U29. Reuse two
+    # nearby test-pad slots while preserving the rest of the routed study.
+    placed['boxes_mm']['C32'] = [87.5, 9.5, 91.0, 11.5]
+    placed['boxes_mm']['TP14'] = [33.0, 0.0, 35.0, 2.0]
+    placed['boxes_mm']['C30'] = [96.0, 8.25, 98.5, 9.75]
+    placed['boxes_mm']['TP10'] = [92.0, 30.0, 94.0, 32.0]
+    for moved in ('C32', 'TP14', 'C30', 'TP10'):
+        a = placed['boxes_mm'][moved]
+        overlaps = [ref for ref, b in placed['boxes_mm'].items() if ref != moved
+                    and max(a[0], b[0]) < min(a[2], b[2])
+                    and max(a[1], b[1]) < min(a[3], b[3])]
+        assert not overlaps, (moved, overlaps)
     TOPOLOGY_REPORT.write_text(json.dumps({
         'SPDX-License-Identifier': 'CERN-OHL-S-2.0',
         'status': 'GREEDY_XY_SCREEN_NOT_ELECTRICAL_OR_CASE_FIT',
@@ -67,6 +79,9 @@ def candidate_boxes():
         'battery_body_box_mm': list(pack),
         'sensor_reservation_box_mm': list(sensor),
         'fixed_sensor_boxes_mm': {ref: list(fixed[ref]) for ref in ('TH1', 'U39')},
+        'post_screen_local_ldo_cap_boxes_mm': {
+            ref: list(placed['boxes_mm'][ref])
+            for ref in ('C30', 'C32', 'TP10', 'TP14')},
         'priority_refs': ['U50'],
         'trial_bypass_courtyard_gap_limit_mm': 3.0,
         'comparisons': comparisons,
