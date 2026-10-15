@@ -45,7 +45,7 @@ def add_through_via(board, position, net):
 def sorted_native_tracks(contents):
     pattern = r'\n\t\((?:segment|via)(?=\s)'
     starts = [match.start() for match in re.finditer(pattern, contents)]
-    assert len(starts) == 175
+    assert len(starts) == 209
     blocks = []
     for start in starts:
         depth = 0
@@ -388,7 +388,62 @@ def generate():
         (gate_bias_via, gate_logic_via, pcb.In1_Cu),
     ):
         add_segment(board, start, end, layer, charger_gate)
-    assert len(list(board.GetTracks())) == 175
+    sink_a_via, sink_b_via = point(25.45, 14.4), point(20.35, 18.75)
+    test_via = point(100, 29)
+    for position in (sink_a_via, sink_b_via, test_via):
+        add_through_via(board, position, charger_gate)
+    for start, end, layer in (
+        (pad('U40', 4, 'CHARGER_GATE_EN').GetPosition(), sink_a_via, pcb.B_Cu),
+        (pad('U43', 4, 'CHARGER_GATE_EN').GetPosition(), sink_b_via, pcb.B_Cu),
+        (sink_b_via, sink_a_via, pcb.In4_Cu),
+        (sink_a_via, point(30, 14.4), pcb.In4_Cu),
+        (point(30, 14.4), point(75, 14.4), pcb.In4_Cu),
+        (point(75, 14.4), gate_bias_via, pcb.In4_Cu),
+        (pad('TP35', 1, 'CHARGER_GATE_EN').GetPosition(), test_via, pcb.B_Cu),
+        (test_via, point(90, 29), pcb.In4_Cu),
+        (point(90, 29), point(90, 16.075), pcb.In4_Cu),
+        (point(90, 16.075), gate_logic_via, pcb.In4_Cu),
+    ):
+        add_segment(board, start, end, layer, charger_gate)
+    usb_logic = pad('R94', 1, '+3V3_USB').GetNet()
+    ground = pad('R95', 2, 'GND').GetNet()
+    bias_supply_via, logic_supply_via = point(73.2, 11.2), point(76.25, 8.75)
+    bias_ground_via = point(74.25, 11.25)
+    for position in (bias_supply_via, logic_supply_via):
+        add_through_via(board, position, usb_logic)
+    add_through_via(board, bias_ground_via, ground)
+    for start, end, layer, net in (
+        (pad('R94', 1, '+3V3_USB').GetPosition(), bias_supply_via, pcb.B_Cu, usb_logic),
+        (pad('R77', 1, '+3V3_USB').GetPosition(), logic_supply_via, pcb.B_Cu, usb_logic),
+        (bias_supply_via, logic_supply_via, pcb.In2_Cu, usb_logic),
+        (pad('R95', 2, 'GND').GetPosition(), bias_ground_via, pcb.B_Cu, ground),
+        (bias_ground_via, point(74.25, 18), pcb.In2_Cu, ground),
+    ):
+        add_segment(board, start, end, layer, net)
+    usb_ready = pad('U34', 1, 'USB_RAW_LOGIC_READY').GetNet()
+    ready_supervisor_via, ready_sink_via = point(24.55, 11.675), point(25.05, 15.925)
+    for position in (ready_supervisor_via, ready_sink_via):
+        add_through_via(board, position, usb_ready)
+    for start, end, layer in (
+        (pad('U34', 1, 'USB_RAW_LOGIC_READY').GetPosition(), ready_supervisor_via, pcb.B_Cu),
+        (pad('U43', 1, 'USB_RAW_LOGIC_READY').GetPosition(), ready_sink_via, pcb.B_Cu),
+        (ready_supervisor_via, point(24.55, 15.425), pcb.In2_Cu),
+        (point(24.55, 15.425), ready_sink_via, pcb.In2_Cu),
+    ):
+        add_segment(board, start, end, layer, usb_ready)
+    supervisor_supply_via, sink_supply_via = point(20.45, 11.675), point(20.45, 15.925)
+    for position in (supervisor_supply_via, sink_supply_via):
+        add_through_via(board, position, usb_logic)
+    for start, end, layer in (
+        (pad('U34', 6, '+3V3_USB').GetPosition(), supervisor_supply_via, pcb.B_Cu),
+        (pad('U43', 5, '+3V3_USB').GetPosition(), sink_supply_via, pcb.B_Cu),
+        (supervisor_supply_via, sink_supply_via, pcb.In2_Cu),
+    ):
+        add_segment(board, start, end, layer, usb_logic)
+    for ref in ('U40', 'U43'):
+        add_segment(board, pad(ref, 2, 'GND').GetPosition(),
+                    pad(ref, 3, 'GND').GetPosition(), pcb.B_Cu, ground)
+    assert len(list(board.GetTracks())) == 209
     pcb.SaveBoard(str(OUTPUT), board)
     contents = sorted_native_tracks(OUTPUT.read_text())
     serial = iter(range(contents.count('(uuid "')))
@@ -396,7 +451,7 @@ def generate():
                       lambda _: '(uuid "' + str(uuid.uuid5(SCOPE, str(next(serial)))) + '")',
                       contents)
     OUTPUT.write_text(contents)
-    print(f'{OUTPUT}: 134 trace segments, 41 through vias; staged USB, shell, charger and battery links')
+    print(f'{OUTPUT}: 158 trace segments, 51 through vias; staged USB, shell, charger and battery links')
 
 
 if __name__ == '__main__':
