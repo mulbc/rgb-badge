@@ -45,7 +45,7 @@ def add_through_via(board, position, net):
 def sorted_native_tracks(contents):
     pattern = r'\n\t\((?:segment|via)(?=\s)'
     starts = [match.start() for match in re.finditer(pattern, contents)]
-    assert len(starts) == 278
+    assert len(starts) == 284
     blocks = []
     for start in starts:
         depth = 0
@@ -546,7 +546,17 @@ def generate():
         (sensor_ground_via, point(76.3, 18.73), pcb.In2_Cu),
     ):
         add_segment(board, start, end, layer, ground)
-    assert len(list(board.GetTracks())) == 278
+    ldo_output_via, ldo_ground_via = point(91.2, 9.925), point(95.8, 10.875)
+    add_through_via(board, ldo_output_via, usb_logic)
+    add_through_via(board, ldo_ground_via, ground)
+    for start, end, layer, net in (
+        (pad('U29', 5, '+3V3_USB').GetPosition(), ldo_output_via, pcb.B_Cu, usb_logic),
+        (ldo_output_via, point(90, 9.925), pcb.In2_Cu, usb_logic),
+        (pad('U29', 2, 'GND').GetPosition(), ldo_ground_via, pcb.B_Cu, ground),
+        (ldo_ground_via, point(94, 10.875), pcb.In2_Cu, ground),
+    ):
+        add_segment(board, start, end, layer, net)
+    assert len(list(board.GetTracks())) == 284
     pcb.SaveBoard(str(OUTPUT), board)
     contents = sorted_native_tracks(OUTPUT.read_text())
     serial = iter(range(contents.count('(uuid "')))
@@ -554,7 +564,7 @@ def generate():
                       lambda _: '(uuid "' + str(uuid.uuid5(SCOPE, str(next(serial)))) + '")',
                       contents)
     OUTPUT.write_text(contents)
-    print(f'{OUTPUT}: 216 trace segments, 62 through vias; staged USB, shell, charger and battery links')
+    print(f'{OUTPUT}: 220 trace segments, 64 through vias; staged USB, shell, charger and battery links')
 
 
 if __name__ == '__main__':
