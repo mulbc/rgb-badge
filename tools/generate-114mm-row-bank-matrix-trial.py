@@ -215,20 +215,134 @@ def generate():
         driver_via.SetNet(colour_net)
         driver_via.SetUuid(pcb.KIID(str(uuid.uuid5(SCOPE, f'{name}/driver'))))
         board.Add(driver_via)
+    # A second fanout direction from the 1010 half uses the lower edge.
+    # This avoids consuming more of the already crowded upper-edge lanes.
+    lower_led = next(pad for pad in parts['D241'].Pads()
+                     if pad.GetNumber() == '2')
+    lower_driver = next(pad for pad in parts['U1'].Pads()
+                        if pad.GetNumber() == '8')
+    assert lower_led.GetNetname() == lower_driver.GetNetname() == 'COL_00_R'
+    lower_net = lower_led.GetNet()
+    lower_transition = pcb.VECTOR2I(
+        lower_led.GetPosition().x, pcb.FromMM(31.85))
+    lower_bend = pcb.VECTOR2I(pcb.FromMM(82.1), pcb.FromMM(31.85))
+    lower_entry = pcb.PCB_TRACK(board)
+    lower_entry.SetStart(lower_led.GetPosition())
+    lower_entry.SetEnd(lower_transition)
+    lower_entry.SetWidth(pcb.FromMM(0.2))
+    lower_entry.SetLayer(pcb.In1_Cu)
+    lower_entry.SetNet(lower_net)
+    lower_entry.SetUuid(pcb.KIID(str(uuid.uuid5(SCOPE, 'COL_00_R/entry'))))
+    board.Add(lower_entry)
+    for layer_index, (top, bottom) in enumerate((
+            (pcb.In1_Cu, pcb.In2_Cu),
+            (pcb.In2_Cu, pcb.In3_Cu),
+            (pcb.In3_Cu, pcb.In4_Cu))):
+        microvia = pcb.PCB_VIA(board)
+        microvia.SetPosition(lower_transition)
+        microvia.SetViaType(pcb.VIATYPE_MICROVIA)
+        microvia.SetLayerPair(top, bottom)
+        microvia.SetWidth(pcb.FromMM(0.3))
+        microvia.SetDrill(pcb.FromMM(0.1))
+        microvia.SetNet(lower_net)
+        microvia.SetUuid(pcb.KIID(str(uuid.uuid5(
+            SCOPE, f'COL_00_R/lower-{layer_index}'))))
+        board.Add(microvia)
+    for label, start, end in (
+            ('horizontal', lower_transition, lower_bend),
+            ('driver-run', lower_bend, lower_driver.GetPosition())):
+        track = pcb.PCB_TRACK(board)
+        track.SetStart(start)
+        track.SetEnd(end)
+        track.SetWidth(pcb.FromMM(0.2))
+        track.SetLayer(pcb.In4_Cu)
+        track.SetNet(lower_net)
+        track.SetUuid(pcb.KIID(str(uuid.uuid5(SCOPE, f'COL_00_R/{label}'))))
+        board.Add(track)
+    lower_via = pcb.PCB_VIA(board)
+    lower_via.SetPosition(lower_driver.GetPosition())
+    lower_via.SetViaType(pcb.VIATYPE_MICROVIA)
+    lower_via.SetLayerPair(pcb.In4_Cu, pcb.B_Cu)
+    lower_via.SetWidth(pcb.FromMM(0.3))
+    lower_via.SetDrill(pcb.FromMM(0.1))
+    lower_via.SetNet(lower_net)
+    lower_via.SetUuid(pcb.KIID(str(uuid.uuid5(SCOPE, 'COL_00_R/driver'))))
+    board.Add(lower_via)
+    # A distinct In2.Cu lower fanout bends around the row-15 right-edge
+    # stack; a straight line through that site shorted the row anode.
+    second_led = next(pad for pad in parts['D248'].Pads()
+                      if pad.GetNumber() == '2')
+    second_driver = next(pad for pad in parts['U1'].Pads()
+                         if pad.GetNumber() == '33')
+    assert second_led.GetNetname() == second_driver.GetNetname() == 'COL_07_R'
+    second_net = second_led.GetNet()
+    second_transition = pcb.VECTOR2I(
+        second_led.GetPosition().x, pcb.FromMM(31.85))
+    second_entry = pcb.PCB_TRACK(board)
+    second_entry.SetStart(second_led.GetPosition())
+    second_entry.SetEnd(second_transition)
+    second_entry.SetWidth(pcb.FromMM(0.2))
+    second_entry.SetLayer(pcb.In1_Cu)
+    second_entry.SetNet(second_net)
+    second_entry.SetUuid(pcb.KIID(str(uuid.uuid5(SCOPE, 'COL_07_R/entry'))))
+    board.Add(second_entry)
+    second_start_via = pcb.PCB_VIA(board)
+    second_start_via.SetPosition(second_transition)
+    second_start_via.SetViaType(pcb.VIATYPE_MICROVIA)
+    second_start_via.SetLayerPair(pcb.In1_Cu, pcb.In2_Cu)
+    second_start_via.SetWidth(pcb.FromMM(0.3))
+    second_start_via.SetDrill(pcb.FromMM(0.1))
+    second_start_via.SetNet(second_net)
+    second_start_via.SetUuid(pcb.KIID(str(uuid.uuid5(SCOPE, 'COL_07_R/start'))))
+    board.Add(second_start_via)
+    second_waypoints = [
+        second_transition,
+        pcb.VECTOR2I(pcb.FromMM(73.75), pcb.FromMM(31.85)),
+        pcb.VECTOR2I(pcb.FromMM(74.25), pcb.FromMM(31.25)),
+        pcb.VECTOR2I(pcb.FromMM(75.15), pcb.FromMM(31.25)),
+        pcb.VECTOR2I(pcb.FromMM(75.65), pcb.FromMM(31.85)),
+        pcb.VECTOR2I(pcb.FromMM(82.1), pcb.FromMM(31.85)),
+        second_driver.GetPosition(),
+    ]
+    for index, (start, end) in enumerate(zip(
+            second_waypoints, second_waypoints[1:])):
+        segment = pcb.PCB_TRACK(board)
+        segment.SetStart(start)
+        segment.SetEnd(end)
+        segment.SetWidth(pcb.FromMM(0.2))
+        segment.SetLayer(pcb.In2_Cu)
+        segment.SetNet(second_net)
+        segment.SetUuid(pcb.KIID(str(uuid.uuid5(
+            SCOPE, f'COL_07_R/In2-{index}'))))
+        board.Add(segment)
+    for layer_index, (top, bottom) in enumerate((
+            (pcb.In2_Cu, pcb.In3_Cu),
+            (pcb.In3_Cu, pcb.In4_Cu),
+            (pcb.In4_Cu, pcb.B_Cu))):
+        microvia = pcb.PCB_VIA(board)
+        microvia.SetPosition(second_driver.GetPosition())
+        microvia.SetViaType(pcb.VIATYPE_MICROVIA)
+        microvia.SetLayerPair(top, bottom)
+        microvia.SetWidth(pcb.FromMM(0.3))
+        microvia.SetDrill(pcb.FromMM(0.1))
+        microvia.SetNet(second_net)
+        microvia.SetUuid(pcb.KIID(str(uuid.uuid5(
+            SCOPE, f'COL_07_R/driver-{layer_index}'))))
+        board.Add(microvia)
     assert len(list(board.GetFootprints())) == 483
-    assert len(list(board.GetTracks())) == 2488
+    assert len(list(board.GetTracks())) == 2506
     assert pcb.SaveBoard(str(OUTPUT), board)
     contents = placement.sort_footprints(OUTPUT.read_text())
-    contents = routing.sorted_native_tracks(contents, expected=2488)
+    contents = routing.sorted_native_tracks(contents, expected=2506)
     serial = iter(range(contents.count('(uuid "')))
     contents = re.sub(r'\(uuid "[0-9a-f-]{36}"\)',
                       lambda _: '(uuid "' + str(uuid.uuid5(SCOPE, str(next(serial)))) + '")',
                       contents)
     OUTPUT.write_text(contents)
     loaded = pcb.LoadBoard(str(OUTPUT))
-    assert loaded.GetConnectivity().GetUnconnectedCount(False) == 642
+    assert loaded.GetConnectivity().GetUnconnectedCount(False) == 640
     print(f'{OUTPUT}: 483 footprints, 16 joined row pairs, '
-          'four colour-driver joins, 642 open edges')
+          'six colour-driver joins, 640 open edges')
 
 
 if __name__ == '__main__':
