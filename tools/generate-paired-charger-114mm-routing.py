@@ -45,7 +45,7 @@ def add_through_via(board, position, net):
 def sorted_native_tracks(contents):
     pattern = r'\n\t\((?:segment|via)(?=\s)'
     starts = [match.start() for match in re.finditer(pattern, contents)]
-    assert len(starts) == 301
+    assert len(starts) == 339
     blocks = []
     for start in starts:
         depth = 0
@@ -588,7 +588,67 @@ def generate():
         (point(94, 10.875), ldo_ground_via, pcb.In3_Cu),
     ):
         add_segment(board, start, end, layer, ground)
-    assert len(list(board.GetTracks())) == 301
+    logic_ready = pad('U17', 3, 'USB_LOGIC_READY').GetNet()
+    for start, end in (
+        (pad('U17', 3, 'USB_LOGIC_READY').GetPosition(), point(95.8, 7.575)),
+        (point(95.8, 7.575), point(95.8, 7.75)),
+        (point(95.8, 7.75), point(98.3, 7.75)),
+        (point(98.3, 7.75), point(98.3, 11.325)),
+        (point(98.3, 11.325), pad('U25', 4, 'USB_LOGIC_READY').GetPosition()),
+    ):
+        add_segment(board, start, end, pcb.B_Cu, logic_ready)
+    vbus_valid = pad('U17', 1, 'USB_VBUS_VALID').GetNet()
+    valid_source_via, valid_sink_via = point(96.0, 5.675), point(100.9, 9.425)
+    for position in (valid_source_via, valid_sink_via):
+        add_through_via(board, position, vbus_valid)
+    for start, end, layer in (
+        (pad('U17', 1, 'USB_VBUS_VALID').GetPosition(), valid_source_via, pcb.B_Cu),
+        (valid_source_via, point(100.9, 5.675), pcb.In3_Cu),
+        (point(100.9, 5.675), valid_sink_via, pcb.In3_Cu),
+        (valid_sink_via, pad('U25', 6, 'USB_VBUS_VALID').GetPosition(), pcb.B_Cu),
+    ):
+        add_segment(board, start, end, layer, vbus_valid)
+    cc_high = pad('U17', 6, 'USB_CC_HIGH').GetNet()
+    cc_source_via, cc_sink_via = point(91.2, 5.675), point(97.7, 6.5)
+    for position in (cc_source_via, cc_sink_via):
+        add_through_via(board, position, cc_high)
+    for start, end, layer in (
+        (pad('U17', 6, 'USB_CC_HIGH').GetPosition(), cc_source_via, pcb.B_Cu),
+        (cc_source_via, point(91.2, 4.0), pcb.In1_Cu),
+        (point(91.2, 4.0), point(98.3, 4.0), pcb.In1_Cu),
+        (point(98.3, 4.0), point(98.3, 6.5), pcb.In1_Cu),
+        (point(98.3, 6.5), cc_sink_via, pcb.In1_Cu),
+        (cc_sink_via, pad('U11', 4, 'USB_CC_HIGH').GetPosition(), pcb.B_Cu),
+    ):
+        add_segment(board, start, end, layer, cc_high)
+    cc_supply_via, qualifier_supply_via = point(96.8, 4.85), point(100.8, 10.375)
+    for position in (cc_supply_via, qualifier_supply_via):
+        add_through_via(board, position, usb_logic)
+    for start, end, layer in (
+        (source_supply_via, point(90, 6.625), pcb.In1_Cu),
+        (point(90, 6.625), point(90, 8.3), pcb.In1_Cu),
+        (point(90, 8.3), point(96.8, 8.3), pcb.In1_Cu),
+        (point(96.8, 8.3), cc_supply_via, pcb.In1_Cu),
+        (cc_supply_via, pad('U11', 5, '+3V3_USB').GetPosition(), pcb.B_Cu),
+        (point(96.8, 8.3), point(99.0, 8.3), pcb.In1_Cu),
+        (point(99.0, 8.3), point(99.0, 10.375), pcb.In1_Cu),
+        (point(99.0, 10.375), qualifier_supply_via, pcb.In1_Cu),
+        (qualifier_supply_via, pad('U25', 5, '+3V3_USB').GetPosition(), pcb.B_Cu),
+    ):
+        add_segment(board, start, end, layer, usb_logic)
+    qualifier_ground_via = point(103.3, 10.375)
+    add_through_via(board, qualifier_ground_via, ground)
+    for start, end, layer in (
+        (pad('U25', 2, 'GND').GetPosition(), qualifier_ground_via, pcb.B_Cu),
+        (pad('U11', 3, 'GND').GetPosition(), point(101.2, 7.075), pcb.B_Cu),
+        (point(101.2, 7.075), point(101.2, 8.2), pcb.B_Cu),
+        (point(101.2, 8.2), point(103.3, 8.2), pcb.B_Cu),
+        (point(103.3, 8.2), qualifier_ground_via, pcb.B_Cu),
+        (qualifier_ground_via, point(103.8, 11.0), pcb.In3_Cu),
+        (point(103.8, 11.0), ground_cap_via, pcb.In3_Cu),
+    ):
+        add_segment(board, start, end, layer, ground)
+    assert len(list(board.GetTracks())) == 339
     pcb.SaveBoard(str(OUTPUT), board)
     contents = sorted_native_tracks(OUTPUT.read_text())
     serial = iter(range(contents.count('(uuid "')))
@@ -596,7 +656,7 @@ def generate():
                       lambda _: '(uuid "' + str(uuid.uuid5(SCOPE, str(next(serial)))) + '")',
                       contents)
     OUTPUT.write_text(contents)
-    print(f'{OUTPUT}: 234 trace segments, 67 through vias; staged USB, shell, charger and battery links')
+    print(f'{OUTPUT}: 265 trace segments, 74 through vias; staged USB, shell, charger and battery links')
 
 
 if __name__ == '__main__':
