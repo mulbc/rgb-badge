@@ -18,6 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE_BOARD = ROOT / 'hardware/coupon/rev-a/staging/paired-charger-placement-only-114mm.kicad_pcb'
 OUTPUT_BOARD = ROOT / 'hardware/coupon/rev-a/staging/led-via-aware-placement-trial-114mm.kicad_pcb'
 ROW_BOARD = ROOT / 'hardware/coupon/rev-a/staging/led-via-aware-row-escape-trial-114mm.kicad_pcb'
+FRONT_BOARD = ROOT / 'hardware/coupon/rev-a/staging/led-1010-front-row-bus-trial-114mm.kicad_pcb'
 OUTPUT = ROOT / 'mechanical/review/led-via-aware-114mm-screen.json'
 SPEC = importlib.util.spec_from_file_location(
     'paired_screen', ROOT / 'tools/screen-paired-charger-110mm-xy.py')
@@ -34,6 +35,7 @@ routing = importlib.util.module_from_spec(ROUTING_SPEC)
 ROUTING_SPEC.loader.exec_module(routing)
 SCOPE = uuid.UUID('cb3dfeb7-0ae1-4949-b425-03bf6e205a70')
 ROW_SCOPE = uuid.UUID('dfb3748c-b30c-4b77-9651-8fc4ef078dfc')
+FRONT_SCOPE = uuid.UUID('a1c7e995-d610-42b5-b8c4-c13fb5f6c68b')
 WIDTH = 114.0
 LOCAL_BOXES = {
     'C32': (87.5, 9.5, 91.0, 11.5),
@@ -207,13 +209,45 @@ def generate_row_escape_board(report):
     ROW_BOARD.write_text(contents)
 
 
+def generate_front_row_board():
+    board = pcb.LoadBoard(str(OUTPUT_BOARD))
+    parts = {part.GetReference(): part for part in board.GetFootprints()}
+    for row in range(16):
+        net = board.FindNet(f'ROW_{row:02d}_A')
+        first_x = last_x = bus_y = None
+        for column in range(8):
+            pad = next(pad for pad in parts[f'D{row*16+column+1}'].Pads()
+                       if pad.GetNumber() == '1' and pad.GetNetname() == f'ROW_{row:02d}_A')
+            x, y = (pcb.ToMM(value) for value in
+                    (pad.GetPosition().x, pad.GetPosition().y))
+            bus_y = y-0.55
+            routing.add_segment(board, pad.GetPosition(), routing.point(x, bus_y),
+                                pcb.F_Cu, net, width=0.2)
+            if first_x is None:
+                first_x = x
+            last_x = x
+        routing.add_segment(board, routing.point(first_x, bus_y),
+                            routing.point(last_x, bus_y), pcb.F_Cu, net, width=0.2)
+    assert len(list(board.GetTracks())) == 144
+    pcb.SaveBoard(str(FRONT_BOARD), board)
+    contents = placement.sort_footprints(FRONT_BOARD.read_text())
+    contents = routing.sorted_native_tracks(contents, expected=144)
+    serial = iter(range(contents.count('(uuid "')))
+    contents = re.sub(r'\(uuid "[0-9a-f-]{36}"\)',
+                      lambda _: '(uuid "' + str(uuid.uuid5(FRONT_SCOPE, str(next(serial)))) + '")',
+                      contents)
+    FRONT_BOARD.write_text(contents)
+
+
 if __name__ == '__main__':
     report = screen_fit()
     generate_board(report)
     generate_row_escape_board(report)
+    generate_front_row_board()
     OUTPUT.write_text(json.dumps(report, indent=2, sort_keys=True) + '\n')
     print(f"{OUTPUT}: {len(report['reserved_sites'])} via keepouts, "
           f"{len(report['fixed_site_conflicts'])} fixed conflicts, "
           f"{len(report['unplaced_refs'])} unplaced components")
     print(f'{OUTPUT_BOARD}: 483 footprints, no routes')
     print(f'{ROW_BOARD}: 244 segments, 104 provisional vias; 1010 row escapes only')
+    print(f'{FRONT_BOARD}: 144 segments, no vias; alternative 1010 front-row buses')
