@@ -42,10 +42,10 @@ def add_through_via(board, position, net):
     board.Add(via)
 
 
-def sorted_native_tracks(contents):
+def sorted_native_tracks(contents, expected=368):
     pattern = r'\n\t\((?:segment|via)(?=\s)'
     starts = [match.start() for match in re.finditer(pattern, contents)]
-    assert len(starts) == 368
+    assert len(starts) == expected
     blocks = []
     for start in starts:
         depth = 0
