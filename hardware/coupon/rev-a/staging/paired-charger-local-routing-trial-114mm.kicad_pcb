@@ -60118,12 +60118,20 @@
 		(uuid "55008edb-84f9-509b-9bd4-f838e15b3537")
 	)
 	(segment
+		(start 20.45 14.6)
+		(end 20.45 11.675)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "+3V3_USB")
+		(uuid "2ea8bf62-ae37-5ef7-9c41-39054396f3ba")
+	)
+	(segment
 		(start 21.45 10.5)
 		(end 21.45 11.675)
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+3V3_USB")
-		(uuid "2ea8bf62-ae37-5ef7-9c41-39054396f3ba")
+		(uuid "2419d82c-ed69-5fc7-8539-56597c539da2")
 	)
 	(segment
 		(start 21.45 11.675)
@@ -60131,7 +60139,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+3V3_USB")
-		(uuid "2419d82c-ed69-5fc7-8539-56597c539da2")
+		(uuid "e0b8b865-1dff-5131-bd77-e209a754aacb")
 	)
 	(segment
 		(start 21.45 15.925)
@@ -60139,7 +60147,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+3V3_USB")
-		(uuid "e0b8b865-1dff-5131-bd77-e209a754aacb")
+		(uuid "88c4c5e7-ad7e-5789-bf85-d6c1eb2aabc7")
 	)
 	(segment
 		(start 21.45 17.825)
@@ -60147,7 +60155,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "CHARGER_GATE_EN")
-		(uuid "88c4c5e7-ad7e-5789-bf85-d6c1eb2aabc7")
+		(uuid "aca4d7e6-f301-5181-b572-823c869b3d5f")
 	)
 	(segment
 		(start 22.5 1.8)
@@ -60155,7 +60163,7 @@
 		(width 0.5)
 		(layer "In2.Cu")
 		(net "GND")
-		(uuid "aca4d7e6-f301-5181-b572-823c869b3d5f")
+		(uuid "452746dc-577a-5919-b229-10a09b92ad71")
 	)
 	(segment
 		(start 23.85 2.5)
@@ -60163,7 +60171,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "GND")
-		(uuid "452746dc-577a-5919-b229-10a09b92ad71")
+		(uuid "f537a684-d994-5555-b12e-04bab3eb006b")
 	)
 	(segment
 		(start 24.05 11.675)
@@ -60171,7 +60179,31 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "USB_RAW_LOGIC_READY")
-		(uuid "f537a684-d994-5555-b12e-04bab3eb006b")
+		(uuid "a1abd995-feba-5659-a176-0b850a40da8a")
+	)
+	(segment
+		(start 24.05 12.625)
+		(end 29.05 12.625)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "GND")
+		(uuid "2fb7ebf4-b05b-5035-889d-e1e7556657a3")
+	)
+	(segment
+		(start 24.05 13.575)
+		(end 24.05 14.6)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "+3V3_USB")
+		(uuid "4d0df266-a19b-589c-a02a-d436a32ecd56")
+	)
+	(segment
+		(start 24.05 14.6)
+		(end 20.45 14.6)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "+3V3_USB")
+		(uuid "239cdd10-0fb1-554f-82e0-b6b5f59ff097")
 	)
 	(segment
 		(start 24.05 15.925)
@@ -60179,7 +60211,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "USB_RAW_LOGIC_READY")
-		(uuid "a1abd995-feba-5659-a176-0b850a40da8a")
+		(uuid "ca9f33c5-36d0-566a-a96a-c0484504bd62")
 	)
 	(segment
 		(start 24.05 16.875)
@@ -60187,7 +60219,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "GND")
-		(uuid "2fb7ebf4-b05b-5035-889d-e1e7556657a3")
+		(uuid "f1d95eeb-b425-5e9c-89e5-bf3ddaaf203b")
 	)
 	(segment
 		(start 24.05 17.825)
@@ -60195,7 +60227,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "GND")
-		(uuid "4d0df266-a19b-589c-a02a-d436a32ecd56")
+		(uuid "07cc0d7a-05cb-5a98-ac6d-bae1ef063c2b")
 	)
 	(segment
 		(start 24.55 11.675)
@@ -60203,7 +60235,7 @@
 		(width 0.2)
 		(layer "In2.Cu")
 		(net "USB_RAW_LOGIC_READY")
-		(uuid "239cdd10-0fb1-554f-82e0-b6b5f59ff097")
+		(uuid "3714215e-74ed-581b-82d3-bf15c2fc0b53")
 	)
 	(segment
 		(start 24.55 15.425)
@@ -60211,7 +60243,23 @@
 		(width 0.2)
 		(layer "In2.Cu")
 		(net "USB_RAW_LOGIC_READY")
-		(uuid "ca9f33c5-36d0-566a-a96a-c0484504bd62")
+		(uuid "d1ec1284-71b2-568a-b0e2-87e8e1bb9b8a")
+	)
+	(segment
+		(start 24.55 7)
+		(end 24.55 11.675)
+		(width 0.2)
+		(layer "In4.Cu")
+		(net "USB_RAW_LOGIC_READY")
+		(uuid "ca848f9d-851b-5af4-8a90-1e8da1f40d49")
+	)
+	(segment
+		(start 24.55 9)
+		(end 24.55 11.675)
+		(width 0.2)
+		(layer "In2.Cu")
+		(net "USB_RAW_LOGIC_READY")
+		(uuid "67d667b1-082b-5748-a7fb-571d02f65254")
 	)
 	(segment
 		(start 25 18.5)
@@ -60219,7 +60267,7 @@
 		(width 0.2)
 		(layer "In2.Cu")
 		(net "GND")
-		(uuid "f1d95eeb-b425-5e9c-89e5-bf3ddaaf203b")
+		(uuid "5eeb51e0-c091-50c1-aa18-b733ef79b549")
 	)
 	(segment
 		(start 25.45 14.4)
@@ -60227,7 +60275,7 @@
 		(width 0.2)
 		(layer "In4.Cu")
 		(net "CHARGER_GATE_EN")
-		(uuid "07cc0d7a-05cb-5a98-ac6d-bae1ef063c2b")
+		(uuid "df750362-5968-5dcb-accc-2e3eb8548889")
 	)
 	(segment
 		(start 25.85 2.5)
@@ -60235,7 +60283,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+BAT_PROTECTED_DRAFT")
-		(uuid "3714215e-74ed-581b-82d3-bf15c2fc0b53")
+		(uuid "69e5d339-5822-51f8-92dc-5330af26b31b")
 	)
 	(segment
 		(start 26.45 10.5)
@@ -60243,7 +60291,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+3V3_USB")
-		(uuid "d1ec1284-71b2-568a-b0e2-87e8e1bb9b8a")
+		(uuid "522d20fb-aeaa-57d7-a48b-b791b65d2182")
 	)
 	(segment
 		(start 26.45 11)
@@ -60251,7 +60299,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+3V3_USB")
-		(uuid "ca848f9d-851b-5af4-8a90-1e8da1f40d49")
+		(uuid "b28fc5f2-eb36-5a54-bcb8-b88f9cce74e3")
 	)
 	(segment
 		(start 26.45 11.675)
@@ -60259,7 +60307,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+3V3_USB")
-		(uuid "67d667b1-082b-5748-a7fb-571d02f65254")
+		(uuid "4237d0ff-6773-5956-b629-efe0c5ee5e26")
 	)
 	(segment
 		(start 26.45 11.675)
@@ -60267,7 +60315,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+3V3_USB")
-		(uuid "5eeb51e0-c091-50c1-aa18-b733ef79b549")
+		(uuid "784cb545-aafa-5538-92ae-ae5815ba1c12")
 	)
 	(segment
 		(start 26.45 13.575)
@@ -60275,7 +60323,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "CHARGER_GATE_EN")
-		(uuid "df750362-5968-5dcb-accc-2e3eb8548889")
+		(uuid "c3f30107-7167-5a63-bc6c-ec078887e670")
 	)
 	(segment
 		(start 27 3)
@@ -60283,7 +60331,7 @@
 		(width 0.5)
 		(layer "In1.Cu")
 		(net "+BAT_PROTECTED_DRAFT")
-		(uuid "69e5d339-5822-51f8-92dc-5330af26b31b")
+		(uuid "dbeef8ad-50bf-5f2d-95ed-b58434d5d546")
 	)
 	(segment
 		(start 29.05 11.675)
@@ -60291,7 +60339,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "TEMP_OK")
-		(uuid "522d20fb-aeaa-57d7-a48b-b791b65d2182")
+		(uuid "fb9a7e1b-0731-5918-9a4c-68fc5d33d35a")
 	)
 	(segment
 		(start 29.05 12.625)
@@ -60299,7 +60347,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "GND")
-		(uuid "b28fc5f2-eb36-5a54-bcb8-b88f9cce74e3")
+		(uuid "4b927121-b7e1-5bd3-a1af-ab040b5730dc")
 	)
 	(segment
 		(start 29.05 13.575)
@@ -60307,7 +60355,23 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "GND")
-		(uuid "4237d0ff-6773-5956-b629-efe0c5ee5e26")
+		(uuid "30b1c6f2-5219-5cfe-9b9a-c398fb2fc9e7")
+	)
+	(segment
+		(start 29.5 10.25)
+		(end 29.5 9)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "USB_RAW_LOGIC_READY")
+		(uuid "7ca228a4-df69-510e-b5f0-cbe7d65de24f")
+	)
+	(segment
+		(start 29.5 9)
+		(end 24.55 9)
+		(width 0.2)
+		(layer "In2.Cu")
+		(net "USB_RAW_LOGIC_READY")
+		(uuid "edbaee20-9cd5-5c45-a4a1-9ff45054b5de")
 	)
 	(segment
 		(start 29.9 11.675)
@@ -60315,7 +60379,7 @@
 		(width 0.2)
 		(layer "In4.Cu")
 		(net "TEMP_OK")
-		(uuid "784cb545-aafa-5538-92ae-ae5815ba1c12")
+		(uuid "e1ef0816-a96a-5cb0-ac1c-672b280cfc20")
 	)
 	(segment
 		(start 30 1.8)
@@ -60323,7 +60387,7 @@
 		(width 0.5)
 		(layer "In2.Cu")
 		(net "GND")
-		(uuid "c3f30107-7167-5a63-bc6c-ec078887e670")
+		(uuid "b6a6b269-aff6-5d48-98d4-72d0b58e7176")
 	)
 	(segment
 		(start 30 14.4)
@@ -60331,7 +60395,7 @@
 		(width 0.2)
 		(layer "In4.Cu")
 		(net "CHARGER_GATE_EN")
-		(uuid "dbeef8ad-50bf-5f2d-95ed-b58434d5d546")
+		(uuid "56a58152-eaba-5fc9-bc72-1bebf49cef6b")
 	)
 	(segment
 		(start 30 9.5)
@@ -60339,7 +60403,7 @@
 		(width 0.2)
 		(layer "In4.Cu")
 		(net "TEMP_OK")
-		(uuid "fb9a7e1b-0731-5918-9a4c-68fc5d33d35a")
+		(uuid "51d93515-43f3-57e4-bfa2-76b5fd087529")
 	)
 	(segment
 		(start 31 13.575)
@@ -60347,7 +60411,15 @@
 		(width 0.2)
 		(layer "In2.Cu")
 		(net "GND")
-		(uuid "4b927121-b7e1-5bd3-a1af-ab040b5730dc")
+		(uuid "ce94ee23-bb15-5de7-8759-6a30d282cff8")
+	)
+	(segment
+		(start 31.75 10.25)
+		(end 29.5 10.25)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "USB_RAW_LOGIC_READY")
+		(uuid "3f117c21-b698-5038-82f3-25ba567cb921")
 	)
 	(segment
 		(start 32.75 10.25)
@@ -60355,7 +60427,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+3V3_USB")
-		(uuid "30b1c6f2-5219-5cfe-9b9a-c398fb2fc9e7")
+		(uuid "dc8d1697-dea9-5508-962d-ebd9f0b38ff1")
 	)
 	(segment
 		(start 32.75 11)
@@ -60363,7 +60435,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+3V3_USB")
-		(uuid "7ca228a4-df69-510e-b5f0-cbe7d65de24f")
+		(uuid "04e071ea-b05c-5ced-9005-e5c4ab1542fd")
 	)
 	(segment
 		(start 32.75 9.5)
@@ -60371,7 +60443,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+3V3_USB")
-		(uuid "edbaee20-9cd5-5c45-a4a1-9ff45054b5de")
+		(uuid "190b9046-c89c-5185-83ec-a97fc60b01c9")
 	)
 	(segment
 		(start 5.3 1.4)
@@ -60379,7 +60451,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+SYS_APP_IN_DRAFT")
-		(uuid "e1ef0816-a96a-5cb0-ac1c-672b280cfc20")
+		(uuid "9efeef9c-8c70-5e26-98bc-564ee0363217")
 	)
 	(segment
 		(start 5.3 3.8)
@@ -60387,7 +60459,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+BAT_PROTECTED_DRAFT")
-		(uuid "b6a6b269-aff6-5d48-98d4-72d0b58e7176")
+		(uuid "3c5e91f8-124b-5ed4-be66-c270a83bfa31")
 	)
 	(segment
 		(start 56 13.5)
@@ -60395,7 +60467,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "TEMP_OK")
-		(uuid "56a58152-eaba-5fc9-bc72-1bebf49cef6b")
+		(uuid "0a8ae10f-54d4-542b-80d0-5b1c113b70d8")
 	)
 	(segment
 		(start 56 15)
@@ -60403,7 +60475,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "TEMP_OK")
-		(uuid "51d93515-43f3-57e4-bfa2-76b5fd087529")
+		(uuid "97f06a05-0162-55b6-a980-04d7be36c0cc")
 	)
 	(segment
 		(start 56 15)
@@ -60411,7 +60483,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "TEMP_OK")
-		(uuid "ce94ee23-bb15-5de7-8759-6a30d282cff8")
+		(uuid "f1554e5c-f2af-5674-926a-423ed6fe198a")
 	)
 	(segment
 		(start 56 16)
@@ -60419,7 +60491,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "TEMP_OK")
-		(uuid "3f117c21-b698-5038-82f3-25ba567cb921")
+		(uuid "e294cf7a-fd10-5c38-8f42-4096a301e49f")
 	)
 	(segment
 		(start 56.885 15)
@@ -60427,7 +60499,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "TEMP_OK")
-		(uuid "dc8d1697-dea9-5508-962d-ebd9f0b38ff1")
+		(uuid "2472cf1e-d0c6-5b51-b22e-44d3d9547857")
 	)
 	(segment
 		(start 56.885 15.5)
@@ -60435,7 +60507,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+3V3_USB")
-		(uuid "04e071ea-b05c-5ced-9005-e5c4ab1542fd")
+		(uuid "52a7c196-e319-5a7f-9a9f-9b2e006f4d5c")
 	)
 	(segment
 		(start 57.625 15.5)
@@ -60443,7 +60515,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+3V3_USB")
-		(uuid "190b9046-c89c-5185-83ec-a97fc60b01c9")
+		(uuid "5dd8f375-7576-555f-bdca-06c8bf01ea59")
 	)
 	(segment
 		(start 57.625 16.7)
@@ -60451,7 +60523,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+3V3_USB")
-		(uuid "9efeef9c-8c70-5e26-98bc-564ee0363217")
+		(uuid "7142c719-e316-57a0-ac86-dd94e333423d")
 	)
 	(segment
 		(start 58.365 16)
@@ -60459,7 +60531,23 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "GND")
-		(uuid "3c5e91f8-124b-5ed4-be66-c270a83bfa31")
+		(uuid "7186a771-ddc3-58b4-a274-335bb7c0bcbf")
+	)
+	(segment
+		(start 58.5 6.5)
+		(end 76.5 6.5)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "GND")
+		(uuid "f894e0df-cf7b-5f3d-af08-132d01ed93a5")
+	)
+	(segment
+		(start 58.5 8.75)
+		(end 58.5 6.5)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "GND")
+		(uuid "1155696e-2c0b-530c-8344-db6c0b60a7dc")
 	)
 	(segment
 		(start 59.2 16)
@@ -60467,7 +60555,23 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "GND")
-		(uuid "0a8ae10f-54d4-542b-80d0-5b1c113b70d8")
+		(uuid "7f32c6a5-7aa4-54b1-888b-3cf21df37829")
+	)
+	(segment
+		(start 59.25 7.25)
+		(end 59.25 6.5)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "GND")
+		(uuid "40c5ab29-45f2-5c85-b3d1-4d4f506bd275")
+	)
+	(segment
+		(start 59.25 8.75)
+		(end 58.5 8.75)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "GND")
+		(uuid "cc9f3fcc-0bbe-5913-849e-ec25c12ac75d")
 	)
 	(segment
 		(start 6.5 1.4)
@@ -60475,7 +60579,7 @@
 		(width 0.5)
 		(layer "In3.Cu")
 		(net "+SYS_APP_IN_DRAFT")
-		(uuid "97f06a05-0162-55b6-a980-04d7be36c0cc")
+		(uuid "11c386ef-3504-590c-85eb-60f80539d964")
 	)
 	(segment
 		(start 6.5 4.8)
@@ -60483,7 +60587,47 @@
 		(width 0.5)
 		(layer "In1.Cu")
 		(net "+BAT_PROTECTED_DRAFT")
-		(uuid "f1554e5c-f2af-5674-926a-423ed6fe198a")
+		(uuid "3abff5b5-533a-564a-aa50-70a8eda0c50e")
+	)
+	(segment
+		(start 60.25 8)
+		(end 76.5 8)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "USB_RAW_LOGIC_READY")
+		(uuid "249781c1-21fa-5693-846a-46a89e3639af")
+	)
+	(segment
+		(start 60.25 8.75)
+		(end 60.25 8)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "USB_RAW_LOGIC_READY")
+		(uuid "95b3ebfa-b7e6-537c-9888-f697980a73a6")
+	)
+	(segment
+		(start 61.75 7.25)
+		(end 61.75 6.5)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "GND")
+		(uuid "9225d040-baab-5c71-ad38-1af51a869a6d")
+	)
+	(segment
+		(start 64.25 7.25)
+		(end 64.25 6.5)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "GND")
+		(uuid "5ea9c992-b470-5886-8704-bee265537565")
+	)
+	(segment
+		(start 66.75 7.25)
+		(end 66.75 6.5)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "GND")
+		(uuid "f6eaa062-6821-5280-9642-a5b753e2c4bf")
 	)
 	(segment
 		(start 67.5 13.5)
@@ -60491,7 +60635,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "TEMP_OK")
-		(uuid "e294cf7a-fd10-5c38-8f42-4096a301e49f")
+		(uuid "a428d7ad-8fae-5ffc-b3db-0084afca22ec")
 	)
 	(segment
 		(start 69.25 11.75)
@@ -60499,7 +60643,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "TEMP_OK")
-		(uuid "2472cf1e-d0c6-5b51-b22e-44d3d9547857")
+		(uuid "45e6739c-f623-5354-86a8-fe3f6d59d1dd")
 	)
 	(segment
 		(start 69.25 11.75)
@@ -60507,7 +60651,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "TEMP_OK")
-		(uuid "52a7c196-e319-5a7f-9a9f-9b2e006f4d5c")
+		(uuid "fb6c2018-4f84-5372-bfcb-f25bb77e204b")
 	)
 	(segment
 		(start 69.25 12.1)
@@ -60515,7 +60659,15 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "TEMP_OK")
-		(uuid "5dd8f375-7576-555f-bdca-06c8bf01ea59")
+		(uuid "1970186c-13e4-5751-bfb2-38dd108293a7")
+	)
+	(segment
+		(start 69.25 7.25)
+		(end 69.25 6.5)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "GND")
+		(uuid "5d151a80-b3ba-5ff1-ad20-6f6c715d2e27")
 	)
 	(segment
 		(start 70.25 10.25)
@@ -60523,7 +60675,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+3V3_USB")
-		(uuid "7142c719-e316-57a0-ac86-dd94e333423d")
+		(uuid "54121d52-2962-5b26-bda3-b0ddd74c0395")
 	)
 	(segment
 		(start 70.25 11.4)
@@ -60531,7 +60683,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+3V3_USB")
-		(uuid "7186a771-ddc3-58b4-a274-335bb7c0bcbf")
+		(uuid "ebe87c64-d81b-5fc3-a004-b1cc1af79ff0")
 	)
 	(segment
 		(start 70.25 9.5)
@@ -60539,7 +60691,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+3V3_USB")
-		(uuid "f894e0df-cf7b-5f3d-af08-132d01ed93a5")
+		(uuid "23941e1e-79f1-5ec7-b3ad-e32e38dd64be")
 	)
 	(segment
 		(start 71.75 10.25)
@@ -60547,7 +60699,15 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "CHARGER_GATE_EN")
-		(uuid "1155696e-2c0b-530c-8344-db6c0b60a7dc")
+		(uuid "4b565c71-3601-5de1-8622-ec7f9a171f96")
+	)
+	(segment
+		(start 71.75 7.25)
+		(end 71.75 6.5)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "GND")
+		(uuid "7fe8a578-d3fe-58d4-a8fa-24d76a932d11")
 	)
 	(segment
 		(start 71.75 9.5)
@@ -60555,7 +60715,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "CHARGER_GATE_EN")
-		(uuid "7f32c6a5-7aa4-54b1-888b-3cf21df37829")
+		(uuid "afc9bacd-9696-537e-bf02-3b9a8fbbc58c")
 	)
 	(segment
 		(start 72.75 10.25)
@@ -60563,7 +60723,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+3V3_USB")
-		(uuid "40c5ab29-45f2-5c85-b3d1-4d4f506bd275")
+		(uuid "e7cfb3a0-1a44-50e3-9af7-52d98188399e")
 	)
 	(segment
 		(start 72.8 11.4)
@@ -60571,7 +60731,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+3V3_USB")
-		(uuid "cc9f3fcc-0bbe-5913-849e-ec25c12ac75d")
+		(uuid "620d91fb-0a16-5375-b780-e1eb38ba82d4")
 	)
 	(segment
 		(start 73.2 11.2)
@@ -60579,7 +60739,7 @@
 		(width 0.2)
 		(layer "In2.Cu")
 		(net "+3V3_USB")
-		(uuid "11c386ef-3504-590c-85eb-60f80539d964")
+		(uuid "527f8e6f-43cf-5ad4-b97a-72986e9a408c")
 	)
 	(segment
 		(start 74.25 10.25)
@@ -60587,7 +60747,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "GND")
-		(uuid "3abff5b5-533a-564a-aa50-70a8eda0c50e")
+		(uuid "2207d8ef-4c77-5465-aabd-eefa3b83d036")
 	)
 	(segment
 		(start 74.25 11.25)
@@ -60595,7 +60755,15 @@
 		(width 0.2)
 		(layer "In2.Cu")
 		(net "GND")
-		(uuid "249781c1-21fa-5693-846a-46a89e3639af")
+		(uuid "413c0410-c86a-5efe-9ffb-0198a6b2db73")
+	)
+	(segment
+		(start 74.25 7.25)
+		(end 74.25 6.5)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "GND")
+		(uuid "a74cba4f-17ea-56eb-b924-92c9ca3385ec")
 	)
 	(segment
 		(start 75 14.4)
@@ -60603,7 +60771,7 @@
 		(width 0.2)
 		(layer "In4.Cu")
 		(net "CHARGER_GATE_EN")
-		(uuid "95b3ebfa-b7e6-537c-9888-f697980a73a6")
+		(uuid "48660692-ec85-5d3d-8124-b2ba8f77310e")
 	)
 	(segment
 		(start 75.25 10.25)
@@ -60611,7 +60779,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "CHARGER_GATE_EN")
-		(uuid "9225d040-baab-5c71-ad38-1af51a869a6d")
+		(uuid "82385f09-a6af-5685-a236-33630b08a2ab")
 	)
 	(segment
 		(start 75.25 8.75)
@@ -60619,7 +60787,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+3V3_USB")
-		(uuid "5ea9c992-b470-5886-8704-bee265537565")
+		(uuid "eafcd0fc-e18e-5d53-a447-687d665f472d")
 	)
 	(segment
 		(start 75.25 9.5)
@@ -60627,7 +60795,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "CHARGER_GATE_EN")
-		(uuid "f6eaa062-6821-5280-9642-a5b753e2c4bf")
+		(uuid "447d70bd-8722-5c53-b3f0-cafe02a851c8")
 	)
 	(segment
 		(start 76.25 10.25)
@@ -60635,7 +60803,7 @@
 		(width 0.2)
 		(layer "In1.Cu")
 		(net "CHARGER_GATE_EN")
-		(uuid "a428d7ad-8fae-5ffc-b3db-0084afca22ec")
+		(uuid "768facbe-2f25-57b6-9343-b53304e25359")
 	)
 	(segment
 		(start 76.25 8.75)
@@ -60643,7 +60811,7 @@
 		(width 0.2)
 		(layer "In2.Cu")
 		(net "+3V3_USB")
-		(uuid "45e6739c-f623-5354-86a8-fe3f6d59d1dd")
+		(uuid "899c57ec-417a-58b5-9bc9-a70a97ad2d45")
 	)
 	(segment
 		(start 76.3 15.7)
@@ -60651,7 +60819,7 @@
 		(width 0.2)
 		(layer "In2.Cu")
 		(net "GND")
-		(uuid "fb6c2018-4f84-5372-bfcb-f25bb77e204b")
+		(uuid "0edecd9a-86d5-57c6-a9f5-0dc1afdf2a04")
 	)
 	(segment
 		(start 76.3 16)
@@ -60659,7 +60827,31 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "GND")
-		(uuid "1970186c-13e4-5751-bfb2-38dd108293a7")
+		(uuid "38de6cc2-fc66-5ee1-90e1-db28a69768fe")
+	)
+	(segment
+		(start 76.5 6.5)
+		(end 77 6.25)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "GND")
+		(uuid "208b3d89-44ac-569a-8f7c-c0a2ea7b7917")
+	)
+	(segment
+		(start 76.5 8)
+		(end 77.5 7.75)
+		(width 0.2)
+		(layer "B.Cu")
+		(net "USB_RAW_LOGIC_READY")
+		(uuid "4546c979-70ff-58a1-a1a2-71387a363229")
+	)
+	(segment
+		(start 77 6.25)
+		(end 31 6.25)
+		(width 0.2)
+		(layer "In2.Cu")
+		(net "GND")
+		(uuid "887c8a55-e975-5d64-a9d3-5d08e202062c")
 	)
 	(segment
 		(start 77.5 12.1)
@@ -60667,7 +60859,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "TEMP_OK")
-		(uuid "5d151a80-b3ba-5ff1-ad20-6f6c715d2e27")
+		(uuid "921f2a45-2dd9-5945-99d9-8b675564419c")
 	)
 	(segment
 		(start 77.5 16)
@@ -60675,7 +60867,7 @@
 		(width 0.2)
 		(layer "In2.Cu")
 		(net "+3V3_USB")
-		(uuid "54121d52-2962-5b26-bda3-b0ddd74c0395")
+		(uuid "3774cbd9-44b8-5be7-88a4-620ade8259bd")
 	)
 	(segment
 		(start 77.5 16.7)
@@ -60683,7 +60875,23 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+3V3_USB")
-		(uuid "ebe87c64-d81b-5fc3-a004-b1cc1af79ff0")
+		(uuid "7485a15a-d52b-50c1-b34a-5b778d2e0f80")
+	)
+	(segment
+		(start 77.5 7)
+		(end 24.55 7)
+		(width 0.2)
+		(layer "In4.Cu")
+		(net "USB_RAW_LOGIC_READY")
+		(uuid "7fd1fdb2-7007-55b6-89eb-109389cd3e94")
+	)
+	(segment
+		(start 77.5 7.75)
+		(end 77.5 7)
+		(width 0.2)
+		(layer "In4.Cu")
+		(net "USB_RAW_LOGIC_READY")
+		(uuid "2cdc37e8-aa8f-57d6-affb-572326255cf3")
 	)
 	(segment
 		(start 77.5 9.5)
@@ -60691,7 +60899,7 @@
 		(width 0.2)
 		(layer "In4.Cu")
 		(net "TEMP_OK")
-		(uuid "23941e1e-79f1-5ec7-b3ad-e32e38dd64be")
+		(uuid "063dae12-4493-50da-aa6d-1ca79eed6e0c")
 	)
 	(segment
 		(start 78.5 16)
@@ -60699,7 +60907,7 @@
 		(width 0.2)
 		(layer "In2.Cu")
 		(net "+3V3_USB")
-		(uuid "4b565c71-3601-5de1-8622-ec7f9a171f96")
+		(uuid "851274a1-e9fa-5875-9c65-19f5659a6ebd")
 	)
 	(segment
 		(start 78.5 8.75)
@@ -60707,7 +60915,7 @@
 		(width 0.2)
 		(layer "In2.Cu")
 		(net "+3V3_USB")
-		(uuid "7fe8a578-d3fe-58d4-a8fa-24d76a932d11")
+		(uuid "a7c66465-2c87-5d17-851b-1cabb235e570")
 	)
 	(segment
 		(start 88.45 10.5)
@@ -60715,7 +60923,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "GND")
-		(uuid "afc9bacd-9696-537e-bf02-3b9a8fbbc58c")
+		(uuid "53c9cd77-f168-5ae5-870f-fb2d170180ab")
 	)
 	(segment
 		(start 88.45 11.4)
@@ -60723,7 +60931,7 @@
 		(width 0.2)
 		(layer "In3.Cu")
 		(net "GND")
-		(uuid "e7cfb3a0-1a44-50e3-9af7-52d98188399e")
+		(uuid "ee0421e3-1382-5e90-9808-7f33b4874a64")
 	)
 	(segment
 		(start 90 14.175)
@@ -60731,7 +60939,7 @@
 		(width 0.2)
 		(layer "In2.Cu")
 		(net "+3V3_USB")
-		(uuid "620d91fb-0a16-5375-b780-e1eb38ba82d4")
+		(uuid "c2ec1778-7ef5-52c6-8674-1fb3a176e01e")
 	)
 	(segment
 		(start 90 16.075)
@@ -60739,7 +60947,7 @@
 		(width 0.2)
 		(layer "In4.Cu")
 		(net "CHARGER_GATE_EN")
-		(uuid "527f8e6f-43cf-5ad4-b97a-72986e9a408c")
+		(uuid "13c23203-ae80-5f5f-9bab-fc572778c8cc")
 	)
 	(segment
 		(start 90 29)
@@ -60747,7 +60955,7 @@
 		(width 0.2)
 		(layer "In4.Cu")
 		(net "CHARGER_GATE_EN")
-		(uuid "2207d8ef-4c77-5465-aabd-eefa3b83d036")
+		(uuid "b65f2b46-87b8-5c85-9847-076eea8a706c")
 	)
 	(segment
 		(start 90 6.625)
@@ -60755,7 +60963,7 @@
 		(width 0.2)
 		(layer "In2.Cu")
 		(net "+3V3_USB")
-		(uuid "413c0410-c86a-5efe-9ffb-0198a6b2db73")
+		(uuid "d6ae1478-925a-589a-b5af-5263be670eb7")
 	)
 	(segment
 		(start 90 6.625)
@@ -60763,7 +60971,7 @@
 		(width 0.2)
 		(layer "In1.Cu")
 		(net "+3V3_USB")
-		(uuid "a74cba4f-17ea-56eb-b924-92c9ca3385ec")
+		(uuid "60be3af8-d2e6-50dd-b9d9-27f1b2ae5dbd")
 	)
 	(segment
 		(start 90 8.3)
@@ -60771,7 +60979,7 @@
 		(width 0.2)
 		(layer "In1.Cu")
 		(net "+3V3_USB")
-		(uuid "48660692-ec85-5d3d-8124-b2ba8f77310e")
+		(uuid "dbaedb41-2455-5a08-878e-6573393b5f66")
 	)
 	(segment
 		(start 90.05 10.5)
@@ -60779,7 +60987,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+3V3_USB")
-		(uuid "82385f09-a6af-5685-a236-33630b08a2ab")
+		(uuid "8141a53b-5bf9-5d2a-9953-7ecf4ada33a6")
 	)
 	(segment
 		(start 91.2 16.075)
@@ -60787,7 +60995,7 @@
 		(width 0.2)
 		(layer "In1.Cu")
 		(net "CHARGER_GATE_EN")
-		(uuid "eafcd0fc-e18e-5d53-a447-687d665f472d")
+		(uuid "408b900a-8a6b-535c-a748-1a6e432dc34b")
 	)
 	(segment
 		(start 91.2 4)
@@ -60795,7 +61003,7 @@
 		(width 0.2)
 		(layer "In1.Cu")
 		(net "USB_CC_HIGH")
-		(uuid "447d70bd-8722-5c53-b3f0-cafe02a851c8")
+		(uuid "c6b8e215-df9c-5bdf-8e7c-493d73239397")
 	)
 	(segment
 		(start 91.2 5.675)
@@ -60803,7 +61011,7 @@
 		(width 0.2)
 		(layer "In1.Cu")
 		(net "USB_CC_HIGH")
-		(uuid "768facbe-2f25-57b6-9343-b53304e25359")
+		(uuid "a6706e4a-aac6-54f3-9b8b-08786d490e9b")
 	)
 	(segment
 		(start 91.2 6.625)
@@ -60811,7 +61019,7 @@
 		(width 0.2)
 		(layer "In1.Cu")
 		(net "+3V3_USB")
-		(uuid "899c57ec-417a-58b5-9bc9-a70a97ad2d45")
+		(uuid "81911c5f-ca35-5a3f-96ce-c3b9222e0438")
 	)
 	(segment
 		(start 91.2 6.625)
@@ -60819,7 +61027,7 @@
 		(width 0.2)
 		(layer "In2.Cu")
 		(net "+3V3_USB")
-		(uuid "0edecd9a-86d5-57c6-a9f5-0dc1afdf2a04")
+		(uuid "3724ecfa-97e8-59d7-84c4-81394bb07369")
 	)
 	(segment
 		(start 91.2 9.925)
@@ -60827,7 +61035,7 @@
 		(width 0.2)
 		(layer "In2.Cu")
 		(net "+3V3_USB")
-		(uuid "38de6cc2-fc66-5ee1-90e1-db28a69768fe")
+		(uuid "d9fdafa4-6ee4-5320-9467-4cb99fe0b58a")
 	)
 	(segment
 		(start 91.3 7.575)
@@ -60835,7 +61043,7 @@
 		(width 0.2)
 		(layer "In4.Cu")
 		(net "USB_CHARGE_REQ")
-		(uuid "208b3d89-44ac-569a-8f7c-c0a2ea7b7917")
+		(uuid "95648600-b94a-5c77-9977-c67f22490a87")
 	)
 	(segment
 		(start 92.2 14.175)
@@ -60843,7 +61051,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+3V3_USB")
-		(uuid "4546c979-70ff-58a1-a1a2-71387a363229")
+		(uuid "8a48a048-217b-5d58-b2ff-eb810d49b1db")
 	)
 	(segment
 		(start 92.2 16.075)
@@ -60851,7 +61059,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "CHARGER_GATE_EN")
-		(uuid "887c8a55-e975-5d64-a9d3-5d08e202062c")
+		(uuid "18e36285-8fc4-5bf3-9940-49863f8ba5eb")
 	)
 	(segment
 		(start 92.2 5.675)
@@ -60859,7 +61067,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "USB_CC_HIGH")
-		(uuid "921f2a45-2dd9-5945-99d9-8b675564419c")
+		(uuid "5ae3d5b3-9d86-55b1-b268-afc08bb28b10")
 	)
 	(segment
 		(start 92.2 6.625)
@@ -60867,7 +61075,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+3V3_USB")
-		(uuid "3774cbd9-44b8-5be7-88a4-620ade8259bd")
+		(uuid "ebf82bb2-4451-533e-8477-86c97af787ee")
 	)
 	(segment
 		(start 92.2 7.575)
@@ -60875,7 +61083,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "USB_CHARGE_REQ")
-		(uuid "7485a15a-d52b-50c1-b34a-5b778d2e0f80")
+		(uuid "a8d75728-a38a-525b-a153-9d0859708d03")
 	)
 	(segment
 		(start 92.2 9.925)
@@ -60883,7 +61091,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+3V3_USB")
-		(uuid "7fd1fdb2-7007-55b6-89eb-109389cd3e94")
+		(uuid "83d9809e-8851-5637-9fff-b86a0a720412")
 	)
 	(segment
 		(start 93 14.3)
@@ -60891,7 +61099,7 @@
 		(width 0.2)
 		(layer "In1.Cu")
 		(net "CHARGER_GATE_EN")
-		(uuid "2cdc37e8-aa8f-57d6-affb-572326255cf3")
+		(uuid "2275d99f-cf13-589f-97a1-03aa1aced881")
 	)
 	(segment
 		(start 93.5 13.175)
@@ -60899,7 +61107,7 @@
 		(width 0.2)
 		(layer "In4.Cu")
 		(net "USB_CHARGE_REQ")
-		(uuid "063dae12-4493-50da-aa6d-1ca79eed6e0c")
+		(uuid "584df8eb-2668-59a5-84bf-0ffc5162b8c3")
 	)
 	(segment
 		(start 93.5 9.775)
@@ -60907,7 +61115,7 @@
 		(width 0.2)
 		(layer "In4.Cu")
 		(net "USB_CHARGE_REQ")
-		(uuid "851274a1-e9fa-5875-9c65-19f5659a6ebd")
+		(uuid "8d0f3444-4be7-51a8-8c49-852b48627cb8")
 	)
 	(segment
 		(start 94 10.875)
@@ -60915,7 +61123,7 @@
 		(width 0.2)
 		(layer "In3.Cu")
 		(net "GND")
-		(uuid "a7c66465-2c87-5d17-851b-1cabb235e570")
+		(uuid "712c0de8-6d22-5d60-9de8-c294fc816dc8")
 	)
 	(segment
 		(start 94 14.7)
@@ -60923,7 +61131,7 @@
 		(width 0.2)
 		(layer "In2.Cu")
 		(net "GND")
-		(uuid "53c9cd77-f168-5ae5-870f-fb2d170180ab")
+		(uuid "92cc4afb-8c5a-5471-869d-81e6536d88a7")
 	)
 	(segment
 		(start 94 6.625)
@@ -60931,7 +61139,7 @@
 		(width 0.2)
 		(layer "In2.Cu")
 		(net "GND")
-		(uuid "ee0421e3-1382-5e90-9808-7f33b4874a64")
+		(uuid "1279ac5d-d052-5c89-8749-16bc5f31e9d3")
 	)
 	(segment
 		(start 94 8.3)
@@ -60939,7 +61147,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+5V_USB")
-		(uuid "c2ec1778-7ef5-52c6-8674-1fb3a176e01e")
+		(uuid "9859fcf0-859a-541a-ada8-2aaa400ec45a")
 	)
 	(segment
 		(start 94 9.15)
@@ -60947,7 +61155,7 @@
 		(width 0.2)
 		(layer "In3.Cu")
 		(net "GND")
-		(uuid "13c23203-ae80-5f5f-9bab-fc572778c8cc")
+		(uuid "849e36bb-4ebd-5241-ab82-c62412dbcd22")
 	)
 	(segment
 		(start 94 9.925)
@@ -60955,7 +61163,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+5V_USB")
-		(uuid "b65f2b46-87b8-5c85-9847-076eea8a706c")
+		(uuid "9e6e69fe-28be-59da-9ac7-9837be07c5b8")
 	)
 	(segment
 		(start 94.8 10.875)
@@ -60963,7 +61171,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "GND")
-		(uuid "d6ae1478-925a-589a-b5af-5263be670eb7")
+		(uuid "82f5b68c-6100-53d3-b2b9-27f7339db4c2")
 	)
 	(segment
 		(start 94.8 14.175)
@@ -60971,7 +61179,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "USB_CHARGE_REQ")
-		(uuid "60be3af8-d2e6-50dd-b9d9-27f1b2ae5dbd")
+		(uuid "6eae16c1-a60d-5b11-911e-1f31651b3475")
 	)
 	(segment
 		(start 94.8 15.125)
@@ -60979,7 +61187,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "GND")
-		(uuid "dbaedb41-2455-5a08-878e-6573393b5f66")
+		(uuid "3f5d2f8e-988e-5329-8916-2dccd6c43011")
 	)
 	(segment
 		(start 94.8 15.125)
@@ -60987,7 +61195,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "GND")
-		(uuid "8141a53b-5bf9-5d2a-9953-7ecf4ada33a6")
+		(uuid "83d66418-358c-5569-bf01-00d3639aa53d")
 	)
 	(segment
 		(start 94.8 5.675)
@@ -60995,7 +61203,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "USB_VBUS_VALID")
-		(uuid "408b900a-8a6b-535c-a748-1a6e432dc34b")
+		(uuid "8027070c-58dd-5f8e-95ab-346f0c2269a1")
 	)
 	(segment
 		(start 94.8 6.625)
@@ -61003,7 +61211,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "GND")
-		(uuid "c6b8e215-df9c-5bdf-8e7c-493d73239397")
+		(uuid "82f9e05a-f882-54f9-a9f5-80bb5bcfc0f2")
 	)
 	(segment
 		(start 94.8 7.575)
@@ -61011,7 +61219,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "USB_LOGIC_READY")
-		(uuid "a6706e4a-aac6-54f3-9b8b-08786d490e9b")
+		(uuid "c9bed7cb-72c8-51d0-bf8e-a578e423fb91")
 	)
 	(segment
 		(start 94.8 9.925)
@@ -61019,7 +61227,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+5V_USB")
-		(uuid "81911c5f-ca35-5a3f-96ce-c3b9222e0438")
+		(uuid "84f08a26-4362-5c9d-9604-3f12bc3cdf45")
 	)
 	(segment
 		(start 95.8 10.875)
@@ -61027,7 +61235,7 @@
 		(width 0.2)
 		(layer "In2.Cu")
 		(net "GND")
-		(uuid "3724ecfa-97e8-59d7-84c4-81394bb07369")
+		(uuid "0f288c15-1e1d-5bb8-88f5-54ce7bc202e2")
 	)
 	(segment
 		(start 95.8 6.625)
@@ -61035,7 +61243,7 @@
 		(width 0.2)
 		(layer "In2.Cu")
 		(net "GND")
-		(uuid "d9fdafa4-6ee4-5320-9467-4cb99fe0b58a")
+		(uuid "86c7a47e-24d8-5fa4-990a-de858cadd7a8")
 	)
 	(segment
 		(start 95.8 7.575)
@@ -61043,7 +61251,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "USB_LOGIC_READY")
-		(uuid "95648600-b94a-5c77-9977-c67f22490a87")
+		(uuid "dcec17cd-6242-53f5-a55c-797631907fa0")
 	)
 	(segment
 		(start 95.8 7.75)
@@ -61051,7 +61259,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "USB_LOGIC_READY")
-		(uuid "8a48a048-217b-5d58-b2ff-eb810d49b1db")
+		(uuid "7a8afda7-2413-5621-b012-06255afba4cc")
 	)
 	(segment
 		(start 95.8 9.925)
@@ -61059,7 +61267,7 @@
 		(width 0.2)
 		(layer "F.Cu")
 		(net "+5V_USB")
-		(uuid "18e36285-8fc4-5bf3-9940-49863f8ba5eb")
+		(uuid "3fc43a3e-c4ac-50d8-bff9-9280541f3039")
 	)
 	(segment
 		(start 95.9 12)
@@ -61067,7 +61275,7 @@
 		(width 0.2)
 		(layer "In2.Cu")
 		(net "E0_EN")
-		(uuid "5ae3d5b3-9d86-55b1-b268-afc08bb28b10")
+		(uuid "f5e95c65-2cef-5216-9508-d9a4281cd6c2")
 	)
 	(segment
 		(start 95.9 17.5)
@@ -61075,7 +61283,7 @@
 		(width 0.2)
 		(layer "In2.Cu")
 		(net "E0_OVLO")
-		(uuid "ebf82bb2-4451-533e-8477-86c97af787ee")
+		(uuid "debef6a8-99b9-5b95-9439-a2c6828f69b6")
 	)
 	(segment
 		(start 96 15.225)
@@ -61083,7 +61291,7 @@
 		(width 0.2)
 		(layer "In3.Cu")
 		(net "GND")
-		(uuid "a8d75728-a38a-525b-a153-9d0859708d03")
+		(uuid "abc433f9-f675-518e-8a0d-fe3576539e4d")
 	)
 	(segment
 		(start 96 5.675)
@@ -61091,7 +61299,7 @@
 		(width 0.2)
 		(layer "In3.Cu")
 		(net "USB_VBUS_VALID")
-		(uuid "83d9809e-8851-5637-9fff-b86a0a720412")
+		(uuid "dfafa392-4ee1-5e04-922d-5da15e52f225")
 	)
 	(segment
 		(start 96.2 9.15)
@@ -61099,7 +61307,7 @@
 		(width 0.2)
 		(layer "In3.Cu")
 		(net "GND")
-		(uuid "2275d99f-cf13-589f-97a1-03aa1aced881")
+		(uuid "dac0f98b-8c74-5faf-baa9-7b4118b78c30")
 	)
 	(segment
 		(start 96.75 12)
@@ -61107,7 +61315,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "E0_EN")
-		(uuid "584df8eb-2668-59a5-84bf-0ffc5162b8c3")
+		(uuid "bdae1a15-41b8-56bd-88e0-ab1a6d7dd513")
 	)
 	(segment
 		(start 96.75 14)
@@ -61115,7 +61323,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "GND")
-		(uuid "8d0f3444-4be7-51a8-8c49-852b48627cb8")
+		(uuid "ee179da2-6f2f-5b32-90c5-a1e982083c22")
 	)
 	(segment
 		(start 96.75 17.5)
@@ -61123,7 +61331,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "E0_OVLO")
-		(uuid "712c0de8-6d22-5d60-9de8-c294fc816dc8")
+		(uuid "39e4e6c1-5902-56b0-88ea-6e2a8d361688")
 	)
 	(segment
 		(start 96.75 20.75)
@@ -61131,7 +61339,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "GND")
-		(uuid "92cc4afb-8c5a-5471-869d-81e6536d88a7")
+		(uuid "0aa30ef5-330d-51c3-b63e-cfbf639c5685")
 	)
 	(segment
 		(start 96.75 22.5)
@@ -61139,7 +61347,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "GND")
-		(uuid "1279ac5d-d052-5c89-8749-16bc5f31e9d3")
+		(uuid "02884dbd-8ae2-558b-ac0c-6fa742ffd3b3")
 	)
 	(segment
 		(start 96.8 4.85)
@@ -61147,7 +61355,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+3V3_USB")
-		(uuid "9859fcf0-859a-541a-ada8-2aaa400ec45a")
+		(uuid "1e15e1d5-abeb-5e1c-8478-366578076f8f")
 	)
 	(segment
 		(start 96.8 8.3)
@@ -61155,7 +61363,7 @@
 		(width 0.2)
 		(layer "In1.Cu")
 		(net "+3V3_USB")
-		(uuid "849e36bb-4ebd-5241-ab82-c62412dbcd22")
+		(uuid "4c6ee1f7-49e4-5556-be26-4945b720c1a0")
 	)
 	(segment
 		(start 96.8 8.3)
@@ -61163,7 +61371,7 @@
 		(width 0.2)
 		(layer "In1.Cu")
 		(net "+3V3_USB")
-		(uuid "9e6e69fe-28be-59da-9ac7-9837be07c5b8")
+		(uuid "19125ae1-7e3c-58fa-9ea1-acfce84be79d")
 	)
 	(segment
 		(start 96.85 15.3)
@@ -61171,7 +61379,7 @@
 		(width 0.2)
 		(layer "In3.Cu")
 		(net "GND")
-		(uuid "82f5b68c-6100-53d3-b2b9-27f7339db4c2")
+		(uuid "e861c321-fbd4-554b-afa2-1a72d7141a34")
 	)
 	(segment
 		(start 96.85 16)
@@ -61179,7 +61387,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "GND")
-		(uuid "6eae16c1-a60d-5b11-911e-1f31651b3475")
+		(uuid "adc4360f-addc-5c9c-bed9-ba844eaf9914")
 	)
 	(segment
 		(start 96.85 19)
@@ -61187,7 +61395,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "GND")
-		(uuid "3f5d2f8e-988e-5329-8916-2dccd6c43011")
+		(uuid "14fe5090-1d55-522b-9687-39d130a18e9e")
 	)
 	(segment
 		(start 96.85 19.6)
@@ -61195,7 +61403,7 @@
 		(width 0.2)
 		(layer "In3.Cu")
 		(net "GND")
-		(uuid "83d66418-358c-5569-bf01-00d3639aa53d")
+		(uuid "447e2aee-8daa-51e0-88ed-bfd0aa0a3527")
 	)
 	(segment
 		(start 96.85 9)
@@ -61203,7 +61411,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "GND")
-		(uuid "8027070c-58dd-5f8e-95ab-346f0c2269a1")
+		(uuid "f7c45e35-957f-5b9e-b66f-9130f633b9ef")
 	)
 	(segment
 		(start 97 9.925)
@@ -61211,7 +61419,7 @@
 		(width 0.2)
 		(layer "F.Cu")
 		(net "+5V_USB")
-		(uuid "82f9e05a-f882-54f9-a9f5-80bb5bcfc0f2")
+		(uuid "0eb95c74-1b1b-556c-a878-50706eea8fe2")
 	)
 	(segment
 		(start 97.65 16)
@@ -61219,7 +61427,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "E0_DVDT")
-		(uuid "c9bed7cb-72c8-51d0-bf8e-a578e423fb91")
+		(uuid "9aa32a11-556c-5e0a-a954-709eada0eefc")
 	)
 	(segment
 		(start 97.65 19)
@@ -61227,7 +61435,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "E1_DVDT")
-		(uuid "84f08a26-4362-5c9d-9604-3f12bc3cdf45")
+		(uuid "b9621208-eb90-5044-8b23-2383831ba848")
 	)
 	(segment
 		(start 97.65 20)
@@ -61235,7 +61443,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "E1_DVDT")
-		(uuid "0f288c15-1e1d-5bb8-88f5-54ce7bc202e2")
+		(uuid "0f5b6c20-0897-54ff-bd19-157cd4fc2864")
 	)
 	(segment
 		(start 97.65 8.3)
@@ -61243,7 +61451,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+5V_USB")
-		(uuid "86c7a47e-24d8-5fa4-990a-de858cadd7a8")
+		(uuid "58edbf1a-f01e-5d9f-9a10-1d91ecaa80b8")
 	)
 	(segment
 		(start 97.65 9)
@@ -61251,7 +61459,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "+5V_USB")
-		(uuid "dcec17cd-6242-53f5-a55c-797631907fa0")
+		(uuid "cd9ef31d-f1bf-5816-bbaa-0d9323710200")
 	)
 	(segment
 		(start 97.7 19.5)
@@ -61259,7 +61467,7 @@
 		(width 0.2)
 		(layer "In4.Cu")
 		(net "E1_ILM")
-		(uuid "7a8afda7-2413-5621-b012-06255afba4cc")
+		(uuid "3ecef1bf-7f25-5bca-af14-a6ce256022e9")
 	)
 	(segment
 		(start 97.7 21.6)
@@ -61267,7 +61475,7 @@
 		(width 0.2)
 		(layer "In4.Cu")
 		(net "E1_ILM")
-		(uuid "3fc43a3e-c4ac-50d8-bff9-9280541f3039")
+		(uuid "3766ff5a-cc7d-5700-acf2-882631d8a70b")
 	)
 	(segment
 		(start 97.7 6.5)
@@ -61275,7 +61483,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "USB_CC_HIGH")
-		(uuid "f5e95c65-2cef-5216-9508-d9a4281cd6c2")
+		(uuid "6902ca8c-688b-5f32-868b-ce085cd39384")
 	)
 	(segment
 		(start 97.75 12)
@@ -61283,7 +61491,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "VBUS_CONNECTOR")
-		(uuid "debef6a8-99b9-5b95-9439-a2c6828f69b6")
+		(uuid "7615bf6c-0716-5073-9cbf-4498026c195b")
 	)
 	(segment
 		(start 97.75 14)
@@ -61291,7 +61499,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "E0_ILM")
-		(uuid "abc433f9-f675-518e-8a0d-fe3576539e4d")
+		(uuid "c1a3c03e-c8f8-51b4-ac26-0c90f7846d95")
 	)
 	(segment
 		(start 97.75 14.775)
@@ -61299,7 +61507,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "E0_ILM")
-		(uuid "dfafa392-4ee1-5e04-922d-5da15e52f225")
+		(uuid "9b7f3d37-042f-587f-a699-5b0361d059e9")
 	)
 	(segment
 		(start 97.75 17.5)
@@ -61307,7 +61515,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "VBUS_CONNECTOR")
-		(uuid "dac0f98b-8c74-5faf-baa9-7b4118b78c30")
+		(uuid "a2e4a65f-cc9c-5a69-abb3-6ebf75221a81")
 	)
 	(segment
 		(start 97.75 20.75)
@@ -61315,7 +61523,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "E0_OVLO")
-		(uuid "bdae1a15-41b8-56bd-88e0-ab1a6d7dd513")
+		(uuid "c7f14385-f840-5cac-9e69-70c23ece04d9")
 	)
 	(segment
 		(start 97.75 22.5)
@@ -61323,7 +61531,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "E1_ILM")
-		(uuid "ee179da2-6f2f-5b32-90c5-a1e982083c22")
+		(uuid "0f5417fa-74c5-5364-be01-66114f41c6cb")
 	)
 	(segment
 		(start 98.3 11.325)
@@ -61331,7 +61539,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "USB_LOGIC_READY")
-		(uuid "39e4e6c1-5902-56b0-88ea-6e2a8d361688")
+		(uuid "2b860286-b56d-561e-bebb-0c44976128f0")
 	)
 	(segment
 		(start 98.3 4)
@@ -61339,7 +61547,7 @@
 		(width 0.2)
 		(layer "In1.Cu")
 		(net "USB_CC_HIGH")
-		(uuid "0aa30ef5-330d-51c3-b63e-cfbf639c5685")
+		(uuid "63010ff6-b4e6-5898-a9f5-6278dfc07cf3")
 	)
 	(segment
 		(start 98.3 6.5)
@@ -61347,7 +61555,7 @@
 		(width 0.2)
 		(layer "In1.Cu")
 		(net "USB_CC_HIGH")
-		(uuid "02884dbd-8ae2-558b-ac0c-6fa742ffd3b3")
+		(uuid "a5c04b2f-ba10-5251-9421-97900bafe0b1")
 	)
 	(segment
 		(start 98.3 7.75)
@@ -61355,7 +61563,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "USB_LOGIC_READY")
-		(uuid "1e15e1d5-abeb-5e1c-8478-366578076f8f")
+		(uuid "9e555193-83c7-52f2-9c5f-721fd87ab2b1")
 	)
 	(segment
 		(start 98.5 17.5)
@@ -61363,7 +61571,7 @@
 		(width 0.2)
 		(layer "In4.Cu")
 		(net "VBUS_CONNECTOR")
-		(uuid "4c6ee1f7-49e4-5556-be26-4945b720c1a0")
+		(uuid "00e6a5e1-b186-526c-b05f-4be10053fddd")
 	)
 	(segment
 		(start 98.5 18.4)
@@ -61371,7 +61579,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "E1_ILM")
-		(uuid "19125ae1-7e3c-58fa-9ea1-acfce84be79d")
+		(uuid "a14978ae-ef05-5297-9d6c-ef05a7b10a2a")
 	)
 	(segment
 		(start 98.5 22.5)
@@ -61379,7 +61587,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "E1_ILM")
-		(uuid "e861c321-fbd4-554b-afa2-1a72d7141a34")
+		(uuid "84902eb5-4fb3-529c-abab-933b39a7115f")
 	)
 	(segment
 		(start 98.5 25.5)
@@ -61387,7 +61595,7 @@
 		(width 0.2)
 		(layer "In4.Cu")
 		(net "E1_ILM")
-		(uuid "adc4360f-addc-5c9c-bed9-ba844eaf9914")
+		(uuid "3f907e9b-6d7c-530e-9b43-cdd0e98eaeff")
 	)
 	(segment
 		(start 98.6 20.75)
@@ -61395,7 +61603,7 @@
 		(width 0.2)
 		(layer "In2.Cu")
 		(net "E0_OVLO")
-		(uuid "14fe5090-1d55-522b-9687-39d130a18e9e")
+		(uuid "5c7d6d6d-a6b2-5395-a2bc-90633719daa2")
 	)
 	(segment
 		(start 99 10.375)
@@ -61403,7 +61611,7 @@
 		(width 0.2)
 		(layer "In1.Cu")
 		(net "+3V3_USB")
-		(uuid "447e2aee-8daa-51e0-88ed-bfd0aa0a3527")
+		(uuid "6616307e-8e9a-5fb3-b13b-550b93e655f6")
 	)
 	(segment
 		(start 99 19.225)
@@ -61411,7 +61619,7 @@
 		(width 0.2)
 		(layer "In3.Cu")
 		(net "GND")
-		(uuid "f7c45e35-957f-5b9e-b66f-9130f633b9ef")
+		(uuid "fd31b1b1-1590-5a73-8c24-c73926d5f987")
 	)
 	(segment
 		(start 99 22.5)
@@ -61419,7 +61627,7 @@
 		(width 0.2)
 		(layer "In4.Cu")
 		(net "E1_ILM")
-		(uuid "0eb95c74-1b1b-556c-a878-50706eea8fe2")
+		(uuid "08b226bd-fc45-5833-9015-7445c1087c8a")
 	)
 	(segment
 		(start 99 24.5)
@@ -61427,7 +61635,7 @@
 		(width 0.2)
 		(layer "In4.Cu")
 		(net "E1_ILM")
-		(uuid "9aa32a11-556c-5e0a-a954-709eada0eefc")
+		(uuid "cf23a966-afdf-54a1-978d-72646bab052e")
 	)
 	(segment
 		(start 99 8.3)
@@ -61435,7 +61643,7 @@
 		(width 0.2)
 		(layer "In1.Cu")
 		(net "+3V3_USB")
-		(uuid "b9621208-eb90-5044-8b23-2383831ba848")
+		(uuid "ff25e0e9-a29e-5f0d-816e-1df7ff1adaec")
 	)
 	(segment
 		(start 99.2 18.4)
@@ -61443,7 +61651,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "E1_ILM")
-		(uuid "0f5b6c20-0897-54ff-bd19-157cd4fc2864")
+		(uuid "54d4b960-4375-5e9b-9ea2-f8370bb85651")
 	)
 	(segment
 		(start 99.4 18.775)
@@ -61451,7 +61659,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "E1_ILM")
-		(uuid "58edbf1a-f01e-5d9f-9a10-1d91ecaa80b8")
+		(uuid "47d3d6df-2a44-5461-bfa7-85e6c07836cd")
 	)
 	(segment
 		(start 99.85 15.225)
@@ -61459,7 +61667,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "GND")
-		(uuid "cd9ef31d-f1bf-5816-bbaa-0d9323710200")
+		(uuid "2d6382f2-c027-5d7e-a314-d4c1054d0932")
 	)
 	(segment
 		(start 99.85 19.225)
@@ -61467,7 +61675,7 @@
 		(width 0.2)
 		(layer "B.Cu")
 		(net "GND")
-		(uuid "3ecef1bf-7f25-5bca-af14-a6ce256022e9")
+		(uuid "58009dff-b104-5723-b9e1-0ea1a997cd4d")
 	)
 	(via
 		(at 100 29)
@@ -61475,7 +61683,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "CHARGER_GATE_EN")
-		(uuid "3766ff5a-cc7d-5700-acf2-882631d8a70b")
+		(uuid "0193ef73-d2fb-56d8-bded-6ac16eb96b5a")
 	)
 	(via
 		(at 100.5 17)
@@ -61483,7 +61691,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "+5V_USB")
-		(uuid "6902ca8c-688b-5f32-868b-ce085cd39384")
+		(uuid "4b258ab2-8c66-5c01-8d24-596a35e9e03f")
 	)
 	(via
 		(at 100.7 20.8)
@@ -61491,7 +61699,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "CHARGER_IN_DRAFT")
-		(uuid "7615bf6c-0716-5073-9cbf-4498026c195b")
+		(uuid "a026a741-216f-59c4-88da-1bcf4de968ab")
 	)
 	(via
 		(at 100.8 10.375)
@@ -61499,7 +61707,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "+3V3_USB")
-		(uuid "c1a3c03e-c8f8-51b4-ac26-0c90f7846d95")
+		(uuid "251085ee-a1af-5775-8745-814781160fab")
 	)
 	(via
 		(at 100.9 9.425)
@@ -61507,7 +61715,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "USB_VBUS_VALID")
-		(uuid "9b7f3d37-042f-587f-a699-5b0361d059e9")
+		(uuid "0bb00997-3ffe-58ae-bf6a-ef5611c06f06")
 	)
 	(via
 		(at 101 12.5)
@@ -61515,7 +61723,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "VBUS_CONNECTOR")
-		(uuid "a2e4a65f-cc9c-5a69-abb3-6ebf75221a81")
+		(uuid "bb1ad779-d8bf-5a65-a5d8-068b2645c81f")
 	)
 	(via
 		(at 102.3 17.9)
@@ -61523,7 +61731,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "CHARGER_GATE_EN")
-		(uuid "c7f14385-f840-5cac-9e69-70c23ece04d9")
+		(uuid "7ffb2866-8e99-5836-8e70-f395c22d7a71")
 	)
 	(via
 		(at 102.5 13.4)
@@ -61531,7 +61739,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "E0_EN")
-		(uuid "0f5417fa-74c5-5364-be01-66114f41c6cb")
+		(uuid "8f28b640-3a9d-5cb2-afb2-6bd1643687f8")
 	)
 	(via
 		(at 102.5 14.775)
@@ -61539,7 +61747,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "E0_OVLO")
-		(uuid "2b860286-b56d-561e-bebb-0c44976128f0")
+		(uuid "a6ad8bd9-a96d-50ae-99a4-42e08f397dd0")
 	)
 	(via
 		(at 103 28.5)
@@ -61547,7 +61755,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "GND")
-		(uuid "63010ff6-b4e6-5898-a9f5-6278dfc07cf3")
+		(uuid "7c060dce-d2f7-5308-ab22-e03bc759ca0e")
 	)
 	(via
 		(at 103.1 19)
@@ -61555,7 +61763,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "GND")
-		(uuid "a5c04b2f-ba10-5251-9421-97900bafe0b1")
+		(uuid "bafef238-2d11-5ada-afee-4a757b45bb5e")
 	)
 	(via
 		(at 103.3 10.375)
@@ -61563,7 +61771,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "GND")
-		(uuid "9e555193-83c7-52f2-9c5f-721fd87ab2b1")
+		(uuid "5392338d-7d9e-5ca0-a3b5-503ef6b4b055")
 	)
 	(via
 		(at 103.7 15.45)
@@ -61571,7 +61779,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "GND")
-		(uuid "00e6a5e1-b186-526c-b05f-4be10053fddd")
+		(uuid "5b4189d7-caf4-5d4e-a0dd-f8aef8f55d16")
 	)
 	(via
 		(at 103.8 13.5)
@@ -61579,7 +61787,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "GND")
-		(uuid "a14978ae-ef05-5297-9d6c-ef05a7b10a2a")
+		(uuid "62699692-8963-5703-ae60-881a771f89c4")
 	)
 	(via
 		(at 105.2 13.2)
@@ -61587,7 +61795,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "VBUS_CONNECTOR")
-		(uuid "84902eb5-4fb3-529c-abab-933b39a7115f")
+		(uuid "c0ddedaf-9296-5b7a-8d87-93aac4f388de")
 	)
 	(via
 		(at 105.3 26)
@@ -61595,7 +61803,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "+SYS_APP_IN_DRAFT")
-		(uuid "3f907e9b-6d7c-530e-9b43-cdd0e98eaeff")
+		(uuid "1af996eb-d923-5f4f-9948-0ad3e65abcc1")
 	)
 	(via
 		(at 105.5 19)
@@ -61603,7 +61811,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "CHARGER_IN_DRAFT")
-		(uuid "5c7d6d6d-a6b2-5395-a2bc-90633719daa2")
+		(uuid "53db3aa0-d7f2-5dd5-b04a-2bcb7c8310a5")
 	)
 	(via
 		(at 105.5 24.75)
@@ -61611,7 +61819,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "+BAT_PROTECTED_DRAFT")
-		(uuid "6616307e-8e9a-5fb3-b13b-550b93e655f6")
+		(uuid "a2c2851b-9ed7-5a74-8ac6-3c2bf5bfa5ba")
 	)
 	(via
 		(at 105.55 16.8)
@@ -61619,7 +61827,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "+5V_USB")
-		(uuid "fd31b1b1-1590-5a73-8c24-c73926d5f987")
+		(uuid "c8c477c1-71bc-56ac-adab-4a16538f9732")
 	)
 	(via
 		(at 106.2 20)
@@ -61627,7 +61835,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "GND")
-		(uuid "08b226bd-fc45-5833-9015-7445c1087c8a")
+		(uuid "057b8676-52b5-56e0-b7ef-cdc7a9013195")
 	)
 	(via
 		(at 106.25 29.5)
@@ -61635,7 +61843,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "GND")
-		(uuid "cf23a966-afdf-54a1-978d-72646bab052e")
+		(uuid "584ab98f-a756-5a99-8049-d20f838d975c")
 	)
 	(via
 		(at 106.8 23.1)
@@ -61643,7 +61851,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "GND")
-		(uuid "ff25e0e9-a29e-5f0d-816e-1df7ff1adaec")
+		(uuid "846d0222-b24a-5507-b638-9b27607d558c")
 	)
 	(via
 		(at 107.2 18.65)
@@ -61651,7 +61859,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "VBUS_CONNECTOR")
-		(uuid "54d4b960-4375-5e9b-9ea2-f8370bb85651")
+		(uuid "27138d21-8b2a-51b2-bafe-83c934e71f2c")
 	)
 	(via
 		(at 107.5 12.3)
@@ -61659,7 +61867,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "GND")
-		(uuid "47d3d6df-2a44-5461-bfa7-85e6c07836cd")
+		(uuid "899b11bc-49e2-567d-8fc1-cdffe82cddd6")
 	)
 	(via
 		(at 108 23.1)
@@ -61667,7 +61875,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "GND")
-		(uuid "2d6382f2-c027-5d7e-a314-d4c1054d0932")
+		(uuid "0ade9805-933d-5009-8eb1-97c344eb7d4d")
 	)
 	(via
 		(at 109 23.1)
@@ -61675,7 +61883,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "GND")
-		(uuid "58009dff-b104-5723-b9e1-0ea1a997cd4d")
+		(uuid "caba1ae7-71a3-51f5-b416-5a6fb47d8324")
 	)
 	(via
 		(at 109.5 27.5)
@@ -61683,7 +61891,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "CHARGER_IN_DRAFT")
-		(uuid "0193ef73-d2fb-56d8-bded-6ac16eb96b5a")
+		(uuid "47ad1768-0401-5787-b986-101abcf5c0dc")
 	)
 	(via
 		(at 110.5 25)
@@ -61691,7 +61899,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "+SYS_APP_IN_DRAFT")
-		(uuid "4b258ab2-8c66-5c01-8d24-596a35e9e03f")
+		(uuid "bc89cbed-8e3d-537e-8a72-0aa424bf533e")
 	)
 	(via
 		(at 110.75 28.25)
@@ -61699,7 +61907,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "GND")
-		(uuid "a026a741-216f-59c4-88da-1bcf4de968ab")
+		(uuid "b0498baf-04a4-5569-a9a6-d01b25e4609a")
 	)
 	(via
 		(at 20.35 18.75)
@@ -61707,7 +61915,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "CHARGER_GATE_EN")
-		(uuid "251085ee-a1af-5775-8745-814781160fab")
+		(uuid "0d3394dc-4430-542d-bd1b-7458457dde25")
 	)
 	(via
 		(at 20.45 11.675)
@@ -61715,7 +61923,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "+3V3_USB")
-		(uuid "0bb00997-3ffe-58ae-bf6a-ef5611c06f06")
+		(uuid "7daf2726-831e-5a6c-8566-b343c592e240")
 	)
 	(via
 		(at 20.45 15.925)
@@ -61723,7 +61931,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "+3V3_USB")
-		(uuid "bb1ad779-d8bf-5a65-a5d8-068b2645c81f")
+		(uuid "de18588a-6227-55a2-a756-f583261e9b64")
 	)
 	(via
 		(at 22.5 1.8)
@@ -61731,7 +61939,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "GND")
-		(uuid "7ffb2866-8e99-5836-8e70-f395c22d7a71")
+		(uuid "e74f318c-d006-535b-8506-16e1a4460f94")
 	)
 	(via
 		(at 24.55 11.675)
@@ -61739,7 +61947,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "USB_RAW_LOGIC_READY")
-		(uuid "8f28b640-3a9d-5cb2-afb2-6bd1643687f8")
+		(uuid "82c85232-9e3f-5e5b-b265-f4b8f5704d48")
 	)
 	(via
 		(at 25 18.5)
@@ -61747,7 +61955,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "GND")
-		(uuid "a6ad8bd9-a96d-50ae-99a4-42e08f397dd0")
+		(uuid "9f989bd2-1536-5c64-a27d-6c26bf389665")
 	)
 	(via
 		(at 25.05 15.925)
@@ -61755,7 +61963,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "USB_RAW_LOGIC_READY")
-		(uuid "7c060dce-d2f7-5308-ab22-e03bc759ca0e")
+		(uuid "74f4ef90-4fc6-5b59-b7ac-fb39ff9a098e")
 	)
 	(via
 		(at 25.45 14.4)
@@ -61763,7 +61971,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "CHARGER_GATE_EN")
-		(uuid "bafef238-2d11-5ada-afee-4a757b45bb5e")
+		(uuid "f331d51c-1edf-5e1e-8f77-c43e24f1ae29")
 	)
 	(via
 		(at 27 3)
@@ -61771,7 +61979,15 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "+BAT_PROTECTED_DRAFT")
-		(uuid "5392338d-7d9e-5ca0-a3b5-503ef6b4b055")
+		(uuid "229c1402-f2de-5c8a-aaeb-4c8ba4f63df6")
+	)
+	(via
+		(at 29.5 9)
+		(size 0.6)
+		(drill 0.3)
+		(layers "F.Cu" "B.Cu")
+		(net "USB_RAW_LOGIC_READY")
+		(uuid "9ce4f009-ed30-50f0-ae33-70935a5d922e")
 	)
 	(via
 		(at 29.9 11.675)
@@ -61779,7 +61995,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "TEMP_OK")
-		(uuid "5b4189d7-caf4-5d4e-a0dd-f8aef8f55d16")
+		(uuid "6c10399e-e72e-5bf5-99c8-27fd3cb87b24")
 	)
 	(via
 		(at 31 13.575)
@@ -61787,7 +62003,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "GND")
-		(uuid "62699692-8963-5703-ae60-881a771f89c4")
+		(uuid "c439438b-76fc-5552-a35c-ee3310419a2e")
 	)
 	(via
 		(at 6.5 1.4)
@@ -61795,7 +62011,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "+SYS_APP_IN_DRAFT")
-		(uuid "c0ddedaf-9296-5b7a-8d87-93aac4f388de")
+		(uuid "b634e0c0-bd84-5ccb-98da-5f0775cccc91")
 	)
 	(via
 		(at 6.5 4.8)
@@ -61803,7 +62019,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "+BAT_PROTECTED_DRAFT")
-		(uuid "1af996eb-d923-5f4f-9948-0ad3e65abcc1")
+		(uuid "877a26a2-3bd5-54ea-9b28-07f3d9c0ecc9")
 	)
 	(via
 		(at 73.2 11.2)
@@ -61811,7 +62027,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "+3V3_USB")
-		(uuid "53db3aa0-d7f2-5dd5-b04a-2bcb7c8310a5")
+		(uuid "18ab9239-904b-5500-ad2d-e4a8abccf6de")
 	)
 	(via
 		(at 74.25 11.25)
@@ -61819,7 +62035,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "GND")
-		(uuid "a2c2851b-9ed7-5a74-8ac6-3c2bf5bfa5ba")
+		(uuid "9580c9fb-a42d-509f-bfda-fb5f6ffd9f12")
 	)
 	(via
 		(at 76.25 10.25)
@@ -61827,7 +62043,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "CHARGER_GATE_EN")
-		(uuid "c8c477c1-71bc-56ac-adab-4a16538f9732")
+		(uuid "b4dae1c3-a511-5084-bdad-d880012d7ba7")
 	)
 	(via
 		(at 76.25 8.75)
@@ -61835,7 +62051,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "+3V3_USB")
-		(uuid "057b8676-52b5-56e0-b7ef-cdc7a9013195")
+		(uuid "5b760aed-792c-58cd-8c0c-5f63890c56ca")
 	)
 	(via
 		(at 76.3 15.7)
@@ -61843,7 +62059,15 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "GND")
-		(uuid "584ab98f-a756-5a99-8049-d20f838d975c")
+		(uuid "fabb4993-77bd-581c-9c8e-af0d3dfa9f29")
+	)
+	(via
+		(at 77 6.25)
+		(size 0.6)
+		(drill 0.3)
+		(layers "F.Cu" "B.Cu")
+		(net "GND")
+		(uuid "2ccead0b-52b5-5d38-b83f-83590468156e")
 	)
 	(via
 		(at 77.5 12.5)
@@ -61851,7 +62075,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "TEMP_OK")
-		(uuid "846d0222-b24a-5507-b638-9b27607d558c")
+		(uuid "daf01625-2b07-59a2-9d21-efd272de1113")
 	)
 	(via
 		(at 77.5 16)
@@ -61859,7 +62083,15 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "+3V3_USB")
-		(uuid "27138d21-8b2a-51b2-bafe-83c934e71f2c")
+		(uuid "b3e4d3ca-d5bf-55e5-87c8-1e6515eddce7")
+	)
+	(via
+		(at 77.5 7.75)
+		(size 0.6)
+		(drill 0.3)
+		(layers "F.Cu" "B.Cu")
+		(net "USB_RAW_LOGIC_READY")
+		(uuid "14798b66-d99e-5fc5-b22e-70f2246d932e")
 	)
 	(via
 		(at 88.45 11.4)
@@ -61867,7 +62099,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "GND")
-		(uuid "899b11bc-49e2-567d-8fc1-cdffe82cddd6")
+		(uuid "27661467-74dd-572b-963f-a8baebaeb664")
 	)
 	(via
 		(at 91.2 14.175)
@@ -61875,7 +62107,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "+3V3_USB")
-		(uuid "0ade9805-933d-5009-8eb1-97c344eb7d4d")
+		(uuid "c512cdad-5644-5e17-b550-02d658784993")
 	)
 	(via
 		(at 91.2 16.075)
@@ -61883,7 +62115,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "CHARGER_GATE_EN")
-		(uuid "caba1ae7-71a3-51f5-b416-5a6fb47d8324")
+		(uuid "e3285316-50c2-5f52-a9b8-f87387c7fdc7")
 	)
 	(via
 		(at 91.2 5.675)
@@ -61891,7 +62123,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "USB_CC_HIGH")
-		(uuid "47ad1768-0401-5787-b986-101abcf5c0dc")
+		(uuid "91404e86-5176-51f3-b46a-0983a6539179")
 	)
 	(via
 		(at 91.2 6.625)
@@ -61899,7 +62131,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "+3V3_USB")
-		(uuid "bc89cbed-8e3d-537e-8a72-0aa424bf533e")
+		(uuid "0286bed2-0fa8-59a9-a9e3-e736a30a500b")
 	)
 	(via
 		(at 91.2 9.925)
@@ -61907,7 +62139,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "+3V3_USB")
-		(uuid "b0498baf-04a4-5569-a9a6-d01b25e4609a")
+		(uuid "f2f10265-1432-588f-b2cf-f8f080ef6003")
 	)
 	(via
 		(at 91.3 7.575)
@@ -61915,7 +62147,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "USB_CHARGE_REQ")
-		(uuid "0d3394dc-4430-542d-bd1b-7458457dde25")
+		(uuid "f89d1476-fd30-5445-b4cc-c3d6451f140e")
 	)
 	(via
 		(at 94.8 13.2)
@@ -61923,7 +62155,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "USB_CHARGE_REQ")
-		(uuid "7daf2726-831e-5a6c-8566-b343c592e240")
+		(uuid "29f857d9-aa99-53b0-867b-0fdeb4b57adb")
 	)
 	(via
 		(at 95.8 10.875)
@@ -61931,7 +62163,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "GND")
-		(uuid "de18588a-6227-55a2-a756-f583261e9b64")
+		(uuid "50c017ee-5dcb-58ae-a12a-6f6c18e9b423")
 	)
 	(via
 		(at 95.8 6.625)
@@ -61939,7 +62171,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "GND")
-		(uuid "e74f318c-d006-535b-8506-16e1a4460f94")
+		(uuid "0ce32426-8039-5938-89ca-4e8f25972343")
 	)
 	(via
 		(at 95.8 9.925)
@@ -61947,7 +62179,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "+5V_USB")
-		(uuid "82c85232-9e3f-5e5b-b265-f4b8f5704d48")
+		(uuid "61e81511-46bc-5b41-86d0-bab799711427")
 	)
 	(via
 		(at 95.9 12)
@@ -61955,7 +62187,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "E0_EN")
-		(uuid "9f989bd2-1536-5c64-a27d-6c26bf389665")
+		(uuid "3328803f-865b-52b0-b12d-ceb7e7ae2735")
 	)
 	(via
 		(at 95.9 17.5)
@@ -61963,7 +62195,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "E0_OVLO")
-		(uuid "74f4ef90-4fc6-5b59-b7ac-fb39ff9a098e")
+		(uuid "b9607591-5066-5478-9fd1-1c75d9f44518")
 	)
 	(via
 		(at 96 15.225)
@@ -61971,7 +62203,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "GND")
-		(uuid "f331d51c-1edf-5e1e-8f77-c43e24f1ae29")
+		(uuid "6e3da0ef-7465-5b79-89ec-9dd401184d3a")
 	)
 	(via
 		(at 96 5.675)
@@ -61979,7 +62211,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "USB_VBUS_VALID")
-		(uuid "229c1402-f2de-5c8a-aaeb-4c8ba4f63df6")
+		(uuid "4f2be5c7-a222-53b1-bf6d-e6e6dad32c97")
 	)
 	(via
 		(at 96.2 9.15)
@@ -61987,7 +62219,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "GND")
-		(uuid "9ce4f009-ed30-50f0-ae33-70935a5d922e")
+		(uuid "751217a5-a513-5c4d-80bd-5ab9f6418d38")
 	)
 	(via
 		(at 96.8 4.85)
@@ -61995,7 +62227,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "+3V3_USB")
-		(uuid "6c10399e-e72e-5bf5-99c8-27fd3cb87b24")
+		(uuid "eb949b42-29e0-543e-a4a0-f4e7a6d0c0e6")
 	)
 	(via
 		(at 96.85 15.3)
@@ -62003,7 +62235,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "GND")
-		(uuid "c439438b-76fc-5552-a35c-ee3310419a2e")
+		(uuid "f7e6ada1-ecc9-5584-bbc5-11faea0ff54f")
 	)
 	(via
 		(at 96.85 19.6)
@@ -62011,7 +62243,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "GND")
-		(uuid "b634e0c0-bd84-5ccb-98da-5f0775cccc91")
+		(uuid "676f0fc4-deb0-561e-ab3c-db8e48825a36")
 	)
 	(via
 		(at 97.7 6.5)
@@ -62019,7 +62251,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "USB_CC_HIGH")
-		(uuid "877a26a2-3bd5-54ea-9b28-07f3d9c0ecc9")
+		(uuid "99fdf4b3-af9f-5822-89ea-c799c2b6fb09")
 	)
 	(via
 		(at 98.5 17.5)
@@ -62027,7 +62259,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "VBUS_CONNECTOR")
-		(uuid "18ab9239-904b-5500-ad2d-e4a8abccf6de")
+		(uuid "d5d3c8e3-33aa-54c2-bba1-bcfaf5707111")
 	)
 	(via
 		(at 98.5 18.4)
@@ -62035,7 +62267,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "E1_ILM")
-		(uuid "9580c9fb-a42d-509f-bfda-fb5f6ffd9f12")
+		(uuid "b787ca54-75e4-5441-badf-32eb7b80535a")
 	)
 	(via
 		(at 98.5 25.5)
@@ -62043,7 +62275,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "E1_ILM")
-		(uuid "b4dae1c3-a511-5084-bdad-d880012d7ba7")
+		(uuid "6a717db3-4b63-5957-8dbc-93c486eb6988")
 	)
 	(via
 		(at 98.6 20.75)
@@ -62051,7 +62283,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "E0_OVLO")
-		(uuid "5b760aed-792c-58cd-8c0c-5f63890c56ca")
+		(uuid "9d80ca93-cbf7-564a-aa2e-c4bc90a48927")
 	)
 	(via
 		(at 99 19.225)
@@ -62059,7 +62291,7 @@
 		(drill 0.3)
 		(layers "F.Cu" "B.Cu")
 		(net "GND")
-		(uuid "fabb4993-77bd-581c-9c8e-af0d3dfa9f29")
+		(uuid "f5c3bdbf-190e-5aaa-be1f-648ba55d54e0")
 	)
 	(embedded_fonts no)
 )
