@@ -4,7 +4,7 @@
 
 An open-source, full-colour wearable LED badge inspired by the FOSSASIA Badge Magic form factor.
 
-The project is currently in **pre-schematic development**. Requirements and the system architecture are agreed, but no PCB in this repository has yet been electrically reviewed, fabricated or tested. Do not treat any current design material as production-ready.
+The project is currently in **draft schematic development**. Several coupon circuits are captured, including a provisional charger core, but the complete power circuit and PCB are unfinished. No board in this repository has been independently reviewed, fabricated or tested. Do not treat current design material as production-ready.
 
 ## Product target
 
@@ -12,7 +12,7 @@ The project is currently in **pre-schematic development**. Requirements and the 
 |---|---:|
 | Display | 48 × 16 individually controlled RGB pixels |
 | Pixel pitch | 1.95 mm |
-| Finished envelope | ≤110 × 35 × 11 mm |
+| Finished envelope | ≤118 × 35 × 11 mm working limit; 114 × 32.5 mm PCB target |
 | Finished weight | ≤75 g target; 100 g absolute maximum |
 | Reference runtime | Approximately 6 h at the defined mixed-content workload and fixed indoor brightness |
 | Charging/data | USB-C, 5 V, A-to-C and C-to-C; native USB data |

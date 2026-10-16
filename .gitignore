@@ -11,6 +11,7 @@ _autosave-*
 *.kicad_sch-bak
 *.lck
 fp-info-cache
+hardware/coupon/rev-a/staging/full-coupon-placement-trial-120mm.kicad_pro
 
 # Local/generated electronics output. Signed release artifacts are tracked
 # explicitly below manufacturing/.
