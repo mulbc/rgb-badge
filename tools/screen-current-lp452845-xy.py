@@ -65,7 +65,7 @@ def place(parts, variant, order, fixed, pack, sensor_reserve, board_width=BOARD_
         width, height = pair.x1 - pair.x0, pair.y1 - pair.y0
         remaining.extend({"ref": f"PAIR{n + 1:02d}", "footprint": PAIR_FOOTPRINT,
                           "width_mm": width, "height_mm": height, "area_mm2": width * height}
-                         for n in range(16))
+                         for n in range(16) if f"PAIR{n + 1:02d}" not in fixed)
     large = [p for p in remaining if p["footprint"] not in LOW_FOOTPRINTS]
     small = [p for p in remaining if p["footprint"] in LOW_FOOTPRINTS]
     if order == "area first":
