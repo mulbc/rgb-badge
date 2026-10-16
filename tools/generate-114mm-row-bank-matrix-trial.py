@@ -160,19 +160,68 @@ def generate():
         inner.SetNet(pad.GetNet())
         inner.SetUuid(pcb.KIID(str(uuid.uuid5(SCOPE, f'row-{index:02d}-inner'))))
         board.Add(inner)
+    # One complete colour-driver path checks that matrix breakout, the new
+    # bank vias and the driver land can coexist on the proposed stack-up.
+    led = next(pad for pad in parts['D9'].Pads()
+               if pad.GetNumber() == '4')
+    driver = next(pad for pad in parts['U1'].Pads()
+                  if pad.GetNumber() == '36')
+    assert led.GetNetname() == driver.GetNetname() == 'COL_08_R'
+    colour_net = led.GetNet()
+    transition = pcb.VECTOR2I(led.GetPosition().x, pcb.FromMM(0.65))
+    front_inner = pcb.PCB_TRACK(board)
+    front_inner.SetStart(led.GetPosition())
+    front_inner.SetEnd(transition)
+    front_inner.SetWidth(pcb.FromMM(0.2))
+    front_inner.SetLayer(pcb.In1_Cu)
+    front_inner.SetNet(colour_net)
+    front_inner.SetUuid(pcb.KIID(str(uuid.uuid5(SCOPE, 'COL_08_R/In1'))))
+    board.Add(front_inner)
+    for layer_index, (top, bottom) in enumerate((
+            (pcb.In1_Cu, pcb.In2_Cu),
+            (pcb.In2_Cu, pcb.In3_Cu),
+            (pcb.In3_Cu, pcb.In4_Cu))):
+        microvia = pcb.PCB_VIA(board)
+        microvia.SetPosition(transition)
+        microvia.SetViaType(pcb.VIATYPE_MICROVIA)
+        microvia.SetLayerPair(top, bottom)
+        microvia.SetWidth(pcb.FromMM(0.3))
+        microvia.SetDrill(pcb.FromMM(0.1))
+        microvia.SetNet(colour_net)
+        microvia.SetUuid(pcb.KIID(str(uuid.uuid5(
+            SCOPE, f'COL_08_R/transition-{layer_index}'))))
+        board.Add(microvia)
+    colour_trunk = pcb.PCB_TRACK(board)
+    colour_trunk.SetStart(transition)
+    colour_trunk.SetEnd(driver.GetPosition())
+    colour_trunk.SetWidth(pcb.FromMM(0.2))
+    colour_trunk.SetLayer(pcb.In4_Cu)
+    colour_trunk.SetNet(colour_net)
+    colour_trunk.SetUuid(pcb.KIID(str(uuid.uuid5(SCOPE, 'COL_08_R/In4'))))
+    board.Add(colour_trunk)
+    driver_via = pcb.PCB_VIA(board)
+    driver_via.SetPosition(driver.GetPosition())
+    driver_via.SetViaType(pcb.VIATYPE_MICROVIA)
+    driver_via.SetLayerPair(pcb.In4_Cu, pcb.B_Cu)
+    driver_via.SetWidth(pcb.FromMM(0.3))
+    driver_via.SetDrill(pcb.FromMM(0.1))
+    driver_via.SetNet(colour_net)
+    driver_via.SetUuid(pcb.KIID(str(uuid.uuid5(SCOPE, 'COL_08_R/driver'))))
+    board.Add(driver_via)
     assert len(list(board.GetFootprints())) == 483
-    assert len(list(board.GetTracks())) == 2464
+    assert len(list(board.GetTracks())) == 2470
     assert pcb.SaveBoard(str(OUTPUT), board)
     contents = placement.sort_footprints(OUTPUT.read_text())
-    contents = routing.sorted_native_tracks(contents, expected=2464)
+    contents = routing.sorted_native_tracks(contents, expected=2470)
     serial = iter(range(contents.count('(uuid "')))
     contents = re.sub(r'\(uuid "[0-9a-f-]{36}"\)',
                       lambda _: '(uuid "' + str(uuid.uuid5(SCOPE, str(next(serial)))) + '")',
                       contents)
     OUTPUT.write_text(contents)
     loaded = pcb.LoadBoard(str(OUTPUT))
-    assert loaded.GetConnectivity().GetUnconnectedCount(False) == 646
-    print(f'{OUTPUT}: 483 footprints, 16 joined row pairs, 646 open edges')
+    assert loaded.GetConnectivity().GetUnconnectedCount(False) == 645
+    print(f'{OUTPUT}: 483 footprints, 16 joined row pairs, '
+          'one colour-driver join, 645 open edges')
 
 
 if __name__ == '__main__':
