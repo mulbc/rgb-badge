@@ -12,8 +12,8 @@ Decision records explain choices that materially constrain later work. Accepted 
 | [0004](0004-standalone-charging-and-hard-off-state.md) | Use standalone charging and switched application rails | Input-current proposal superseded by ADR 0009; functional requirements retained |
 | [0005](0005-project-licensing.md) | Use CERN-OHL-S for hardware and Apache-2.0 for software | Accepted |
 | [0006](0006-kicad-10-workflow.md) | Target KiCad 10 stable with controlled upgrades | Accepted |
-| [0007](0007-coupon-led-finalist-pair.md) | Populate the coupon with two final-product LED candidates | Accepted |
-| [0008](0008-qblp1515-checkerboard-placement.md) | Preserve the QBLP1515 land pattern with checkerboard rotation | Accepted |
+| [0007](0007-coupon-led-finalist-pair.md) | Populate the coupon with two final-product LED candidates | Accepted LED pair; equal-pitch clause superseded by 0034 |
+| [0008](0008-qblp1515-checkerboard-placement.md) | Preserve the QBLP1515 land pattern with checkerboard rotation | Superseded for coupon by 0034 |
 | [0009](0009-usb-input-current-closure.md) | Reject unqualified direct USB input-current network | Accepted constraint; replacement selected by ADR 0010 |
 | [0010](0010-source-qualified-off-charging.md) | Charge while OFF only from a qualified source | Accepted for capture; thermal/Gate A pending |
 | [0011](0011-usb-total-current-headroom.md) | Reserve current for USB detection and permission logic | Accepted; resistor specification amended by ADR 0012 |
@@ -38,3 +38,4 @@ Decision records explain choices that materially constrain later work. Accepted 
 | [0030](0030-gauge-bus-buffer-selection.md) | Use exact TCA9517ADGKR with switched gauge on A and application bus on B | Accepted for library and source capture; transitions and LOW levels unqualified |
 | [0031](0031-separate-row-request-from-decoder-enable.md) | Separate GPIO8 row request from decoder E before hardware gating | Provisional source capture; hardware display interlock absent |
 | [0032](0032-two-event-display-interlock-proposal.md) | Require a heartbeat followed by a distinct arm pulse before hardware can enable the display | Compact exact parts selected for provisional library capture; circuit and fit unqualified |
+| [0034](0034-uniform-qt-coupon-pitch-proposal.md) | Uniform 1515 coupon pitch for routable matrix | Accepted |

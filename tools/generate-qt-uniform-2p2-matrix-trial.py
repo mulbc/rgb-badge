@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: Apache-2.0
-"""Unselected 2.2 mm QT pitch trial; not the required coupon layout."""
+"""Accepted coupon LED pitch in a partial, non-fabrication routing trial."""
 
 import importlib.util
 from pathlib import Path
@@ -79,4 +79,4 @@ contents = re.sub(r'\(uuid "[0-9a-f-]{36}"\)',
 out.write_text(contents)
 loaded = p.LoadBoard(str(out))
 assert loaded.GetConnectivity().GetUnconnectedCount(False) == 534
-print(f'{out}: 2416 tracks/vias, 534 open edges; unselected pitch study')
+print(f'{out}: 2416 tracks/vias, 534 open edges; accepted coupon pitch trial')

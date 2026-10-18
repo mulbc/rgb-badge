@@ -26,6 +26,8 @@ Six hours is not a maximum-brightness guarantee. The initial model predicts abou
 
 The first physical board is a production-intent 16 × 16 coupon. It compares Everlight `EAST10105RGBA0` 1010 and QT Brightek `QBLP1515A-RGB2A` 1515 common-anode RGB LEDs while exercising the intended controller, matrix driver, USB-C, charger, battery gauge, power converters, antenna and controls. The full 48 × 16 badge will not be ordered until the coupon passes its electrical, optical, thermal, runtime and RF acceptance tests.
 
+For coupon routing, [ADR 0034](docs/decisions/0034-uniform-qt-coupon-pitch-proposal.md) sets the 1515 half to 2.2 mm horizontal / 1.95 mm vertical pitch and uniform orientation; the 1010 half stays at 1.95 mm in both axes. The final badge still targets no more than 1.95 mm in either axis, so coupon optical comparisons must account for the different spacing.
+
 Start with:
 
 1. [Project context](CONTEXT.md)

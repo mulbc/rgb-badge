@@ -44,7 +44,7 @@ The [permission capture](permission-capture.md) passed [native review at 6d9a08b
 
 The connector VBUS and the staged +5V_USB supply are deliberately separate until input protection is designed. VBUS qualification, physical startup inhibition, charger/ILIM actuation and remaining power sources are still open; the logic-rail supervisor is captured. #FLG04 was removed; #FLG05 marks the unfinished protected-input boundary; #FLG06 annotates power after the detector ballast resistor for ERC.
 
-- 16 × 16 pixels at 1.95 mm pitch: columns 0–7 use Everlight `EAST10105RGBA0`; columns 8–15 use QT Brightek `QBLP1515A-RGB2A`.
+- 16 × 16 pixels: columns 0–7 use Everlight `EAST10105RGBA0` at 1.95 mm in both axes; columns 8–15 use QT Brightek `QBLP1515A-RGB2A` at 2.2 mm horizontal / 1.95 mm vertical pitch (ADR 0034). The final badge remains limited to 1.95 mm.
 - ESP32-S3-WROOM-1U-N16R8 and external antenna.
 - One TLC59581 and all sixteen level-shifted row stages.
 - Production USB-C, ESD, Type-C detection and standalone charger circuits.

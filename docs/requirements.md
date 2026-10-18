@@ -9,16 +9,18 @@ Source: requirements interview completed 2026-09-05
 
 **MEC-001 revision, 2026-10-14 (ADR 0033):** The owner accepted 4 mm more PCB length for the working final-badge design. The 114 × 32.5 mm PCB target requires a 118 × 35 × 11 mm outer-case limit in this layout direction. Native placement has not established routing or enclosure fit; the case, USB opening, mass and battery stack remain verification work.
 
+**DSP-002/007/008 revision, 2026-10-18 (ADR 0034):** The owner accepted 2.2 mm horizontal pitch and uniform 0° orientation for the coupon's 1515 half. Its vertical pitch and both axes of the 1010 half remain 1.95 mm. The final badge's maximum 1.95 mm pitch is unchanged. The coupon halves therefore no longer provide an equal-pitch optical comparison.
+
 | ID | Requirement | Verification | Applies to |
 |---|---|---|---|
 | DSP-001 | Provide 48 × 16 individually controlled RGB pixels. | Design inspection and pixel self-test | Final |
-| DSP-002 | Pixel pitch shall be no greater than 1.95 mm; baseline is exactly 1.95 mm. | PCB dimension inspection | Coupon/final |
+| DSP-002 | Final-badge pixel pitch shall not exceed 1.95 mm in either axis. Coupon pitch shall meet DSP-007. | PCB dimension inspection | Coupon/final |
 | DSP-003 | Accept 24-bit source art and apply gamma and programmable white balance. | Golden-image firmware test and visual test | Coupon/final |
 | DSP-004 | Support 60 content-frame updates per second and at least 1 kHz visual refresh. | Logic trace and camera test | Coupon/final |
 | DSP-005 | Brightness shall remain at the user-programmed fixed value during normal playback. | Runtime state/telemetry test | Coupon/final |
 | DSP-006 | Safety logic may disable the display on an electrical or thermal fault, but shall not silently dim it. | Fault-injection test | Coupon/final |
-| DSP-007 | Coupon columns 0–7 shall use `EAST10105RGBA0` and columns 8–15 shall use `QBLP1515A-RGB2A`, both at 1.95 mm pitch; substitutions require written design review. | BOM, placement and incoming-part inspection | Coupon |
-| DSP-008 | QBLP1515 LEDs shall keep the manufacturer-recommended pad geometry and use the non-mirrored 0°/90° checkerboard placement defined by ADR 0008. | Footprint audit, generated placement check, PCB DRC, assembly plot and AOI | Coupon |
+| DSP-007 | Coupon columns 0–7 shall use `EAST10105RGBA0` at 1.95 mm pitch in both axes; columns 8–15 shall use `QBLP1515A-RGB2A` at 2.2 mm horizontal and 1.95 mm vertical pitch. Substitutions require written design review. | BOM, placement and incoming-part inspection | Coupon |
+| DSP-008 | Coupon `QBLP1515A-RGB2A` LEDs shall retain the manufacturer-recommended pad geometry and use uniform non-mirrored 0° placement under ADR 0034. | Footprint audit, generated placement check, PCB DRC, assembly plot and AOI | Coupon |
 | MEC-001 | Complete case shall not exceed 118 × 35 × 11 mm, excluding attachment thickness. The working PCB length is 114 mm. | Caliper inspection and PCB/case fit review | Final |
 | MEC-002 | Complete badge shall aim for ≤75 g and shall never exceed 100 g, including cell, case and magnetic attachment. | Calibrated scale | Final |
 | MEC-003 | Development case shall use two M2 screws plus tabs and support a replaceable diffuser. | Fit inspection | Coupon/final prototype |

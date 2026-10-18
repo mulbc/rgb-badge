@@ -74,7 +74,7 @@ def screen_boxes():
         'placed_component_boxes_mm': result['boxes_mm'],
         'unplaced_refs': result['unplaced_refs'],
         'limitations': [
-            'QT 2.2 mm pitch and onsemi row pair are unselected candidates.',
+            'QT 2.2 mm coupon pitch is accepted; the onsemi row pair remains an unselected candidate.',
             'This XY screen omits routed rear copper and cell/enclosure heights.',
             'The ordered row-bank fanout, power and driver connections are open.',
         ],

@@ -2,7 +2,7 @@
 
 # Uniform 1515, 2.2 mm horizontal-pitch matrix trial
 
-This is an **unselected feasibility study** for [proposed ADR 0034](../decisions/0034-uniform-qt-coupon-pitch-proposal.md). It violates the current DSP-002/DSP-007/DSP-008 coupon placement requirements and must not be substituted for the canonical 1.95 mm checkerboard source without a decision and requirements update.
+This trial establishes the coupon LED geometry accepted by [ADR 0034](../decisions/0034-uniform-qt-coupon-pitch-proposal.md) and revised DSP-002/DSP-007/DSP-008. Its routes are still a **feasibility study**: the rest of the board is incomplete and it is not a schematic-synchronized fabrication source.
 
 The [deterministic generator](../../tools/generate-qt-uniform-2p2-matrix-trial.py) starts from the separate 114 mm 1010-RGB trial, preserves all 483 footprints, and changes the 128 `QBLP1515A-RGB2A` placements to a uniform 0° orientation at **2.2 mm horizontal and 1.95 mm vertical pitch**. Its unmodified QT pad geometry remains 0.60 × 0.40 mm. It adds front-layer 1515 anode buses, red/blue pad-centred F.Cu–In1.Cu microvias and straight In1.Cu columns, green front stubs to the 1515 body centres with stacked F.Cu–In1.Cu/In1.Cu–In2.Cu microvias and In2.Cu columns, and left/right stacked transitions that join both LED families' rows on In3.Cu.
 

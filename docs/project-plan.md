@@ -383,6 +383,7 @@ The board remains self-reporting so ordinary bring-up does not require an oscill
 | Matrix | no dead/incorrect pixels, visible ghosting or low-gray instability |
 | Photographs | no objectionable banding in agreed static-phone-photo tests |
 | Colour | usable gamma ramp, white balance and saturated primaries through the chosen diffuser |
+| LED comparison | Report each coupon half's actual horizontal/vertical pitch with optical images; do not attribute spacing-dependent contrast or fill-factor differences solely to the LED package. Final 1515 use at ≤1.95 mm needs its own routing and assembly evidence. |
 | Runtime | measured reference workload supports the chosen cell/brightness target, or documents the brightness needed for six hours |
 | Storage | at least 24 representative text/icon/animation assets totalling five minutes fit alongside two application slots |
 | Thermal | cell stays within its charge/discharge specification; enclosure-facing and IC temperatures retain conservative margin |
@@ -562,7 +563,7 @@ Keep the independent review outside this build allocation, as agreed. Obtain its
 | Six hours needs lower brightness than expected | Coupon average exceeds 0.47 W with 900 mAh | Publish measured curve; user selects a lower fixed brightness; do not auto-dim |
 | 900 mAh cell makes the case too thick | STEP stack or print exceeds 11 mm / presses pouch | Use 750 or 710 mAh standard cell; only then evaluate a certified custom thin pack |
 | Driver baseline power is too high | All-black scan power materially exceeds budget | Lower valid GCLK, use power-save during blank intervals/content, optimise ESP clock; do not reduce pixel density |
-| 1010 LED is dim or hard to assemble | Poor coupon efficacy/yield | Select qualified 1515 while keeping 1.95 mm pitch |
+| 1010 LED is dim or hard to assemble | Poor coupon efficacy/yield | Consider qualified 1515 only after separately solving its final ≤1.95 mm placement, routing and assembly |
 | 1515 package hurts contrast | Visible white package through diffuser | Select black-face display LED or adjust diffuser after coupon comparison |
 | Matrix routing fails standard rules | DRC congestion on 1.95 mm grid | Use six layers and tighter standard rules; HDI only after a cost review |
 | Camera banding/ghosting | Coupon photos or low-gray patterns fail | Raise GCLK/visual refresh, tune blanking/precharge and row timing |
