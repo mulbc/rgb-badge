@@ -2,6 +2,8 @@
 
 # Ordered sixteen-row pair banks on the 114 mm matrix trial
 
+**Continuation, 2026-10-19:** The [coordinated fanout derivative](led-colour-fanout-grid-study-2026-10-19.md) now completes all 48 colour-driver joins with no added native DRC finding. The six-path result below records the earlier intermediate board.
+
 The prior onsemi [first-row study](led-onsemi-row-matrix-study-2026-10-16.md) had candidate pairs scattered from x ≈ 12 to 113 mm. A new [deterministic first-fit screen](../../mechanical/review/row-bank-114mm-screen.json) reserves two ordered rear-side banks at x = 74.0–77.5 and 78.0–81.5 mm. It reuses the 114 × 32.5 mm outline and preserves the fixed battery-facing TH1/U39 reservation. Because the selected front-layer 1010 row topology needs no row-anode via sites, this screen does not reserve the 103 unused via keepouts. It places all **227 counted rear-side entities** in one greedy order, including sixteen 3.5 × 3.5 mm pair boxes. This is an XY screen, not routing or enclosure fit.
 
 The [generated native board](../../hardware/coupon/rev-a/staging/led-qt-uniform-2p2-row-bank-onsemi-trial-114mm.kicad_pcb) starts from the accepted coupon-pitch complete-matrix trial, moves the non-LED rear parts to the screened boxes, and substitutes the exact numbered candidate onsemi `NTLJD3119CTBG` footprints for sixteen netless Diodes review boxes. Its [generator](../../tools/generate-114mm-row-bank-matrix-trial.py) then joins **all sixteen `PAIRxx` pin-3 anode outputs to their complete LED rows**: one short B.Cu breakout, one 0.50/0.30 mm through-via and one In3.Cu link per row. The other row-pair pins have assigned candidate nets but no routes.
