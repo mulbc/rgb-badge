@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: Apache-2.0
-"""Check the saved partial row-select trial and native DRC baseline."""
+"""Check all sixteen saved row-select routes and native DRC baseline."""
 
 import argparse
 import hashlib
@@ -23,8 +23,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--drc', required=True, type=Path)
     args = parser.parse_args()
-    board_path = STAGING / 'led-row-select-two-layer-trial-114mm.kicad_pcb'
-    report = json.loads((ROOT / 'mechanical/review/row-select-two-layer-trial.json').read_text())
+    board_path = STAGING / 'led-row-select-five-layer-trial-114mm.kicad_pcb'
+    report = json.loads((ROOT / 'mechanical/review/row-select-five-layer-trial.json').read_text())
     assert hashlib.sha256(board_path.read_bytes()).hexdigest() == report['board_sha256']
     board = pcb.LoadBoard(str(board_path))
     connected = board.GetConnectivity()
@@ -66,15 +66,13 @@ def main():
         reached = decoder in connected.GetConnectedItems(select)
         assert reached == route_status[name], name
         completed += reached
-    assert completed == report['connected_selects'] == 14
-    assert sorted(net for net, done in route_status.items() if not done) == [
-        'ROW_SEL_02', 'ROW_SEL_03']
+    assert completed == report['connected_selects'] == 16
     baseline = ROOT / 'docs/development/led-colour-fanout-grid-drc-2026-10-19.json'
     assert colour.findings(args.drc) == colour.findings(baseline)
     assert len(colour.findings(args.drc)) == 104
-    assert connected.GetUnconnectedCount(False) == report['open_edges'] == 552
+    assert connected.GetUnconnectedCount(False) == report['open_edges'] == 550
     print('48 complete colour channels, 16 complete anode rows, '
-          '16 gate ties, 14 decoder-to-pair selects; 104 unchanged DRC findings.')
+          '16 gate ties, 16 decoder-to-pair selects; 104 unchanged DRC findings.')
 
 
 if __name__ == '__main__':

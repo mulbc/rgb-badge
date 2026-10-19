@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: Apache-2.0
-"""Route the candidate row-select bank on B.Cu/In4.Cu; retain open nets."""
+"""Connect all candidate row selects across the five rear/inner copper layers."""
 
 import hashlib
 import importlib.util
@@ -16,23 +16,23 @@ import pcbnew as p
 root=Path(__file__).resolve().parents[1]
 staging=root/'hardware/coupon/rev-a/staging'
 source=staging/'led-row-gate-tie-trial-114mm.kicad_pcb'
-output=staging/'led-row-select-two-layer-trial-114mm.kicad_pcb'
-manifest=root/'mechanical/review/row-select-two-layer-trial.json'
-scope=uuid.UUID('1c80af07-1df4-41e9-9fa2-69a887c9b173')
+output=staging/'led-row-select-five-layer-trial-114mm.kicad_pcb'
+manifest=root/'mechanical/review/row-select-five-layer-trial.json'
+scope=uuid.UUID('cb604444-4dc4-419b-b170-be600c37a24e')
 spec=importlib.util.spec_from_file_location('r',root/'tools/generate-colour-fanout-grid-trial.py');r=importlib.util.module_from_spec(spec);spec.loader.exec_module(r)
-r.X0=69.5;r.X1=112.8;r.Y0=.7;r.Y1=31.8;r.NX=round((r.X1-r.X0)/r.STEP)+1;r.NY=round((r.Y1-r.Y0)/r.STEP)+1;r.SIZE=r.NX*r.NY;r.LAYERS=(p.B_Cu,p.In4_Cu);r.LAYER_INDEX={v:k for k,v in enumerate(r.LAYERS)}
+r.X0=69.5;r.X1=112.8;r.Y0=.7;r.Y1=31.8;r.NX=round((r.X1-r.X0)/r.STEP)+1;r.NY=round((r.Y1-r.Y0)/r.STEP)+1;r.SIZE=r.NX*r.NY;r.LAYERS=(p.B_Cu,p.In4_Cu,p.In3_Cu,p.In2_Cu,p.In1_Cu);r.LAYER_INDEX={v:k for k,v in enumerate(r.LAYERS)}
 b=p.LoadBoard(str(source));parts={f.GetReference():f for f in b.GetFootprints()};router=r.Router(b)
 assert len(parts)==483 and len(list(b.GetTracks()))==6656
 for item in b.GetTracks():router.occupy(item)
 rad=r.WIDTH/2+r.CLEARANCE+r.GUARD
 for f in b.GetFootprints():
  for pad in f.Pads():
-  if not (pad.IsOnLayer(p.B_Cu) or pad.IsOnLayer(p.In4_Cu)):continue
+  if not any(pad.IsOnLayer(layer) for layer in r.LAYERS):continue
   z=pad.GetBoundingBox();xmin,xmax,ymin,ymax=z.GetX()/1e6,z.GetRight()/1e6,z.GetY()/1e6,z.GetBottom()/1e6
   gx0=max(0,math.floor((xmin-rad-r.X0)/r.STEP));gx1=min(r.NX-1,math.ceil((xmax+rad-r.X0)/r.STEP))
   gy0=max(0,math.floor((ymin-rad-r.Y0)/r.STEP));gy1=min(r.NY-1,math.ceil((ymax+rad-r.Y0)/r.STEP))
   net=pad.GetNetCode() or -100
-  for layer in (0,1):
+  for layer in range(5):
    if not pad.IsOnLayer(r.LAYERS[layer]):continue
    mask=router.mask[layer]
    for gy in range(gy0,gy1+1):
@@ -61,16 +61,16 @@ def search(net,start,target,limit):
    if 0<=x+dx<r.NX and 0<=y+dy<r.NY:
     j=cell+dy*r.NX+dx
     if router.free(layer,j,net):nbr.append((layer*r.SIZE+j,1))
-  other=1-layer
-  if router.via_free(layer,cell,net) and router.via_free(other,cell,net):nbr.append((other*r.SIZE+cell,35))
+  for other in (layer-1,layer+1):
+   if 0<=other<5 and router.via_free(layer,cell,net) and router.via_free(other,cell,net):nbr.append((other*r.SIZE+cell,35))
   for j,w in nbr:
    ng=g+w
    if ng<cost.get(j,10**12):cost[j]=ng;parent[j]=ix;heapq.heappush(pq,(ng+h(j),ng,j))
  return None,n
 def track(a,end,layer,net):
  item=p.PCB_TRACK(b);item.SetStart(r.point(*a));item.SetEnd(r.point(*end));item.SetWidth(p.FromMM(.2));item.SetLayer(r.LAYERS[layer]);item.SetNetCode(net);b.Add(item);router.occupy(item)
-def via(a,net):
- item=p.PCB_VIA(b);item.SetPosition(r.point(*a));item.SetViaType(p.VIATYPE_MICROVIA);item.SetLayerPair(p.In4_Cu,p.B_Cu);item.SetWidth(p.FromMM(.3));item.SetDrill(p.FromMM(.1));item.SetNetCode(net);b.Add(item);router.occupy(item)
+def via(a,layer,other,net):
+ item=p.PCB_VIA(b);item.SetPosition(r.point(*a));item.SetViaType(p.VIATYPE_MICROVIA);item.SetLayerPair(r.LAYERS[max(layer,other)],r.LAYERS[min(layer,other)]);item.SetWidth(p.FromMM(.3));item.SetDrill(p.FromMM(.1));item.SetNetCode(net);b.Add(item);router.occupy(item)
 def commit(path,a,z,net):
  start=r.grid_point(path[0]);end=r.grid_point(path[-1]);track(r.xy(a.GetPosition()),(start[1],start[2]),0,net)
  pending=None;direction=None
@@ -78,7 +78,7 @@ def commit(path,a,z,net):
   il,ix,iy=r.grid_point(i);jl,jx,jy=r.grid_point(j)
   if il!=jl:
    if pending:track(pending,(ix,iy),il,net);pending=None
-   via((ix,iy),net);direction=None;continue
+   via((ix,iy),il,jl,net);direction=None;continue
   d=(round((jx-ix)/r.STEP),round((jy-iy)/r.STEP))
   if pending and d!=direction:track(pending,(ix,iy),il,net);pending=None
   if pending is None:pending=(ix,iy)
@@ -87,7 +87,7 @@ def commit(path,a,z,net):
  track((end[1],end[2]),r.xy(z.GetPosition()),0,net)
 
 routes=[]
-for row in [*reversed(range(4,16)),0,1,3,2]:
+for row in [3,2,0,1,*reversed(range(4,16))]:
  name=f'ROW_SEL_{row:02d}'
  a=next(q for q in parts[f'PAIR{row+1:02d}'].Pads() if q.GetNetname()==name);z=next(q for q in parts['U2'].Pads() if q.GetNetname()==name)
  net=a.GetNetCode();start=r.grid_index(0,*r.xy(a.GetPosition()));target=r.grid_index(0,*r.xy(z.GetPosition()))
@@ -111,15 +111,14 @@ for row in range(16):
  name=f'ROW_SEL_{row:02d}'
  a=next(q for q in parts[f'PAIR{row+1:02d}'].Pads() if q.GetNetname()==name)
  z=next(q for q in parts['U2'].Pads() if q.GetNetname()==name)
- cluster=connected.GetConnectedItems(a)
- assert (z in cluster)==next(route['connected'] for route in routes if route['net']==name),name
+ assert z in connected.GetConnectedItems(a),name
 report={'SPDX-License-Identifier':'CERN-OHL-S-2.0',
         'status':'UNQUALIFIED_ROUTING_STUDY',
         'source_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),
         'board_sha256':hashlib.sha256(output.read_bytes()).hexdigest(),
         'grid_mm':r.STEP,'width_mm':r.WIDTH,
         'candidate_microvia_diameter_drill_mm':[r.VIA_D,r.VIA_HOLE],
-        'layers':['B.Cu','In4.Cu'],
+        'layers':['B.Cu','In4.Cu','In3.Cu','In2.Cu','In1.Cu'],
         'connected_selects':sum(route['connected'] for route in routes),
         'tracks_and_vias':len(list(loaded.GetTracks())),
         'open_edges':connected.GetUnconnectedCount(False),
@@ -127,5 +126,4 @@ report={'SPDX-License-Identifier':'CERN-OHL-S-2.0',
 manifest.write_text(json.dumps(report,indent=2,sort_keys=True)+'\n')
 print('Saved',output,report['connected_selects'],'/16 selects;',
       report['open_edges'],'open edges',flush=True)
-assert report['connected_selects']==14
-assert sorted(route['net'] for route in routes if not route['connected'])==['ROW_SEL_02','ROW_SEL_03']
+assert report['connected_selects']==16
