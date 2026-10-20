@@ -2,7 +2,7 @@
 
 # Local control routing on the combined coupon study
 
-Status: **unbuilt source geometry with full native DRC evidence**. This is the latest checked derivative of the combined row-control/ground-return board. It joins ten additional connections across eight control nets and reduces full native open edges from **364 to 354**. Full KiCad 10.0.6 DRC retains **exactly the same 104 intrinsic footprint-clearance findings**, with no added finding. Those existing findings remain unresolved; this is not a clean fabrication DRC result.
+Status: **unbuilt source geometry with full native DRC evidence**. This is the 354-open checkpoint of the combined row-control/ground-return board, preceding the [supply-distribution studies](led-supply-distribution-study-2026-10-20.md). It joins ten additional connections across eight control nets and reduces full native open edges from **364 to 354**. Full KiCad 10.0.6 DRC retains **exactly the same 104 intrinsic footprint-clearance findings**, with no added finding. Those existing findings remain unresolved; this is not a clean fabrication DRC result.
 
 ## Changes
 
