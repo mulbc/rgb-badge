@@ -8,6 +8,8 @@ The [generator](../../tools/generate-in2-ground-plane-trial.py) and [saved-board
 
 A separate unsaved probe put stacked vias directly on all sixteen select-pulldown ground pads. It reduced the native open count to 522 but raised DRC findings to 165, including **42 shorts** and 19 extra clearance findings. Many candidate vias intersect existing colour copper on inner layers. This probe is rejected; ground connections require routed escapes or a revised layer allocation, with DRC on each completed derivative.
 
+A second unsaved probe used a **single B.Cu–In4.Cu via per pulldown pad** and poured GND on In4.Cu. On the complete-pulldown board it produced 118 DRC findings: the original 104 plus nine shorts, three clearance findings and two dangling vias. On the later combined row-control board, four selected non-shorting vias gave the original 104 findings but only reduced open edges from 527 to 525 and left **two separate copper polygons**. This is not a unified ground network, so the In4 variants were also rejected. The probes show that changing the plane layer alone does not resolve the local return routing.
+
 This zone has not been shaped around the antenna, converter switching loops, thermal paths or return-current needs. The 0.30/0.10 mm stacked-via process and mask/paste treatment remain unapproved. The mixed-source row-pair board is not schematic-synchronized fabrication source. No hardware has been built or measured; independent Gate A remains required before fabrication.
 
 From the repository root on the current Mac:
