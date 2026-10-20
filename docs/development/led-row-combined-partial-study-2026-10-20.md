@@ -8,6 +8,8 @@ The [generator](../../tools/generate-row-combined-partial-trial.py) searches B.C
 
 This is the first saved board with both complete decoder-select/pulldown signals and some gate pullups, but it is **not a complete row bank**. The other nine gate pullups, all sixteen select-pulldown ground pads, pair VLED/GND, and other power/control routes remain open. The separate [In2 ground-zone study](led-in2-ground-plane-study-2026-10-20.md) branches from the same source, so its copper is not present here. Candidate onsemi row pairs are absent from the canonical schematic/BOM. HDI, current returns, RF, enclosure and independent Gate A remain unqualified; no hardware has been built or measured.
 
+The [native per-net open-edge report](../../mechanical/review/row-combined-open-nets.json) reconciles all **527** KiCad open edges with disconnected pad clusters. `GND` accounts for **188**, `+3V3_APP` **46**, `VLED` **41** and `+3V3_USB` **32**—**307 of 527** in these four nets. This directs the next layout pass toward qualified power distribution and ground escapes, while the nine gate pullups still need coordinated placement. The counts measure connectivity only, not current capacity or return quality. A deeper five-layer search for row 0 exhausted all 3,264,964 reachable grid nodes without a route at the current placement; moving `R6` close to its pair at (71.5, 3.0) mm made its start inaccessible and was rejected as a temporary probe.
+
 From the repository root on the current Mac:
 
 ```sh
@@ -15,4 +17,5 @@ From the repository root on the current Mac:
 /Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli pcb drc --format json --output /private/tmp/rgb-row-combined-partial-drc.json hardware/coupon/rev-a/staging/led-row-combined-partial-trial-114mm.kicad_pcb
 /Applications/KiCad/KiCad.app/Contents/Frameworks/Python.framework/Versions/3.9/bin/python3 tools/check-row-combined-partial-trial.py --drc /private/tmp/rgb-row-combined-partial-drc.json
 /Applications/KiCad/KiCad.app/Contents/Frameworks/Python.framework/Versions/3.9/bin/python3 tools/check-coupon-led-placement.py hardware/coupon/rev-a/staging/led-row-combined-partial-trial-114mm.kicad_pcb
+/Applications/KiCad/KiCad.app/Contents/Frameworks/Python.framework/Versions/3.9/bin/python3 tools/report-coupon-board-connectivity.py --by-net hardware/coupon/rev-a/staging/led-row-combined-partial-trial-114mm.kicad_pcb
 ```

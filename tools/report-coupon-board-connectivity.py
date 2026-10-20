@@ -7,6 +7,8 @@ unconnected list in this early board study.
 """
 
 import argparse
+from collections import defaultdict
+import hashlib
 import json
 from pathlib import Path
 
@@ -35,11 +37,44 @@ def report(path):
     }
 
 
+def open_edges_by_net(path):
+    """Count connected pad clusters per net using KiCad's native connectivity."""
+    board = pcb.LoadBoard(str(path))
+    connected = board.GetConnectivity()
+    nets = defaultdict(list)
+    for footprint in board.GetFootprints():
+        for pad in footprint.Pads():
+            if pad.GetNetname():
+                nets[pad.GetNetname()].append(pad)
+    counts = {}
+    for name, pads in nets.items():
+        clusters = {
+            tuple(sorted(item.m_Uuid.AsString()
+                         for item in connected.GetConnectedItems(pad)
+                         if isinstance(item, pcb.PAD)))
+            for pad in pads
+        }
+        if len(clusters) > 1:
+            counts[name] = len(clusters) - 1
+    return {
+        "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+        "board": str(path.resolve().relative_to(ROOT)),
+        "board_sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+        "native_open_edges": connected.GetUnconnectedCount(False),
+        "pad_cluster_open_edges": sum(counts.values()),
+        "by_net": dict(sorted(counts.items(), key=lambda item: (-item[1], item[0]))),
+        "interpretation": "Unconnected pad clusters minus one per net; no electrical or manufacturability qualification",
+    }
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("board", nargs="?", type=Path, default=DEFAULT_BOARD)
+    parser.add_argument("--by-net", action="store_true",
+                        help="show the native open-edge count for each pad net")
     args = parser.parse_args()
-    print(json.dumps(report(args.board), indent=2, sort_keys=True))
+    result = open_edges_by_net(args.board) if args.by_net else report(args.board)
+    print(json.dumps(result, indent=2, sort_keys=not args.by_net))
 
 
 if __name__ == "__main__":
