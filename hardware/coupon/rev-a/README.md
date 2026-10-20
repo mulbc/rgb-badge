@@ -2,6 +2,8 @@
 
 # Coupon Rev A
 
+**2026-10-20 ground study:** A [provisional In2.Cu GND zone](../../../docs/development/led-in2-ground-plane-study-2026-10-20.md) is anchored to one select-pulldown ground pad and passes the unchanged native DRC baseline. It does not close any additional open edges or qualify ground returns; direct stacked vias on all sixteen ground pads caused shorts in a rejected probe.
+
 **2026-10-19 routing result:** The [complete-pulldown derivative study](../../../docs/development/led-row-pulldown-complete-study-2026-10-19.md) retains all 48 complete colour-driver channels, every candidate anode-row connection, sixteen local gate ties and all sixteen U2 decoder-to-pair selects. It connects **all sixteen select pulldown resistor pads**, with R24 moved to a clear site. Saved copper and LED-placement checks pass; native DRC has the same 104 unresolved intrinsic footprint findings and no additions. The remaining 534 full open edges include unfinished power/control and row-bias connections. This mixed-source study is not a fabrication PCB.
 
 The [separate gate-pullup-first comparison](../../../docs/development/led-row-pullup-first-study-2026-10-19.md) connects all sixteen gate pullup resistors while leaving decoder selects open. It shows a route-order/placement conflict; do not combine the two studies' connection counts as if they were one PCB.
