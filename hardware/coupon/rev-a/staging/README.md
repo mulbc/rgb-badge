@@ -1,6 +1,8 @@
 <!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
 
-# Unlinked 3.3 V application converter candidate
+# Coupon staging and layout studies
+
+**Latest combined routing study:** [Both physical row-drain lands](led-row-drain-tie-trial-114mm.kicad_pcb) are now joined on all sixteen pairs. [Evidence](../../../../docs/development/led-row-drain-tie-study-2026-10-20.md) records 246 native opens, unchanged source tracks/placements/other pad clusters, exactly 104 intrinsic DRC findings, deterministic regeneration and a negative missing-tie test. Run `./tools/check-row-drain-tie.sh` from the repository root. This unbuilt mixed-source study is never fabrication source.
 
 The separate [VLED converter candidate](../vled-converter-capture-contract.md) now stages thirteen exact-MPN items in vled-converter.kicad_sch. It is default-disabled and remains unlinked until protected SYS and the hardware display interlock are captured.
 
@@ -28,6 +30,6 @@ The [combined-board ground-return derivative](led-ground-return-trial-114mm.kica
 
 The [local row-14 bias derivative](led-row14-bias-trial-114mm.kicad_pcb) moves R20 beside PAIR15 and connects both its gate and local VLED terminals. [Native evidence](../../../../docs/development/led-row14-bias-study-2026-10-20.md) records 364 full opens, eight connected gate pullups and exactly 104 unchanged DRC findings. All other components/clusters and source tracks survive; GND still has 27 opens. It is never fabrication source.
 
-The latest checked combined derivative is [local control routing](led-local-control-trial-114mm.kicad_pcb). [Its evidence](../../../../docs/development/led-local-control-study-2026-10-20.md) records ten control joins, 354 full native opens and exactly 104 unchanged intrinsic DRC findings. It preserves all prior placements, tracks/vias and connected pad clusters, including the incomplete ground returns. Repeat full study acceptance with `./tools/check-local-control.sh`. Remaining supplies, eight pullups, HDI/electrical/mechanical qualification and Gate A remain open; it is never fabrication source.
+The preceding local-control derivative is [local control routing](led-local-control-trial-114mm.kicad_pcb). [Its evidence](../../../../docs/development/led-local-control-study-2026-10-20.md) records ten control joins, 354 full native opens and exactly 104 unchanged intrinsic DRC findings. It preserves all prior placements, tracks/vias and connected pad clusters, including the incomplete ground returns. Repeat full study acceptance with `./tools/check-local-control.sh`. Remaining supplies, eight pullups, HDI/electrical/mechanical qualification and Gate A remain open; it is never fabrication source.
 
 The [application](led-app-distribution-trial-114mm.kicad_pcb), [USB-logic](led-usb-distribution-trial-114mm.kicad_pcb) and [VLED](led-vled-distribution-trial-114mm.kicad_pcb) supply derivatives progressively reduce full native opens to 315, 287 and 262. [Their review](../../../../docs/development/led-supply-distribution-study-2026-10-20.md) records unchanged prior pad clusters, connected source outputs, identical 104-finding DRC sets and deterministic regeneration. `./tools/check-supply-distribution.sh [app|usb|vled]` runs full acceptance from the repository root. Supply delivery/current capacity, capacitor locality, electrical/process/mechanical qualification and Gate A remain open; none is fabrication source.
