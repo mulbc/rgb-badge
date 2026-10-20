@@ -4,7 +4,7 @@
   "board_sha256": "5d4b9c9a67b9b78d221ac25f7be84ed8469d053a25aef0935e6895cfbe587a2a",
   "connected_gate_pullups": 8,
   "drc_sha256": "f4abfe52245097c28dfbab97b5c8011dd0e98d0e1d73c4ca2c4e5326de05e5b9",
-  "existing_copper_and_other_clusters_preserved": true,
+  "existing_tracks_and_other_clusters_preserved": true,
   "full_drc": "104_UNCHANGED_INTRINSIC_FINDINGS",
   "ground_open_edges": 27,
   "kicad_version": "10.0.6",

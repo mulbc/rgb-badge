@@ -4,7 +4,9 @@
 
 Status: agreed design baseline and staged execution plan
 Date: 2026-09-05
-Project phase (2026-10-13): E0/E1 input switches, BQ24074 charger, protected-pack connector, temperature circuit, switched gauge, both converters and an output-isolated display interlock are root-linked in a 20-page draft schematic. Native ERC passes, but charger standby/startup, pack behavior, display enabling, routed PCB and independent Gate A are not qualified. The current captured BQ settings are a single 3.65 kΩ ILIM and 2.49 kΩ ISET, calculated at 0.361–0.476 A input limit and 0.317–0.396 A charge setting under the retained ±1% total-resistance assumption. Older two-resistor ILIM and 1.13 kΩ ISET passages below are historical.
+Project phase (2026-10-20): E0/E1 input switches, BQ24074 charger, protected-pack connector, temperature circuit, switched gauge, both converters and an output-isolated display interlock are root-linked in a 20-page draft schematic. Native ERC passes, but charger standby/startup, pack behavior, display enabling, routed PCB and independent Gate A are not qualified. The current captured BQ settings are a single 3.65 kΩ ILIM and 2.49 kΩ ISET, calculated at 0.361–0.476 A input limit and 0.317–0.396 A charge setting under the retained ±1% total-resistance assumption. Older two-resistor ILIM and 1.13 kΩ ISET passages below are historical.
+
+**Latest routed-study checkpoint:** The [combined local-control derivative](development/led-local-control-study-2026-10-20.md) retains the completed matrix/driver/select connections, adds ground returns, one local bias relocation and ten control joins, and has 354 native open connections. Its full native DRC retains 104 known intrinsic footprint-clearance findings. It is an unbuilt mixed-source engineering study; canonical row-package adoption, remaining routing, current/return/RF/HDI/enclosure qualification and independent Gate A still precede fabrication.
 
 ## Current amendment: simpler charging
 

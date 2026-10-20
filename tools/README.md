@@ -2,6 +2,8 @@
 
 # Software tools
 
+The latest combined routing study is checked with `./tools/check-local-control.sh`. It runs full native DRC, checks that all source tracks, placements and existing pad clusters survive the ten local control joins, and verifies all LED placements. The [current evidence](../docs/development/led-local-control-study-2026-10-20.md) records 354 opens and exactly 104 unchanged intrinsic findings; this is an unqualified study, not fabrication acceptance. `generate-local-control-trial.py` reproduces it with KiCad's bundled Python. Its source chain is the row-14 bias → ground-return → ground-escape → combined row-control studies. The independent source checkers and manifests retain the validation for each increment.
+
 `generate-row-combined-partial-trial.py` and `check-row-combined-partial-trial.py` preserve the completed select/pulldown routes while adding seven reachable gate pullups on one study board. The [record](../docs/development/led-row-combined-partial-study-2026-10-20.md) names the nine still-open gates.
 
 `report-coupon-board-connectivity.py --by-net BOARD` groups native KiCad connected pad clusters by net and reports their open-edge counts. The [combined-board report](../mechanical/review/row-combined-open-nets.json) reconciles exactly to the native 527-edge total and identifies the four dominant rail/return nets.

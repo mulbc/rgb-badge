@@ -93,7 +93,7 @@ def main():
     assert len(list(new.GetTracks())) == manifest['tracks_and_vias'] == 13286
     result = dict(board_sha256=manifest['board_sha256'], kicad_version=p.GetBuildVersion(),
                   moved_footprints=['R20'], unchanged_footprints=482, added_tracks=2,
-                  existing_copper_and_other_clusters_preserved=True,
+                  existing_tracks_and_other_clusters_preserved=True,
                   connected_gate_pullups=8, native_open_edges=364, ground_open_edges=27,
                   full_drc='104_UNCHANGED_INTRINSIC_FINDINGS',
                   drc_sha256=hashlib.sha256(args.drc.read_bytes()).hexdigest())
