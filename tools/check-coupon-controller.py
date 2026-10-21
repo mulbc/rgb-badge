@@ -179,6 +179,7 @@ def check_sources(project=PROJECT):
     require(seen == set(PARTS), "Controller population incomplete")
     require(nc_positions == {module_pin_positions[n] for n in MODULE_NC}, "No-connect markers differ from unused module pins")
     require(connections == expected_connections(), "Controller source pin-to-net mismatch")
+    return connections
 
 
 def check_netlist(path):

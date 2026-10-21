@@ -62,6 +62,8 @@ Source: requirements interview completed 2026-09-05
 
 ## Reference workload
 
+**2026-10-21 provisional board definition (ADR 0041):** Derive the machine-readable Coupon Rev A U3 inventory from canonical KiCad source, preserving all module pins, explicit no-connects, exact MPN and package, USB/strapping/Octal-PSRAM restrictions and isolated display-request boundaries. Verify a fresh native XML export, record manufacturer-source identity and detect source/JSON drift in CI. The derived inventory remains provisional and shall not authorize production GPIO configuration or hardware arm; explicit freeze and independent review remain open.
+
 **2026-10-21 repeatable host verification (ADR 0040):** Build the existing software core through one reusable host library and exercise native/cross-language checks plus both capacity reproductions with GNU and Clang compilers. A host asset inspection success shall require decoding/CRC validation of every frame, not only container validation. Input allocation remains bounded by the format limit. Host build/integrity results do not satisfy target, representative storage or hardware acceptance.
 
 **2026-10-21 DSP-003/STO-001 software preparation (ADR 0035):** Host assets shall preserve exact RGB888 pixels and explicit frame durations through deterministic encoding and bounded native decoding. Reject malformed/unsupported containers and corruption, and verify cross-language golden frames before target integration. Parser resource bounds are format limits, not a flash-partition allocation. Representative five-minute capacity, dual application slots and target playback remain acceptance work.

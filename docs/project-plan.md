@@ -435,6 +435,8 @@ Final acceptance:
 
 ## 8. Firmware scope for hardware validation
 
+The [ADR 0041 source-derived Coupon Rev A inventory](../firmware/boards/README.md) is provisional, checked against manufacturer pin definitions and fresh complete native XML. Its production GPIO permission is false; source drift/fault checks run in CI. Explicit freeze and independent review remain open before driver use.
+
 The coupon firmware is intentionally small but production-shaped:
 
 - board pin map and hardware revision held in one machine-readable definition;

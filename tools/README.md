@@ -2,6 +2,8 @@
 
 # Software tools
 
+`python3 tools/check-board-pin-map.py` checks the [provisional source-derived board inventory](../firmware/boards/README.md), including all U3 pins, explicit NCs, source hashes and GPIO/strapping/PSRAM restrictions. `--write` regenerates after source review; `--netlist PATH` additionally verifies complete native XML and exact module/function/type/display-boundary identities. Host fault tests and controller/library regressions run in CI without vendor PDFs. The map is not frozen and grants no target GPIO/arm permission.
+
 `./tools/check-host-firmware.sh` builds the [unified host library and tools](../firmware/host/README.md), then runs all eleven native/integration/inspection/capacity test groups. `CXX` selects a compiler; GCC and Clang run independently in CI. The core compiles without exceptions/RTTI, with fail-fast host sanitizers. The linked `firmware/build/cmake-host/rgbb-inspect FILE.rgbb` emits JSON metadata only after every decoded frame validates. A standalone optimized tool is available without test/Python targets. Focused checks below remain available; target/hardware qualification is separate.
 
 `./tools/check-content-session.sh` checks the [composed host session](../firmware/content-session.md): compiler-produced assets through timing, gamma, white balance and fixed brightness, with button interruption, programming requests and latched faults. It runs sanitized native checks and Python/native traces for both wire versions/dimensions. The accompanying mode-button regression requires qualified release even after a sub-debounce pulse. No target GPIO/radio/blanking or fabrication acceptance follows.

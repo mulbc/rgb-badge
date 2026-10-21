@@ -45,3 +45,4 @@ Decision records explain choices that materially constrain later work. Accepted 
 | [0038](0038-host-mode-button.md) | Debounced host mode-button qualification and explicit software requests | Accepted for host software; target radio/interlock behavior unqualified |
 | [0039](0039-host-content-session.md) | Compose host decoding, colour, playback and mode control | Accepted for host software; target integration unqualified |
 | [0040](0040-reusable-host-build-and-inspector.md) | Reusable host library, two-compiler verification and complete asset inspection | Accepted for host software; target qualification pending |
+| [0041](0041-derived-coupon-pin-map.md) | Derive a provisional controller pin inventory from canonical KiCad source | Accepted for source/host verification; freeze and target use pending |

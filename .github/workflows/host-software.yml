@@ -14,6 +14,26 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  board-pin-map:
+    name: Provisional board pin inventory
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /firmware/
+            /tools/
+            /hardware/coupon/rev-a/*.kicad_sch
+            /hardware/coupon/rev-a/symbols/
+            /hardware/coupon/rev-a/footprints/
+      - name: Source-derived inventory and fault checks
+        run: |
+          python3 tools/check-board-pin-map.py
+          python3 -m unittest discover -s tools/tests -p test_board_pin_map.py -v
+          python3 -m unittest discover -s tools/tests -p 'test_*controller*.py' -v
   host-software:
     name: Firmware host checks (${{ matrix.name }})
     runs-on: ubuntu-24.04
