@@ -2,6 +2,8 @@
 
 # Software tools
 
+`compile-assets.py INPUT.json OUTPUT.rgbb` deterministically encodes exact RGB888 frames and durations as raw, RGB-run or palette-run data. The [format](../firmware/asset-format.md) is a provisional host format, with no image quantization, partition allocation or target-playback claim. `./tools/check-assets.sh` runs sanitized native decoder checks plus Python/C++ pixel-and-duration integration tests. Generated assets/binaries belong in ignored `firmware/build/`. GitHub's host-software workflow runs this suite and the colour core.
+
 `./tools/check-firmware-core.sh` compiles the platform-independent C++17 colour transform with strict warnings, AddressSanitizer and UndefinedBehaviorSanitizer, then exercises gamma, fixed brightness and white balance. [Firmware scope and validation](../firmware/README.md) distinguish these host checks from target/hardware tests. Build output stays in ignored `firmware/build/host/`.
 
 The latest combined routing checkpoint uses `generate-local-control-trial.py --continuation` and `./tools/check-control-continuation.sh`. Its [review](../docs/development/led-control-continuation-study-2026-10-21.md) records 236 native opens and the unchanged 104 intrinsic DRC findings. The continuation searches connected copper endpoints and rolls back any route that splits an existing physical pad group after zone refill. The default generator still reproduces the earlier 354-open local-control board byte-for-byte. Run generators with KiCad’s bundled Python.

@@ -141,6 +141,8 @@ The external-antenna module is deliberate. A PCB antenna would require a copper-
 
 The 16 MB flash target assumes compiled badge assets, not raw video. One uncompressed 24-bit frame is 2,304 bytes, or about 8.3 MB per minute at 60 frames/s. The host-side asset tool therefore stores palette-indexed frames, variable frame durations, changed rectangles/tiles and RLE or LZ-style deltas; text and sprite instructions remain procedural where useful. Reserve roughly 8–10 MB for content after dual application slots and system partitions. Coupon acceptance includes at least 24 representative animations totalling five minutes; highly noisy full-screen art may store less and must be reported rather than silently degraded.
 
+**2026-10-21 host increment:** [ADR 0035](decisions/0035-host-asset-container.md) implements an initial deterministic RGB888 compiler and bounded C++ decoder with independent raw/RGB-run/palette-run frames and exact durations. The [format and limits](../firmware/asset-format.md) remain provisional; delta/procedural encoding, actual flash partitions, representative capacity and target throughput are still open. Run `./tools/check-assets.sh` for host validation. GitHub's host-software workflow also checks the colour core; neither suite validates hardware timing or fabrication readiness.
+
 The existing classic ESP32-WROOM-32 breadboard board can be used for content-file parsing, BLE state-machine sketches and other pure software. It should not be used as evidence that the final display, native USB, charger, RF layout or ESP32-S3 peripherals work.
 
 ### 3.5 USB-C and charging

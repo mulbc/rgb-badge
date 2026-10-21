@@ -62,6 +62,8 @@ Source: requirements interview completed 2026-09-05
 
 ## Reference workload
 
+**2026-10-21 DSP-003/STO-001 software preparation (ADR 0035):** Host assets shall preserve exact RGB888 pixels and explicit frame durations through deterministic encoding and bounded native decoding. Reject malformed/unsupported containers and corruption, and verify cross-language golden frames before target integration. Parser resource bounds are format limits, not a flash-partition allocation. Representative five-minute capacity, dual application slots and target playback remain acceptance work.
+
 The provisional runtime workload consists of representative text, icons and animations with approximately 35% of pixels lit and brightness fixed at 25% of the validated hardware maximum. It is a repeatable engineering benchmark, not a restriction on user content. Coupon measurements will define the final asset bundle and calibrated power model.
 
 ## Power-architecture proposal verification addendum

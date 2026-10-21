@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: Apache-2.0
+name: Host software
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  host-software:
+    name: Colour and asset host checks
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            firmware
+            tools
+      - name: Colour core
+        run: ./tools/check-firmware-core.sh
+      - name: Lossless asset pipeline
+        run: ./tools/check-assets.sh

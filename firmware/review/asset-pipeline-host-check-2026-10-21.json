@@ -1,0 +1,34 @@
+{
+  "SPDX-License-Identifier": "Apache-2.0",
+  "command": "./tools/check-assets.sh",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+  "esp_idf_target_build": "NOT_RUN",
+  "executed_at_utc": "2026-10-21T18:25:09.801131+00:00",
+  "hardware_measurements": "NONE",
+  "host_architecture": "arm64",
+  "native_check_count": 6715,
+  "native_mutation_trials": 4000,
+  "python_integration_tests": 13,
+  "representative_storage_capacity": "NOT_VERIFIED",
+  "sanitizer_recovery": false,
+  "sanitizers": [
+    "address",
+    "undefined"
+  ],
+  "seeded_cross_language_matrix": "2 dimensions x 6 colour counts x 3 frames",
+  "source_sha256": {
+    ".github/workflows/host-software.yml": "b201f93aaa63c40e968ee4ba5756d1faf949725ee74e97e42bf791c0f9305b2f",
+    "firmware/asset-format.md": "71f964742d723818ad83dcc037a119293dedac1a2e9216b256bb39980915e1b3",
+    "firmware/core/asset_reader.cpp": "0b65fce3c3da1207bc385420f1dfc24eccb7389e342f8895e189a9cb8585ea39",
+    "firmware/core/color_transform.cpp": "03cbf929ddd5ca456f4ee050c5c726ccd97315b3487d1f9fdeb7efdaf7532747",
+    "firmware/core/include/rgb_badge/asset_reader.h": "f3149dbfeabe816facee7c245154afec9e5a87af639076cded2d6805fed33097",
+    "firmware/core/include/rgb_badge/color_transform.h": "399c99df71f60312f2b3ba2306cb9e5c29a66b54e3b7f0c96081696ae5ebd84c",
+    "firmware/tests/asset_decode_cli.cpp": "d26b51cef5508f92be71b571a027e3073e2b49bf904946de7165e77ae9740769",
+    "firmware/tests/asset_reader_test.cpp": "5f578a4cb36059a9645a0319a53188be059a035a264e4ab3394e42111d2a399c",
+    "firmware/tests/test_asset_pipeline.py": "b852d135e83e8bb81b7d0c30b2c7e096e097e523fbc2d1bebdf9339536f0baff",
+    "tools/check-assets.sh": "d06f151f70b063ac725f126ed78b1b02b7b7c072d6cdbcb731088ace55ee1604",
+    "tools/compile-assets.py": "3bd7951d6b305e9999fc173712d8001ebf0d6338b80ebf580830e53832f49512"
+  },
+  "status": "HOST_SOFTWARE_CHECK_PASS",
+  "stdout_and_stderr": "Asset reader: 6715 checks passed\ntest_corruption_and_decoded_crc (__main__.AssetPipeline.test_corruption_and_decoded_crc) ... ok\ntest_duplicate_json_fields_rejected (__main__.AssetPipeline.test_duplicate_json_fields_rejected) ... ok\ntest_invalid_source (__main__.AssetPipeline.test_invalid_source) ... ok\ntest_manifest_and_cli (__main__.AssetPipeline.test_manifest_and_cli) ... ok\ntest_manifest_rejects_typos_and_wrong_types (__main__.AssetPipeline.test_manifest_rejects_typos_and_wrong_types) ... ok\ntest_more_than_256_colours_remains_exact (__main__.AssetPipeline.test_more_than_256_colours_remains_exact) ... ok\ntest_multiple_frames_and_64bit_duration (__main__.AssetPipeline.test_multiple_frames_and_64bit_duration) ... ok\ntest_palette_first_occurrence (__main__.AssetPipeline.test_palette_first_occurrence) ... ok\ntest_resource_bounds (__main__.AssetPipeline.test_resource_bounds) ... ok\ntest_run_boundaries (__main__.AssetPipeline.test_run_boundaries) ... ok\ntest_seeded_cross_language_frames (__main__.AssetPipeline.test_seeded_cross_language_frames) ... ok\ntest_three_codecs (__main__.AssetPipeline.test_three_codecs) ... ok\ntest_ties_choose_lower_codec (__main__.AssetPipeline.test_ties_choose_lower_codec) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 1.256s\n\nOK\n"
+}
