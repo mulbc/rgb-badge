@@ -15,7 +15,7 @@ concurrency:
 
 jobs:
   host-software:
-    name: Colour and asset host checks
+    name: Colour, asset and playback host checks
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
@@ -29,6 +29,8 @@ jobs:
         run: ./tools/check-firmware-core.sh
       - name: Lossless asset pipeline
         run: ./tools/check-assets.sh
+      - name: Playback deadlines and compiler integration
+        run: ./tools/check-playback.sh
       - name: Reproduce synthetic capacity evidence
         run: |
           python3 tools/screen-asset-capacity.py --report firmware/build/asset-capacity.json

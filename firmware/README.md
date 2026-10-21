@@ -22,7 +22,7 @@ Run the host check from the repository root:
 
 The runner uses the local C++ compiler (`CXX` may select another executable), strict warnings, AddressSanitizer and UndefinedBehaviorSanitizer, with sanitizer recovery disabled so findings fail the run. Build output stays in ignored `firmware/build/host/`. Tests cover all 256 source levels, channel independence, nonlinear golden values, zero/full brightness, attenuation bounds, monotonicity, copied settings, invalid tables, low-intensity rounding and maximum arithmetic.
 
-[Validation evidence](review/color-transform-host-check-2026-10-21.json) records the source hashes, compiler and actual host result. There is no ESP-IDF application/target build or hardware test yet. The asset pipeline below extends the host preparation; scheduling, storage, telemetry and the reviewed board pin map remain separate work.
+[Validation evidence](review/color-transform-host-check-2026-10-21.json) records the source hashes, compiler and actual host result. There is no ESP-IDF application/target build or hardware test yet. The asset pipeline and playback controller below extend the host preparation; target scheduling, storage, telemetry and the reviewed board pin map remain separate work.
 
 ## Lossless asset pipeline
 
@@ -41,6 +41,12 @@ Version 2 requires an independent first frame and at most 59 consecutive deltas;
 
 The host suite includes native malformed/truncated/mutated input checks, all codecs, output guards, a decode-to-colour golden pixel and Python/C++ byte-and-duration comparisons. [Retained evidence](review/asset-pipeline-host-check-2026-10-21.json) identifies compiler, source hashes and results. The [host-software workflow](../.github/workflows/host-software.yml) runs both software suites on GitHub with read-only repository access. It does not validate KiCad, target timing or hardware.
 
-The format bounds (16 MiB encoded, 16 million decoded pixels per asset) are parser limits, not flash-partition allocations. Representative five-minute content capacity alongside dual application slots, target decode speed, frame scheduling, flash/update recovery and production calibration remain unverified.
+The format bounds (16 MiB encoded, 16 million decoded pixels per asset) are parser limits, not flash-partition allocations. Representative five-minute content capacity alongside dual application slots, target decode speed/scheduling, flash/update recovery and production calibration remain unverified.
 
 The [synthetic capacity screen](asset-capacity.md) encodes 24 clips totalling five minutes at 60 source frames/s. Changing solids and moving bars occupy about 0.430/1.510 MiB in both versions. The high-colour no-run set drops from 39.826 MiB in v1 to 1.113 MiB in v2. These generated families are not representative art or STO-001 acceptance. Run `python3 tools/screen-asset-capacity.py --version 2 --report firmware/build/asset-capacity-v2.json` to reproduce v2 sizes; omit `--version` for the v1 baseline. CI reproduces both reports.
+
+## Host playback timing
+
+The [one-shot playback controller](playback.md), under ADR 0037, schedules validated v1/v2 frames against absolute monotonic microsecond deadlines. It preserves original duration metadata, reports any tolerated admission lateness, and latches errors on missed deadlines, expired intervals, backward time, overflow or decoding failure. Stop/end/error clear software pixels; restart explicitly rewinds. It never silently skips frames or rebases deadlines. The explicit lateness budget defaults to zero and is not a qualified target tolerance.
+
+Run `./tools/check-playback.sh` for sanitized native timing checks and compiler/native pixel-and-timing integration tests. The controller owns output in addition to the reader reference, occupying 4,736 bytes on the tested Apple arm64 host. No GPIO, physical blanking, scan engine or display-enable path is implemented. Target timer/decode/latch timing, memory placement and hardware fault handling remain open.

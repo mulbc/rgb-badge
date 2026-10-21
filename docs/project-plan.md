@@ -145,6 +145,8 @@ The 16 MB flash target assumes compiled badge assets, not raw video. One uncompr
 
 **2026-10-21 delta extension:** [ADR 0036](decisions/0036-bounded-xor-asset-deltas.md) adds opt-in version 2 XOR runs with bounded reference chains while preserving v1 output. The [capacity comparison](../firmware/asset-capacity.md) reduces the generated high-colour set from 39.826 to 1.113 MiB without changing source pixels/durations. Representative content, production partitions, target stack/decode timing and hardware operation remain unverified.
 
+**2026-10-21 host playback:** [ADR 0037](decisions/0037-host-playback-deadlines.md) and the [playback contract](../firmware/playback.md) add one-shot absolute microsecond scheduling over both asset versions, explicit admission lateness and latched software errors/clearing. Host tests compare a full five-minute 60 fps timeline with a rational oracle and actual compiler-produced pixels/durations. Run `./tools/check-playback.sh`. Target decode/latch/scan timing, physical blanking and object placement remain unqualified.
+
 The existing classic ESP32-WROOM-32 breadboard board can be used for content-file parsing, BLE state-machine sketches and other pure software. It should not be used as evidence that the final display, native USB, charger, RF layout or ESP32-S3 peripherals work.
 
 ### 3.5 USB-C and charging

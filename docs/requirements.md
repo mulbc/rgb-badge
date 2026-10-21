@@ -68,6 +68,8 @@ Source: requirements interview completed 2026-09-05
 
 The provisional runtime workload consists of representative text, icons and animations with approximately 35% of pixels lit and brightness fixed at 25% of the validated hardware maximum. It is a repeatable engineering benchmark, not a restriction on user content. Coupon measurements will define the final asset bundle and calibrated power model.
 
+**2026-10-21 DSP-003/004/006 playback preparation (ADR 0037):** Host playback shall use absolute monotonic microsecond deadlines and original frame durations, expose any admission lateness, and never silently drop frames or rebase timing. Exceeding an explicit lateness budget, an entirely expired next interval, backward time, timeline overflow or decoding failure shall latch a software error and clear software output. Explicit restart rewinds; completion/stop clear output. This does not qualify target timing, visual refresh or physical blanking.
+
 ## Power-architecture proposal verification addendum
 
 2026-10-05: [ADR 0018](decisions/0018-complete-power-architecture-proposal.md) is **proposed, not an accepted replacement of the table above**. These verification refinements must be adopted/resolved before its material circuit changes are implemented. No current ceiling, battery rating or fabrication gate is relaxed.

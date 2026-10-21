@@ -2,6 +2,8 @@
 
 # Software tools
 
+`./tools/check-playback.sh` checks the [host playback controller](../firmware/playback.md) with strict warnings and fail-fast sanitizers, then compares compiler-produced v1/v2 pixels and deadlines through a native trace adapter. It includes a five-minute rational 60 fps timeline, explicit lateness, missed deadlines, clock/overflow faults, stop/restart and decoded corruption. The core has no hardware interfaces; target timing and physical blanking remain unqualified.
+
 `compile-assets.py INPUT.json OUTPUT.rgbb` deterministically encodes exact RGB888 frames and durations as raw, RGB-run or palette-run data. The [format](../firmware/asset-format.md) is a provisional host format, with no image quantization, partition allocation or target-playback claim. `./tools/check-assets.sh` runs sanitized native decoder checks plus Python/C++ pixel-and-duration integration tests. Generated assets/binaries belong in ignored `firmware/build/`. GitHub's host-software workflow runs this suite and the colour core.
 
 `screen-asset-capacity.py --report firmware/build/asset-capacity.json` runs the real compiler on three generated five-minute/24-clip families and records byte counts and per-file hashes. The [screen](../firmware/asset-capacity.md) distinguishes small low-colour encodings from the 39.826 MiB raw-fallback set. Synthetic success is not representative-content acceptance or a target performance measurement.

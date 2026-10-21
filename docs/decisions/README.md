@@ -41,3 +41,4 @@ Decision records explain choices that materially constrain later work. Accepted 
 | [0034](0034-uniform-qt-coupon-pitch-proposal.md) | Uniform 1515 coupon pitch for routable matrix | Accepted |
 | [0035](0035-host-asset-container.md) | Deterministic lossless host assets and bounded native decoding | Accepted for host software; production storage/transfer format provisional |
 | [0036](0036-bounded-xor-asset-deltas.md) | Opt-in lossless XOR frame deltas with bounded reference chains | Accepted for host software; target memory/timing and content capacity pending |
+| [0037](0037-host-playback-deadlines.md) | Absolute host playback deadlines with explicit lateness and latched failure | Accepted for host software; target scheduling/blanking unqualified |
