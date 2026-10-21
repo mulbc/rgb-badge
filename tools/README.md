@@ -2,6 +2,8 @@
 
 # Software tools
 
+`./tools/check-host-firmware.sh` builds the [unified host library and tools](../firmware/host/README.md), then runs all eleven native/integration/inspection/capacity test groups. `CXX` selects a compiler; GCC and Clang run independently in CI. The core compiles without exceptions/RTTI, with fail-fast host sanitizers. The linked `firmware/build/cmake-host/rgbb-inspect FILE.rgbb` emits JSON metadata only after every decoded frame validates. A standalone optimized tool is available without test/Python targets. Focused checks below remain available; target/hardware qualification is separate.
+
 `./tools/check-content-session.sh` checks the [composed host session](../firmware/content-session.md): compiler-produced assets through timing, gamma, white balance and fixed brightness, with button interruption, programming requests and latched faults. It runs sanitized native checks and Python/native traces for both wire versions/dimensions. The accompanying mode-button regression requires qualified release even after a sub-debounce pulse. No target GPIO/radio/blanking or fabrication acceptance follows.
 
 `./tools/check-mode-button.sh` checks the [host mode-button model](../firmware/mode-button.md) with strict warnings and fail-fast sanitizers. It exhausts all 4,096 twelve-sample button waveforms against an independent window oracle, plus real-duration boundaries, bounce, stuck-start, reset and clock extremes. BLE/inhibit outputs are software requests; no GPIO, radio or hardware display interface is implemented.

@@ -15,9 +15,19 @@ concurrency:
 
 jobs:
   host-software:
-    name: Firmware host checks
+    name: Firmware host checks (${{ matrix.name }})
     runs-on: ubuntu-24.04
     timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: GCC
+            compiler: g++
+          - name: Clang
+            compiler: clang++
+    env:
+      CXX: ${{ matrix.compiler }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -25,21 +35,10 @@ jobs:
           sparse-checkout: |
             firmware
             tools
-      - name: Colour core
-        run: ./tools/check-firmware-core.sh
-      - name: Lossless asset pipeline
-        run: ./tools/check-assets.sh
-      - name: Playback deadlines and compiler integration
-        run: ./tools/check-playback.sh
-      - name: Mode button and programming requests
-        run: ./tools/check-mode-button.sh
-      - name: Integrated content session
-        run: ./tools/check-content-session.sh
-      - name: Reproduce synthetic capacity evidence
+      - name: Unified sanitized library and complete host verification
+        run: ./tools/check-host-firmware.sh
+      - name: Standalone optimized inspection tool
         run: |
-          python3 tools/screen-asset-capacity.py --report firmware/build/asset-capacity.json
-          cmp firmware/build/asset-capacity.json firmware/review/asset-capacity-synthetic-2026-10-21.json
-      - name: Reproduce lossless delta capacity evidence
-        run: |
-          python3 tools/screen-asset-capacity.py --version 2 --report firmware/build/asset-capacity-v2.json
-          cmp firmware/build/asset-capacity-v2.json firmware/review/asset-capacity-v2-synthetic-2026-10-21.json
+          cmake -S firmware/host -B firmware/build/cmake-release -DCMAKE_CXX_COMPILER="$CXX" -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF -DRGB_BADGE_SANITIZERS=OFF
+          cmake --build firmware/build/cmake-release --parallel 2
+          python3 firmware/tests/test_asset_inspection.py --inspector firmware/build/cmake-release/rgbb-inspect

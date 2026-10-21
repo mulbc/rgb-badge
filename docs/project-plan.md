@@ -151,6 +151,8 @@ The 16 MB flash target assumes compiled badge assets, not raw video. One uncompr
 
 **2026-10-21 composition:** [ADR 0039](decisions/0039-host-content-session.md) adds the [integrated host content session](../firmware/content-session.md). Compiler/native traces now cover source pixels through timing and fixed colour conversion alongside mode interruptions, explicit restart and latched session faults. This also fixes a sub-debounce button-inhibit release gap. Run `./tools/check-content-session.sh`. The 9,984-byte host object still needs target placement/timing and actual GPIO/radio/scan/blanking integration.
 
+**2026-10-21 host build/tooling:** [ADR 0040](decisions/0040-reusable-host-build-and-inspector.md) packages those modules in one exception/RTTI-free C++17 host library. The [host project](../firmware/host/README.md) runs all eleven test groups and both capacity reproductions through `./tools/check-host-firmware.sh`, with GCC/Clang CI. Its `rgbb-inspect` utility verifies every decoded CRC before reporting complete-file metadata. This prepares reusable builds and asset validation; target application, authenticated updates, hardware interfaces and qualification remain open.
+
 The existing classic ESP32-WROOM-32 breadboard board can be used for content-file parsing, BLE state-machine sketches and other pure software. It should not be used as evidence that the final display, native USB, charger, RF layout or ESP32-S3 peripherals work.
 
 ### 3.5 USB-C and charging

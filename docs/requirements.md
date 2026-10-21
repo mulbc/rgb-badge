@@ -62,6 +62,8 @@ Source: requirements interview completed 2026-09-05
 
 ## Reference workload
 
+**2026-10-21 repeatable host verification (ADR 0040):** Build the existing software core through one reusable host library and exercise native/cross-language checks plus both capacity reproductions with GNU and Clang compilers. A host asset inspection success shall require decoding/CRC validation of every frame, not only container validation. Input allocation remains bounded by the format limit. Host build/integrity results do not satisfy target, representative storage or hardware acceptance.
+
 **2026-10-21 DSP-003/STO-001 software preparation (ADR 0035):** Host assets shall preserve exact RGB888 pixels and explicit frame durations through deterministic encoding and bounded native decoding. Reject malformed/unsupported containers and corruption, and verify cross-language golden frames before target integration. Parser resource bounds are format limits, not a flash-partition allocation. Representative five-minute capacity, dual application slots and target playback remain acceptance work.
 
 **2026-10-21 lossless delta extension (ADR 0036):** Version 2 may depend on a preceding validated frame, with an independent first frame and at most 59 consecutive deltas. Verify exact reconstructed pixels/durations, reference ownership, failure/rewind behavior and bounded memory alongside version 1 compatibility. No automatic dimming, quantization or frame dropping is permitted; target timing/stack and representative storage acceptance remain open.

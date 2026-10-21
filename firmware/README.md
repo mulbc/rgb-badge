@@ -6,6 +6,8 @@ Production firmware will use ESP-IDF and native C/C++. Initial scope is hardware
 
 Host-test asset parsing, gamma conversion, frame scheduling and runtime-estimator maths before relying on target hardware. Do not create production drivers until exact devices and the machine-readable board pin map are frozen.
 
+The [unified host build](host/README.md), under ADR 0040, builds the complete existing core as one C++17 static library without exceptions or RTTI. Run `./tools/check-host-firmware.sh` for all eleven test groups and both capacity reproductions. GitHub verifies GCC and Clang independently. The linked `firmware/build/cmake-host/rgbb-inspect FILE.rgbb` utility validates every decoded frame before emitting a JSON integrity summary. A standalone optimized tool can be built without test targets/Python; no target application or hardware interface is introduced.
+
 ## Colour conversion core
 
 The first implementation is a platform-independent C++17 [colour transform](core/include/rgb_badge/color_transform.h), supporting the software portion of DSP-003/005. It converts RGB888 art into three normalized 16-bit linear intensities. It has no GPIO, charger, current-limit, radio or driver-register interfaces.
