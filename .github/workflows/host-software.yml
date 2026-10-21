@@ -29,3 +29,7 @@ jobs:
         run: ./tools/check-firmware-core.sh
       - name: Lossless asset pipeline
         run: ./tools/check-assets.sh
+      - name: Reproduce synthetic capacity evidence
+        run: |
+          python3 tools/screen-asset-capacity.py --report firmware/build/asset-capacity.json
+          cmp firmware/build/asset-capacity.json firmware/review/asset-capacity-synthetic-2026-10-21.json

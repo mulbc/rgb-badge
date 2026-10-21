@@ -112,6 +112,7 @@ def main():
         if args.manifest.resolve() == args.output.resolve():
             raise ValueError('input and output paths must differ')
         encoded = from_manifest(json.loads(args.manifest.read_text(), object_pairs_hook=unique_object))
+        args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_bytes(encoded)
     except (ValueError, OSError, TypeError) as error:
         parser.error(str(error))

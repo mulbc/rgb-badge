@@ -131,7 +131,7 @@ class AssetPipeline(unittest.TestCase):
         document = {'version':1,'width':16,'height':16,
                     'frames':[{'duration_us':16667,'rgb888':(b'\x01\x02\x03'*256).hex()}]}
         expected = compiler.from_manifest(document)
-        source, output = self.path/'source.json', self.path/'output.rgbb'
+        source, output = self.path/'source.json', self.path/'new-directory/output.rgbb'
         source.write_text(json.dumps(document))
         command = ['python3', str(ROOT/'tools/compile-assets.py'), str(source), str(output)]
         result = subprocess.run(command, capture_output=True)
