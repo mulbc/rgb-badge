@@ -43,3 +43,4 @@ Decision records explain choices that materially constrain later work. Accepted 
 | [0036](0036-bounded-xor-asset-deltas.md) | Opt-in lossless XOR frame deltas with bounded reference chains | Accepted for host software; target memory/timing and content capacity pending |
 | [0037](0037-host-playback-deadlines.md) | Absolute host playback deadlines with explicit lateness and latched failure | Accepted for host software; target scheduling/blanking unqualified |
 | [0038](0038-host-mode-button.md) | Debounced host mode-button qualification and explicit software requests | Accepted for host software; target radio/interlock behavior unqualified |
+| [0039](0039-host-content-session.md) | Compose host decoding, colour, playback and mode control | Accepted for host software; target integration unqualified |

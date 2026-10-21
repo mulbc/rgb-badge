@@ -40,6 +40,7 @@ private:
     bool initialized_ = false;
     bool candidate_pressed_ = true;
     bool stable_pressed_ = true;
+    bool release_inhibit_ = true;
     std::uint64_t last_update_us_ = 0;
     std::uint64_t candidate_since_us_ = 0;
     std::uint64_t press_since_us_ = 0;

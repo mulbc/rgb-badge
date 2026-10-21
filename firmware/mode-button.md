@@ -9,7 +9,7 @@
 | State | Entry | BLE requested | Display inhibit |
 |---|---|---|---|
 | AwaitRelease | Construction/reset | False | True |
-| Playback | Initial release qualifies | False | Raw press or qualified press awaiting release |
+| Playback | Initial release qualifies | False | Until release qualifies after any raw press |
 | Programming | Qualified hold completes | True | True |
 | Fault | Clock moves backward | False | True |
 
@@ -27,4 +27,4 @@ A pending raw release suppresses programming entry immediately. If it qualifies,
 
 Run `./tools/check-mode-button.sh`. Native checks use strict C++17 warnings and fail-fast AddressSanitizer/UndefinedBehaviorSanitizer. They cover default timing boundaries, startup held/released, bounce, repeated short presses, pending release at threshold, event persistence, immediate inhibit, clock faults, reset and 32/64-bit arithmetic extremes. An independent sample-window oracle exhausts all **4,096 twelve-sample binary waveforms** with small test intervals, checking mode, events and both requests at every sample.
 
-The object occupies **48 bytes** on the tested Apple arm64 host and allocates no heap memory. [Retained evidence](review/mode-button-host-check-2026-10-21.json) records source hashes, setup and raw log location. Target builds, actual BLE-off current/resource release, three-metre range, hold timing, ROM recovery, and physical display clear/rearm remain open. The source board remains unbuilt and no hardware enable connection changes here.
+The object occupies **48 bytes** on the tested Apple arm64 host and allocates no heap memory. [Original evidence](review/mode-button-host-check-2026-10-21.json) records the initial source/result. The [session integration](content-session.md) found and fixed a short-pulse inhibit gap: any raw press now latches inhibit until a qualified release, even when the press itself never qualifies. The [current regression evidence](review/mode-button-release-inhibit-host-check-2026-10-21.json) records corrected source hashes, the focused pulse test and the updated independent consecutive-release oracle. Target builds, actual BLE-off current/resource release, three-metre range, hold timing, ROM recovery, and physical display clear/rearm remain open. The source board remains unbuilt and no hardware enable connection changes here.

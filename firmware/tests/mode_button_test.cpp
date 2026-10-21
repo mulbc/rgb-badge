@@ -98,6 +98,12 @@ int main() {
     expect(release_bounce.update(27,false).state==ModeState::AwaitRelease, "boot release bounce restarts qualification");
     expect(release_bounce.update(28,false).event==ModeEvent::PlaybackReady, "stable startup release accepted after bounce");
 
+    auto pulse=make({10,30}); pulse.update(0,false); pulse.update(10,false);
+    pulse.update(20,true);
+    expect(pulse.update(21,false).display_inhibit, "sub-debounce press latches inhibit through raw release");
+    expect(pulse.update(30,false).display_inhibit, "short-pulse release boundary minus one remains inhibited");
+    expect(!pulse.update(31,false).display_inhibit, "short-pulse inhibit clears only after qualified release");
+
     constexpr auto maximum=std::numeric_limits<std::uint64_t>::max();
     auto upper=make({10,30}); upper.update(maximum-100,false); upper.update(maximum-90,false);
     upper.update(maximum-80,true); upper.update(maximum-70,true);
@@ -127,8 +133,10 @@ int main() {
         ModeState state=ModeState::AwaitRelease;
         bool stable=true;
         unsigned pressed_at=0;
+        unsigned consecutive_released=0;
         for (unsigned t=0; t<samples; ++t) {
             raw[t]=(waveform&(1U<<t))!=0;
+            consecutive_released=raw[t] ? 0 : consecutive_released+1;
             const bool qualified_window=t>=2 && raw[t]==raw[t-1] && raw[t]==raw[t-2];
             if (qualified_window && stable!=raw[t]) {
                 stable=raw[t];
@@ -143,7 +151,7 @@ int main() {
             const auto actual=tested.update(t,raw[t]);
             expect(actual.state==state && actual.event==event && actual.error==ModeError::None,
                    "exhaustive sampled-state/window oracle agrees");
-            expect(actual.display_inhibit==(state!=ModeState::Playback || raw[t] || stable),
+            expect(actual.display_inhibit==(state!=ModeState::Playback || consecutive_released<3),
                    "every waveform inhibits immediately and through release qualification");
             check_requests(actual);
         }

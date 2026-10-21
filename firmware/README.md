@@ -56,3 +56,9 @@ Run `./tools/check-playback.sh` for sanitized native timing checks and compiler/
 The [sampled mode-button core](mode-button.md), under ADR 0038, requires an initial debounced release, qualifies the approximately three-second hold and emits one programming-entry event. Software requests keep BLE off outside Programming and assert display inhibit immediately on raw press and throughout AwaitRelease/Programming/Fault. Backward time latches fault; explicit reset requires release again. Debounce/hold defaults are development policy, and removing inhibit never arms hardware.
 
 Run `./tools/check-mode-button.sh` for sanitized checks, including an independent window oracle over all 4,096 twelve-sample input waveforms. The object occupies 48 bytes on the tested Apple arm64 host without heap allocation. Actual BLE resource handling, GPIO mapping/sampling, physical blanking and ROM recovery are not implemented or qualified by this core.
+
+## Integrated host session
+
+The [content session](content-session.md), under ADR 0039, now composes decoding, playback, colour conversion and mode requests. Boot/reset require release; a raw press stops software playback; release does not resume it. Start is explicit, programming stays black, and session faults require full reset. Converted output preserves copied fixed brightness. Software eligibility never arms hardware, and BLE requests do not establish actual radio state.
+
+Run `./tools/check-content-session.sh` for native and compiler-to-normalized-colour integration checks. Composition exposed and fixed a short-press inhibit gap in the button core: even a sub-debounce pulse now requires qualified release before inhibit clears. The combined object is 9,984 bytes on the tested Apple arm64 host; target memory/timing, GPIO/radio/scan integration and physical blanking remain unqualified.

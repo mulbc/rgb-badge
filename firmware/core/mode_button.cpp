@@ -10,7 +10,7 @@ std::optional<ModeButton> ModeButton::create(ModeButtonConfig config) noexcept {
 
 ModeResult ModeButton::result(ModeEvent event) const noexcept {
     return {state_, event, error_, state_ == ModeState::Programming,
-            state_ != ModeState::Playback || candidate_pressed_ || stable_pressed_};
+            state_ != ModeState::Playback || release_inhibit_};
 }
 
 void ModeButton::reset() noexcept {
@@ -18,6 +18,7 @@ void ModeButton::reset() noexcept {
     error_ = ModeError::None;
     initialized_ = false;
     candidate_pressed_ = stable_pressed_ = true;
+    release_inhibit_ = true;
     last_update_us_ = candidate_since_us_ = press_since_us_ = 0;
 }
 
@@ -35,6 +36,9 @@ ModeResult ModeButton::update(std::uint64_t now_us, bool pressed) noexcept {
     }
     initialized_ = true;
     const bool qualified = now_us - candidate_since_us_ >= config_.debounce_us;
+    // Even a press too short to qualify must inhibit until release qualifies.
+    if (pressed) release_inhibit_ = true;
+    else if (qualified) release_inhibit_ = false;
     if (qualified && stable_pressed_ != candidate_pressed_) {
         stable_pressed_ = candidate_pressed_;
         // Addition is bounded by now_us because the elapsed interval qualified.

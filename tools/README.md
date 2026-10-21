@@ -2,6 +2,8 @@
 
 # Software tools
 
+`./tools/check-content-session.sh` checks the [composed host session](../firmware/content-session.md): compiler-produced assets through timing, gamma, white balance and fixed brightness, with button interruption, programming requests and latched faults. It runs sanitized native checks and Python/native traces for both wire versions/dimensions. The accompanying mode-button regression requires qualified release even after a sub-debounce pulse. No target GPIO/radio/blanking or fabrication acceptance follows.
+
 `./tools/check-mode-button.sh` checks the [host mode-button model](../firmware/mode-button.md) with strict warnings and fail-fast sanitizers. It exhausts all 4,096 twelve-sample button waveforms against an independent window oracle, plus real-duration boundaries, bounce, stuck-start, reset and clock extremes. BLE/inhibit outputs are software requests; no GPIO, radio or hardware display interface is implemented.
 
 `./tools/check-playback.sh` checks the [host playback controller](../firmware/playback.md) with strict warnings and fail-fast sanitizers, then compares compiler-produced v1/v2 pixels and deadlines through a native trace adapter. It includes a five-minute rational 60 fps timeline, explicit lateness, missed deadlines, clock/overflow faults, stop/restart and decoded corruption. The core has no hardware interfaces; target timing and physical blanking remain unqualified.
