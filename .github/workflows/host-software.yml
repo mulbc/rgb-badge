@@ -14,6 +14,26 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  image-import:
+    name: Exact PNG and GIF import
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            firmware
+            tools
+      - name: Install optional pinned decoder in an isolated environment
+        run: |
+          python3 -m venv firmware/build/image-import-venv
+          firmware/build/image-import-venv/bin/python -m pip install --only-binary=:all: -r tools/image-import-requirements.txt
+      - name: Compare independent image fixtures with sanitized native decoding
+        run: |
+          cmake -S firmware/host -B firmware/build/cmake-image-import -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTING=ON -DRGB_BADGE_SANITIZERS=ON -DRGB_BADGE_IMAGE_IMPORT_TESTS=ON -DPython3_EXECUTABLE="$PWD/firmware/build/image-import-venv/bin/python"
+          cmake --build firmware/build/cmake-image-import --target asset_decode --parallel 2
+          ctest --test-dir firmware/build/cmake-image-import --output-on-failure -R '^image_import$'
   board-pin-map:
     name: Provisional board pin inventory
     runs-on: ubuntu-24.04

@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 option(RGB_BADGE_SANITIZERS "Enable fail-fast address/undefined host sanitizers" ON)
+option(RGB_BADGE_IMAGE_IMPORT_TESTS "Include optional pinned-Pillow image import checks" OFF)
 
 if(NOT CMAKE_CXX_COMPILER_ID MATCHES "^(GNU|Clang|AppleClang)$")
   message(FATAL_ERROR "Host verification currently supports GNU and Clang-family compilers")
@@ -53,6 +54,16 @@ if(BUILD_TESTING)
     "${REPO_ROOT}/firmware/tests/test_content_session.py" --session "$<TARGET_FILE:content_session>")
   add_test(NAME asset_inspection COMMAND "${Python3_EXECUTABLE}"
     "${REPO_ROOT}/firmware/tests/test_asset_inspection.py" --inspector "$<TARGET_FILE:rgbb-inspect>")
+  if(RGB_BADGE_IMAGE_IMPORT_TESTS)
+    execute_process(COMMAND "${Python3_EXECUTABLE}" -c
+      "import sys, PIL; assert sys.version_info >= (3, 11); assert PIL.__version__ == '13.0.0'"
+      RESULT_VARIABLE image_dependency_check OUTPUT_QUIET ERROR_QUIET)
+    if(NOT image_dependency_check EQUAL 0)
+      message(FATAL_ERROR "Image import checks require Python 3.11+ and tools/image-import-requirements.txt")
+    endif()
+    add_test(NAME image_import COMMAND "${Python3_EXECUTABLE}"
+      "${REPO_ROOT}/firmware/tests/test_image_import.py" --decoder "$<TARGET_FILE:asset_decode>")
+  endif()
   foreach(version IN ITEMS 1 2)
     add_test(NAME capacity_v${version} COMMAND "${CMAKE_COMMAND}"
       "-DPYTHON_EXECUTABLE=${Python3_EXECUTABLE}" "-DREPO_ROOT=${REPO_ROOT}"

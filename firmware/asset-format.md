@@ -41,7 +41,9 @@ Run records must end exactly at the payload boundary and emit exactly the frame'
 
 ## Compiler and decoder contract
 
-`tools/compile-assets.py` consumes JSON with exactly `version`, `width`, `height` and `frames`. Version is 1. Each frame has exactly `duration_us` and `rgb888`, a hex string for all packed pixels. Integer fields reject booleans. The Python API accepts packed RGB bytes directly. Image import and phone transfer are future layers.
+`tools/compile-assets.py` consumes JSON with exactly `version`, `width`, `height` and `frames`. Version is 1. Each frame has exactly `duration_us` and `rgb888`, a hex string for all packed pixels. Integer fields reject booleans. The Python API accepts packed RGB bytes directly.
+
+The optional [PNG/GIF importer](image-import.md) now supplies decoded source pixels and durations to this same compiler under ADR 0042. Phone transfer remains future work.
 
 The compiler chooses the shortest payload among raw, RGB runs and (when there are at most 256 colours) palette runs. Ties use ascending codec number. Palette order is first occurrence; runs are split at 256 pixels. Compilation is deterministic and lossless, including frames with more than 256 colours. It reports actual encoded size; it never drops frames or quantizes colours.
 

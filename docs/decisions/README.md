@@ -46,3 +46,4 @@ Decision records explain choices that materially constrain later work. Accepted 
 | [0039](0039-host-content-session.md) | Compose host decoding, colour, playback and mode control | Accepted for host software; target integration unqualified |
 | [0040](0040-reusable-host-build-and-inspector.md) | Reusable host library, two-compiler verification and complete asset inspection | Accepted for host software; target qualification pending |
 | [0041](0041-derived-coupon-pin-map.md) | Derive a provisional controller pin inventory from canonical KiCad source | Accepted for source/host verification; freeze and target use pending |
+| [0042](0042-exact-image-import.md) | Exact-size PNG/GIF import with explicit timing and alpha policy | Accepted for host content preparation; target transfer/storage pending |

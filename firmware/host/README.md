@@ -42,6 +42,11 @@ Consumers inside this host project link to `rgb_badge_core`, which exports its i
 
 ## Retained evidence and remaining work
 
+The optional [PNG/GIF importer](../image-import.md) has a separate pinned Python
+environment and native-decoder test group. Enable `RGB_BADGE_IMAGE_IMPORT_TESTS`
+with that environment's `Python3_EXECUTABLE` to include it. The default eleven
+groups and standalone native tool do not require Pillow.
+
 [Local validation evidence](../review/host-build-inspection-check-2026-10-21.json) records exact source hashes, compiler/CMake/Python versions, generated compile flags and raw logs. The inspection tests cover both dimensions/versions and encodings, 64-bit durations, 125 high-colour v2 frames, early/late decoded corruption, malformed input, an oversized sparse file, Unicode/spaced paths, missing input and usage behavior. Existing source assets and capacity reports are unchanged.
 
 Target memory placement/copy costs, decode/latch/scan timing, actual BLE/blanking/arming, authenticated transfer/update recovery, partitions, representative art and independent hardware review remain open. No board has been built or measured by these host checks, and no fabrication release is produced.
