@@ -2,6 +2,8 @@
 
 # Software tools
 
+`./tools/check-firmware-core.sh` compiles the platform-independent C++17 colour transform with strict warnings, AddressSanitizer and UndefinedBehaviorSanitizer, then exercises gamma, fixed brightness and white balance. [Firmware scope and validation](../firmware/README.md) distinguish these host checks from target/hardware tests. Build output stays in ignored `firmware/build/host/`.
+
 The latest combined routing checkpoint uses `generate-local-control-trial.py --continuation` and `./tools/check-control-continuation.sh`. Its [review](../docs/development/led-control-continuation-study-2026-10-21.md) records 236 native opens and the unchanged 104 intrinsic DRC findings. The continuation searches connected copper endpoints and rolls back any route that splits an existing physical pad group after zone refill. The default generator still reproduces the earlier 354-open local-control board byte-for-byte. Run generators with KiCad’s bundled Python.
 
 The preceding physical-drain checkpoint is checked with `./tools/check-row-drain-tie.sh`. Its [review](../docs/development/led-row-drain-tie-study-2026-10-20.md) records 246 opens, exactly 104 unchanged intrinsic findings and eighteen connected physical anode pads per row. `generate-row-drain-tie-trial.py` adds the sixteen local ties; the checker identifies physical pads by position and rejects an in-memory missing-tie mutation. This supplements earlier logical ref/pin checks, which cannot distinguish duplicate-numbered exposed lands. Run the generator with KiCad's bundled Python.

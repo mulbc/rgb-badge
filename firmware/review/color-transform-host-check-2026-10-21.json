@@ -1,0 +1,25 @@
+{
+  "SPDX-License-Identifier": "Apache-2.0",
+  "check_count": 1810,
+  "command": "./tools/check-firmware-core.sh",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+  "esp_idf_target_build": "NOT_RUN",
+  "executed_at_utc": "2026-10-21T16:08:27.650344+00:00",
+  "hardware_measurements": "NONE",
+  "host_architecture": "arm64",
+  "language_standard": "C++17",
+  "production_optical_calibration": "NOT_SELECTED",
+  "sanitizers": [
+    "address",
+    "undefined"
+  ],
+  "source_sha256": {
+    "firmware/core/color_transform.cpp": "03cbf929ddd5ca456f4ee050c5c726ccd97315b3487d1f9fdeb7efdaf7532747",
+    "firmware/core/include/rgb_badge/color_transform.h": "399c99df71f60312f2b3ba2306cb9e5c29a66b54e3b7f0c96081696ae5ebd84c",
+    "firmware/tests/color_transform_test.cpp": "8746dfdf6f36e1c6e244f494ad30c76a4d248adc943061a00623f59f25069c05",
+    "tools/check-firmware-core.sh": "0f5de35e20823eff0fa7619bd21f167812bcc9b5a084a68bf1abc962999b3993"
+  },
+  "status": "HOST_SOFTWARE_CHECK_PASS",
+  "stdout": "Color transform: 1810 checks passed\n",
+  "strict_warnings": true
+}
