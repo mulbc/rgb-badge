@@ -33,12 +33,12 @@ def source_frames(profile, clip):
         yield duration, rgb
 
 
-def screen():
+def screen(version=1):
     cases = {}
     for profile in ('solid_colour_frames', 'moving_two_colour_bar', 'high_colour_no_runs'):
         clips = []
         for clip in range(24):
-            encoded = compiler.encode_asset(48, 16, source_frames(profile, clip))
+            encoded = compiler.encode_asset(48, 16, source_frames(profile, clip), version=version)
             count = struct.unpack_from('<I', encoded, 12)[0]
             duration = struct.unpack_from('<Q', encoded, 16)[0]
             assert count == 750 and duration == 12_500_000
@@ -50,9 +50,9 @@ def screen():
                               total_frames=sum(c['frames'] for c in clips),
                               within_planning_8_MiB=total <= 8*1024*1024,
                               within_planning_10_MiB=total <= 10*1024*1024)
-        print(f'{profile}: {total} bytes for 24 synthetic clips / 300 seconds', file=sys.stderr, flush=True)
+        print(f'v{version} {profile}: {total} bytes for 24 synthetic clips / 300 seconds', file=sys.stderr, flush=True)
     return {'SPDX-License-Identifier':'Apache-2.0', 'status':'SYNTHETIC_HOST_ENCODING_SCREEN',
-            'format':'RGBB1', 'dimensions':[48,16], 'source_content_rate_fps':60,
+            'format':f'RGBB{version}', 'dimensions':[48,16], 'source_content_rate_fps':60,
             'cases':cases,
             'source_sha256':{name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
                              for name in ('tools/screen-asset-capacity.py','tools/compile-assets.py')},
@@ -64,8 +64,9 @@ def screen():
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--report', type=Path, required=True)
+    parser.add_argument('--version', type=int, choices=(1,2), default=1)
     args = parser.parse_args()
-    result = screen()
+    result = screen(args.version)
     args.report.parent.mkdir(parents=True, exist_ok=True)
     args.report.write_text(json.dumps(result, indent=2, sort_keys=True)+'\n')
 

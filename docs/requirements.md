@@ -64,6 +64,8 @@ Source: requirements interview completed 2026-09-05
 
 **2026-10-21 DSP-003/STO-001 software preparation (ADR 0035):** Host assets shall preserve exact RGB888 pixels and explicit frame durations through deterministic encoding and bounded native decoding. Reject malformed/unsupported containers and corruption, and verify cross-language golden frames before target integration. Parser resource bounds are format limits, not a flash-partition allocation. Representative five-minute capacity, dual application slots and target playback remain acceptance work.
 
+**2026-10-21 lossless delta extension (ADR 0036):** Version 2 may depend on a preceding validated frame, with an independent first frame and at most 59 consecutive deltas. Verify exact reconstructed pixels/durations, reference ownership, failure/rewind behavior and bounded memory alongside version 1 compatibility. No automatic dimming, quantization or frame dropping is permitted; target timing/stack and representative storage acceptance remain open.
+
 The provisional runtime workload consists of representative text, icons and animations with approximately 35% of pixels lit and brightness fixed at 25% of the validated hardware maximum. It is a repeatable engineering benchmark, not a restriction on user content. Coupon measurements will define the final asset bundle and calibrated power model.
 
 ## Power-architecture proposal verification addendum

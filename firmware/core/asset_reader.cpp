@@ -44,18 +44,21 @@ struct Frame {
     std::uint32_t checksum = 0;
     std::uint16_t palette_count = 0;
     std::uint8_t codec = 0;
+    bool delta = false;
 };
 
 AssetError parse_frame(const std::uint8_t* bytes, std::size_t size, std::size_t offset,
-                       std::size_t pixels, Frame& frame) noexcept {
+                       std::size_t pixels, std::uint16_t version, Frame& frame) noexcept {
     if (offset > size || size - offset < 16) return AssetError::Truncated;
     const auto* header = bytes + offset;
     frame.duration = u32(header);
-    frame.codec = header[4];
+    const auto wire_codec = header[4];
+    frame.delta = wire_codec >= 3;
+    frame.codec = frame.delta ? wire_codec-2 : wire_codec;
     frame.palette_count = u16(header + 6);
     frame.length = u32(header + 8);
     frame.checksum = u32(header + 12);
-    if (frame.duration == 0 || header[5] != 0 || frame.codec > 2) return AssetError::BadFrame;
+    if (frame.duration == 0 || header[5] != 0 || wire_codec > (version == 2 ? 4 : 2)) return AssetError::BadFrame;
     if (frame.length > size - offset - 16) return AssetError::Truncated;
     frame.payload = header + 16;
     frame.next = offset + 16 + frame.length;
@@ -107,9 +110,10 @@ std::optional<AssetReader> AssetReader::open(const std::uint8_t* bytes,
     if (size > kAssetMaxBytes) return fail(AssetError::TooLarge);
     if (size < 32) return fail(AssetError::Truncated);
     if (bytes[0] != 'R' || bytes[1] != 'G' || bytes[2] != 'B' || bytes[3] != 'B') return fail(AssetError::BadMagic);
-    if (u16(bytes + 4) != 1) return fail(AssetError::UnsupportedVersion);
+    const auto version = u16(bytes + 4);
+    if (version != 1 && version != 2) return fail(AssetError::UnsupportedVersion);
     if (u16(bytes + 6) != 32 || u32(bytes + 12) == 0) return fail(AssetError::BadHeader);
-    const AssetInfo info{u16(bytes + 8), u16(bytes + 10), u32(bytes + 12), u64(bytes + 16)};
+    const AssetInfo info{u16(bytes + 8), u16(bytes + 10), u32(bytes + 12), u64(bytes + 16), version};
     if ((info.width != 16 && info.width != 48) || info.height != 16) return fail(AssetError::UnsupportedDimensions);
     const std::size_t pixels = info.width * info.height;
     if (info.frame_count > kAssetMaxDecodedPixels / pixels) return fail(AssetError::ExpansionLimit);
@@ -117,10 +121,16 @@ std::optional<AssetReader> AssetReader::open(const std::uint8_t* bytes,
     if (u32(bytes + 28) != crc32_ieee(bytes + 32, size - 32)) return fail(AssetError::BadBodyChecksum);
     std::size_t offset = 32;
     std::uint64_t duration = 0;
+    unsigned delta_run = 0;
     for (std::uint32_t i = 0; i < info.frame_count; ++i) {
         Frame frame;
-        const auto result = parse_frame(bytes, size, offset, pixels, frame);
+        const auto result = parse_frame(bytes, size, offset, pixels, version, frame);
         if (result != AssetError::None) return fail(result);
+        if (frame.delta) {
+            if (i == 0 || ++delta_run >= kAssetKeyframeInterval) return fail(AssetError::BadFrame);
+        } else {
+            delta_run = 0;
+        }
         duration += frame.duration;  // Bounded frame count makes overflow impossible.
         offset = frame.next;
     }
@@ -140,8 +150,13 @@ DecodeResult AssetReader::next(Rgb8* output, std::size_t pixel_capacity) noexcep
     if (pixel_capacity < pixels) return fail(AssetError::InsufficientOutput);
     if (overlaps(bytes_, size_, output, pixels)) return fail(AssetError::OverlappingOutput);
     Frame frame;
-    const auto result = parse_frame(bytes_, size_, offset_, pixels, frame);
-    if (result != AssetError::None) return fail(result);
+    const auto result = parse_frame(bytes_, size_, offset_, pixels, info_.version, frame);
+    if (result != AssetError::None) { reference_valid_ = false; return fail(result); }
+    if (frame.delta && !reference_valid_) return fail(AssetError::MissingReference);
+    if (frame.delta && delta_run_ >= kAssetKeyframeInterval-1) {
+        reference_valid_ = false;
+        return fail(AssetError::BadFrame);
+    }
     if (frame.codec == 0) {
         for (std::size_t i = 0; i < pixels; ++i) {
             output[i] = {frame.payload[3*i], frame.payload[3*i+1], frame.payload[3*i+2]};
@@ -157,6 +172,13 @@ DecodeResult AssetReader::next(Rgb8* output, std::size_t pixel_capacity) noexcep
             for (unsigned j = 0; j <= frame.payload[i]; ++j) output[at++] = color;
         }
     }
+    if (frame.delta) {
+        for (std::size_t i = 0; i < pixels; ++i) {
+            output[i].red ^= reference_[i].red;
+            output[i].green ^= reference_[i].green;
+            output[i].blue ^= reference_[i].blue;
+        }
+    }
     auto checksum = 0xffffffffU;
     for (std::size_t i = 0; i < pixels; ++i) {
         checksum = update_crc(checksum, output[i].red);
@@ -165,7 +187,13 @@ DecodeResult AssetReader::next(Rgb8* output, std::size_t pixel_capacity) noexcep
     }
     if ((checksum ^ 0xffffffffU) != frame.checksum) {
         std::fill_n(output, pixels, Rgb8{0, 0, 0});
+        reference_valid_ = false;
         return fail(AssetError::BadFrameChecksum);
+    }
+    if (info_.version == 2) {
+        std::copy_n(output, pixels, reference_.begin());
+        reference_valid_ = true;
+        delta_run_ = frame.delta ? delta_run_+1 : 0;
     }
     offset_ = frame.next;
     return {DecodeStatus::Frame, AssetError::None, frame_index_++, frame.duration};

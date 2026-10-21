@@ -1,14 +1,21 @@
 {
   "SPDX-License-Identifier": "Apache-2.0",
+  "capacity_report_sha256": {
+    "firmware/review/asset-capacity-synthetic-2026-10-21.json": "13223ffa2b6cbf07d73cd731b82f661fb471ba6f21cc824a4d9982f196c66edf",
+    "firmware/review/asset-capacity-v2-synthetic-2026-10-21.json": "d38b2e0621d513150b5ad4e4ef9b998cecc778e1c7386f3aa512f210ff1bb51f"
+  },
+  "capacity_reports_repeat_byte_identical": true,
   "command": "./tools/check-assets.sh",
   "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
   "esp_idf_target_build": "NOT_RUN",
-  "executed_at_utc": "2026-10-21T18:31:02.340946+00:00",
+  "executed_at_utc": "2026-10-21T18:53:26.295445+00:00",
   "hardware_measurements": "NONE",
   "host_architecture": "arm64",
-  "native_check_count": 6715,
+  "keyframe_interval": 60,
+  "native_check_count": 7847,
   "native_mutation_trials": 4000,
-  "python_integration_tests": 13,
+  "python_integration_tests": 21,
+  "reader_object_bytes_host": 2368,
   "representative_storage_capacity": "NOT_VERIFIED",
   "sanitizer_recovery": false,
   "sanitizers": [
@@ -17,18 +24,27 @@
   ],
   "seeded_cross_language_matrix": "2 dimensions x 6 colour counts x 3 frames",
   "source_sha256": {
-    ".github/workflows/host-software.yml": "6c5592775075e57b46335e746746cf687781cd99a000b10648728ec5733e4097",
-    "firmware/asset-format.md": "71f964742d723818ad83dcc037a119293dedac1a2e9216b256bb39980915e1b3",
-    "firmware/core/asset_reader.cpp": "0b65fce3c3da1207bc385420f1dfc24eccb7389e342f8895e189a9cb8585ea39",
+    ".github/workflows/host-software.yml": "8d83f5299a95158517958e9ff9bf57d6dd5b514226503c48e95e064eb842a32b",
+    "firmware/asset-format-v2.md": "97d72f95314375b05b4a950757b284a818b0547148e9e382ff50270b5ac26506",
+    "firmware/asset-format.md": "28c0db527680a3a55b844bd90e49c62f949d82df5efeb35baa98853f3f48390e",
+    "firmware/core/asset_reader.cpp": "2116b9e817e24416eb7c21bd5778ed7770e6f558b7843d94134f954010e5ccf3",
     "firmware/core/color_transform.cpp": "03cbf929ddd5ca456f4ee050c5c726ccd97315b3487d1f9fdeb7efdaf7532747",
-    "firmware/core/include/rgb_badge/asset_reader.h": "f3149dbfeabe816facee7c245154afec9e5a87af639076cded2d6805fed33097",
+    "firmware/core/include/rgb_badge/asset_reader.h": "3253d1beadbc25c6b94f82123fffa867ba799235d5e1ed707d70b7004212b76d",
     "firmware/core/include/rgb_badge/color_transform.h": "399c99df71f60312f2b3ba2306cb9e5c29a66b54e3b7f0c96081696ae5ebd84c",
-    "firmware/tests/asset_decode_cli.cpp": "d26b51cef5508f92be71b571a027e3073e2b49bf904946de7165e77ae9740769",
-    "firmware/tests/asset_reader_test.cpp": "5f578a4cb36059a9645a0319a53188be059a035a264e4ab3394e42111d2a399c",
-    "firmware/tests/test_asset_pipeline.py": "0a5e30c08c3fe669631e51d81bf7a17e82c3b21217d932da487d505dbf8116b0",
+    "firmware/tests/asset_decode_cli.cpp": "7d8ad0b57e9977c2e64cb0efb32834feca849748d1f8be3a3075962e51f7772a",
+    "firmware/tests/asset_reader_test.cpp": "de7c7d4990c9623dd31d8205001f61a8b1e7b3975d858d04b5a03fd8badc6248",
+    "firmware/tests/test_asset_pipeline.py": "630a3820acea4beab635e8681cb1d5c4621bd69fbe57346253e740548ae3342a",
     "tools/check-assets.sh": "d06f151f70b063ac725f126ed78b1b02b7b7c072d6cdbcb731088ace55ee1604",
-    "tools/compile-assets.py": "5752ec47eca9d4641c48e4262585596814dd82537a614b7adac045421d61c369"
+    "tools/compile-assets.py": "bb6d39e0139069a38faee4142b10f6ad357d104fbe8752639c35480bf7da7ce1",
+    "tools/screen-asset-capacity.py": "5bdfbc8577b2f0299d31b564ab0f8d09853bdc660212200e5da1cff1ffdf63bc"
   },
   "status": "HOST_SOFTWARE_CHECK_PASS",
-  "stdout_and_stderr": "Asset reader: 6715 checks passed\ntest_corruption_and_decoded_crc (__main__.AssetPipeline.test_corruption_and_decoded_crc) ... ok\ntest_duplicate_json_fields_rejected (__main__.AssetPipeline.test_duplicate_json_fields_rejected) ... ok\ntest_invalid_source (__main__.AssetPipeline.test_invalid_source) ... ok\ntest_manifest_and_cli (__main__.AssetPipeline.test_manifest_and_cli) ... ok\ntest_manifest_rejects_typos_and_wrong_types (__main__.AssetPipeline.test_manifest_rejects_typos_and_wrong_types) ... ok\ntest_more_than_256_colours_remains_exact (__main__.AssetPipeline.test_more_than_256_colours_remains_exact) ... ok\ntest_multiple_frames_and_64bit_duration (__main__.AssetPipeline.test_multiple_frames_and_64bit_duration) ... ok\ntest_palette_first_occurrence (__main__.AssetPipeline.test_palette_first_occurrence) ... ok\ntest_resource_bounds (__main__.AssetPipeline.test_resource_bounds) ... ok\ntest_run_boundaries (__main__.AssetPipeline.test_run_boundaries) ... ok\ntest_seeded_cross_language_frames (__main__.AssetPipeline.test_seeded_cross_language_frames) ... ok\ntest_three_codecs (__main__.AssetPipeline.test_three_codecs) ... ok\ntest_ties_choose_lower_codec (__main__.AssetPipeline.test_ties_choose_lower_codec) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 1.176s\n\nOK\n"
+  "stdout_and_stderr": "Asset reader: 7847 checks passed\nAsset reader object bytes: 2368\ntest_corruption_and_decoded_crc (__main__.AssetPipeline.test_corruption_and_decoded_crc) ... ok\ntest_duplicate_json_fields_rejected (__main__.AssetPipeline.test_duplicate_json_fields_rejected) ... ok\ntest_invalid_source (__main__.AssetPipeline.test_invalid_source) ... ok\ntest_manifest_and_cli (__main__.AssetPipeline.test_manifest_and_cli) ... ok\ntest_manifest_rejects_typos_and_wrong_types (__main__.AssetPipeline.test_manifest_rejects_typos_and_wrong_types) ... ok\ntest_more_than_256_colours_remains_exact (__main__.AssetPipeline.test_more_than_256_colours_remains_exact) ... ok\ntest_multiple_frames_and_64bit_duration (__main__.AssetPipeline.test_multiple_frames_and_64bit_duration) ... ok\ntest_palette_first_occurrence (__main__.AssetPipeline.test_palette_first_occurrence) ... ok\ntest_resource_bounds (__main__.AssetPipeline.test_resource_bounds) ... ok\ntest_run_boundaries (__main__.AssetPipeline.test_run_boundaries) ... ok\ntest_seeded_cross_language_frames (__main__.AssetPipeline.test_seeded_cross_language_frames) ... ok\ntest_three_codecs (__main__.AssetPipeline.test_three_codecs) ... ok\ntest_ties_choose_lower_codec (__main__.AssetPipeline.test_ties_choose_lower_codec) ... ok\ntest_v1_wire_golden_hashes (__main__.AssetPipeline.test_v1_wire_golden_hashes) ... ok\ntest_v2_cli_selection_and_bad_versions (__main__.AssetPipeline.test_v2_cli_selection_and_bad_versions) ... ok\ntest_v2_corrupt_delta_does_not_emit_failed_frame (__main__.AssetPipeline.test_v2_corrupt_delta_does_not_emit_failed_frame) ... ok\ntest_v2_forced_keys_and_exact_durations (__main__.AssetPipeline.test_v2_forced_keys_and_exact_durations) ... ok\ntest_v2_full_capacity_clip_decodes_exactly (__main__.AssetPipeline.test_v2_full_capacity_clip_decodes_exactly) ... ok\ntest_v2_invalid_reference_chains (__main__.AssetPipeline.test_v2_invalid_reference_chains) ... ok\ntest_v2_never_increases_size (__main__.AssetPipeline.test_v2_never_increases_size) ... ok\ntest_v2_rgb_and_palette_deltas (__main__.AssetPipeline.test_v2_rgb_and_palette_deltas) ... ok\n\n----------------------------------------------------------------------\nRan 21 tests in 2.216s\n\nOK\n",
+  "supported_wire_versions": [
+    1,
+    2
+  ],
+  "v1_capacity_assets_unchanged": 72,
+  "v1_wire_golden_hashes": 3,
+  "v2_full_capacity_clip_frames": 750
 }

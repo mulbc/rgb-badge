@@ -4,6 +4,8 @@
 
 Development format under [ADR 0035](../docs/decisions/0035-host-asset-container.md). All integers are unsigned little-endian. Pixels are exact RGB888, top-to-bottom rows and left-to-right columns. Dimensions are either 16 × 16 or 48 × 16. No gamma, brightness or hardware register encoding is stored here.
 
+This remains the version 1 wire specification and default Python API mode. The updated reader/compiler also support the separately versioned [opt-in XOR-delta extension](asset-format-v2.md); version 2 requires owned reference storage and bounded chains. Version 1 output bytes and independent-frame semantics remain unchanged.
+
 ## File header: 32 bytes
 
 | Offset | Field | Bytes | Value |

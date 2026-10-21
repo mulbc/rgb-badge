@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 """Compare Python asset output with the native C++ reader, byte for byte."""
 import argparse
+import hashlib
 import importlib.util
 import json
 from pathlib import Path
@@ -40,9 +41,9 @@ class AssetPipeline(unittest.TestCase):
         source.write_bytes(encoded)
         return subprocess.run([str(DECODER), str(source)], capture_output=True)
 
-    def check_frames(self, width, frames, codecs=None):
-        encoded = compiler.encode_asset(width, 16, frames)
-        self.assertEqual(encoded, compiler.encode_asset(width, 16, frames), 'deterministic bytes')
+    def check_frames(self, width, frames, codecs=None, version=1):
+        encoded = compiler.encode_asset(width, 16, frames, version=version)
+        self.assertEqual(encoded, compiler.encode_asset(width, 16, frames, version=version), 'deterministic bytes')
         self.assertEqual(zlib.crc32(encoded[32:]), struct.unpack_from('<I', encoded, 28)[0])
         if codecs is not None:
             self.assertEqual([f[1] for f in frame_headers(encoded)], codecs)
@@ -50,7 +51,7 @@ class AssetPipeline(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr.decode(errors='replace'))
         self.assertEqual(result.stdout, b''.join(rgb for duration, rgb in frames))
         info = json.loads(result.stderr)
-        self.assertEqual(info, {'width': width, 'height': 16,
+        self.assertEqual(info, {'version':version,'width': width, 'height': 16,
                                'duration_us': sum(d for d, _ in frames),
                                'durations_us': [d for d, _ in frames]})
         return encoded
@@ -171,6 +172,88 @@ class AssetPipeline(unittest.TestCase):
         self.assertNotEqual(result.returncode, 0)
         self.assertIn(b'duplicate JSON field', result.stderr)
         self.assertEqual(output.read_bytes(), b'preserve')
+
+    def test_v2_rgb_and_palette_deltas(self):
+        for width, delta_codec in ((16,3), (48,4)):
+            count = width*16
+            key = b''.join(bytes((i%256, i//256, i*17%256)) for i in range(count))
+            residual = bytes([0x5a,0xc3,0x17])*count
+            changed = bytes(a^b for a,b in zip(key,residual))
+            with self.subTest(width=width):
+                encoded = self.check_frames(width, [(16667,key),(16666,changed)], [0,delta_codec], version=2)
+                self.assertLess(len(encoded), len(compiler.encode_asset(width,16,[(16667,key),(16666,changed)])))
+
+    def test_v2_forced_keys_and_exact_durations(self):
+        frames = [(16667 if frame%3 != 2 else 16666,
+                   b''.join(bytes((i,0,frame)) for i in range(256))) for frame in range(121)]
+        expected = [0 if i%60==0 else 3 for i in range(121)]
+        encoded = self.check_frames(16, frames, expected, version=2)
+        self.assertLess(len(encoded), len(compiler.encode_asset(16,16,frames))//2)
+
+    def test_v2_never_increases_size(self):
+        rng = random.Random(36)
+        for width in (16,48):
+            frames = [(rng.randrange(1,0xffffffff), bytes(rng.randrange(256) for _ in range(width*16*3)))
+                      for _ in range(8)]
+            v2 = self.check_frames(width, frames, version=2)
+            self.assertLessEqual(len(v2),len(compiler.encode_asset(width,16,frames)))
+
+    def test_v2_cli_selection_and_bad_versions(self):
+        pixels = b'\x01\x02\x03'*256
+        for version in (0,3,True):
+            with self.assertRaises(ValueError): compiler.encode_asset(16,16,[(1,pixels)],version=version)
+        document={'version':2,'width':16,'height':16,'frames':[{'duration_us':1,'rgb888':pixels.hex()}]}
+        source,output=self.path/'v2.json',self.path/'v2.rgbb'
+        source.write_text(json.dumps(document))
+        result=subprocess.run(['python3',str(ROOT/'tools/compile-assets.py'),str(source),str(output)],capture_output=True)
+        self.assertEqual(result.returncode,0,result.stderr)
+        self.assertEqual(json.loads(result.stdout)['format'],'RGBB2')
+        self.assertEqual(struct.unpack_from('<H',output.read_bytes(),4)[0],2)
+
+    def test_v1_wire_golden_hashes(self):
+        # Recorded from committed v1 compiler 8895a45, before the v2 extension.
+        cases=[(16,b'\x12\x34\x56'*256,'78e5da74b12b5c8837f252fc6ac10112fb81f9a5506d8032f91d9cdbe91c7d3b'),
+               (16,b'\x80\x20\x10\x01\x02\x03'*128,'af47d211f2dd8bfb04a12f035ce8d3ac53aa1df6b006aa2304b61d1ef66effc3'),
+               (48,b''.join(bytes((i%256,i//256,i*17%256)) for i in range(768)),
+                '3b9c8d1c1a260c5a14f7e1522eaf368addc1c610ad9056989ffeb3ee7a2f78c7')]
+        for width,rgb,digest in cases:
+            with self.subTest(width=width,digest=digest):
+                self.assertEqual(hashlib.sha256(compiler.encode_asset(width,16,[(16667,rgb)])).hexdigest(),digest)
+
+    def test_v2_invalid_reference_chains(self):
+        key=b''.join(bytes((i,0,i)) for i in range(256))
+        valid=compiler.encode_asset(16,16,[(1,key)]*61,version=2)
+        records=frame_headers(valid)
+        def pack(frame):
+            duration,codec,palette,payload,crc=frame
+            return struct.pack('<IBBHII',duration,codec,0,palette,len(payload),crc)+payload
+        for body in (pack(records[0])+pack(records[1])*60,pack(records[1])*61):
+            mutated=bytearray(valid[:32]+body)
+            struct.pack_into('<II',mutated,24,len(body),zlib.crc32(body))
+            result=self.native(mutated)
+            self.assertNotEqual(result.returncode,0)
+            self.assertEqual(result.stdout,b'')
+
+    def test_v2_corrupt_delta_does_not_emit_failed_frame(self):
+        key=b''.join(bytes((i,0,i)) for i in range(256))
+        changed=bytes(value^1 for value in key)
+        encoded=bytearray(compiler.encode_asset(16,16,[(1,key),(1,changed)],version=2))
+        records=frame_headers(encoded)
+        self.assertEqual([frame[1] for frame in records],[0,3])
+        offset=32+16+len(records[0][3])+16
+        encoded[offset+1]^=1
+        struct.pack_into('<I',encoded,28,zlib.crc32(encoded[32:]))
+        result=self.native(encoded)
+        self.assertNotEqual(result.returncode,0)
+        self.assertEqual(result.stdout,key,'only the validated key frame may be emitted')
+
+    def test_v2_full_capacity_clip_decodes_exactly(self):
+        spec=importlib.util.spec_from_file_location('capacity',ROOT/'tools/screen-asset-capacity.py')
+        capacity=importlib.util.module_from_spec(spec);spec.loader.exec_module(capacity)
+        frames=list(capacity.source_frames('high_colour_no_runs',0))
+        expected=[0 if i%60==0 else 4 for i in range(750)]
+        encoded=self.check_frames(48,frames,expected,version=2)
+        self.assertEqual(len(encoded),48617)
 
 
 if __name__ == '__main__':

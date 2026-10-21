@@ -545,8 +545,8 @@
   ],
   "source_content_rate_fps": 60,
   "source_sha256": {
-    "tools/compile-assets.py": "5752ec47eca9d4641c48e4262585596814dd82537a614b7adac045421d61c369",
-    "tools/screen-asset-capacity.py": "15fcbd7d55b6a993469b4bd6ee610fc0260000869cfb1ae3c771adef4310ea43"
+    "tools/compile-assets.py": "bb6d39e0139069a38faee4142b10f6ad357d104fbe8752639c35480bf7da7ce1",
+    "tools/screen-asset-capacity.py": "5bdfbc8577b2f0299d31b564ab0f8d09853bdc660212200e5da1cff1ffdf63bc"
   },
   "status": "SYNTHETIC_HOST_ENCODING_SCREEN"
 }

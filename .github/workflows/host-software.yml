@@ -33,3 +33,7 @@ jobs:
         run: |
           python3 tools/screen-asset-capacity.py --report firmware/build/asset-capacity.json
           cmp firmware/build/asset-capacity.json firmware/review/asset-capacity-synthetic-2026-10-21.json
+      - name: Reproduce lossless delta capacity evidence
+        run: |
+          python3 tools/screen-asset-capacity.py --version 2 --report firmware/build/asset-capacity-v2.json
+          cmp firmware/build/asset-capacity-v2.json firmware/review/asset-capacity-v2-synthetic-2026-10-21.json

@@ -40,3 +40,4 @@ Decision records explain choices that materially constrain later work. Accepted 
 | [0032](0032-two-event-display-interlock-proposal.md) | Require a heartbeat followed by a distinct arm pulse before hardware can enable the display | Compact exact parts selected for provisional library capture; circuit and fit unqualified |
 | [0034](0034-uniform-qt-coupon-pitch-proposal.md) | Uniform 1515 coupon pitch for routable matrix | Accepted |
 | [0035](0035-host-asset-container.md) | Deterministic lossless host assets and bounded native decoding | Accepted for host software; production storage/transfer format provisional |
+| [0036](0036-bounded-xor-asset-deltas.md) | Opt-in lossless XOR frame deltas with bounded reference chains | Accepted for host software; target memory/timing and content capacity pending |

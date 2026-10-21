@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: Apache-2.0
 #include "rgb_badge/asset_reader.h"
 
+#include <algorithm>
 #include <cstdlib>
 #include <iostream>
 #include <vector>
@@ -24,10 +25,10 @@ void seal(Bytes& bytes) {
     put(bytes, 28, crc32_ieee(bytes.data() + 32, bytes.size() - 32), 4);
 }
 
-Bytes asset(unsigned codec, unsigned palette, const Bytes& payload, const Bytes& decoded) {
+Bytes asset(unsigned codec, unsigned palette, const Bytes& payload, const Bytes& decoded, unsigned version = 1) {
     Bytes bytes(48, 0);
     bytes[0] = 'R'; bytes[1] = 'G'; bytes[2] = 'B'; bytes[3] = 'B';
-    put(bytes, 4, 1, 2); put(bytes, 6, 32, 2);
+    put(bytes, 4, version, 2); put(bytes, 6, 32, 2);
     put(bytes, 8, 16, 2); put(bytes, 10, 16, 2);
     put(bytes, 12, 1, 4); put(bytes, 16, 16667, 8);
     put(bytes, 32, 16667, 4); bytes[36] = static_cast<std::uint8_t>(codec);
@@ -36,6 +37,19 @@ Bytes asset(unsigned codec, unsigned palette, const Bytes& payload, const Bytes&
     bytes.insert(bytes.end(), payload.begin(), payload.end());
     seal(bytes);
     return bytes;
+}
+
+std::uint64_t get(const Bytes& bytes, std::size_t offset, unsigned width) {
+    std::uint64_t result = 0;
+    for (unsigned i = 0; i < width; ++i) result |= std::uint64_t{bytes[offset+i]} << (8*i);
+    return result;
+}
+
+void append_frame(Bytes& bytes, const Bytes& additional) {
+    put(bytes, 12, get(bytes, 12, 4)+1, 4);
+    put(bytes, 16, get(bytes, 16, 8)+get(additional, 16, 8), 8);
+    bytes.insert(bytes.end(), additional.begin()+32, additional.end());
+    seal(bytes);
 }
 
 void rejects(const Bytes& bytes, AssetError expected) {
@@ -104,7 +118,7 @@ int main() {
                "every truncated prefix rejected");
     }
     auto mutation = flat; mutation[0] = 0; rejects(mutation, AssetError::BadMagic);
-    mutation = flat; put(mutation, 4, 2, 2); rejects(mutation, AssetError::UnsupportedVersion);
+    mutation = flat; put(mutation, 4, 3, 2); rejects(mutation, AssetError::UnsupportedVersion);
     mutation = flat; put(mutation, 6, 33, 2); rejects(mutation, AssetError::BadHeader);
     mutation = flat; put(mutation, 8, 17, 2); rejects(mutation, AssetError::UnsupportedDimensions);
     mutation = flat; put(mutation, 12, 0, 4); rejects(mutation, AssetError::BadHeader);
@@ -152,20 +166,81 @@ int main() {
     const auto linear = transform->convert(output[0]);
     expect(linear.red == 129 && linear.green == 257 && linear.blue == 386, "decode-to-colour golden pixel");
 
+    // The reference belongs to the reader, not to the caller's output array.
+    Bytes reconstructed;
+    constexpr std::uint8_t mask[]{1,2,3};
+    for (std::size_t i = 0; i < gradient.size(); ++i) reconstructed.push_back(gradient[i]^mask[i%3]);
+    auto delta_stream = asset(0, 0, gradient, gradient, 2);
+    const auto delta_frame = asset(3, 0, {255,1,2,3}, reconstructed, 2);
+    append_frame(delta_stream, delta_frame);
+    auto delta_reader = AssetReader::open(delta_stream.data(), delta_stream.size(), error);
+    expect(delta_reader && delta_reader->info().version == 2, "version 2 accepted");
+    expect(delta_reader->next(output.data(), 256).status == DecodeStatus::Frame, "delta base decoded");
+    std::fill_n(output.data(), 256, Rgb8{255,255,255});
+    expect(delta_reader->next(output.data(), 255).error == AssetError::InsufficientOutput,
+           "delta buffer error permits retry with reference retained");
+    std::array<Rgb8, 257> separate{};
+    separate.back() = {17,18,19};
+    expect(delta_reader->next(separate.data(), 256).status == DecodeStatus::Frame,
+           "delta uses owned reference with a different destination buffer");
+    for (unsigned i = 0; i < 256; ++i) {
+        expect(separate[i].red == reconstructed[3*i] && separate[i].green == reconstructed[3*i+1] &&
+               separate[i].blue == reconstructed[3*i+2], "XOR reconstructs every source channel");
+    }
+    expect(separate.back().red == 17 && separate.back().green == 18 && separate.back().blue == 19,
+           "delta output boundary retained");
+    delta_reader->rewind();
+    expect(delta_reader->next(output.data(), 256).frame_index == 0, "rewind restores keyframe position");
+    expect(delta_reader->next(output.data(), 256).status == DecodeStatus::Frame, "rewind rebuilds reference");
+    rejects(delta_frame, AssetError::BadFrame);
+    auto wrong_version = delta_stream; put(wrong_version, 4, 1, 2);
+    rejects(wrong_version, AssetError::BadFrame);
+
+    auto corrupt_delta = delta_stream;
+    const auto second_header = 32+16+gradient.size();
+    corrupt_delta[second_header+12] ^= 1; seal(corrupt_delta);
+    auto failed_delta = AssetReader::open(corrupt_delta.data(), corrupt_delta.size(), error);
+    expect(failed_delta.has_value(), "delta decoded CRC is deferred");
+    expect(failed_delta->next(output.data(), 256).status == DecodeStatus::Frame, "corrupt stream key is valid");
+    expect(failed_delta->next(output.data(), 256).error == AssetError::BadFrameChecksum,
+           "decoded CRC covers reconstructed RGB, not XOR bytes");
+    for (unsigned i = 0; i < 256; ++i) expect(output[i].red == 0 && output[i].green == 0 && output[i].blue == 0,
+                                            "failed delta clears RGB output");
+    expect(failed_delta->next(output.data(), 256).error == AssetError::MissingReference,
+           "failed delta cannot reuse stale history");
+    failed_delta->rewind();
+    expect(failed_delta->next(output.data(), 256).status == DecodeStatus::Frame, "rewind can replay key after error");
+
+    auto chain = asset(0, 0, gradient, gradient, 2);
+    const auto zero_delta = asset(3, 0, {255,0,0,0}, gradient, 2);
+    for (unsigned i = 0; i < 59; ++i) append_frame(chain, zero_delta);
+    expect(AssetReader::open(chain.data(), chain.size(), error).has_value(), "59 deltas accepted");
+    auto long_chain = chain; append_frame(long_chain, zero_delta);
+    rejects(long_chain, AssetError::BadFrame);
+    append_frame(chain, asset(0, 0, gradient, gradient, 2));
+    append_frame(chain, zero_delta);
+    auto reset_chain = AssetReader::open(chain.data(), chain.size(), error);
+    expect(reset_chain.has_value(), "independent frame resets delta depth");
+    for (unsigned i = 0; i < 62; ++i) expect(reset_chain->next(output.data(), 256).status == DecodeStatus::Frame,
+                                            "bounded dependency stream decodes");
+
     std::uint32_t random = 0x12345678;
-    const std::array<Bytes, 3> fixtures{flat, raw, palette};
+    const std::array<Bytes, 4> fixtures{flat, raw, palette, delta_stream};
     for (unsigned trial = 0; trial < 4000; ++trial) {
         random ^= random << 13; random ^= random >> 17; random ^= random << 5;
-        mutation = fixtures[trial%3];
+        mutation = fixtures[trial%fixtures.size()];
         const auto position = random % mutation.size();
         mutation[position] ^= static_cast<std::uint8_t>(1U << ((random >> 16) % 8));
         if (position >= 32) seal(mutation);  // Reach structural checks past outer CRC.
         auto fuzz = AssetReader::open(mutation.data(), mutation.size(), error);
         if (fuzz) {
             output.back() = {17,18,19};
-            const auto result = fuzz->next(output.data(), 768);
-            expect(result.status == DecodeStatus::Frame || result.status == DecodeStatus::Error,
-                   "mutated input yields a bounded result");
+            for (unsigned frame = 0; frame < fuzz->info().frame_count; ++frame) {
+                const auto result = fuzz->next(output.data(), 768);
+                expect(result.status == DecodeStatus::Frame || result.status == DecodeStatus::Error,
+                       "mutated input yields a bounded result");
+                if (result.status == DecodeStatus::Error) break;
+            }
             expect(output.back().red == 17 && output.back().green == 18 && output.back().blue == 19,
                    "mutated input preserves output guard");
         } else {
@@ -173,4 +248,5 @@ int main() {
         }
     }
     std::cout << "Asset reader: " << checks << " checks passed\n";
+    std::cout << "Asset reader object bytes: " << sizeof(AssetReader) << '\n';
 }

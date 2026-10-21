@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: Apache-2.0
-"""Compile lossless RGBB v1 assets using only the Python standard library."""
+"""Compile lossless RGBB v1/v2 assets using only the Python standard library."""
 import argparse
 import json
 from pathlib import Path
@@ -9,6 +9,7 @@ import zlib
 
 MAX_ASSET_BYTES = 16 * 1024 * 1024
 MAX_DECODED_PIXELS = 16_000_000
+KEYFRAME_INTERVAL = 60
 
 
 def integer(value, label, minimum, maximum):
@@ -44,30 +45,39 @@ def encode_frame(rgb, pixel_count):
     return codec, count, payload
 
 
-def encode_asset(width, height, frames):
+def encode_asset(width, height, frames, *, version=1):
     """frames is a finite iterable of (duration_us, packed_rgb_bytes) pairs."""
     integer(width, 'width', 16, 48)
     integer(height, 'height', 16, 16)
+    integer(version, 'version', 1, 2)
     if width not in (16, 48):
         raise ValueError('supported dimensions are 16x16 and 48x16')
     pixels = width * height
     body = bytearray()
     frame_count = total_duration = 0
+    previous = None
     for duration, rgb in frames:
         integer(duration, 'duration_us', 1, 0xffffffff)
         frame_count += 1
         if frame_count > MAX_DECODED_PIXELS // pixels:
             raise ValueError('asset exceeds the decoded-pixel work limit')
         codec, palette_count, payload = encode_frame(rgb, pixels)
+        if version == 2 and previous is not None and (frame_count-1) % KEYFRAME_INTERVAL:
+            residual = bytes(a ^ b for a, b in zip(rgb, previous))
+            delta_codec, delta_palette, delta_payload = encode_frame(residual, pixels)
+            # A raw delta cannot beat raw/full storage; ties prefer full frames.
+            if delta_codec and len(delta_payload) < len(payload):
+                codec, palette_count, payload = delta_codec+2, delta_palette, delta_payload
         body += struct.pack('<IBBHII', duration, codec, 0, palette_count,
                             len(payload), zlib.crc32(rgb))
         body += payload
         total_duration += duration
+        previous = rgb
         if len(body) + 32 > MAX_ASSET_BYTES:
             raise ValueError('asset exceeds the encoded-size limit')
     if not frame_count:
         raise ValueError('asset must contain at least one frame')
-    header = struct.pack('<4sHHHHIQII', b'RGBB', 1, 32, width, height,
+    header = struct.pack('<4sHHHHIQII', b'RGBB', version, 32, width, height,
                          frame_count, total_duration, len(body), zlib.crc32(body))
     return header + body
 
@@ -75,7 +85,7 @@ def encode_asset(width, height, frames):
 def from_manifest(document):
     if type(document) is not dict or set(document) != {'version', 'width', 'height', 'frames'}:
         raise ValueError('manifest requires exactly version, width, height and frames')
-    integer(document['version'], 'version', 1, 1)
+    integer(document['version'], 'version', 1, 2)
     frames = document['frames']
     if type(frames) is not list:
         raise ValueError('frames must be a list')
@@ -91,7 +101,7 @@ def from_manifest(document):
             except ValueError as error:
                 raise ValueError('rgb888 contains invalid hex') from error
             yield frame['duration_us'], pixels
-    return encode_asset(document['width'], document['height'], source_frames())
+    return encode_asset(document['width'], document['height'], source_frames(), version=document['version'])
 
 
 def unique_object(pairs):
@@ -116,7 +126,7 @@ def main():
         args.output.write_bytes(encoded)
     except (ValueError, OSError, TypeError) as error:
         parser.error(str(error))
-    print(json.dumps({'format': 'RGBB1', 'encoded_bytes': len(encoded),
+    print(json.dumps({'format': 'RGBB'+str(struct.unpack_from('<H', encoded, 4)[0]), 'encoded_bytes': len(encoded),
                       'frame_count': struct.unpack_from('<I', encoded, 12)[0]}))
 
 

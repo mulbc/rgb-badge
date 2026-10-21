@@ -38,7 +38,8 @@ int main(int argc, char** argv) {
         }
     }
     if (!std::cout) { std::cerr << "output write failed\n"; return 1; }
-    std::cerr << "{\"width\":" << reader->info().width << ",\"height\":" << reader->info().height
+    std::cerr << "{\"version\":" << reader->info().version
+              << ",\"width\":" << reader->info().width << ",\"height\":" << reader->info().height
               << ",\"duration_us\":" << reader->info().duration_us << ",\"durations_us\":[";
     for (std::size_t i = 0; i < durations.size(); ++i) {
         if (i) std::cerr << ',';
