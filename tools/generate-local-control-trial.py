@@ -48,7 +48,22 @@ def identities(board, pad):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--max-nodes', type=int, default=200000)
+    parser.add_argument('--continuation', action='store_true',
+                        help='continue the physical-drain checkpoint using connected copper endpoints')
     args = parser.parse_args()
+    source, output, report_path, scope = SOURCE, OUTPUT, REPORT, SCOPE
+    nets = list(NETS)
+    if args.continuation:
+        source = STAGING / 'led-row-drain-tie-trial-114mm.kicad_pcb'
+        output = STAGING / 'led-control-continuation-trial-114mm.kicad_pcb'
+        report_path = ROOT / 'mechanical/review/control-continuation-trial.json'
+        scope = uuid.UUID('0b66f69c-025b-48fa-9bc4-e9ade72ac093')
+        nets += ['MODE_BOOT_N', 'ESP_EN', 'ROW_A0', 'ROW_A1', 'ROW_A2', 'ROW_A3',
+                 'SYS_I2C_SCL', 'SYS_I2C_SDA', 'GAUGE_I2C_SCL', 'GAUGE_I2C_SDA',
+                 'CHARGER_GATE_EN', 'CHARGER_EN2', 'DISPLAY_HEARTBEAT',
+                 'USB_LOGIC_SENSE', 'USB_CC_HIGH', 'USB_RAW_OUT1', 'USB_RAW_OUT2',
+                 'DISPLAY_CLEAR_OK', 'DISPLAY_ENABLE', 'ROW_ENABLE_N']
+        nets = sorted(set(nets))
     r = module('grid', 'generate-colour-fanout-grid-trial.py')
     r.X0, r.Y0, r.X1, r.Y1 = .7, .7, 113.3, 31.8
     r.NX = round((r.X1-r.X0)/r.STEP)+1
@@ -56,7 +71,8 @@ def main():
     r.SIZE = r.NX*r.NY
     r.LAYERS = (p.B_Cu, p.In4_Cu, p.In3_Cu, p.In2_Cu, p.In1_Cu, p.F_Cu)
     r.LAYER_INDEX = {layer: index for index, layer in enumerate(r.LAYERS)}
-    board = p.LoadBoard(str(SOURCE))
+    board = p.LoadBoard(str(source))
+    initial_tracks = len(list(board.GetTracks()))
     router = r.Router(board)
     for item in board.GetTracks():
         router.occupy(item)
@@ -91,6 +107,34 @@ def main():
             return []
         return [r.grid_index(layer, x, y) for layer, native in enumerate(r.LAYERS)
                 if pad.IsOnLayer(native)]
+
+    def group_endpoints(pad):
+        # Each grid cell retains its exact native endpoint, so joining the grid
+        # does not merely approach an existing track without touching it.
+        result = {}
+        items = list(board.GetConnectivity().GetConnectedItems(pad)) + [pad]
+        items.sort(key=lambda q: (q.GetClass(), q.GetPosition().x,
+                                  q.GetPosition().y, q.m_Uuid.AsString()))
+        for item in items:
+            if isinstance(item, p.PAD):
+                positions = [item.GetPosition()]
+                layers = [i for i, native in enumerate(r.LAYERS) if item.IsOnLayer(native)]
+            elif isinstance(item, p.PCB_VIA):
+                positions = [item.GetPosition()]
+                layers = [i for i, native in enumerate(r.LAYERS) if item.IsOnLayer(native)]
+            elif isinstance(item, p.PCB_TRACK):
+                positions = [item.GetStart(), item.GetEnd()]
+                layers = [r.LAYER_INDEX[item.GetLayer()]]
+            else:
+                # Filled zones are excluded: an arbitrary zone anchor need not
+                # lie in the connected filled region.
+                continue
+            for point in positions:
+                x, y = r.xy(point)
+                if r.X0 <= x <= r.X1 and r.Y0 <= y <= r.Y1:
+                    for layer in layers:
+                        result.setdefault(r.grid_index(layer, x, y), (x, y))
+        return result
 
     def search(starts, goals, net):
         if not starts or not goals:
@@ -147,7 +191,7 @@ def main():
 
     def commit(path, start, end, net):
         layer, x, y = r.grid_point(path[0])
-        trace(r.xy(start.GetPosition()), (x, y), layer, net)
+        trace(start, (x, y), layer, net)
         pending = direction = None
         for a, b in zip(path, path[1:]):
             la, ax, ay = r.grid_point(a)
@@ -169,15 +213,27 @@ def main():
         layer, x, y = r.grid_point(path[-1])
         if pending is not None:
             trace(pending, (x, y), layer, net)
-        trace((x, y), r.xy(end.GetPosition()), layer, net)
+        trace((x, y), end, layer, net)
 
     routes = []
+    def current_groups():
+        seen, groups = set(), []
+        for pads in pads_by_net.values():
+            for pad in pads:
+                if not pad.GetNetname():
+                    continue
+                identity = identities(board, pad)
+                if identity not in seen:
+                    seen.add(identity)
+                    groups.append((pad, identity))
+        return groups
+
     # Put the closest net first, then retain a deterministic name/pad order.
     def span(name):
         positions = [r.xy(q.GetPosition()) for q in pads_by_net[name]]
         return (max(x for x, y in positions)-min(x for x, y in positions) +
                 max(y for x, y in positions)-min(y for x, y in positions), name)
-    names = sorted(NETS, key=span)
+    names = sorted(nets, key=span)
     for name in names:
         pads = sorted(pads_by_net[name], key=lambda q: (q.GetParentFootprint().GetReference(), q.GetNumber()))
         anchor = pads[0]
@@ -188,35 +244,72 @@ def main():
             if identities(board, pad) == identities(board, anchor):
                 continue
             net = pad.GetNetCode()
-            goals = {cell for q in pads if identities(board, q) == identities(board, anchor) for cell in pad_cells(q)}
-            path, expanded = search(pad_cells(pad), goals, net)
+            if args.continuation:
+                starts = group_endpoints(pad)
+                targets = group_endpoints(anchor)
+                goals = set(targets)
+            else:
+                starts = {cell: r.xy(pad.GetPosition()) for cell in pad_cells(pad)}
+                targets = {cell: r.xy(q.GetPosition()) for q in pads
+                           if identities(board, q) == identities(board, anchor)
+                           for cell in pad_cells(q)}
+                goals = set(targets)
+            path, expanded = search(starts, goals, net)
+            rejection = None
             if path:
-                endpoint = next(q for q in pads if path[-1] in pad_cells(q))
-                commit(path, pad, endpoint, net)
+                if args.continuation:
+                    groups_before = current_groups()
+                    tracks_before = {t.m_Uuid.AsString() for t in board.GetTracks()}
+                    mask_before = [mask[:] for mask in router.mask]
+                commit(path, starts[path[0]], targets[path[-1]], net)
+                if args.continuation:
+                    # New signal copper can cut an existing plane's narrow
+                    # bridge despite passing clearance. Reject that transaction
+                    # before it becomes a target for subsequent searches.
+                    p.ZONE_FILLER(board).Fill(board.Zones())
+                    board.BuildConnectivity()
+                    if any(not group <= identities(board, q) for q, group in groups_before):
+                        rejection = 'existing_pad_cluster_split_after_zone_refill'
+                    elif identities(board, pad) != identities(board, anchor):
+                        rejection = 'native_endpoint_join_not_established'
+                    if rejection:
+                        for item in list(board.GetTracks()):
+                            if item.m_Uuid.AsString() not in tracks_before:
+                                board.Remove(item)
+                        router.mask = mask_before
+                        p.ZONE_FILLER(board).Fill(board.Zones())
+                        board.BuildConnectivity()
+                        assert all(group <= identities(board, q) for q, group in groups_before)
+                        path = None
             entry = dict(net=name, source=[pad.GetParentFootprint().GetReference(), pad.GetNumber()],
                          routed=bool(path), expanded_nodes=expanded)
+            if rejection:
+                entry['rejected_reason'] = rejection
             routes.append(entry)
             print(entry, flush=True)
     p.ZONE_FILLER(board).Fill(board.Zones())
-    p.SaveBoard(str(OUTPUT), board)
+    p.SaveBoard(str(output), board)
     helper = module('save', 'generate-paired-charger-114mm-routing.py')
-    data = helper.sorted_native_tracks(OUTPUT.read_text(), expected=len(list(board.GetTracks())))
+    data = helper.sorted_native_tracks(output.read_text(), expected=len(list(board.GetTracks())))
     sequence = iter(range(data.count('(uuid "')))
     data = re.sub(r'\(uuid "[0-9a-f-]{36}"\)',
-                  lambda _: '(uuid "'+str(uuid.uuid5(SCOPE, str(next(sequence))))+'")', data)
-    OUTPUT.write_text(data)
-    loaded = p.LoadBoard(str(OUTPUT))
+                  lambda _: '(uuid "'+str(uuid.uuid5(scope, str(next(sequence))))+'")', data)
+    output.write_text(data)
+    loaded = p.LoadBoard(str(output))
     report = dict(status='UNQUALIFIED_LOCAL_CONTROL_STUDY',
-                  source_sha256=hashlib.sha256(SOURCE.read_bytes()).hexdigest(),
-                  board_sha256=hashlib.sha256(OUTPUT.read_bytes()).hexdigest(),
+                  source_sha256=hashlib.sha256(source.read_bytes()).hexdigest(),
+                  board_sha256=hashlib.sha256(output.read_bytes()).hexdigest(),
                   kicad_version=p.GetBuildVersion(), grid_mm=r.STEP,
                   width_mm=r.WIDTH, clearance_mm=r.CLEARANCE,
                   microvia_diameter_drill_mm=[r.VIA_D, r.VIA_HOLE],
-                  max_nodes=args.max_nodes, allowed_nets=NETS, routes=routes,
+                  max_nodes=args.max_nodes, allowed_nets=nets, routes=routes,
+                  connected_copper_endpoints=args.continuation,
+                  preserve_clusters_after_each_join=args.continuation,
+                  added_tracks_and_vias=len(list(loaded.GetTracks()))-initial_tracks,
                   tracks_and_vias=len(list(loaded.GetTracks())),
                   open_edges=loaded.GetConnectivity().GetUnconnectedCount(False))
     report['SPDX-License-Identifier'] = 'CERN-OHL-S-2.0'
-    REPORT.write_text(json.dumps(report, indent=2, sort_keys=True)+'\n')
+    report_path.write_text(json.dumps(report, indent=2, sort_keys=True)+'\n')
     print('Saved', report['open_edges'], 'open edges', flush=True)
 
 

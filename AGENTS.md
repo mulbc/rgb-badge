@@ -8,6 +8,8 @@ These instructions apply to the complete repository.
 
 The owner authorized the assistant on 2026-09-07 to act as the sole developer and merge pull requests once their applicable checks pass, without requesting merge permission again. Record validation evidence and unresolved findings. Independent Gate A engineering review is still required before fabrication; a source-code merge is not a fabrication release.
 
+The owner reaffirmed standing permission on 2026-10-21 to commit and push completed project work without further approval. Exclude non-redistributable third-party material, especially vendor datasheet PDFs, as well as local build output and unsigned manufacturing artifacts.
+
 When giving the owner shell commands, assume the current directory is the repository root. Do not include a placeholder `cd` command.
 
 ## Read before changing the project

@@ -2,7 +2,9 @@
 
 # Coupon staging and layout studies
 
-**Latest combined routing study:** [Both physical row-drain lands](led-row-drain-tie-trial-114mm.kicad_pcb) are now joined on all sixteen pairs. [Evidence](../../../../docs/development/led-row-drain-tie-study-2026-10-20.md) records 246 native opens, unchanged source tracks/placements/other pad clusters, exactly 104 intrinsic DRC findings, deterministic regeneration and a negative missing-tie test. Run `./tools/check-row-drain-tie.sh` from the repository root. This unbuilt mixed-source study is never fabrication source.
+**Latest combined routing study:** The [guarded control continuation](led-control-continuation-trial-114mm.kicad_pcb) has 236 native opens and exactly 104 unchanged intrinsic DRC findings. [Evidence](../../../../docs/development/led-control-continuation-study-2026-10-21.md) records ten joins, preserved existing physical pad groups and rollback of plane-splitting routes. Run `./tools/check-control-continuation.sh` from the repository root. No component, current setting or display-output boundary changes; this unbuilt mixed-source study is never fabrication source.
+
+**Previous physical-drain checkpoint:** [Both physical row-drain lands](led-row-drain-tie-trial-114mm.kicad_pcb) are now joined on all sixteen pairs. [Evidence](../../../../docs/development/led-row-drain-tie-study-2026-10-20.md) records 246 native opens, unchanged source tracks/placements/other pad clusters, exactly 104 intrinsic DRC findings, deterministic regeneration and a negative missing-tie test. Run `./tools/check-row-drain-tie.sh` from the repository root. This unbuilt mixed-source study is never fabrication source.
 
 The separate [VLED converter candidate](../vled-converter-capture-contract.md) now stages thirteen exact-MPN items in vled-converter.kicad_sch. It is default-disabled and remains unlinked until protected SYS and the hardware display interlock are captured.
 

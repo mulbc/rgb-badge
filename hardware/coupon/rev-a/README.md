@@ -2,6 +2,8 @@
 
 # Coupon Rev A
 
+**2026-10-21 latest routing study:** The [guarded control continuation](../../../docs/development/led-control-continuation-study-2026-10-21.md) adds ten control joins, lowering full native opens to 236. All source copper, placements and existing pad groups survive, including both physical drain lands per row; full DRC retains exactly the 104 intrinsic findings. Two plane-splitting gauge routes are rejected. Run `./tools/check-control-continuation.sh`. GND still has 27 opens, eight pullups remain unjoined, and electrical/process/mechanical qualification and Gate A are open. This unbuilt mixed-source study is never fabrication source.
+
 **2026-10-20 combined row-control study:** The [partial combined derivative](../../../docs/development/led-row-combined-partial-study-2026-10-20.md) joins seven gate pullups on the same routed board as all sixteen decoder selects and signal-side select pulldowns. It has 527 open edges and the original 104 DRC findings. Nine gate pullups and row ground/power remain open.
 
 **2026-10-20 ground study:** A [provisional In2.Cu GND zone](../../../docs/development/led-in2-ground-plane-study-2026-10-20.md) is anchored to one select-pulldown ground pad and passes the unchanged native DRC baseline. It does not close any additional open edges or qualify ground returns; direct stacked vias on all sixteen ground pads caused shorts in a rejected probe.
