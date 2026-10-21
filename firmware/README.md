@@ -50,3 +50,9 @@ The [synthetic capacity screen](asset-capacity.md) encodes 24 clips totalling fi
 The [one-shot playback controller](playback.md), under ADR 0037, schedules validated v1/v2 frames against absolute monotonic microsecond deadlines. It preserves original duration metadata, reports any tolerated admission lateness, and latches errors on missed deadlines, expired intervals, backward time, overflow or decoding failure. Stop/end/error clear software pixels; restart explicitly rewinds. It never silently skips frames or rebases deadlines. The explicit lateness budget defaults to zero and is not a qualified target tolerance.
 
 Run `./tools/check-playback.sh` for sanitized native timing checks and compiler/native pixel-and-timing integration tests. The controller owns output in addition to the reader reference, occupying 4,736 bytes on the tested Apple arm64 host. No GPIO, physical blanking, scan engine or display-enable path is implemented. Target timer/decode/latch timing, memory placement and hardware fault handling remain open.
+
+## Host mode button
+
+The [sampled mode-button core](mode-button.md), under ADR 0038, requires an initial debounced release, qualifies the approximately three-second hold and emits one programming-entry event. Software requests keep BLE off outside Programming and assert display inhibit immediately on raw press and throughout AwaitRelease/Programming/Fault. Backward time latches fault; explicit reset requires release again. Debounce/hold defaults are development policy, and removing inhibit never arms hardware.
+
+Run `./tools/check-mode-button.sh` for sanitized checks, including an independent window oracle over all 4,096 twelve-sample input waveforms. The object occupies 48 bytes on the tested Apple arm64 host without heap allocation. Actual BLE resource handling, GPIO mapping/sampling, physical blanking and ROM recovery are not implemented or qualified by this core.

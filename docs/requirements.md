@@ -70,6 +70,8 @@ The provisional runtime workload consists of representative text, icons and anim
 
 **2026-10-21 DSP-003/004/006 playback preparation (ADR 0037):** Host playback shall use absolute monotonic microsecond deadlines and original frame durations, expose any admission lateness, and never silently drop frames or rebase timing. Exceeding an explicit lateness budget, an entirely expired next interval, backward time, timeline overflow or decoding failure shall latch a software error and clear software output. Explicit restart rewinds; completion/stop clear output. This does not qualify target timing, visual refresh or physical blanking.
 
+**2026-10-21 RF-001/002, CTL-001, DSP-006 mode preparation (ADR 0038):** The host mode-button model shall require an initial qualified release, debounce input, qualify one approximately three-second hold, request BLE only in Programming and immediately request display inhibit on a raw press. Backward time shall latch a fault with BLE request withdrawn and inhibit asserted. Explicit reset requires release again; removing inhibit is never a display-arm command. Actual GPIO polarity, sampling cadence, BLE resources/current, ROM recovery and physical interlock behavior remain target/hardware acceptance work.
+
 ## Power-architecture proposal verification addendum
 
 2026-10-05: [ADR 0018](decisions/0018-complete-power-architecture-proposal.md) is **proposed, not an accepted replacement of the table above**. These verification refinements must be adopted/resolved before its material circuit changes are implemented. No current ceiling, battery rating or fabrication gate is relaxed.

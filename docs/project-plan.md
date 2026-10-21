@@ -147,6 +147,8 @@ The 16 MB flash target assumes compiled badge assets, not raw video. One uncompr
 
 **2026-10-21 host playback:** [ADR 0037](decisions/0037-host-playback-deadlines.md) and the [playback contract](../firmware/playback.md) add one-shot absolute microsecond scheduling over both asset versions, explicit admission lateness and latched software errors/clearing. Host tests compare a full five-minute 60 fps timeline with a rational oracle and actual compiler-produced pixels/durations. Run `./tools/check-playback.sh`. Target decode/latch/scan timing, physical blanking and object placement remain unqualified.
 
+**2026-10-21 mode preparation:** [ADR 0038](decisions/0038-host-mode-button.md) adds the [host mode-button core](../firmware/mode-button.md), with debounced startup release, qualified hold, one programming-entry event and software-only BLE/inhibit requests. Run `./tools/check-mode-button.sh`. Target sampling, physical interlock, actual BLE resource handling/current and ROM recovery remain open.
+
 The existing classic ESP32-WROOM-32 breadboard board can be used for content-file parsing, BLE state-machine sketches and other pure software. It should not be used as evidence that the final display, native USB, charger, RF layout or ESP32-S3 peripherals work.
 
 ### 3.5 USB-C and charging

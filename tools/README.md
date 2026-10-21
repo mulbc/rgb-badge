@@ -2,6 +2,8 @@
 
 # Software tools
 
+`./tools/check-mode-button.sh` checks the [host mode-button model](../firmware/mode-button.md) with strict warnings and fail-fast sanitizers. It exhausts all 4,096 twelve-sample button waveforms against an independent window oracle, plus real-duration boundaries, bounce, stuck-start, reset and clock extremes. BLE/inhibit outputs are software requests; no GPIO, radio or hardware display interface is implemented.
+
 `./tools/check-playback.sh` checks the [host playback controller](../firmware/playback.md) with strict warnings and fail-fast sanitizers, then compares compiler-produced v1/v2 pixels and deadlines through a native trace adapter. It includes a five-minute rational 60 fps timeline, explicit lateness, missed deadlines, clock/overflow faults, stop/restart and decoded corruption. The core has no hardware interfaces; target timing and physical blanking remain unqualified.
 
 `compile-assets.py INPUT.json OUTPUT.rgbb` deterministically encodes exact RGB888 frames and durations as raw, RGB-run or palette-run data. The [format](../firmware/asset-format.md) is a provisional host format, with no image quantization, partition allocation or target-playback claim. `./tools/check-assets.sh` runs sanitized native decoder checks plus Python/C++ pixel-and-duration integration tests. Generated assets/binaries belong in ignored `firmware/build/`. GitHub's host-software workflow runs this suite and the colour core.
