@@ -13,6 +13,7 @@ _autosave-*
 fp-info-cache
 hardware/coupon/rev-a/staging/full-coupon-placement-trial-120mm.kicad_pro
 hardware/coupon/rev-a/staging/led-row13-bias-trial-114mm.kicad_pro
+hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pro
 
 # Local/generated electronics output. Signed release artifacts are tracked
 # explicitly below manufacturing/.

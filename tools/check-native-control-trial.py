@@ -1,0 +1,142 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: Apache-2.0
+"""Independently check saved native-clearance control routing and native DRC."""
+import argparse
+from collections import Counter
+import hashlib
+import importlib.util
+import json
+from pathlib import Path
+import pcbnew as p
+
+ROOT = Path(__file__).resolve().parents[1]
+STAGING = ROOT / 'hardware/coupon/rev-a/staging'
+SOURCE = STAGING / 'led-row13-bias-trial-114mm.kicad_pcb'
+OUTPUT = STAGING / 'led-native-control-trial-114mm.kicad_pcb'
+
+
+def module(name, filename):
+    spec = importlib.util.spec_from_file_location(name, ROOT / 'tools' / filename)
+    result = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(result)
+    return result
+
+
+def identity(pad):
+    return (pad.GetParentFootprint().GetReference(), pad.GetNumber(),
+            pad.GetPosition().x, pad.GetPosition().y)
+
+
+def cluster(board, pad):
+    return frozenset(identity(q) for q in board.GetConnectivity().GetConnectedItems(pad)
+                     if isinstance(q, p.PAD))
+
+
+def validate_geometry(old, new, intended_joins):
+    escape = module('escape', 'check-ground-escape-trial.py')
+    grid = module('grid', 'generate-colour-fanout-grid-trial.py')
+    before = {f.GetReference(): f for f in old.GetFootprints()}
+    after = {f.GetReference(): f for f in new.GetFootprints()}
+    assert before.keys() == after.keys() and len(after) == 483
+    new_pads = {}
+    for ref, part in before.items():
+        other = after[ref]
+        assert (part.GetValue(), part.GetFPIDAsString(), part.GetPosition(),
+                part.GetOrientation().AsDegrees(), part.GetLayer()) == (
+                    other.GetValue(), other.GetFPIDAsString(), other.GetPosition(),
+                    other.GetOrientation().AsDegrees(), other.GetLayer()), ref
+        assert Counter(map(escape.pad_signature, part.Pads())) == Counter(
+            map(escape.pad_signature, other.Pads())), ref
+        for pad in other.Pads():
+            assert identity(pad) not in new_pads
+            new_pads[identity(pad)] = pad
+    originals = Counter(grid.signature(item) for item in old.GetTracks())
+    added = []
+    for item in new.GetTracks():
+        signature = grid.signature(item)
+        if originals[signature]:
+            originals[signature] -= 1
+        else:
+            added.append(item)
+    assert not +originals, 'Source copper removed'
+    # These are the reviewed signal nets, never supply/current-setting/USB
+    # differential nets or physical display-enable boundary substitutions.
+    allowed = {'ROW_GATE_05', 'SYS_I2C_SCL', 'VLED_WINDOW_OK'}
+    assert added and {item.GetNetname() for item in added} == allowed
+    stack = list(new.GetEnabledLayers().CuStack())
+    for item in added:
+        if isinstance(item, p.PCB_VIA):
+            assert item.GetViaType() == p.VIATYPE_MICROVIA
+            assert item.GetWidth(item.TopLayer()) == 300000 and item.GetDrillValue() == 100000
+            assert abs(stack.index(item.TopLayer())-stack.index(item.BottomLayer())) == 1
+        else:
+            assert item.GetWidth() == 200000 and item.GetStart() != item.GetEnd()
+    changed = set()
+    for part in before.values():
+        for pad in part.Pads():
+            if not pad.GetNetname():
+                continue
+            a, b = cluster(old, pad), cluster(new, new_pads[identity(pad)])
+            assert a <= b, ('Existing physical pad cluster split', identity(pad))
+            if a != b:
+                changed.add(pad.GetNetname())
+    assert changed == allowed, changed
+    assert len(intended_joins) == 4
+    for entry in intended_joins:
+        name, ref, number = entry['net'], *entry['source']
+        assert name in allowed
+        source_pad = next(q for q in before[ref].Pads() if q.GetNumber() == number)
+        anchor_ref, anchor_number = entry['anchor']
+        anchor = next(q for q in before[anchor_ref].Pads() if q.GetNumber() == anchor_number)
+        assert source_pad.GetNetname() == anchor.GetNetname() == name
+        assert cluster(old, source_pad) != cluster(old, anchor)
+        assert cluster(new, new_pads[identity(source_pad)]) == cluster(new, new_pads[identity(anchor)])
+    physical = module('physical', 'check-row-drain-tie-trial.py')
+    physical.check_physical_rows(new)
+    return dict(unchanged_footprints=483, source_copper_preserved=True,
+                existing_physical_pad_clusters_preserved=True,
+                changed_nets=sorted(changed), checked_joins=len(intended_joins),
+                added_tracks=sum(not isinstance(t, p.PCB_VIA) for t in added),
+                added_microvias=sum(isinstance(t, p.PCB_VIA) for t in added),
+                physical_anode_pads_per_row=18)
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--drc', required=True, type=Path)
+    parser.add_argument('--report', type=Path)
+    args = parser.parse_args()
+    manifest = json.loads((ROOT / 'mechanical/review/native-control-trial.json').read_text())
+    plan_path = ROOT / 'mechanical/review/native-control-routing-plan.json'
+    plan = json.loads(plan_path.read_text())
+    for path, key in ((SOURCE, 'source_sha256'), (OUTPUT, 'board_sha256'),
+                      (plan_path, 'plan_sha256'),
+                      (ROOT / 'tools/generate-native-control-trial.py', 'generator_sha256')):
+        assert hashlib.sha256(path.read_bytes()).hexdigest() == manifest[key]
+    old, new = p.LoadBoard(str(SOURCE)), p.LoadBoard(str(OUTPUT))
+    result = validate_geometry(old, new, plan['intended_joins'])
+    assert result['added_tracks'] == manifest['added_tracks']
+    assert result['added_microvias'] == manifest['added_microvias']
+    colour = module('colour', 'check-colour-fanout-trial.py')
+    assert colour.findings(args.drc) == colour.findings(ROOT / 'docs/development/led-row13-bias-drc-2026-10-21.json')
+    assert len(colour.findings(args.drc)) == 104
+    reporter = module('connectivity', 'report-coupon-board-connectivity.py')
+    opens = reporter.open_edges_by_net(OUTPUT)
+    assert opens['native_open_edges'] == opens['pad_cluster_open_edges'] == manifest['native_open_edges'] == 230
+    assert opens['by_net']['GND'] == 27 and opens['by_net']['VLED'] == 14
+    assert {name for name in opens['by_net'] if name.startswith('ROW_GATE_')} == {
+        'ROW_GATE_00', 'ROW_GATE_02', 'ROW_GATE_03', 'ROW_GATE_04', 'ROW_GATE_06', 'ROW_GATE_07'}
+    assert len(list(new.GetTracks())) == manifest['tracks_and_vias']
+    result.update(board_sha256=manifest['board_sha256'], kicad_version=p.GetBuildVersion(),
+                  native_open_edges=230, ground_open_edges=27, vled_open_edges=14,
+                  connected_gate_terminals=10, remaining_gate_terminals=6,
+                  full_drc='104_UNCHANGED_INTRINSIC_FINDINGS',
+                  drc_sha256=hashlib.sha256(args.drc.read_bytes()).hexdigest())
+    result['SPDX-License-Identifier'] = 'CERN-OHL-S-2.0'
+    if args.report:
+        args.report.write_text(json.dumps(result, indent=2, sort_keys=True)+'\n')
+    print(json.dumps(result, indent=2, sort_keys=True))
+
+
+if __name__ == '__main__':
+    main()

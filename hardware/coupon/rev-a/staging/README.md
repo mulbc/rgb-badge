@@ -1,6 +1,12 @@
 <!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
 
-Latest routed derivative: [row-13 bias study](../../../../docs/development/led-row13-bias-study-2026-10-21.md)
+Latest routed derivative: [native-clearance gate/control continuation](../../../../docs/development/led-native-control-study-2026-10-21.md)
+adds four joins with no placement changes, leaving 230 native opens and the
+same 104 intrinsic DRC findings. Run `./tools/check-native-control.sh` from the
+repository root. All prior physical pad groups survive; electrical/process/fit
+qualification and Gate A remain open. Never fabricate from this study.
+
+Preceding routed derivative: [row-13 bias study](../../../../docs/development/led-row13-bias-study-2026-10-21.md)
 moves R19 and joins its gate/VLED terminals, leaving 234 native opens and the
 same 104 intrinsic DRC findings. Existing copper and pad groups survive; nine
 gate-side pullups connect. Run `./tools/check-row13-bias.sh` from the repository

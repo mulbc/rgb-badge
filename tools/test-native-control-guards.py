@@ -1,0 +1,94 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: Apache-2.0
+"""Native fault injection for the saved control-continuation checker."""
+from collections import Counter
+import importlib.util
+import json
+from pathlib import Path
+import subprocess
+import sys
+import unittest
+import pcbnew as p
+
+ROOT = Path(__file__).resolve().parents[1]
+spec = importlib.util.spec_from_file_location('check', ROOT / 'tools/check-native-control-trial.py')
+check = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(check)
+
+
+class NativeControlGuards(unittest.TestCase):
+    def setUp(self):
+        self.old = p.LoadBoard(str(check.SOURCE))
+        self.new = p.LoadBoard(str(check.OUTPUT))
+        self.parts = {f.GetReference(): f for f in self.new.GetFootprints()}
+        self.joins = json.loads((ROOT / 'mechanical/review/native-control-routing-plan.json').read_text())['intended_joins']
+        grid = check.module('grid', 'generate-colour-fanout-grid-trial.py')
+        originals = Counter(grid.signature(t) for t in self.old.GetTracks())
+        self.added = []
+        for item in self.new.GetTracks():
+            signature = grid.signature(item)
+            if originals[signature]:
+                originals[signature] -= 1
+            else:
+                self.added.append(item)
+
+    def reject(self):
+        p.ZONE_FILLER(self.new).Fill(self.new.Zones())
+        self.new.BuildConnectivity()
+        with self.assertRaises(AssertionError):
+            check.validate_geometry(self.old, self.new, self.joins)
+
+    def test_saved_study_passes(self):
+        self.assertEqual(check.validate_geometry(self.old, self.new, self.joins)['checked_joins'], 4)
+
+    def test_gate_copper_detached_without_changing_item_counts(self):
+        for item in self.added:
+            if item.GetNetname() == 'ROW_GATE_05':
+                item.Move(p.VECTOR2I(0, -5000000))
+        self.reject()
+
+    def test_i2c_copper_detached_without_changing_item_counts(self):
+        for item in self.added:
+            if item.GetNetname() == 'SYS_I2C_SCL':
+                item.Move(p.VECTOR2I(0, 5000000))
+        self.reject()
+
+    def test_source_drain_tie_removed(self):
+        # Keep the detached native item alive until connectivity has rebuilt;
+        # an immediately collected SWIG temporary can leave cached pointers.
+        removed = next(t for t in self.new.GetTracks() if t.GetNetname() == 'ROW_00_A')
+        self.new.Remove(removed)
+        self.reject()
+
+    def test_duplicate_physical_drain_land_changed(self):
+        pads = [q for q in self.parts['PAIR01'].Pads() if q.GetNumber() == '3']
+        self.assertEqual(len(pads), 2)
+        pads[0].Move(p.VECTOR2I(100000, 0))
+        self.reject()
+
+    def test_footprint_moved(self):
+        self.parts['U46'].Move(p.VECTOR2I(100000, 0))
+        self.reject()
+
+    def test_pad_net_changed(self):
+        pad = next(q for q in self.parts['U46'].Pads() if q.GetNumber() == '7')
+        pad.SetNet(self.new.FindNet('GND'))
+        self.reject()
+
+    def test_nonadjacent_microvia(self):
+        via = next(t for t in self.added if isinstance(t, p.PCB_VIA))
+        stack = list(self.new.GetEnabledLayers().CuStack())
+        via.SetLayerPair(stack[0], stack[2])
+        self.reject()
+
+
+if __name__ == '__main__':
+    if any(arg.startswith('NativeControlGuards.') for arg in sys.argv[1:]):
+        unittest.main()
+    else:
+        # Separate native runtimes avoid KiCad's repeated BOARD-wrapper
+        # destruction issue on macOS (see the preceding row-13 guard runner).
+        names = unittest.defaultTestLoader.getTestCaseNames(NativeControlGuards)
+        for name in names:
+            subprocess.run([sys.executable, __file__, 'NativeControlGuards.'+name, '-v'], check=True)
+        print(f'All {len(names)} isolated native control guard checks passed.')
