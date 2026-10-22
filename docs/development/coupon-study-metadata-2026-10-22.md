@@ -4,6 +4,8 @@
 
 Status: **source metadata transferred; unbuilt noncanonical study, fabrication prohibited**.
 
+This records the metadata-only 225-open checkpoint. The later [application-data route](led-application-data-study-2026-10-22.md) changes copper and reduces opens to 224 while preserving this metadata. Rolling reports below describe the latest board; this checkpoint's exact file identities remain in its validation record.
+
 The [native generator](../../tools/generate-native-control-trial.py) now adds hidden
 `MPN` and `Manufacturer` properties to the 465 components shared with the canonical
 schematic. It validates canonical source fingerprints, exact placed identities and

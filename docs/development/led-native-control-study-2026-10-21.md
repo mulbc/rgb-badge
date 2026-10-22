@@ -11,11 +11,12 @@ moving any footprint. The initial four joins reduced full native opens 234 → 2
 A supply-preserving clock detour added a fifth join (229 opens). The 2026-10-22
 gauge-data continuation added a sixth (228 opens). A joint gauge-clock and
 supply-continuity increment added a seventh (227 opens). The subsequent UART
-receive/device-transmit joins leave **225 opens**, nine joins in total.
+receive/device-transmit joins left 225 opens. The [application-data continuation](led-application-data-study-2026-10-22.md) joins U46.6 to R79.2/U3.10, leaving **224 opens**, ten joins in total.
 
 | Net | Opens before | Opens after | Newly joined terminals |
 |---|---:|---:|---|
 | ROW_GATE_05 | 1 | 0 | R11.2 to PAIR06's gate group |
+| SYS_I2C_SDA | 2 | 1 | U46.6 to the existing R79.2/U3.10 group; TP11 remains open |
 | SYS_I2C_SCL | 3 | 0 | TP12.1, U46.7 and U3.11 to the existing R80.2 group |
 | VLED_WINDOW_OK | 1 | 0 | U55.6 to the existing R104.2 group |
 | GAUGE_I2C_SDA | 2 | 1 | U46.3 to the existing R101.2 group |
@@ -108,8 +109,8 @@ unchanged. This establishes source connectivity only, not UART/programming,
 ROM recovery, signal integrity or target firmware operation.
 [UART and rejected-transmit evidence](../../mechanical/review/native-control-uart-continuation-2026-10-22.json).
 
-The cumulative addition comprises **278 tracks and 34 adjacent-layer microvias**,
-bringing the board to **14,806 tracks/vias**. All 483 placements, exact parts,
+The cumulative addition comprises **343 tracks and 38 adjacent-layer microvias**,
+bringing the board to **14,875 tracks/vias**. All 483 placements, exact parts,
 pad assignments and 14,494 source tracks/vias survive. The selected added
 copper is captured in an integer-coordinate [replay plan](../../mechanical/review/native-control-routing-plan.json)
 (1,000,000 KiCad internal units/mm). The [generator](../../tools/generate-native-control-trial.py)
@@ -133,12 +134,12 @@ Vendor PDFs are excluded from Git.
   clean DRC. [Raw report](led-native-control-drc-2026-10-21.json).
 - The [saved-board checker](../../tools/check-native-control-trial.py) verifies
   unchanged physical pad geometry, source copper, every old pad group, all
-  nine claimed joins, actual via dimensions/layer adjacency and all eighteen
+  ten claimed joins, actual via dimensions/layer adjacency and all eighteen
   physical anode pads per row. [Result](../../mechanical/review/native-control-check.json).
 - [Per-net native counts](../../mechanical/review/native-control-open-nets.json)
-  reconcile all 225 opens. Only the seven listed signal nets' pad groups change;
+  reconcile all 224 opens. Only the eight listed signal nets' pad groups change;
   the USB-logic and application supply groups are preserved.
-- All 256 exact LED placements/rotations/pad maps/nets pass. Seventeen isolated
+- All 256 exact LED placements/rotations/pad maps/nets pass. Eighteen isolated
   native guard cases cover detached gate/I²C copper without item-count changes,
   removed source copper, altered duplicate drain geometry, moved footprints,
   pad-net changes and nonadjacent microvias. The new regression deliberately
@@ -151,7 +152,7 @@ Vendor PDFs are excluded from Git.
   repairs, proving the rejected power split in each domain. UART cases detach
   receive/device-transmit copper or keep transmit joined while disconnecting
   C58/C59 from their old supply group. These are checker fault tests,
-  not powered-board fault response or independent Gate A review.
+  not powered-board fault response or independent Gate A review. The application-data case detaches its added copper without changing counts and requires rejection.
 - Two generations are byte-identical. [Manifest](../../mechanical/review/native-control-trial.json),
   [reproduction](../../mechanical/review/native-control-reproduction.json) and
   [validation record](../../mechanical/review/native-control-validation.json)
@@ -162,7 +163,7 @@ Vendor PDFs are excluded from Git.
 ./tools/check-native-control.sh
 ```
 
-Saved-board SHA-256 after the [metadata-only projection](coupon-study-metadata-2026-10-22.md): `20e56a776dc6e27a6bfab389753d8acba29998926dba10272f32f4e9034785c9`. The prior `0fd1f0d...` checkpoint has identical geometry, fills, existing UUIDs and connectivity; only hidden shared MPN/manufacturer fields were added.
+Saved-board SHA-256 after the application-data continuation: `9844ae5d0d9ff9ed5e839cefa9734e89693dd405fce39092f68e8c3c7e62bc04`. The preceding metadata-only checkpoint was `20e56a77...`; its validation record remains historical.
 
 Remaining work includes six gate terminals and missing pullup supplies,
 ground/power/control/clock/USB completion, timing/dead-time and bus signal

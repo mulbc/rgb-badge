@@ -39,7 +39,13 @@ class NativeControlGuards(unittest.TestCase):
             check.validate_geometry(self.old, self.new, self.joins)
 
     def test_saved_study_passes(self):
-        self.assertEqual(check.validate_geometry(self.old, self.new, self.joins)['checked_joins'], 9)
+        self.assertEqual(check.validate_geometry(self.old, self.new, self.joins)['checked_joins'], 10)
+
+    def test_application_data_detached_without_changing_item_counts(self):
+        for item in self.added:
+            if item.GetNetname() == 'SYS_I2C_SDA':
+                item.Move(p.VECTOR2I(0, 5000000))
+        self.reject()
 
     def test_gauge_data_detached_without_changing_item_counts(self):
         for item in self.added:

@@ -1,6 +1,6 @@
 {
   "SPDX-License-Identifier": "CERN-OHL-S-2.0",
-  "accepted_join_count": 9,
+  "accepted_join_count": 10,
   "continuation_stages": [
     {
       "accepted_join": {
@@ -71,6 +71,15 @@
       "opens_after": 225,
       "opens_before": 227,
       "supply_repair_required": true
+    },
+    {
+      "added_adjacent_layer_microvias": 4,
+      "added_tracks": 65,
+      "evidence": "mechanical/review/native-control-application-data-2026-10-22.json",
+      "increment_base_revision": "aa1c58e9634723cded5949d1063818ce4be3c359",
+      "kind": "Exact-nearest-goal application data continuation",
+      "output_board_sha256": "9844ae5d0d9ff9ed5e839cefa9734e89693dd405fce39092f68e8c3c7e62bc04",
+      "source_board_sha256": "20e56a776dc6e27a6bfab389753d8acba29998926dba10272f32f4e9034785c9"
     }
   ],
   "exact_native_shape_screen_excludes": [
@@ -80,7 +89,7 @@
   ],
   "exact_native_shape_screen_includes": "Foreign-net track/pad shapes on each affected copper layer; full native DRC required separately",
   "grid_mm": 0.05,
-  "interpretation": "Selected copper is independently replayed/checked; local search scripts and failed probes are not canonical board source",
+  "interpretation": "Selected copper is independently replayed/checked; the reusable guarded search tool produces local candidates, not fabrication source",
   "limitations": "Bounded failed attempts do not prove a net impossible to route; no source/current/device setting is changed",
   "microvia_diameter_drill_mm": [
     0.3,

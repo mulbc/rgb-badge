@@ -62,7 +62,7 @@ def validate_geometry(old, new, intended_joins):
     # Only the reviewed signal joins and fixed supply-continuity geometry are
     # allowed. Power pad groups must be exactly unchanged after the joint fill.
     allowed = {'ROW_GATE_05', 'SYS_I2C_SCL', 'VLED_WINDOW_OK',
-               'GAUGE_I2C_SDA', 'GAUGE_I2C_SCL', 'UART0_RX', 'UART0_TX_RAW'}
+               'GAUGE_I2C_SDA', 'GAUGE_I2C_SCL', 'UART0_RX', 'UART0_TX_RAW', 'SYS_I2C_SDA'}
     power_hashes = {
         '+3V3_APP': (26, 'fda8fe3404655998aceb7616469bf9d6faee7f075ab474304bccf1918ce93e89'),
         '+3V3_USB': (10, '299e9ca0dc333371ab467fdbae07e4c1a5217c950ee0b2fefdf427327c1d5074'),
@@ -97,7 +97,7 @@ def validate_geometry(old, new, intended_joins):
         signatures = sorted(power_signature(t) for t in added if t.GetNetname() == name)
         assert len(signatures) == count
         assert hashlib.sha256(json.dumps(signatures, separators=(',', ':')).encode()).hexdigest() == digest
-    assert len(intended_joins) == 9
+    assert len(intended_joins) == 10
     for entry in intended_joins:
         name, ref, number = entry['net'], *entry['source']
         assert name in allowed
@@ -150,9 +150,14 @@ def main():
     assert len(colour.findings(args.drc)) == 104
     reporter = module('connectivity', 'report-coupon-board-connectivity.py')
     opens = reporter.open_edges_by_net(OUTPUT)
-    assert opens['native_open_edges'] == opens['pad_cluster_open_edges'] == manifest['native_open_edges'] == 225
+    assert opens['native_open_edges'] == opens['pad_cluster_open_edges'] == manifest['native_open_edges'] == 224
     assert opens['by_net']['GND'] == 27 and opens['by_net']['VLED'] == 14
     assert 'SYS_I2C_SCL' not in opens['by_net']
+    assert opens['by_net']['SYS_I2C_SDA'] == 1
+    data_pad = next(q for f in new.GetFootprints() if f.GetReference() == 'U46'
+                    for q in f.Pads() if q.GetNumber() == '6')
+    assert {(ref, number) for ref, number, x, y in cluster(new, data_pad)} == {
+        ('U46', '6'), ('U3', '10'), ('R79', '2')}, 'Application data group differs'
     assert 'UART0_RX' not in opens['by_net'] and 'UART0_TX_RAW' not in opens['by_net']
     assert opens['by_net']['UART0_TX'] == 1
     assert opens['by_net']['+3V3_APP'] == 7 and opens['by_net']['+3V3_USB'] == 4
@@ -161,8 +166,9 @@ def main():
         'ROW_GATE_00', 'ROW_GATE_02', 'ROW_GATE_03', 'ROW_GATE_04', 'ROW_GATE_06', 'ROW_GATE_07'}
     assert len(list(new.GetTracks())) == manifest['tracks_and_vias']
     result.update(board_sha256=manifest['board_sha256'], kicad_version=p.GetBuildVersion(),
-                  native_open_edges=225, ground_open_edges=27, vled_open_edges=14,
+                  native_open_edges=224, ground_open_edges=27, vled_open_edges=14,
                   application_clock_open_edges=0,
+                  application_data_open_edges=1,
                   uart_receive_open_edges=0, uart_device_transmit_open_edges=0,
                   uart_test_pad_transmit_open_edges=1,
                   gauge_data_open_edges=1, gauge_clock_open_edges=1,

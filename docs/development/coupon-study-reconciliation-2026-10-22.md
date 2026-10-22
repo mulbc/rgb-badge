@@ -76,13 +76,14 @@ hash drift, duplicate PCB references and stale native XML. A separate temporary
 checkout containing only the declared CI inputs passes the same suite.
 [Validation identities](../../mechanical/review/coupon-study-reconciliation-validation-2026-10-22.json).
 
-The current PCB SHA-256 is
-`20e56a776dc6e27a6bfab389753d8acba29998926dba10272f32f4e9034785c9`, after metadata-only projection from the
-`0fd1f0df...` checkpoint at commit `29830c7`. Full native checks were rerun:
-225 opens and the exact same 104 intrinsic clearance findings remain. The full
-parsed board, including existing UUIDs, differs only in the two hidden identity
-properties on shared footprints. [Current validation](../../mechanical/review/coupon-study-metadata-validation-2026-10-22.json);
-the earlier validation record above is historical.
+The current routed PCB SHA-256 is `9844ae5d0d9ff9ed5e839cefa9734e89693dd405fce39092f68e8c3c7e62bc04`. The
+[application-data continuation](led-application-data-study-2026-10-22.md) lowers
+native opens to 224 with exactly the same 104 intrinsic clearance findings,
+without changing component metadata, pad assignments or canonical source.
+The earlier metadata-only `20e56a77...` checkpoint differed from `0fd1f0df...`
+only in hidden shared identity properties. Its
+[validation record](../../mechanical/review/coupon-study-metadata-validation-2026-10-22.json)
+is historical; the current native evidence is linked from the routing study.
 An earlier UART-pad route merge added shorts, and a local isolated TP4 placement
 search found no acceptable site within its bounded rear-side search. Both
 remain rejected local probes; neither result proves routing impossible.
