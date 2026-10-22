@@ -44,6 +44,17 @@
         "U55",
         "6"
       ]
+    },
+    {
+      "anchor": [
+        "R80",
+        "2"
+      ],
+      "net": "SYS_I2C_SCL",
+      "source": [
+        "U3",
+        "11"
+      ]
     }
   ],
   "kicad_iu_per_mm": 1000000,
@@ -832,6 +843,19 @@
     },
     {
       "end_iu": [
+        18550000,
+        23200000
+      ],
+      "layer": "B.Cu",
+      "net": "SYS_I2C_SCL",
+      "start_iu": [
+        19050000,
+        23640000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
         20400000,
         7500000
       ],
@@ -853,6 +877,45 @@
       "start_iu": [
         49100000,
         9799999
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        19650000,
+        8250000
+      ],
+      "layer": "In3.Cu",
+      "net": "SYS_I2C_SCL",
+      "start_iu": [
+        18550000,
+        8250000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        18550000,
+        8250000
+      ],
+      "layer": "In3.Cu",
+      "net": "SYS_I2C_SCL",
+      "start_iu": [
+        18550000,
+        23200000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        20400000,
+        7500000
+      ],
+      "layer": "In3.Cu",
+      "net": "SYS_I2C_SCL",
+      "start_iu": [
+        19650000,
+        8250000
       ],
       "width_iu": 200000
     },
@@ -1535,6 +1598,39 @@
         6000000
       ],
       "top": "In4.Cu"
+    },
+    {
+      "bottom": "In4.Cu",
+      "diameter_iu": 300000,
+      "drill_iu": 100000,
+      "net": "SYS_I2C_SCL",
+      "position_iu": [
+        18550000,
+        23200000
+      ],
+      "top": "In3.Cu"
+    },
+    {
+      "bottom": "B.Cu",
+      "diameter_iu": 300000,
+      "drill_iu": 100000,
+      "net": "SYS_I2C_SCL",
+      "position_iu": [
+        18550000,
+        23200000
+      ],
+      "top": "In4.Cu"
+    },
+    {
+      "bottom": "In4.Cu",
+      "diameter_iu": 300000,
+      "drill_iu": 100000,
+      "net": "SYS_I2C_SCL",
+      "position_iu": [
+        20400000,
+        7500000
+      ],
+      "top": "In3.Cu"
     },
     {
       "bottom": "B.Cu",

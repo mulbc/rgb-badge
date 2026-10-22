@@ -7,19 +7,20 @@ electrical/process qualification or fabrication approval.
 
 The [saved derivative](../../hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb)
 continues the [row-13 checkpoint](led-row13-bias-study-2026-10-21.md) without
-moving any footprint. Four joins reduce full native opens **234 → 230**.
+moving any footprint. The initial four joins reduced full native opens 234 → 230.
+A supply-preserving clock detour now adds a fifth join, leaving **229 opens**.
 
 | Net | Opens before | Opens after | Newly joined terminals |
 |---|---:|---:|---|
 | ROW_GATE_05 | 1 | 0 | R11.2 to PAIR06's gate group |
-| SYS_I2C_SCL | 3 | 1 | TP12.1 and U46.7 to the existing R80.2 group |
+| SYS_I2C_SCL | 3 | 0 | TP12.1, U46.7 and U3.11 to the existing R80.2 group |
 | VLED_WINDOW_OK | 1 | 0 | U55.6 to the existing R104.2 group |
 
 Ten of sixteen gate-side pullup terminals now connect. Rows **0, 2, 3, 4, 6
 and 7** remain open. R11's VLED terminal is still isolated, the application
-clock bus still has one open, and the interlock's candidate outputs still do
+clock bus now forms one physical pad group, and the interlock's candidate outputs still do
 not join actual display enables. These source connections establish no gate,
-I²C or interlock operation. GND and VLED remain at 27 and 14 opens.
+I²C or interlock operation; SDA and gauge routing remain incomplete. GND and VLED remain at 27 and 14 opens.
 
 ## Method and retained source
 
@@ -39,8 +40,17 @@ retains accepted/rejected attempts and local raw evidence identities. Search
 success and native shape screens are preliminary; final acceptance uses full
 native DRC and a separately loaded board.
 
-The final addition comprises **104 tracks and 17 adjacent-layer microvias**,
-bringing the board to **14,615 tracks/vias**. All 483 placements, exact parts,
+The fifth join resolves the application-clock rejection. Its first candidate
+ran a long In4.Cu column and cut U3.2 off its existing +3V3_APP group, even
+though clearance checks passed. Moving the three inner clock segments to
+In3.Cu, with adjacent-layer transitions at both ends, joins U3.11 while
+preserving U3.2's connection to C74.1 and the rest of the old supply group.
+This increment adds four 0.20 mm tracks and three 0.30/0.10 mm microvias to
+the 230-open checkpoint; it changes no source power track, pad, part or limit.
+[Detour and rejected-gauge evidence](../../mechanical/review/native-control-clock-detour.json).
+
+The cumulative addition comprises **108 tracks and 20 adjacent-layer microvias**,
+bringing the board to **14,622 tracks/vias**. All 483 placements, exact parts,
 pad assignments and 14,494 source tracks/vias survive. The selected added
 copper is captured in an integer-coordinate [replay plan](../../mechanical/review/native-control-routing-plan.json)
 (1,000,000 KiCad internal units/mm). The [generator](../../tools/generate-native-control-trial.py)
@@ -55,14 +65,16 @@ remains canonical; this replay does not authorize a package/BOM substitution.
   clean DRC. [Raw report](led-native-control-drc-2026-10-21.json).
 - The [saved-board checker](../../tools/check-native-control-trial.py) verifies
   unchanged physical pad geometry, source copper, every old pad group, all
-  four claimed joins, actual via dimensions/layer adjacency and all eighteen
+  five claimed joins, actual via dimensions/layer adjacency and all eighteen
   physical anode pads per row. [Result](../../mechanical/review/native-control-check.json).
 - [Per-net native counts](../../mechanical/review/native-control-open-nets.json)
-  reconcile all 230 opens. Only the three listed nets' pad groups change.
-- All 256 exact LED placements/rotations/pad maps/nets pass. Eight isolated
+  reconcile all 229 opens. Only the three listed nets' pad groups change.
+- All 256 exact LED placements/rotations/pad maps/nets pass. Nine isolated
   native guard cases cover detached gate/I²C copper without item-count changes,
   removed source copper, altered duplicate drain geometry, moved footprints,
-  pad-net changes and nonadjacent microvias. These are checker fault tests,
+  pad-net changes and nonadjacent microvias. The new regression deliberately
+  puts the clock column back on In4, proves that the clock remains connected
+  but U3.2 loses its supply group, and requires the checker to reject it. These are checker fault tests,
   not powered-board fault response or independent Gate A review.
 - Two generations are byte-identical. [Manifest](../../mechanical/review/native-control-trial.json),
   [reproduction](../../mechanical/review/native-control-reproduction.json) and
@@ -74,7 +86,7 @@ remains canonical; this replay does not authorize a package/BOM substitution.
 ./tools/check-native-control.sh
 ```
 
-Saved-board SHA-256: `7d439c8072e4c2943ce5960db80c21d706c713059a8e51c8e290e3bf831ff1ec`.
+Saved-board SHA-256: `6d1b8e55356af88b86564c8981f96a79179067b45d26fa58f46b24154aaf3873`.
 
 Remaining work includes six gate terminals and missing pullup supplies,
 ground/power/control/clock/USB completion, timing/dead-time and bus signal

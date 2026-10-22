@@ -39,7 +39,37 @@ class NativeControlGuards(unittest.TestCase):
             check.validate_geometry(self.old, self.new, self.joins)
 
     def test_saved_study_passes(self):
-        self.assertEqual(check.validate_geometry(self.old, self.new, self.joins)['checked_joins'], 4)
+        self.assertEqual(check.validate_geometry(self.old, self.new, self.joins)['checked_joins'], 5)
+
+    def test_connected_clock_that_cuts_controller_supply_is_rejected(self):
+        # Reproduce the real failure: a long In4 clock column left SCL joined
+        # but severed U3.2 from its old supply group after zone refill.
+        endpoints = {
+            frozenset(((18550000, 23200000), (18550000, 8250000))),
+            frozenset(((18550000, 8250000), (19650000, 8250000))),
+            frozenset(((19650000, 8250000), (20400000, 7500000))),
+        }
+        changed = 0
+        for item in self.added:
+            if isinstance(item, p.PCB_VIA) or item.GetNetname() != 'SYS_I2C_SCL':
+                continue
+            pair = frozenset(((item.GetStart().x, item.GetStart().y),
+                              (item.GetEnd().x, item.GetEnd().y)))
+            if pair in endpoints:
+                self.assertEqual(item.GetLayer(), p.In3_Cu)
+                item.SetLayer(p.In4_Cu)
+                changed += 1
+        self.assertEqual(changed, 3)
+        p.ZONE_FILLER(self.new).Fill(self.new.Zones())
+        self.new.BuildConnectivity()
+        def pad(ref, number):
+            return next(q for q in self.parts[ref].Pads() if q.GetNumber() == number)
+        self.assertEqual(check.cluster(self.new, pad('U3', '11')),
+                         check.cluster(self.new, pad('R80', '2')))
+        self.assertNotEqual(check.cluster(self.new, pad('U3', '2')),
+                            check.cluster(self.new, pad('C74', '1')))
+        with self.assertRaisesRegex(AssertionError, 'Existing physical pad cluster split'):
+            check.validate_geometry(self.old, self.new, self.joins)
 
     def test_gate_copper_detached_without_changing_item_counts(self):
         for item in self.added:
