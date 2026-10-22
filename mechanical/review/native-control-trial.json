@@ -1,15 +1,15 @@
 {
   "SPDX-License-Identifier": "CERN-OHL-S-2.0",
-  "added_microvias": 20,
-  "added_tracks": 108,
-  "board_sha256": "6d1b8e55356af88b86564c8981f96a79179067b45d26fa58f46b24154aaf3873",
+  "added_microvias": 24,
+  "added_tracks": 134,
+  "board_sha256": "8789452903b0f34641bdd9889cffa5dd9031f370f399ff537d2eb88bc95d4d86",
   "generator_sha256": "bfce8f6cc2f1b51fb6e82c2e30f9f292c5e5d5b0254d9eb9aabd6c8800e6b942",
   "kicad_version": "10.0.6",
-  "native_open_edges": 229,
-  "plan_sha256": "a1e4ac0dbf9907d91d5ea15b24899059b9cc8d881ff8a27d6c79d8fbc7ca20f0",
+  "native_open_edges": 228,
+  "plan_sha256": "3fc891a414768bb8282fbc52f6e0f89b75e94144e8e88a4c2b434e012d21d77c",
   "source_sha256": "7541a0f2eb8eabc383e89ae153131e0bc53d14a257033c8e79b72a7b9ead16f0",
   "source_tracks_and_vias": 14494,
   "status": "UNQUALIFIED_NATIVE_CONTROL_GEOMETRY_STUDY",
-  "tracks_and_vias": 14622,
+  "tracks_and_vias": 14652,
   "unchanged_footprints": 483
 }

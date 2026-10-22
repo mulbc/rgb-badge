@@ -1,6 +1,46 @@
 {
   "SPDX-License-Identifier": "CERN-OHL-S-2.0",
-  "accepted_join_count": 5,
+  "accepted_join_count": 6,
+  "continuation_stages": [
+    {
+      "accepted_join": {
+        "anchor": [
+          "R101",
+          "2"
+        ],
+        "net": "GAUGE_I2C_SDA",
+        "source": [
+          "U46",
+          "3"
+        ]
+      },
+      "base_revision": "0c1e0df3bdad6f4862a3837500d594f7d79dad21",
+      "board_sha256": "8789452903b0f34641bdd9889cffa5dd9031f370f399ff537d2eb88bc95d4d86",
+      "evidence": "mechanical/review/native-control-gauge-continuation-2026-10-22.json",
+      "opens_after": 228,
+      "opens_before": 229,
+      "supply_bridge_required_to_preserve_old_pad_group": true
+    },
+    {
+      "accepted_join": {
+        "anchor": [
+          "R101",
+          "2"
+        ],
+        "net": "GAUGE_I2C_SDA",
+        "source": [
+          "U46",
+          "3"
+        ]
+      },
+      "base_revision": "0c1e0df3bdad6f4862a3837500d594f7d79dad21",
+      "board_sha256": "8789452903b0f34641bdd9889cffa5dd9031f370f399ff537d2eb88bc95d4d86",
+      "evidence": "mechanical/review/native-control-gauge-continuation-2026-10-22.json",
+      "opens_after": 228,
+      "opens_before": 229,
+      "supply_bridge_required_to_preserve_old_pad_group": true
+    }
+  ],
   "exact_native_shape_screen_excludes": [
     "Filled zones until transaction refill",
     "Full design-rule evaluation",
@@ -52,6 +92,13 @@
         "U46",
         "2"
       ]
+    ]
+  ],
+  "resolved_previously_rejected_gauge_data_join": [
+    "GAUGE_I2C_SDA",
+    [
+      "U46",
+      "3"
     ]
   ],
   "resolved_previously_rejected_join": [

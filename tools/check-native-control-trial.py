@@ -59,10 +59,18 @@ def validate_geometry(old, new, intended_joins):
         else:
             added.append(item)
     assert not +originals, 'Source copper removed'
-    # These are the reviewed signal nets, never supply/current-setting/USB
-    # differential nets or physical display-enable boundary substitutions.
-    allowed = {'ROW_GATE_05', 'SYS_I2C_SCL', 'VLED_WINDOW_OK'}
-    assert added and {item.GetNetname() for item in added} == allowed
+    # Signal joins plus one exact supply-continuity bridge. The bridge retains
+    # an old pad group; it does not join another supply group or set a limit.
+    allowed = {'ROW_GATE_05', 'SYS_I2C_SCL', 'VLED_WINDOW_OK', 'GAUGE_I2C_SDA'}
+    assert added and {item.GetNetname() for item in added} == allowed | {'+3V3_USB'}
+    bridge = [item for item in added if item.GetNetname() == '+3V3_USB']
+    assert len(bridge) == 3 and not any(isinstance(t, p.PCB_VIA) for t in bridge)
+    expected_bridge = {
+        frozenset(((57650000, 2750000), (57650000, 1750000))),
+        frozenset(((57650000, 1750000), (52650000, 1750000))),
+        frozenset(((52650000, 1750000), (52650000, 2750000))),
+    }
+    assert all(t.GetLayer() == p.B_Cu for t in bridge)
     stack = list(new.GetEnabledLayers().CuStack())
     for item in added:
         if isinstance(item, p.PCB_VIA):
@@ -81,7 +89,9 @@ def validate_geometry(old, new, intended_joins):
             if a != b:
                 changed.add(pad.GetNetname())
     assert changed == allowed, changed
-    assert len(intended_joins) == 5
+    assert {frozenset(((t.GetStart().x, t.GetStart().y),
+                       (t.GetEnd().x, t.GetEnd().y))) for t in bridge} == expected_bridge
+    assert len(intended_joins) == 6
     for entry in intended_joins:
         name, ref, number = entry['net'], *entry['source']
         assert name in allowed
@@ -96,9 +106,13 @@ def validate_geometry(old, new, intended_joins):
     power_pad = next(q for q in after['U3'].Pads() if q.GetNumber() == '2')
     bypass = next(q for q in after['C74'].Pads() if q.GetNumber() == '1')
     assert cluster(new, power_pad) == cluster(new, bypass), 'Controller supply bridge disconnected'
+    usb_bypass = next(q for q in after['C38'].Pads() if q.GetNumber() == '1')
+    usb_anchor = next(q for q in after['C36'].Pads() if q.GetNumber() == '1')
+    assert cluster(new, usb_bypass) == cluster(new, usb_anchor), 'USB logic bypass disconnected'
     return dict(unchanged_footprints=483, source_copper_preserved=True,
                 existing_physical_pad_clusters_preserved=True,
                 controller_supply_bridge_preserved=True,
+                usb_logic_bypass_group_preserved=True,
                 changed_nets=sorted(changed), checked_joins=len(intended_joins),
                 added_tracks=sum(not isinstance(t, p.PCB_VIA) for t in added),
                 added_microvias=sum(isinstance(t, p.PCB_VIA) for t in added),
@@ -126,16 +140,18 @@ def main():
     assert len(colour.findings(args.drc)) == 104
     reporter = module('connectivity', 'report-coupon-board-connectivity.py')
     opens = reporter.open_edges_by_net(OUTPUT)
-    assert opens['native_open_edges'] == opens['pad_cluster_open_edges'] == manifest['native_open_edges'] == 229
+    assert opens['native_open_edges'] == opens['pad_cluster_open_edges'] == manifest['native_open_edges'] == 228
     assert opens['by_net']['GND'] == 27 and opens['by_net']['VLED'] == 14
     assert 'SYS_I2C_SCL' not in opens['by_net']
     assert opens['by_net']['+3V3_APP'] == 7 and opens['by_net']['+3V3_USB'] == 4
+    assert opens['by_net']['GAUGE_I2C_SDA'] == 1 and opens['by_net']['GAUGE_I2C_SCL'] == 2
     assert {name for name in opens['by_net'] if name.startswith('ROW_GATE_')} == {
         'ROW_GATE_00', 'ROW_GATE_02', 'ROW_GATE_03', 'ROW_GATE_04', 'ROW_GATE_06', 'ROW_GATE_07'}
     assert len(list(new.GetTracks())) == manifest['tracks_and_vias']
     result.update(board_sha256=manifest['board_sha256'], kicad_version=p.GetBuildVersion(),
-                  native_open_edges=229, ground_open_edges=27, vled_open_edges=14,
+                  native_open_edges=228, ground_open_edges=27, vled_open_edges=14,
                   application_clock_open_edges=0,
+                  gauge_data_open_edges=1, gauge_clock_open_edges=2,
                   connected_gate_terminals=10, remaining_gate_terminals=6,
                   full_drc='104_UNCHANGED_INTRINSIC_FINDINGS',
                   drc_sha256=hashlib.sha256(args.drc.read_bytes()).hexdigest())

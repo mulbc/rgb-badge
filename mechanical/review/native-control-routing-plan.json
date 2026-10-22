@@ -55,11 +55,23 @@
         "U3",
         "11"
       ]
+    },
+    {
+      "anchor": [
+        "R101",
+        "2"
+      ],
+      "net": "GAUGE_I2C_SDA",
+      "source": [
+        "U46",
+        "3"
+      ]
     }
   ],
   "kicad_iu_per_mm": 1000000,
   "source_sha256": "7541a0f2eb8eabc383e89ae153131e0bc53d14a257033c8e79b72a7b9ead16f0",
   "status": "UNQUALIFIED_SELECTED_COPPER_REPLAY",
+  "supply_bridge_purpose": "Preserve the pre-existing C38.1/C36.1 +3V3_USB pad group after gauge SDA zone refill; no new supply group or current-limit change",
   "tracks": [
     {
       "end_iu": [
@@ -1464,6 +1476,344 @@
         14050000
       ],
       "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        57650000,
+        1750000
+      ],
+      "layer": "B.Cu",
+      "net": "+3V3_USB",
+      "start_iu": [
+        57650000,
+        2750000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        52650000,
+        1750000
+      ],
+      "layer": "B.Cu",
+      "net": "+3V3_USB",
+      "start_iu": [
+        57650000,
+        1750000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        52650000,
+        2750000
+      ],
+      "layer": "B.Cu",
+      "net": "+3V3_USB",
+      "start_iu": [
+        52650000,
+        1750000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        18550000,
+        4300000
+      ],
+      "layer": "B.Cu",
+      "net": "GAUGE_I2C_SDA",
+      "start_iu": [
+        18550000,
+        4050000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        18250000,
+        4050000
+      ],
+      "layer": "B.Cu",
+      "net": "GAUGE_I2C_SDA",
+      "start_iu": [
+        17500000,
+        3950000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        18550000,
+        4050000
+      ],
+      "layer": "B.Cu",
+      "net": "GAUGE_I2C_SDA",
+      "start_iu": [
+        18250000,
+        4050000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        49250000,
+        4250000
+      ],
+      "layer": "B.Cu",
+      "net": "GAUGE_I2C_SDA",
+      "start_iu": [
+        49100000,
+        4100000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        31700000,
+        3750000
+      ],
+      "layer": "In3.Cu",
+      "net": "GAUGE_I2C_SDA",
+      "start_iu": [
+        31700000,
+        3800000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        41700000,
+        3700000
+      ],
+      "layer": "In3.Cu",
+      "net": "GAUGE_I2C_SDA",
+      "start_iu": [
+        41600000,
+        3700000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        31500000,
+        3900000
+      ],
+      "layer": "In3.Cu",
+      "net": "GAUGE_I2C_SDA",
+      "start_iu": [
+        31450000,
+        3900000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        41600000,
+        3700000
+      ],
+      "layer": "In3.Cu",
+      "net": "GAUGE_I2C_SDA",
+      "start_iu": [
+        41600000,
+        3750000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        31450000,
+        4000000
+      ],
+      "layer": "In3.Cu",
+      "net": "GAUGE_I2C_SDA",
+      "start_iu": [
+        31400000,
+        4000000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        31600000,
+        3850000
+      ],
+      "layer": "In3.Cu",
+      "net": "GAUGE_I2C_SDA",
+      "start_iu": [
+        31500000,
+        3850000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        31350000,
+        4100000
+      ],
+      "layer": "In3.Cu",
+      "net": "GAUGE_I2C_SDA",
+      "start_iu": [
+        31350000,
+        4300000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        49100000,
+        3650000
+      ],
+      "layer": "In3.Cu",
+      "net": "GAUGE_I2C_SDA",
+      "start_iu": [
+        41700000,
+        3650000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        31500000,
+        3850000
+      ],
+      "layer": "In3.Cu",
+      "net": "GAUGE_I2C_SDA",
+      "start_iu": [
+        31500000,
+        3900000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        31700000,
+        3800000
+      ],
+      "layer": "In3.Cu",
+      "net": "GAUGE_I2C_SDA",
+      "start_iu": [
+        31600000,
+        3800000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        49100000,
+        4100000
+      ],
+      "layer": "In3.Cu",
+      "net": "GAUGE_I2C_SDA",
+      "start_iu": [
+        49100000,
+        3650000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        31400000,
+        4000000
+      ],
+      "layer": "In3.Cu",
+      "net": "GAUGE_I2C_SDA",
+      "start_iu": [
+        31400000,
+        4100000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        31350000,
+        4300000
+      ],
+      "layer": "In3.Cu",
+      "net": "GAUGE_I2C_SDA",
+      "start_iu": [
+        24600000,
+        4300000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        31600000,
+        3800000
+      ],
+      "layer": "In3.Cu",
+      "net": "GAUGE_I2C_SDA",
+      "start_iu": [
+        31600000,
+        3850000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        31400000,
+        4100000
+      ],
+      "layer": "In3.Cu",
+      "net": "GAUGE_I2C_SDA",
+      "start_iu": [
+        31350000,
+        4100000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        31450000,
+        3900000
+      ],
+      "layer": "In3.Cu",
+      "net": "GAUGE_I2C_SDA",
+      "start_iu": [
+        31450000,
+        4000000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        41600000,
+        3750000
+      ],
+      "layer": "In3.Cu",
+      "net": "GAUGE_I2C_SDA",
+      "start_iu": [
+        31700000,
+        3750000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        41700000,
+        3650000
+      ],
+      "layer": "In3.Cu",
+      "net": "GAUGE_I2C_SDA",
+      "start_iu": [
+        41700000,
+        3700000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        24600000,
+        4300000
+      ],
+      "layer": "In4.Cu",
+      "net": "GAUGE_I2C_SDA",
+      "start_iu": [
+        18550000,
+        4300000
+      ],
+      "width_iu": 200000
     }
   ],
   "vias": [
@@ -1684,6 +2034,50 @@
       "position_iu": [
         25500000,
         14050000
+      ],
+      "top": "In4.Cu"
+    },
+    {
+      "bottom": "In4.Cu",
+      "diameter_iu": 300000,
+      "drill_iu": 100000,
+      "net": "GAUGE_I2C_SDA",
+      "position_iu": [
+        24600000,
+        4300000
+      ],
+      "top": "In3.Cu"
+    },
+    {
+      "bottom": "In4.Cu",
+      "diameter_iu": 300000,
+      "drill_iu": 100000,
+      "net": "GAUGE_I2C_SDA",
+      "position_iu": [
+        49100000,
+        4100000
+      ],
+      "top": "In3.Cu"
+    },
+    {
+      "bottom": "B.Cu",
+      "diameter_iu": 300000,
+      "drill_iu": 100000,
+      "net": "GAUGE_I2C_SDA",
+      "position_iu": [
+        18550000,
+        4300000
+      ],
+      "top": "In4.Cu"
+    },
+    {
+      "bottom": "B.Cu",
+      "diameter_iu": 300000,
+      "drill_iu": 100000,
+      "net": "GAUGE_I2C_SDA",
+      "position_iu": [
+        49100000,
+        4100000
       ],
       "top": "In4.Cu"
     }

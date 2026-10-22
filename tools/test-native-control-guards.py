@@ -39,7 +39,30 @@ class NativeControlGuards(unittest.TestCase):
             check.validate_geometry(self.old, self.new, self.joins)
 
     def test_saved_study_passes(self):
-        self.assertEqual(check.validate_geometry(self.old, self.new, self.joins)['checked_joins'], 5)
+        self.assertEqual(check.validate_geometry(self.old, self.new, self.joins)['checked_joins'], 6)
+
+    def test_gauge_data_detached_without_changing_item_counts(self):
+        for item in self.added:
+            if item.GetNetname() == 'GAUGE_I2C_SDA':
+                item.Move(p.VECTOR2I(0, 5000000))
+        self.reject()
+
+    def test_connected_gauge_data_that_loses_usb_bypass_is_rejected(self):
+        # The real unbridged SDA route passed clearance and joined its target,
+        # but zone refill disconnected C38. Keep all added item counts fixed.
+        for item in self.added:
+            if item.GetNetname() == '+3V3_USB':
+                item.Move(p.VECTOR2I(0, -5000000))
+        p.ZONE_FILLER(self.new).Fill(self.new.Zones())
+        self.new.BuildConnectivity()
+        def pad(ref, number):
+            return next(q for q in self.parts[ref].Pads() if q.GetNumber() == number)
+        self.assertEqual(check.cluster(self.new, pad('U46', '3')),
+                         check.cluster(self.new, pad('R101', '2')))
+        self.assertNotEqual(check.cluster(self.new, pad('C38', '1')),
+                            check.cluster(self.new, pad('C36', '1')))
+        with self.assertRaisesRegex(AssertionError, 'Existing physical pad cluster split'):
+            check.validate_geometry(self.old, self.new, self.joins)
 
     def test_connected_clock_that_cuts_controller_supply_is_rejected(self):
         # Reproduce the real failure: a long In4 clock column left SCL joined
