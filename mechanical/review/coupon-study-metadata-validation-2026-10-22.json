@@ -45,6 +45,7 @@
     "hardware_measurements": "NONE",
     "trial_and_projected_footprints_entirely_unchanged": true
   },
+  "per_net_report_equal_to_prior_board_except_board_hash": true,
   "raw_evidence_sha256": {
     "/private/tmp/rgb-compare-metadata.py": "ac326329b6624afb504c8c15c89b92288ee5bffa93a1db9328d5a97b46b6507e",
     "/private/tmp/rgb-metadata-ci-layout.log": "9654820302492d19ebfcc12fb7709071b7ba12a4807751068f976fd2845adb15",
@@ -52,6 +53,8 @@
     "/private/tmp/rgb-metadata-generate.log": "df7c5d83c15590f7ca3c81e0de1981aded08c32b41cf8781b3180984cee53c19",
     "/private/tmp/rgb-metadata-native-check.log": "ba748af333c8e672f59e40e8aa6bafa98911ea3b755a1f1588e0d0975562c073",
     "/private/tmp/rgb-metadata-native-contract.log": "a657ecb8c2189d4e91cb12fe3b2db1c84c5c6d0c2b5d34c0f6eca3271df5a330",
+    "/private/tmp/rgb-metadata-open-nets.json": "c0fbab84a3b127645b45b5859554fc3049b500962d672617628b45ce541a5f89",
+    "/private/tmp/rgb-metadata-open-nets.log": "a2528b717c9b1753ee226ee2f0b2507746184721a87253864a0c3d3715864e65",
     "/private/tmp/rgb-metadata-reproduce.log": "dfcc1f28c72131cc277746471c3fea76d213adfbd9a8383f66804c896a543cf5"
   },
   "repeated_generation_byte_identical": true,
@@ -69,6 +72,7 @@
     "mechanical/review/coupon-canonical-net-contract.json": "3b7f150bd2dcd5b6d6efd7df4350da27ee625d483439e6c5e3ff2cfc5c45131c",
     "mechanical/review/coupon-study-reconciliation.json": "931a8263982cd53aeca1763e2d9040fee679cbb394197ac9e7b6556835956d9b",
     "mechanical/review/native-control-check.json": "96b6124d3bfb952b242303a203c2d10a03765ba73334c254a0982e61672c53f9",
+    "mechanical/review/native-control-open-nets.json": "c0fbab84a3b127645b45b5859554fc3049b500962d672617628b45ce541a5f89",
     "mechanical/review/native-control-reproduction.json": "413258ad202db79e31ab741302130fa5d90e64ffca731b17ee122d5272d28429",
     "mechanical/review/native-control-trial.json": "98562e61518863c2338bcf98a78ed8da3abb2f07df02685f60f19c2d4cd761ea",
     "tools/check-coupon-study-contract.py": "b98a975bf1538fd7767a8cbb677b03918c25547e02b91c2f6a02bd652c589dd2",
