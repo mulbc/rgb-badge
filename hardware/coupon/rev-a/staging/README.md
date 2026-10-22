@@ -1,5 +1,11 @@
 <!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
 
+Latest routed derivative: [row-13 bias study](../../../../docs/development/led-row13-bias-study-2026-10-21.md)
+moves R19 and joins its gate/VLED terminals, leaving 234 native opens and the
+same 104 intrinsic DRC findings. Existing copper and pad groups survive; nine
+gate-side pullups connect. Run `./tools/check-row13-bias.sh` from the repository
+root. This mixed-source, unbuilt study is never fabrication source.
+
 # Coupon staging and layout studies
 
 **Latest combined routing study:** The [guarded control continuation](led-control-continuation-trial-114mm.kicad_pcb) has 236 native opens and exactly 104 unchanged intrinsic DRC findings. [Evidence](../../../../docs/development/led-control-continuation-study-2026-10-21.md) records ten joins, preserved existing physical pad groups and rollback of plane-splitting routes. Run `./tools/check-control-continuation.sh` from the repository root. No component, current setting or display-output boundary changes; this unbuilt mixed-source study is never fabrication source.
