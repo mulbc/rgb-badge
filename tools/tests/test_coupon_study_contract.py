@@ -35,7 +35,10 @@ class StudyContract(unittest.TestCase):
         self.assertEqual((r['matched_components'], r['matched_logical_pins'],
                           r['matched_physical_electrical_pads']), (465, 1718, 1747))
         self.assertEqual((r['non_copper_apertures'], r['netless_mechanical_pads']), (69, 2))
-        self.assertEqual(len(r['pcb_references_missing_exact_mpn_fields']), 465)
+        self.assertEqual(len(r['pcb_references_with_blank_mpn_values']), 22)
+        self.assertEqual(r['pcb_references_with_blank_mpn_values'], r['canonical_references_without_mpn'])
+        self.assertEqual(len(r['canonical_references_without_manufacturer']), 5)
+        self.assertTrue(r['shared_metadata_required'])
         self.assertFalse(r['fabrication_release_allowed'])
 
     def test_snapshot_net_drift_is_checked_against_existing_circuit_contract(self):
@@ -74,6 +77,30 @@ class StudyContract(unittest.TestCase):
                 self.board = copy.deepcopy(self.inventory)
                 self.board['R47'][key] = value
                 self.reject()
+
+    def test_removed_identity_fields_are_rejected_even_for_canonical_blanks(self):
+        for ref in ('R47', 'TP4', 'J1'):
+            for field in ('MPN', 'Manufacturer'):
+                with self.subTest(ref=ref, field=field):
+                    self.board = copy.deepcopy(self.inventory)
+                    self.board[ref]['identity_fields'].remove(field)
+                    self.reject()
+
+    def test_cleared_or_invented_identity_values_are_rejected(self):
+        for ref, key, value in [('R47', 'mpn', ''), ('R47', 'manufacturer', ''),
+                                ('TP4', 'mpn', 'Invented copper part'), ('J1', 'manufacturer', 'Invented vendor')]:
+            with self.subTest(ref=ref, field=key):
+                self.board = copy.deepcopy(self.inventory)
+                self.board[ref][key] = value
+                self.reject()
+
+    def test_historical_input_metadata_opt_out_still_rejects_substitution(self):
+        self.board['R47']['mpn'] = ''
+        self.board['R47']['identity_fields'] = []
+        c.compare(self.data, self.board, require_metadata=False)
+        self.board['R47']['mpn'] = 'Different part'
+        with self.assertRaisesRegex(ValueError, 'mpn differs'):
+            c.compare(self.data, self.board, require_metadata=False)
 
     def test_unexpected_missing_component_is_rejected(self):
         del self.board['R47']

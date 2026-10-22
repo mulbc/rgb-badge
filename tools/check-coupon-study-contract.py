@@ -128,11 +128,12 @@ def read_board(path):
             pads.append(dict(number=q[1], net=nets[0][-1] if nets else '',
                              copper=any(l.endswith('.Cu') for l in layers)))
         result[ref] = dict(value=fields['Value'], footprint=f[1],
-                          mpn=fields.get('MPN', ''), manufacturer=fields.get('Manufacturer', ''), pads=pads)
+                          mpn=fields.get('MPN', ''), manufacturer=fields.get('Manufacturer', ''),
+                          identity_fields=sorted(set(fields) & {'MPN', 'Manufacturer'}), pads=pads)
     return result
 
 
-def compare(data, board):
+def compare(data, board, require_metadata=True):
     canonical = data['components']
     rows = {f'Q{i}' for i in range(1,33)}
     pairs = {f'PAIR{i:02d}' for i in range(1,17)}
@@ -145,9 +146,15 @@ def compare(data, board):
         expected, actual = canonical[ref], board[ref]
         for key in ('value', 'footprint'):
             require(expected[key] == actual[key], 'PCB '+key+' differs: '+ref)
-        require(not actual['mpn'] or actual['mpn'] == expected['mpn'], 'PCB exact MPN differs: '+ref)
-        require(not actual['manufacturer'] or actual['manufacturer'] == expected['manufacturer'],
-                'PCB manufacturer differs: '+ref)
+        # The opt-out is only for checking the historical generator input before
+        # projecting metadata. Ordinary checks require both fields, even where
+        # canonical source intentionally leaves a value blank (e.g. PCB pads).
+        if require_metadata:
+            require(actual['identity_fields'] == ['MPN', 'Manufacturer'],
+                    'PCB identity fields missing: '+ref)
+        for key in ('mpn', 'manufacturer'):
+            require((not require_metadata and not actual[key]) or actual[key] == expected[key],
+                    'PCB '+key+' differs: '+ref)
         if not actual['mpn']:
             missing_mpn.append(ref)
         seen = set()
@@ -193,10 +200,15 @@ def compare(data, board):
             'status':'CHECKED_WITH_DOCUMENTED_STUDY_EXCEPTIONS', 'fabrication_release_allowed':False,
             'canonical_components':len(canonical), 'study_footprints':len(board), **dict(counts),
             'trial_pairs_with_checked_logical_pin_maps':16, 'netless_projected_drivers':2,
-            'absent_canonical_row_devices':sorted(rows), 'pcb_references_missing_exact_mpn_fields':missing_mpn,
+            'absent_canonical_row_devices':sorted(rows), 'pcb_references_with_blank_mpn_values':missing_mpn,
+            'shared_metadata_required':require_metadata,
+            'canonical_references_without_mpn':sorted(ref for ref in set(canonical) & set(board)
+                                                       if not canonical[ref]['mpn']),
+            'canonical_references_without_manufacturer':sorted(ref for ref in set(canonical) & set(board)
+                                                                if not canonical[ref]['manufacturer']),
             'limitations':['Trial row pairs have not replaced the canonical schematic/BOM',
                            'Projected final-driver footprints are netless geometry only',
-                           'PCB exact MPN fields remain absent where listed; canonical MPNs are not inferred as PCB approval',
+                           'Copied canonical metadata retains explicit blanks; it is not PCB BOM approval or part qualification',
                            'This checks logical source assignment, not physical connectivity, DRC, electrical behavior or independent Gate A']}
 
 
@@ -207,6 +219,8 @@ def main():
     ap.add_argument('--contract', type=Path, default=CONTRACT)
     ap.add_argument('--board', type=Path, default=BOARD)
     ap.add_argument('--report', type=Path)
+    ap.add_argument('--historical-generator-input', action='store_true',
+                    help='Check the historical replay input before metadata projection; not final-study acceptance')
     args = ap.parse_args()
     try:
         if args.refresh_contract:
@@ -219,7 +233,9 @@ def main():
             validate_contract(data)
             if args.netlist:
                 require(refresh(args.netlist) == data, 'Fresh native XML differs from the source-pinned snapshot')
-        result = compare(data, read_board(args.board))
+        result = compare(data, read_board(args.board), require_metadata=not args.historical_generator_input)
+        if args.historical_generator_input:
+            result['status'] = 'HISTORICAL_INPUT_BEFORE_METADATA_PROJECTION'
         result.update(board_sha256=sha(args.board), canonical_contract_sha256=sha(args.contract),
                       checker_sha256=sha(__file__), native_xml_verified_this_run=args.netlist is not None)
         if args.report:

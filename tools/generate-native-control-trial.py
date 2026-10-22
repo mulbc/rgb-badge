@@ -3,13 +3,15 @@
 """Replay checked native-clearance gate/control copper on the row-13 study.
 
 The plan records selected added geometry, not a component or electrical release.
-KiCad board source remains canonical; no part, pad, net or placement is changed.
+Exact shared part metadata comes from checked canonical source; no part, pad,
+net or placement is changed and study-only replacements stay unselected.
 """
 import hashlib
 import importlib.util
 import json
 from pathlib import Path
 import re
+import subprocess
 import uuid
 import pcbnew as p
 
@@ -25,9 +27,33 @@ SCOPE = uuid.UUID('572f2376-04b3-4c9a-ab11-a7d4d1afda6e')
 
 def main():
     assert hashlib.sha256(SOURCE.read_bytes()).hexdigest() == SOURCE_SHA256
+    # The source checker requires modern host Python; KiCad bundles Python 3.9.
+    checker = ROOT / 'tools/check-coupon-study-contract.py'
+    contract_path = ROOT / 'mechanical/review/coupon-canonical-net-contract.json'
+    subprocess.run(['python3', str(checker), '--board', str(SOURCE),
+                    '--historical-generator-input'], check=True)
+    contract_digest = hashlib.sha256(contract_path.read_bytes()).hexdigest()
+    canonical = json.loads(contract_path.read_text())
     plan = json.loads(PLAN.read_text())
     assert plan['source_sha256'] == SOURCE_SHA256 and plan['kicad_iu_per_mm'] == 1000000
     board = p.LoadBoard(str(SOURCE))
+    common = set(canonical['components']) & {f.GetReference() for f in board.GetFootprints()}
+    metadata_uuids = {}
+    for footprint in board.GetFootprints():
+        ref = footprint.GetReference()
+        if ref not in common:
+            continue
+        for name, key in [('MPN', 'mpn'), ('Manufacturer', 'manufacturer')]:
+            field = footprint.GetField(name)
+            if field is None:
+                field = p.PCB_FIELD(footprint, p.FIELD_T_USER, name)
+                field.SetPosition(footprint.GetPosition())
+                field.SetLayer(p.B_Fab if footprint.IsFlipped() else p.F_Fab)
+                footprint.Add(field)
+            field.SetText(canonical['components'][ref][key])
+            field.SetVisible(False)
+            identifier = str(uuid.uuid5(SCOPE, 'canonical-metadata:'+ref+':'+name))
+            metadata_uuids[field.m_Uuid.AsString()] = identifier
     initial = len(list(board.GetTracks()))
     layers = {board.GetLayerName(layer): layer for layer in board.GetEnabledLayers().CuStack()}
     for entry in plan['tracks']:
@@ -57,9 +83,16 @@ def main():
     count = len(list(board.GetTracks()))
     data = helper.sorted_native_tracks(OUTPUT.read_text(), expected=count)
     sequence = iter(range(data.count('(uuid "')))
-    data = re.sub(r'\(uuid "[0-9a-f-]{36}"\)',
-                  lambda _: '(uuid "'+str(uuid.uuid5(SCOPE, str(next(sequence))))+'")', data)
+    # Extra hidden fields must not renumber any existing geometry UUID. Their
+    # reference/name-derived identities are independent of geometry ordering.
+    def normalized_uuid(match):
+        if match.group(1) in metadata_uuids:
+            return '(uuid "'+metadata_uuids[match.group(1)]+'")'
+        return '(uuid "'+str(uuid.uuid5(SCOPE, str(next(sequence))))+'")'
+    data = re.sub(r'\(uuid "([0-9a-f-]{36})"\)', normalized_uuid, data)
     OUTPUT.write_text(data)
+    subprocess.run(['python3', str(checker)], check=True)
+    assert hashlib.sha256(contract_path.read_bytes()).hexdigest() == contract_digest
     loaded = p.LoadBoard(str(OUTPUT))
     report = dict(status='UNQUALIFIED_NATIVE_CONTROL_GEOMETRY_STUDY',
                   source_sha256=SOURCE_SHA256,
@@ -67,6 +100,8 @@ def main():
                   generator_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                   plan_sha256=hashlib.sha256(PLAN.read_bytes()).hexdigest(),
                   kicad_version=p.GetBuildVersion(), unchanged_footprints=483,
+                  canonical_contract_sha256=contract_digest,
+                  shared_footprints_with_canonical_metadata=len(common),
                   added_tracks=len(plan['tracks']), added_microvias=len(plan['vias']),
                   source_tracks_and_vias=initial, tracks_and_vias=count,
                   native_open_edges=loaded.GetConnectivity().GetUnconnectedCount(False))

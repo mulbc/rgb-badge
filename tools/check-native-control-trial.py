@@ -132,6 +132,9 @@ def main():
     parser.add_argument('--report', type=Path)
     args = parser.parse_args()
     manifest = json.loads((ROOT / 'mechanical/review/native-control-trial.json').read_text())
+    contract_path = ROOT / 'mechanical/review/coupon-canonical-net-contract.json'
+    assert hashlib.sha256(contract_path.read_bytes()).hexdigest() == manifest['canonical_contract_sha256']
+    assert manifest['shared_footprints_with_canonical_metadata'] == 465
     plan_path = ROOT / 'mechanical/review/native-control-routing-plan.json'
     plan = json.loads(plan_path.read_text())
     for path, key in ((SOURCE, 'source_sha256'), (OUTPUT, 'board_sha256'),

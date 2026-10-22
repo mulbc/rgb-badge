@@ -162,7 +162,7 @@ Vendor PDFs are excluded from Git.
 ./tools/check-native-control.sh
 ```
 
-Saved-board SHA-256: `0fd1f0dfe320dd65765fa7f50a605fd68e0932434a2166878481631b06b4b313`.
+Saved-board SHA-256 after the [metadata-only projection](coupon-study-metadata-2026-10-22.md): `20e56a776dc6e27a6bfab389753d8acba29998926dba10272f32f4e9034785c9`. The prior `0fd1f0d...` checkpoint has identical geometry, fills, existing UUIDs and connectivity; only hidden shared MPN/manufacturer fields were added.
 
 Remaining work includes six gate terminals and missing pullup supplies,
 ground/power/control/clock/USB completion, timing/dead-time and bus signal

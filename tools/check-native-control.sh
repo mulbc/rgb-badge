@@ -13,3 +13,4 @@ mkdir -p "$review_dir"
 "$kicad_python" "$repo_root/tools/check-coupon-led-placement.py" \
   "$repo_root/hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb"
 "$kicad_python" "$repo_root/tools/test-native-control-guards.py" -v
+python3 "$repo_root/tools/check-coupon-study-contract.py"
