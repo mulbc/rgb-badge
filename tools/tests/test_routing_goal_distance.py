@@ -1,6 +1,7 @@
 # SPDX-License-Identifier: Apache-2.0
 """Independent brute-force and graph consistency checks for route heuristics."""
 import importlib.util
+import heapq
 from pathlib import Path
 import random
 import unittest
@@ -68,6 +69,89 @@ class RoutingGoalDistance(unittest.TestCase):
         indexes = [m.ManhattanGoals(goals), m.ManhattanGoals(reversed(goals))]
         for q in [(x, 5-x, 40) for x in range(-30, 31)]:
             self.assertEqual(indexes[0].distance(q), indexes[1].distance(q))
+
+
+def graph_distances(width, height, costs, via, goals):
+    """Independent shortest-path oracle over explicit empty-grid graph edges."""
+    distances = {g: 0 for g in goals}
+    queue = [(0, g) for g in goals]
+    heapq.heapify(queue)
+    while queue:
+        cost, node = heapq.heappop(queue)
+        if distances[node] != cost:
+            continue
+        x, y, layer = node
+        edges = []
+        if costs[layer] is not None:
+            edges += [((a, b, layer), costs[layer]) for a, b in
+                      [(x-1, y), (x+1, y), (x, y-1), (x, y+1)]
+                      if 0 <= a < width and 0 <= b < height]
+        edges += [((x, y, other), via) for other in (layer-1, layer+1) if 0 <= other < len(costs)]
+        for other, step in edges:
+            candidate = cost+step
+            if candidate < distances.get(other, float('inf')):
+                distances[other] = candidate
+                heapq.heappush(queue, (candidate, other))
+    return distances
+
+
+class EmptyGridDistance(unittest.TestCase):
+    def test_complete_fields_match_independent_dijkstra(self):
+        rng = random.Random(20261023)
+        for width, height in [(1, 1), (1, 7), (7, 1), (4, 5), (7, 6)]:
+            for costs in [(5, 1), (5, 1, 1, None, 1, 1), (None, 3, None), (7,)]:
+                goals = {(rng.randrange(width), rng.randrange(height), rng.randrange(len(costs)))
+                         for _ in range(4)}
+                field = m.EmptyGridGoals(width, height, costs, 20, goals)
+                oracle = graph_distances(width, height, costs, 20, goals)
+                for (x, y, layer), expected in oracle.items():
+                    self.assertEqual(field.distance(layer*width*height+y*width+x), expected)
+                self.assertEqual(field.storage_bytes, width*height*len(costs)*4)
+
+    def test_rear_travel_can_be_cheaper_than_a_round_trip_to_an_inner_layer(self):
+        field = m.EmptyGridGoals(30, 1, (5, 1), 20, [(0, 0, 0)])
+        self.assertEqual(field.distance(1), 5)
+        self.assertEqual(field.distance(10), 50)
+        self.assertEqual(field.distance(11), 51)
+        self.assertEqual(field.distance(29), 69)
+
+    def test_disabled_plane_requires_a_vertical_detour_for_planar_travel(self):
+        field = m.EmptyGridGoals(4, 1, (1, None, 1), 20, [(0, 0, 1)])
+        self.assertEqual(field.distance(4), 0)
+        self.assertEqual(field.distance(5), 41)
+        self.assertEqual(field.distance(7), 43)
+
+    def test_stronger_field_never_underestimates_the_old_lower_bound(self):
+        goals = [(0, 0, 0), (3, 2, 3)]
+        field = m.EmptyGridGoals(5, 4, (5, 1, None, 1), 20, goals)
+        old = m.ManhattanGoals((x, y, layer*20) for x, y, layer in goals)
+        for layer in range(4):
+            for y in range(4):
+                for x in range(5):
+                    self.assertGreaterEqual(field.distance(layer*20+y*5+x), old.distance((x, y, layer*20)))
+
+    def test_duplicate_goal_order_does_not_change_the_field(self):
+        goals = [(1, 2, 0), (4, 1, 2), (1, 2, 0)]
+        a = m.EmptyGridGoals(6, 4, (5, None, 1), 7, iter(goals))
+        b = m.EmptyGridGoals(6, 4, (5, None, 1), 7, reversed(goals))
+        self.assertEqual([a.distance(i) for i in range(72)], [b.distance(i) for i in range(72)])
+
+    def test_invalid_grid_cost_goal_and_query_inputs_are_rejected(self):
+        for args in [(0, 2, (1,), 20, [(0, 0, 0)]), (2, True, (1,), 20, [(0, 0, 0)]),
+                     (2, 2, (), 20, [(0, 0, 0)]), (2, 2, (None,), 20, [(0, 0, 0)]),
+                     (2, 2, (0,), 20, [(0, 0, 0)]), (2, 2, (1,), 0, [(0, 0, 0)]),
+                     (2, 2, (1.0,), 20, [(0, 0, 0)]), (2, 2, (1,), 20, []),
+                     (2, 2, (1,), 20, [(2, 0, 0)]), (2, 2, (1,), 20, [(0, 0, 1)])]:
+            with self.subTest(args=args), self.assertRaises(ValueError):
+                m.EmptyGridGoals(*args)
+        field = m.EmptyGridGoals(2, 2, (1,), 20, [(0, 0, 0)])
+        for index in (-1, 4, 0.0, True):
+            with self.subTest(index=index), self.assertRaises(ValueError):
+                field.distance(index)
+
+    def test_uint32_cost_overflow_is_rejected_before_allocation(self):
+        with self.assertRaisesRegex(ValueError, 'uint32'):
+            m.EmptyGridGoals(2, 2, (2**32,), 20, [(0, 0, 0)])
 
 
 if __name__ == '__main__':

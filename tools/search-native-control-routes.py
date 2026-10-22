@@ -16,8 +16,8 @@ import json
 import math
 from pathlib import Path
 import re
+from urllib.parse import quote
 import uuid
-import pcbnew as p
 
 ROOT = Path(__file__).resolve().parents[1]
 STAGING = ROOT / 'hardware/coupon/rev-a/staging'
@@ -49,15 +49,43 @@ def identities(board, pad):
                      if isinstance(q, p.PAD))
 
 
+def review_paths(source, output, report, build=BUILD):
+    source, output, report, build = (Path(x).resolve() for x in (source, output, report, build))
+    if any(build not in path.parents or path == source for path in (output, report)):
+        raise ValueError('Outputs must be distinct from source and inside the ignored Rev A build tree')
+    if output == report:
+        raise ValueError('Board and report outputs must be different files')
+    return source, output, report
+
+
+def rejection_snapshot_path(output, source, net, reference, pin):
+    output, source = Path(output).resolve(), Path(source).resolve()
+    directory = output.parent/(output.stem+'-rejected')
+    filename = '-'.join(quote(str(x), safe='') for x in (net, reference, pin))+'.kicad_pcb'
+    snapshot = directory/filename
+    if source in (snapshot, snapshot.with_suffix('.json')):
+        raise ValueError('Rejected-route snapshot would overwrite the source')
+    return snapshot
+
+
 def main():
+    global p
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--max-nodes', type=int, default=400000)
     parser.add_argument('--source', type=Path, default=SOURCE)
     parser.add_argument('--output', type=Path, default=OUTPUT)
     parser.add_argument('--report', type=Path, default=REPORT)
     parser.add_argument('--nets', nargs='+', default=['SYS_I2C_SDA'])
+    parser.add_argument('--heuristic', choices=('manhattan', 'empty-grid'), default='manhattan',
+                        help='Use exact goal distance or a precomputed layer-cost-aware lower bound')
+    parser.add_argument('--reverse', action='store_true',
+                        help='Search from the anchor group toward the isolated endpoint instead')
     args = parser.parse_args()
-    source, output, report_path, scope = args.source, args.output, args.report, SCOPE
+    try:
+        source, output, report_path = review_paths(args.source, args.output, args.report)
+    except ValueError as error:
+        parser.error(str(error))
+    scope = SCOPE
     allowed = set(NETS) | {'MODE_BOOT_N', 'ESP_EN', 'ROW_A0', 'ROW_A1', 'ROW_A2', 'ROW_A3',
         'SYS_I2C_SCL', 'SYS_I2C_SDA', 'GAUGE_I2C_SCL', 'GAUGE_I2C_SDA',
         'CHARGER_GATE_EN', 'CHARGER_EN2', 'DISPLAY_HEARTBEAT', 'USB_LOGIC_SENSE',
@@ -66,13 +94,14 @@ def main():
     nets = sorted(set(args.nets))
     if not nets or set(nets)-allowed or args.max_nodes <= 0:
         parser.error('Select supported low-speed controls and a positive node bound')
-    for destination in (output, report_path):
-        if BUILD.resolve() not in destination.resolve().parents or destination.resolve() == source.resolve():
-            parser.error('Outputs must be distinct from source and inside the ignored Rev A build tree')
-    if output.resolve() == report_path.resolve():
-        parser.error('Board and report outputs must be different files')
     output.parent.mkdir(parents=True, exist_ok=True)
     report_path.parent.mkdir(parents=True, exist_ok=True)
+    tool_paths = [Path(__file__), ROOT/'tools/routing_goal_distance.py',
+                  ROOT/'tools/generate-colour-fanout-grid-trial.py',
+                  ROOT/'tools/generate-paired-charger-114mm-routing.py']
+    tool_hashes = {str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
+                   for path in tool_paths}
+    import pcbnew as p
     r = module('grid', 'generate-colour-fanout-grid-trial.py')
     r.X0, r.Y0, r.X1, r.Y1 = .7, .7, 113.3, 31.8
     r.NX = round((r.X1-r.X0)/r.STEP)+1
@@ -183,16 +212,28 @@ def main():
                                 if native_trace_clear((x,y),(gx,gy),layer,pad.GetNetCode()):result[index]=(x,y)
         return result
 
+    heuristic_storage_bytes = 0
+
     def search(starts, goals, net):
+        nonlocal heuristic_storage_bytes
         if not starts or not goals:
             return None, 0
         distance = module('distance', 'routing_goal_distance.py')
+        if args.heuristic == 'empty-grid':
+            field = distance.EmptyGridGoals(r.NX, r.NY,
+                [5 if layer == p.B_Cu else None if layer == p.In2_Cu else 1 for layer in r.LAYERS],
+                20, ((i % r.SIZE % r.NX, i % r.SIZE // r.NX, i // r.SIZE) for i in goals))
+            heuristic_storage_bytes = max(heuristic_storage_bytes, field.storage_bytes)
+            return search_with_heuristic(starts, goals, net, field.distance)
         goals_index = distance.ManhattanGoals(
             (i % r.SIZE % r.NX, i % r.SIZE // r.NX, i // r.SIZE * 20) for i in goals)
         def h(index):
             layer,cell=divmod(index,r.SIZE)
             gy,gx=divmod(cell,r.NX)
             return goals_index.distance((gx,gy,layer*20))
+        return search_with_heuristic(starts, goals, net, h)
+
+    def search_with_heuristic(starts, goals, net, h):
         costs = {i: 0 for i in starts if router.free(i//r.SIZE, i % r.SIZE, net)}
         parents = {i: None for i in costs}
         queue = [(h(i), 0, i) for i in costs]
@@ -296,8 +337,16 @@ def main():
             starts = group_endpoints(pad)
             targets = group_endpoints(anchor)
             goals = set(targets)
-            path, expanded = search(starts, goals, net)
+            if args.reverse:
+                path, expanded = search(targets, set(starts), net)
+                if path:
+                    path.reverse()
+            else:
+                path, expanded = search(starts, goals, net)
+            if path:
+                assert path[0] in starts and path[-1] in targets
             rejection = None
+            rejected_snapshot = None
             if path:
                 groups_before = current_groups()
                 tracks_before = {t.m_Uuid.AsString() for t in board.GetTracks()}
@@ -318,11 +367,14 @@ def main():
                         current=identities(board,q)
                         if not group<=current:
                             split.append(dict(net=q.GetNetname(),anchor=[q.GetParentFootprint().GetReference(),q.GetNumber()],lost=sorted(group-current)))
-                    snapshot=output.parent/('rejected-'+name+'-'+pad.GetParentFootprint().GetReference()+'-'+pad.GetNumber()+'.kicad_pcb')
-                    if source.resolve() in (snapshot.resolve(), snapshot.with_suffix('.json').resolve()):
-                        raise ValueError('Rejected-route snapshot would overwrite the source')
+                    snapshot = rejection_snapshot_path(output, source, name,
+                        pad.GetParentFootprint().GetReference(), pad.GetNumber())
+                    snapshot.parent.mkdir(exist_ok=True)
                     p.SaveBoard(str(snapshot),board)
                     (snapshot.with_suffix('.json')).write_text(json.dumps(split,indent=2)+'\n')
+                    rejected_snapshot = dict(path=str(snapshot.relative_to(ROOT)),
+                        board_sha256=hashlib.sha256(snapshot.read_bytes()).hexdigest(),
+                        physical_pad_groups=split)
                     print('SPLIT DETAILS',split,flush=True)
                     for item in list(board.GetTracks()):
                         if item.m_Uuid.AsString() not in tracks_before:
@@ -333,13 +385,19 @@ def main():
                     assert all(group <= identities(board, q) for q, group in groups_before)
                     path = None
             entry = dict(net=name, source=[pad.GetParentFootprint().GetReference(), pad.GetNumber()],
-                         routed=bool(path), expanded_nodes=expanded)
+                         routed=bool(path), expanded_nodes=expanded,
+                         search_outcome=('accepted_join' if path else rejection or
+                             ('node_bound' if expanded > args.max_nodes else
+                              'exhausted_grid' if expanded else 'no_usable_grid_endpoint')))
             if rejection:
                 entry['rejected_reason'] = rejection
+                entry['rejected_snapshot'] = rejected_snapshot
             routes.append(entry)
             if path: rebuild_bins()
             print(entry, flush=True)
     assert hashlib.sha256(source.read_bytes()).hexdigest() == source_digest, 'Source changed during search'
+    assert all(hashlib.sha256((ROOT/name).read_bytes()).hexdigest() == digest
+               for name, digest in tool_hashes.items()), 'Search code changed during execution'
     p.ZONE_FILLER(board).Fill(board.Zones())
     p.SaveBoard(str(output), board)
     helper = module('save', 'generate-paired-charger-114mm-routing.py')
@@ -351,9 +409,14 @@ def main():
     loaded = p.LoadBoard(str(output))
     report = dict(status='UNQUALIFIED_LOCAL_CONTROL_STUDY',
                   source_sha256=source_digest,
-                  search_tool_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
-                  heuristic_sha256=hashlib.sha256((ROOT/'tools/routing_goal_distance.py').read_bytes()).hexdigest(),
-                  heuristic='exact_nearest_goal_manhattan_with_minimum_layer_cost',
+                  search_tool_sha256=tool_hashes[str(Path(__file__).relative_to(ROOT))],
+                  heuristic_sha256=tool_hashes['tools/routing_goal_distance.py'],
+                  tool_source_sha256=tool_hashes,
+                  heuristic=('exact_empty_grid_layer_costs' if args.heuristic == 'empty-grid'
+                             else 'exact_nearest_goal_manhattan_with_minimum_layer_cost'),
+                  heuristic_storage_bytes=heuristic_storage_bytes,
+                  reverse_search=args.reverse,
+                  fabrication_release_allowed=False,
                   board_sha256=hashlib.sha256(output.read_bytes()).hexdigest(),
                   kicad_version=p.GetBuildVersion(), grid_mm=r.STEP,
                   width_mm=r.WIDTH, clearance_mm=r.CLEARANCE,
