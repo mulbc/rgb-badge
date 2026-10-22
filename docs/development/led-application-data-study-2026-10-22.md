@@ -4,6 +4,8 @@
 
 Status: **unbuilt noncanonical geometry study, fabrication prohibited**.
 
+This records the 224-open checkpoint. The later [gauge IC data continuation](led-gauge-ic-data-study-2026-10-22.md) leaves 223 opens; linked rolling reports now describe that board. The exact application-data checkpoint remains identified in its increment record.
+
 The [saved native-control study](../../hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb)
 now connects buffer **U46 pin 6 (SDAB)** to the existing **R79.2 / U3.10**
 application-data group. TP11 remains isolated. This adds **65 tracks and four

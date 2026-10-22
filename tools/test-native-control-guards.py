@@ -39,7 +39,34 @@ class NativeControlGuards(unittest.TestCase):
             check.validate_geometry(self.old, self.new, self.joins)
 
     def test_saved_study_passes(self):
-        self.assertEqual(check.validate_geometry(self.old, self.new, self.joins)['checked_joins'], 10)
+        self.assertEqual(check.validate_geometry(self.old, self.new, self.joins)['checked_joins'], 11)
+
+    def test_connected_gauge_ic_data_that_cuts_pullup_supply_is_rejected(self):
+        # The reverse-search route joins U35.8 but cuts four APP supply pads.
+        # Undo only the reviewed 1 mm layer detour, retaining all item counts.
+        changed = 0
+        endpoints = frozenset(((40900000, 14800000), (40900000, 15800000)))
+        for item in self.added:
+            if isinstance(item, p.PCB_VIA) or item.GetNetname() != 'GAUGE_I2C_SDA':
+                continue
+            pair = frozenset(((item.GetStart().x, item.GetStart().y),
+                              (item.GetEnd().x, item.GetEnd().y)))
+            if pair == endpoints:
+                self.assertEqual(item.GetLayer(), p.In3_Cu)
+                item.SetLayer(p.In4_Cu)
+                changed += 1
+        self.assertEqual(changed, 1)
+        p.ZONE_FILLER(self.new).Fill(self.new.Zones())
+        self.new.BuildConnectivity()
+        def pad(ref, number):
+            return next(q for q in self.parts[ref].Pads() if q.GetNumber() == number)
+        self.assertEqual(check.cluster(self.new, pad('U35', '8')),
+                         check.cluster(self.new, pad('R101', '2')))
+        for ref in ('R42', 'R43', 'R44', 'R79'):
+            self.assertNotEqual(check.cluster(self.new, pad(ref, '1')),
+                                check.cluster(self.new, pad('U3', '2')))
+        with self.assertRaisesRegex(AssertionError, 'Existing physical pad cluster split'):
+            check.validate_geometry(self.old, self.new, self.joins)
 
     def test_application_data_detached_without_changing_item_counts(self):
         for item in self.added:

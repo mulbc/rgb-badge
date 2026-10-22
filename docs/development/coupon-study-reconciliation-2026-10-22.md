@@ -76,9 +76,9 @@ hash drift, duplicate PCB references and stale native XML. A separate temporary
 checkout containing only the declared CI inputs passes the same suite.
 [Validation identities](../../mechanical/review/coupon-study-reconciliation-validation-2026-10-22.json).
 
-The current routed PCB SHA-256 is `9844ae5d0d9ff9ed5e839cefa9734e89693dd405fce39092f68e8c3c7e62bc04`. The
-[application-data continuation](led-application-data-study-2026-10-22.md) lowers
-native opens to 224 with exactly the same 104 intrinsic clearance findings,
+The current routed PCB SHA-256 is `29d1f9cec25abc5ed199dd29b96c11338a646a2a95c4e6b49667e9a1b41bcf7e`. The
+[gauge IC data continuation](led-gauge-ic-data-study-2026-10-22.md) lowers
+native opens to 223 with exactly the same 104 intrinsic clearance findings,
 without changing component metadata, pad assignments or canonical source.
 The earlier metadata-only `20e56a77...` checkpoint differed from `0fd1f0df...`
 only in hidden shared identity properties. Its

@@ -1,6 +1,6 @@
 {
   "SPDX-License-Identifier": "CERN-OHL-S-2.0",
-  "accepted_join_count": 10,
+  "accepted_join_count": 11,
   "continuation_stages": [
     {
       "accepted_join": {
@@ -80,6 +80,15 @@
       "kind": "Exact-nearest-goal application data continuation",
       "output_board_sha256": "9844ae5d0d9ff9ed5e839cefa9734e89693dd405fce39092f68e8c3c7e62bc04",
       "source_board_sha256": "20e56a776dc6e27a6bfab389753d8acba29998926dba10272f32f4e9034785c9"
+    },
+    {
+      "added_adjacent_layer_microvias": 10,
+      "added_tracks": 128,
+      "evidence": "mechanical/review/native-control-gauge-ic-data-2026-10-22.json",
+      "increment_base_revision": "fcbddfca1dde253c6dada1943a2b6bc965bb3d3d",
+      "kind": "Gauge IC data with supply-preserving signal detour",
+      "output_board_sha256": "29d1f9cec25abc5ed199dd29b96c11338a646a2a95c4e6b49667e9a1b41bcf7e",
+      "source_board_sha256": "9844ae5d0d9ff9ed5e839cefa9734e89693dd405fce39092f68e8c3c7e62bc04"
     }
   ],
   "exact_native_shape_screen_excludes": [
