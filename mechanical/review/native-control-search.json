@@ -1,6 +1,6 @@
 {
   "SPDX-License-Identifier": "CERN-OHL-S-2.0",
-  "accepted_join_count": 6,
+  "accepted_join_count": 9,
   "continuation_stages": [
     {
       "accepted_join": {
@@ -24,21 +24,53 @@
     {
       "accepted_join": {
         "anchor": [
-          "R101",
+          "R102",
           "2"
         ],
-        "net": "GAUGE_I2C_SDA",
+        "net": "GAUGE_I2C_SCL",
         "source": [
           "U46",
-          "3"
+          "2"
         ]
       },
-      "base_revision": "0c1e0df3bdad6f4862a3837500d594f7d79dad21",
-      "board_sha256": "8789452903b0f34641bdd9889cffa5dd9031f370f399ff537d2eb88bc95d4d86",
-      "evidence": "mechanical/review/native-control-gauge-continuation-2026-10-22.json",
-      "opens_after": 228,
-      "opens_before": 229,
-      "supply_bridge_required_to_preserve_old_pad_group": true
+      "base_revision": "c2029b6d4b78c151ad9fd59e2bfce8de6a5a9145",
+      "board_sha256": "46a326848454efa8dce85c484875f3fc49af5a1e522389bc0b1e4d7ae7f68e43",
+      "evidence": "mechanical/review/native-control-gauge-clock-2026-10-22.json",
+      "opens_after": 227,
+      "opens_before": 228,
+      "supply_repairs_are_one_transaction": true
+    },
+    {
+      "accepted_joins": [
+        {
+          "anchor": [
+            "TP5",
+            "1"
+          ],
+          "net": "UART0_RX",
+          "source": [
+            "U3",
+            "36"
+          ]
+        },
+        {
+          "anchor": [
+            "R47",
+            "1"
+          ],
+          "net": "UART0_TX_RAW",
+          "source": [
+            "U3",
+            "37"
+          ]
+        }
+      ],
+      "base_board_sha256": "46a326848454efa8dce85c484875f3fc49af5a1e522389bc0b1e4d7ae7f68e43",
+      "board_sha256": "0fd1f0dfe320dd65765fa7f50a605fd68e0932434a2166878481631b06b4b313",
+      "evidence": "mechanical/review/native-control-uart-continuation-2026-10-22.json",
+      "opens_after": 225,
+      "opens_before": 227,
+      "supply_repair_required": true
     }
   ],
   "exact_native_shape_screen_excludes": [
@@ -54,6 +86,7 @@
     0.3,
     0.1
   ],
+  "partial_clock_power_repairs_not_accepted": true,
   "preserve_all_physical_pad_clusters_after_each_join": true,
   "rejected_plane_splitting_joins": [
     [
@@ -78,20 +111,12 @@
       ]
     ]
   ],
-  "remaining_rejected_plane_splitting_joins": [
+  "remaining_rejected_plane_splitting_joins": [],
+  "resolved_previously_rejected_gauge_clock_join": [
+    "GAUGE_I2C_SCL",
     [
-      "GAUGE_I2C_SDA",
-      [
-        "U46",
-        "3"
-      ]
-    ],
-    [
-      "GAUGE_I2C_SCL",
-      [
-        "U46",
-        "2"
-      ]
+      "U46",
+      "2"
     ]
   ],
   "resolved_previously_rejected_gauge_data_join": [

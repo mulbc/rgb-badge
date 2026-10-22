@@ -39,7 +39,7 @@ class NativeControlGuards(unittest.TestCase):
             check.validate_geometry(self.old, self.new, self.joins)
 
     def test_saved_study_passes(self):
-        self.assertEqual(check.validate_geometry(self.old, self.new, self.joins)['checked_joins'], 6)
+        self.assertEqual(check.validate_geometry(self.old, self.new, self.joins)['checked_joins'], 9)
 
     def test_gauge_data_detached_without_changing_item_counts(self):
         for item in self.added:
@@ -61,6 +61,87 @@ class NativeControlGuards(unittest.TestCase):
                          check.cluster(self.new, pad('R101', '2')))
         self.assertNotEqual(check.cluster(self.new, pad('C38', '1')),
                             check.cluster(self.new, pad('C36', '1')))
+        with self.assertRaisesRegex(AssertionError, 'Existing physical pad cluster split'):
+            check.validate_geometry(self.old, self.new, self.joins)
+
+    def test_uart_receive_detached_without_changing_item_counts(self):
+        for item in self.added:
+            if item.GetNetname() == 'UART0_RX':
+                item.Move(p.VECTOR2I(0, 5000000))
+        self.reject()
+
+    def test_uart_transmit_detached_without_changing_item_counts(self):
+        for item in self.added:
+            if item.GetNetname() == 'UART0_TX_RAW':
+                item.Move(p.VECTOR2I(0, 5000000))
+        self.reject()
+
+    def test_connected_uart_transmit_without_usb_bypass_repair_is_rejected(self):
+        endpoints = frozenset(((35150000, 4250000), (35150000, 2750000)))
+        moved = 0
+        for item in self.added:
+            if item.GetNetname() != '+3V3_USB' or isinstance(item, p.PCB_VIA):
+                continue
+            pair = frozenset(((item.GetStart().x, item.GetStart().y),
+                              (item.GetEnd().x, item.GetEnd().y)))
+            if pair == endpoints:
+                item.Move(p.VECTOR2I(0, -5000000))
+                moved += 1
+        self.assertEqual(moved, 1)
+        p.ZONE_FILLER(self.new).Fill(self.new.Zones())
+        self.new.BuildConnectivity()
+        def pad(ref, number):
+            return next(q for q in self.parts[ref].Pads() if q.GetNumber() == number)
+        self.assertEqual(check.cluster(self.new, pad('U3', '37')),
+                         check.cluster(self.new, pad('R47', '1')))
+        self.assertNotEqual(check.cluster(self.new, pad('C59', '1')),
+                            check.cluster(self.new, pad('C11', '1')))
+        with self.assertRaisesRegex(AssertionError, 'Existing physical pad cluster split'):
+            check.validate_geometry(self.old, self.new, self.joins)
+
+    def test_gauge_clock_detached_without_changing_item_counts(self):
+        for item in self.added:
+            if item.GetNetname() == 'GAUGE_I2C_SCL':
+                item.Move(p.VECTOR2I(0, 5000000))
+        self.reject()
+
+    def test_connected_gauge_clock_without_application_repair_is_rejected(self):
+        for item in self.added:
+            if item.GetNetname() == '+3V3_APP':
+                item.Move(p.VECTOR2I(0, -5000000))
+        self.check_clock_supply_failure('C37', 'C3')
+
+    def test_connected_gauge_clock_without_usb_repair_is_rejected(self):
+        # Preserve the previous C38/C36 bridge while withdrawing the new chain.
+        endpoints = {
+            frozenset(((42650000, 2750000), (42650000, 1750000))),
+            frozenset(((42650000, 1750000), (37650000, 1750000))),
+            frozenset(((37650000, 1750000), (37650000, 2750000))),
+            frozenset(((42650000, 1750000), (52650000, 1750000))),
+            frozenset(((45150000, 1750000), (45150000, 2750000))),
+            frozenset(((47650000, 1750000), (47650000, 2750000))),
+        }
+        moved = 0
+        for item in self.added:
+            if item.GetNetname() != '+3V3_USB' or isinstance(item, p.PCB_VIA):
+                continue
+            pair = frozenset(((item.GetStart().x, item.GetStart().y),
+                              (item.GetEnd().x, item.GetEnd().y)))
+            if pair in endpoints:
+                item.Move(p.VECTOR2I(0, -5000000))
+                moved += 1
+        self.assertEqual(moved, 6)
+        self.check_clock_supply_failure('C23', 'C17')
+
+    def check_clock_supply_failure(self, bypass, anchor):
+        p.ZONE_FILLER(self.new).Fill(self.new.Zones())
+        self.new.BuildConnectivity()
+        def pad(ref, number):
+            return next(q for q in self.parts[ref].Pads() if q.GetNumber() == number)
+        self.assertEqual(check.cluster(self.new, pad('U46', '2')),
+                         check.cluster(self.new, pad('R102', '2')))
+        self.assertNotEqual(check.cluster(self.new, pad(bypass, '1')),
+                            check.cluster(self.new, pad(anchor, '1')))
         with self.assertRaisesRegex(AssertionError, 'Existing physical pad cluster split'):
             check.validate_geometry(self.old, self.new, self.joins)
 

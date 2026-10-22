@@ -59,18 +59,15 @@ def validate_geometry(old, new, intended_joins):
         else:
             added.append(item)
     assert not +originals, 'Source copper removed'
-    # Signal joins plus one exact supply-continuity bridge. The bridge retains
-    # an old pad group; it does not join another supply group or set a limit.
-    allowed = {'ROW_GATE_05', 'SYS_I2C_SCL', 'VLED_WINDOW_OK', 'GAUGE_I2C_SDA'}
-    assert added and {item.GetNetname() for item in added} == allowed | {'+3V3_USB'}
-    bridge = [item for item in added if item.GetNetname() == '+3V3_USB']
-    assert len(bridge) == 3 and not any(isinstance(t, p.PCB_VIA) for t in bridge)
-    expected_bridge = {
-        frozenset(((57650000, 2750000), (57650000, 1750000))),
-        frozenset(((57650000, 1750000), (52650000, 1750000))),
-        frozenset(((52650000, 1750000), (52650000, 2750000))),
+    # Only the reviewed signal joins and fixed supply-continuity geometry are
+    # allowed. Power pad groups must be exactly unchanged after the joint fill.
+    allowed = {'ROW_GATE_05', 'SYS_I2C_SCL', 'VLED_WINDOW_OK',
+               'GAUGE_I2C_SDA', 'GAUGE_I2C_SCL', 'UART0_RX', 'UART0_TX_RAW'}
+    power_hashes = {
+        '+3V3_APP': (26, 'fda8fe3404655998aceb7616469bf9d6faee7f075ab474304bccf1918ce93e89'),
+        '+3V3_USB': (10, '299e9ca0dc333371ab467fdbae07e4c1a5217c950ee0b2fefdf427327c1d5074'),
     }
-    assert all(t.GetLayer() == p.B_Cu for t in bridge)
+    assert added and {item.GetNetname() for item in added} == allowed | set(power_hashes)
     stack = list(new.GetEnabledLayers().CuStack())
     for item in added:
         if isinstance(item, p.PCB_VIA):
@@ -89,9 +86,18 @@ def validate_geometry(old, new, intended_joins):
             if a != b:
                 changed.add(pad.GetNetname())
     assert changed == allowed, changed
-    assert {frozenset(((t.GetStart().x, t.GetStart().y),
-                       (t.GetEnd().x, t.GetEnd().y))) for t in bridge} == expected_bridge
-    assert len(intended_joins) == 6
+    def power_signature(item):
+        if isinstance(item, p.PCB_VIA):
+            return ['via', item.GetNetname(), item.GetPosition().x, item.GetPosition().y,
+                    new.GetLayerName(item.TopLayer()), new.GetLayerName(item.BottomLayer()),
+                    item.GetWidth(item.TopLayer()), item.GetDrillValue()]
+        return ['track', item.GetNetname(), item.GetStart().x, item.GetStart().y,
+                item.GetEnd().x, item.GetEnd().y, new.GetLayerName(item.GetLayer()), item.GetWidth()]
+    for name, (count, digest) in power_hashes.items():
+        signatures = sorted(power_signature(t) for t in added if t.GetNetname() == name)
+        assert len(signatures) == count
+        assert hashlib.sha256(json.dumps(signatures, separators=(',', ':')).encode()).hexdigest() == digest
+    assert len(intended_joins) == 9
     for entry in intended_joins:
         name, ref, number = entry['net'], *entry['source']
         assert name in allowed
@@ -113,6 +119,7 @@ def validate_geometry(old, new, intended_joins):
                 existing_physical_pad_clusters_preserved=True,
                 controller_supply_bridge_preserved=True,
                 usb_logic_bypass_group_preserved=True,
+                reviewed_power_copper_signatures_checked=True,
                 changed_nets=sorted(changed), checked_joins=len(intended_joins),
                 added_tracks=sum(not isinstance(t, p.PCB_VIA) for t in added),
                 added_microvias=sum(isinstance(t, p.PCB_VIA) for t in added),
@@ -140,18 +147,22 @@ def main():
     assert len(colour.findings(args.drc)) == 104
     reporter = module('connectivity', 'report-coupon-board-connectivity.py')
     opens = reporter.open_edges_by_net(OUTPUT)
-    assert opens['native_open_edges'] == opens['pad_cluster_open_edges'] == manifest['native_open_edges'] == 228
+    assert opens['native_open_edges'] == opens['pad_cluster_open_edges'] == manifest['native_open_edges'] == 225
     assert opens['by_net']['GND'] == 27 and opens['by_net']['VLED'] == 14
     assert 'SYS_I2C_SCL' not in opens['by_net']
+    assert 'UART0_RX' not in opens['by_net'] and 'UART0_TX_RAW' not in opens['by_net']
+    assert opens['by_net']['UART0_TX'] == 1
     assert opens['by_net']['+3V3_APP'] == 7 and opens['by_net']['+3V3_USB'] == 4
-    assert opens['by_net']['GAUGE_I2C_SDA'] == 1 and opens['by_net']['GAUGE_I2C_SCL'] == 2
+    assert opens['by_net']['GAUGE_I2C_SDA'] == 1 and opens['by_net']['GAUGE_I2C_SCL'] == 1
     assert {name for name in opens['by_net'] if name.startswith('ROW_GATE_')} == {
         'ROW_GATE_00', 'ROW_GATE_02', 'ROW_GATE_03', 'ROW_GATE_04', 'ROW_GATE_06', 'ROW_GATE_07'}
     assert len(list(new.GetTracks())) == manifest['tracks_and_vias']
     result.update(board_sha256=manifest['board_sha256'], kicad_version=p.GetBuildVersion(),
-                  native_open_edges=228, ground_open_edges=27, vled_open_edges=14,
+                  native_open_edges=225, ground_open_edges=27, vled_open_edges=14,
                   application_clock_open_edges=0,
-                  gauge_data_open_edges=1, gauge_clock_open_edges=2,
+                  uart_receive_open_edges=0, uart_device_transmit_open_edges=0,
+                  uart_test_pad_transmit_open_edges=1,
+                  gauge_data_open_edges=1, gauge_clock_open_edges=1,
                   connected_gate_terminals=10, remaining_gate_terminals=6,
                   full_drc='104_UNCHANGED_INTRINSIC_FINDINGS',
                   drc_sha256=hashlib.sha256(args.drc.read_bytes()).hexdigest())

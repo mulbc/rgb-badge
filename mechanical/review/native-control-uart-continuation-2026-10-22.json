@@ -1,0 +1,113 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "accepted_joins": [
+    {
+      "anchor": [
+        "TP5",
+        "1"
+      ],
+      "net": "UART0_RX",
+      "source": [
+        "U3",
+        "36"
+      ]
+    },
+    {
+      "anchor": [
+        "R47",
+        "1"
+      ],
+      "net": "UART0_TX_RAW",
+      "source": [
+        "U3",
+        "37"
+      ]
+    }
+  ],
+  "base_clock_checkpoint_sha256": "46a326848454efa8dce85c484875f3fc49af5a1e522389bc0b1e4d7ae7f68e43",
+  "bounded_searches": {
+    "receive_accepted_expanded_nodes": 111114,
+    "test_pad_transmit_followup_node_bound": 600000,
+    "test_pad_transmit_rejected_expanded_nodes": 440812,
+    "transmit_raw_candidate_expanded_nodes": 216206
+  },
+  "canonical_controller_pin_map_and_R47_series_boundary_unchanged": true,
+  "firmware_gpio_configuration_unchanged_and_provisional": true,
+  "hardware_measurements": "NONE",
+  "increment_by_net": {
+    "+3V3_USB": {
+      "microvias": 0,
+      "tracks": 1
+    },
+    "UART0_RX": {
+      "microvias": 2,
+      "tracks": 16
+    },
+    "UART0_TX_RAW": {
+      "microvias": 4,
+      "tracks": 52
+    }
+  },
+  "increment_microvias": 6,
+  "increment_tracks": 69,
+  "isolated_guard_cases_passed": 17,
+  "limitations": [
+    "R47.2-to-TP4.1 transmit test-pad leg remains open",
+    "No UART/programming/ROM recovery or target firmware test performed",
+    "Signal integrity, supply impedance/decoupling/return/current capacity, HDI/fit and independent Gate A unqualified/open"
+  ],
+  "native_open_edges_remaining_on_uart": {
+    "UART0_RX": 0,
+    "UART0_TX": 1,
+    "UART0_TX_RAW": 0
+  },
+  "native_opens_after": 225,
+  "native_opens_before": 227,
+  "new_guard_cases": [
+    "Detached UART receive with unchanged item counts",
+    "Detached UART device-transmit with unchanged item counts",
+    "UART device-transmit stays joined but withdrawing its one-track bypass repair splits the old USB-logic group"
+  ],
+  "new_native_drc_findings": 0,
+  "raw_evidence_sha256": {
+    "/private/tmp/rgb-check-uart-raw.log": "5079495e603ebdcf995c1b7e3616c69f78a9b3bd0965da3b1a53c311ec00765b",
+    "/private/tmp/rgb-uart-final.log": "946461bfae12b947e084a7e8223ea19268dc37c2a3870bf062c0a5b51ac1d8a6",
+    "/private/tmp/rgb-uart-next-drc.log": "c46d3f255695cfe6841b4ee2a22984a1be42f8f0091e48276ac6e9777b8bccf2",
+    "/private/tmp/rgb-uart-next.log": "ca27eef8fa30ffe1f572d536d3dd12bc62f818310494214dbdd0ab8a7eb32ca8",
+    "/private/tmp/rgb-uart-raw-repair.log": "36850969f55eb6aded0a4dee5931371a5583a9066b80313a7195bfe7c2b5d3ad",
+    "/private/tmp/rgb-uart-raw-repaired-drc.log": "35c70deac0a337dccbe26898b69814719655ce767bf944f051ff4c08b6da6fb4",
+    "/private/tmp/rgb-uart-transmit-next.log": "dd668faa7c5b56931ee7847b300eabba0213700ee901b9d7b2a13afa5fbfe510"
+  },
+  "rejected_transmit_test_pad_probe": "On the receive-only board, candidate UART0_TX split old GND R82.2 and USB C58/C59 groups; final follow-up with the accepted device-transmit route found no path within 600000 nodes. This is not proof of impossibility.",
+  "selected_board_sha256": "0fd1f0dfe320dd65765fa7f50a605fd68e0932434a2166878481631b06b4b313",
+  "source_copper_and_existing_physical_pad_groups_preserved": true,
+  "status": "SOURCE_GEOMETRY_CHECKED_NOT_PROGRAMMING_QUALIFICATION",
+  "unchanged_footprints": 483,
+  "unchanged_native_drc_findings": 104,
+  "usb_supply_repair": {
+    "from": [
+      "C59",
+      "1"
+    ],
+    "layer": "B.Cu",
+    "length_mm": 1.5,
+    "net": "+3V3_USB",
+    "purpose": "Retain C58/C59 in their previous USB-logic pad group after transmit-route zone refill; no supply-group merge",
+    "to": [
+      "C11",
+      "1"
+    ],
+    "vertices_mm": [
+      [
+        35.15,
+        4.25
+      ],
+      [
+        35.15,
+        2.75
+      ]
+    ],
+    "width_mm": 0.2
+  },
+  "vendor_pdfs_or_local_probe_boards_committed": false
+}

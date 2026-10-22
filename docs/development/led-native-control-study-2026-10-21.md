@@ -9,7 +9,9 @@ The [saved derivative](../../hardware/coupon/rev-a/staging/led-native-control-tr
 continues the [row-13 checkpoint](led-row13-bias-study-2026-10-21.md) without
 moving any footprint. The initial four joins reduced full native opens 234 → 230.
 A supply-preserving clock detour added a fifth join (229 opens). The 2026-10-22
-gauge-data continuation adds a sixth, leaving **228 opens**.
+gauge-data continuation added a sixth (228 opens). A joint gauge-clock and
+supply-continuity increment added a seventh (227 opens). The subsequent UART
+receive/device-transmit joins leave **225 opens**, nine joins in total.
 
 | Net | Opens before | Opens after | Newly joined terminals |
 |---|---:|---:|---|
@@ -17,6 +19,9 @@ gauge-data continuation adds a sixth, leaving **228 opens**.
 | SYS_I2C_SCL | 3 | 0 | TP12.1, U46.7 and U3.11 to the existing R80.2 group |
 | VLED_WINDOW_OK | 1 | 0 | U55.6 to the existing R104.2 group |
 | GAUGE_I2C_SDA | 2 | 1 | U46.3 to the existing R101.2 group |
+| GAUGE_I2C_SCL | 2 | 1 | U46.2 to the existing R102.2 group |
+| UART0_RX | 1 | 0 | U3.36 to TP5.1 |
+| UART0_TX_RAW | 1 | 0 | U3.37 to R47.1 |
 
 Ten of sixteen gate-side pullup terminals now connect. Rows **0, 2, 3, 4, 6
 and 7** remain open. R11's VLED terminal is still isolated, the application
@@ -38,8 +43,8 @@ track width/clearance and six-layer study; no rule or current limit is relaxed.
 After each tentative join, zones refill and every existing physical pad group
 must survive. Proposed joins from U3.11 on SYS_I2C_SCL and U46.3/U46.2 on the
 gauge SDA/SCL nets originally split old groups and were rejected. The clock
-detour and the gauge-data bridge below resolve two of those rejections; gauge
-clock remains rejected. The [search record](../../mechanical/review/native-control-search.json)
+detour, gauge-data bridge and joint gauge-clock repair below now resolve
+those three rejections. The [search record](../../mechanical/review/native-control-search.json)
 retains accepted/rejected attempts and local raw evidence identities. Search
 success and native shape screens are preliminary; final acceptance uses full
 native DRC and a separately loaded board.
@@ -59,18 +64,52 @@ SDA pin 8 remains disconnected; neither gauge-bus line is complete. The first
 SDA route disconnected C38.1 from its old USB-logic group after zone refill.
 Three additional 0.20 mm B.Cu tracks retain that group by joining C38.1 at
 (57.65, 2.75) mm to C36.1 at (52.65, 2.75) mm through y = 1.75 mm. The checker
-allows only those exact three supply tracks, checks the preserved group, and
-permits no supply-group merge. This seven-millimetre bridge is source geometry;
+at that checkpoint allowed only those three supply tracks, checked the
+preserved group and permitted no supply-group merge. This seven-millimetre bridge is source geometry;
 its impedance, decoupling locality, current and return paths are unqualified.
 No current limit, source supply copper, device, pad or circuit net changes.
 [Gauge continuation and rejected combined routes](../../mechanical/review/native-control-gauge-continuation-2026-10-22.json).
 
 Combined gauge-clock/data candidates retained pad groups and reduced opens to
 227 but added clearance/shorting findings (108 and 107 full native findings).
-They are rejected, remain local, and are not included in this saved study.
+Those earlier variants are rejected, remain local, and are not included in
+this saved study. The following joint repair resolves their blocking condition.
 
-The cumulative addition comprises **134 tracks and 24 adjacent-layer microvias**,
-bringing the board to **14,652 tracks/vias**. All 483 placements, exact parts,
+The seventh join retains 45 gauge-clock tracks and two adjacent-layer
+microvias from U46 SCLA pin 2 to R102.2. The first In4 clock path split the
+old application-supply group, isolating C1/C2 and C37/R104. A short rear
+C1-to-C3 connection and a routed C37-to-main-group repair restore that group;
+the latter initially split USB-logic bypass groups in turn. Six rear tracks
+then reconnect C23/C24/C25 and the retained C36/C38 bridge to C17's group.
+These clock and supply additions form **one accepted transaction**. Partial
+repairs are rejected; both power groups must survive the final zone refill.
+The increment adds 75 tracks and four adjacent-layer microvias: 45 clock
+tracks/two vias, 24 application-supply tracks/two vias and six USB-logic
+tracks. No original source copper, pad, placement, part, current setting or
+supply-group membership changes. The checker pins exact integer signatures
+for both sets of added power copper as well as checking every old pad group.
+Its fault cases leave gauge clock joined while withdrawing each supply repair
+in turn, and require a physical-group-split rejection. Supply impedance,
+decoupling/return locality, current capacity and bus electrical behavior remain
+unqualified. U35 SCL pin 7 and SDA pin 8 still need their respective joins.
+[Joint clock/power evidence](../../mechanical/review/native-control-gauge-clock-2026-10-22.json).
+
+The eighth/ninth joins connect UART receive from U3.36 to TP5.1 and device
+transmit from U3.37 to R47.1. They add 16 receive tracks/two microvias and
+52 transmit tracks/four microvias. The first transmit candidate disconnected
+C58/C59 from the old USB-logic group; one 1.5 mm B.Cu supply track from
+C59.1 (35.15, 4.25) mm to C11.1 (35.15, 2.75) mm retains that group without
+merging a new power group. Its exact signature is pinned with the other power
+repairs. The transmit fault regression keeps U3.37/R47.1 joined while moving
+that bridge away and requires the old supply-group split to be rejected.
+UART0_TX between R47.2 and TP4.1 is still open; 600,000-node follow-up searches
+found no accepted route. The series resistor and canonical pin nets are
+unchanged. This establishes source connectivity only, not UART/programming,
+ROM recovery, signal integrity or target firmware operation.
+[UART and rejected-transmit evidence](../../mechanical/review/native-control-uart-continuation-2026-10-22.json).
+
+The cumulative addition comprises **278 tracks and 34 adjacent-layer microvias**,
+bringing the board to **14,806 tracks/vias**. All 483 placements, exact parts,
 pad assignments and 14,494 source tracks/vias survive. The selected added
 copper is captured in an integer-coordinate [replay plan](../../mechanical/review/native-control-routing-plan.json)
 (1,000,000 KiCad internal units/mm). The [generator](../../tools/generate-native-control-trial.py)
@@ -94,12 +133,12 @@ Vendor PDFs are excluded from Git.
   clean DRC. [Raw report](led-native-control-drc-2026-10-21.json).
 - The [saved-board checker](../../tools/check-native-control-trial.py) verifies
   unchanged physical pad geometry, source copper, every old pad group, all
-  six claimed joins, actual via dimensions/layer adjacency and all eighteen
+  nine claimed joins, actual via dimensions/layer adjacency and all eighteen
   physical anode pads per row. [Result](../../mechanical/review/native-control-check.json).
 - [Per-net native counts](../../mechanical/review/native-control-open-nets.json)
-  reconcile all 228 opens. Only the four listed signal nets' pad groups change;
+  reconcile all 225 opens. Only the seven listed signal nets' pad groups change;
   the USB-logic and application supply groups are preserved.
-- All 256 exact LED placements/rotations/pad maps/nets pass. Eleven isolated
+- All 256 exact LED placements/rotations/pad maps/nets pass. Seventeen isolated
   native guard cases cover detached gate/I²C copper without item-count changes,
   removed source copper, altered duplicate drain geometry, moved footprints,
   pad-net changes and nonadjacent microvias. The new regression deliberately
@@ -107,7 +146,11 @@ Vendor PDFs are excluded from Git.
   but U3.2 loses its supply group, and requires the checker to reject it.
   Gauge-data guards detach signal copper without changing counts, and
   reproduce a connected data line with C38
-  disconnected when the three bridge tracks move away. These are checker fault tests,
+  disconnected when USB bridge tracks move away. Gauge-clock guards detach
+  clock copper or leave it joined while withdrawing application/USB supply
+  repairs, proving the rejected power split in each domain. UART cases detach
+  receive/device-transmit copper or keep transmit joined while disconnecting
+  C58/C59 from their old supply group. These are checker fault tests,
   not powered-board fault response or independent Gate A review.
 - Two generations are byte-identical. [Manifest](../../mechanical/review/native-control-trial.json),
   [reproduction](../../mechanical/review/native-control-reproduction.json) and
@@ -119,7 +162,7 @@ Vendor PDFs are excluded from Git.
 ./tools/check-native-control.sh
 ```
 
-Saved-board SHA-256: `8789452903b0f34641bdd9889cffa5dd9031f370f399ff537d2eb88bc95d4d86`.
+Saved-board SHA-256: `0fd1f0dfe320dd65765fa7f50a605fd68e0932434a2166878481631b06b4b313`.
 
 Remaining work includes six gate terminals and missing pullup supplies,
 ground/power/control/clock/USB completion, timing/dead-time and bus signal
