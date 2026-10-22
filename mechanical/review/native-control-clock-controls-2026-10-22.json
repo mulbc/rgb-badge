@@ -1,0 +1,349 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "accepted_joins": [
+    {
+      "anchor": [
+        "R102",
+        "2"
+      ],
+      "net": "GAUGE_I2C_SCL",
+      "source": [
+        "U35",
+        "7"
+      ]
+    },
+    {
+      "anchor": [
+        "U54",
+        "5"
+      ],
+      "net": "ROW_ARM",
+      "source": [
+        "U55",
+        "3"
+      ]
+    },
+    {
+      "anchor": [
+        "TP30",
+        "1"
+      ],
+      "net": "USB_CHARGE_REQ",
+      "source": [
+        "U23",
+        "2"
+      ]
+    }
+  ],
+  "accepted_joint_search": {
+    "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+    "added_tracks_and_vias": 229,
+    "allowed_nets": [
+      "ROW_ARM",
+      "USB_CHARGE_REQ"
+    ],
+    "board_sha256": "402e934de59dd39a11f25c779feb1db5a41b30e9eb9cc7cca770d183ab4f5f87",
+    "clearance_mm": 0.2,
+    "connected_copper_endpoints": true,
+    "fabrication_release_allowed": false,
+    "grid_mm": 0.05,
+    "heuristic": "exact_empty_grid_layer_costs",
+    "heuristic_sha256": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4",
+    "heuristic_storage_bytes": 33686856,
+    "kicad_version": "10.0.6",
+    "max_nodes": 800000,
+    "microvia_diameter_drill_mm": [
+      0.3,
+      0.1
+    ],
+    "open_edges": 220,
+    "preserve_clusters_after_each_join": true,
+    "reverse_search": true,
+    "routes": [
+      {
+        "expanded_nodes": 357512,
+        "net": "ROW_ARM",
+        "routed": true,
+        "search_outcome": "accepted_join",
+        "source": [
+          "U55",
+          "3"
+        ]
+      },
+      {
+        "expanded_nodes": 300719,
+        "net": "USB_CHARGE_REQ",
+        "routed": true,
+        "search_outcome": "accepted_join",
+        "source": [
+          "U23",
+          "2"
+        ]
+      }
+    ],
+    "search_tool_sha256": "5723b075b1dc72cb6795b8d5859e8df1cedcebefd7ed9fac8289e00cfc0abaee",
+    "source_sha256": "b2cd875246a3888a1da4ea807e0dc1d7b2dc53b4803e2294c525407d8eb82386",
+    "status": "UNQUALIFIED_LOCAL_CONTROL_STUDY",
+    "tool_source_sha256": {
+      "tools/generate-colour-fanout-grid-trial.py": "62fbbc1ce6c0e8cb0a276dd15900885562a8e69c69557949eb6f689945ea1224",
+      "tools/generate-paired-charger-114mm-routing.py": "807eaba5aea8e92ecbf514ca16ab767c30d006703c6697a9fec10cf2e46e1441",
+      "tools/routing_goal_distance.py": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4",
+      "tools/search-native-control-routes.py": "5723b075b1dc72cb6795b8d5859e8df1cedcebefd7ed9fac8289e00cfc0abaee"
+    },
+    "tracks_and_vias": 15478,
+    "width_mm": 0.2
+  },
+  "all_old_copper_placements_and_pad_groups_preserved": true,
+  "base_board_sha256": "29d1f9cec25abc5ed199dd29b96c11338a646a2a95c4e6b49667e9a1b41bcf7e",
+  "base_revision": "a21142c2cce97c63b2e9c2f8f457407dd9f74b24",
+  "board_sha256": "b513c1522e56bbf791cb6e069ab2d6ef081802605327b7f4d50750fffddb98e1",
+  "clock_dangling_lead_removed": {
+    "end_iu": [
+      39164285,
+      2250000
+    ],
+    "full_drc_after": 104,
+    "full_drc_before": 105,
+    "layer": "In4.Cu",
+    "new_signal_track_only": true,
+    "old_pad_groups_and_clock_join_preserved": true,
+    "start_iu": [
+      39650000,
+      2350000
+    ]
+  },
+  "clock_search": {
+    "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+    "added_tracks_and_vias": 237,
+    "allowed_nets": [
+      "GAUGE_I2C_SCL"
+    ],
+    "board_sha256": "b0cd4ef6eb255168ea76164de0b4a996cdfe43bc2ed03ee8dd20efe97abcb8ce",
+    "clearance_mm": 0.2,
+    "connected_copper_endpoints": true,
+    "fabrication_release_allowed": false,
+    "grid_mm": 0.05,
+    "heuristic": "exact_empty_grid_layer_costs",
+    "heuristic_sha256": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4",
+    "heuristic_storage_bytes": 33686856,
+    "kicad_version": "10.0.6",
+    "max_nodes": 2400000,
+    "microvia_diameter_drill_mm": [
+      0.3,
+      0.1
+    ],
+    "open_edges": 222,
+    "preserve_clusters_after_each_join": true,
+    "reverse_search": true,
+    "routes": [
+      {
+        "expanded_nodes": 922941,
+        "net": "GAUGE_I2C_SCL",
+        "routed": true,
+        "search_outcome": "accepted_join",
+        "source": [
+          "U35",
+          "7"
+        ]
+      }
+    ],
+    "search_tool_sha256": "5723b075b1dc72cb6795b8d5859e8df1cedcebefd7ed9fac8289e00cfc0abaee",
+    "source_sha256": "29d1f9cec25abc5ed199dd29b96c11338a646a2a95c4e6b49667e9a1b41bcf7e",
+    "status": "UNQUALIFIED_LOCAL_CONTROL_STUDY",
+    "tool_source_sha256": {
+      "tools/generate-colour-fanout-grid-trial.py": "62fbbc1ce6c0e8cb0a276dd15900885562a8e69c69557949eb6f689945ea1224",
+      "tools/generate-paired-charger-114mm-routing.py": "807eaba5aea8e92ecbf514ca16ab767c30d006703c6697a9fec10cf2e46e1441",
+      "tools/routing_goal_distance.py": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4",
+      "tools/search-native-control-routes.py": "5723b075b1dc72cb6795b8d5859e8df1cedcebefd7ed9fac8289e00cfc0abaee"
+    },
+    "tracks_and_vias": 15250,
+    "width_mm": 0.2
+  },
+  "exact_unchanged_intrinsic_drc_findings": 104,
+  "fabrication_release_allowed": false,
+  "hardware_measurements": "NONE",
+  "increment_added_adjacent_layer_microvias": 16,
+  "increment_added_tracks": 449,
+  "independent_control_search": {
+    "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+    "added_tracks_and_vias": 195,
+    "allowed_nets": [
+      "APP_SUPERVISOR_OK",
+      "DISPLAY_CLEAR_3",
+      "HEARTBEAT_FALL_CLK",
+      "HEARTBEAT_SEEN",
+      "ROW_ARM",
+      "ROW_ENABLE_N_CANDIDATE",
+      "USB_CHARGE_REQ",
+      "USB_OUT1",
+      "VLED_ENABLE_CANDIDATE"
+    ],
+    "board_sha256": "430e51c44c2db315d4868e50da7680f241454ce6e5a9f77e10b5c845beeedec1",
+    "clearance_mm": 0.2,
+    "connected_copper_endpoints": true,
+    "fabrication_release_allowed": false,
+    "grid_mm": 0.05,
+    "heuristic": "exact_empty_grid_layer_costs",
+    "heuristic_sha256": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4",
+    "heuristic_storage_bytes": 33686856,
+    "kicad_version": "10.0.6",
+    "max_nodes": 400000,
+    "microvia_diameter_drill_mm": [
+      0.3,
+      0.1
+    ],
+    "open_edges": 221,
+    "preserve_clusters_after_each_join": true,
+    "reverse_search": true,
+    "routes": [
+      {
+        "expanded_nodes": 0,
+        "net": "DISPLAY_CLEAR_3",
+        "routed": false,
+        "search_outcome": "no_usable_grid_endpoint",
+        "source": [
+          "U52",
+          "1"
+        ]
+      },
+      {
+        "expanded_nodes": 308275,
+        "net": "ROW_ARM",
+        "routed": true,
+        "search_outcome": "accepted_join",
+        "source": [
+          "U55",
+          "3"
+        ]
+      },
+      {
+        "expanded_nodes": 686,
+        "net": "VLED_ENABLE_CANDIDATE",
+        "routed": false,
+        "search_outcome": "exhausted_grid",
+        "source": [
+          "U55",
+          "7"
+        ]
+      },
+      {
+        "expanded_nodes": 0,
+        "net": "HEARTBEAT_FALL_CLK",
+        "routed": false,
+        "search_outcome": "no_usable_grid_endpoint",
+        "source": [
+          "U49",
+          "1"
+        ]
+      },
+      {
+        "expanded_nodes": 400001,
+        "net": "ROW_ENABLE_N_CANDIDATE",
+        "routed": false,
+        "search_outcome": "node_bound",
+        "source": [
+          "U54",
+          "3"
+        ]
+      },
+      {
+        "expanded_nodes": 400001,
+        "net": "APP_SUPERVISOR_OK",
+        "routed": false,
+        "search_outcome": "node_bound",
+        "source": [
+          "U51",
+          "1"
+        ]
+      },
+      {
+        "expanded_nodes": 400001,
+        "net": "USB_OUT1",
+        "routed": false,
+        "search_outcome": "node_bound",
+        "source": [
+          "U24",
+          "6"
+        ]
+      },
+      {
+        "expanded_nodes": 300719,
+        "net": "USB_CHARGE_REQ",
+        "routed": true,
+        "search_outcome": "accepted_join",
+        "source": [
+          "U23",
+          "2"
+        ]
+      },
+      {
+        "expanded_nodes": 400001,
+        "net": "HEARTBEAT_SEEN",
+        "routed": false,
+        "search_outcome": "node_bound",
+        "source": [
+          "U50",
+          "2"
+        ]
+      }
+    ],
+    "search_tool_sha256": "5723b075b1dc72cb6795b8d5859e8df1cedcebefd7ed9fac8289e00cfc0abaee",
+    "source_sha256": "29d1f9cec25abc5ed199dd29b96c11338a646a2a95c4e6b49667e9a1b41bcf7e",
+    "status": "UNQUALIFIED_LOCAL_CONTROL_STUDY",
+    "tool_source_sha256": {
+      "tools/generate-colour-fanout-grid-trial.py": "62fbbc1ce6c0e8cb0a276dd15900885562a8e69c69557949eb6f689945ea1224",
+      "tools/generate-paired-charger-114mm-routing.py": "807eaba5aea8e92ecbf514ca16ab767c30d006703c6697a9fec10cf2e46e1441",
+      "tools/routing_goal_distance.py": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4",
+      "tools/search-native-control-routes.py": "5723b075b1dc72cb6795b8d5859e8df1cedcebefd7ed9fac8289e00cfc0abaee"
+    },
+    "tracks_and_vias": 15208,
+    "width_mm": 0.2
+  },
+  "isolated_native_guard_cases_passed": 21,
+  "limitations": [
+    "220 opens including TP11, transmit test-pad leg, six gate terminals and remaining power/control/USB",
+    "104 intrinsic findings unresolved",
+    "No electrical/bus/current/return/process/fit qualification or independent Gate A"
+  ],
+  "native_open_edges_after": 220,
+  "native_open_edges_before": 223,
+  "new_power_copper": false,
+  "raw_evidence_sha256": {
+    "/private/tmp/rgb-clock-and-controls-drc.log": "05652592da30456a3892c0d754278556bd4070b01fab4b05d094d7101041612f",
+    "/private/tmp/rgb-clock-controls-ci-layout.log": "87617809d6fa50ea24f235f1d76e296a23a2ab26aa8e8aaba160070cf2b8c794",
+    "/private/tmp/rgb-clock-controls-extract.log": "24825baffa296cce3ffa9ace1258a850c8c4462b9fc53ae207afc07d73e07efd",
+    "/private/tmp/rgb-clock-controls-generate.log": "b3aba2c20b1141909cfd03bcaa81f2ef711fbbbd6ad2a887551d76334003c539",
+    "/private/tmp/rgb-clock-controls-native-check.log": "2259e768b2a9dce7b2527b35db778ff1825d818db514dcc10e3412ca3c0dc356",
+    "/private/tmp/rgb-clock-controls-native-contract.log": "d3d857eed5ca371cfde7649e9e31ee8d2f6c15ead25c126a811dd1fc53475c13",
+    "/private/tmp/rgb-clock-controls-open-nets.json": "f06c2a09f1b2114def77223474e6902016f45bb50c3351f8a125a438280b1672",
+    "/private/tmp/rgb-clock-controls-reproduce.log": "664685bdc7f664b51683810c15a26863058c0556cfb226de65f1cafdcbd0533e",
+    "/private/tmp/rgb-combine-control-candidates.log": "f9a4c45949a0bb047b9b00687ce7e1eb2b41f30d84956b2b3a1de3f8bc1e7971",
+    "/private/tmp/rgb-combine-control-candidates.py": "d2d5684b22ed0cbd6d392ff57c493a4d1383d2df07efe66b0d4ced857a465d5e",
+    "/private/tmp/rgb-controls-after-clock-222-drc.log": "3404b86220090a55c755bcd2bb6813dfb5523d51a6b293e5da5cdfafccbf3c96",
+    "/private/tmp/rgb-controls-after-clock-222.log": "e46f1935864d0c1e12f5d6d292ccc94bf35b7b949266f4c7c2baa82a3d548bac",
+    "/private/tmp/rgb-extract-clock-controls.py": "6eff43f5a0d3a61adabf14b79b26e55366e4821c14d7704ab8b2565f6ab734df",
+    "/private/tmp/rgb-gauge-clock-reverse-223.log": "10035d6ee327614301fd3c657863a6e0b6dfd6c76ba775a2cf83c8f040f10116",
+    "/private/tmp/rgb-gauge-clock-reverse-deep-223.log": "9d4710c4c361d70dae18eb1e43ceb63b5fb242b8aa7e958b2ddf21921c18abe1",
+    "/private/tmp/rgb-prune-clock-stub.log": "2166fe07b8f81da48341932de7ba065ebc654d7f63d0aa63bd5c16dc4f208202",
+    "/private/tmp/rgb-prune-clock-stub.py": "5c741bcce39be76079d459beafdad2966a43de06ff791e6ca5ae05853eb3433b",
+    "/private/tmp/rgb-short-controls-reverse-223.log": "53dcab769549fe561a674ddf9984df8efd7b49631fa1da31febaf5dcf6f9570f",
+    "hardware/coupon/rev-a/build/native-control-search/controls-after-clock-222-drc.json": "9ea83687af46b45e8bf9978128d9de46396090a48cfe8fc8641ed8cc99c5ba0d",
+    "hardware/coupon/rev-a/build/native-control-search/controls-after-clock-222.json": "3d7bfe52994312fe814075eb56db00e622da2cf45b44e59d7b6aaa8853addf9c",
+    "hardware/coupon/rev-a/build/native-control-search/gauge-clock-reverse-223.json": "90bfde72fbca860f9ad0c27b6097c810beb7632ff8fce6519f5dd33901db3c67",
+    "hardware/coupon/rev-a/build/native-control-search/gauge-clock-reverse-deep-223-drc.json": "0f398c7a5de116708960a06d7dd5b5d44a237879dcabecbd0752ed8d822712fe",
+    "hardware/coupon/rev-a/build/native-control-search/gauge-clock-reverse-deep-223.json": "eb101bf3a634b17286c8325b8367a3a3d5be27c7942c407c7dc585cc964cc041",
+    "hardware/coupon/rev-a/build/native-control-search/short-controls-reverse-223-drc.json": "d74bffd2fa6f1595f22d9730c9d03c365c0dfce90d556ee04eb613a4527cbd8d",
+    "hardware/coupon/rev-a/build/native-control-search/short-controls-reverse-223.json": "02f0d242a6cdb1e2fc240192706e8c68390b949b51383317198b041a3e5b0171",
+    "hardware/coupon/rev-a/build/scl-preserve/clock-and-controls-220-drc.json": "04ca504427a3ee9a03d84e1d537aabc03dfc798c86362e19760f80efe879cf9c",
+    "hardware/coupon/rev-a/build/scl-preserve/gauge-clock-pruned-drc.json": "b35c60e812ac433316c17d34b3629451ca806ee934f5ac9072ce4cf8a263db60",
+    "hardware/coupon/rev-a/build/scl-preserve/gauge-clock-pruned.kicad_pcb": "b2cd875246a3888a1da4ea807e0dc1d7b2dc53b4803e2294c525407d8eb82386"
+  },
+  "rejected_combination": {
+    "accepted": false,
+    "full_drc_violations": 180,
+    "native_open_edges": 220,
+    "reason": "Independent clock and control routes collide"
+  },
+  "repeated_generation_byte_identical": true,
+  "status": "CHECKED_CLOCK_AND_CONTROL_ROUTES_NOT_FABRICATION_SOURCE"
+}

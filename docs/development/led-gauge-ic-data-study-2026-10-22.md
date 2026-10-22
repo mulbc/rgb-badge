@@ -4,6 +4,8 @@
 
 Status: **unbuilt noncanonical geometry study; fabrication prohibited**.
 
+This records the 223-open gauge SDA checkpoint. The later [clock/control continuation](led-clock-controls-study-2026-10-22.md) leaves 220 opens; linked rolling reports describe that board, while this increment record retains its exact identities.
+
 The [saved native-control derivative](../../hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb)
 now joins **MAX17048 U35.8** to the existing **R101.2 / TCA9517A U46.3** gauge
 SDA group. Native and physical-pad open counts decrease **224 → 223**, and gauge

@@ -39,7 +39,7 @@ class NativeControlGuards(unittest.TestCase):
             check.validate_geometry(self.old, self.new, self.joins)
 
     def test_saved_study_passes(self):
-        self.assertEqual(check.validate_geometry(self.old, self.new, self.joins)['checked_joins'], 11)
+        self.assertEqual(check.validate_geometry(self.old, self.new, self.joins)['checked_joins'], 14)
 
     def test_connected_gauge_ic_data_that_cuts_pullup_supply_is_rejected(self):
         # The reverse-search route joins U35.8 but cuts four APP supply pads.
@@ -67,6 +67,18 @@ class NativeControlGuards(unittest.TestCase):
                                 check.cluster(self.new, pad('U3', '2')))
         with self.assertRaisesRegex(AssertionError, 'Existing physical pad cluster split'):
             check.validate_geometry(self.old, self.new, self.joins)
+
+    def test_row_arm_detached_without_changing_item_counts(self):
+        for item in self.added:
+            if item.GetNetname() == 'ROW_ARM':
+                item.Move(p.VECTOR2I(0, 5000000))
+        self.reject()
+
+    def test_usb_charge_request_detached_without_changing_item_counts(self):
+        for item in self.added:
+            if item.GetNetname() == 'USB_CHARGE_REQ':
+                item.Move(p.VECTOR2I(0, 5000000))
+        self.reject()
 
     def test_application_data_detached_without_changing_item_counts(self):
         for item in self.added:

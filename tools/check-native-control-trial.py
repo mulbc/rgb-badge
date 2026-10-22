@@ -62,7 +62,7 @@ def validate_geometry(old, new, intended_joins):
     # Only the reviewed signal joins and fixed supply-continuity geometry are
     # allowed. Power pad groups must be exactly unchanged after the joint fill.
     allowed = {'ROW_GATE_05', 'SYS_I2C_SCL', 'VLED_WINDOW_OK',
-               'GAUGE_I2C_SDA', 'GAUGE_I2C_SCL', 'UART0_RX', 'UART0_TX_RAW', 'SYS_I2C_SDA'}
+               'GAUGE_I2C_SDA', 'GAUGE_I2C_SCL', 'UART0_RX', 'UART0_TX_RAW', 'SYS_I2C_SDA', 'ROW_ARM', 'USB_CHARGE_REQ'}
     power_hashes = {
         '+3V3_APP': (26, 'fda8fe3404655998aceb7616469bf9d6faee7f075ab474304bccf1918ce93e89'),
         '+3V3_USB': (10, '299e9ca0dc333371ab467fdbae07e4c1a5217c950ee0b2fefdf427327c1d5074'),
@@ -97,7 +97,7 @@ def validate_geometry(old, new, intended_joins):
         signatures = sorted(power_signature(t) for t in added if t.GetNetname() == name)
         assert len(signatures) == count
         assert hashlib.sha256(json.dumps(signatures, separators=(',', ':')).encode()).hexdigest() == digest
-    assert len(intended_joins) == 11
+    assert len(intended_joins) == 14
     for entry in intended_joins:
         name, ref, number = entry['net'], *entry['source']
         assert name in allowed
@@ -150,7 +150,7 @@ def main():
     assert len(colour.findings(args.drc)) == 104
     reporter = module('connectivity', 'report-coupon-board-connectivity.py')
     opens = reporter.open_edges_by_net(OUTPUT)
-    assert opens['native_open_edges'] == opens['pad_cluster_open_edges'] == manifest['native_open_edges'] == 223
+    assert opens['native_open_edges'] == opens['pad_cluster_open_edges'] == manifest['native_open_edges'] == 220
     assert opens['by_net']['GND'] == 27 and opens['by_net']['VLED'] == 14
     assert 'SYS_I2C_SCL' not in opens['by_net']
     assert opens['by_net']['SYS_I2C_SDA'] == 1
@@ -161,21 +161,29 @@ def main():
     assert 'UART0_RX' not in opens['by_net'] and 'UART0_TX_RAW' not in opens['by_net']
     assert opens['by_net']['UART0_TX'] == 1
     assert opens['by_net']['+3V3_APP'] == 7 and opens['by_net']['+3V3_USB'] == 4
-    assert 'GAUGE_I2C_SDA' not in opens['by_net'] and opens['by_net']['GAUGE_I2C_SCL'] == 1
+    assert not {'GAUGE_I2C_SDA', 'GAUGE_I2C_SCL', 'ROW_ARM', 'USB_CHARGE_REQ'} & opens['by_net'].keys()
     gauge_pad = next(q for f in new.GetFootprints() if f.GetReference() == 'U35'
                      for q in f.Pads() if q.GetNumber() == '8')
     assert {(ref, number) for ref, number, x, y in cluster(new, gauge_pad)} == {
         ('U35', '8'), ('U46', '3'), ('R101', '2')}, 'Gauge data group differs'
+    for ref, pin, expected in [
+            ('U35', '7', {('R102', '2'), ('U35', '7'), ('U46', '2')}),
+            ('U55', '3', {('U54', '5'), ('U55', '3')}),
+            ('U23', '2', {('TP30', '1'), ('U17', '4'), ('U23', '2'), ('U42', '1')})]:
+        pad = next(q for f in new.GetFootprints() if f.GetReference() == ref
+                   for q in f.Pads() if q.GetNumber() == pin)
+        assert {(r, n) for r, n, x, y in cluster(new, pad)} == expected
     assert {name for name in opens['by_net'] if name.startswith('ROW_GATE_')} == {
         'ROW_GATE_00', 'ROW_GATE_02', 'ROW_GATE_03', 'ROW_GATE_04', 'ROW_GATE_06', 'ROW_GATE_07'}
     assert len(list(new.GetTracks())) == manifest['tracks_and_vias']
     result.update(board_sha256=manifest['board_sha256'], kicad_version=p.GetBuildVersion(),
-                  native_open_edges=223, ground_open_edges=27, vled_open_edges=14,
+                  native_open_edges=220, ground_open_edges=27, vled_open_edges=14,
                   application_clock_open_edges=0,
                   application_data_open_edges=1,
                   uart_receive_open_edges=0, uart_device_transmit_open_edges=0,
                   uart_test_pad_transmit_open_edges=1,
-                  gauge_data_open_edges=0, gauge_clock_open_edges=1,
+                  gauge_data_open_edges=0, gauge_clock_open_edges=0,
+                  row_arm_open_edges=0, usb_charge_request_open_edges=0,
                   connected_gate_terminals=10, remaining_gate_terminals=6,
                   full_drc='104_UNCHANGED_INTRINSIC_FINDINGS',
                   drc_sha256=hashlib.sha256(args.drc.read_bytes()).hexdigest())

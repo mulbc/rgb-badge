@@ -1,6 +1,6 @@
 {
   "SPDX-License-Identifier": "CERN-OHL-S-2.0",
   "byte_identical": true,
-  "first_sha256": "29d1f9cec25abc5ed199dd29b96c11338a646a2a95c4e6b49667e9a1b41bcf7e",
-  "second_sha256": "29d1f9cec25abc5ed199dd29b96c11338a646a2a95c4e6b49667e9a1b41bcf7e"
+  "first_sha256": "b513c1522e56bbf791cb6e069ab2d6ef081802605327b7f4d50750fffddb98e1",
+  "second_sha256": "b513c1522e56bbf791cb6e069ab2d6ef081802605327b7f4d50750fffddb98e1"
 }
