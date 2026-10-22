@@ -14,6 +14,26 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  study-contract:
+    name: Schematic to study contract
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /tools/
+            /hardware/coupon/rev-a/*.kicad_sch
+            /hardware/coupon/rev-a/symbols/
+            /hardware/coupon/rev-a/footprints/
+            /hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb
+            /mechanical/review/coupon-canonical-net-contract.json
+      - name: Canonical source assignment and injected-fault checks
+        run: |
+          python3 tools/check-coupon-study-contract.py
+          python3 -m unittest discover -s tools/tests -p test_coupon_study_contract.py -v
   image-import:
     name: Exact PNG and GIF import
     runs-on: ubuntu-24.04
