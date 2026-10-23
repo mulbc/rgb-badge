@@ -1,0 +1,29 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_microvias": 212,
+  "added_tracks": 440,
+  "board_sha256": "cd4c51dc74c6ef15d408e0ce004645c3077df6da15681378a6e48d11284d98f6",
+  "canonical_contract_sha256": "3b7f150bd2dcd5b6d6efd7df4350da27ee625d483439e6c5e3ff2cfc5c45131c",
+  "fabrication_release_allowed": false,
+  "footprints": 483,
+  "generator_sha256": "8dffb7fb351e606b5aa4586633ce478ad930acda1c23ff1506b8c282c3f26c10",
+  "microvia_diameter_drill_mm": [
+    0.3,
+    0.1
+  ],
+  "minimum_annular_width_mm": 0.1,
+  "native_open_edges": 150,
+  "other_net_clearance_mm": 0.2,
+  "pad_cluster_open_edges": 150,
+  "plan_sha256": "f2a8891fd42127c4cda64024ec4f43aed1ffd4ac2263b30acde4c6ed8c992dcf",
+  "project_sha256": "773c27e94eee531af324b2e2d14cd59d76c7b7c9ef43acb4e9f260a2264326b1",
+  "relocated_passives": 12,
+  "retained_nonzero_source_copper": 15401,
+  "retired_zero_length_tracks": 116,
+  "shared_footprints_with_canonical_metadata": 465,
+  "source_native_open_edges": 215,
+  "source_sha256": "da3c3e093acef457ce2d0ebe73b57fd5006b9139a57b7fe8acfcd77e612dc246",
+  "status": "UNQUALIFIED_LOCAL_ROUTING_PROGRESS_STUDY",
+  "track_width_mm": 0.2,
+  "tracks_and_vias": 16053
+}

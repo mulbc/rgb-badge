@@ -47,3 +47,6 @@ Decision records explain choices that materially constrain later work. Accepted 
 | [0040](0040-reusable-host-build-and-inspector.md) | Reusable host library, two-compiler verification and complete asset inspection | Accepted for host software; target qualification pending |
 | [0041](0041-derived-coupon-pin-map.md) | Derive a provisional controller pin inventory from canonical KiCad source | Accepted for source/host verification; freeze and target use pending |
 | [0042](0042-exact-image-import.md) | Exact-size PNG/GIF import with explicit timing and alpha policy | Accepted for host content preparation; target transfer/storage pending |
+
+- [0043: Fine-pitch signal escape study](0043-bounded-signal-pad-escapes.md) — narrower candidates evaluated; selected checkpoint retains the original track, clearance and via dimensions.
+- [0044: Localize unrouted study passives](0044-localize-unrouted-study-passives.md) — exact components and all nonzero frozen-source copper retained; no fabrication release.

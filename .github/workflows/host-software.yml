@@ -30,9 +30,16 @@ jobs:
             /hardware/coupon/rev-a/footprints/
             /hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb
             /mechanical/review/coupon-canonical-net-contract.json
+            /hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb
+            /hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pro
+            /mechanical/review/routing-progress-plan.json
+            /mechanical/review/routing-progress-trial.json
       - name: Canonical source assignment and injected-fault checks
         run: |
           python3 tools/check-coupon-study-contract.py
+          python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb
+          python3 tools/check-routing-progress-plan.py
+          python3 -m unittest discover -s tools/tests -p test_routing_progress_plan.py -v
           python3 -m unittest discover -s tools/tests -p test_coupon_study_contract.py -v
           python3 -m unittest discover -s tools/tests -p test_routing_goal_distance.py -v
           python3 -m unittest discover -s tools/tests -p test_native_route_paths.py -v
