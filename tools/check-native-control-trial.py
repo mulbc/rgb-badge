@@ -80,17 +80,26 @@ def validate_geometry(old, new, intended_joins):
         ('track', 'COL_06_G', 200000, 55.7, 6.9, 54.85, 6.9, int(p.In3_Cu)),
         ('track', 'COL_06_G', 200000, 54.85, 6.9, 54.85, 6.85, int(p.In3_Cu)),
         ('track', 'COL_06_G', 200000, 54.85, 6.85, 54.0, 6.85, int(p.In3_Cu)),
+        ('track', 'COL_02_G', 200000, 76.35, 10.25, 52.7, 10.25, int(p.In4_Cu)),
+        ('via', 'COL_02_G', 300000, 76.35, 10.25, int(p.In3_Cu), int(p.In4_Cu), 100000),
+        ('via', 'COL_02_G', 300000, 76.35, 10.25, int(p.In2_Cu), int(p.In3_Cu), 100000),
+        ('track', 'COL_02_G', 200000, 76.35, 10.75, 76.35, 10.25, int(p.In2_Cu)),
+        ('track', 'COL_02_G', 200000, 52.7, 10.25, 52.7, 10.3, int(p.In4_Cu)),
+        ('track', 'COL_02_G', 200000, 52.7, 10.3, 47.0, 10.3, int(p.In4_Cu)),
+        ('via', 'COL_02_G', 300000, 47.0, 10.3, int(p.In3_Cu), int(p.In4_Cu), 100000),
+        ('track', 'COL_02_G', 200000, 47.0, 10.3, 46.15, 10.3, int(p.In3_Cu)),
     ]
     assert +originals == Counter(replacements), 'Source copper differs from the reviewed replacements'
     # Only the reviewed signal joins and fixed supply-continuity geometry are
-    # allowed. Supply groups stay unchanged; GND has only the R28/R29/R2/R36 joins.
+    # allowed. Supply groups stay unchanged; GND has only the R28/R29/R2/R36/R86 joins.
     allowed = {'ROW_GATE_05', 'SYS_I2C_SCL', 'VLED_WINDOW_OK',
                'GAUGE_I2C_SDA', 'GAUGE_I2C_SCL', 'UART0_RX', 'UART0_TX_RAW',
                'SYS_I2C_SDA', 'ROW_ARM', 'USB_CHARGE_REQ', 'GND'}
     power_hashes = {
         '+3V3_APP': (26, 'fda8fe3404655998aceb7616469bf9d6faee7f075ab474304bccf1918ce93e89'),
         '+3V3_USB': (10, '299e9ca0dc333371ab467fdbae07e4c1a5217c950ee0b2fefdf427327c1d5074'),
-        'GND': (15, '4c4cde14cbf1fab8623ec54e942a2fe5dedbcc8e6c5854cebc86096fd7a791ed'),
+        'GND': (19, '3bd9f0062be16cc785f3600b9f596858952cec05c857719c73e8f70ecdf5d5d0'),
+        'COL_02_G': (16, '115091f0086bda4149513c50ce22e677572a65aef18b2ac62d8bd03b0b427b2f'),
         'COL_06_G': (17, '1f51fd317287edf0314cf35d3b07dbe687c0cf8d0e55e0ef5d2738b6ec86af12'),
         'ROW_SEL_04': (7, '9b0205e1050b9a3989cca20626f0408717da9b56cfb28861386be8e509ed7456'),
         'COL_07_R': (9, '2deebdb3220d936fe413028fd5e21045e06829ac52cfdf4da5084a204a3de9d2'),
@@ -125,7 +134,7 @@ def validate_geometry(old, new, intended_joins):
         signatures = sorted(power_signature(t) for t in added if t.GetNetname() == name)
         assert len(signatures) == count
         assert hashlib.sha256(json.dumps(signatures, separators=(',', ':')).encode()).hexdigest() == digest
-    assert len(intended_joins) == 18
+    assert len(intended_joins) == 19
     for entry in intended_joins:
         name, ref, number = entry['net'], *entry['source']
         assert name in allowed
@@ -147,12 +156,13 @@ def validate_geometry(old, new, intended_joins):
     second_ground = next(q for q in after['R29'].Pads() if q.GetNumber() == '2')
     driver_ground = next(q for q in after['R2'].Pads() if q.GetNumber() == '2')
     select_ground = next(q for q in after['R36'].Pads() if q.GetNumber() == '2')
+    feedback_ground = next(q for q in after['R86'].Pads() if q.GetNumber() == '2')
     ground_anchor = next(q for q in before['R25'].Pads() if q.GetNumber() == '2')
     assert cluster(new, ground_pad) == cluster(old, ground_anchor) | {
-        identity(ground_pad), identity(second_ground), identity(driver_ground), identity(select_ground)}, 'Ground group differs'
+        identity(ground_pad), identity(second_ground), identity(driver_ground), identity(select_ground), identity(feedback_ground)}, 'Ground group differs'
     return dict(unchanged_footprints=483, source_copper_preserved=False,
-                unaffected_source_copper_preserved=True, reviewed_source_track_replacements=20,
-                reviewed_obsolete_source_vias_removed=1,
+                unaffected_source_copper_preserved=True, reviewed_source_track_replacements=25,
+                reviewed_obsolete_source_vias_removed=4,
                 existing_physical_pad_clusters_preserved=True,
                 controller_supply_bridge_preserved=True,
                 usb_logic_bypass_group_preserved=True,
@@ -187,9 +197,9 @@ def main():
     assert len(colour.findings(args.drc)) == 104
     reporter = module('connectivity', 'report-coupon-board-connectivity.py')
     opens = reporter.open_edges_by_net(OUTPUT)
-    assert opens['native_open_edges'] == opens['pad_cluster_open_edges'] == manifest['native_open_edges'] == 216
-    assert manifest['replaced_source_tracks'] == 20 and manifest['removed_source_vias'] == 1
-    assert opens['by_net']['GND'] == 23 and opens['by_net']['VLED'] == 14
+    assert opens['native_open_edges'] == opens['pad_cluster_open_edges'] == manifest['native_open_edges'] == 215
+    assert manifest['replaced_source_tracks'] == 25 and manifest['removed_source_vias'] == 4
+    assert opens['by_net']['GND'] == 22 and opens['by_net']['VLED'] == 14
     assert 'SYS_I2C_SCL' not in opens['by_net']
     assert opens['by_net']['SYS_I2C_SDA'] == 1
     data_pad = next(q for f in new.GetFootprints() if f.GetReference() == 'U46'
@@ -215,7 +225,7 @@ def main():
         'ROW_GATE_00', 'ROW_GATE_02', 'ROW_GATE_03', 'ROW_GATE_04', 'ROW_GATE_06', 'ROW_GATE_07'}
     assert len(list(new.GetTracks())) == manifest['tracks_and_vias']
     result.update(board_sha256=manifest['board_sha256'], kicad_version=p.GetBuildVersion(),
-                  native_open_edges=216, ground_open_edges=23, vled_open_edges=14,
+                  native_open_edges=215, ground_open_edges=22, vled_open_edges=14,
                   application_clock_open_edges=0,
                   application_data_open_edges=1,
                   uart_receive_open_edges=0, uart_device_transmit_open_edges=0,

@@ -76,9 +76,9 @@ hash drift, duplicate PCB references and stale native XML. A separate temporary
 checkout containing only the declared CI inputs passes the same suite.
 [Validation identities](../../mechanical/review/coupon-study-reconciliation-validation-2026-10-22.json).
 
-The current routed PCB SHA-256 is `6a2f61c07b647e727e1ed08daf87b3964365da2dca73504078d763aed88b72fa`. The
+The current routed PCB SHA-256 is `da3c3e093acef457ce2d0ebe73b57fd5006b9139a57b7fe8acfcd77e612dc246`. The
 [reserved ground escape](led-reserved-ground-escape-2026-10-23.md) lowers
-native opens to 216 with exactly the same 104 intrinsic clearance findings,
+native opens to 215 with exactly the same 104 intrinsic clearance findings,
 without changing component metadata, pad assignments or canonical source.
 The earlier metadata-only `20e56a77...` checkpoint differed from `0fd1f0df...`
 only in hidden shared identity properties. Its

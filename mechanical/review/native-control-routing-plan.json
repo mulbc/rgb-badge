@@ -198,6 +198,17 @@
         "R36",
         "2"
       ]
+    },
+    {
+      "anchor": [
+        "R25",
+        "2"
+      ],
+      "net": "GND",
+      "source": [
+        "R86",
+        "2"
+      ]
     }
   ],
   "kicad_iu_per_mm": 1000000,
@@ -461,6 +472,71 @@
         6850000
       ],
       "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        52700000,
+        10250000
+      ],
+      "layer": "In4.Cu",
+      "net": "COL_02_G",
+      "start_iu": [
+        76350000,
+        10250000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        76350000,
+        10250000
+      ],
+      "layer": "In2.Cu",
+      "net": "COL_02_G",
+      "start_iu": [
+        76350000,
+        10750000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        52700000,
+        10300000
+      ],
+      "layer": "In4.Cu",
+      "net": "COL_02_G",
+      "start_iu": [
+        52700000,
+        10250000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        47000000,
+        10300000
+      ],
+      "layer": "In4.Cu",
+      "net": "COL_02_G",
+      "start_iu": [
+        52700000,
+        10300000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        46150000,
+        10300000
+      ],
+      "layer": "In3.Cu",
+      "net": "COL_02_G",
+      "start_iu": [
+        47000000,
+        10300000
+      ],
+      "width_iu": 200000
     }
   ],
   "removed_source_vias": [
@@ -472,6 +548,39 @@
       "position_iu": [
         61900000,
         7250000
+      ],
+      "top": "In3.Cu"
+    },
+    {
+      "bottom": "In4.Cu",
+      "diameter_iu": 300000,
+      "drill_iu": 100000,
+      "net": "COL_02_G",
+      "position_iu": [
+        76350000,
+        10250000
+      ],
+      "top": "In3.Cu"
+    },
+    {
+      "bottom": "In3.Cu",
+      "diameter_iu": 300000,
+      "drill_iu": 100000,
+      "net": "COL_02_G",
+      "position_iu": [
+        76350000,
+        10250000
+      ],
+      "top": "In2.Cu"
+    },
+    {
+      "bottom": "In4.Cu",
+      "diameter_iu": 300000,
+      "drill_iu": 100000,
+      "net": "COL_02_G",
+      "position_iu": [
+        47000000,
+        10300000
       ],
       "top": "In3.Cu"
     }
@@ -919,6 +1028,110 @@
       "start_iu": [
         57650000,
         2750000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        75500000,
+        23850000
+      ],
+      "layer": "F.Cu",
+      "net": "COL_02_G",
+      "start_iu": [
+        74950000,
+        24500000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        76600000,
+        10750000
+      ],
+      "layer": "F.Cu",
+      "net": "COL_02_G",
+      "start_iu": [
+        75500000,
+        23850000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        74950000,
+        24500000
+      ],
+      "layer": "In1.Cu",
+      "net": "COL_02_G",
+      "start_iu": [
+        74550000,
+        24500000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        74550000,
+        24500000
+      ],
+      "layer": "In1.Cu",
+      "net": "COL_02_G",
+      "start_iu": [
+        74550000,
+        25000000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        45900000,
+        25000000
+      ],
+      "layer": "In2.Cu",
+      "net": "COL_02_G",
+      "start_iu": [
+        45300000,
+        24415000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        76600000,
+        10750000
+      ],
+      "layer": "In2.Cu",
+      "net": "COL_02_G",
+      "start_iu": [
+        76350000,
+        10750000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        74550000,
+        25000000
+      ],
+      "layer": "In3.Cu",
+      "net": "COL_02_G",
+      "start_iu": [
+        65100000,
+        25000000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        65100000,
+        25000000
+      ],
+      "layer": "In4.Cu",
+      "net": "COL_02_G",
+      "start_iu": [
+        45900000,
+        25000000
       ],
       "width_iu": 200000
     },
@@ -6665,6 +6878,19 @@
       "start_iu": [
         64250000,
         7250000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        64100000,
+        10250000
+      ],
+      "layer": "B.Cu",
+      "net": "GND",
+      "start_iu": [
+        64250000,
+        10250000
       ],
       "width_iu": 200000
     },
@@ -12780,6 +13006,94 @@
       "bottom": "In3.Cu",
       "diameter_iu": 300000,
       "drill_iu": 100000,
+      "net": "COL_02_G",
+      "position_iu": [
+        45900000,
+        25000000
+      ],
+      "top": "In2.Cu"
+    },
+    {
+      "bottom": "In4.Cu",
+      "diameter_iu": 300000,
+      "drill_iu": 100000,
+      "net": "COL_02_G",
+      "position_iu": [
+        45900000,
+        25000000
+      ],
+      "top": "In3.Cu"
+    },
+    {
+      "bottom": "In4.Cu",
+      "diameter_iu": 300000,
+      "drill_iu": 100000,
+      "net": "COL_02_G",
+      "position_iu": [
+        65100000,
+        25000000
+      ],
+      "top": "In3.Cu"
+    },
+    {
+      "bottom": "In2.Cu",
+      "diameter_iu": 300000,
+      "drill_iu": 100000,
+      "net": "COL_02_G",
+      "position_iu": [
+        74550000,
+        25000000
+      ],
+      "top": "In1.Cu"
+    },
+    {
+      "bottom": "In3.Cu",
+      "diameter_iu": 300000,
+      "drill_iu": 100000,
+      "net": "COL_02_G",
+      "position_iu": [
+        74550000,
+        25000000
+      ],
+      "top": "In2.Cu"
+    },
+    {
+      "bottom": "In1.Cu",
+      "diameter_iu": 300000,
+      "drill_iu": 100000,
+      "net": "COL_02_G",
+      "position_iu": [
+        74950000,
+        24500000
+      ],
+      "top": "F.Cu"
+    },
+    {
+      "bottom": "In1.Cu",
+      "diameter_iu": 300000,
+      "drill_iu": 100000,
+      "net": "COL_02_G",
+      "position_iu": [
+        76600000,
+        10750000
+      ],
+      "top": "F.Cu"
+    },
+    {
+      "bottom": "In2.Cu",
+      "diameter_iu": 300000,
+      "drill_iu": 100000,
+      "net": "COL_02_G",
+      "position_iu": [
+        76600000,
+        10750000
+      ],
+      "top": "In1.Cu"
+    },
+    {
+      "bottom": "In3.Cu",
+      "diameter_iu": 300000,
+      "drill_iu": 100000,
       "net": "COL_06_G",
       "position_iu": [
         53700000,
@@ -13290,6 +13604,39 @@
       "position_iu": [
         64100000,
         7250000
+      ],
+      "top": "In4.Cu"
+    },
+    {
+      "bottom": "In3.Cu",
+      "diameter_iu": 300000,
+      "drill_iu": 100000,
+      "net": "GND",
+      "position_iu": [
+        64100000,
+        10250000
+      ],
+      "top": "In2.Cu"
+    },
+    {
+      "bottom": "In4.Cu",
+      "diameter_iu": 300000,
+      "drill_iu": 100000,
+      "net": "GND",
+      "position_iu": [
+        64100000,
+        10250000
+      ],
+      "top": "In3.Cu"
+    },
+    {
+      "bottom": "B.Cu",
+      "diameter_iu": 300000,
+      "drill_iu": 100000,
+      "net": "GND",
+      "position_iu": [
+        64100000,
+        10250000
       ],
       "top": "In4.Cu"
     },

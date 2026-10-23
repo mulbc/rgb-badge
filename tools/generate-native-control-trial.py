@@ -63,15 +63,36 @@ def main():
         layer='In4.Cu', width_iu=200000), dict(net='COL_07_R',
         start_iu=[81400000, 6050000], end_iu=[56450000, 6050000],
         layer='In4.Cu', width_iu=200000)]
-    # R36 replaces one colour segment and retires its obsolete 17-track branch.
+    # R36/R86 replace colour segments and retire only their exact obsolete branches.
     # This independent integer-plan digest permits no other source retirement.
-    assert len(plan['removed_source_tracks']) == 20
+    assert len(plan['removed_source_tracks']) == 25
     assert hashlib.sha256(json.dumps(plan['removed_source_tracks'][2:],
         sort_keys=True, separators=(',', ':')).encode()).hexdigest() == (
-        'ceb19a7140262deeab4b439a15640d21d610bfe93a0ff5729bf2d3f40a461e94')
-    assert plan['removed_source_vias'] == [dict(net='COL_06_G',
-        position_iu=[61900000, 7250000], top='In3.Cu', bottom='In4.Cu',
-        diameter_iu=300000, drill_iu=100000)]
+        '0ca1d41ac5656ec391509a392f9d2dcc2b5081a09023d35cc6f29c26a760f88d')
+    assert plan['removed_source_vias'] == [{'bottom': 'In4.Cu',
+      'diameter_iu': 300000,
+      'drill_iu': 100000,
+      'net': 'COL_06_G',
+      'position_iu': [61900000, 7250000],
+      'top': 'In3.Cu'},
+     {'bottom': 'In4.Cu',
+      'diameter_iu': 300000,
+      'drill_iu': 100000,
+      'net': 'COL_02_G',
+      'position_iu': [76350000, 10250000],
+      'top': 'In3.Cu'},
+     {'bottom': 'In3.Cu',
+      'diameter_iu': 300000,
+      'drill_iu': 100000,
+      'net': 'COL_02_G',
+      'position_iu': [76350000, 10250000],
+      'top': 'In2.Cu'},
+     {'bottom': 'In4.Cu',
+      'diameter_iu': 300000,
+      'drill_iu': 100000,
+      'net': 'COL_02_G',
+      'position_iu': [47000000, 10300000],
+      'top': 'In3.Cu'}]
     removed = []
     for entry in plan['removed_source_tracks']:
         matches = [t for t in board.GetTracks() if not isinstance(t, p.PCB_VIA)

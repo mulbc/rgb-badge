@@ -4,6 +4,8 @@
 
 Status: **unbuilt noncanonical routing study; fabrication prohibited**.
 
+The subsequent [R86 continuation](led-r86-ground-study-2026-10-23.md) retains this route and leaves 215 opens. The R36 figures below describe its historical 216-open checkpoint; linked rolling checks now describe R86.
+
 The saved derivative connects R36.2 (`ERJ2RKF1003X`, 100 kΩ ±1%,
 ROW_SEL_14 pull-down) at (64.25, 7.25) mm to the existing In2 ground group.
 A 0.15 mm rear lead reaches (64.10, 7.25) mm; three adjacent B–In4–In3–In2
@@ -71,4 +73,4 @@ fit/RF/thermal and independent Gate A remain open before any fabrication release
 [current native checks](../../mechanical/review/native-control-check.json),
 [current validation](../../mechanical/review/native-control-validation.json).
 Repeat with `./tools/check-native-control.sh` and `./tools/check-coupon-study-contract.sh`.
-Current PCB SHA-256: `6a2f61c07b647e727e1ed08daf87b3964365da2dca73504078d763aed88b72fa`.
+R36 checkpoint PCB SHA-256: `6a2f61c07b647e727e1ed08daf87b3964365da2dca73504078d763aed88b72fa`.

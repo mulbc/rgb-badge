@@ -11,7 +11,7 @@ moving any footprint. The initial four joins reduced full native opens 234 → 2
 A supply-preserving clock detour added a fifth join (229 opens). The 2026-10-22
 gauge-data continuation added a sixth (228 opens). A joint gauge-clock and
 supply-continuity increment added a seventh (227 opens). The subsequent UART
-receive/device-transmit joins left 225 opens. The [application-data continuation](led-application-data-study-2026-10-22.md) joins U46.6 to R79.2/U3.10, leaving 224 opens. The [gauge IC data continuation](led-gauge-ic-data-study-2026-10-22.md) completes SDA to U35.8, leaving 223 opens. The [clock/control continuation](led-clock-controls-study-2026-10-22.md) completes gauge SCL, ROW_ARM and USB_CHARGE_REQ, leaving 220 opens. The [reserved ground escape](led-reserved-ground-escape-2026-10-23.md) replaces one ROW_SEL_04 source segment and joins R28.2 to ground, leaving 219 opens. The subsequent R29 extension retains R28 and leaves 218 opens. The R2 driver-control ground escape leaves 217 opens. The [R36 continuation](led-r36-ground-study-2026-10-23.md) reroutes COL_06_G and retires its obsolete branch, leaving **216 opens**, eighteen joins in total.
+receive/device-transmit joins left 225 opens. The [application-data continuation](led-application-data-study-2026-10-22.md) joins U46.6 to R79.2/U3.10, leaving 224 opens. The [gauge IC data continuation](led-gauge-ic-data-study-2026-10-22.md) completes SDA to U35.8, leaving 223 opens. The [clock/control continuation](led-clock-controls-study-2026-10-22.md) completes gauge SCL, ROW_ARM and USB_CHARGE_REQ, leaving 220 opens. The [reserved ground escape](led-reserved-ground-escape-2026-10-23.md) replaces one ROW_SEL_04 source segment and joins R28.2 to ground, leaving 219 opens. The subsequent R29 extension retains R28 and leaves 218 opens. The R2 driver-control ground escape leaves 217 opens. The [R36 continuation](led-r36-ground-study-2026-10-23.md) reroutes COL_06_G and retires its obsolete branch, leaving 216 opens. The [R86 continuation](led-r86-ground-study-2026-10-23.md) preserves the VLED group while rerouting COL_02_G, leaving **215 opens**, nineteen joins in total.
 
 | Net | Opens before | Opens after | Newly joined terminals |
 |---|---:|---:|---|
@@ -25,13 +25,13 @@ receive/device-transmit joins left 225 opens. The [application-data continuation
 | USB_CHARGE_REQ | 1 | 0 | U23.2 to TP30.1/U17.4/U42.1 |
 | UART0_RX | 1 | 0 | U3.36 to TP5.1 |
 | UART0_TX_RAW | 1 | 0 | U3.37 to R47.1 |
-| GND | 27 | 23 | R28.2, R29.2, R2.2 and R36.2 to the main group through reserved escapes |
+| GND | 27 | 22 | R28.2, R29.2, R2.2, R36.2 and R86.2 to the main group through reserved escapes |
 
 Ten of sixteen gate-side pullup terminals now connect. Rows **0, 2, 3, 4, 6
 and 7** remain open. R11's VLED terminal is still isolated, the application
 clock bus now forms one physical pad group, and the interlock's candidate outputs still do
 not join actual display enables. These source connections establish no gate,
-I²C or interlock operation; application SDA test-pad routing remains incomplete. GND and VLED are now at 23 and 14 opens.
+I²C or interlock operation; application SDA test-pad routing remains incomplete. GND and VLED are now at 22 and 14 opens.
 
 ## Method and retained source
 
@@ -112,9 +112,9 @@ unchanged. This establishes source connectivity only, not UART/programming,
 ROM recovery, signal integrity or target firmware operation.
 [UART and rejected-transmit evidence](../../mechanical/review/native-control-uart-continuation-2026-10-22.json).
 
-The cumulative addition comprises **944 tracks and 88 adjacent-layer microvias**, with exactly twenty original tracks and one via retired across ROW_SEL_04/COL_07_R/COL_06_G,
-bringing the board to **15,505 tracks/vias**. All 483 placements, exact parts,
-pad assignments and 14,473 unaffected source tracks/vias survive; three original routes are replaced, including the obsolete COL_06_G branch. The selected added
+The cumulative addition comprises **953 tracks and 99 adjacent-layer microvias**, with exactly twenty-five original tracks and four vias retired across ROW_SEL_04/COL_07_R/COL_06_G/COL_02_G,
+bringing the board to **15,517 tracks/vias**. All 483 placements, exact parts,
+pad assignments and 14,465 unaffected source tracks/vias survive; four original routes are replaced, including exact obsolete COL_06_G/COL_02_G branches. The selected added
 copper is captured in an integer-coordinate [replay plan](../../mechanical/review/native-control-routing-plan.json)
 (1,000,000 KiCad internal units/mm). The [generator](../../tools/generate-native-control-trial.py)
 pins the source hash, applies the exact track/via-retirement contract and added plan, refills zones and normalizes saved
@@ -136,13 +136,13 @@ Vendor PDFs are excluded from Git.
   intrinsic footprint-clearance findings**, with no additions. This is not
   clean DRC. [Raw report](led-native-control-drc-2026-10-21.json).
 - The [saved-board checker](../../tools/check-native-control-trial.py) verifies
-  unchanged physical pad geometry, all unaffected source copper, the exact twenty-track/one-via retirement, every old pad group, all
-  eighteen claimed joins, actual via dimensions/layer adjacency and all eighteen
+  unchanged physical pad geometry, all unaffected source copper, the exact twenty-five-track/four-via retirement, every old pad group, all
+  nineteen claimed joins, actual via dimensions/layer adjacency and all eighteen
   physical anode pads per row. [Result](../../mechanical/review/native-control-check.json).
 - [Per-net native counts](../../mechanical/review/native-control-open-nets.json)
-  reconcile all 216 opens. Only the ten listed signal nets and the reviewed GND group change;
+  reconcile all 215 opens. Only the ten listed signal nets and the reviewed GND group change;
   the USB-logic and application supply groups are preserved.
-- All 256 exact LED placements/rotations/pad maps/nets pass. Thirty-one isolated
+- All 256 exact LED placements/rotations/pad maps/nets pass. Thirty-four isolated
   native guard cases cover detached gate/I²C copper without item-count changes,
   removed source copper, altered duplicate drain geometry, moved footprints,
   pad-net changes and nonadjacent microvias. The new regression deliberately
@@ -166,7 +166,7 @@ Vendor PDFs are excluded from Git.
 ./tools/check-native-control.sh
 ```
 
-Saved-board SHA-256 after the reserved ground escape: `6a2f61c07b647e727e1ed08daf87b3964365da2dca73504078d763aed88b72fa`. The preceding clock/control checkpoint was `b513c152...`; its increment record remains historical. All old physical pad groups survive; source-copper retention now has twenty explicitly pinned track retirements and one via retirement.
+Saved-board SHA-256 after the reserved ground escape: `da3c3e093acef457ce2d0ebe73b57fd5006b9139a57b7fe8acfcd77e612dc246`. The preceding clock/control checkpoint was `b513c152...`; its increment record remains historical. All old physical pad groups survive; source-copper retention now has twenty-five explicitly pinned track retirements and four via retirements.
 
 Remaining work includes six gate terminals and missing pullup supplies,
 ground/power/control/clock/USB completion, timing/dead-time and bus signal

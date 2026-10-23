@@ -4,6 +4,8 @@
 
 Status: **unbuilt noncanonical routing study; fabrication prohibited**.
 
+The latest [R86 continuation](led-r86-ground-study-2026-10-23.md) retains R36 and the earlier escapes, leaving **215 opens / 22 GND opens / 104 intrinsic findings**. The sections below are historical.
+
 The subsequent [R36 continuation](led-r36-ground-study-2026-10-23.md) resolves the previously rejected branch cleanup and leaves **216 opens / 23 GND opens / 104 intrinsic findings**. The R2 and probe sections below retain their historical 217-open checkpoint.
 
 ## R2 driver-control ground

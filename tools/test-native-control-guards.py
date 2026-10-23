@@ -39,7 +39,70 @@ class NativeControlGuards(unittest.TestCase):
             check.validate_geometry(self.old, self.new, self.joins)
 
     def test_saved_study_passes(self):
-        self.assertEqual(check.validate_geometry(self.old, self.new, self.joins)['checked_joins'], 18)
+        self.assertEqual(check.validate_geometry(self.old, self.new, self.joins)['checked_joins'], 19)
+
+    def test_feedback_ground_detached_while_prior_escapes_stay_connected(self):
+        moved = 0
+        for item in self.added:
+            if (isinstance(item, p.PCB_VIA) and item.GetNetname() == 'GND'
+                    and (item.GetPosition().x, item.GetPosition().y) == (64100000, 10250000)):
+                item.Move(p.VECTOR2I(0, 5000000))
+                moved += 1
+        self.assertEqual(moved, 3)
+        p.ZONE_FILLER(self.new).Fill(self.new.Zones())
+        self.new.BuildConnectivity()
+        def pad(ref):
+            return next(q for q in self.parts[ref].Pads() if q.GetNumber() == '2')
+        for ref in ['R28', 'R29', 'R2', 'R36']:
+            self.assertEqual(check.cluster(self.new, pad(ref)), check.cluster(self.new, pad('R25')))
+        self.assertNotEqual(check.cluster(self.new, pad('R86')), check.cluster(self.new, pad('R25')))
+        with self.assertRaises(AssertionError):
+            check.validate_geometry(self.old, self.new, self.joins)
+
+    def test_column_two_green_replacement_detached_without_changing_counts(self):
+        for item in self.added:
+            if item.GetNetname() == 'COL_02_G':
+                item.Move(p.VECTOR2I(0, 5000000))
+        self.reject()
+
+    def test_connected_colour_with_original_vled_split_is_rejected(self):
+        witness = json.loads((ROOT / 'mechanical/review/native-r86-vled-regression.json').read_text())
+        points = witness['replacement_f_points_iu']
+        pairs = {frozenset((tuple(x), tuple(z))) for x, z in zip(points, points[1:])}
+        withdrawn = 0
+        for item in self.added:
+            if isinstance(item, p.PCB_VIA) or item.GetNetname() != 'COL_02_G':
+                continue
+            pair = frozenset(((item.GetStart().x, item.GetStart().y),
+                              (item.GetEnd().x, item.GetEnd().y)))
+            if item.GetLayer() == p.F_Cu and pair in pairs:
+                self.new.Remove(item)
+                withdrawn += 1
+        self.assertEqual(withdrawn, 2)
+        self.assertEqual(len(witness['original_new_in1_tracks']), 41)
+        # Restore the exact rejected route, not an approximate displaced line.
+        for entry in witness['original_new_in1_tracks']:
+            self.assertEqual((entry['net'], entry['layer'], entry['width_iu']),
+                             ('COL_02_G', 'In1.Cu', 200000))
+            item = p.PCB_TRACK(self.new)
+            item.SetStart(p.VECTOR2I(*entry['start_iu']))
+            item.SetEnd(p.VECTOR2I(*entry['end_iu']))
+            item.SetLayer(p.In1_Cu)
+            item.SetWidth(200000)
+            item.SetNet(self.new.FindNet('COL_02_G'))
+            self.new.Add(item)
+        p.ZONE_FILLER(self.new).Fill(self.new.Zones())
+        self.new.BuildConnectivity()
+        def pad(parts, ref, number):
+            return next(q for q in parts[ref].Pads() if q.GetNumber() == number)
+        old_parts = {f.GetReference(): f for f in self.old.GetFootprints()}
+        self.assertEqual(check.cluster(self.new, pad(self.parts, 'U1', '15')),
+                         check.cluster(self.old, pad(old_parts, 'U1', '15')))
+        before = check.cluster(self.old, pad(old_parts, 'R10', '1'))
+        after = check.cluster(self.new, pad(self.parts, 'R10', '1'))
+        self.assertFalse(before <= after)
+        with self.assertRaisesRegex(AssertionError, 'Existing physical pad cluster split'):
+            check.validate_geometry(self.old, self.new, self.joins)
 
     def test_select_ground_detached_while_prior_escapes_stay_connected(self):
         moved = 0
@@ -67,9 +130,9 @@ class NativeControlGuards(unittest.TestCase):
 
     def test_every_retired_green_source_item_rejected_if_restored(self):
         plan = json.loads((ROOT / 'mechanical/review/native-control-routing-plan.json').read_text())
-        entries = [t for t in plan['removed_source_tracks'] if t['net'] == 'COL_06_G']
+        entries = [t for t in plan['removed_source_tracks'] if t['net'] in {'COL_06_G', 'COL_02_G'}]
         entries += plan['removed_source_vias']
-        self.assertEqual(len(entries), 19)
+        self.assertEqual(len(entries), 27)
         layers = {self.new.GetLayerName(layer): layer for layer in self.new.GetEnabledLayers().CuStack()}
         for index, entry in enumerate(entries):
             with self.subTest(retired_item=index):
