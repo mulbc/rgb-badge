@@ -4,6 +4,36 @@
 
 Status: **unbuilt noncanonical routing study; fabrication prohibited**.
 
+## R29 extension
+
+The latest continuation extends the reserved row-select detour to ground R29.2
+at **(44.25, 7.25) mm** while retaining R28 and every previous physical pad group.
+Native/physical-pad opens decrease **219 → 218**, and GND **26 → 25**. A
+same-layer extension has no native-clear candidate in the bounded probe. The
+selected In3 route runs through **(40.5, 7.25), (40.5, 7.75), (44.8, 7.75),
+(44.8, 7.25) mm**, with two adjacent In4/In3 signal microvias at its ends.
+Three B–In4–In3–In2 microvias at R29.2 connect its ground pad without a rear lead.
+
+Four previously added row-select track signatures are superseded by four new
+ones; the left outer stub is geometrically identical. No additional original
+source item is removed: the exact one-segment source exception and 14,493 retained
+original items are unchanged. The plan/checker update their exact row/GND copper
+hashes. The cumulative plan has **926 tracks / 72 microvias**, one original
+removal, sixteen joins and **15,491 items**. Full DRC retains exactly 104 findings,
+all **25 native guards**, 256 LED checks and fresh 21-case canonical comparison
+pass; replay is byte-identical. The new fault case withdraws only R29's three
+GND vias, proves R28 still connected, and requires rejection.
+
+No current, exact part, pad/net, firmware or isolated display-enable boundary is
+changed. Return/impedance/loop/HDI/process/fit qualification and Gate A remain open.
+[Extension evidence](../../mechanical/review/native-control-r29-ground-escape-2026-10-23.json).
+Latest PCB SHA-256: `c90db60ca8cec219eeb5379766f537083a829c7c3ba6e404a13a1870ddd9c5b0`.
+
+The following sections record the preceding **219-open R28 checkpoint**. Their
+exact identities remain in its increment record; linked rolling native reports
+now describe the 218-open extension above.
+
+
 The [saved derivative](../../hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb)
 connects R28 pad 2 to the existing main In2 GND region, reducing native/physical-pad
 opens **220 → 219** and GND **27 → 26**. No board or return impedance was measured.

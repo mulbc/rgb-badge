@@ -39,7 +39,24 @@ class NativeControlGuards(unittest.TestCase):
             check.validate_geometry(self.old, self.new, self.joins)
 
     def test_saved_study_passes(self):
-        self.assertEqual(check.validate_geometry(self.old, self.new, self.joins)['checked_joins'], 15)
+        self.assertEqual(check.validate_geometry(self.old, self.new, self.joins)['checked_joins'], 16)
+
+    def test_second_ground_escape_detached_while_first_stays_connected(self):
+        moved = 0
+        for item in self.added:
+            if (isinstance(item, p.PCB_VIA) and item.GetNetname() == 'GND'
+                    and (item.GetPosition().x, item.GetPosition().y) == (44250000, 7250000)):
+                item.Move(p.VECTOR2I(0, 5000000))
+                moved += 1
+        self.assertEqual(moved, 3)
+        p.ZONE_FILLER(self.new).Fill(self.new.Zones())
+        self.new.BuildConnectivity()
+        def pad(ref):
+            return next(q for q in self.parts[ref].Pads() if q.GetNumber() == '2')
+        self.assertEqual(check.cluster(self.new, pad('R28')), check.cluster(self.new, pad('R25')))
+        self.assertNotEqual(check.cluster(self.new, pad('R29')), check.cluster(self.new, pad('R25')))
+        with self.assertRaises(AssertionError):
+            check.validate_geometry(self.old, self.new, self.joins)
 
     def test_ground_escape_detached_without_changing_item_counts(self):
         for item in self.added:

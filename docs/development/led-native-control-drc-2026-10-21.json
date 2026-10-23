@@ -1,7 +1,7 @@
 {
     "$schema": "https://schemas.kicad.org/drc.v1.json",
     "coordinate_units": "mm",
-    "date": "2026-10-23T08:21:42",
+    "date": "2026-10-23T08:35:05",
     "ignored_checks": [
         {
             "description": "Footprint has no courtyard defined",
@@ -41,30 +41,145 @@
                         "x": 0.5,
                         "y": 0.5
                     },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
                 },
+                {
+                    "description": "Zone [GND] on B.Cu, priority 0",
+                    "pos": {
+                        "x": 0.5,
+                        "y": 0.5
+                    },
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Zone [GND] on B.Cu, priority 0",
+                    "pos": {
+                        "x": 0.5,
+                        "y": 0.5
+                    },
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
+                },
+                {
+                    "description": "Zone [GND] on B.Cu, priority 0",
+                    "pos": {
+                        "x": 0.5,
+                        "y": 0.5
+                    },
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Zone [GND] on B.Cu, priority 0",
+                    "pos": {
+                        "x": 0.5,
+                        "y": 0.5
+                    },
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
+                },
+                {
+                    "description": "Zone [GND] on B.Cu, priority 0",
+                    "pos": {
+                        "x": 0.5,
+                        "y": 0.5
+                    },
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Zone [GND] on B.Cu, priority 0",
+                    "pos": {
+                        "x": 0.5,
+                        "y": 0.5
+                    },
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
+                },
+                {
+                    "description": "Zone [GND] on B.Cu, priority 0",
+                    "pos": {
+                        "x": 0.5,
+                        "y": 0.5
+                    },
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Zone [GND] on B.Cu, priority 0",
+                    "pos": {
+                        "x": 0.5,
+                        "y": 0.5
+                    },
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
+                },
+                {
+                    "description": "Zone [GND] on B.Cu, priority 0",
+                    "pos": {
+                        "x": 0.5,
+                        "y": 0.5
+                    },
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Zone [GND] on B.Cu, priority 0",
+                    "pos": {
+                        "x": 0.5,
+                        "y": 0.5
+                    },
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
+                },
+                {
+                    "description": "Zone [GND] on B.Cu, priority 0",
+                    "pos": {
+                        "x": 0.5,
+                        "y": 0.5
+                    },
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
                 {
                     "description": "Zone [GND] on In2.Cu, priority 0",
                     "pos": {
                         "x": 0.5,
                         "y": 0.5
                     },
-                    "uuid": "6b89dd3d-5f64-5701-8978-ddf433f6ee5f"
-                }
-            ],
-            "severity": "error",
-            "type": "unconnected_items"
-        },
-        {
-            "description": "Missing connection between items",
-            "items": [
-                {
-                    "description": "Zone [GND] on B.Cu, priority 0",
-                    "pos": {
-                        "x": 0.5,
-                        "y": 0.5
-                    },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
+                    "uuid": "53561680-038f-5a7d-80b9-39c8abf8ba22"
                 },
                 {
                     "description": "Zone [GND] on B.Cu, priority 0",
@@ -72,7 +187,7 @@
                         "x": 0.5,
                         "y": 0.5
                     },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
                 }
             ],
             "severity": "error",
@@ -87,7 +202,7 @@
                         "x": 0.5,
                         "y": 0.5
                     },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
                 },
                 {
                     "description": "Zone [GND] on B.Cu, priority 0",
@@ -95,7 +210,7 @@
                         "x": 0.5,
                         "y": 0.5
                     },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
                 }
             ],
             "severity": "error",
@@ -110,7 +225,7 @@
                         "x": 0.5,
                         "y": 0.5
                     },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
                 },
                 {
                     "description": "Zone [GND] on B.Cu, priority 0",
@@ -118,7 +233,7 @@
                         "x": 0.5,
                         "y": 0.5
                     },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
                 }
             ],
             "severity": "error",
@@ -133,7 +248,7 @@
                         "x": 0.5,
                         "y": 0.5
                     },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
                 },
                 {
                     "description": "Zone [GND] on B.Cu, priority 0",
@@ -141,7 +256,7 @@
                         "x": 0.5,
                         "y": 0.5
                     },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
                 }
             ],
             "severity": "error",
@@ -156,7 +271,7 @@
                         "x": 0.5,
                         "y": 0.5
                     },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
                 },
                 {
                     "description": "Zone [GND] on B.Cu, priority 0",
@@ -164,7 +279,7 @@
                         "x": 0.5,
                         "y": 0.5
                     },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
                 }
             ],
             "severity": "error",
@@ -179,7 +294,7 @@
                         "x": 0.5,
                         "y": 0.5
                     },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
                 },
                 {
                     "description": "Zone [GND] on B.Cu, priority 0",
@@ -187,30 +302,7 @@
                         "x": 0.5,
                         "y": 0.5
                     },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
-                }
-            ],
-            "severity": "error",
-            "type": "unconnected_items"
-        },
-        {
-            "description": "Missing connection between items",
-            "items": [
-                {
-                    "description": "Pad 2 [GND] of R36 on B.Cu",
-                    "pos": {
-                        "x": 64.25,
-                        "y": 7.25
-                    },
-                    "uuid": "b567e4f6-9bbd-5b3e-ae47-f1b006242213"
-                },
-                {
-                    "description": "Track [GND] on In4.Cu, length 0.1500 mm",
-                    "pos": {
-                        "x": 64.25,
-                        "y": 8.75
-                    },
-                    "uuid": "4a803606-1e47-5efb-8345-0bb7b636d2ed"
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
                 }
             ],
             "severity": "error",
@@ -225,30 +317,7 @@
                         "x": 0.5,
                         "y": 0.5
                     },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
-                },
-                {
-                    "description": "Zone [GND] on In2.Cu, priority 0",
-                    "pos": {
-                        "x": 0.5,
-                        "y": 0.5
-                    },
-                    "uuid": "6b89dd3d-5f64-5701-8978-ddf433f6ee5f"
-                }
-            ],
-            "severity": "error",
-            "type": "unconnected_items"
-        },
-        {
-            "description": "Missing connection between items",
-            "items": [
-                {
-                    "description": "Zone [GND] on B.Cu, priority 0",
-                    "pos": {
-                        "x": 0.5,
-                        "y": 0.5
-                    },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
                 },
                 {
                     "description": "Zone [GND] on B.Cu, priority 0",
@@ -256,7 +325,7 @@
                         "x": 0.5,
                         "y": 0.5
                     },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
                 }
             ],
             "severity": "error",
@@ -271,7 +340,7 @@
                         "x": 0.5,
                         "y": 0.5
                     },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
                 },
                 {
                     "description": "Zone [GND] on B.Cu, priority 0",
@@ -279,7 +348,7 @@
                         "x": 0.5,
                         "y": 0.5
                     },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
                 }
             ],
             "severity": "error",
@@ -294,99 +363,7 @@
                         "x": 0.5,
                         "y": 0.5
                     },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
-                },
-                {
-                    "description": "Zone [GND] on B.Cu, priority 0",
-                    "pos": {
-                        "x": 0.5,
-                        "y": 0.5
-                    },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
-                }
-            ],
-            "severity": "error",
-            "type": "unconnected_items"
-        },
-        {
-            "description": "Missing connection between items",
-            "items": [
-                {
-                    "description": "Zone [GND] on B.Cu, priority 0",
-                    "pos": {
-                        "x": 0.5,
-                        "y": 0.5
-                    },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
-                },
-                {
-                    "description": "Zone [GND] on B.Cu, priority 0",
-                    "pos": {
-                        "x": 0.5,
-                        "y": 0.5
-                    },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
-                }
-            ],
-            "severity": "error",
-            "type": "unconnected_items"
-        },
-        {
-            "description": "Missing connection between items",
-            "items": [
-                {
-                    "description": "Zone [GND] on B.Cu, priority 0",
-                    "pos": {
-                        "x": 0.5,
-                        "y": 0.5
-                    },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
-                },
-                {
-                    "description": "Zone [GND] on B.Cu, priority 0",
-                    "pos": {
-                        "x": 0.5,
-                        "y": 0.5
-                    },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
-                }
-            ],
-            "severity": "error",
-            "type": "unconnected_items"
-        },
-        {
-            "description": "Missing connection between items",
-            "items": [
-                {
-                    "description": "Zone [GND] on B.Cu, priority 0",
-                    "pos": {
-                        "x": 0.5,
-                        "y": 0.5
-                    },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
-                },
-                {
-                    "description": "Zone [GND] on B.Cu, priority 0",
-                    "pos": {
-                        "x": 0.5,
-                        "y": 0.5
-                    },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
-                }
-            ],
-            "severity": "error",
-            "type": "unconnected_items"
-        },
-        {
-            "description": "Missing connection between items",
-            "items": [
-                {
-                    "description": "Zone [GND] on B.Cu, priority 0",
-                    "pos": {
-                        "x": 0.5,
-                        "y": 0.5
-                    },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
                 },
                 {
                     "description": "Pad 3 [GND] of U52 on B.Cu",
@@ -409,7 +386,30 @@
                         "x": 0.5,
                         "y": 0.5
                     },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
+                },
+                {
+                    "description": "Zone [GND] on B.Cu, priority 0",
+                    "pos": {
+                        "x": 0.5,
+                        "y": 0.5
+                    },
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Zone [GND] on B.Cu, priority 0",
+                    "pos": {
+                        "x": 0.5,
+                        "y": 0.5
+                    },
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
                 },
                 {
                     "description": "Pad 3 [GND] of U52 on B.Cu",
@@ -432,7 +432,7 @@
                         "x": 0.5,
                         "y": 0.5
                     },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
                 },
                 {
                     "description": "Zone [GND] on B.Cu, priority 0",
@@ -440,7 +440,7 @@
                         "x": 0.5,
                         "y": 0.5
                     },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
                 }
             ],
             "severity": "error",
@@ -455,7 +455,7 @@
                         "x": 0.5,
                         "y": 0.5
                     },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
                 },
                 {
                     "description": "Zone [GND] on B.Cu, priority 0",
@@ -463,7 +463,7 @@
                         "x": 0.5,
                         "y": 0.5
                     },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
                 }
             ],
             "severity": "error",
@@ -472,37 +472,6 @@
         {
             "description": "Missing connection between items",
             "items": [
-                {
-                    "description": "Zone [GND] on B.Cu, priority 0",
-                    "pos": {
-                        "x": 0.5,
-                        "y": 0.5
-                    },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
-                },
-                {
-                    "description": "Zone [GND] on B.Cu, priority 0",
-                    "pos": {
-                        "x": 0.5,
-                        "y": 0.5
-                    },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
-                }
-            ],
-            "severity": "error",
-            "type": "unconnected_items"
-        },
-        {
-            "description": "Missing connection between items",
-            "items": [
-                {
-                    "description": "Pad 1 [GND] of PAIR07 on B.Cu",
-                    "pos": {
-                        "x": 76.675,
-                        "y": 14.35
-                    },
-                    "uuid": "5c9f7e62-46d1-5220-9360-c1b198b61ea0"
-                },
                 {
                     "description": "Track [GND] on In1.Cu, length 5.7000 mm",
                     "pos": {
@@ -510,6 +479,14 @@
                         "y": 12.0
                     },
                     "uuid": "e56b0892-bedd-54cb-b38e-f6dc8059e431"
+                },
+                {
+                    "description": "Pad 1 [GND] of PAIR07 on B.Cu",
+                    "pos": {
+                        "x": 76.675,
+                        "y": 14.35
+                    },
+                    "uuid": "5c9f7e62-46d1-5220-9360-c1b198b61ea0"
                 }
             ],
             "severity": "error",
@@ -524,7 +501,7 @@
                         "x": 0.5,
                         "y": 0.5
                     },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
                 },
                 {
                     "description": "Zone [GND] on B.Cu, priority 0",
@@ -532,7 +509,7 @@
                         "x": 0.5,
                         "y": 0.5
                     },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
                 }
             ],
             "severity": "error",
@@ -547,7 +524,7 @@
                         "x": 0.5,
                         "y": 0.5
                     },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
                 },
                 {
                     "description": "Zone [GND] on B.Cu, priority 0",
@@ -555,7 +532,7 @@
                         "x": 0.5,
                         "y": 0.5
                     },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
                 }
             ],
             "severity": "error",
@@ -570,7 +547,7 @@
                         "x": 0.5,
                         "y": 0.5
                     },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
                 },
                 {
                     "description": "Zone [GND] on B.Cu, priority 0",
@@ -578,7 +555,7 @@
                         "x": 0.5,
                         "y": 0.5
                     },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
                 }
             ],
             "severity": "error",
@@ -593,7 +570,7 @@
                         "x": 0.5,
                         "y": 0.5
                     },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
                 },
                 {
                     "description": "Zone [GND] on B.Cu, priority 0",
@@ -601,7 +578,7 @@
                         "x": 0.5,
                         "y": 0.5
                     },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
                 }
             ],
             "severity": "error",
@@ -610,21 +587,21 @@
         {
             "description": "Missing connection between items",
             "items": [
+                {
+                    "description": "Zone [GND] on B.Cu, priority 0",
+                    "pos": {
+                        "x": 0.5,
+                        "y": 0.5
+                    },
+                    "uuid": "e64db84f-d285-5414-b98f-1a83362a45e6"
+                },
                 {
                     "description": "Zone [GND] on In2.Cu, priority 0",
                     "pos": {
                         "x": 0.5,
                         "y": 0.5
                     },
-                    "uuid": "6b89dd3d-5f64-5701-8978-ddf433f6ee5f"
-                },
-                {
-                    "description": "Zone [GND] on B.Cu, priority 0",
-                    "pos": {
-                        "x": 0.5,
-                        "y": 0.5
-                    },
-                    "uuid": "8669fd7c-da5a-57b9-afac-7d8180945759"
+                    "uuid": "53561680-038f-5a7d-80b9-39c8abf8ba22"
                 }
             ],
             "severity": "error",
@@ -1283,7 +1260,7 @@
                         "x": 78.8,
                         "y": 10.65
                     },
-                    "uuid": "e72cc814-0ac2-549e-9bf7-0b89d5fb5d90"
+                    "uuid": "5217863d-b3c5-5c0d-a63f-871e0f837fa4"
                 },
                 {
                     "description": "Pad 4 [VLED] of PAIR06 on B.Cu",
@@ -1355,12 +1332,12 @@
                     "uuid": "3e5dac73-3958-567d-b13f-24c21f81946d"
                 },
                 {
-                    "description": "Pad 5 [ROW_GATE_02] of PAIR03 on B.Cu",
+                    "description": "Track [ROW_GATE_02] on B.Cu, length 0.6500 mm",
                     "pos": {
                         "x": 74.825,
                         "y": 7.5
                     },
-                    "uuid": "59fb185e-bc14-5b10-938d-e9959742253a"
+                    "uuid": "fe0e6ec2-5b06-5a59-957e-4ac9c9e9e532"
                 }
             ],
             "severity": "error",
@@ -1490,7 +1467,7 @@
                         "x": 59.25,
                         "y": 13.9
                     },
-                    "uuid": "a161bc88-f673-5eb4-9550-3fee632b18e9"
+                    "uuid": "441ac5e9-93ec-5e74-b1f7-db5a90b33025"
                 },
                 {
                     "description": "Pad 5 [+3V3_USB] of U39 on B.Cu",
@@ -1582,7 +1559,7 @@
                         "x": 45.25,
                         "y": 10.25
                     },
-                    "uuid": "3abf6f84-a2ea-5eeb-86a6-ead5d93f357c"
+                    "uuid": "7c90344e-87aa-5a6c-a546-42eeb9779d37"
                 },
                 {
                     "description": "Pad 1 [+3V3_APP] of R80 on B.Cu",
@@ -1631,12 +1608,12 @@
                     "uuid": "959cea8c-4be5-5749-a8e6-d8f1cb0b2089"
                 },
                 {
-                    "description": "Pad 1 [+3V3_APP] of R106 on B.Cu",
+                    "description": "Micro via [+3V3_APP] on In4.Cu - B.Cu",
                     "pos": {
                         "x": 62.75,
                         "y": 4.25
                     },
-                    "uuid": "4742baaf-079c-57eb-89bc-7c9283ad263f"
+                    "uuid": "6d827e11-53a9-5dfc-9314-dfe934cba481"
                 }
             ],
             "severity": "error",
@@ -1715,12 +1692,12 @@
             "description": "Missing connection between items",
             "items": [
                 {
-                    "description": "Track [+3V3_APP] on F.Cu, length 0.0500 mm",
+                    "description": "Micro via [+3V3_APP] on F.Cu - In1.Cu",
                     "pos": {
                         "x": 68.85,
                         "y": 0.75
                     },
-                    "uuid": "176188fe-c907-5543-a561-844c3a772838"
+                    "uuid": "c05c6eb8-bec0-56d6-86be-292a53e8d1a3"
                 },
                 {
                     "description": "Pad 1 [+3V3_APP] of C71 on B.Cu",
@@ -1738,12 +1715,12 @@
             "description": "Missing connection between items",
             "items": [
                 {
-                    "description": "Track [TEMP_OK] on B.Cu, length 0.6000 mm",
+                    "description": "Track [TEMP_OK] on B.Cu, length 0.0000 mm",
                     "pos": {
                         "x": 36.75,
-                        "y": 11.15
+                        "y": 11.75
                     },
-                    "uuid": "9f1970f1-be4e-5309-ae08-a46b79620b29"
+                    "uuid": "ade3083d-6db0-5314-acfd-ec9b69b42cc2"
                 },
                 {
                     "description": "Pad 6 [TEMP_OK] of U39 on B.Cu",
@@ -1797,7 +1774,7 @@
                         "x": 42.75,
                         "y": 11.75
                     },
-                    "uuid": "56001915-68f9-5a9e-80d9-8bd339181cfc"
+                    "uuid": "17f02303-31f3-5cd5-8918-49ab14ab49ec"
                 }
             ],
             "severity": "error",
@@ -2198,12 +2175,12 @@
             "description": "Missing connection between items",
             "items": [
                 {
-                    "description": "Pad 1 [ROW_A3] of R41 on B.Cu",
+                    "description": "Track [ROW_A3] on B.Cu, length 0.0000 mm",
                     "pos": {
                         "x": 37.75,
                         "y": 8.75
                     },
-                    "uuid": "c7da3f91-4872-5429-87d9-fe4749e252fc"
+                    "uuid": "cf88d82e-1e10-5649-99d1-72c98a265984"
                 },
                 {
                     "description": "Pad 22 [ROW_A3] of U2 on B.Cu",
@@ -2359,12 +2336,12 @@
             "description": "Missing connection between items",
             "items": [
                 {
-                    "description": "Pad 1 [ROW_A2] of R40 on B.Cu",
+                    "description": "Track [ROW_A2] on In4.Cu, length 0.5000 mm",
                     "pos": {
-                        "x": 35.25,
+                        "x": 34.75,
                         "y": 8.75
                     },
-                    "uuid": "d97c6f9a-9877-5d16-8fab-ac61ff4134f6"
+                    "uuid": "aa32c990-6a7a-50cf-8769-12f21181b187"
                 },
                 {
                     "description": "Pad 21 [ROW_A2] of U2 on B.Cu",
@@ -2387,7 +2364,7 @@
                         "x": 43.35,
                         "y": 10.25
                     },
-                    "uuid": "2eb14cf4-1f27-5eed-96de-219a574b13f1"
+                    "uuid": "30f96b68-d8ba-5eb8-9c75-e2d0ac81d299"
                 },
                 {
                     "description": "Pad 1 [SYS_I2C_SDA] of TP11 on B.Cu",
@@ -2712,12 +2689,12 @@
                     "uuid": "4f39f366-9d5d-502f-9fef-4ed54bc337df"
                 },
                 {
-                    "description": "Track [ROW_GATE_07] on B.Cu, length 0.6500 mm",
+                    "description": "Track [ROW_GATE_07] on B.Cu, length 0.9371 mm",
                     "pos": {
                         "x": 78.825,
-                        "y": 16.5
+                        "y": 15.85
                     },
-                    "uuid": "4e6c9ddd-804b-52f9-8bf1-f8bf2f767e06"
+                    "uuid": "b26afd27-ee15-52f1-b2a7-cddd47100428"
                 }
             ],
             "severity": "error",
@@ -3908,12 +3885,12 @@
                     "uuid": "8f247803-935d-56d0-8f97-ba1cdd221cb7"
                 },
                 {
-                    "description": "Track [ROW_GATE_04] on B.Cu, length 0.6500 mm",
+                    "description": "Track [ROW_GATE_04] on B.Cu, length 0.9371 mm",
                     "pos": {
                         "x": 74.825,
-                        "y": 11.25
+                        "y": 10.6
                     },
-                    "uuid": "f1a3fad0-b414-55cd-8f6c-98235b2171b0"
+                    "uuid": "5cfad26d-97e3-5bcf-88e1-1f330c780c95"
                 }
             ],
             "severity": "error",
@@ -4529,12 +4506,12 @@
                     "uuid": "3e4ea950-c8ab-52c2-8e93-7cb3300b8e43"
                 },
                 {
-                    "description": "Track [ROW_GATE_06] on B.Cu, length 0.6500 mm",
+                    "description": "Track [ROW_GATE_06] on B.Cu, length 0.9371 mm",
                     "pos": {
                         "x": 74.825,
-                        "y": 15.0
+                        "y": 14.35
                     },
-                    "uuid": "fb1e2c79-d2d6-5867-8bab-1c44469ddb6a"
+                    "uuid": "0feefa3d-1968-5214-9afa-cd934bb4720b"
                 }
             ],
             "severity": "error",
@@ -4552,12 +4529,12 @@
                     "uuid": "5261ba5d-105b-5fc5-adf9-815b41c3a03e"
                 },
                 {
-                    "description": "Pad 5 [ROW_GATE_00] of PAIR01 on B.Cu",
+                    "description": "Track [ROW_GATE_00] on B.Cu, length 0.6500 mm",
                     "pos": {
                         "x": 74.825,
                         "y": 3.75
                     },
-                    "uuid": "e416188d-987e-5b51-9c44-7d7d3134aaeb"
+                    "uuid": "69bddc55-154a-5d5a-a954-1d1dfd0b691a"
                 }
             ],
             "severity": "error",
@@ -4598,12 +4575,12 @@
                     "uuid": "29d2176a-feb6-57ee-8e5d-406d5b5bc38a"
                 },
                 {
-                    "description": "Pad 5 [ROW_GATE_03] of PAIR04 on B.Cu",
+                    "description": "Track [ROW_GATE_03] on B.Cu, length 0.6500 mm",
                     "pos": {
                         "x": 78.825,
                         "y": 9.5
                     },
-                    "uuid": "c2ea6f65-135d-5b32-a1bc-7162ae6f031d"
+                    "uuid": "39123af7-5e94-5740-8f10-06040a5c5041"
                 }
             ],
             "severity": "error",
@@ -5075,20 +5052,20 @@
             "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
             "items": [
                 {
-                    "description": "Pad 1 [GND] of PAIR09 on B.Cu",
+                    "description": "Pad 1 [GND] of PAIR12 on B.Cu",
                     "pos": {
-                        "x": 76.675,
-                        "y": 18.1
+                        "x": 80.675,
+                        "y": 22.85
                     },
-                    "uuid": "4965a0f7-cc98-5221-93a2-4bc03e900f33"
+                    "uuid": "9b6ea1a8-d69c-5fbb-a89f-f80b35cfb9d6"
                 },
                 {
-                    "description": "Pad 6 [ROW_GATE_08] of PAIR09 on B.Cu",
+                    "description": "Pad 6 [ROW_GATE_11] of PAIR12 on B.Cu",
                     "pos": {
-                        "x": 75.75,
-                        "y": 18.25
+                        "x": 79.75,
+                        "y": 23.0
                     },
-                    "uuid": "5592905f-09f9-5f93-aa7c-4e2ac7b46555"
+                    "uuid": "51463986-0829-5577-a45d-eeee65804405"
                 }
             ],
             "severity": "error",
@@ -5098,20 +5075,20 @@
             "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
             "items": [
                 {
-                    "description": "Pad 2 [ROW_SEL_08] of PAIR09 on B.Cu",
+                    "description": "Pad 2 [ROW_SEL_11] of PAIR12 on B.Cu",
                     "pos": {
-                        "x": 76.675,
-                        "y": 18.75
+                        "x": 80.675,
+                        "y": 23.5
                     },
-                    "uuid": "ff8d1945-a84b-5c2e-9990-49aa329ad77e"
+                    "uuid": "c2048c6b-3fb6-5a3b-9f19-4d89e7f2c3c9"
                 },
                 {
-                    "description": "Pad 3 [ROW_08_A] of PAIR09 on B.Cu",
+                    "description": "Pad 3 [ROW_11_A] of PAIR12 on B.Cu",
                     "pos": {
-                        "x": 75.75,
-                        "y": 19.25
+                        "x": 79.75,
+                        "y": 24.0
                     },
-                    "uuid": "0cc9c61d-84db-5512-939e-c672508974c6"
+                    "uuid": "ba989e0a-5ccd-534f-ad12-81de71aee413"
                 }
             ],
             "severity": "error",
@@ -5121,20 +5098,20 @@
             "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
             "items": [
                 {
-                    "description": "Pad 2 [ROW_SEL_08] of PAIR09 on B.Cu",
+                    "description": "Pad 2 [ROW_SEL_11] of PAIR12 on B.Cu",
                     "pos": {
-                        "x": 76.675,
-                        "y": 18.75
+                        "x": 80.675,
+                        "y": 23.5
                     },
-                    "uuid": "ff8d1945-a84b-5c2e-9990-49aa329ad77e"
+                    "uuid": "c2048c6b-3fb6-5a3b-9f19-4d89e7f2c3c9"
                 },
                 {
-                    "description": "Pad 6 [ROW_GATE_08] of PAIR09 on B.Cu",
+                    "description": "Pad 6 [ROW_GATE_11] of PAIR12 on B.Cu",
                     "pos": {
-                        "x": 75.75,
-                        "y": 18.25
+                        "x": 79.75,
+                        "y": 23.0
                     },
-                    "uuid": "5592905f-09f9-5f93-aa7c-4e2ac7b46555"
+                    "uuid": "51463986-0829-5577-a45d-eeee65804405"
                 }
             ],
             "severity": "error",
@@ -5144,43 +5121,20 @@
             "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
             "items": [
                 {
-                    "description": "Pad 1 [GND] of PAIR01 on B.Cu",
+                    "description": "Pad 1 [GND] of PAIR08 on B.Cu",
                     "pos": {
-                        "x": 76.675,
-                        "y": 3.1
+                        "x": 80.675,
+                        "y": 15.85
                     },
-                    "uuid": "22511be2-6653-5f47-965d-5a6b154cacc1"
+                    "uuid": "e7e400ac-e1df-5a47-9d7b-e36cda92e3b6"
                 },
                 {
-                    "description": "Pad 6 [ROW_GATE_00] of PAIR01 on B.Cu",
+                    "description": "Pad 6 [ROW_GATE_07] of PAIR08 on B.Cu",
                     "pos": {
-                        "x": 75.75,
-                        "y": 3.25
+                        "x": 79.75,
+                        "y": 16.0
                     },
-                    "uuid": "5feb5281-33f4-5bad-9cb4-d075aa941937"
-                }
-            ],
-            "severity": "error",
-            "type": "clearance"
-        },
-        {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1800 mm)",
-            "items": [
-                {
-                    "description": "Pad 1 [<no net>] of U48 on B.Cu",
-                    "pos": {
-                        "x": 64.65,
-                        "y": 0.65
-                    },
-                    "uuid": "2cd7b949-a9e3-5368-85ca-5d3fe60b11d2"
-                },
-                {
-                    "description": "Pad 2 [DISPLAY_HEARTBEAT] of U48 on B.Cu",
-                    "pos": {
-                        "x": 64.65,
-                        "y": 1.0
-                    },
-                    "uuid": "ea157e59-5bd5-58e1-ac7a-587d03ad0cec"
+                    "uuid": "58258871-5c7f-5249-837e-4cf76954870a"
                 }
             ],
             "severity": "error",
@@ -5190,20 +5144,20 @@
             "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
             "items": [
                 {
-                    "description": "Pad 2 [ROW_SEL_00] of PAIR01 on B.Cu",
+                    "description": "Pad 2 [ROW_SEL_07] of PAIR08 on B.Cu",
                     "pos": {
-                        "x": 76.675,
-                        "y": 3.75
+                        "x": 80.675,
+                        "y": 16.5
                     },
-                    "uuid": "1ee05dc0-854a-59c8-8bb6-e9f2f8f4c4e2"
+                    "uuid": "337935d8-ba4f-55a9-9a99-b68e48878692"
                 },
                 {
-                    "description": "Pad 3 [ROW_00_A] of PAIR01 on B.Cu",
+                    "description": "Pad 3 [ROW_07_A] of PAIR08 on B.Cu",
                     "pos": {
-                        "x": 75.75,
-                        "y": 4.25
+                        "x": 79.75,
+                        "y": 17.0
                     },
-                    "uuid": "9a914446-05eb-5f45-8ac3-4687cbec5d09"
+                    "uuid": "0d82e08e-085b-523a-a23c-00a4fdfdf897"
                 }
             ],
             "severity": "error",
@@ -5213,20 +5167,20 @@
             "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
             "items": [
                 {
-                    "description": "Pad 2 [ROW_SEL_00] of PAIR01 on B.Cu",
+                    "description": "Pad 2 [ROW_SEL_07] of PAIR08 on B.Cu",
                     "pos": {
-                        "x": 76.675,
-                        "y": 3.75
+                        "x": 80.675,
+                        "y": 16.5
                     },
-                    "uuid": "1ee05dc0-854a-59c8-8bb6-e9f2f8f4c4e2"
+                    "uuid": "337935d8-ba4f-55a9-9a99-b68e48878692"
                 },
                 {
-                    "description": "Pad 6 [ROW_GATE_00] of PAIR01 on B.Cu",
+                    "description": "Pad 6 [ROW_GATE_07] of PAIR08 on B.Cu",
                     "pos": {
-                        "x": 75.75,
-                        "y": 3.25
+                        "x": 79.75,
+                        "y": 16.0
                     },
-                    "uuid": "5feb5281-33f4-5bad-9cb4-d075aa941937"
+                    "uuid": "58258871-5c7f-5249-837e-4cf76954870a"
                 }
             ],
             "severity": "error",
@@ -5236,204 +5190,20 @@
             "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
             "items": [
                 {
-                    "description": "Pad 3 [ROW_08_A] of PAIR09 on B.Cu",
+                    "description": "Pad 3 [ROW_11_A] of PAIR12 on B.Cu",
                     "pos": {
-                        "x": 75.75,
-                        "y": 19.25
+                        "x": 79.75,
+                        "y": 24.0
                     },
-                    "uuid": "0cc9c61d-84db-5512-939e-c672508974c6"
+                    "uuid": "ba989e0a-5ccd-534f-ad12-81de71aee413"
                 },
                 {
-                    "description": "Pad 4 [VLED] of PAIR09 on B.Cu",
+                    "description": "Pad 5 [ROW_GATE_11] of PAIR12 on B.Cu",
                     "pos": {
-                        "x": 74.825,
-                        "y": 19.4
+                        "x": 78.825,
+                        "y": 23.5
                     },
-                    "uuid": "a0a4a72f-cf3b-59b9-b352-f9d080e8bb91"
-                }
-            ],
-            "severity": "error",
-            "type": "clearance"
-        },
-        {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
-            "items": [
-                {
-                    "description": "Pad 3 [ROW_08_A] of PAIR09 on B.Cu",
-                    "pos": {
-                        "x": 75.75,
-                        "y": 19.25
-                    },
-                    "uuid": "0cc9c61d-84db-5512-939e-c672508974c6"
-                },
-                {
-                    "description": "Pad 5 [ROW_GATE_08] of PAIR09 on B.Cu",
-                    "pos": {
-                        "x": 74.825,
-                        "y": 18.75
-                    },
-                    "uuid": "57c23fce-925a-50ba-b9a9-1988680cfe52"
-                }
-            ],
-            "severity": "error",
-            "type": "clearance"
-        },
-        {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
-            "items": [
-                {
-                    "description": "Pad 3 [ROW_00_A] of PAIR01 on B.Cu",
-                    "pos": {
-                        "x": 75.75,
-                        "y": 4.25
-                    },
-                    "uuid": "9a914446-05eb-5f45-8ac3-4687cbec5d09"
-                },
-                {
-                    "description": "Pad 4 [VLED] of PAIR01 on B.Cu",
-                    "pos": {
-                        "x": 74.825,
-                        "y": 4.4
-                    },
-                    "uuid": "f05d32b8-a05d-5ac0-9038-a2a4ac29fa84"
-                }
-            ],
-            "severity": "error",
-            "type": "clearance"
-        },
-        {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1800 mm)",
-            "items": [
-                {
-                    "description": "Pad 2 [DISPLAY_HEARTBEAT] of U48 on B.Cu",
-                    "pos": {
-                        "x": 64.65,
-                        "y": 1.0
-                    },
-                    "uuid": "ea157e59-5bd5-58e1-ac7a-587d03ad0cec"
-                },
-                {
-                    "description": "Pad 3 [GND] of U48 on B.Cu",
-                    "pos": {
-                        "x": 64.65,
-                        "y": 1.35
-                    },
-                    "uuid": "980988ad-c1cf-58ac-9e95-6f409e08fcc2"
-                }
-            ],
-            "severity": "error",
-            "type": "clearance"
-        },
-        {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
-            "items": [
-                {
-                    "description": "Pad 3 [ROW_00_A] of PAIR01 on B.Cu",
-                    "pos": {
-                        "x": 75.75,
-                        "y": 4.25
-                    },
-                    "uuid": "9a914446-05eb-5f45-8ac3-4687cbec5d09"
-                },
-                {
-                    "description": "Pad 5 [ROW_GATE_00] of PAIR01 on B.Cu",
-                    "pos": {
-                        "x": 74.825,
-                        "y": 3.75
-                    },
-                    "uuid": "e416188d-987e-5b51-9c44-7d7d3134aaeb"
-                }
-            ],
-            "severity": "error",
-            "type": "clearance"
-        },
-        {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1800 mm)",
-            "items": [
-                {
-                    "description": "Pad 3 [ROW_08_A] of PAIR09 on B.Cu",
-                    "pos": {
-                        "x": 75.75,
-                        "y": 19.25
-                    },
-                    "uuid": "0cc9c61d-84db-5512-939e-c672508974c6"
-                },
-                {
-                    "description": "Pad 6 [ROW_GATE_08] of PAIR09 on B.Cu",
-                    "pos": {
-                        "x": 75.75,
-                        "y": 18.25
-                    },
-                    "uuid": "5592905f-09f9-5f93-aa7c-4e2ac7b46555"
-                }
-            ],
-            "severity": "error",
-            "type": "clearance"
-        },
-        {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1800 mm)",
-            "items": [
-                {
-                    "description": "Pad 3 [ROW_00_A] of PAIR01 on B.Cu",
-                    "pos": {
-                        "x": 75.75,
-                        "y": 4.25
-                    },
-                    "uuid": "9a914446-05eb-5f45-8ac3-4687cbec5d09"
-                },
-                {
-                    "description": "Pad 6 [ROW_GATE_00] of PAIR01 on B.Cu",
-                    "pos": {
-                        "x": 75.75,
-                        "y": 3.25
-                    },
-                    "uuid": "5feb5281-33f4-5bad-9cb4-d075aa941937"
-                }
-            ],
-            "severity": "error",
-            "type": "clearance"
-        },
-        {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1800 mm)",
-            "items": [
-                {
-                    "description": "Pad 4 [HEARTBEAT_FALL_CLK] of U48 on B.Cu",
-                    "pos": {
-                        "x": 63.85,
-                        "y": 1.35
-                    },
-                    "uuid": "8b12b4ba-1d11-58d7-97ba-76acff6fd6e6"
-                },
-                {
-                    "description": "Pad 5 [<no net>] of U48 on B.Cu",
-                    "pos": {
-                        "x": 63.85,
-                        "y": 1.0
-                    },
-                    "uuid": "12eca796-41e6-5ff6-9ab8-fdf77a939ab0"
-                }
-            ],
-            "severity": "error",
-            "type": "clearance"
-        },
-        {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1800 mm)",
-            "items": [
-                {
-                    "description": "Pad 5 [<no net>] of U48 on B.Cu",
-                    "pos": {
-                        "x": 63.85,
-                        "y": 1.0
-                    },
-                    "uuid": "12eca796-41e6-5ff6-9ab8-fdf77a939ab0"
-                },
-                {
-                    "description": "Pad 6 [+3V3_APP] of U48 on B.Cu",
-                    "pos": {
-                        "x": 63.85,
-                        "y": 0.65
-                    },
-                    "uuid": "ff6b5356-4a65-56cf-8959-a6d8c9eecb05"
+                    "uuid": "3b7fdaac-3783-5529-ad2f-f72398f9bcd4"
                 }
             ],
             "severity": "error",
@@ -5466,43 +5236,43 @@
             "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
             "items": [
                 {
-                    "description": "Pad 2 [ROW_SEL_13] of PAIR14 on B.Cu",
-                    "pos": {
-                        "x": 80.675,
-                        "y": 27.0
-                    },
-                    "uuid": "4adaf448-4b32-5eb5-a55d-63577e923e19"
-                },
-                {
-                    "description": "Pad 3 [ROW_13_A] of PAIR14 on B.Cu",
+                    "description": "Pad 3 [ROW_11_A] of PAIR12 on B.Cu",
                     "pos": {
                         "x": 79.75,
-                        "y": 27.5
+                        "y": 24.0
                     },
-                    "uuid": "a30a6444-dadd-5079-8e26-d1679b65632c"
+                    "uuid": "ba989e0a-5ccd-534f-ad12-81de71aee413"
+                },
+                {
+                    "description": "Pad 4 [VLED] of PAIR12 on B.Cu",
+                    "pos": {
+                        "x": 78.825,
+                        "y": 24.15
+                    },
+                    "uuid": "3cc70a0a-2d9f-5631-b6ec-d416b9448aba"
                 }
             ],
             "severity": "error",
             "type": "clearance"
         },
         {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1800 mm)",
             "items": [
                 {
-                    "description": "Pad 2 [ROW_SEL_13] of PAIR14 on B.Cu",
-                    "pos": {
-                        "x": 80.675,
-                        "y": 27.0
-                    },
-                    "uuid": "4adaf448-4b32-5eb5-a55d-63577e923e19"
-                },
-                {
-                    "description": "Pad 6 [ROW_GATE_13] of PAIR14 on B.Cu",
+                    "description": "Pad 3 [ROW_11_A] of PAIR12 on B.Cu",
                     "pos": {
                         "x": 79.75,
-                        "y": 26.5
+                        "y": 24.0
                     },
-                    "uuid": "3337dd49-59aa-5c59-95aa-62d133f45aea"
+                    "uuid": "ba989e0a-5ccd-534f-ad12-81de71aee413"
+                },
+                {
+                    "description": "Pad 6 [ROW_GATE_11] of PAIR12 on B.Cu",
+                    "pos": {
+                        "x": 79.75,
+                        "y": 23.0
+                    },
+                    "uuid": "51463986-0829-5577-a45d-eeee65804405"
                 }
             ],
             "severity": "error",
@@ -5535,6 +5305,52 @@
             "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
             "items": [
                 {
+                    "description": "Pad 3 [ROW_07_A] of PAIR08 on B.Cu",
+                    "pos": {
+                        "x": 79.75,
+                        "y": 17.0
+                    },
+                    "uuid": "0d82e08e-085b-523a-a23c-00a4fdfdf897"
+                },
+                {
+                    "description": "Pad 4 [VLED] of PAIR08 on B.Cu",
+                    "pos": {
+                        "x": 78.825,
+                        "y": 17.15
+                    },
+                    "uuid": "7ff446df-c735-5e35-83de-1b0461eca3c3"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
+            "items": [
+                {
+                    "description": "Pad 3 [ROW_07_A] of PAIR08 on B.Cu",
+                    "pos": {
+                        "x": 79.75,
+                        "y": 17.0
+                    },
+                    "uuid": "0d82e08e-085b-523a-a23c-00a4fdfdf897"
+                },
+                {
+                    "description": "Pad 5 [ROW_GATE_07] of PAIR08 on B.Cu",
+                    "pos": {
+                        "x": 78.825,
+                        "y": 16.5
+                    },
+                    "uuid": "0663e3ba-d5a5-5f51-8aad-264239074a83"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
+            "items": [
+                {
                     "description": "Pad 2 [ROW_SEL_09] of PAIR10 on B.Cu",
                     "pos": {
                         "x": 80.675,
@@ -5555,69 +5371,23 @@
             "type": "clearance"
         },
         {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1800 mm)",
             "items": [
                 {
-                    "description": "Pad 3 [ROW_13_A] of PAIR14 on B.Cu",
+                    "description": "Pad 3 [ROW_07_A] of PAIR08 on B.Cu",
                     "pos": {
                         "x": 79.75,
-                        "y": 27.5
+                        "y": 17.0
                     },
-                    "uuid": "a30a6444-dadd-5079-8e26-d1679b65632c"
+                    "uuid": "0d82e08e-085b-523a-a23c-00a4fdfdf897"
                 },
                 {
-                    "description": "Pad 4 [VLED] of PAIR14 on B.Cu",
-                    "pos": {
-                        "x": 78.825,
-                        "y": 27.65
-                    },
-                    "uuid": "996e5608-25b4-520f-8e8d-eb7a06815350"
-                }
-            ],
-            "severity": "error",
-            "type": "clearance"
-        },
-        {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
-            "items": [
-                {
-                    "description": "Pad 3 [ROW_13_A] of PAIR14 on B.Cu",
+                    "description": "Pad 6 [ROW_GATE_07] of PAIR08 on B.Cu",
                     "pos": {
                         "x": 79.75,
-                        "y": 27.5
+                        "y": 16.0
                     },
-                    "uuid": "a30a6444-dadd-5079-8e26-d1679b65632c"
-                },
-                {
-                    "description": "Pad 5 [ROW_GATE_13] of PAIR14 on B.Cu",
-                    "pos": {
-                        "x": 78.825,
-                        "y": 27.0
-                    },
-                    "uuid": "483e4097-c853-563a-9c6c-0fef826ec7cd"
-                }
-            ],
-            "severity": "error",
-            "type": "clearance"
-        },
-        {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
-            "items": [
-                {
-                    "description": "Pad 1 [GND] of PAIR03 on B.Cu",
-                    "pos": {
-                        "x": 76.675,
-                        "y": 6.85
-                    },
-                    "uuid": "cc3d23fa-474a-5403-a2f0-d9749b805ca5"
-                },
-                {
-                    "description": "Pad 6 [ROW_GATE_02] of PAIR03 on B.Cu",
-                    "pos": {
-                        "x": 75.75,
-                        "y": 7.0
-                    },
-                    "uuid": "685f341e-2557-5e3b-a184-932142601b64"
+                    "uuid": "58258871-5c7f-5249-837e-4cf76954870a"
                 }
             ],
             "severity": "error",
@@ -5647,8 +5417,16 @@
             "type": "clearance"
         },
         {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1800 mm)",
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
             "items": [
+                {
+                    "description": "Pad 2 [ROW_SEL_13] of PAIR14 on B.Cu",
+                    "pos": {
+                        "x": 80.675,
+                        "y": 27.0
+                    },
+                    "uuid": "4adaf448-4b32-5eb5-a55d-63577e923e19"
+                },
                 {
                     "description": "Pad 3 [ROW_13_A] of PAIR14 on B.Cu",
                     "pos": {
@@ -5656,6 +5434,21 @@
                         "y": 27.5
                     },
                     "uuid": "a30a6444-dadd-5079-8e26-d1679b65632c"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
+            "items": [
+                {
+                    "description": "Pad 2 [ROW_SEL_13] of PAIR14 on B.Cu",
+                    "pos": {
+                        "x": 80.675,
+                        "y": 27.0
+                    },
+                    "uuid": "4adaf448-4b32-5eb5-a55d-63577e923e19"
                 },
                 {
                     "description": "Pad 6 [ROW_GATE_13] of PAIR14 on B.Cu",
@@ -5664,52 +5457,6 @@
                         "y": 26.5
                     },
                     "uuid": "3337dd49-59aa-5c59-95aa-62d133f45aea"
-                }
-            ],
-            "severity": "error",
-            "type": "clearance"
-        },
-        {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
-            "items": [
-                {
-                    "description": "Pad 2 [ROW_SEL_02] of PAIR03 on B.Cu",
-                    "pos": {
-                        "x": 76.675,
-                        "y": 7.5
-                    },
-                    "uuid": "f12df328-88b2-5a8b-bc85-d039bf5eff89"
-                },
-                {
-                    "description": "Pad 3 [ROW_02_A] of PAIR03 on B.Cu",
-                    "pos": {
-                        "x": 75.75,
-                        "y": 8.0
-                    },
-                    "uuid": "6c00aeff-a541-510f-83fe-953d20fd05e9"
-                }
-            ],
-            "severity": "error",
-            "type": "clearance"
-        },
-        {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
-            "items": [
-                {
-                    "description": "Pad 2 [ROW_SEL_02] of PAIR03 on B.Cu",
-                    "pos": {
-                        "x": 76.675,
-                        "y": 7.5
-                    },
-                    "uuid": "f12df328-88b2-5a8b-bc85-d039bf5eff89"
-                },
-                {
-                    "description": "Pad 6 [ROW_GATE_02] of PAIR03 on B.Cu",
-                    "pos": {
-                        "x": 75.75,
-                        "y": 7.0
-                    },
-                    "uuid": "685f341e-2557-5e3b-a184-932142601b64"
                 }
             ],
             "severity": "error",
@@ -5762,6 +5509,305 @@
             "type": "clearance"
         },
         {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1800 mm)",
+            "items": [
+                {
+                    "description": "Pad 3 [ROW_09_A] of PAIR10 on B.Cu",
+                    "pos": {
+                        "x": 79.75,
+                        "y": 20.5
+                    },
+                    "uuid": "8c9ab9a6-5976-5062-910f-df4064aea2c0"
+                },
+                {
+                    "description": "Pad 6 [ROW_GATE_09] of PAIR10 on B.Cu",
+                    "pos": {
+                        "x": 79.75,
+                        "y": 19.5
+                    },
+                    "uuid": "670a5395-4494-5d59-8ce6-7025f0b904c2"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
+            "items": [
+                {
+                    "description": "Pad 3 [ROW_13_A] of PAIR14 on B.Cu",
+                    "pos": {
+                        "x": 79.75,
+                        "y": 27.5
+                    },
+                    "uuid": "a30a6444-dadd-5079-8e26-d1679b65632c"
+                },
+                {
+                    "description": "Pad 4 [VLED] of PAIR14 on B.Cu",
+                    "pos": {
+                        "x": 78.825,
+                        "y": 27.65
+                    },
+                    "uuid": "996e5608-25b4-520f-8e8d-eb7a06815350"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
+            "items": [
+                {
+                    "description": "Pad 1 [GND] of PAIR01 on B.Cu",
+                    "pos": {
+                        "x": 76.675,
+                        "y": 3.1
+                    },
+                    "uuid": "22511be2-6653-5f47-965d-5a6b154cacc1"
+                },
+                {
+                    "description": "Pad 6 [ROW_GATE_00] of PAIR01 on B.Cu",
+                    "pos": {
+                        "x": 75.75,
+                        "y": 3.25
+                    },
+                    "uuid": "5feb5281-33f4-5bad-9cb4-d075aa941937"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
+            "items": [
+                {
+                    "description": "Pad 3 [ROW_13_A] of PAIR14 on B.Cu",
+                    "pos": {
+                        "x": 79.75,
+                        "y": 27.5
+                    },
+                    "uuid": "a30a6444-dadd-5079-8e26-d1679b65632c"
+                },
+                {
+                    "description": "Pad 5 [ROW_GATE_13] of PAIR14 on B.Cu",
+                    "pos": {
+                        "x": 78.825,
+                        "y": 27.0
+                    },
+                    "uuid": "483e4097-c853-563a-9c6c-0fef826ec7cd"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1800 mm)",
+            "items": [
+                {
+                    "description": "Pad 3 [ROW_13_A] of PAIR14 on B.Cu",
+                    "pos": {
+                        "x": 79.75,
+                        "y": 27.5
+                    },
+                    "uuid": "a30a6444-dadd-5079-8e26-d1679b65632c"
+                },
+                {
+                    "description": "Pad 6 [ROW_GATE_13] of PAIR14 on B.Cu",
+                    "pos": {
+                        "x": 79.75,
+                        "y": 26.5
+                    },
+                    "uuid": "3337dd49-59aa-5c59-95aa-62d133f45aea"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
+            "items": [
+                {
+                    "description": "Pad 2 [ROW_SEL_00] of PAIR01 on B.Cu",
+                    "pos": {
+                        "x": 76.675,
+                        "y": 3.75
+                    },
+                    "uuid": "1ee05dc0-854a-59c8-8bb6-e9f2f8f4c4e2"
+                },
+                {
+                    "description": "Pad 3 [ROW_00_A] of PAIR01 on B.Cu",
+                    "pos": {
+                        "x": 75.75,
+                        "y": 4.25
+                    },
+                    "uuid": "9a914446-05eb-5f45-8ac3-4687cbec5d09"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
+            "items": [
+                {
+                    "description": "Pad 2 [ROW_SEL_00] of PAIR01 on B.Cu",
+                    "pos": {
+                        "x": 76.675,
+                        "y": 3.75
+                    },
+                    "uuid": "1ee05dc0-854a-59c8-8bb6-e9f2f8f4c4e2"
+                },
+                {
+                    "description": "Pad 6 [ROW_GATE_00] of PAIR01 on B.Cu",
+                    "pos": {
+                        "x": 75.75,
+                        "y": 3.25
+                    },
+                    "uuid": "5feb5281-33f4-5bad-9cb4-d075aa941937"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
+            "items": [
+                {
+                    "description": "Pad 3 [ROW_00_A] of PAIR01 on B.Cu",
+                    "pos": {
+                        "x": 75.75,
+                        "y": 4.25
+                    },
+                    "uuid": "9a914446-05eb-5f45-8ac3-4687cbec5d09"
+                },
+                {
+                    "description": "Pad 4 [VLED] of PAIR01 on B.Cu",
+                    "pos": {
+                        "x": 74.825,
+                        "y": 4.4
+                    },
+                    "uuid": "f05d32b8-a05d-5ac0-9038-a2a4ac29fa84"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
+            "items": [
+                {
+                    "description": "Pad 3 [ROW_00_A] of PAIR01 on B.Cu",
+                    "pos": {
+                        "x": 75.75,
+                        "y": 4.25
+                    },
+                    "uuid": "9a914446-05eb-5f45-8ac3-4687cbec5d09"
+                },
+                {
+                    "description": "Pad 5 [ROW_GATE_00] of PAIR01 on B.Cu",
+                    "pos": {
+                        "x": 74.825,
+                        "y": 3.75
+                    },
+                    "uuid": "e416188d-987e-5b51-9c44-7d7d3134aaeb"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1800 mm)",
+            "items": [
+                {
+                    "description": "Pad 3 [ROW_00_A] of PAIR01 on B.Cu",
+                    "pos": {
+                        "x": 75.75,
+                        "y": 4.25
+                    },
+                    "uuid": "9a914446-05eb-5f45-8ac3-4687cbec5d09"
+                },
+                {
+                    "description": "Pad 6 [ROW_GATE_00] of PAIR01 on B.Cu",
+                    "pos": {
+                        "x": 75.75,
+                        "y": 3.25
+                    },
+                    "uuid": "5feb5281-33f4-5bad-9cb4-d075aa941937"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
+            "items": [
+                {
+                    "description": "Pad 1 [GND] of PAIR03 on B.Cu",
+                    "pos": {
+                        "x": 76.675,
+                        "y": 6.85
+                    },
+                    "uuid": "cc3d23fa-474a-5403-a2f0-d9749b805ca5"
+                },
+                {
+                    "description": "Pad 6 [ROW_GATE_02] of PAIR03 on B.Cu",
+                    "pos": {
+                        "x": 75.75,
+                        "y": 7.0
+                    },
+                    "uuid": "685f341e-2557-5e3b-a184-932142601b64"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
+            "items": [
+                {
+                    "description": "Pad 2 [ROW_SEL_02] of PAIR03 on B.Cu",
+                    "pos": {
+                        "x": 76.675,
+                        "y": 7.5
+                    },
+                    "uuid": "f12df328-88b2-5a8b-bc85-d039bf5eff89"
+                },
+                {
+                    "description": "Pad 3 [ROW_02_A] of PAIR03 on B.Cu",
+                    "pos": {
+                        "x": 75.75,
+                        "y": 8.0
+                    },
+                    "uuid": "6c00aeff-a541-510f-83fe-953d20fd05e9"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
+            "items": [
+                {
+                    "description": "Pad 2 [ROW_SEL_02] of PAIR03 on B.Cu",
+                    "pos": {
+                        "x": 76.675,
+                        "y": 7.5
+                    },
+                    "uuid": "f12df328-88b2-5a8b-bc85-d039bf5eff89"
+                },
+                {
+                    "description": "Pad 6 [ROW_GATE_02] of PAIR03 on B.Cu",
+                    "pos": {
+                        "x": 75.75,
+                        "y": 7.0
+                    },
+                    "uuid": "685f341e-2557-5e3b-a184-932142601b64"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
             "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
             "items": [
                 {
@@ -5779,29 +5825,6 @@
                         "y": 8.15
                     },
                     "uuid": "fa31c078-0b4c-51c0-9382-b9c37211365e"
-                }
-            ],
-            "severity": "error",
-            "type": "clearance"
-        },
-        {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
-            "items": [
-                {
-                    "description": "Pad 1 [GND] of PAIR05 on B.Cu",
-                    "pos": {
-                        "x": 76.675,
-                        "y": 10.6
-                    },
-                    "uuid": "f121c0b8-362e-5ae7-b869-e153d4548b77"
-                },
-                {
-                    "description": "Pad 6 [ROW_GATE_04] of PAIR05 on B.Cu",
-                    "pos": {
-                        "x": 75.75,
-                        "y": 10.75
-                    },
-                    "uuid": "04d4e8eb-3092-5b8f-8dc5-7927b63a069c"
                 }
             ],
             "severity": "error",
@@ -5834,29 +5857,6 @@
             "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1800 mm)",
             "items": [
                 {
-                    "description": "Pad 3 [ROW_09_A] of PAIR10 on B.Cu",
-                    "pos": {
-                        "x": 79.75,
-                        "y": 20.5
-                    },
-                    "uuid": "8c9ab9a6-5976-5062-910f-df4064aea2c0"
-                },
-                {
-                    "description": "Pad 6 [ROW_GATE_09] of PAIR10 on B.Cu",
-                    "pos": {
-                        "x": 79.75,
-                        "y": 19.5
-                    },
-                    "uuid": "670a5395-4494-5d59-8ce6-7025f0b904c2"
-                }
-            ],
-            "severity": "error",
-            "type": "clearance"
-        },
-        {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1800 mm)",
-            "items": [
-                {
                     "description": "Pad 3 [ROW_02_A] of PAIR03 on B.Cu",
                     "pos": {
                         "x": 75.75,
@@ -5871,6 +5871,75 @@
                         "y": 7.0
                     },
                     "uuid": "685f341e-2557-5e3b-a184-932142601b64"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1800 mm)",
+            "items": [
+                {
+                    "description": "Pad 1 [<no net>] of U48 on B.Cu",
+                    "pos": {
+                        "x": 64.65,
+                        "y": 0.65
+                    },
+                    "uuid": "2cd7b949-a9e3-5368-85ca-5d3fe60b11d2"
+                },
+                {
+                    "description": "Pad 2 [DISPLAY_HEARTBEAT] of U48 on B.Cu",
+                    "pos": {
+                        "x": 64.65,
+                        "y": 1.0
+                    },
+                    "uuid": "ea157e59-5bd5-58e1-ac7a-587d03ad0cec"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
+            "items": [
+                {
+                    "description": "Pad 1 [GND] of PAIR05 on B.Cu",
+                    "pos": {
+                        "x": 76.675,
+                        "y": 10.6
+                    },
+                    "uuid": "f121c0b8-362e-5ae7-b869-e153d4548b77"
+                },
+                {
+                    "description": "Pad 6 [ROW_GATE_04] of PAIR05 on B.Cu",
+                    "pos": {
+                        "x": 75.75,
+                        "y": 10.75
+                    },
+                    "uuid": "04d4e8eb-3092-5b8f-8dc5-7927b63a069c"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1800 mm)",
+            "items": [
+                {
+                    "description": "Pad 2 [DISPLAY_HEARTBEAT] of U48 on B.Cu",
+                    "pos": {
+                        "x": 64.65,
+                        "y": 1.0
+                    },
+                    "uuid": "ea157e59-5bd5-58e1-ac7a-587d03ad0cec"
+                },
+                {
+                    "description": "Pad 3 [GND] of U48 on B.Cu",
+                    "pos": {
+                        "x": 64.65,
+                        "y": 1.35
+                    },
+                    "uuid": "980988ad-c1cf-58ac-9e95-6f409e08fcc2"
                 }
             ],
             "severity": "error",
@@ -5903,29 +5972,6 @@
             "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
             "items": [
                 {
-                    "description": "Pad 1 [GND] of PAIR11 on B.Cu",
-                    "pos": {
-                        "x": 76.675,
-                        "y": 21.85
-                    },
-                    "uuid": "053ba6d5-1cda-5cad-a778-ff7409a8899c"
-                },
-                {
-                    "description": "Pad 6 [ROW_GATE_10] of PAIR11 on B.Cu",
-                    "pos": {
-                        "x": 75.75,
-                        "y": 22.0
-                    },
-                    "uuid": "7d4ea59e-b25d-553b-9b5b-2410929cf6a8"
-                }
-            ],
-            "severity": "error",
-            "type": "clearance"
-        },
-        {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
-            "items": [
-                {
                     "description": "Pad 2 [ROW_SEL_04] of PAIR05 on B.Cu",
                     "pos": {
                         "x": 76.675,
@@ -5949,6 +5995,52 @@
             "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
             "items": [
                 {
+                    "description": "Pad 1 [GND] of PAIR11 on B.Cu",
+                    "pos": {
+                        "x": 76.675,
+                        "y": 21.85
+                    },
+                    "uuid": "053ba6d5-1cda-5cad-a778-ff7409a8899c"
+                },
+                {
+                    "description": "Pad 6 [ROW_GATE_10] of PAIR11 on B.Cu",
+                    "pos": {
+                        "x": 75.75,
+                        "y": 22.0
+                    },
+                    "uuid": "7d4ea59e-b25d-553b-9b5b-2410929cf6a8"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1800 mm)",
+            "items": [
+                {
+                    "description": "Pad 4 [HEARTBEAT_FALL_CLK] of U48 on B.Cu",
+                    "pos": {
+                        "x": 63.85,
+                        "y": 1.35
+                    },
+                    "uuid": "8b12b4ba-1d11-58d7-97ba-76acff6fd6e6"
+                },
+                {
+                    "description": "Pad 5 [<no net>] of U48 on B.Cu",
+                    "pos": {
+                        "x": 63.85,
+                        "y": 1.0
+                    },
+                    "uuid": "12eca796-41e6-5ff6-9ab8-fdf77a939ab0"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
+            "items": [
+                {
                     "description": "Pad 3 [ROW_04_A] of PAIR05 on B.Cu",
                     "pos": {
                         "x": 75.75,
@@ -5963,6 +6055,52 @@
                         "y": 11.9
                     },
                     "uuid": "a455145f-04d6-5e98-9405-0bbd75e4d447"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
+            "items": [
+                {
+                    "description": "Pad 2 [ROW_SEL_10] of PAIR11 on B.Cu",
+                    "pos": {
+                        "x": 76.675,
+                        "y": 22.5
+                    },
+                    "uuid": "8845f9b3-ef74-583f-bf1c-33f54b83b208"
+                },
+                {
+                    "description": "Pad 6 [ROW_GATE_10] of PAIR11 on B.Cu",
+                    "pos": {
+                        "x": 75.75,
+                        "y": 22.0
+                    },
+                    "uuid": "7d4ea59e-b25d-553b-9b5b-2410929cf6a8"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1800 mm)",
+            "items": [
+                {
+                    "description": "Pad 5 [<no net>] of U48 on B.Cu",
+                    "pos": {
+                        "x": 63.85,
+                        "y": 1.0
+                    },
+                    "uuid": "12eca796-41e6-5ff6-9ab8-fdf77a939ab0"
+                },
+                {
+                    "description": "Pad 6 [+3V3_APP] of U48 on B.Cu",
+                    "pos": {
+                        "x": 63.85,
+                        "y": 0.65
+                    },
+                    "uuid": "ff6b5356-4a65-56cf-8959-a6d8c9eecb05"
                 }
             ],
             "severity": "error",
@@ -6041,20 +6179,20 @@
             "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
             "items": [
                 {
-                    "description": "Pad 2 [ROW_SEL_10] of PAIR11 on B.Cu",
+                    "description": "Pad 2 [ROW_SEL_01] of PAIR02 on B.Cu",
                     "pos": {
-                        "x": 76.675,
-                        "y": 22.5
+                        "x": 80.675,
+                        "y": 6.0
                     },
-                    "uuid": "8845f9b3-ef74-583f-bf1c-33f54b83b208"
+                    "uuid": "7c441e2b-4047-5d93-b31f-229613b59284"
                 },
                 {
-                    "description": "Pad 6 [ROW_GATE_10] of PAIR11 on B.Cu",
+                    "description": "Pad 6 [ROW_GATE_01] of PAIR02 on B.Cu",
                     "pos": {
-                        "x": 75.75,
-                        "y": 22.0
+                        "x": 79.75,
+                        "y": 5.5
                     },
-                    "uuid": "7d4ea59e-b25d-553b-9b5b-2410929cf6a8"
+                    "uuid": "c243aeb0-f34a-53cb-ad22-8462540762e8"
                 }
             ],
             "severity": "error",
@@ -6078,29 +6216,6 @@
                         "y": 23.0
                     },
                     "uuid": "58cbb5b7-e9f3-55e9-a22c-4e1816bffc06"
-                }
-            ],
-            "severity": "error",
-            "type": "clearance"
-        },
-        {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
-            "items": [
-                {
-                    "description": "Pad 2 [ROW_SEL_01] of PAIR02 on B.Cu",
-                    "pos": {
-                        "x": 80.675,
-                        "y": 6.0
-                    },
-                    "uuid": "7c441e2b-4047-5d93-b31f-229613b59284"
-                },
-                {
-                    "description": "Pad 6 [ROW_GATE_01] of PAIR02 on B.Cu",
-                    "pos": {
-                        "x": 79.75,
-                        "y": 5.5
-                    },
-                    "uuid": "c243aeb0-f34a-53cb-ad22-8462540762e8"
                 }
             ],
             "severity": "error",
@@ -6337,29 +6452,6 @@
             "type": "clearance"
         },
         {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
-            "items": [
-                {
-                    "description": "Pad 1 [GND] of PAIR07 on B.Cu",
-                    "pos": {
-                        "x": 76.675,
-                        "y": 14.35
-                    },
-                    "uuid": "5c9f7e62-46d1-5220-9360-c1b198b61ea0"
-                },
-                {
-                    "description": "Pad 6 [ROW_GATE_06] of PAIR07 on B.Cu",
-                    "pos": {
-                        "x": 75.75,
-                        "y": 14.5
-                    },
-                    "uuid": "ec2ddfa6-c34a-5e05-97c8-b1c7edb72304"
-                }
-            ],
-            "severity": "error",
-            "type": "clearance"
-        },
-        {
             "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1800 mm)",
             "items": [
                 {
@@ -6377,29 +6469,6 @@
                         "y": 9.0
                     },
                     "uuid": "1b72bea0-d696-533a-baf4-ae4d3de88d6a"
-                }
-            ],
-            "severity": "error",
-            "type": "clearance"
-        },
-        {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
-            "items": [
-                {
-                    "description": "Pad 2 [ROW_SEL_06] of PAIR07 on B.Cu",
-                    "pos": {
-                        "x": 76.675,
-                        "y": 15.0
-                    },
-                    "uuid": "26a57ed0-7da4-5d25-b91f-f6133c7ac72f"
-                },
-                {
-                    "description": "Pad 3 [ROW_06_A] of PAIR07 on B.Cu",
-                    "pos": {
-                        "x": 75.75,
-                        "y": 15.5
-                    },
-                    "uuid": "2b3cdd66-8047-5feb-a84d-e19de16838b5"
                 }
             ],
             "severity": "error",
@@ -6432,12 +6501,35 @@
             "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
             "items": [
                 {
-                    "description": "Pad 2 [ROW_SEL_06] of PAIR07 on B.Cu",
+                    "description": "Pad 3 [ROW_03_A] of PAIR04 on B.Cu",
+                    "pos": {
+                        "x": 79.75,
+                        "y": 10.0
+                    },
+                    "uuid": "7553e006-9ae6-5b42-b8a4-09988ab5e5e2"
+                },
+                {
+                    "description": "Pad 5 [ROW_GATE_03] of PAIR04 on B.Cu",
+                    "pos": {
+                        "x": 78.825,
+                        "y": 9.5
+                    },
+                    "uuid": "c2ea6f65-135d-5b32-a1bc-7162ae6f031d"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
+            "items": [
+                {
+                    "description": "Pad 1 [GND] of PAIR07 on B.Cu",
                     "pos": {
                         "x": 76.675,
-                        "y": 15.0
+                        "y": 14.35
                     },
-                    "uuid": "26a57ed0-7da4-5d25-b91f-f6133c7ac72f"
+                    "uuid": "5c9f7e62-46d1-5220-9360-c1b198b61ea0"
                 },
                 {
                     "description": "Pad 6 [ROW_GATE_06] of PAIR07 on B.Cu",
@@ -6455,20 +6547,43 @@
             "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
             "items": [
                 {
-                    "description": "Pad 3 [ROW_03_A] of PAIR04 on B.Cu",
+                    "description": "Pad 2 [ROW_SEL_06] of PAIR07 on B.Cu",
                     "pos": {
-                        "x": 79.75,
-                        "y": 10.0
+                        "x": 76.675,
+                        "y": 15.0
                     },
-                    "uuid": "7553e006-9ae6-5b42-b8a4-09988ab5e5e2"
+                    "uuid": "26a57ed0-7da4-5d25-b91f-f6133c7ac72f"
                 },
                 {
-                    "description": "Pad 5 [ROW_GATE_03] of PAIR04 on B.Cu",
+                    "description": "Pad 3 [ROW_06_A] of PAIR07 on B.Cu",
                     "pos": {
-                        "x": 78.825,
-                        "y": 9.5
+                        "x": 75.75,
+                        "y": 15.5
                     },
-                    "uuid": "c2ea6f65-135d-5b32-a1bc-7162ae6f031d"
+                    "uuid": "2b3cdd66-8047-5feb-a84d-e19de16838b5"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
+            "items": [
+                {
+                    "description": "Pad 2 [ROW_SEL_06] of PAIR07 on B.Cu",
+                    "pos": {
+                        "x": 76.675,
+                        "y": 15.0
+                    },
+                    "uuid": "26a57ed0-7da4-5d25-b91f-f6133c7ac72f"
+                },
+                {
+                    "description": "Pad 6 [ROW_GATE_06] of PAIR07 on B.Cu",
+                    "pos": {
+                        "x": 75.75,
+                        "y": 14.5
+                    },
+                    "uuid": "ec2ddfa6-c34a-5e05-97c8-b1c7edb72304"
                 }
             ],
             "severity": "error",
@@ -6659,29 +6774,6 @@
             "type": "clearance"
         },
         {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1800 mm)",
-            "items": [
-                {
-                    "description": "Pad 4 [DISPLAY_CLEAR_OK] of U52 on B.Cu",
-                    "pos": {
-                        "x": 68.85,
-                        "y": 1.35
-                    },
-                    "uuid": "2738fcd5-e90e-509d-9f96-757d5a0d1a5e"
-                },
-                {
-                    "description": "Pad 5 [<no net>] of U52 on B.Cu",
-                    "pos": {
-                        "x": 68.85,
-                        "y": 1.0
-                    },
-                    "uuid": "468620cb-41fe-582b-be26-76db2fe2fbb8"
-                }
-            ],
-            "severity": "error",
-            "type": "clearance"
-        },
-        {
             "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
             "items": [
                 {
@@ -6708,20 +6800,20 @@
             "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1800 mm)",
             "items": [
                 {
+                    "description": "Pad 4 [DISPLAY_CLEAR_OK] of U52 on B.Cu",
+                    "pos": {
+                        "x": 68.85,
+                        "y": 1.35
+                    },
+                    "uuid": "2738fcd5-e90e-509d-9f96-757d5a0d1a5e"
+                },
+                {
                     "description": "Pad 5 [<no net>] of U52 on B.Cu",
                     "pos": {
                         "x": 68.85,
                         "y": 1.0
                     },
                     "uuid": "468620cb-41fe-582b-be26-76db2fe2fbb8"
-                },
-                {
-                    "description": "Pad 6 [+3V3_APP] of U52 on B.Cu",
-                    "pos": {
-                        "x": 68.85,
-                        "y": 0.65
-                    },
-                    "uuid": "87164f3e-cdac-56c6-866e-fc5da1350f88"
                 }
             ],
             "severity": "error",
@@ -6745,6 +6837,29 @@
                         "y": 29.5
                     },
                     "uuid": "a51e237c-01b8-575e-b544-9fdd0ad3d971"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1800 mm)",
+            "items": [
+                {
+                    "description": "Pad 5 [<no net>] of U52 on B.Cu",
+                    "pos": {
+                        "x": 68.85,
+                        "y": 1.0
+                    },
+                    "uuid": "468620cb-41fe-582b-be26-76db2fe2fbb8"
+                },
+                {
+                    "description": "Pad 6 [+3V3_APP] of U52 on B.Cu",
+                    "pos": {
+                        "x": 68.85,
+                        "y": 0.65
+                    },
+                    "uuid": "87164f3e-cdac-56c6-866e-fc5da1350f88"
                 }
             ],
             "severity": "error",
@@ -6777,20 +6892,20 @@
             "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
             "items": [
                 {
-                    "description": "Pad 1 [GND] of PAIR08 on B.Cu",
+                    "description": "Pad 1 [GND] of PAIR06 on B.Cu",
                     "pos": {
                         "x": 80.675,
-                        "y": 15.85
+                        "y": 12.35
                     },
-                    "uuid": "e7e400ac-e1df-5a47-9d7b-e36cda92e3b6"
+                    "uuid": "f633dc1b-4934-5145-9091-0c8c59b729d6"
                 },
                 {
-                    "description": "Pad 6 [ROW_GATE_07] of PAIR08 on B.Cu",
+                    "description": "Pad 6 [ROW_GATE_05] of PAIR06 on B.Cu",
                     "pos": {
                         "x": 79.75,
-                        "y": 16.0
+                        "y": 12.5
                     },
-                    "uuid": "58258871-5c7f-5249-837e-4cf76954870a"
+                    "uuid": "3af633f6-87e5-557b-af0e-e06f1fa03430"
                 }
             ],
             "severity": "error",
@@ -6823,75 +6938,6 @@
             "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
             "items": [
                 {
-                    "description": "Pad 2 [ROW_SEL_07] of PAIR08 on B.Cu",
-                    "pos": {
-                        "x": 80.675,
-                        "y": 16.5
-                    },
-                    "uuid": "337935d8-ba4f-55a9-9a99-b68e48878692"
-                },
-                {
-                    "description": "Pad 3 [ROW_07_A] of PAIR08 on B.Cu",
-                    "pos": {
-                        "x": 79.75,
-                        "y": 17.0
-                    },
-                    "uuid": "0d82e08e-085b-523a-a23c-00a4fdfdf897"
-                }
-            ],
-            "severity": "error",
-            "type": "clearance"
-        },
-        {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
-            "items": [
-                {
-                    "description": "Pad 2 [ROW_SEL_07] of PAIR08 on B.Cu",
-                    "pos": {
-                        "x": 80.675,
-                        "y": 16.5
-                    },
-                    "uuid": "337935d8-ba4f-55a9-9a99-b68e48878692"
-                },
-                {
-                    "description": "Pad 6 [ROW_GATE_07] of PAIR08 on B.Cu",
-                    "pos": {
-                        "x": 79.75,
-                        "y": 16.0
-                    },
-                    "uuid": "58258871-5c7f-5249-837e-4cf76954870a"
-                }
-            ],
-            "severity": "error",
-            "type": "clearance"
-        },
-        {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
-            "items": [
-                {
-                    "description": "Pad 1 [GND] of PAIR06 on B.Cu",
-                    "pos": {
-                        "x": 80.675,
-                        "y": 12.35
-                    },
-                    "uuid": "f633dc1b-4934-5145-9091-0c8c59b729d6"
-                },
-                {
-                    "description": "Pad 6 [ROW_GATE_05] of PAIR06 on B.Cu",
-                    "pos": {
-                        "x": 79.75,
-                        "y": 12.5
-                    },
-                    "uuid": "3af633f6-87e5-557b-af0e-e06f1fa03430"
-                }
-            ],
-            "severity": "error",
-            "type": "clearance"
-        },
-        {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
-            "items": [
-                {
                     "description": "Pad 2 [ROW_SEL_05] of PAIR06 on B.Cu",
                     "pos": {
                         "x": 80.675,
@@ -6906,29 +6952,6 @@
                         "y": 12.5
                     },
                     "uuid": "3af633f6-87e5-557b-af0e-e06f1fa03430"
-                }
-            ],
-            "severity": "error",
-            "type": "clearance"
-        },
-        {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
-            "items": [
-                {
-                    "description": "Pad 2 [ROW_SEL_15] of PAIR16 on B.Cu",
-                    "pos": {
-                        "x": 80.675,
-                        "y": 30.5
-                    },
-                    "uuid": "6fef09fd-a827-58a6-8da7-1712aedd0f85"
-                },
-                {
-                    "description": "Pad 6 [ROW_GATE_15] of PAIR16 on B.Cu",
-                    "pos": {
-                        "x": 79.75,
-                        "y": 30.0
-                    },
-                    "uuid": "25f2076f-982e-59c9-bd79-620ca5eb145e"
                 }
             ],
             "severity": "error",
@@ -6969,81 +6992,35 @@
                     "uuid": "6fef09fd-a827-58a6-8da7-1712aedd0f85"
                 },
                 {
+                    "description": "Pad 6 [ROW_GATE_15] of PAIR16 on B.Cu",
+                    "pos": {
+                        "x": 79.75,
+                        "y": 30.0
+                    },
+                    "uuid": "25f2076f-982e-59c9-bd79-620ca5eb145e"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
+            "items": [
+                {
+                    "description": "Pad 2 [ROW_SEL_15] of PAIR16 on B.Cu",
+                    "pos": {
+                        "x": 80.675,
+                        "y": 30.5
+                    },
+                    "uuid": "6fef09fd-a827-58a6-8da7-1712aedd0f85"
+                },
+                {
                     "description": "Pad 3 [ROW_15_A] of PAIR16 on B.Cu",
                     "pos": {
                         "x": 79.75,
                         "y": 31.0
                     },
                     "uuid": "13641e4d-54ed-5bb0-ae0a-a6a10f5fc708"
-                }
-            ],
-            "severity": "error",
-            "type": "clearance"
-        },
-        {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
-            "items": [
-                {
-                    "description": "Pad 3 [ROW_07_A] of PAIR08 on B.Cu",
-                    "pos": {
-                        "x": 79.75,
-                        "y": 17.0
-                    },
-                    "uuid": "0d82e08e-085b-523a-a23c-00a4fdfdf897"
-                },
-                {
-                    "description": "Pad 4 [VLED] of PAIR08 on B.Cu",
-                    "pos": {
-                        "x": 78.825,
-                        "y": 17.15
-                    },
-                    "uuid": "7ff446df-c735-5e35-83de-1b0461eca3c3"
-                }
-            ],
-            "severity": "error",
-            "type": "clearance"
-        },
-        {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
-            "items": [
-                {
-                    "description": "Pad 3 [ROW_07_A] of PAIR08 on B.Cu",
-                    "pos": {
-                        "x": 79.75,
-                        "y": 17.0
-                    },
-                    "uuid": "0d82e08e-085b-523a-a23c-00a4fdfdf897"
-                },
-                {
-                    "description": "Pad 5 [ROW_GATE_07] of PAIR08 on B.Cu",
-                    "pos": {
-                        "x": 78.825,
-                        "y": 16.5
-                    },
-                    "uuid": "0663e3ba-d5a5-5f51-8aad-264239074a83"
-                }
-            ],
-            "severity": "error",
-            "type": "clearance"
-        },
-        {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1800 mm)",
-            "items": [
-                {
-                    "description": "Pad 3 [ROW_07_A] of PAIR08 on B.Cu",
-                    "pos": {
-                        "x": 79.75,
-                        "y": 17.0
-                    },
-                    "uuid": "0d82e08e-085b-523a-a23c-00a4fdfdf897"
-                },
-                {
-                    "description": "Pad 6 [ROW_GATE_07] of PAIR08 on B.Cu",
-                    "pos": {
-                        "x": 79.75,
-                        "y": 16.0
-                    },
-                    "uuid": "58258871-5c7f-5249-837e-4cf76954870a"
                 }
             ],
             "severity": "error",
@@ -7113,6 +7090,75 @@
                         "y": 12.5
                     },
                     "uuid": "3af633f6-87e5-557b-af0e-e06f1fa03430"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
+            "items": [
+                {
+                    "description": "Pad 1 [GND] of PAIR09 on B.Cu",
+                    "pos": {
+                        "x": 76.675,
+                        "y": 18.1
+                    },
+                    "uuid": "4965a0f7-cc98-5221-93a2-4bc03e900f33"
+                },
+                {
+                    "description": "Pad 6 [ROW_GATE_08] of PAIR09 on B.Cu",
+                    "pos": {
+                        "x": 75.75,
+                        "y": 18.25
+                    },
+                    "uuid": "5592905f-09f9-5f93-aa7c-4e2ac7b46555"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
+            "items": [
+                {
+                    "description": "Pad 2 [ROW_SEL_08] of PAIR09 on B.Cu",
+                    "pos": {
+                        "x": 76.675,
+                        "y": 18.75
+                    },
+                    "uuid": "ff8d1945-a84b-5c2e-9990-49aa329ad77e"
+                },
+                {
+                    "description": "Pad 3 [ROW_08_A] of PAIR09 on B.Cu",
+                    "pos": {
+                        "x": 75.75,
+                        "y": 19.25
+                    },
+                    "uuid": "0cc9c61d-84db-5512-939e-c672508974c6"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
+            "items": [
+                {
+                    "description": "Pad 2 [ROW_SEL_08] of PAIR09 on B.Cu",
+                    "pos": {
+                        "x": 76.675,
+                        "y": 18.75
+                    },
+                    "uuid": "ff8d1945-a84b-5c2e-9990-49aa329ad77e"
+                },
+                {
+                    "description": "Pad 6 [ROW_GATE_08] of PAIR09 on B.Cu",
+                    "pos": {
+                        "x": 75.75,
+                        "y": 18.25
+                    },
+                    "uuid": "5592905f-09f9-5f93-aa7c-4e2ac7b46555"
                 }
             ],
             "severity": "error",
@@ -7191,20 +7237,20 @@
             "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
             "items": [
                 {
-                    "description": "Pad 1 [GND] of PAIR12 on B.Cu",
+                    "description": "Pad 3 [ROW_08_A] of PAIR09 on B.Cu",
                     "pos": {
-                        "x": 80.675,
-                        "y": 22.85
+                        "x": 75.75,
+                        "y": 19.25
                     },
-                    "uuid": "9b6ea1a8-d69c-5fbb-a89f-f80b35cfb9d6"
+                    "uuid": "0cc9c61d-84db-5512-939e-c672508974c6"
                 },
                 {
-                    "description": "Pad 6 [ROW_GATE_11] of PAIR12 on B.Cu",
+                    "description": "Pad 4 [VLED] of PAIR09 on B.Cu",
                     "pos": {
-                        "x": 79.75,
-                        "y": 23.0
+                        "x": 74.825,
+                        "y": 19.4
                     },
-                    "uuid": "51463986-0829-5577-a45d-eeee65804405"
+                    "uuid": "a0a4a72f-cf3b-59b9-b352-f9d080e8bb91"
                 }
             ],
             "severity": "error",
@@ -7214,89 +7260,20 @@
             "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
             "items": [
                 {
-                    "description": "Pad 2 [ROW_SEL_11] of PAIR12 on B.Cu",
+                    "description": "Pad 3 [ROW_08_A] of PAIR09 on B.Cu",
                     "pos": {
-                        "x": 80.675,
-                        "y": 23.5
+                        "x": 75.75,
+                        "y": 19.25
                     },
-                    "uuid": "c2048c6b-3fb6-5a3b-9f19-4d89e7f2c3c9"
+                    "uuid": "0cc9c61d-84db-5512-939e-c672508974c6"
                 },
                 {
-                    "description": "Pad 3 [ROW_11_A] of PAIR12 on B.Cu",
+                    "description": "Pad 5 [ROW_GATE_08] of PAIR09 on B.Cu",
                     "pos": {
-                        "x": 79.75,
-                        "y": 24.0
+                        "x": 74.825,
+                        "y": 18.75
                     },
-                    "uuid": "ba989e0a-5ccd-534f-ad12-81de71aee413"
-                }
-            ],
-            "severity": "error",
-            "type": "clearance"
-        },
-        {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
-            "items": [
-                {
-                    "description": "Pad 2 [ROW_SEL_11] of PAIR12 on B.Cu",
-                    "pos": {
-                        "x": 80.675,
-                        "y": 23.5
-                    },
-                    "uuid": "c2048c6b-3fb6-5a3b-9f19-4d89e7f2c3c9"
-                },
-                {
-                    "description": "Pad 6 [ROW_GATE_11] of PAIR12 on B.Cu",
-                    "pos": {
-                        "x": 79.75,
-                        "y": 23.0
-                    },
-                    "uuid": "51463986-0829-5577-a45d-eeee65804405"
-                }
-            ],
-            "severity": "error",
-            "type": "clearance"
-        },
-        {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
-            "items": [
-                {
-                    "description": "Pad 3 [ROW_11_A] of PAIR12 on B.Cu",
-                    "pos": {
-                        "x": 79.75,
-                        "y": 24.0
-                    },
-                    "uuid": "ba989e0a-5ccd-534f-ad12-81de71aee413"
-                },
-                {
-                    "description": "Pad 5 [ROW_GATE_11] of PAIR12 on B.Cu",
-                    "pos": {
-                        "x": 78.825,
-                        "y": 23.5
-                    },
-                    "uuid": "3b7fdaac-3783-5529-ad2f-f72398f9bcd4"
-                }
-            ],
-            "severity": "error",
-            "type": "clearance"
-        },
-        {
-            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1500 mm)",
-            "items": [
-                {
-                    "description": "Pad 3 [ROW_11_A] of PAIR12 on B.Cu",
-                    "pos": {
-                        "x": 79.75,
-                        "y": 24.0
-                    },
-                    "uuid": "ba989e0a-5ccd-534f-ad12-81de71aee413"
-                },
-                {
-                    "description": "Pad 4 [VLED] of PAIR12 on B.Cu",
-                    "pos": {
-                        "x": 78.825,
-                        "y": 24.15
-                    },
-                    "uuid": "3cc70a0a-2d9f-5631-b6ec-d416b9448aba"
+                    "uuid": "57c23fce-925a-50ba-b9a9-1988680cfe52"
                 }
             ],
             "severity": "error",
@@ -7306,20 +7283,20 @@
             "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1800 mm)",
             "items": [
                 {
-                    "description": "Pad 3 [ROW_11_A] of PAIR12 on B.Cu",
+                    "description": "Pad 3 [ROW_08_A] of PAIR09 on B.Cu",
                     "pos": {
-                        "x": 79.75,
-                        "y": 24.0
+                        "x": 75.75,
+                        "y": 19.25
                     },
-                    "uuid": "ba989e0a-5ccd-534f-ad12-81de71aee413"
+                    "uuid": "0cc9c61d-84db-5512-939e-c672508974c6"
                 },
                 {
-                    "description": "Pad 6 [ROW_GATE_11] of PAIR12 on B.Cu",
+                    "description": "Pad 6 [ROW_GATE_08] of PAIR09 on B.Cu",
                     "pos": {
-                        "x": 79.75,
-                        "y": 23.0
+                        "x": 75.75,
+                        "y": 18.25
                     },
-                    "uuid": "51463986-0829-5577-a45d-eeee65804405"
+                    "uuid": "5592905f-09f9-5f93-aa7c-4e2ac7b46555"
                 }
             ],
             "severity": "error",
