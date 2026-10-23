@@ -1,6 +1,6 @@
 {
   "SPDX-License-Identifier": "CERN-OHL-S-2.0",
-  "accepted_join_count": 17,
+  "accepted_join_count": 18,
   "continuation_stages": [
     {
       "accepted_join": {
@@ -129,6 +129,17 @@
       "kind": "Reserve R2 ground with offset colour-trace transitions on In3",
       "output_board_sha256": "a1f742cd395079eb8360483a912c69890bd4f5f2ebbf17201bbd5ddf74f23f98",
       "source_board_sha256": "c90db60ca8cec219eeb5379766f537083a829c7c3ba6e404a13a1870ddd9c5b0"
+    },
+    {
+      "added_adjacent_layer_microvias": 11,
+      "added_tracks": 10,
+      "additional_original_source_track_removals": 18,
+      "additional_original_source_via_removals": 1,
+      "evidence": "mechanical/review/native-control-r36-ground-escape-2026-10-23.json",
+      "increment_base_revision": "7ddbd42f0069944ef62add939c98166e3add15de",
+      "kind": "R36 ground, COL_06_G replacement and exact obsolete-branch retirement",
+      "output_board_sha256": "6a2f61c07b647e727e1ed08daf87b3964365da2dca73504078d763aed88b72fa",
+      "source_board_sha256": "a1f742cd395079eb8360483a912c69890bd4f5f2ebbf17201bbd5ddf74f23f98"
     }
   ],
   "exact_native_shape_screen_excludes": [

@@ -58,11 +58,20 @@ def main():
     layers = {board.GetLayerName(layer): layer for layer in board.GetEnabledLayers().CuStack()}
     # Exact source segments are replaced to reserve the reviewed ground escapes.
     # No other source removal is permitted by this replay contract.
-    assert plan['removed_source_tracks'] == [dict(net='ROW_SEL_04',
+    assert plan['removed_source_tracks'][:2] == [dict(net='ROW_SEL_04',
         start_iu=[38600000, 7250000], end_iu=[54000000, 7250000],
         layer='In4.Cu', width_iu=200000), dict(net='COL_07_R',
         start_iu=[81400000, 6050000], end_iu=[56450000, 6050000],
         layer='In4.Cu', width_iu=200000)]
+    # R36 replaces one colour segment and retires its obsolete 17-track branch.
+    # This independent integer-plan digest permits no other source retirement.
+    assert len(plan['removed_source_tracks']) == 20
+    assert hashlib.sha256(json.dumps(plan['removed_source_tracks'][2:],
+        sort_keys=True, separators=(',', ':')).encode()).hexdigest() == (
+        'ceb19a7140262deeab4b439a15640d21d610bfe93a0ff5729bf2d3f40a461e94')
+    assert plan['removed_source_vias'] == [dict(net='COL_06_G',
+        position_iu=[61900000, 7250000], top='In3.Cu', bottom='In4.Cu',
+        diameter_iu=300000, drill_iu=100000)]
     removed = []
     for entry in plan['removed_source_tracks']:
         matches = [t for t in board.GetTracks() if not isinstance(t, p.PCB_VIA)
@@ -73,6 +82,19 @@ def main():
         assert len(matches) == 1
         board.Remove(matches[0])
         removed.extend(matches)
+    retired_vias = []
+    for entry in plan['removed_source_vias']:
+        matches = [t for t in board.GetTracks() if isinstance(t, p.PCB_VIA)
+                   and t.GetNetname() == entry['net']
+                   and [t.GetPosition().x, t.GetPosition().y] == entry['position_iu']
+                   and t.TopLayer() == layers[entry['top']]
+                   and t.BottomLayer() == layers[entry['bottom']]
+                   and t.GetViaType() == p.VIATYPE_MICROVIA
+                   and t.GetWidth(t.TopLayer()) == entry['diameter_iu']
+                   and t.GetDrillValue() == entry['drill_iu']]
+        assert len(matches) == 1
+        board.Remove(matches[0])
+        retired_vias.extend(matches)
     for entry in plan['tracks']:
         item = p.PCB_TRACK(board)
         item.SetStart(p.VECTOR2I(*entry['start_iu']))
@@ -121,6 +143,7 @@ def main():
                   shared_footprints_with_canonical_metadata=len(common),
                   added_tracks=len(plan['tracks']), added_microvias=len(plan['vias']),
                   replaced_source_tracks=len(removed),
+                  removed_source_vias=len(retired_vias),
                   source_tracks_and_vias=initial, tracks_and_vias=count,
                   native_open_edges=loaded.GetConnectivity().GetUnconnectedCount(False))
     report['SPDX-License-Identifier'] = 'CERN-OHL-S-2.0'

@@ -39,7 +39,58 @@ class NativeControlGuards(unittest.TestCase):
             check.validate_geometry(self.old, self.new, self.joins)
 
     def test_saved_study_passes(self):
-        self.assertEqual(check.validate_geometry(self.old, self.new, self.joins)['checked_joins'], 17)
+        self.assertEqual(check.validate_geometry(self.old, self.new, self.joins)['checked_joins'], 18)
+
+    def test_select_ground_detached_while_prior_escapes_stay_connected(self):
+        moved = 0
+        for item in self.added:
+            if (isinstance(item, p.PCB_VIA) and item.GetNetname() == 'GND'
+                    and (item.GetPosition().x, item.GetPosition().y) == (64100000, 7250000)):
+                item.Move(p.VECTOR2I(0, 5000000))
+                moved += 1
+        self.assertEqual(moved, 3)
+        p.ZONE_FILLER(self.new).Fill(self.new.Zones())
+        self.new.BuildConnectivity()
+        def pad(ref):
+            return next(q for q in self.parts[ref].Pads() if q.GetNumber() == '2')
+        for ref in ['R28', 'R29', 'R2']:
+            self.assertEqual(check.cluster(self.new, pad(ref)), check.cluster(self.new, pad('R25')))
+        self.assertNotEqual(check.cluster(self.new, pad('R36')), check.cluster(self.new, pad('R25')))
+        with self.assertRaises(AssertionError):
+            check.validate_geometry(self.old, self.new, self.joins)
+
+    def test_green_replacement_detached_without_changing_item_counts(self):
+        for item in self.added:
+            if item.GetNetname() == 'COL_06_G':
+                item.Move(p.VECTOR2I(0, 5000000))
+        self.reject()
+
+    def test_every_retired_green_source_item_rejected_if_restored(self):
+        plan = json.loads((ROOT / 'mechanical/review/native-control-routing-plan.json').read_text())
+        entries = [t for t in plan['removed_source_tracks'] if t['net'] == 'COL_06_G']
+        entries += plan['removed_source_vias']
+        self.assertEqual(len(entries), 19)
+        layers = {self.new.GetLayerName(layer): layer for layer in self.new.GetEnabledLayers().CuStack()}
+        for index, entry in enumerate(entries):
+            with self.subTest(retired_item=index):
+                if 'position_iu' in entry:
+                    item = p.PCB_VIA(self.new)
+                    item.SetPosition(p.VECTOR2I(*entry['position_iu']))
+                    item.SetViaType(p.VIATYPE_MICROVIA)
+                    item.SetLayerPair(layers[entry['top']], layers[entry['bottom']])
+                    item.SetWidth(entry['diameter_iu'])
+                    item.SetDrill(entry['drill_iu'])
+                else:
+                    item = p.PCB_TRACK(self.new)
+                    item.SetStart(p.VECTOR2I(*entry['start_iu']))
+                    item.SetEnd(p.VECTOR2I(*entry['end_iu']))
+                    item.SetLayer(layers[entry['layer']])
+                    item.SetWidth(entry['width_iu'])
+                item.SetNet(self.new.FindNet(entry['net']))
+                self.new.Add(item)
+                with self.assertRaisesRegex(AssertionError, 'reviewed replacements'):
+                    check.validate_geometry(self.old, self.new, self.joins)
+                self.new.Remove(item)
 
     def test_driver_ground_detached_while_prior_escapes_stay_connected(self):
         moved = 0
