@@ -1,0 +1,956 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "board_sha256": "b6fde6e68dcba7f2ec012989f1d8d97cb71dea4efc4fd009f2951cfc7d61e5e7",
+  "clearance_mm": 0.2,
+  "direct_vias": [
+    {
+      "added": false,
+      "pad": "1",
+      "position_mm": [
+        51.55,
+        1.0
+      ],
+      "ref": "C46",
+      "shape_conflicts": 1
+    },
+    {
+      "added": false,
+      "pad": "1",
+      "position_mm": [
+        55.05,
+        1.0
+      ],
+      "ref": "C47",
+      "shape_conflicts": 3
+    },
+    {
+      "added": false,
+      "pad": "1",
+      "position_mm": [
+        58.55,
+        1.0
+      ],
+      "ref": "C48",
+      "shape_conflicts": 4
+    },
+    {
+      "added": false,
+      "pad": "1",
+      "position_mm": [
+        62.05,
+        1.0
+      ],
+      "ref": "C49",
+      "shape_conflicts": 2
+    },
+    {
+      "added": false,
+      "pad": "4",
+      "position_mm": [
+        74.825,
+        4.4
+      ],
+      "ref": "PAIR01",
+      "shape_conflicts": 16
+    },
+    {
+      "added": false,
+      "pad": "4",
+      "position_mm": [
+        78.825,
+        6.65
+      ],
+      "ref": "PAIR02",
+      "shape_conflicts": 2
+    },
+    {
+      "added": false,
+      "pad": "4",
+      "position_mm": [
+        74.825,
+        8.15
+      ],
+      "ref": "PAIR03",
+      "shape_conflicts": 15
+    },
+    {
+      "added": false,
+      "pad": "4",
+      "position_mm": [
+        78.825,
+        10.15
+      ],
+      "ref": "PAIR04",
+      "shape_conflicts": 1
+    },
+    {
+      "added": false,
+      "pad": "4",
+      "position_mm": [
+        74.825,
+        11.9
+      ],
+      "ref": "PAIR05",
+      "shape_conflicts": 7
+    },
+    {
+      "added": false,
+      "pad": "4",
+      "position_mm": [
+        78.825,
+        13.65
+      ],
+      "ref": "PAIR06",
+      "shape_conflicts": 14
+    },
+    {
+      "added": false,
+      "pad": "4",
+      "position_mm": [
+        74.825,
+        15.65
+      ],
+      "ref": "PAIR07",
+      "shape_conflicts": 2
+    },
+    {
+      "added": false,
+      "pad": "4",
+      "position_mm": [
+        78.825,
+        17.15
+      ],
+      "ref": "PAIR08",
+      "shape_conflicts": 4
+    },
+    {
+      "added": false,
+      "pad": "4",
+      "position_mm": [
+        74.825,
+        19.4
+      ],
+      "ref": "PAIR09",
+      "shape_conflicts": 7
+    },
+    {
+      "added": false,
+      "pad": "4",
+      "position_mm": [
+        78.825,
+        20.65
+      ],
+      "ref": "PAIR10",
+      "shape_conflicts": 6
+    },
+    {
+      "added": true,
+      "pad": "4",
+      "position_mm": [
+        74.825,
+        23.15
+      ],
+      "ref": "PAIR11",
+      "shape_conflicts": 0
+    },
+    {
+      "added": false,
+      "pad": "4",
+      "position_mm": [
+        78.825,
+        24.15
+      ],
+      "ref": "PAIR12",
+      "shape_conflicts": 3
+    },
+    {
+      "added": true,
+      "pad": "4",
+      "position_mm": [
+        74.825,
+        26.9
+      ],
+      "ref": "PAIR13",
+      "shape_conflicts": 0
+    },
+    {
+      "added": false,
+      "pad": "4",
+      "position_mm": [
+        78.825,
+        27.65
+      ],
+      "ref": "PAIR14",
+      "shape_conflicts": 1
+    },
+    {
+      "added": true,
+      "pad": "4",
+      "position_mm": [
+        74.825,
+        30.65
+      ],
+      "ref": "PAIR15",
+      "shape_conflicts": 0
+    },
+    {
+      "added": false,
+      "pad": "4",
+      "position_mm": [
+        78.825,
+        31.15
+      ],
+      "ref": "PAIR16",
+      "shape_conflicts": 1
+    },
+    {
+      "added": false,
+      "pad": "1",
+      "position_mm": [
+        47.75,
+        4.25
+      ],
+      "ref": "R10",
+      "shape_conflicts": 3
+    },
+    {
+      "added": false,
+      "pad": "1",
+      "position_mm": [
+        70.25,
+        4.25
+      ],
+      "ref": "R109",
+      "shape_conflicts": 4
+    },
+    {
+      "added": false,
+      "pad": "1",
+      "position_mm": [
+        72.75,
+        4.25
+      ],
+      "ref": "R11",
+      "shape_conflicts": 4
+    },
+    {
+      "added": true,
+      "pad": "1",
+      "position_mm": [
+        35.25,
+        5.75
+      ],
+      "ref": "R111",
+      "shape_conflicts": 0
+    },
+    {
+      "added": true,
+      "pad": "1",
+      "position_mm": [
+        40.25,
+        5.75
+      ],
+      "ref": "R113",
+      "shape_conflicts": 0
+    },
+    {
+      "added": false,
+      "pad": "1",
+      "position_mm": [
+        42.75,
+        5.75
+      ],
+      "ref": "R12",
+      "shape_conflicts": 3
+    },
+    {
+      "added": false,
+      "pad": "1",
+      "position_mm": [
+        45.25,
+        5.75
+      ],
+      "ref": "R13",
+      "shape_conflicts": 5
+    },
+    {
+      "added": false,
+      "pad": "1",
+      "position_mm": [
+        47.75,
+        5.75
+      ],
+      "ref": "R14",
+      "shape_conflicts": 4
+    },
+    {
+      "added": false,
+      "pad": "1",
+      "position_mm": [
+        50.25,
+        5.75
+      ],
+      "ref": "R15",
+      "shape_conflicts": 5
+    },
+    {
+      "added": false,
+      "pad": "1",
+      "position_mm": [
+        52.75,
+        5.75
+      ],
+      "ref": "R16",
+      "shape_conflicts": 10
+    },
+    {
+      "added": false,
+      "pad": "1",
+      "position_mm": [
+        55.25,
+        5.75
+      ],
+      "ref": "R17",
+      "shape_conflicts": 37
+    },
+    {
+      "added": false,
+      "pad": "1",
+      "position_mm": [
+        57.75,
+        5.75
+      ],
+      "ref": "R18",
+      "shape_conflicts": 11
+    },
+    {
+      "added": false,
+      "pad": "1",
+      "position_mm": [
+        60.25,
+        5.75
+      ],
+      "ref": "R19",
+      "shape_conflicts": 8
+    },
+    {
+      "added": false,
+      "pad": "1",
+      "position_mm": [
+        73.5,
+        30.5
+      ],
+      "ref": "R20",
+      "shape_conflicts": 4
+    },
+    {
+      "added": false,
+      "pad": "1",
+      "position_mm": [
+        67.75,
+        5.75
+      ],
+      "ref": "R21",
+      "shape_conflicts": 9
+    },
+    {
+      "added": false,
+      "pad": "1",
+      "position_mm": [
+        57.75,
+        8.75
+      ],
+      "ref": "R6",
+      "shape_conflicts": 2
+    },
+    {
+      "added": false,
+      "pad": "1",
+      "position_mm": [
+        70.25,
+        8.75
+      ],
+      "ref": "R7",
+      "shape_conflicts": 6
+    },
+    {
+      "added": false,
+      "pad": "1",
+      "position_mm": [
+        47.75,
+        10.25
+      ],
+      "ref": "R8",
+      "shape_conflicts": 8
+    },
+    {
+      "added": false,
+      "pad": "1",
+      "position_mm": [
+        60.25,
+        10.25
+      ],
+      "ref": "R84",
+      "shape_conflicts": 2
+    },
+    {
+      "added": true,
+      "pad": "1",
+      "position_mm": [
+        32.75,
+        11.75
+      ],
+      "ref": "R9",
+      "shape_conflicts": 0
+    },
+    {
+      "added": true,
+      "pad": "4",
+      "position_mm": [
+        93.75,
+        3.65
+      ],
+      "ref": "U37",
+      "shape_conflicts": 0
+    },
+    {
+      "added": true,
+      "pad": "5",
+      "position_mm": [
+        94.25,
+        3.65
+      ],
+      "ref": "U37",
+      "shape_conflicts": 0
+    }
+  ],
+  "escapes": [
+    {
+      "discovered_nodes": 293,
+      "pad": "1",
+      "position_mm": [
+        51.55,
+        1.0
+      ],
+      "ref": "C46",
+      "routed": true
+    },
+    {
+      "discovered_nodes": 10169,
+      "pad": "1",
+      "position_mm": [
+        55.05,
+        1.0
+      ],
+      "ref": "C47",
+      "routed": true
+    },
+    {
+      "discovered_nodes": 23306,
+      "pad": "1",
+      "position_mm": [
+        58.55,
+        1.0
+      ],
+      "ref": "C48",
+      "routed": true
+    },
+    {
+      "discovered_nodes": 23540,
+      "pad": "1",
+      "position_mm": [
+        62.05,
+        1.0
+      ],
+      "ref": "C49",
+      "routed": true
+    },
+    {
+      "discovered_nodes": 5617,
+      "pad": "4",
+      "position_mm": [
+        74.825,
+        4.4
+      ],
+      "ref": "PAIR01",
+      "routed": false
+    },
+    {
+      "discovered_nodes": 1643,
+      "pad": "4",
+      "position_mm": [
+        78.825,
+        6.65
+      ],
+      "ref": "PAIR02",
+      "routed": false
+    },
+    {
+      "discovered_nodes": 20,
+      "pad": "4",
+      "position_mm": [
+        74.825,
+        8.15
+      ],
+      "ref": "PAIR03",
+      "routed": false
+    },
+    {
+      "discovered_nodes": 2446,
+      "pad": "4",
+      "position_mm": [
+        78.825,
+        10.15
+      ],
+      "ref": "PAIR04",
+      "routed": true
+    },
+    {
+      "discovered_nodes": 25,
+      "pad": "4",
+      "position_mm": [
+        74.825,
+        11.9
+      ],
+      "ref": "PAIR05",
+      "routed": false
+    },
+    {
+      "discovered_nodes": 3285,
+      "pad": "4",
+      "position_mm": [
+        78.825,
+        13.65
+      ],
+      "ref": "PAIR06",
+      "routed": false
+    },
+    {
+      "discovered_nodes": 1049,
+      "pad": "4",
+      "position_mm": [
+        74.825,
+        15.65
+      ],
+      "ref": "PAIR07",
+      "routed": false
+    },
+    {
+      "discovered_nodes": 472,
+      "pad": "4",
+      "position_mm": [
+        78.825,
+        17.15
+      ],
+      "ref": "PAIR08",
+      "routed": false
+    },
+    {
+      "discovered_nodes": 20,
+      "pad": "4",
+      "position_mm": [
+        74.825,
+        19.4
+      ],
+      "ref": "PAIR09",
+      "routed": false
+    },
+    {
+      "discovered_nodes": 1084,
+      "pad": "4",
+      "position_mm": [
+        78.825,
+        20.65
+      ],
+      "ref": "PAIR10",
+      "routed": true
+    },
+    {
+      "discovered_nodes": 506,
+      "pad": "4",
+      "position_mm": [
+        78.825,
+        24.15
+      ],
+      "ref": "PAIR12",
+      "routed": true
+    },
+    {
+      "discovered_nodes": 461,
+      "pad": "4",
+      "position_mm": [
+        78.825,
+        27.65
+      ],
+      "ref": "PAIR14",
+      "routed": true
+    },
+    {
+      "discovered_nodes": 282,
+      "pad": "4",
+      "position_mm": [
+        78.825,
+        31.15
+      ],
+      "ref": "PAIR16",
+      "routed": true
+    },
+    {
+      "discovered_nodes": 12930,
+      "pad": "1",
+      "position_mm": [
+        47.75,
+        4.25
+      ],
+      "ref": "R10",
+      "routed": true
+    },
+    {
+      "discovered_nodes": 5617,
+      "pad": "1",
+      "position_mm": [
+        70.25,
+        4.25
+      ],
+      "ref": "R109",
+      "routed": false
+    },
+    {
+      "discovered_nodes": 5617,
+      "pad": "1",
+      "position_mm": [
+        72.75,
+        4.25
+      ],
+      "ref": "R11",
+      "routed": false
+    },
+    {
+      "discovered_nodes": 7184,
+      "pad": "1",
+      "position_mm": [
+        42.75,
+        5.75
+      ],
+      "ref": "R12",
+      "routed": true
+    },
+    {
+      "discovered_nodes": 26431,
+      "pad": "1",
+      "position_mm": [
+        45.25,
+        5.75
+      ],
+      "ref": "R13",
+      "routed": true
+    },
+    {
+      "discovered_nodes": 17250,
+      "pad": "1",
+      "position_mm": [
+        47.75,
+        5.75
+      ],
+      "ref": "R14",
+      "routed": true
+    },
+    {
+      "discovered_nodes": 15476,
+      "pad": "1",
+      "position_mm": [
+        50.25,
+        5.75
+      ],
+      "ref": "R15",
+      "routed": true
+    },
+    {
+      "discovered_nodes": 20259,
+      "pad": "1",
+      "position_mm": [
+        52.75,
+        5.75
+      ],
+      "ref": "R16",
+      "routed": true
+    },
+    {
+      "discovered_nodes": 27613,
+      "pad": "1",
+      "position_mm": [
+        55.25,
+        5.75
+      ],
+      "ref": "R17",
+      "routed": true
+    },
+    {
+      "discovered_nodes": 440,
+      "pad": "1",
+      "position_mm": [
+        57.75,
+        5.75
+      ],
+      "ref": "R18",
+      "routed": false
+    },
+    {
+      "discovered_nodes": 440,
+      "pad": "1",
+      "position_mm": [
+        60.25,
+        5.75
+      ],
+      "ref": "R19",
+      "routed": false
+    },
+    {
+      "discovered_nodes": 196,
+      "pad": "1",
+      "position_mm": [
+        67.75,
+        5.75
+      ],
+      "ref": "R21",
+      "routed": false
+    },
+    {
+      "discovered_nodes": 366165,
+      "pad": "1",
+      "position_mm": [
+        57.75,
+        8.75
+      ],
+      "ref": "R6",
+      "routed": true
+    },
+    {
+      "discovered_nodes": 149269,
+      "pad": "1",
+      "position_mm": [
+        70.25,
+        8.75
+      ],
+      "ref": "R7",
+      "routed": true
+    },
+    {
+      "discovered_nodes": 232,
+      "pad": "1",
+      "position_mm": [
+        47.75,
+        10.25
+      ],
+      "ref": "R8",
+      "routed": false
+    },
+    {
+      "discovered_nodes": 232,
+      "pad": "1",
+      "position_mm": [
+        60.25,
+        10.25
+      ],
+      "ref": "R84",
+      "routed": false
+    }
+  ],
+  "grid_mm": 0.05,
+  "initial_main_cluster_pads": [
+    [
+      "PAIR11",
+      "4"
+    ],
+    [
+      "PAIR13",
+      "4"
+    ],
+    [
+      "PAIR15",
+      "4"
+    ],
+    [
+      "R111",
+      "1"
+    ],
+    [
+      "R113",
+      "1"
+    ],
+    [
+      "R20",
+      "1"
+    ],
+    [
+      "R9",
+      "1"
+    ],
+    [
+      "U37",
+      "4"
+    ],
+    [
+      "U37",
+      "5"
+    ]
+  ],
+  "kicad_version": "10.0.6",
+  "main_cluster_pads": [
+    [
+      "C46",
+      "1"
+    ],
+    [
+      "C47",
+      "1"
+    ],
+    [
+      "C48",
+      "1"
+    ],
+    [
+      "C49",
+      "1"
+    ],
+    [
+      "PAIR04",
+      "4"
+    ],
+    [
+      "PAIR10",
+      "4"
+    ],
+    [
+      "PAIR11",
+      "4"
+    ],
+    [
+      "PAIR12",
+      "4"
+    ],
+    [
+      "PAIR13",
+      "4"
+    ],
+    [
+      "PAIR14",
+      "4"
+    ],
+    [
+      "PAIR15",
+      "4"
+    ],
+    [
+      "PAIR16",
+      "4"
+    ],
+    [
+      "R10",
+      "1"
+    ],
+    [
+      "R111",
+      "1"
+    ],
+    [
+      "R113",
+      "1"
+    ],
+    [
+      "R12",
+      "1"
+    ],
+    [
+      "R13",
+      "1"
+    ],
+    [
+      "R14",
+      "1"
+    ],
+    [
+      "R15",
+      "1"
+    ],
+    [
+      "R16",
+      "1"
+    ],
+    [
+      "R17",
+      "1"
+    ],
+    [
+      "R20",
+      "1"
+    ],
+    [
+      "R6",
+      "1"
+    ],
+    [
+      "R7",
+      "1"
+    ],
+    [
+      "R9",
+      "1"
+    ],
+    [
+      "U37",
+      "4"
+    ],
+    [
+      "U37",
+      "5"
+    ]
+  ],
+  "max_nodes": 500000,
+  "microvia_diameter_drill_mm": [
+    0.3,
+    0.1
+  ],
+  "net": "VLED",
+  "open_edges": 262,
+  "rail": "vled",
+  "source_connected_to_main": true,
+  "source_ref": "U37",
+  "source_sha256": "b911e6e106d8494fe0b1f4cd17310b65f90e0c210333d7c5c163cb044db2a548",
+  "status": "UNQUALIFIED_SUPPLY_DISTRIBUTION_STUDY",
+  "supply_open_edges": 15,
+  "tracks_and_vias": 14179,
+  "width_mm": 0.2,
+  "zones": [
+    {
+      "area_mm2": 2333.915,
+      "layer": "B.Cu",
+      "net": "GND",
+      "polygons": 45
+    },
+    {
+      "area_mm2": 2375.426,
+      "layer": "In1.Cu",
+      "net": "VLED",
+      "polygons": 2
+    },
+    {
+      "area_mm2": 2818.909,
+      "layer": "In2.Cu",
+      "net": "GND",
+      "polygons": 8
+    },
+    {
+      "area_mm2": 2456.562,
+      "layer": "In3.Cu",
+      "net": "+3V3_USB",
+      "polygons": 4
+    },
+    {
+      "area_mm2": 2646.526,
+      "layer": "In4.Cu",
+      "net": "+3V3_APP",
+      "polygons": 4
+    }
+  ]
+}

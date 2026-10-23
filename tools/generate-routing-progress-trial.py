@@ -1,0 +1,73 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: Apache-2.0
+"""Replay the additive routing checkpoint on the frozen 215-edge study."""
+import hashlib
+import importlib.util
+import json
+from pathlib import Path
+import re
+import uuid
+import pcbnew as p
+
+ROOT = Path(__file__).resolve().parents[1]
+SOURCE = ROOT/'hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb'
+OUTPUT = ROOT/'hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb'
+PLAN = ROOT/'mechanical/review/routing-progress-plan.json'
+SCOPE = uuid.UUID('7a6f7320-f5d9-4d64-a104-16efb7e933f0')
+
+
+def main():
+    plan = json.loads(PLAN.read_text())
+    assert hashlib.sha256(SOURCE.read_bytes()).hexdigest() == plan['source_sha256']
+    board = p.LoadBoard(str(SOURCE))
+    parts = {f.GetReference(): f for f in board.GetFootprints()}
+    for entry in plan['placements']:
+        part = parts[entry['reference']]
+        assert [part.GetPosition().x, part.GetPosition().y] == entry['old_position_iu']
+        assert part.GetOrientation().AsDegrees() == entry['old_angle_deg']
+        part.SetPosition(p.VECTOR2I(*entry['new_position_iu']))
+        part.SetOrientationDegrees(entry['new_angle_deg'])
+    removed = []
+    source_items = list(board.GetTracks())
+    retired_items = []
+    for item in source_items:
+        if not isinstance(item, p.PCB_VIA) and item.GetStart() == item.GetEnd():
+            removed.append([item.GetNetname(), item.GetStart().x, item.GetStart().y,
+                            board.GetLayerName(item.GetLayer()), item.GetWidth()])
+            retired_items.append(item)
+            board.Remove(item)
+    assert sorted(removed) == plan['retired_zero_length_tracks'] and len(removed) == 116
+    layers = {board.GetLayerName(x): x for x in board.GetEnabledLayers().CuStack()}
+    for entry in plan['added_copper']:
+        if entry[0] == 'track':
+            _, net, ax, ay, bx, by, layer, width = entry
+            item = p.PCB_TRACK(board)
+            item.SetStart(p.VECTOR2I(ax, ay)); item.SetEnd(p.VECTOR2I(bx, by))
+            item.SetLayer(layers[layer]); item.SetWidth(width)
+            assert (ax, ay) != (bx, by)
+        else:
+            _, net, x, y, top, bottom, diameter, drill = entry
+            assert entry[0] == 'via'
+            item = p.PCB_VIA(board)
+            item.SetPosition(p.VECTOR2I(x, y)); item.SetViaType(p.VIATYPE_MICROVIA)
+            item.SetLayerPair(layers[top], layers[bottom])
+            item.SetWidth(diameter); item.SetDrill(drill)
+        item.SetNetCode(board.FindNet(net).GetNetCode()); board.Add(item)
+    p.ZONE_FILLER(board).Fill(board.Zones())
+    board.BuildConnectivity()
+    assert board.GetConnectivity().GetUnconnectedCount(False) == plan['open_edges']
+    p.SaveBoard(str(OUTPUT), board)
+    spec = importlib.util.spec_from_file_location('sort', ROOT/'tools/generate-paired-charger-114mm-routing.py')
+    helper = importlib.util.module_from_spec(spec); spec.loader.exec_module(helper)
+    data = helper.sorted_native_tracks(OUTPUT.read_text(), expected=len(list(board.GetTracks())))
+    sequence = iter(range(data.count('(uuid "')))
+    data = re.sub(r'\(uuid "[0-9a-f-]{36}"\)',
+                  lambda _: '(uuid "'+str(uuid.uuid5(SCOPE, str(next(sequence))))+'")', data)
+    OUTPUT.write_text(data)
+    print(json.dumps(dict(board_sha256=hashlib.sha256(OUTPUT.read_bytes()).hexdigest(),
+                         open_edges=plan['open_edges'], retired_zero_length_tracks=len(removed),
+                         added_copper=len(plan['added_copper'])), sort_keys=True))
+
+
+if __name__ == '__main__':
+    main()

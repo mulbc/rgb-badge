@@ -1,0 +1,16 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_tracks": 16,
+  "board_sha256": "c668d3e58ba2f66549c0378ee541acb6622769c686b04d2d9bb9b030dab12efe",
+  "drc_sha256": "e0242b3c5a1d6359b5eb37740a4279b46d9f207a36fd18f51d7154ea7074233e",
+  "full_drc": "104_UNCHANGED_INTRINSIC_FINDINGS",
+  "ground_open_edges": 27,
+  "joined_rows": 16,
+  "kicad_version": "10.0.6",
+  "native_open_edges": 246,
+  "other_pad_clusters_unchanged": true,
+  "physical_anode_pads_per_row": 18,
+  "removed_drain_tie_mutation_rejected": true,
+  "source_tracks_and_vias_preserved": true,
+  "unchanged_footprints": 483
+}

@@ -1,0 +1,104 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "board_sha256": "7ac1b6c7544adb37bd03ea8f39e2fcaee659b5085e4c876bad24ae591a6e5859",
+  "candidate_microvia_diameter_drill_mm": [
+    0.3,
+    0.1
+  ],
+  "connected_selects": 16,
+  "grid_mm": 0.05,
+  "layers": [
+    "B.Cu",
+    "In4.Cu",
+    "In3.Cu",
+    "In2.Cu",
+    "In1.Cu"
+  ],
+  "open_edges": 550,
+  "routes": [
+    {
+      "connected": true,
+      "expanded_nodes": 20499,
+      "net": "ROW_SEL_03"
+    },
+    {
+      "connected": true,
+      "expanded_nodes": 36731,
+      "net": "ROW_SEL_02"
+    },
+    {
+      "connected": true,
+      "expanded_nodes": 164589,
+      "net": "ROW_SEL_00"
+    },
+    {
+      "connected": true,
+      "expanded_nodes": 248778,
+      "net": "ROW_SEL_01"
+    },
+    {
+      "connected": true,
+      "expanded_nodes": 300825,
+      "net": "ROW_SEL_15"
+    },
+    {
+      "connected": true,
+      "expanded_nodes": 318371,
+      "net": "ROW_SEL_14"
+    },
+    {
+      "connected": true,
+      "expanded_nodes": 211941,
+      "net": "ROW_SEL_13"
+    },
+    {
+      "connected": true,
+      "expanded_nodes": 420586,
+      "net": "ROW_SEL_12"
+    },
+    {
+      "connected": true,
+      "expanded_nodes": 316956,
+      "net": "ROW_SEL_11"
+    },
+    {
+      "connected": true,
+      "expanded_nodes": 334806,
+      "net": "ROW_SEL_10"
+    },
+    {
+      "connected": true,
+      "expanded_nodes": 352718,
+      "net": "ROW_SEL_09"
+    },
+    {
+      "connected": true,
+      "expanded_nodes": 343352,
+      "net": "ROW_SEL_08"
+    },
+    {
+      "connected": true,
+      "expanded_nodes": 476687,
+      "net": "ROW_SEL_07"
+    },
+    {
+      "connected": true,
+      "expanded_nodes": 583613,
+      "net": "ROW_SEL_06"
+    },
+    {
+      "connected": true,
+      "expanded_nodes": 456576,
+      "net": "ROW_SEL_05"
+    },
+    {
+      "connected": true,
+      "expanded_nodes": 414478,
+      "net": "ROW_SEL_04"
+    }
+  ],
+  "source_sha256": "ff0fffdeb9034c7e80381d6d7d2cc491b9b43bda924c049b7a53b0905dc7ffd8",
+  "status": "UNQUALIFIED_ROUTING_STUDY",
+  "tracks_and_vias": 9553,
+  "width_mm": 0.2
+}

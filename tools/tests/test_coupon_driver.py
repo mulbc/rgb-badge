@@ -58,7 +58,7 @@ class CouponDriverTests(unittest.TestCase):
         faults=[
             ('driver.kicad_sch','(xy 109.220 167.640)','(xy 109.221 167.640)'),
             ('driver.kicad_sch','"39.2k 1%"','"3.92k 1%"'),
-            ('driver.kicad_sch','(property "MPN" "ERJ-2RKF3922X"','(property "MPN" "ERJ-2RKF3921X"'),
+            ('driver.kicad_sch','(property "MPN" "ERJ2RKF3922X"','(property "MPN" "ERJ2RKF3921X"'),
             ('driver.kicad_sch','(global_label "COL_00_R"','(global_label "COL_01_R"'),
         ]
         for name,old,new in faults:

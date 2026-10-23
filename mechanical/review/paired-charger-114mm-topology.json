@@ -1,0 +1,123 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "battery_body_box_mm": [
+    31,
+    2,
+    78,
+    30.5
+  ],
+  "board_mm": [
+    114.0,
+    32.5
+  ],
+  "comparisons": {
+    "canonical 32 separate row FETs; bypass_local=False": {
+      "under_pack_small_parts": 117,
+      "unplaced_refs": [
+        "Q19",
+        "Q20",
+        "Q21",
+        "Q22",
+        "Q23",
+        "Q24",
+        "Q25",
+        "Q26",
+        "Q27",
+        "Q28",
+        "Q29",
+        "Q30",
+        "Q31",
+        "Q32",
+        "U35"
+      ]
+    },
+    "canonical 32 separate row FETs; bypass_local=True": {
+      "under_pack_small_parts": 108,
+      "unplaced_refs": [
+        "U38",
+        "Q17",
+        "Q18",
+        "Q19",
+        "Q20",
+        "Q21",
+        "Q22",
+        "Q23",
+        "Q24",
+        "Q25",
+        "Q26",
+        "Q27",
+        "Q28",
+        "Q29",
+        "Q30",
+        "Q31",
+        "Q32"
+      ]
+    },
+    "dual-package candidate; bypass_local=False": {
+      "under_pack_small_parts": 117,
+      "unplaced_refs": []
+    },
+    "dual-package candidate; bypass_local=True": {
+      "under_pack_small_parts": 108,
+      "unplaced_refs": []
+    }
+  },
+  "fixed_sensor_boxes_mm": {
+    "TH1": [
+      53.25,
+      15.25,
+      55.5,
+      17.0
+    ],
+    "U39": [
+      56.0,
+      14.0,
+      59.25,
+      17.0
+    ]
+  },
+  "limitations": [
+    "Placement order can change the miss count; zero misses do not prove routability.",
+    "Paired row package numeric pin map and 0.15 mm land-gap process are unapproved.",
+    "Under-pack parts require insulation, height, swelling and thermal qualification.",
+    "No case, USB cutout, current-rated copper, RF keepout or fabrication review is represented."
+  ],
+  "post_screen_local_ldo_cap_boxes_mm": {
+    "C30": [
+      96.0,
+      8.25,
+      98.5,
+      9.75
+    ],
+    "C32": [
+      87.5,
+      9.5,
+      91.0,
+      11.5
+    ],
+    "TP10": [
+      92.0,
+      30.0,
+      94.0,
+      32.0
+    ],
+    "TP14": [
+      33.0,
+      0.0,
+      35.0,
+      2.0
+    ]
+  },
+  "priority_refs": [
+    "U50"
+  ],
+  "sensor_reservation_box_mm": [
+    49.5,
+    12.25,
+    59.5,
+    20.25
+  ],
+  "source_coupon_items": 497,
+  "status": "GREEDY_XY_SCREEN_NOT_ELECTRICAL_OR_CASE_FIT",
+  "trial_bypass_courtyard_gap_limit_mm": 3.0
+}

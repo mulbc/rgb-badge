@@ -1,0 +1,131 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "accepted_join": {
+    "anchor": [
+      "R25",
+      "2"
+    ],
+    "net": "GND",
+    "source": [
+      "R2",
+      "2"
+    ]
+  },
+  "all_colour_column_pad_groups_unchanged": true,
+  "all_old_physical_pad_groups_and_placements_preserved": true,
+  "base_board_sha256": "c90db60ca8cec219eeb5379766f537083a829c7c3ba6e404a13a1870ddd9c5b0",
+  "base_revision": "d0277378ca59f28a8056aca675b1536f9733f518",
+  "board_sha256": "a1f742cd395079eb8360483a912c69890bd4f5f2ebbf17201bbd5ddf74f23f98",
+  "candidate_board_sha256": "3ee4706206f2d6dfb1fa373e13cdaa876ce13c63b46318a7d11c6c73dce4a66b",
+  "candidate_drc_sha256": "7ccda62ff43dad33b7f177f88bf00a834993c27561ea4baaeea0619228a308a7",
+  "exact_unchanged_intrinsic_drc_findings": 104,
+  "fabrication_release_allowed": false,
+  "ground_escape": {
+    "added_microvias": 5,
+    "ground_pad": [
+      "R2",
+      "2"
+    ],
+    "ground_via_position_iu": [
+      61550000,
+      6200000
+    ],
+    "open_edges": 217,
+    "removed_original_tracks": 1,
+    "row_detour_iu": [
+      [
+        62100000,
+        6300000
+      ],
+      [
+        62100000,
+        6700000
+      ],
+      [
+        60200000,
+        6700000
+      ],
+      [
+        60200000,
+        6300000
+      ]
+    ]
+  },
+  "ground_open_edges_after": 24,
+  "ground_open_edges_before": 25,
+  "hardware_measurements": "NONE",
+  "increment_added_adjacent_layer_microvias": 5,
+  "increment_added_tracks": 8,
+  "increment_removed_original_tracks": 1,
+  "isolated_native_guard_cases_passed": 28,
+  "limitations": [
+    "217 opens including 24 GND, 14 VLED, TP11, transmit test-pad leg, six gate terminals and remaining power/control/USB",
+    "104 intrinsic findings unresolved",
+    "No electrical/return/current/process/fit qualification or independent Gate A"
+  ],
+  "native_open_edges_after": 217,
+  "native_open_edges_before": 218,
+  "net_added_native_items": 12,
+  "new_fault_cases": [
+    "Withdraw only R2 ground vias while proving R28/R29 remain joined",
+    "Detach added colour replacement without changing counts",
+    "Restore exact original colour segment through ground stack"
+  ],
+  "original_source_items_retained": 14492,
+  "previous_r28_r29_joins_preserved": true,
+  "raw_evidence_sha256": {
+    "/private/tmp/rgb-extract-r2-ground.log": "5de3ab57ff3569d59a9904f5bf71f3dddca7838518151ff26bf2b26761d23956",
+    "/private/tmp/rgb-extract-r2-ground.py": "9b3c8f8cd7d0820cab955e5f3b59e2f3081bb529197335a986adf62bb7eed0f8",
+    "/private/tmp/rgb-r2-blockers.log": "426725b4c90aba86337ef8e74983aefb6052a229eadc83b4e8ed4ebaee595e82",
+    "/private/tmp/rgb-r2-blockers.py": "4760e2add44be7d4a12b9e0cee38596348a918810c63f7268d1cb87b73056a81",
+    "/private/tmp/rgb-r2-ground-ci-layout.log": "f408a284da9695acdead3782e1f2c2c77760efedb7819bd1ea193477f71a4eff",
+    "/private/tmp/rgb-r2-ground-drc.log": "f354561044137cb569232dac60e865e97ab073ce2be1be03f2f014c0fcb6285c",
+    "/private/tmp/rgb-r2-ground-generate.log": "be27e3b6cc97e72a528841d29165332a1f373a95288d10fe66b85e640c60994b",
+    "/private/tmp/rgb-r2-ground-native-check.log": "19902d13cb7f78c2de2e3ca020cc735ec80c605421669f0eb22095533dbd673c",
+    "/private/tmp/rgb-r2-ground-native-contract.log": "0665312e22e5b64510a3dd89766f0ed30a6c1535ac895a754b5568c3766b9e61",
+    "/private/tmp/rgb-r2-ground-open-nets.json": "be1cf9e6d7e7d7642c7dc42d2c742d35066e355cd6b643b3329cad98b3d07d4e",
+    "/private/tmp/rgb-r2-ground-reproduce.log": "4365f5172e26e669d8d2265db6bf490270c838d0673cc77eaf2cb76fdc24872f",
+    "/private/tmp/rgb-r2-via-sites.log": "b501b55dd03ccbf129b6fb391ae1ebd7a4bd66ac02b94f112b8ee7da1effc00f",
+    "/private/tmp/rgb-r2-via-sites.py": "1fb0e3fd73c5aeb38d4fb118c58e3802e6f87962b1564b7e4e33d48930dce0c5",
+    "/private/tmp/rgb-reserve-r2-ground.log": "4760ef3b3130b9e561f37c6be3d8cd5121d9ea58261625c41e1ff8a9d74a9d67",
+    "/private/tmp/rgb-reserve-r2-ground.py": "f4617d5991447c448c9634f5a64129e55d4820654d252a2fb24f36a88bfd71ff",
+    "/private/tmp/rgb-reserve-r2-offset.log": "25988237a4e0a2afc7ccacbe9a3c8d09fc020f59c0af60bc552e060e54e1126d",
+    "/private/tmp/rgb-reserve-r2-offset.py": "74aace7835a5ac18c6e78214210babc390eafec4ece8da4416430e85f799e5fe",
+    "/private/tmp/rgb-reserve-r2-same-layer.log": "f4152f5ff74069e84f45823a24b22ecbbd53326c716d696c75e8b7513cef3ecd",
+    "/private/tmp/rgb-reserve-r2-same-layer.py": "3547f02bf2e76074d854c24888860f3c0cf7059ec136aa9c8a1a18823d819bd3",
+    "/private/tmp/rgb-reserve-r36-ground.log": "db5e89fa74780c057e11c1334719e17b72fe2743a1fa85e0c558a3f950150a47",
+    "/private/tmp/rgb-reserve-r36-ground.py": "0c8c8b7bcb935b02e9ddbfe026f140279585e7612fd5156c8b86f19316d89c36",
+    "/private/tmp/rgb-reserve-r36-offset.log": "4995ec158be84a9e0c09b9a416c7f7355a967beb2a6cc3b1fedb11da1c37f90d",
+    "/private/tmp/rgb-reserve-r36-offset.py": "176c7a36176ff8a464405e425f783466a06b808aee070547c21f5bebf0753346",
+    "/private/tmp/rgb-reserve-r86-ground.log": "1ab06e52eb09be470f7d6c67440ec678465cf9fd4acf130a54f89895b0d58492",
+    "/private/tmp/rgb-reserve-r86-ground.py": "b332f2cc3cabc1d044bacd21979c7cdd307d4fb8deb84d796fb2344e5dcdf2a1",
+    "/private/tmp/rgb-reserve-r86-offset.log": "4691a024cf9fa1e5119de9e0b0a20b626002fa77d6cc18c11750c7c4080cf29b",
+    "/private/tmp/rgb-reserve-r86-offset.py": "9313e39c072a6b3de4d3a7e76a7939668ce24e6b472b8d8f6c68707f9deaca1a"
+  },
+  "repeated_generation_byte_identical": true,
+  "replaced_original_track": {
+    "end_iu": [
+      56450000,
+      6050000
+    ],
+    "layer": "In4.Cu",
+    "net": "COL_07_R",
+    "start_iu": [
+      81400000,
+      6050000
+    ],
+    "width_iu": 200000
+  },
+  "reviewed_original_source_track_replacements": 2,
+  "signal_transition_sites_iu": [
+    [
+      62100000,
+      6300000
+    ],
+    [
+      60200000,
+      6300000
+    ]
+  ],
+  "status": "CHECKED_R2_GROUND_ESCAPE_NOT_FABRICATION_SOURCE"
+}

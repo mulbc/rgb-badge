@@ -1,0 +1,11 @@
+<!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
+
+# 1010 RGB escape on the 114 mm placement, 2026-10-16
+
+The [generated KiCad trial](../../hardware/coupon/rev-a/staging/led-1010-front-row-rgb-hdi-trial-114mm.kicad_pcb) combines the **sixteen front-copper 1010 anode row buses** with all three colour trunks for each of the eight 1010 columns. It starts from the separate [route-aware 114 mm placement](led-via-aware-placement-study-2026-10-15.md), not the power-routed board. No power tracks were transferred. Its [generator](../../tools/generate-114mm-1010-rgb-hdi-trial.py) retains all 483 footprints and the 144 front-row segments.
+
+Each red and blue pad gets a **0.30/0.10 mm F.Cu–In1.Cu microvia centered on the pad**. Eight red and eight blue column trunks run vertically on In1.Cu. Each green pad uses a 0.20 mm front stub to an offset site **0.55 mm left and 0.40 mm down** from its pad. A stacked 0.30/0.10 mm F.Cu–In1.Cu and In1.Cu–In2.Cu pair at that site reaches its green trunk on In2.Cu. The 0.40 mm offset clears the neighboring row-anode land; a 0.20 mm offset failed native clearance. This pattern adds **512 microvias and 488 colour segments**, including 128 green front stubs, to the 144 row segments.
+
+KiCad 10.0.6 reload reports **1,022 full connectivity open edges**, versus 1,382 on the row-only parent: exactly 360 colour-row-to-row edges closed. Native [DRC output](led-1010-front-row-rgb-hdi-drc-2026-10-16.json) reports the same **104 intrinsic fine-pitch pad-gap findings** and no new geometric finding. The board regenerated twice with SHA-256 `379db7cd7a132794af8fa87407215a8c5d121a4191942080e999e44fd80bd88a`. These are source/geometry checks, not a built-board test.
+
+This is a **provisional HDI topology only**. Red/blue microvias sit in solderable LED lands; green uses stacked microvias. Filling/capping, solder-mask and paste behavior, yield, 1.0 mm six-layer stack-up, current capacity and supplier capability are not approved. The 1010 rows and columns have not reached their drivers; all 1515 LED escapes and joins, power rerouting, RF/pack/case fit and independent Gate A review remain. The 114 mm placement is conditional, and neither this trial nor native DRC authorizes fabrication.

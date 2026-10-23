@@ -1,0 +1,114 @@
+# SPDX-License-Identifier: Apache-2.0
+name: Host software
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  study-contract:
+    name: Schematic to study contract
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /tools/
+            /hardware/coupon/rev-a/*.kicad_sch
+            /hardware/coupon/rev-a/symbols/
+            /hardware/coupon/rev-a/footprints/
+            /hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb
+            /mechanical/review/coupon-canonical-net-contract.json
+            /hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb
+            /hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pro
+            /mechanical/review/routing-progress-plan.json
+            /mechanical/review/routing-progress-trial.json
+      - name: Canonical source assignment and injected-fault checks
+        run: |
+          python3 tools/check-coupon-study-contract.py
+          python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb
+          python3 tools/check-routing-progress-plan.py
+          python3 -m unittest discover -s tools/tests -p test_routing_progress_plan.py -v
+          python3 -m unittest discover -s tools/tests -p test_coupon_study_contract.py -v
+          python3 -m unittest discover -s tools/tests -p test_routing_goal_distance.py -v
+          python3 -m unittest discover -s tools/tests -p test_native_route_paths.py -v
+          python3 -m unittest discover -s tools/tests -p test_routing_clearance.py -v
+  image-import:
+    name: Exact PNG and GIF import
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            firmware
+            tools
+      - name: Install optional pinned decoder in an isolated environment
+        run: |
+          python3 -m venv firmware/build/image-import-venv
+          firmware/build/image-import-venv/bin/python -m pip install --only-binary=:all: -r tools/image-import-requirements.txt
+      - name: Compare independent image fixtures with sanitized native decoding
+        run: |
+          cmake -S firmware/host -B firmware/build/cmake-image-import -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTING=ON -DRGB_BADGE_SANITIZERS=ON -DRGB_BADGE_IMAGE_IMPORT_TESTS=ON -DPython3_EXECUTABLE="$PWD/firmware/build/image-import-venv/bin/python"
+          cmake --build firmware/build/cmake-image-import --target asset_decode --parallel 2
+          ctest --test-dir firmware/build/cmake-image-import --output-on-failure -R '^image_import$'
+  board-pin-map:
+    name: Provisional board pin inventory
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /firmware/
+            /tools/
+            /hardware/coupon/rev-a/*.kicad_sch
+            /hardware/coupon/rev-a/symbols/
+            /hardware/coupon/rev-a/footprints/
+      - name: Source-derived inventory and fault checks
+        run: |
+          python3 tools/check-board-pin-map.py
+          python3 -m unittest discover -s tools/tests -p test_board_pin_map.py -v
+          python3 -m unittest discover -s tools/tests -p 'test_*controller*.py' -v
+  host-software:
+    name: Firmware host checks (${{ matrix.name }})
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: GCC
+            compiler: g++
+          - name: Clang
+            compiler: clang++
+    env:
+      CXX: ${{ matrix.compiler }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            firmware
+            tools
+      - name: Unified sanitized library and complete host verification
+        run: ./tools/check-host-firmware.sh
+      - name: Standalone optimized inspection tool
+        run: |
+          cmake -S firmware/host -B firmware/build/cmake-release -DCMAKE_CXX_COMPILER="$CXX" -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF -DRGB_BADGE_SANITIZERS=OFF
+          cmake --build firmware/build/cmake-release --parallel 2
+          python3 firmware/tests/test_asset_inspection.py --inspector firmware/build/cmake-release/rgbb-inspect
