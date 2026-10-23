@@ -51,6 +51,34 @@ The following R29/R28 sections are historical checkpoints. Their linked rolling
 reports now describe the 217-open R2 continuation above.
 
 
+## Further ground probes after R2
+
+The accepted R2 board remains **217 opens / 24 GND opens / 104 intrinsic
+findings**. Its pushed commit `b85cf46` passes all ten GitHub checks.
+An exact native B.Cu A* probe enumerates 84 nearby source/main-ground pad pairs
+and searches eighteen endpoint-clear pairs on a 0.05 mm grid, with a 2.5 mm
+per-axis bounding margin and 8 mm maximum pair distance. All eighteen searches
+exhaust, totaling 4,426 expansions; no copper is accepted.
+
+R36 asymmetric In3 and fixed-transition In1 detours find no clear candidate.
+A bounded In3/In1 search using adjacent microvia stacks across In2, with no
+planar In2 signal steps, exhausts at 1,216 nodes. In3 segments are blocked by
+ROW_03_A/ROW_GATE_01 even where both endpoint vias are clear.
+
+A broader local six-layer COL_06_G replacement reaches U1.31 in 381,583
+expansions, retaining prior pad groups and giving **216 opens**, but full DRC
+adds one dangling original In3/In4 via at (61.9, 7.25) mm (**105 findings**).
+Removing exactly that obsolete via preserves all pad groups but exposes the
+old 0.95 mm In3 track end, still **105 findings**. Both candidates are rejected;
+none of their tracks, vias or original-source removals enter the replay plan.
+The reversed global search reaches its 400,001-node bound without a route.
+A future proposal would need exact obsolete-branch cleanup and complete native
+acceptance; these bounded failures do not prove other routes impossible.
+
+[Follow-up search, rejection and GitHub evidence](../../mechanical/review/native-ground-followup-2026-10-23.json).
+No hardware was measured, no rule/current limit or firmware changed, and Gate A
+remains open. All local candidate copper remains excluded from Git.
+
 ## R29 extension
 
 The preceding continuation extends the reserved row-select detour to ground R29.2
