@@ -39,7 +39,42 @@ class NativeControlGuards(unittest.TestCase):
             check.validate_geometry(self.old, self.new, self.joins)
 
     def test_saved_study_passes(self):
-        self.assertEqual(check.validate_geometry(self.old, self.new, self.joins)['checked_joins'], 16)
+        self.assertEqual(check.validate_geometry(self.old, self.new, self.joins)['checked_joins'], 17)
+
+    def test_driver_ground_detached_while_prior_escapes_stay_connected(self):
+        moved = 0
+        for item in self.added:
+            if (isinstance(item, p.PCB_VIA) and item.GetNetname() == 'GND'
+                    and (item.GetPosition().x, item.GetPosition().y) == (61550000, 6200000)):
+                item.Move(p.VECTOR2I(0, 5000000))
+                moved += 1
+        self.assertEqual(moved, 3)
+        p.ZONE_FILLER(self.new).Fill(self.new.Zones())
+        self.new.BuildConnectivity()
+        def pad(ref):
+            return next(q for q in self.parts[ref].Pads() if q.GetNumber() == '2')
+        for ref in ['R28', 'R29']:
+            self.assertEqual(check.cluster(self.new, pad(ref)), check.cluster(self.new, pad('R25')))
+        self.assertNotEqual(check.cluster(self.new, pad('R2')), check.cluster(self.new, pad('R25')))
+        with self.assertRaises(AssertionError):
+            check.validate_geometry(self.old, self.new, self.joins)
+
+    def test_colour_replacement_detached_without_changing_item_counts(self):
+        for item in self.added:
+            if item.GetNetname() == 'COL_07_R':
+                item.Move(p.VECTOR2I(0, 5000000))
+        self.reject()
+
+    def test_original_colour_track_cannot_be_restored_through_driver_ground(self):
+        item = p.PCB_TRACK(self.new)
+        item.SetStart(p.VECTOR2I(81400000, 6050000))
+        item.SetEnd(p.VECTOR2I(56450000, 6050000))
+        item.SetLayer(p.In4_Cu)
+        item.SetWidth(200000)
+        item.SetNet(self.new.FindNet('COL_07_R'))
+        self.new.Add(item)
+        with self.assertRaisesRegex(AssertionError, 'reviewed replacements'):
+            check.validate_geometry(self.old, self.new, self.joins)
 
     def test_second_ground_escape_detached_while_first_stays_connected(self):
         moved = 0
@@ -78,7 +113,7 @@ class NativeControlGuards(unittest.TestCase):
         item.SetWidth(200000)
         item.SetNet(self.new.FindNet('ROW_SEL_04'))
         self.new.Add(item)
-        with self.assertRaisesRegex(AssertionError, 'one reviewed replacement'):
+        with self.assertRaisesRegex(AssertionError, 'reviewed replacements'):
             check.validate_geometry(self.old, self.new, self.joins)
 
     def test_connected_gauge_ic_data_that_cuts_pullup_supply_is_rejected(self):

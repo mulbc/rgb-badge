@@ -1,6 +1,6 @@
 {
   "SPDX-License-Identifier": "CERN-OHL-S-2.0",
-  "accepted_join_count": 16,
+  "accepted_join_count": 17,
   "continuation_stages": [
     {
       "accepted_join": {
@@ -119,6 +119,16 @@
       "output_board_sha256": "c90db60ca8cec219eeb5379766f537083a829c7c3ba6e404a13a1870ddd9c5b0",
       "retired_previously_added_tracks": 4,
       "source_board_sha256": "1ddc1f914b714c9ed37fa81e200254bef2dcd842f20794a145c362d508f8d83e"
+    },
+    {
+      "added_adjacent_layer_microvias": 5,
+      "added_tracks": 8,
+      "additional_original_source_removals": 1,
+      "evidence": "mechanical/review/native-control-r2-ground-escape-2026-10-23.json",
+      "increment_base_revision": "d0277378ca59f28a8056aca675b1536f9733f518",
+      "kind": "Reserve R2 ground with offset colour-trace transitions on In3",
+      "output_board_sha256": "a1f742cd395079eb8360483a912c69890bd4f5f2ebbf17201bbd5ddf74f23f98",
+      "source_board_sha256": "c90db60ca8cec219eeb5379766f537083a829c7c3ba6e404a13a1870ddd9c5b0"
     }
   ],
   "exact_native_shape_screen_excludes": [

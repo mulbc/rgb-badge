@@ -4,9 +4,56 @@
 
 Status: **unbuilt noncanonical routing study; fabrication prohibited**.
 
+## R2 driver-control ground
+
+R2 (`ERJ2RKF1003X`, 100 kΩ ±1%) pulls LED_SIN low; pad 2 at
+**(61.75, 5.75) mm** now connects to the existing In2 ground group through a
+rear lead to **(61.55, 6.20) mm** and three adjacent B–In4–In3–In2 microvias.
+Native and physical-pad opens decrease **218 → 217**, GND **25 → 24**.
+All previous pad groups, including R28/R29 and every colour-column group, survive.
+
+The original COL_07_R In4 segment from **(81.4, 6.05) to (56.45, 6.05) mm**
+blocks the ground stack. Inline In4/In3 signal transitions are themselves
+blocked by ROW_02_A on In3. The selected replacement retains outer In4 stubs,
+uses short In4 offsets from y = 6.05 to 6.30 mm at x = **62.1 and 60.2 mm**,
+and two adjacent In4/In3 signal microvias. Its In3 detour runs through
+**(62.1, 6.30), (62.1, 6.70), (60.2, 6.70), (60.2, 6.30) mm**.
+The complete increment adds eight tracks/five microvias and removes that single
+original colour track. The prior row-select exception is unchanged: **14,492
+of 14,494 original items remain exact**, with two explicitly reviewed removals.
+
+Generator and independent checker pin both original removals separately and
+hash all added GND, ROW_SEL_04, COL_07_R and supply-repair geometry. No other
+source removal or restoration of either obstructing source track is permitted.
+Cumulative plan: **934 tracks / 77 microvias**, seventeen joins and **15,503
+items**. Full native DRC retains exactly the same 104 intrinsic findings;
+28 isolated guard cases, 256 LED checks, fresh 21-case canonical comparison
+and source-only CI pass. Two generations are byte-identical. New faults detach
+only R2's ground stack while proving R28/R29 remain joined, detach the colour
+replacement without changing counts, and restore its obstructing original track.
+
+Bounded same-layer/inline probes for R2 and inline/offset probes for R36/R86
+find no accepted route. These local failures do not prove other routes impossible.
+R36/R86 remain unchanged. Sources rechecked: TI TLC59581 SLVSCZ9A pin tables
+(OUTR7 pin 33, SIN pin 26), Everlight EAST10105RGBA0 DSE-0014497 and QT Brightek
+QBLP1515A-RGB2A version 1.0. Existing component/pad/footprint contracts are retained;
+PDFs are excluded from Git. R1's IREF network and every current setting are unchanged.
+
+This is existing-net routing, with no material circuit decision, exact-part,
+firmware, pad/net, placement, current-limit or isolated enable-boundary change.
+There are no hardware measurements. Returns, impedance, signal integrity,
+HDI/process/fit, the 217 remaining opens and 104 intrinsic findings still need
+engineering work and independent Gate A. Fabrication remains prohibited.
+[Increment evidence](../../mechanical/review/native-control-r2-ground-escape-2026-10-23.json).
+Current PCB SHA-256: `a1f742cd395079eb8360483a912c69890bd4f5f2ebbf17201bbd5ddf74f23f98`.
+
+The following R29/R28 sections are historical checkpoints. Their linked rolling
+reports now describe the 217-open R2 continuation above.
+
+
 ## R29 extension
 
-The latest continuation extends the reserved row-select detour to ground R29.2
+The preceding continuation extends the reserved row-select detour to ground R29.2
 at **(44.25, 7.25) mm** while retaining R28 and every previous physical pad group.
 Native/physical-pad opens decrease **219 → 218**, and GND **26 → 25**. A
 same-layer extension has no native-clear candidate in the bounded probe. The
@@ -27,7 +74,7 @@ GND vias, proves R28 still connected, and requires rejection.
 No current, exact part, pad/net, firmware or isolated display-enable boundary is
 changed. Return/impedance/loop/HDI/process/fit qualification and Gate A remain open.
 [Extension evidence](../../mechanical/review/native-control-r29-ground-escape-2026-10-23.json).
-Latest PCB SHA-256: `c90db60ca8cec219eeb5379766f537083a829c7c3ba6e404a13a1870ddd9c5b0`.
+R29 checkpoint PCB SHA-256: `c90db60ca8cec219eeb5379766f537083a829c7c3ba6e404a13a1870ddd9c5b0`.
 
 The following sections record the preceding **219-open R28 checkpoint**. Their
 exact identities remain in its increment record; linked rolling native reports
