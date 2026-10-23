@@ -39,7 +39,30 @@ class NativeControlGuards(unittest.TestCase):
             check.validate_geometry(self.old, self.new, self.joins)
 
     def test_saved_study_passes(self):
-        self.assertEqual(check.validate_geometry(self.old, self.new, self.joins)['checked_joins'], 14)
+        self.assertEqual(check.validate_geometry(self.old, self.new, self.joins)['checked_joins'], 15)
+
+    def test_ground_escape_detached_without_changing_item_counts(self):
+        for item in self.added:
+            if item.GetNetname() == 'GND':
+                item.Move(p.VECTOR2I(0, 5000000))
+        self.reject()
+
+    def test_row_select_replacement_detached_without_changing_item_counts(self):
+        for item in self.added:
+            if item.GetNetname() == 'ROW_SEL_04':
+                item.Move(p.VECTOR2I(0, 5000000))
+        self.reject()
+
+    def test_original_source_track_cannot_be_restored_through_ground_escape(self):
+        item = p.PCB_TRACK(self.new)
+        item.SetStart(p.VECTOR2I(38600000, 7250000))
+        item.SetEnd(p.VECTOR2I(54000000, 7250000))
+        item.SetLayer(p.In4_Cu)
+        item.SetWidth(200000)
+        item.SetNet(self.new.FindNet('ROW_SEL_04'))
+        self.new.Add(item)
+        with self.assertRaisesRegex(AssertionError, 'one reviewed replacement'):
+            check.validate_geometry(self.old, self.new, self.joins)
 
     def test_connected_gauge_ic_data_that_cuts_pullup_supply_is_rejected(self):
         # The reverse-search route joins U35.8 but cuts four APP supply pads.

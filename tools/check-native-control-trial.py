@@ -58,14 +58,18 @@ def validate_geometry(old, new, intended_joins):
             originals[signature] -= 1
         else:
             added.append(item)
-    assert not +originals, 'Source copper removed'
+    replacement = ('track', 'ROW_SEL_04', 200000, 38.6, 7.25, 54.0, 7.25, int(p.In4_Cu))
+    assert +originals == Counter({replacement: 1}), 'Source copper differs from the one reviewed replacement'
     # Only the reviewed signal joins and fixed supply-continuity geometry are
-    # allowed. Power pad groups must be exactly unchanged after the joint fill.
+    # allowed. Supply groups stay unchanged; GND has only the reviewed R28 join.
     allowed = {'ROW_GATE_05', 'SYS_I2C_SCL', 'VLED_WINDOW_OK',
-               'GAUGE_I2C_SDA', 'GAUGE_I2C_SCL', 'UART0_RX', 'UART0_TX_RAW', 'SYS_I2C_SDA', 'ROW_ARM', 'USB_CHARGE_REQ'}
+               'GAUGE_I2C_SDA', 'GAUGE_I2C_SCL', 'UART0_RX', 'UART0_TX_RAW',
+               'SYS_I2C_SDA', 'ROW_ARM', 'USB_CHARGE_REQ', 'GND'}
     power_hashes = {
         '+3V3_APP': (26, 'fda8fe3404655998aceb7616469bf9d6faee7f075ab474304bccf1918ce93e89'),
         '+3V3_USB': (10, '299e9ca0dc333371ab467fdbae07e4c1a5217c950ee0b2fefdf427327c1d5074'),
+        'GND': (4, '2e7c42bd66469a53c0bc5357b9d2b7354b625089e0e32a2261ad6afae59f1f9d'),
+        'ROW_SEL_04': (5, 'd974f8a1bf104afe6cead3e4cfc87c855539a93e9bae56a924f0c7bd8238cc24'),
     }
     assert added and {item.GetNetname() for item in added} == allowed | set(power_hashes)
     stack = list(new.GetEnabledLayers().CuStack())
@@ -97,7 +101,7 @@ def validate_geometry(old, new, intended_joins):
         signatures = sorted(power_signature(t) for t in added if t.GetNetname() == name)
         assert len(signatures) == count
         assert hashlib.sha256(json.dumps(signatures, separators=(',', ':')).encode()).hexdigest() == digest
-    assert len(intended_joins) == 14
+    assert len(intended_joins) == 15
     for entry in intended_joins:
         name, ref, number = entry['net'], *entry['source']
         assert name in allowed
@@ -115,7 +119,11 @@ def validate_geometry(old, new, intended_joins):
     usb_bypass = next(q for q in after['C38'].Pads() if q.GetNumber() == '1')
     usb_anchor = next(q for q in after['C36'].Pads() if q.GetNumber() == '1')
     assert cluster(new, usb_bypass) == cluster(new, usb_anchor), 'USB logic bypass disconnected'
-    return dict(unchanged_footprints=483, source_copper_preserved=True,
+    ground_pad = next(q for q in after['R28'].Pads() if q.GetNumber() == '2')
+    ground_anchor = next(q for q in before['R25'].Pads() if q.GetNumber() == '2')
+    assert cluster(new, ground_pad) == cluster(old, ground_anchor) | {identity(ground_pad)}, 'Ground group differs'
+    return dict(unchanged_footprints=483, source_copper_preserved=False,
+                unaffected_source_copper_preserved=True, reviewed_source_track_replacements=1,
                 existing_physical_pad_clusters_preserved=True,
                 controller_supply_bridge_preserved=True,
                 usb_logic_bypass_group_preserved=True,
@@ -150,8 +158,9 @@ def main():
     assert len(colour.findings(args.drc)) == 104
     reporter = module('connectivity', 'report-coupon-board-connectivity.py')
     opens = reporter.open_edges_by_net(OUTPUT)
-    assert opens['native_open_edges'] == opens['pad_cluster_open_edges'] == manifest['native_open_edges'] == 220
-    assert opens['by_net']['GND'] == 27 and opens['by_net']['VLED'] == 14
+    assert opens['native_open_edges'] == opens['pad_cluster_open_edges'] == manifest['native_open_edges'] == 219
+    assert manifest['replaced_source_tracks'] == 1
+    assert opens['by_net']['GND'] == 26 and opens['by_net']['VLED'] == 14
     assert 'SYS_I2C_SCL' not in opens['by_net']
     assert opens['by_net']['SYS_I2C_SDA'] == 1
     data_pad = next(q for f in new.GetFootprints() if f.GetReference() == 'U46'
@@ -177,7 +186,7 @@ def main():
         'ROW_GATE_00', 'ROW_GATE_02', 'ROW_GATE_03', 'ROW_GATE_04', 'ROW_GATE_06', 'ROW_GATE_07'}
     assert len(list(new.GetTracks())) == manifest['tracks_and_vias']
     result.update(board_sha256=manifest['board_sha256'], kicad_version=p.GetBuildVersion(),
-                  native_open_edges=220, ground_open_edges=27, vled_open_edges=14,
+                  native_open_edges=219, ground_open_edges=26, vled_open_edges=14,
                   application_clock_open_edges=0,
                   application_data_open_edges=1,
                   uart_receive_open_edges=0, uart_device_transmit_open_edges=0,

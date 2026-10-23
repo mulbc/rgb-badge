@@ -4,6 +4,8 @@
 
 Status: **unbuilt noncanonical geometry study; fabrication prohibited**.
 
+This records the 220-open checkpoint. The later [reserved ground escape](led-reserved-ground-escape-2026-10-23.md) leaves 219 opens and replaces one original row-select segment. Its rolling reports describe the latest board; this increment record retains the earlier exact identities.
+
 The [saved derivative](../../hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb)
 adds three existing-net joins after the gauge SDA checkpoint:
 

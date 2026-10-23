@@ -1,11 +1,11 @@
 {
   "SPDX-License-Identifier": "CERN-OHL-S-2.0",
   "board": "hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb",
-  "board_sha256": "b513c1522e56bbf791cb6e069ab2d6ef081802605327b7f4d50750fffddb98e1",
-  "native_open_edges": 220,
-  "pad_cluster_open_edges": 220,
+  "board_sha256": "1ddc1f914b714c9ed37fa81e200254bef2dcd842f20794a145c362d508f8d83e",
+  "native_open_edges": 219,
+  "pad_cluster_open_edges": 219,
   "by_net": {
-    "GND": 27,
+    "GND": 26,
     "VLED": 14,
     "+SYS_APP_IN_DRAFT": 12,
     "+3V3_APP": 7,

@@ -80,6 +80,8 @@ def main():
                         help='Use exact goal distance or a precomputed layer-cost-aware lower bound')
     parser.add_argument('--reverse', action='store_true',
                         help='Search from the anchor group toward the isolated endpoint instead')
+    parser.add_argument('--native-grid', action='store_true',
+                        help='Screen masked grid points and steps against exact native track/pad shapes')
     args = parser.parse_args()
     try:
         source, output, report_path = review_paths(args.source, args.output, args.report)
@@ -98,7 +100,8 @@ def main():
     report_path.parent.mkdir(parents=True, exist_ok=True)
     tool_paths = [Path(__file__), ROOT/'tools/routing_goal_distance.py',
                   ROOT/'tools/generate-colour-fanout-grid-trial.py',
-                  ROOT/'tools/generate-paired-charger-114mm-routing.py']
+                  ROOT/'tools/generate-paired-charger-114mm-routing.py',
+                  ROOT/'tools/routing_clearance.py']
     tool_hashes = {str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
                    for path in tool_paths}
     import pcbnew as p
@@ -152,6 +155,19 @@ def main():
                     for cell in cells(item.GetBoundingBox(), p.FromMM(.201)):
                         bins[(layer,*cell)].append(item)
     rebuild_bins()
+    screen_statistics = []
+    clearance = module('clearance', 'routing_clearance.py')
+
+    def new_screen(net):
+        def xy(index):
+            _, x, y = r.grid_point(index)
+            return x, y
+        result = clearance.GridClearance(
+            lambda i: router.free(i//r.SIZE, i % r.SIZE, net),
+            lambda i: native_trace_clear(xy(i), xy(i), i//r.SIZE, net),
+            lambda a, b: native_trace_clear(xy(a), xy(b), a//r.SIZE, net),
+            enabled=args.native_grid)
+        return result
     def native_trace_clear(origin, end, layer, net):
         track = p.PCB_TRACK(board)
         track.SetStart(r.point(*origin)); track.SetEnd(r.point(*end))
@@ -208,7 +224,7 @@ def main():
                                 gx=round((x+dx*.05)/.05)*.05; gy=round((y+dy*.05)/.05)*.05
                                 if not(r.X0<=gx<=r.X1 and r.Y0<=gy<=r.Y1):continue
                                 index=r.grid_index(layer,gx,gy)
-                                if index in result or not router.free(layer,index%r.SIZE,pad.GetNetCode()):continue
+                                if index in result or not screen.node(index):continue
                                 if native_trace_clear((x,y),(gx,gy),layer,pad.GetNetCode()):result[index]=(x,y)
         return result
 
@@ -234,7 +250,7 @@ def main():
         return search_with_heuristic(starts, goals, net, h)
 
     def search_with_heuristic(starts, goals, net, h):
-        costs = {i: 0 for i in starts if router.free(i//r.SIZE, i % r.SIZE, net)}
+        costs = {i: 0 for i in starts if screen.node(i)}
         parents = {i: None for i in costs}
         queue = [(h(i), 0, i) for i in costs]
         heapq.heapify(queue)
@@ -258,10 +274,10 @@ def main():
             for dx, dy in (() if r.LAYERS[layer] == p.In2_Cu else ((-1, 0), (0, -1), (1, 0), (0, 1))):
                 if 0 <= gx+dx < r.NX and 0 <= gy+dy < r.NY:
                     other = cell+dy*r.NX+dx
-                    if router.free(layer, other, net):
+                    if screen.step(index, layer*r.SIZE+other):
                         neighbours.append((layer*r.SIZE+other, 5 if r.LAYERS[layer] == p.B_Cu else 1))
             for other in (layer-1, layer+1):
-                if 0 <= other < len(r.LAYERS) and router.free(other,cell,net):
+                if 0 <= other < len(r.LAYERS) and screen.node(other*r.SIZE+cell):
                     if ((router.via_free(layer,cell,net) and router.via_free(other,cell,net)) or
                             native_via_clear(layer,other,cell,net)):
                         neighbours.append((other*r.SIZE+cell,20))
@@ -334,6 +350,8 @@ def main():
             if identities(board, pad) == identities(board, anchor):
                 continue
             net = pad.GetNetCode()
+            # Geometry caches are scoped to this immutable transaction only.
+            screen = new_screen(net)
             starts = group_endpoints(pad)
             targets = group_endpoints(anchor)
             goals = set(targets)
@@ -345,6 +363,7 @@ def main():
                 path, expanded = search(starts, goals, net)
             if path:
                 assert path[0] in starts and path[-1] in targets
+            screen_statistics.append(screen.statistics())
             rejection = None
             rejected_snapshot = None
             if path:
@@ -416,6 +435,10 @@ def main():
                              else 'exact_nearest_goal_manhattan_with_minimum_layer_cost'),
                   heuristic_storage_bytes=heuristic_storage_bytes,
                   reverse_search=args.reverse,
+                  exact_native_grid_fallback=args.native_grid,
+                  native_grid_statistics={key: sum(s[key] for s in screen_statistics)
+                                          for key in ('native_point_queries', 'native_clear_masked_points',
+                                                      'native_edge_queries', 'native_clear_masked_edges')},
                   fabrication_release_allowed=False,
                   board_sha256=hashlib.sha256(output.read_bytes()).hexdigest(),
                   kicad_version=p.GetBuildVersion(), grid_mm=r.STEP,

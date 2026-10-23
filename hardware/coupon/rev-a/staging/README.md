@@ -1,7 +1,8 @@
 <!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
 
 Latest routed derivative: [native-clearance gate/control continuation](../../../../docs/development/led-native-control-study-2026-10-21.md)
-adds nine signal joins with no placement changes, leaving 225 native opens and the
+records fifteen joins and one exact ROW_SEL_04 source-segment replacement, with
+no placement changes, leaving 219 native opens and the
 same 104 intrinsic DRC findings. Run `./tools/check-native-control.sh` from the
 repository root. All prior physical pad groups survive; electrical/process/fit
 qualification and Gate A remain open. Never fabricate from this study.

@@ -56,6 +56,19 @@ def main():
             metadata_uuids[field.m_Uuid.AsString()] = identifier
     initial = len(list(board.GetTracks()))
     layers = {board.GetLayerName(layer): layer for layer in board.GetEnabledLayers().CuStack()}
+    # One exact source segment is replaced to reserve R28's ground escape.
+    # No other source removal is permitted by this replay contract.
+    assert plan['removed_source_tracks'] == [dict(net='ROW_SEL_04',
+        start_iu=[38600000, 7250000], end_iu=[54000000, 7250000],
+        layer='In4.Cu', width_iu=200000)]
+    entry = plan['removed_source_tracks'][0]
+    removed = [t for t in board.GetTracks() if not isinstance(t, p.PCB_VIA)
+               and t.GetNetname() == entry['net'] and t.GetLayer() == layers[entry['layer']]
+               and [t.GetStart().x, t.GetStart().y] == entry['start_iu']
+               and [t.GetEnd().x, t.GetEnd().y] == entry['end_iu']
+               and t.GetWidth() == entry['width_iu']]
+    assert len(removed) == 1
+    board.Remove(removed[0])
     for entry in plan['tracks']:
         item = p.PCB_TRACK(board)
         item.SetStart(p.VECTOR2I(*entry['start_iu']))
@@ -103,6 +116,7 @@ def main():
                   canonical_contract_sha256=contract_digest,
                   shared_footprints_with_canonical_metadata=len(common),
                   added_tracks=len(plan['tracks']), added_microvias=len(plan['vias']),
+                  replaced_source_tracks=len(removed),
                   source_tracks_and_vias=initial, tracks_and_vias=count,
                   native_open_edges=loaded.GetConnectivity().GetUnconnectedCount(False))
     report['SPDX-License-Identifier'] = 'CERN-OHL-S-2.0'

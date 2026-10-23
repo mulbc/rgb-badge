@@ -36,6 +36,7 @@ jobs:
           python3 -m unittest discover -s tools/tests -p test_coupon_study_contract.py -v
           python3 -m unittest discover -s tools/tests -p test_routing_goal_distance.py -v
           python3 -m unittest discover -s tools/tests -p test_native_route_paths.py -v
+          python3 -m unittest discover -s tools/tests -p test_routing_clearance.py -v
   image-import:
     name: Exact PNG and GIF import
     runs-on: ubuntu-24.04

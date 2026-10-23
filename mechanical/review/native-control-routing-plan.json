@@ -154,9 +154,35 @@
         "U23",
         "2"
       ]
+    },
+    {
+      "anchor": [
+        "R25",
+        "2"
+      ],
+      "net": "GND",
+      "source": [
+        "R28",
+        "2"
+      ]
     }
   ],
   "kicad_iu_per_mm": 1000000,
+  "removed_source_tracks": [
+    {
+      "end_iu": [
+        54000000,
+        7250000
+      ],
+      "layer": "In4.Cu",
+      "net": "ROW_SEL_04",
+      "start_iu": [
+        38600000,
+        7250000
+      ],
+      "width_iu": 200000
+    }
+  ],
   "source_sha256": "7541a0f2eb8eabc383e89ae153131e0bc53d14a257033c8e79b72a7b9ead16f0",
   "status": "UNQUALIFIED_SELECTED_COPPER_REPLAY",
   "supply_bridge_purpose": "Preserve pre-existing application/USB-logic physical pad groups after gauge and UART routes refill zones; no new supply-group joins, pad changes or current-limit changes.",
@@ -6104,6 +6130,19 @@
     },
     {
       "end_iu": [
+        41850000,
+        7200000
+      ],
+      "layer": "B.Cu",
+      "net": "GND",
+      "start_iu": [
+        41750000,
+        7250000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
         27950000,
         21400000
       ],
@@ -9076,6 +9115,71 @@
       "start_iu": [
         81200000,
         16500000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        40500000,
+        7250000
+      ],
+      "layer": "In4.Cu",
+      "net": "ROW_SEL_04",
+      "start_iu": [
+        38600000,
+        7250000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        42300000,
+        6250000
+      ],
+      "layer": "In4.Cu",
+      "net": "ROW_SEL_04",
+      "start_iu": [
+        40500000,
+        6250000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        40500000,
+        6250000
+      ],
+      "layer": "In4.Cu",
+      "net": "ROW_SEL_04",
+      "start_iu": [
+        40500000,
+        7250000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        42300000,
+        7250000
+      ],
+      "layer": "In4.Cu",
+      "net": "ROW_SEL_04",
+      "start_iu": [
+        42300000,
+        6250000
+      ],
+      "width_iu": 200000
+    },
+    {
+      "end_iu": [
+        54000000,
+        7250000
+      ],
+      "layer": "In4.Cu",
+      "net": "ROW_SEL_04",
+      "start_iu": [
+        42300000,
+        7250000
       ],
       "width_iu": 200000
     },
@@ -12417,6 +12521,39 @@
       "position_iu": [
         98900000,
         21600000
+      ],
+      "top": "In4.Cu"
+    },
+    {
+      "bottom": "In3.Cu",
+      "diameter_iu": 300000,
+      "drill_iu": 100000,
+      "net": "GND",
+      "position_iu": [
+        41850000,
+        7200000
+      ],
+      "top": "In2.Cu"
+    },
+    {
+      "bottom": "In4.Cu",
+      "diameter_iu": 300000,
+      "drill_iu": 100000,
+      "net": "GND",
+      "position_iu": [
+        41850000,
+        7200000
+      ],
+      "top": "In3.Cu"
+    },
+    {
+      "bottom": "B.Cu",
+      "diameter_iu": 300000,
+      "drill_iu": 100000,
+      "net": "GND",
+      "position_iu": [
+        41850000,
+        7200000
       ],
       "top": "In4.Cu"
     },
