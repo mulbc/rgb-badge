@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 """Check portable routing checkpoint fingerprints and integer rule exceptions."""
 import hashlib
+from collections import Counter
 import json
 import math
 import runpy
@@ -15,15 +16,49 @@ OUTPUT = ROOT/'hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.ki
 LAYERS = ['F.Cu','In1.Cu','In2.Cu','In3.Cu','In4.Cu','B.Cu']
 
 
+def validate_prior_checkpoint(plan):
+    """Preserve the accepted 150-edge copper and every subsequent pad join."""
+    path=ROOT/'mechanical/review/routing-progress-150-checkpoint.json'
+    prior=json.loads(path.read_text())
+    assert hashlib.sha256(path.read_bytes()).hexdigest() == 'f2a8891fd42127c4cda64024ec4f43aed1ffd4ac2263b30acde4c6ed8c992dcf'
+    assert prior['open_edges']==150 and prior['source_sha256']==plan['source_sha256']
+    assert prior['retired_zero_length_tracks']==plan['retired_zero_length_tracks']
+    retired=Counter(map(tuple,plan.get('retired_orphan_microvias',[])))
+    assert not Counter(map(tuple,prior['added_copper']))-Counter(map(tuple,plan['added_copper']))-retired, 'Accepted 150-edge copper changed'
+    current=[(net,set(map(tuple,after))) for net,before,after in plan['physical_group_witnesses']]
+    for net,before,after in prior['physical_group_witnesses']:
+        group=set(map(tuple,after))
+        assert any(name==net and group<=joined for name,joined in current), ('Accepted 150-edge pad group split',net)
+
+
 def validate(plan, manifest):
     assert plan['source_sha256'] == manifest['source_sha256'] == 'da3c3e093acef457ce2d0ebe73b57fd5006b9139a57b7fe8acfcd77e612dc246'
-    assert plan['open_edges'] == manifest['native_open_edges'] <= 150
+    assert plan['open_edges'] == manifest['native_open_edges'] <= 100
     assert sum(plan['open_edges_by_net'].values()) == plan['open_edges']
     assert manifest['fabrication_release_allowed'] is False
+    retired=plan.get('retired_orphan_microvias',[])
+    assert len(set(map(tuple,retired)))==len(retired)
+    for row in retired:
+        assert len(row)==8 and row[0]=='via', 'Only witnessed orphan microvias may retire'
+        _,net,x,y,top,bottom,diameter,drill=row
+        assert all(type(v) is int for v in (x,y,diameter,drill))
+        assert abs(LAYERS.index(top)-LAYERS.index(bottom))==1
+        assert (diameter,drill)==(300000,100000)
+    zones=plan.get('power_zones',[])
+    assert len({z['name'] for z in zones})==len(zones), 'Duplicate power-zone name'
+    for z in zones:
+        assert z['name'].startswith('ADR0049-')
+        assert z['net'] in {'+5V_USB','CHARGER_IN_DRAFT','+SYS_APP_IN_DRAFT','+BAT_PROTECTED_DRAFT','VBUS_CONNECTOR'}
+        assert z['layer'] in {'In1.Cu','In3.Cu','In4.Cu','B.Cu'}
+        assert z['polygons_iu'] and z['definition'][0]=='zone'
+        for polygon in z['polygons_iu']:
+            for chain in [polygon['outer']]+polygon['holes']:
+                assert len(chain)>=3
+                assert all(len(xy)==2 and all(type(v) is int for v in xy) and 500000<=xy[0]<=113500000 and 500000<=xy[1]<=32000000 for xy in chain), 'Power parcel outside bounded study'
     refs=set()
-    allowed_moves={'C51','C55','C71','R109','R3','R38','R39','R5','R63','R70','R71','R8','R81','R84','R85','R87','R88','R89','R97','R99'}
     for pose in plan['placements']:
-        assert pose['reference'] in allowed_moves and pose['reference'] not in refs
+        ref=pose['reference']
+        assert ref.startswith(('R','C')) and ref[1:].isdigit() and ref not in {'R45','R46'} and ref not in refs
         refs.add(pose['reference'])
         assert len(pose['old_position_iu'])==len(pose['new_position_iu'])==2
         assert all(type(x) is int for x in pose['old_position_iu']+pose['new_position_iu'])
@@ -48,24 +83,37 @@ def validate(plan, manifest):
     assert all(length<=5.00001 for length in sensitive.values()), 'Setting route exceeds 5 mm'
 
 
-def immutable_board_structure(path):
-    parser=runpy.run_path(str(ROOT/'tools/check-led-libraries.py'))['parse_sexpr']
-    tree=parser(path)
+def immutable_board_structure(path, include_zones=True):
+    # The canonical parser uses newer host typing; keep native KiCad 3.9 compatible.
+    import subprocess,sys,shutil
+    if sys.version_info<(3,10):
+        code="import json,runpy,sys;print(json.dumps(runpy.run_path(sys.argv[1])['parse_sexpr'](__import__('pathlib').Path(sys.argv[2]))))"
+        tree=json.loads(subprocess.check_output([shutil.which('python3'), '-c',code,str(ROOT/'tools/check-led-libraries.py'),str(path)],text=True))
+    else:tree=runpy.run_path(str(ROOT/'tools/check-led-libraries.py'))['parse_sexpr'](path)
     def normalized(value):
         if not isinstance(value,list):return value
         return [normalized(child) for child in value if not (isinstance(child,list) and child and child[0] in {'uuid','filled_polygon','fill_segments'})]
     retained={'general','paper','layers','setup','net','zone','gr_line','gr_rect','gr_arc','gr_poly','gr_circle'}
-    return sorted((normalized(node) for node in tree[1:] if isinstance(node,list) and node and node[0] in retained),key=repr)
+    return sorted((normalized(node) for node in tree[1:] if isinstance(node,list) and node and node[0] in retained and (include_zones or node[0]!='zone')),key=repr)
+
+
+def validate_zone_structure(source, output, plan):
+    assert immutable_board_structure(source,False)==immutable_board_structure(output,False), 'Stack, board outline or source nets changed'
+    original=[n for n in immutable_board_structure(source) if n[0]=='zone']
+    actual=[n for n in immutable_board_structure(output) if n[0]=='zone']
+    selected=[z['definition'] for z in plan.get('power_zones',[])]
+    assert Counter(map(repr,actual))==Counter(map(repr,original+selected)), 'Original or selected zone definition changed'
 
 
 def main():
     plan=json.loads(PLAN.read_text());manifest=json.loads(MANIFEST.read_text())
     validate(plan,manifest)
+    validate_prior_checkpoint(plan)
     for path,key in [(SOURCE,'source_sha256'),(OUTPUT,'board_sha256'),(PLAN,'plan_sha256'),
                      (OUTPUT.with_suffix('.kicad_pro'),'project_sha256'),
                      (ROOT/'tools/generate-routing-progress-trial.py','generator_sha256')]:
         assert hashlib.sha256(path.read_bytes()).hexdigest()==manifest[key], (key,'Fingerprint changed')
-    assert immutable_board_structure(SOURCE)==immutable_board_structure(OUTPUT), 'Zone definitions, stack, board outline or source nets changed'
+    validate_zone_structure(SOURCE,OUTPUT,plan)
     pro=json.loads(OUTPUT.with_suffix('.kicad_pro').read_text())
     assert pro['board']['design_settings']['rules']['min_track_width']==.2
     assert pro['board']['design_settings']['rules']['min_via_annular_width']==.1

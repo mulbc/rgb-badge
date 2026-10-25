@@ -33,6 +33,7 @@ jobs:
             /hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb
             /hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pro
             /mechanical/review/routing-progress-plan.json
+            /mechanical/review/routing-progress-150-checkpoint.json
             /mechanical/review/routing-progress-trial.json
       - name: Canonical source assignment and injected-fault checks
         run: |

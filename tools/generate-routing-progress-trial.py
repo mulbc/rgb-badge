@@ -2,6 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 """Replay the additive routing checkpoint on the frozen 215-edge study."""
 import hashlib
+from collections import Counter
 import importlib.util
 import json
 from pathlib import Path
@@ -30,12 +31,20 @@ def main():
     removed = []
     source_items = list(board.GetTracks())
     retired_items = []
+    orphan=Counter(map(tuple,plan.get('retired_orphan_microvias',[])))
     for item in source_items:
         if not isinstance(item, p.PCB_VIA) and item.GetStart() == item.GetEnd():
             removed.append([item.GetNetname(), item.GetStart().x, item.GetStart().y,
                             board.GetLayerName(item.GetLayer()), item.GetWidth()])
             retired_items.append(item)
             board.Remove(item)
+        elif isinstance(item,p.PCB_VIA):
+            key=('via',item.GetNetname(),item.GetPosition().x,item.GetPosition().y,
+                 board.GetLayerName(item.TopLayer()),board.GetLayerName(item.BottomLayer()),
+                 item.GetWidth(item.TopLayer()),item.GetDrillValue())
+            if orphan[key]:
+                orphan[key]-=1
+                retired_items.append(item);board.Remove(item)
     assert sorted(removed) == plan['retired_zero_length_tracks'] and len(removed) == 116
     layers = {board.GetLayerName(x): x for x in board.GetEnabledLayers().CuStack()}
     for entry in plan['added_copper']:
@@ -53,8 +62,28 @@ def main():
             item.SetLayerPair(layers[top], layers[bottom])
             item.SetWidth(diameter); item.SetDrill(drill)
         item.SetNetCode(board.FindNet(net).GetNetCode()); board.Add(item)
-    p.ZONE_FILLER(board).Fill(board.Zones())
-    board.BuildConnectivity()
+    for entry in plan.get('power_zones',[]):
+        zone = p.ZONE(board)
+        zone.SetUuid(p.KIID(str(uuid.uuid5(SCOPE,'power-zone:'+entry['name']))))
+        zone.SetZoneName(entry['name']);zone.SetLayer(layers[entry['layer']])
+        zone.SetNetCode(board.FindNet(entry['net']).GetNetCode());zone.SetAssignedPriority(10)
+        zone.SetLocalClearance(200000);zone.SetMinThickness(200000)
+        zone.SetPadConnection(p.ZONE_CONNECTION_FULL)
+        zone.SetIslandRemovalMode(p.ISLAND_REMOVAL_MODE_ALWAYS)
+        zone.SetThermalReliefGap(200000);zone.SetThermalReliefSpokeWidth(200000)
+        for outline in entry['polygons_iu']:
+            poly=zone.Outline();index=poly.NewOutline()
+            for x,y in outline['outer']:poly.Append(x,y,index)
+            for hole in outline['holes']:
+                hi=poly.NewHole(index)
+                for x,y in hole:poly.Append(x,y,index,hi)
+        board.Add(zone)
+        assert zone.GetNetname()==entry['net']
+    for fill_pass in range(3):
+        board.BuildConnectivity()
+        p.ZONE_FILLER(board).Fill(board.Zones())
+        board.BuildConnectivity()
+        print('Fill pass',fill_pass+1,'open edges',board.GetConnectivity().GetUnconnectedCount(False),flush=True)
     assert board.GetConnectivity().GetUnconnectedCount(False) == plan['open_edges']
     p.SaveBoard(str(OUTPUT), board)
     spec = importlib.util.spec_from_file_location('sort', ROOT/'tools/generate-paired-charger-114mm-routing.py')

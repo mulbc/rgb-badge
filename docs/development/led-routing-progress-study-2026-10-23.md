@@ -2,6 +2,8 @@
 
 # Routing checkpoint: 150 unconnected edges
 
+Historical checkpoint, superseded by the [100-edge continuation](led-routing-progress-100-study-2026-10-25.md). The mutable routing derivative now contains that continuation; commit `8b3a74b98428f6d3aec3673065bcaf7bc337b70c` retains this 150-edge board, and the frozen 150-edge integer plan remains in `mechanical/review/routing-progress-150-checkpoint.json`.
+
 Date: 2026-10-23. This is native source validation of an unbuilt, unqualified engineering study. No hardware was measured and no fabrication release is authorized.
 
 The [current derivative](../../hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb) reduces both the full native count and the independently counted physical-pad-cluster count from **215 to exactly 150**. Full KiCad 10.0.6 DRC retains the **exact same 104 existing findings**. The frozen native-control source remains available unchanged.
@@ -33,7 +35,7 @@ The [integer plan](../../mechanical/review/routing-progress-plan.json) is author
 
 ## Validation and reproduction
 
-- Full [native DRC](led-routing-progress-drc-2026-10-23.json), [independent geometry check](../../mechanical/review/routing-progress-native-check-2026-10-23.json) and [complete per-net open counts](../../mechanical/review/routing-progress-open-nets.json) agree on 150 remaining edges.
+- Full [native DRC](led-routing-progress-drc-2026-10-23.json), [independent geometry check](../../mechanical/review/routing-progress-native-check-2026-10-23.json) and [complete per-net open counts](../../mechanical/review/routing-progress-open-nets-2026-10-23.json) agree on 150 remaining edges.
 - All 13 isolated native guard methods pass, covering exact cleanup neutrality, nonzero source-copper retention, selected and unexpected poses, duplicated physical lands, pad shape/net drift, detached routing, narrowed ground, skipped via layers, restored zero-length artifacts and MPN substitution.
 - All ten portable plan guards pass. The source-only CI layout passes both old/new canonical checks, the plan/profile check, ten plan guards and 21 canonical-source fault methods. The workflow now includes the new board explicitly.
 - Replaying twice produces the identical board SHA-256 `cd4c51dc74c6ef15d408e0ce004645c3077df6da15681378a6e48d11284d98f6`. The [manifest](../../mechanical/review/routing-progress-trial.json) pins the source, selected plan, project rules, generator and board. [Validation evidence](../../mechanical/review/routing-progress-validation-2026-10-23.json) pins checker/guard sources and reports.

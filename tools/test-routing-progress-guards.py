@@ -43,7 +43,7 @@ class RoutingProgressGuards(unittest.TestCase):
         for group,pad in groups.items():self.assertEqual(group,c.physical_cluster(self.old,pad))
 
     def test_selected_checkpoint_passes(self):
-        self.assertLessEqual(c.validate_geometry(self.old,self.new,self.plan)['native_open_edges'],150)
+        self.assertLessEqual(c.validate_geometry(self.old,self.new,self.plan)['native_open_edges'],100)
 
     def test_unreviewed_ic_move(self):
         self.parts['U39'].Move(p.VECTOR2I(100000,0));self.reject()
@@ -86,6 +86,36 @@ class RoutingProgressGuards(unittest.TestCase):
         net,x,y,layer,width=self.plan['retired_zero_length_tracks'][0]
         item=p.PCB_TRACK(self.new);item.SetStart(p.VECTOR2I(x,y));item.SetEnd(p.VECTOR2I(x,y))
         item.SetLayer(self.new.GetLayerID(layer));item.SetWidth(width);item.SetNetCode(self.new.FindNet(net).GetNetCode());self.new.Add(item);self.reject()
+
+    def test_original_usb_branch_cannot_be_relabelled(self):
+        originals={c.signature(self.old,t) for t in self.old.GetTracks()}
+        item=next(t for t in self.new.GetTracks() if not isinstance(t,p.PCB_VIA) and t.GetNetname()=='+3V3_USB' and c.signature(self.new,t) in originals)
+        item.SetNetCode(self.new.FindNet('+3V3_APP').GetNetCode())
+        # A refill may propagate the neighbouring net and undo this injected fault.
+        with self.assertRaises(AssertionError):c.validate_geometry(self.old,self.new,self.plan)
+
+    def test_original_zone_clearance_changed(self):
+        zone=next(z for z in self.new.Zones() if not z.GetZoneName().startswith('ADR0049-'))
+        zone.SetLocalClearance(120000);self.reject()
+
+    def test_power_zone_net_changed(self):
+        zone=next(z for z in self.new.Zones() if z.GetZoneName().startswith('ADR0049-'))
+        zone.SetNetCode(self.new.FindNet('GND').GetNetCode());self.reject()
+
+    def test_power_zone_boundary_changed(self):
+        zone=next(z for z in self.new.Zones() if z.GetZoneName().startswith('ADR0049-'))
+        zone.Move(p.VECTOR2I(100000,0));self.reject()
+
+    def test_power_zone_unanchored_islands_allowed(self):
+        zone=next(z for z in self.new.Zones() if z.GetZoneName().startswith('ADR0049-'))
+        zone.SetIslandRemovalMode(p.ISLAND_REMOVAL_MODE_NEVER);self.reject()
+
+    def test_orphan_via_restored_without_witness(self):
+        _,net,x,y,top,bottom,diameter,drill=self.plan['retired_orphan_microvias'][0]
+        via=p.PCB_VIA(self.new);via.SetNetCode(self.new.FindNet(net).GetNetCode())
+        via.SetPosition(p.VECTOR2I(x,y));via.SetViaType(p.VIATYPE_MICROVIA)
+        via.SetLayerPair(self.new.GetLayerID(top),self.new.GetLayerID(bottom));via.SetWidth(diameter);via.SetDrill(drill)
+        self.new.Add(via);self.reject()
 
     def test_exact_mpn_changed(self):
         self.parts['R89'].GetField('MPN').SetText('UNREVIEWED_SUBSTITUTE');self.reject()
