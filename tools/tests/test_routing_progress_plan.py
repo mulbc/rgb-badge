@@ -114,6 +114,24 @@ class PlanGuards(unittest.TestCase):
         plan['pad_necks']=[]
         with self.assertRaises(AssertionError):m.validate_94_checkpoint(plan)
 
+    def test_accepted_91_checkpoint_is_preserved(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        m.validate_91_checkpoint(plan)
+
+    def test_accepted_91_copper_cannot_be_dropped(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        prior=json.loads((ROOT/'mechanical/review/routing-progress-91-checkpoint.json').read_text())
+        old=json.loads((ROOT/'mechanical/review/routing-progress-94-checkpoint.json').read_text())
+        row=next(row for row in prior['added_copper'] if row not in old['added_copper'])
+        plan['added_copper'].remove(row)
+        with self.assertRaises(AssertionError):m.validate_91_checkpoint(plan)
+
+    def test_accepted_91_join_cannot_be_lost(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        for row in plan['physical_group_witnesses']:
+            if row[0]=='MODE_BOOT_N':row[2]=[item for item in row[2] if item[0]!='TP3']
+        with self.assertRaises(AssertionError):m.validate_91_checkpoint(plan)
+
     def test_valid_low_current_signal(self):m.validate(self.plan,self.manifest)
 
     def test_narrow_power_is_rejected(self):

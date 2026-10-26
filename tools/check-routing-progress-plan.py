@@ -55,6 +55,10 @@ def validate_94_checkpoint(plan):
     validate_frozen_checkpoint(plan,94,'4f8dcfbd9b448bafd005672dc4a268cb6057b8c1103a33cfa3c71a8423647afe')
 
 
+def validate_91_checkpoint(plan):
+    validate_frozen_checkpoint(plan,91,'942537115670941ce2b7500af519fd58d4335b4a8d469ce7bded650323fbc0dc')
+
+
 def validate(plan, manifest):
     runpy.run_path(str(ROOT/'tools/routing_pad_necks.py'))['validate_necks'](plan)
     assert plan['source_sha256'] == manifest['source_sha256'] == 'da3c3e093acef457ce2d0ebe73b57fd5006b9139a57b7fe8acfcd77e612dc246'
@@ -155,6 +159,7 @@ def main():
     validate_prior_checkpoint(plan)
     validate_100_checkpoint(plan)
     validate_94_checkpoint(plan)
+    validate_91_checkpoint(plan)
     for path,key in [(SOURCE,'source_sha256'),(OUTPUT,'board_sha256'),(PLAN,'plan_sha256'),
                      (OUTPUT.with_suffix('.kicad_pro'),'project_sha256'),
                      (ROOT/'tools/generate-routing-progress-trial.py','generator_sha256')]:
