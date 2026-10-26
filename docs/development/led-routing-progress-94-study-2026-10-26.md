@@ -2,13 +2,15 @@
 
 # Routing continuation: 100 to 94 unconnected edges
 
+Historical 94-edge snapshot at commit `759700b`, superseded by the [91-edge continuation](led-routing-progress-91-study-2026-10-26.md). Its frozen integer checkpoint and dated evidence remain available; current derivative paths now contain the newer board.
+
 Date: 2026-10-26. Status: unqualified native source study, not a hardware measurement or fabrication release. The requested 50-edge target has not been reached.
 
 The selected derivative reduces native and independently counted physical-pad opens **100 → 94**. Full KiCad 10.0.6 DRC retains exactly the **104 unchanged intrinsic findings**. Every completed 100/150/215-edge physical pad group survives. All selected 100-edge copper and all ordinary nonzero parent tracks remain exact; no further orphan retirement or zone change is selected. [ADR 0050](../decisions/0050-preserve-100-edge-routing-checkpoint.md) freezes the accepted 100-edge integer plan and project profile.
 
 ## Selected changes
 
-Three application-supply connections, one +5V connection, one ground connection and one mode-button connection close. Remaining counts include GND 10, VLED 8, application 3.3 V 1, gauge supply 3 and unfinished USB/control paths. [The complete net report](../../mechanical/review/routing-progress-open-nets.json) records all 94 edges.
+Three application-supply connections, one +5V connection, one ground connection and one mode-button connection close. Remaining counts include GND 10, VLED 8, application 3.3 V 1, gauge supply 3 and unfinished USB/control paths. [The complete net report](../../mechanical/review/routing-progress-open-nets-94-2026-10-26.json) records all 94 edges.
 
 U48.6 and U52.6 now escape their fixed DSF lands through two explicitly enumerated straight B.Cu necks, respectively **0.55 mm and 0.65 mm long / 0.12 mm wide**. [ADR 0051](../decisions/0051-bounded-dsf-pad-necks.md) records the current manufacturer drawings, calculated neighbour clearance and illustrative DC sensitivity. These exceptions apply only to the exact numbered pins, nets, fixed pad centres, layer, outward direction and bounded lengths. They do not narrow supply distribution or raise a current setting. Ordinary selected tracks/default netclass remain 0.20 mm; clearance remains 0.20 mm, adjacent-layer microvias 0.30/0.10 mm and minimum annulus 0.10 mm. The absolute project track floor alone becomes 0.12 mm; exact native custom rules and independent integer checks constrain its use. No signal seed neck is selected.
 

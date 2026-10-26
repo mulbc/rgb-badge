@@ -89,6 +89,31 @@ class PlanGuards(unittest.TestCase):
             if row[0]==net:row[2]=[x for x in row[2] if x!=member]
         with self.assertRaises(AssertionError):m.validate_100_checkpoint(plan)
 
+    def test_accepted_94_checkpoint_is_preserved(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        m.validate_94_checkpoint(plan)
+
+    def test_accepted_94_copper_cannot_be_dropped(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        prior=json.loads((ROOT/'mechanical/review/routing-progress-94-checkpoint.json').read_text())
+        new=next(row for row in prior['added_copper'] if row not in json.loads((ROOT/'mechanical/review/routing-progress-100-checkpoint.json').read_text())['added_copper'])
+        plan['added_copper'].remove(new)
+        with self.assertRaises(AssertionError):m.validate_94_checkpoint(plan)
+
+    def test_accepted_94_join_cannot_be_lost(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        prior=json.loads((ROOT/'mechanical/review/routing-progress-94-checkpoint.json').read_text())
+        row=next(row for row in prior['physical_group_witnesses'] if row[0]=='MODE_BOOT_N')
+        member=next(item for item in row[2] if item[0]=='SW1')
+        for witness in plan['physical_group_witnesses']:
+            if witness[0]==row[0]:witness[2]=[item for item in witness[2] if item!=member]
+        with self.assertRaises(AssertionError):m.validate_94_checkpoint(plan)
+
+    def test_accepted_94_neck_metadata_cannot_change(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        plan['pad_necks']=[]
+        with self.assertRaises(AssertionError):m.validate_94_checkpoint(plan)
+
     def test_valid_low_current_signal(self):m.validate(self.plan,self.manifest)
 
     def test_narrow_power_is_rejected(self):

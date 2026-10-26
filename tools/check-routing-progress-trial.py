@@ -174,6 +174,7 @@ def validate_geometry(old, new, plan):
     prior_check=module('prior_checkpoint', 'check-routing-progress-plan.py')
     prior_check.validate_prior_checkpoint(plan)
     prior_check.validate_100_checkpoint(plan)
+    prior_check.validate_94_checkpoint(plan)
     assert sorted(changed) == plan['changed_nets'], 'Changed net set differs'
     # A physical witness includes coordinates, including repeated logical pad numbers.
     normalized = json.loads(json.dumps(sorted(joins)))

@@ -31,19 +31,28 @@ def validate_prior_checkpoint(plan):
         assert any(name==net and group<=joined for name,joined in current), ('Accepted 150-edge pad group split',net)
 
 
-def validate_100_checkpoint(plan):
-    """Never lose a completed 100-edge connection or change its selected copper."""
-    path=ROOT/'mechanical/review/routing-progress-100-checkpoint.json'
-    assert hashlib.sha256(path.read_bytes()).hexdigest()=='3b855dd65d133f5e09248447b3fd6782ef509515ea5e94b40d317a999533c889'
+def validate_frozen_checkpoint(plan, edges, digest):
+    """Retain selected copper and completed groups of an accepted checkpoint."""
+    path=ROOT/('mechanical/review/routing-progress-%d-checkpoint.json'%edges)
+    assert hashlib.sha256(path.read_bytes()).hexdigest()==digest
     prior=json.loads(path.read_text())
-    assert prior['open_edges']==100 and prior['source_sha256']==plan['source_sha256']
-    assert not Counter(map(tuple,prior['added_copper']))-Counter(map(tuple,plan['added_copper'])), 'Accepted 100-edge copper changed'
+    assert prior['open_edges']==edges and prior['source_sha256']==plan['source_sha256']
+    assert not Counter(map(tuple,prior['added_copper']))-Counter(map(tuple,plan['added_copper'])), 'Accepted %d-edge copper changed'%edges
     assert prior['retired_orphan_microvias']==plan['retired_orphan_microvias'], 'Orphan inventory changed beyond the accepted proof'
     assert prior['power_zones']==plan['power_zones'], 'Accepted power-zone definitions changed'
+    assert all(entry in plan.get('pad_necks',[]) for entry in prior.get('pad_necks',[])), 'Accepted pad-neck record changed'
     current=[(net,set(map(tuple,after))) for net,before,after in plan['physical_group_witnesses']]
     for net,before,after in prior['physical_group_witnesses']:
         group=set(map(tuple,after))
-        assert any(name==net and group<=joined for name,joined in current), ('Accepted 100-edge pad group split',net)
+        assert any(name==net and group<=joined for name,joined in current), ('Accepted checkpoint pad group split',edges,net)
+
+
+def validate_100_checkpoint(plan):
+    validate_frozen_checkpoint(plan,100,'3b855dd65d133f5e09248447b3fd6782ef509515ea5e94b40d317a999533c889')
+
+
+def validate_94_checkpoint(plan):
+    validate_frozen_checkpoint(plan,94,'4f8dcfbd9b448bafd005672dc4a268cb6057b8c1103a33cfa3c71a8423647afe')
 
 
 def validate(plan, manifest):
@@ -145,6 +154,7 @@ def main():
     validate(plan,manifest)
     validate_prior_checkpoint(plan)
     validate_100_checkpoint(plan)
+    validate_94_checkpoint(plan)
     for path,key in [(SOURCE,'source_sha256'),(OUTPUT,'board_sha256'),(PLAN,'plan_sha256'),
                      (OUTPUT.with_suffix('.kicad_pro'),'project_sha256'),
                      (ROOT/'tools/generate-routing-progress-trial.py','generator_sha256')]:
