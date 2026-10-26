@@ -7,6 +7,7 @@ import importlib.util
 import json
 from pathlib import Path
 import re
+import runpy
 import uuid
 import pcbnew as p
 
@@ -19,6 +20,13 @@ SCOPE = uuid.UUID('7a6f7320-f5d9-4d64-a104-16efb7e933f0')
 
 def main():
     plan = json.loads(PLAN.read_text())
+    policy=runpy.run_path(str(ROOT/'tools/routing_pad_necks.py'))
+    profile=policy['project_profile'](ROOT,plan)
+    OUTPUT.with_suffix('.kicad_pro').write_text(json.dumps(profile,indent=2)+'\n')
+    if plan.get('pad_necks'):
+        OUTPUT.with_suffix('.kicad_dru').write_text(policy['native_rules']())
+    else:
+        OUTPUT.with_suffix('.kicad_dru').unlink(missing_ok=True)
     assert hashlib.sha256(SOURCE.read_bytes()).hexdigest() == plan['source_sha256']
     board = p.LoadBoard(str(SOURCE))
     parts = {f.GetReference(): f for f in board.GetFootprints()}

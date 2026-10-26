@@ -2,6 +2,8 @@
 
 # Routing checkpoint: 100 unconnected edges
 
+Historical 100-edge snapshot at commit `91090c8`; superseded by the [94-edge continuation](led-routing-progress-94-study-2026-10-26.md). Its frozen integer checkpoint, dated DRC and archived net report retain the original evidence; current derivative paths now contain the newer board.
+
 Date: 2026-10-25. Native source checks of an unbuilt, unqualified study; no hardware measurements or fabrication release.
 
 The [routing derivative](../../hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb) reaches **100 native and independently counted physical-pad-cluster opens**, down from the accepted 150-edge checkpoint and the frozen 215-edge source. Full KiCad 10.0.6 DRC retains exactly the original **104 intrinsic findings**. Every accepted 150-edge physical pad group remains joined, including repeated logical drain-pad numbers.
@@ -54,7 +56,7 @@ SYS pours that split old VLED, USB-logic or ground groups are rejected. The sele
 
 ## Validation and reproduction
 
-The [native check](../../mechanical/review/routing-progress-native-check-2026-10-25.json), [full DRC](led-routing-progress-drc-2026-10-25.json), [complete remaining-net counts](../../mechanical/review/routing-progress-open-nets.json) and [validation fingerprints](../../mechanical/review/routing-progress-validation-2026-10-25.json) record the selected result. The [manifest](../../mechanical/review/routing-progress-trial.json) pins the board, project, plan and generator. Two replays produce identical board SHA-256 `3a16b0d69a0d831a99485aa6d2011d2b01f8d0f1a306a3f1a43f3d078235eddd`. Native source checks cover 19 isolated native guard methods, 19 portable plan methods, all 256 LED placements and the exact metadata/pin assignments of 465 shared canonical components / 1,718 logical pins. The source-only CI layout includes 21 canonical-source fault methods and routing-search tests.
+The [native check](../../mechanical/review/routing-progress-native-check-2026-10-25.json), [full DRC](led-routing-progress-drc-2026-10-25.json), [complete remaining-net counts](../../mechanical/review/routing-progress-open-nets-2026-10-25.json) and [validation fingerprints](../../mechanical/review/routing-progress-validation-2026-10-25.json) record the selected result. The [manifest](../../mechanical/review/routing-progress-trial.json) pins the board, project, plan and generator. Two replays produce identical board SHA-256 `3a16b0d69a0d831a99485aa6d2011d2b01f8d0f1a306a3f1a43f3d078235eddd`. Native source checks cover 19 isolated native guard methods, 19 portable plan methods, all 256 LED placements and the exact metadata/pin assignments of 465 shared canonical components / 1,718 logical pins. The source-only CI layout includes 21 canonical-source fault methods and routing-search tests.
 
 Run `./tools/check-routing-progress.sh` from the repository root on the owner's KiCad installation. `python3 tools/check-routing-progress-plan.py` runs the portable plan/profile check. The wrapper also restores the three orphan vias into ignored review output, verifies their exact additional findings, and runs each native fault in a separate process. Refill and source inventory checks reject silent track-net relabelling during native merges.
 

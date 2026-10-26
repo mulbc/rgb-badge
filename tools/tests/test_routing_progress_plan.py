@@ -71,6 +71,24 @@ class PlanGuards(unittest.TestCase):
         self.plan['retired_orphan_microvias']=[self.plan['added_copper'][0]]
         with self.assertRaises(AssertionError):m.validate(self.plan,self.manifest)
 
+    def test_accepted_100_checkpoint_is_preserved(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        m.validate_100_checkpoint(plan)
+
+    def test_accepted_100_copper_cannot_be_dropped(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        prior=json.loads((ROOT/'mechanical/review/routing-progress-100-checkpoint.json').read_text())
+        plan['added_copper'].remove(prior['added_copper'][-1])
+        with self.assertRaises(AssertionError):m.validate_100_checkpoint(plan)
+
+    def test_accepted_100_join_cannot_be_lost(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        prior=json.loads((ROOT/'mechanical/review/routing-progress-100-checkpoint.json').read_text())
+        net,before,after=prior['physical_group_witnesses'][0];member=after[-1]
+        for row in plan['physical_group_witnesses']:
+            if row[0]==net:row[2]=[x for x in row[2] if x!=member]
+        with self.assertRaises(AssertionError):m.validate_100_checkpoint(plan)
+
     def test_valid_low_current_signal(self):m.validate(self.plan,self.manifest)
 
     def test_narrow_power_is_rejected(self):
@@ -79,6 +97,47 @@ class PlanGuards(unittest.TestCase):
 
     def test_narrow_signal_is_rejected(self):
         self.plan['added_copper'][0][-1]=120000
+        with self.assertRaises(AssertionError):m.validate(self.plan,self.manifest)
+
+    def neck(self):
+        row=['track','+3V3_APP',63850000,650000,63300000,650000,'B.Cu',120000]
+        self.plan['added_copper']=[row]
+        self.plan['pad_necks']=[dict(reference='U48',pin='6',track=row)]
+        return row
+
+    def test_exact_reviewed_neck_is_permitted(self):
+        self.neck();m.validate(self.plan,self.manifest)
+
+    def test_neck_on_wrong_net_is_rejected(self):
+        self.neck()[1]='VLED'
+        with self.assertRaises(AssertionError):m.validate(self.plan,self.manifest)
+
+    def test_neck_on_wrong_layer_is_rejected(self):
+        self.neck()[6]='In4.Cu'
+        with self.assertRaises(AssertionError):m.validate(self.plan,self.manifest)
+
+    def test_neck_extension_is_rejected(self):
+        self.neck()[4]=63000000
+        with self.assertRaises(AssertionError):m.validate(self.plan,self.manifest)
+
+    def test_neck_wrong_direction_is_rejected(self):
+        self.neck()[4]=64400000
+        with self.assertRaises(AssertionError):m.validate(self.plan,self.manifest)
+
+    def test_neck_bend_is_rejected(self):
+        self.neck()[5]+=10000
+        with self.assertRaises(AssertionError):m.validate(self.plan,self.manifest)
+
+    def test_neck_not_on_exact_pad_is_rejected(self):
+        row=self.neck();row[2]-=10000;row[4]-=10000
+        with self.assertRaises(AssertionError):m.validate(self.plan,self.manifest)
+
+    def test_duplicate_neck_pin_is_rejected(self):
+        self.neck();self.plan['pad_necks']*=2
+        with self.assertRaises(AssertionError):m.validate(self.plan,self.manifest)
+
+    def test_unreviewed_neck_pin_is_rejected(self):
+        self.neck();self.plan['pad_necks'][0]['pin']='5'
         with self.assertRaises(AssertionError):m.validate(self.plan,self.manifest)
 
     def test_zero_length_track_is_rejected(self):

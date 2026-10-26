@@ -31,7 +31,23 @@ def validate_prior_checkpoint(plan):
         assert any(name==net and group<=joined for name,joined in current), ('Accepted 150-edge pad group split',net)
 
 
+def validate_100_checkpoint(plan):
+    """Never lose a completed 100-edge connection or change its selected copper."""
+    path=ROOT/'mechanical/review/routing-progress-100-checkpoint.json'
+    assert hashlib.sha256(path.read_bytes()).hexdigest()=='3b855dd65d133f5e09248447b3fd6782ef509515ea5e94b40d317a999533c889'
+    prior=json.loads(path.read_text())
+    assert prior['open_edges']==100 and prior['source_sha256']==plan['source_sha256']
+    assert not Counter(map(tuple,prior['added_copper']))-Counter(map(tuple,plan['added_copper'])), 'Accepted 100-edge copper changed'
+    assert prior['retired_orphan_microvias']==plan['retired_orphan_microvias'], 'Orphan inventory changed beyond the accepted proof'
+    assert prior['power_zones']==plan['power_zones'], 'Accepted power-zone definitions changed'
+    current=[(net,set(map(tuple,after))) for net,before,after in plan['physical_group_witnesses']]
+    for net,before,after in prior['physical_group_witnesses']:
+        group=set(map(tuple,after))
+        assert any(name==net and group<=joined for name,joined in current), ('Accepted 100-edge pad group split',net)
+
+
 def validate(plan, manifest):
+    runpy.run_path(str(ROOT/'tools/routing_pad_necks.py'))['validate_necks'](plan)
     assert plan['source_sha256'] == manifest['source_sha256'] == 'da3c3e093acef457ce2d0ebe73b57fd5006b9139a57b7fe8acfcd77e612dc246'
     assert plan['open_edges'] == manifest['native_open_edges'] <= 100
     assert sum(plan['open_edges_by_net'].values()) == plan['open_edges']
@@ -72,7 +88,7 @@ def validate(plan, manifest):
         if row[0]=='track':
             _,net,ax,ay,bx,by,layer,width=row
             assert all(type(x) is int for x in (ax,ay,bx,by,width))
-            assert (ax,ay)!=(bx,by) and layer in LAYERS and width == 200000
+            assert (ax,ay)!=(bx,by) and layer in LAYERS and width in {120000,200000}
             length=math.hypot(bx-ax,by-ay)/1e6
             if net in critical:sensitive[net]=sensitive.get(net,0)+length
         else:
@@ -105,23 +121,36 @@ def validate_zone_structure(source, output, plan):
     assert Counter(map(repr,actual))==Counter(map(repr,original+selected)), 'Original or selected zone definition changed'
 
 
-def main():
-    plan=json.loads(PLAN.read_text());manifest=json.loads(MANIFEST.read_text())
-    validate(plan,manifest)
-    validate_prior_checkpoint(plan)
-    for path,key in [(SOURCE,'source_sha256'),(OUTPUT,'board_sha256'),(PLAN,'plan_sha256'),
-                     (OUTPUT.with_suffix('.kicad_pro'),'project_sha256'),
-                     (ROOT/'tools/generate-routing-progress-trial.py','generator_sha256')]:
-        assert hashlib.sha256(path.read_bytes()).hexdigest()==manifest[key], (key,'Fingerprint changed')
-    validate_zone_structure(SOURCE,OUTPUT,plan)
+def validate_profile(plan,manifest):
     pro=json.loads(OUTPUT.with_suffix('.kicad_pro').read_text())
-    assert pro['board']['design_settings']['rules']['min_track_width']==.2
+    policy=runpy.run_path(str(ROOT/'tools/routing_pad_necks.py'))
+    assert pro==policy['project_profile'](ROOT,plan), 'Unreviewed project-rule change'
+    rules=OUTPUT.with_suffix('.kicad_dru')
+    if plan.get('pad_necks'):
+        assert rules.read_text()==policy['native_rules']()
+        assert hashlib.sha256(rules.read_bytes()).hexdigest()==manifest['custom_rules_sha256']
+        assert manifest['pad_necks']==len(plan['pad_necks'])
+    else:
+        assert not rules.exists(), 'Unexpected native custom rules'
     assert pro['board']['design_settings']['rules']['min_via_annular_width']==.1
     assert len(pro['net_settings']['classes'])==1
     assert pro['net_settings']['classes'][0]['clearance']==.2
     assert pro['net_settings']['classes'][0]['track_width']==.2
     assert pro['net_settings']['classes'][0]['microvia_diameter']==.3
     assert pro['net_settings']['classes'][0]['microvia_drill']==.1
+
+
+def main():
+    plan=json.loads(PLAN.read_text());manifest=json.loads(MANIFEST.read_text())
+    validate(plan,manifest)
+    validate_prior_checkpoint(plan)
+    validate_100_checkpoint(plan)
+    for path,key in [(SOURCE,'source_sha256'),(OUTPUT,'board_sha256'),(PLAN,'plan_sha256'),
+                     (OUTPUT.with_suffix('.kicad_pro'),'project_sha256'),
+                     (ROOT/'tools/generate-routing-progress-trial.py','generator_sha256')]:
+        assert hashlib.sha256(path.read_bytes()).hexdigest()==manifest[key], (key,'Fingerprint changed')
+    validate_zone_structure(SOURCE,OUTPUT,plan)
+    validate_profile(plan,manifest)
     print('Routing progress: integer plan and fingerprints passed; native connectivity and DRC require the native checker.')
 
 

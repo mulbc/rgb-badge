@@ -34,6 +34,10 @@ def main():
     assert all(group==c.physical_cluster(board,pad) for group,pad in groups.items())
     output.parent.mkdir(parents=True,exist_ok=True);p.SaveBoard(str(output),board)
     shutil.copyfile(c.OUTPUT.with_suffix('.kicad_pro'),output.with_suffix('.kicad_pro'))
+    if c.OUTPUT.with_suffix('.kicad_dru').exists():
+        shutil.copyfile(c.OUTPUT.with_suffix('.kicad_dru'),output.with_suffix('.kicad_dru'))
+    else:
+        output.with_suffix('.kicad_dru').unlink(missing_ok=True)
     library=ROOT/'hardware/coupon/rev-a/footprints/rgb-badge-coupon.pretty'
     (output.parent/'fp-lib-table').write_text('(fp_lib_table (lib (name "rgb-badge-coupon") (type "KiCad") (uri "'+str(library)+'") (options "") (descr "")))\n')
     print('Restored %d candidate orphan vias; all selected groups and %d edges unchanged.'%(len(plan.get('retired_orphan_microvias',[])),count))

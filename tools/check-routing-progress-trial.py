@@ -65,6 +65,7 @@ def zone_signature(board, zone):
 
 
 def validate_geometry(old, new, plan):
+    module('necks','routing_pad_necks.py').validate_necks(plan)
     portable=module('plan','check-routing-progress-plan.py')
     portable.validate_zone_structure(SOURCE,OUTPUT,plan)
     original_zones=Counter(zone_signature(old,z) for z in old.Zones())
@@ -148,7 +149,7 @@ def validate_geometry(old, new, plan):
             assert abs(stack.index(item.TopLayer())-stack.index(item.BottomLayer())) == 1
         else:
             assert item.GetStart() != item.GetEnd()
-            assert item.GetWidth() == 200000
+            assert item.GetWidth() in {120000,200000}
     critical={'APP_3V3_FB','VLED_FB','VLED_FB_TOP_MID','LED_IREF','CHARGER_ILIM','CHARGER_ISET','E0_ILM','E1_ILM','E0_DVDT','E1_DVDT','TMP_COLD_SET','TMP_HOT_SET','USB_LOGIC_CT'}
     added_lengths=defaultdict(float)
     for item in new.GetTracks():
@@ -170,7 +171,9 @@ def validate_geometry(old, new, plan):
         if before != after:
             changed.add(pad.GetNetname())
             joins.append([pad.GetNetname(), sorted(before), sorted(after)])
-    module('prior_checkpoint', 'check-routing-progress-plan.py').validate_prior_checkpoint(plan)
+    prior_check=module('prior_checkpoint', 'check-routing-progress-plan.py')
+    prior_check.validate_prior_checkpoint(plan)
+    prior_check.validate_100_checkpoint(plan)
     assert sorted(changed) == plan['changed_nets'], 'Changed net set differs'
     # A physical witness includes coordinates, including repeated logical pad numbers.
     normalized = json.loads(json.dumps(sorted(joins)))
@@ -201,6 +204,8 @@ def main():
     parser.add_argument('--restored-via-drc',type=Path)
     args = parser.parse_args()
     manifest = json.loads(MANIFEST.read_text()); plan = json.loads(PLAN.read_text())
+    portable=module('plan','check-routing-progress-plan.py')
+    portable.validate(plan,manifest);portable.validate_profile(plan,manifest)
     for path, key in [(SOURCE, 'source_sha256'), (OUTPUT, 'board_sha256'), (PLAN, 'plan_sha256'),
                       (ROOT/'tools/generate-routing-progress-trial.py', 'generator_sha256')]:
         assert hashlib.sha256(path.read_bytes()).hexdigest() == manifest[key], (key, 'Fingerprint changed')

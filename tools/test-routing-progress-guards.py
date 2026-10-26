@@ -78,6 +78,19 @@ class RoutingProgressGuards(unittest.TestCase):
         item=next(t for t in self.added if not isinstance(t,p.PCB_VIA) and t.GetNetname()=='GND')
         item.SetWidth(120000);self.reject()
 
+    def test_neck_metadata_cannot_be_omitted(self):
+        self.assertTrue(self.plan.get('pad_necks'))
+        self.plan.pop('pad_necks');self.reject()
+
+    def test_neck_policy_rejects_coordinated_geometry_edit(self):
+        entry=self.plan['pad_necks'][0];row=entry['track']
+        original=list(row)
+        item=next(t for t in self.added if c.signature(self.new,t)==tuple(row))
+        # Even a coordinated candidate/plan edit cannot extend the exception.
+        item.SetEnd(p.VECTOR2I(row[4],row[5]+100000));row[5]+=100000
+        self.plan['added_copper']=[list(row) if r==original else r for r in self.plan['added_copper']]
+        with self.assertRaises(AssertionError):c.validate_geometry(self.old,self.new,self.plan)
+
     def test_nonadjacent_microvia(self):
         via=next(t for t in self.added if isinstance(t,p.PCB_VIA));stack=list(self.new.GetEnabledLayers().CuStack())
         via.SetLayerPair(stack[0],stack[2]);self.reject()

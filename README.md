@@ -6,7 +6,7 @@ An open-source, full-colour wearable LED badge inspired by the FOSSASIA Badge Ma
 
 The project is currently in **draft schematic development**. Several coupon circuits are captured, including a provisional charger core, but the complete power circuit and PCB are unfinished. No board in this repository has been independently reviewed, fabricated or tested. Do not treat current design material as production-ready.
 
-The latest [routing study](docs/development/led-routing-progress-100-study-2026-10-25.md) has **100 unconnected edges**, down from the accepted 150-edge checkpoint, with original routing dimensions and all prior pad groups preserved. Native checks retain 104 existing findings; supply/bypass qualification, fabrication and independent review remain open.
+The latest [routing study](docs/development/led-routing-progress-94-study-2026-10-26.md) has **94 unconnected edges**, down from 100, with every prior connection preserved and exactly 104 existing DRC findings. Two bounded DSF pin necks use 0.12 mm; ordinary tracks and clearance remain 0.20 mm. The 50-edge target, supply/bypass qualification, fabrication and independent review remain open.
 
 ## Product target
 

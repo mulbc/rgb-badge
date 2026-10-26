@@ -1,0 +1,9 @@
+# SPDX-License-Identifier: CERN-OHL-S-2.0
+(version 1)
+(rule "Default original track floor" (constraint track_width (min 0.20mm)))
+(rule "U48 bounded DSF neck"
+ (condition "A.Layer == 'B.Cu' && A.intersectsCourtyard('U48') && (A.NetName == '+3V3_APP' || A.NetName == 'DISPLAY_HEARTBEAT' || A.NetName == 'GND' || A.NetName == 'HEARTBEAT_FALL_CLK')")
+ (constraint track_width (min 0.12mm)))
+(rule "U52 bounded DSF neck"
+ (condition "A.Layer == 'B.Cu' && A.intersectsCourtyard('U52') && (A.NetName == '+3V3_APP' || A.NetName == 'DISPLAY_CLEAR_3' || A.NetName == 'DISPLAY_CLEAR_OK' || A.NetName == 'DISPLAY_ENABLE' || A.NetName == 'GND')")
+ (constraint track_width (min 0.12mm)))
