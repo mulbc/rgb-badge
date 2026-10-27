@@ -202,6 +202,24 @@ class PlanGuards(unittest.TestCase):
             if row[0]=='LED_SIN':row[2]=[item for item in row[2] if item[:2]!=['U1','26']]
         with self.assertRaises(AssertionError):m.validate_71_checkpoint(plan)
 
+    def test_accepted_70_checkpoint_is_preserved(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        m.validate_70_checkpoint(plan)
+
+    def test_accepted_70_copper_cannot_be_dropped(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        prior=json.loads((ROOT/'mechanical/review/routing-progress-70-checkpoint.json').read_text())
+        row=next(row for row in prior['added_copper'] if row[1]=='GND')
+        plan['added_copper'].remove(row)
+        with self.assertRaises(AssertionError):m.validate_70_checkpoint(plan)
+
+    def test_accepted_70_join_cannot_be_lost(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        for row in plan['physical_group_witnesses']:
+            if row[0]=='GND':row[2]=[item for item in row[2] if item[:2]!=['PAIR10','1']]
+        with self.assertRaises(AssertionError):m.validate_70_checkpoint(plan)
+
+
     def replacement_fixture(self):
         policy=m.runpy.run_path(str(ROOT/'tools/routing_track_replacements.py'))
         plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())

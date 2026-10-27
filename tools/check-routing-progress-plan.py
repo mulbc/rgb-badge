@@ -75,6 +75,10 @@ def validate_71_checkpoint(plan):
     validate_frozen_checkpoint(plan,71,'9d882b0e47b4842ae4084f5c519e0f8996e7f84477ff722b614f41990775244a')
 
 
+def validate_70_checkpoint(plan):
+    validate_frozen_checkpoint(plan,70,'ff0f5f4efb4f66e9fae84b55332dbbfaea790f56b55f620d35b7df007a368374')
+
+
 def validate(plan, manifest):
     runpy.run_path(str(ROOT/'tools/routing_pad_necks.py'))['validate_necks'](plan)
     runpy.run_path(str(ROOT/'tools/routing_track_replacements.py'))['validate_plan'](plan)
@@ -181,6 +185,7 @@ def main():
     validate_82_checkpoint(plan)
     validate_76_checkpoint(plan)
     validate_71_checkpoint(plan)
+    validate_70_checkpoint(plan)
     replacements=runpy.run_path(str(ROOT/'tools/routing_track_replacements.py'))
     replacements['validate_plan'](plan,required=True)
     assert manifest['replacement_catalog_sha256']==replacements['CATALOG_SHA256']

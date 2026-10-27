@@ -28,3 +28,7 @@ Freeze the accepted 42e16a1 76-edge plan and all its completed physical groups, 
 ## Accepted 71-edge checkpoint, 2026-10-27
 
 Freeze abf4f99's integer plan and every completed group/addition. ADR 0053's exact third source replacement permits the 70-edge PAIR10 ground transaction only after full native/replay/fault proof. Every earlier addition and all other original copper remain protected. Current/protection/enable and fabrication constraints remain unchanged.
+
+## Accepted 70-edge checkpoint, 2026-10-27
+
+Freeze 7c19554's integer plan, additions and completed groups. ADR 0053's fourth/fifth exact original-source replacements permit the separately verified TH1 ground transaction at 69 edges. No earlier addition or group may be lost; all other original copper, dimensions, parts, current/protection/enable boundaries and fabrication gates remain protected.

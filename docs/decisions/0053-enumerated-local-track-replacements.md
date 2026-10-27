@@ -3,7 +3,7 @@
 # ADR 0053: Enumerated local track replacements for blocked escapes
 
 Date: 2026-10-27
-Status: Accepted for the unqualified 70-edge continuation; exactly three catalog replacements selected.
+Status: Accepted for the unqualified 69-edge continuation; exactly five catalog replacements selected.
 
 ## Context
 
@@ -41,3 +41,9 @@ The [71-edge evidence](../development/led-routing-progress-71-study-2026-10-27.m
 A further exact source ROW_SEL_08 B segment, (76.65, 18.70)–(81.25, 18.70) mm, can be replaced locally to ground PAIR10.1. Its original-layer endpoint and direct-contact proof passes in an ignored 70-edge candidate with unchanged full DRC. Extend the catalog only to this third signature, protect all accepted 71-edge additions/groups with a frozen checkpoint, and require the complete replay/native/fault/source gate before accepting this continuation. No other copper or geometry exception is permitted.
 
 The 70-edge continuation passes three stable refills, byte-identical replays, 31 native/56 portable guards, full unchanged DRC and independent physical-pad counts, canonical/LED and separate orphan-restoration checks. Its selected catalog SHA-256 is `3b9403539212c786e301e82df479b64daf5ea8c3e8fd2c61e33a9fcacf49a24b`. The new 4.6 mm replacement preserves five direct contacts, bringing the total to seventeen. See [70-edge evidence](../development/led-routing-progress-70-study-2026-10-27.md). Exactly the third signature above is selected; all other freezes remain in force.
+
+## 69-edge candidate selection gate
+
+The TH1.2 ground transaction requires exactly two further original tracks: ROW_GATE_09 on In2, (54.2, 12.6)–(54.2, 19.9) mm, and ROW_SEL_05 on In4, (53.35, 15.75)–(55.15, 15.75) mm. The ignored 69-edge candidate preserves their four/two direct contacts and endpoints, all earlier groups and the full intrinsic DRC. Calculated replacement track lengths are 7.5 versus 7.3 mm and 7.4 versus 1.8 mm; layer/via changes remain timing/return review items. Pin only these two additional catalog entries, freeze the accepted 70-edge plan, and require full stable replay/native/fault/source proof before selection. No power bus, source via, package/current/enable boundary changes are authorized.
+
+The selected 69-edge continuation passes full unchanged DRC, independent pad counts, three stable fills, two byte-identical replays, 31 native/59 portable guards, canonical/LED checks and separate orphan restoration. Catalog SHA-256: `917746d45be4c9387b766c87fa1cc31a27b1476b4aca3f10e3d988d2e4edf4c4`. All five replacements preserve 23 direct source contacts. See [69-edge evidence](../development/led-routing-progress-69-study-2026-10-27.md). Only the two extra signatures above are selected; all 70-edge additions/groups remain frozen and all other source copper remains protected.
