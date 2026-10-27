@@ -2,6 +2,8 @@
 
 # Routing continuation: 84 to 82 unconnected edges
 
+Historical checkpoint at 88fdcbe; superseded by the [76-edge continuation](led-routing-progress-76-study-2026-10-27.md). Validation fingerprints describe the files at that commit.
+
 Date: 2026-10-26. Status: unqualified native source study; no hardware measurements or fabrication release. The requested 50-edge target remains open.
 
 The selected derivative reduces native and independently counted physical-pad opens **84 → 82**, retaining exactly **104 unchanged intrinsic DRC findings**. The [84-edge checkpoint](../../mechanical/review/routing-progress-84-checkpoint.json) is additionally frozen under [ADR 0052](../decisions/0052-preserve-94-edge-routing-checkpoint.md). Every selected copper item, completed physical pad group, zone definition and both prior DSF neck records survive, together with all earlier 91/94/100/150/215-edge contracts.
@@ -20,7 +22,7 @@ The increment adds **102 tracks / 48 microvias** (150 copper items), retaining a
 
 ## Validation and rejected exploration
 
-[Full DRC](led-routing-progress-82-drc-2026-10-26.json), [native checks](../../mechanical/review/routing-progress-82-native-check-2026-10-26.json), [orphan-restoration DRC](led-routing-progress-82-orphan-restoration-drc-2026-10-26.json), [remaining-net counts](../../mechanical/review/routing-progress-open-nets.json) and [validation fingerprints](../../mechanical/review/routing-progress-82-validation-2026-10-26.json) record the result. Three refills preserve every old copper net and completed physical group. Two independent replays produce identical PCB/project/custom-rule bytes. PCB SHA-256: `14cd20aca2d1f803c8de9f1d0a60afce85d1991e68e637c2fa9e21fca97b4bb1`.
+[Full DRC](led-routing-progress-82-drc-2026-10-26.json), [native checks](../../mechanical/review/routing-progress-82-native-check-2026-10-26.json), [orphan-restoration DRC](led-routing-progress-82-orphan-restoration-drc-2026-10-26.json), [remaining-net counts](../../mechanical/review/routing-progress-82-open-nets-2026-10-26.json) and [validation fingerprints](../../mechanical/review/routing-progress-82-validation-2026-10-26.json) record the result. Three refills preserve every old copper net and completed physical group. Two independent replays produce identical PCB/project/custom-rule bytes. PCB SHA-256: `14cd20aca2d1f803c8de9f1d0a60afce85d1991e68e637c2fa9e21fca97b4bb1`.
 
 The complete wrapper passes **24 isolated native guards**, all **256 LED checks**, canonical source/metadata checks and the independent 82-edge count. Restoring the same three previously retired orphan vias preserves all selected groups and 82 opens, adding exactly their three dangling-via warnings to the 104 intrinsic findings. Source-only CI passes **41 portable plan guards**, **21 canonical-source fault methods**, 14 distance tests, six path tests and seven clearance tests. New guards reject loss of accepted 84-edge copper or completed groups, including coordinated candidate/plan copper retirement. Run `./tools/check-routing-progress.sh`.
 

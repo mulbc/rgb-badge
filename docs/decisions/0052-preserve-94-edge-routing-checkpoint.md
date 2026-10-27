@@ -16,3 +16,7 @@ Commit 48cdb7a passes the independent 91-edge count, unchanged 104 findings, sta
 ## Accepted 84-edge continuation, 2026-10-26
 
 Commit e095f3b passes the independent 84-edge count, unchanged 104 findings, stable replay and source/fault checks. Freeze its integer plan as an additional checkpoint. Retain every selected copper item, completed pad group, power-zone definition and selected neck record under the same constraints. Additional exact pin escapes already enumerated by ADR 0051 may be selected only with complete native connections, exact metadata and unchanged full DRC; dangling seeds are never accepted.
+
+## Accepted 82-edge continuation, 2026-10-27
+
+Commit 88fdcbe passed the independent 82-edge count, unchanged 104 findings, stable replay and source/fault checks. Freeze its integer plan as an additional checkpoint, including the completed address nets and C67 ground join. Retain every selected copper item, completed physical pad group, power-zone definition and existing neck record under the same additive routing constraints. New USB or LED routes require the same unchanged native DRC and preservation evidence; connectivity does not qualify differential impedance, stubs, skew, reference returns or timing. Fabrication and independent Gate A requirements remain unchanged.

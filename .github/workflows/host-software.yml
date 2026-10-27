@@ -39,6 +39,7 @@ jobs:
             /mechanical/review/routing-progress-94-checkpoint.json
             /mechanical/review/routing-progress-91-checkpoint.json
             /mechanical/review/routing-progress-84-checkpoint.json
+            /mechanical/review/routing-progress-82-checkpoint.json
             /mechanical/review/routing-progress-100-project.json
             /mechanical/review/routing-progress-trial.json
       - name: Canonical source assignment and injected-fault checks
