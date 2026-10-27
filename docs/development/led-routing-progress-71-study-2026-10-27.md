@@ -2,6 +2,8 @@
 
 # Routing continuation: 76 to 71 unconnected edges
 
+Historical checkpoint at commit abf4f99; see the [70-edge continuation](led-routing-progress-70-study-2026-10-27.md). Validation fingerprints describe files at that commit.
+
 Date: 2026-10-27. Status: unbuilt, unqualified source study; no hardware measurements or fabrication release. The 50-edge target remains open.
 
 Native and independently counted physical-pad opens decrease **76 → 71**, with exactly **104 unchanged intrinsic DRC findings**. The selected transactions move R2 near U3 and complete LED_SIN through U1, join U31.2 on USB_CC2 with a verified ground restoration, and ground U38.2 and R31.2 through two enumerated local track replacements. Every previously completed physical pad group, every prior checkpoint's added copper, original zone definition, power parcel and exact DSF neck survives. Two original source tracks are replaced under [ADR 0053](../decisions/0053-enumerated-local-track-replacements.md); preservation claims therefore explicitly exclude these signatures rather than claiming that every original track remains.
@@ -23,7 +25,7 @@ The board contains **483 footprints / 17,821 copper items**. Relative to the fro
 
 ## Validation
 
-[Full DRC](led-routing-progress-71-drc-2026-10-27.json), [native checks](../../mechanical/review/routing-progress-71-native-check-2026-10-27.json), [orphan-restoration DRC](led-routing-progress-71-orphan-restoration-drc-2026-10-27.json), [remaining-net counts](../../mechanical/review/routing-progress-open-nets.json) and [validation fingerprints](../../mechanical/review/routing-progress-71-validation-2026-10-27.json) record the result. Three stable refills and two byte-identical PCB/project/rule replays pass. PCB SHA-256: `52f0bdba85a694bef00f36dbe01c3483876942a20cf732d51161800d2dcef2b8`.
+[Full DRC](led-routing-progress-71-drc-2026-10-27.json), [native checks](../../mechanical/review/routing-progress-71-native-check-2026-10-27.json), [orphan-restoration DRC](led-routing-progress-71-orphan-restoration-drc-2026-10-27.json), [remaining-net counts](../../mechanical/review/routing-progress-71-open-nets-2026-10-27.json) and [validation fingerprints](../../mechanical/review/routing-progress-71-validation-2026-10-27.json) record the result. Three stable refills and two byte-identical PCB/project/rule replays pass. PCB SHA-256: `52f0bdba85a694bef00f36dbe01c3483876942a20cf732d51161800d2dcef2b8`.
 
 The wrapper passes **30 isolated native guards**, canonical metadata checks and **256 LED checks**. The separate restored-orphan witness retains 71 opens/all groups and adds precisely the three expected dangling-via findings. Source-only CI passes **53 portable plan guards**, **21 canonical-source fault methods**, 14 distance tests, six path tests and seven clearance tests. New guards reject coordinated retirement of accepted 76-edge additions, undeclared original replacement/restoration, omitted catalog geometry/junction metadata, and missing original endpoint/interior contact evidence even with coordinated metadata edits. Run `./tools/check-routing-progress.sh`.
 

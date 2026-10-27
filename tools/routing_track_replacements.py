@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT/'mechanical/review/routing-progress-track-replacements.json'
-CATALOG_SHA256 = '0db842ca826c7f567448e4dbff3d6ec2e84eaecf7cc692568b63431f63845acf'
+CATALOG_SHA256 = '3b9403539212c786e301e82df479b64daf5ea8c3e8fd2c61e33a9fcacf49a24b'
 
 
 def catalog():
@@ -21,7 +21,7 @@ def validate_plan(plan, required=False):
     entries = plan.get('track_replacements', [])
     assert entries == catalog(), 'Exact replacement catalog omitted or changed'
     retired = Counter(tuple(entry['original']) for entry in entries)
-    assert all(n == 1 and row[0] == 'track' and row[1].startswith(('COL_', 'ROW_')) and row[7] == 200000 for row,n in retired.items())
+    assert all(n == 1 and row[0] == 'track' and row[1].startswith(('COL_', 'ROW_SEL_', 'ROW_GATE_')) and row[7] == 200000 for row,n in retired.items())
     added = Counter(map(tuple, plan['added_copper']))
     for entry in entries:
         rows = entry['replacement'] + entry['connection']

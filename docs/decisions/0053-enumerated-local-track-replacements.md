@@ -3,7 +3,7 @@
 # ADR 0053: Enumerated local track replacements for blocked escapes
 
 Date: 2026-10-27
-Status: Accepted for the unqualified 71-edge continuation; exactly two catalog replacements selected.
+Status: Accepted for the unqualified 70-edge continuation; exactly three catalog replacements selected.
 
 ## Context
 
@@ -35,3 +35,9 @@ This is an unbuilt routing study. A completed physical group does not qualify re
 The [catalog](../../mechanical/review/routing-progress-track-replacements.json), SHA-256 `0db842ca826c7f567448e4dbff3d6ec2e84eaecf7cc692568b63431f63845acf`, selects only the COL_09_R In4 segment (82.6, 3.25)–(60.9, 3.25) mm and ROW_SEL_08 B segment (51.4, 7.85)–(53.3, 7.85) mm. Calculated replacement track lengths are 22.9 versus 21.7 mm and 2.6 versus 1.9 mm. They permit U38.2 and R31.2 ground escapes. Exact catalog geometry and twelve original direct same-net contacts are checked independently, including contacts inside the source segment. Original endpoints and those contacts must touch replacement copper on their original layer.
 
 The [71-edge evidence](../development/led-routing-progress-71-study-2026-10-27.md) records unchanged 104 intrinsic findings, three stable refills, two identical replays, 30 native/53 portable guards, canonical/LED checks and separate orphan restoration. Every prior physical pad group and checkpoint's added copper survives; every other original nonzero copper item is retained subject to the existing three orphan-via exception. The accepted 76-edge plan at 42e16a1 is frozen independently. Only these two original source signatures are exempted from ADR 0052's exact-copper freeze. No additional inductor move or narrow route is selected.
+
+## 70-edge candidate selection gate
+
+A further exact source ROW_SEL_08 B segment, (76.65, 18.70)–(81.25, 18.70) mm, can be replaced locally to ground PAIR10.1. Its original-layer endpoint and direct-contact proof passes in an ignored 70-edge candidate with unchanged full DRC. Extend the catalog only to this third signature, protect all accepted 71-edge additions/groups with a frozen checkpoint, and require the complete replay/native/fault/source gate before accepting this continuation. No other copper or geometry exception is permitted.
+
+The 70-edge continuation passes three stable refills, byte-identical replays, 31 native/56 portable guards, full unchanged DRC and independent physical-pad counts, canonical/LED and separate orphan-restoration checks. Its selected catalog SHA-256 is `3b9403539212c786e301e82df479b64daf5ea8c3e8fd2c61e33a9fcacf49a24b`. The new 4.6 mm replacement preserves five direct contacts, bringing the total to seventeen. See [70-edge evidence](../development/led-routing-progress-70-study-2026-10-27.md). Exactly the third signature above is selected; all other freezes remain in force.

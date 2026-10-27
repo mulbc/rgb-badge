@@ -24,3 +24,7 @@ Commit 88fdcbe passed the independent 82-edge count, unchanged 104 findings, sta
 ## Accepted 76-edge checkpoint and enumerated exception, 2026-10-27
 
 Freeze the accepted 42e16a1 76-edge plan and all its completed physical groups, added copper, original zones, parcels and neck records. [ADR 0053](0053-enumerated-local-track-replacements.md) permits exactly two catalogued original-source track replacements in the 71-edge continuation, with independent original-layer endpoint and direct interior contact proof. This is the sole exception to the original-source copper freeze above. Every earlier checkpoint's added copper, all previous physical groups and every other original item remain protected; no general deletion or rerouting permission is granted.
+
+## Accepted 71-edge checkpoint, 2026-10-27
+
+Freeze abf4f99's integer plan and every completed group/addition. ADR 0053's exact third source replacement permits the 70-edge PAIR10 ground transaction only after full native/replay/fault proof. Every earlier addition and all other original copper remain protected. Current/protection/enable and fabrication constraints remain unchanged.
