@@ -12,3 +12,7 @@ A signal route and any necessary supply/ground repairs are one transaction: acce
 ## Accepted 91-edge continuation, 2026-10-26
 
 Commit 48cdb7a passes the independent 91-edge count, unchanged 104 findings, stable refill/replay and source/fault checks. Freeze its integer plan as an additional checkpoint and retain every selected copper item, completed pad group, power-zone definition and selected neck record. Apply the same transaction, dimension, exact-part, current/protection/enable and fabrication constraints above. Subsequent work must preserve the 91-edge joins as well as the earlier checkpoints; a search configuration change is not permission to change physical routing rules.
+
+## Accepted 84-edge continuation, 2026-10-26
+
+Commit e095f3b passes the independent 84-edge count, unchanged 104 findings, stable replay and source/fault checks. Freeze its integer plan as an additional checkpoint. Retain every selected copper item, completed pad group, power-zone definition and selected neck record under the same constraints. Additional exact pin escapes already enumerated by ADR 0051 may be selected only with complete native connections, exact metadata and unchanged full DRC; dangling seeds are never accepted.

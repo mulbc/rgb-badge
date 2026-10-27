@@ -82,6 +82,15 @@ class RoutingProgressGuards(unittest.TestCase):
         with self.assertRaisesRegex(AssertionError,'Accepted 91-edge copper changed'):
             c.validate_geometry(self.old,self.new,self.plan)
 
+    def test_84_checkpoint_cannot_be_retired_in_candidate_and_plan(self):
+        prior=json.loads((ROOT/'mechanical/review/routing-progress-84-checkpoint.json').read_text())
+        old=json.loads((ROOT/'mechanical/review/routing-progress-91-checkpoint.json').read_text())
+        row=next(row for row in prior['added_copper'] if row[0]=='track' and row[1]=='ROW_A2' and row not in old['added_copper'])
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        self.new.Remove(item);self.plan['added_copper'].remove(row);self.new.BuildConnectivity()
+        with self.assertRaisesRegex(AssertionError,'Accepted 84-edge copper changed'):
+            c.validate_geometry(self.old,self.new,self.plan)
+
     def test_added_route_detached(self):
         next(t for t in self.added if not isinstance(t,p.PCB_VIA)).Move(p.VECTOR2I(0,5000000));self.reject()
 
