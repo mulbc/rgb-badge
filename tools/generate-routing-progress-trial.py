@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: Apache-2.0
-"""Replay the additive routing checkpoint on the frozen 215-edge study."""
+"""Replay the routing checkpoint with enumerated local replacements on the frozen 215-edge study."""
 import hashlib
 from collections import Counter
 import importlib.util
@@ -40,6 +40,7 @@ def main():
     source_items = list(board.GetTracks())
     retired_items = []
     orphan=Counter(map(tuple,plan.get('retired_orphan_microvias',[])))
+    replacements=runpy.run_path(str(ROOT/'tools/routing_track_replacements.py'))['validate_plan'](plan,required=True)
     for item in source_items:
         if not isinstance(item, p.PCB_VIA) and item.GetStart() == item.GetEnd():
             removed.append([item.GetNetname(), item.GetStart().x, item.GetStart().y,
@@ -53,6 +54,13 @@ def main():
             if orphan[key]:
                 orphan[key]-=1
                 retired_items.append(item);board.Remove(item)
+        else:
+            key=('track',item.GetNetname(),item.GetStart().x,item.GetStart().y,
+                 item.GetEnd().x,item.GetEnd().y,board.GetLayerName(item.GetLayer()),item.GetWidth())
+            if replacements[key]:
+                replacements[key]-=1
+                retired_items.append(item);board.Remove(item)
+    assert not +replacements, 'Reviewed original absent from source'
     assert sorted(removed) == plan['retired_zero_length_tracks'] and len(removed) == 116
     layers = {board.GetLayerName(x): x for x in board.GetEnabledLayers().CuStack()}
     for entry in plan['added_copper']:

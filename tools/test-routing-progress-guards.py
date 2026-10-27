@@ -100,6 +100,46 @@ class RoutingProgressGuards(unittest.TestCase):
         with self.assertRaisesRegex(AssertionError,'Accepted 82-edge copper changed'):
             c.validate_geometry(self.old,self.new,self.plan)
 
+    def test_76_checkpoint_cannot_be_retired_in_candidate_and_plan(self):
+        prior=json.loads((ROOT/'mechanical/review/routing-progress-76-checkpoint.json').read_text())
+        row=next(row for row in prior['added_copper'] if row[0]=='track' and row[1]=='USB_CONN_DP')
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        self.new.Remove(item);self.plan['added_copper'].remove(row);self.new.BuildConnectivity()
+        with self.assertRaisesRegex(AssertionError,'Accepted 76-edge copper changed'):
+            c.validate_geometry(self.old,self.new,self.plan)
+
+    def test_reviewed_original_cannot_be_restored_in_candidate_and_plan(self):
+        row=self.plan['track_replacements'][0]['original'];item=p.PCB_TRACK(self.new)
+        item.SetStart(p.VECTOR2I(*row[2:4]));item.SetEnd(p.VECTOR2I(*row[4:6]))
+        item.SetLayer(self.new.GetLayerID(row[6]));item.SetWidth(row[7]);item.SetNet(self.new.FindNet(row[1]))
+        self.new.Add(item);self.plan['added_copper'].append(row.copy())
+        with self.assertRaisesRegex(AssertionError,'Replaced original restored'):
+            c.validate_geometry(self.old,self.new,self.plan)
+
+    def test_replacement_cannot_be_removed_in_candidate_and_plan(self):
+        row=self.plan['track_replacements'][0]['replacement'][0]
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        self.new.Remove(item);self.plan['added_copper'].remove(row)
+        with self.assertRaisesRegex(AssertionError,'Reviewed replacement or connection copper missing'):
+            c.validate_geometry(self.old,self.new,self.plan)
+
+    def test_source_junction_inventory_is_independent_of_catalog(self):
+        policy=c.module('fault_replacements','routing_track_replacements.py')
+        self.plan['track_replacements'][0]['junction_contacts'].pop()
+        policy.catalog=lambda:self.plan['track_replacements']  # Bypass fingerprint only to exercise source proof.
+        with self.assertRaisesRegex(AssertionError,'Source junction inventory differs'):
+            policy.verify_native(self.old,self.new,self.plan,c.signature,c.physical_identity)
+
+    def test_original_endpoint_is_independent_of_catalog(self):
+        policy=c.module('fault_replacement_endpoint','routing_track_replacements.py')
+        entry=self.plan['track_replacements'][0];row=entry['replacement'][0]
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        self.plan['added_copper'].remove(row);item.SetStart(p.VECTOR2I(row[2]+400000,row[3]))
+        row[2]+=400000;self.plan['added_copper'].append(row.copy())
+        policy.catalog=lambda:self.plan['track_replacements']  # Exercise actual contact, beyond fingerprints.
+        with self.assertRaisesRegex(AssertionError,'Original-layer endpoint detached'):
+            policy.verify_native(self.old,self.new,self.plan,c.signature,c.physical_identity)
+
     def test_added_route_detached(self):
         next(t for t in self.added if not isinstance(t,p.PCB_VIA)).Move(p.VECTOR2I(0,5000000));self.reject()
 

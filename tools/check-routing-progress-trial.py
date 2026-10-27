@@ -135,6 +135,9 @@ def validate_geometry(old, new, plan):
     assert all(row[0]=='via' and n==1 for row,n in orphan.items()), 'Only exact orphan microvias may retire'
     assert not any(actual[row] for row in orphan), 'Retired via restored without review'
     retained.subtract(orphan);retained=+retained
+    replacements=module('replacements','routing_track_replacements.py')
+    replaced=replacements.verify_native(old,new,plan,signature,physical_identity)
+    retained.subtract(replaced);retained=+retained
     assert not retained-actual, 'Previously retained source copper removed or changed'
     added = actual-retained
     assert added == Counter(map(tuple, plan['added_copper'])), 'Added copper differs from selected integer plan'
@@ -178,6 +181,7 @@ def validate_geometry(old, new, plan):
     prior_check.validate_91_checkpoint(plan)
     prior_check.validate_84_checkpoint(plan)
     prior_check.validate_82_checkpoint(plan)
+    prior_check.validate_76_checkpoint(plan)
     assert sorted(changed) == plan['changed_nets'], 'Changed net set differs'
     # A physical witness includes coordinates, including repeated logical pad numbers.
     normalized = json.loads(json.dumps(sorted(joins)))
@@ -191,7 +195,7 @@ def validate_geometry(old, new, plan):
     module('rows', 'check-row-drain-tie-trial.py').check_physical_rows(new)
     return dict(checked_footprints=483, relocated_passives=len(poses), all_existing_physical_pad_groups_preserved=True,
                 retained_source_copper=sum(retained.values()), retired_zero_length_tracks=116,
-                retired_orphan_microvias=sum(orphan.values()),
+                retired_orphan_microvias=sum(orphan.values()), replaced_source_tracks=sum(replaced.values()),
                 added_power_zones=len(plan.get('power_zones',[])),
                 added_copper=sum(added.values()),
                 added_tracks=sum(n for row,n in added.items() if row[0]=='track'),
@@ -223,6 +227,7 @@ def main():
                              ('retained_source_copper','retained_nonzero_source_copper'),
                              ('retired_zero_length_tracks','retired_zero_length_tracks'),
                              ('retired_orphan_microvias','retired_orphan_microvias'),
+                             ('replaced_source_tracks','replaced_source_tracks'),
                              ('added_power_zones','power_zones'),
                              ('added_tracks','added_tracks'),('added_microvias','added_microvias')]:
         assert result[key]==manifest[manifest_key], (key,'Manifest count differs')

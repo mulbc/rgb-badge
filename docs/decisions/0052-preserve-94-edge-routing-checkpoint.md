@@ -20,3 +20,7 @@ Commit e095f3b passes the independent 84-edge count, unchanged 104 findings, sta
 ## Accepted 82-edge continuation, 2026-10-27
 
 Commit 88fdcbe passed the independent 82-edge count, unchanged 104 findings, stable replay and source/fault checks. Freeze its integer plan as an additional checkpoint, including the completed address nets and C67 ground join. Retain every selected copper item, completed physical pad group, power-zone definition and existing neck record under the same additive routing constraints. New USB or LED routes require the same unchanged native DRC and preservation evidence; connectivity does not qualify differential impedance, stubs, skew, reference returns or timing. Fabrication and independent Gate A requirements remain unchanged.
+
+## Accepted 76-edge checkpoint and enumerated exception, 2026-10-27
+
+Freeze the accepted 42e16a1 76-edge plan and all its completed physical groups, added copper, original zones, parcels and neck records. [ADR 0053](0053-enumerated-local-track-replacements.md) permits exactly two catalogued original-source track replacements in the 71-edge continuation, with independent original-layer endpoint and direct interior contact proof. This is the sole exception to the original-source copper freeze above. Every earlier checkpoint's added copper, all previous physical groups and every other original item remain protected; no general deletion or rerouting permission is granted.

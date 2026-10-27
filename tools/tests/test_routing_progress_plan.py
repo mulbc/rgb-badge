@@ -168,6 +168,51 @@ class PlanGuards(unittest.TestCase):
             if row[0]=='ROW_A1':row[2]=[item for item in row[2] if item[0]!='U3']
         with self.assertRaises(AssertionError):m.validate_82_checkpoint(plan)
 
+    def test_accepted_76_checkpoint_is_preserved(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        m.validate_76_checkpoint(plan)
+
+    def test_accepted_76_copper_cannot_be_dropped(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        prior=json.loads((ROOT/'mechanical/review/routing-progress-76-checkpoint.json').read_text())
+        row=next(row for row in prior['added_copper'] if row[1]=='USB_CONN_DP')
+        plan['added_copper'].remove(row)
+        with self.assertRaises(AssertionError):m.validate_76_checkpoint(plan)
+
+    def test_accepted_76_join_cannot_be_lost(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        for row in plan['physical_group_witnesses']:
+            if row[0]=='USB_CONN_DP':row[2]=[item for item in row[2] if item[:2]!=['U32','3']]
+        with self.assertRaises(AssertionError):m.validate_76_checkpoint(plan)
+
+    def replacement_fixture(self):
+        policy=m.runpy.run_path(str(ROOT/'tools/routing_track_replacements.py'))
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        return policy,plan
+
+    def test_reviewed_replacement_catalog_is_preserved(self):
+        policy,plan=self.replacement_fixture();policy['validate_plan'](plan,required=True)
+
+    def test_replacement_metadata_cannot_be_omitted(self):
+        policy,plan=self.replacement_fixture();del plan['track_replacements']
+        with self.assertRaises(AssertionError):policy['validate_plan'](plan,required=True)
+
+    def test_unreviewed_replacement_original_is_rejected(self):
+        policy,plan=self.replacement_fixture();plan['track_replacements'][0]['original'][2]+=100000
+        with self.assertRaises(AssertionError):policy['validate_plan'](plan,required=True)
+
+    def test_reviewed_replacement_copper_cannot_be_dropped(self):
+        policy,plan=self.replacement_fixture();plan['added_copper'].remove(plan['track_replacements'][0]['replacement'][0])
+        with self.assertRaises(AssertionError):policy['validate_plan'](plan,required=True)
+
+    def test_reviewed_source_junction_cannot_be_omitted(self):
+        policy,plan=self.replacement_fixture();plan['track_replacements'][0]['junction_contacts'].pop()
+        with self.assertRaises(AssertionError):policy['validate_plan'](plan,required=True)
+
+    def test_replacement_cannot_narrow_a_track(self):
+        policy,plan=self.replacement_fixture();plan['track_replacements'][0]['replacement'][0][7]=120000
+        with self.assertRaises(AssertionError):policy['validate_plan'](plan,required=True)
+
     def test_valid_low_current_signal(self):m.validate(self.plan,self.manifest)
 
     def test_narrow_power_is_rejected(self):
