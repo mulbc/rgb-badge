@@ -295,7 +295,7 @@ class PlanGuards(unittest.TestCase):
 
     def test_exact_digital_catalog_passes(self):
         policy,plan=self.digital_fixture()
-        self.assertEqual(sum(policy.validate_plan(plan,required=True).values()),13)
+        self.assertEqual(sum(policy.validate_plan(plan,required=True).values()),41)
 
     def test_digital_catalog_cannot_be_omitted(self):
         policy,plan=self.digital_fixture();del plan['digital_width']
@@ -327,7 +327,67 @@ class PlanGuards(unittest.TestCase):
     def test_native_digital_rule_has_only_the_selected_net(self):
         policy,plan=self.digital_fixture();rule=policy.native_rule(plan)
         self.assertIn("A.NetName == 'USB_RAW_OUT2'",rule)
-        self.assertNotIn('UART0_TX',rule);self.assertNotIn('GND',rule)
+        self.assertIn("A.NetName == 'UART0_TX'",rule);self.assertNotIn('GND',rule)
+
+    def test_accepted_63_checkpoint_is_preserved(self):
+        m.validate_63_checkpoint(json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text()))
+
+    def test_accepted_63_copper_cannot_be_dropped(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        prior=json.loads((ROOT/'mechanical/review/routing-progress-63-checkpoint.json').read_text())
+        plan['added_copper'].remove(prior['digital_width']['added_copper'][0])
+        with self.assertRaisesRegex(AssertionError,'Accepted 63-edge copper changed'):m.validate_63_checkpoint(plan)
+
+    def test_accepted_63_join_cannot_be_lost(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        for row in plan['physical_group_witnesses']:
+            if row[0]=='USB_RAW_OUT2':row[2]=[x for x in row[2] if x[:2]!=['U31','8']]
+        with self.assertRaises(AssertionError):m.validate_63_checkpoint(plan)
+
+    def chain_fixture(self):
+        spec=importlib.util.spec_from_file_location('chain_test',ROOT/'tools/routing_source_chain.py')
+        policy=importlib.util.module_from_spec(spec);spec.loader.exec_module(policy)
+        return policy,json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+
+    def test_exact_source_chain_passes(self):
+        policy,plan=self.chain_fixture();self.assertEqual(sum(policy.validate_plan(plan,required=True).values()),7)
+
+    def test_source_chain_metadata_cannot_be_omitted(self):
+        policy,plan=self.chain_fixture();del plan['source_chain_replacement']
+        with self.assertRaises(AssertionError):policy.validate_plan(plan,required=True)
+
+    def test_source_chain_copper_cannot_be_dropped(self):
+        policy,plan=self.chain_fixture();plan['added_copper'].remove(plan['source_chain_replacement']['replacement'][0])
+        with self.assertRaisesRegex(AssertionError,'Source-chain replacement copper missing'):policy.validate_plan(plan)
+
+    def test_source_chain_original_is_independent_of_catalog(self):
+        policy,plan=self.chain_fixture();plan['source_chain_replacement']['original'][0][2]+=1
+        policy.catalog=lambda:plan['source_chain_replacement']
+        with self.assertRaisesRegex(AssertionError,'Source-chain original inventory differs'):policy.validate_plan(plan)
+
+    def test_source_chain_width_is_independent_of_catalog(self):
+        policy,plan=self.chain_fixture();plan['source_chain_replacement']['replacement'][0][7]=190000
+        policy.catalog=lambda:plan['source_chain_replacement']
+        with self.assertRaisesRegex(AssertionError,'Source-chain width/net/layer changed'):policy.validate_plan(plan)
+
+    def test_source_chain_net_is_independent_of_catalog(self):
+        policy,plan=self.chain_fixture();plan['source_chain_replacement']['replacement'][0][1]='GND'
+        policy.catalog=lambda:plan['source_chain_replacement']
+        with self.assertRaisesRegex(AssertionError,'Source-chain width/net/layer changed'):policy.validate_plan(plan)
+
+    def test_source_chain_length_is_independent_of_catalog(self):
+        policy,plan=self.chain_fixture();plan['source_chain_replacement']['replacement'][0][4]+=60000000
+        policy.catalog=lambda:plan['source_chain_replacement']
+        with self.assertRaisesRegex(AssertionError,'Source-chain length bound exceeded'):policy.validate_plan(plan)
+
+    def test_source_chain_original_cannot_be_restored(self):
+        policy,plan=self.chain_fixture();plan['added_copper'].append(plan['source_chain_replacement']['original'][0].copy())
+        with self.assertRaisesRegex(AssertionError,'Source-chain original restored'):policy.validate_plan(plan)
+
+    def test_uart_source_pin_inventory_is_independent(self):
+        policy,plan=self.digital_fixture();plan['digital_width']['joined_pads']['UART0_TX'][0][1]='1'
+        policy.catalog=lambda:plan['digital_width']
+        with self.assertRaises(AssertionError):policy.validate_plan(plan)
 
     def pad_placement_fixture(self):
         policy=m.runpy.run_path(str(ROOT/'tools/routing_testpad_placements.py'))

@@ -1,0 +1,31 @@
+<!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
+
+# Routing continuation: 63 to 62 unconnected edges
+
+Date: 2026-10-28. Unbuilt, unqualified source study; no hardware measurements or fabrication release. The 50-edge target remains open.
+
+Native and independent physical-pad opens decrease **63 → 62**, retaining exactly **104 unchanged intrinsic DRC findings**. UART0_TX now joins R47.2 and TP4.1. Every accepted 63-edge added copper item, physical pad group, component pose, zone, earlier replacement and supply neck survives. The [63-edge integer plan](../../mechanical/review/routing-progress-63-checkpoint.json) freezes commit 0986b4f. No ground retirement or smaller-clearance rule is selected.
+
+## Exact transaction and source review
+
+[ADR 0061](../decisions/0061-local-uart-escape-rework-feasibility.md) replaces exactly seven original UART0_TX_RAW In4 staircase tracks near R47 with 33 full-width In4 tracks. The [chain catalog](../../mechanical/review/routing-progress-source-chain.json), SHA-256 `31c298d7c17971ad5b20634b99c7dccbc86d24a55be92142651a2fef148e7e5e`, pins every retired/replacement signature, two exact original-layer interfaces and five retained external source-layer contacts. Independent native checks derive the external inventory from the frozen 215-edge source, excluding only the seven chain members. All other original copper remains retained subject to the six earlier single-track replacements and three witnessed orphan vias.
+
+The calculated RAW replacement is **5.039244 mm versus 1.150000 mm**, at unchanged 0.20 mm width and clearance. It uses no new vias or horizontal B/In2 ground-plane runs. The initial retired-plus-3-mm planning bound would reject this length; ADR 0061 records the review and changes only this exact chain's bound to retired plus 4 mm (5.15 mm total). An illustrative 18 µm copper / 20 °C calculation gives about 0.0186 Ω extra resistance. This is not a current, timing or finished-copper qualification.
+
+[ADR 0047](../decisions/0047-scoped-digital-signal-width-study.md) extends the exact digital inventory only to UART0_TX: **28 × 0.12 mm tracks / 16 adjacent 0.30/0.10 mm microvias**, calculated trace length **47.598552 mm**, below its unchanged 120 mm hard bound. The USB_RAW_OUT2 inventory retains all 13 tracks and three microvias. The [combined digital catalog](../../mechanical/review/routing-progress-digital-width.json), SHA-256 `0e5cfeab6fc1b579e02f922b487c5084ac356c0df515e1fbc1fe59a4f0d785ce`, pins each net's exact copper and source pads. Native width rules extend only to those two nets; independent integer/native checks reject other narrow additions and separately enforce both joins. Ordinary width and every other-net clearance remain 0.20 mm; the two exact supply necks remain unchanged.
+
+A direct R47.2 B/In4 microvia avoids the original long rear escape that isolated R82 ground. The original ROW_04_A In3 copper remains fixed. One **1.2 mm, 0.20 mm In3 application-supply bridge**, from (49.635567, 9.943037) to (48.435567, 9.943037) mm with two unchanged adjacent microvias, restores the other disrupted prior group. Full-width ground bridge/search screens, 147 fine escape probes and other finite adjacent-layer escape trials failed the group gate and are excluded. The accepted original-chain detour preserves both ground and supply groups.
+
+Rechecked [Espressif module datasheet v1.8](https://documentation.espressif.com/esp32-s3-wroom-1_wroom-1u_datasheet_en.pdf), TXD0 pin 37 / U0TXD / GPIO43, and [Panasonic ERJ datasheet dated 2025-05-29](https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf). Exact ESP32-S3-WROOM-1U-N16R8 and ERJ2RKF4990X, pin maps, footprints, 499 Ω resistance and component poses stay fixed. The narrow trace is on the test-pad side of the series resistor. No firmware, driver current, mode, protection or enable setting changes. UART edge/probe loading, return and partial-power behavior remain unqualified.
+
+Relative to the frozen 215-edge source, the board retains **15,385 nonzero copper items** and adds **1,833 tracks / 855 microvias**. It contains **483 footprints / 18,073 copper items**. Thirteen original tracks are replaced: six earlier single-track transactions plus this exact seven-track chain. All 27 earlier direct contacts and five chain external contacts pass. The three orphan retirements, 116 neutral zero-length cleanups, 34 R/C poses, four test-land poses, five original zones and four selected parcels remain unchanged.
+
+## Validation
+
+[Full DRC](led-routing-progress-62-drc-2026-10-28.json), [native checks](../../mechanical/review/routing-progress-62-native-check-2026-10-28.json), [orphan-restoration DRC](led-routing-progress-62-orphan-restoration-drc-2026-10-28.json), [remaining-net counts](../../mechanical/review/routing-progress-open-nets.json) and [validation fingerprints](../../mechanical/review/routing-progress-62-validation-2026-10-28.json) record the selection. Board SHA-256: `d3b1de9ffa2bb61cb4816fc4161a23d73396cba12b0c3b66f15f310e82d561a3`.
+
+Three stable refills and byte-identical PCB/project/custom-rule regeneration pass. The complete gate passes **50 isolated native guards / 99 portable plan guards**, canonical metadata and **256 LED checks**. Source-only CI also passes 21 canonical faults, 14 distance tests, six path tests and 13 clearance tests. New faults independently detach a chain interface, alter the source-derived external-contact inventory, omit metadata, restore an original chain track, narrow actual RAW copper, retire protected 63-edge copper or detach the UART test pad. Restoring the same three retired source vias leaves exactly 62 opens and adds only their three original dangling findings, without any other DRC or pad-group difference.
+
+## Remaining review
+
+The 50-edge target is unfinished. Ground retains five opens, VLED eight and gauge supply three; controls, settings, feedback, USB and converter paths remain incomplete. The earlier intrinsic DRC, trial-package/C45/SYS, electrical/supply/thermal, timing/return/RF, probe/assembly/fit and HDI process holds remain. Independent Gate A is mandatory before fabrication. Vendor PDFs, binaries, failed trials and manufacturing output remain outside this source checkpoint.

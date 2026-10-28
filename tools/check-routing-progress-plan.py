@@ -96,6 +96,12 @@ def validate_64_checkpoint(plan):
     assert all(entry in plan.get('track_replacements',[]) for entry in prior['track_replacements']), 'Accepted 64-edge replacement changed'
 
 
+def validate_63_checkpoint(plan):
+    validate_frozen_checkpoint(plan,63,'d0d9ec0226bc9846fa54635bc9d0b86d39e0dc14d727a0b5fb12a714f3fd31c0')
+    prior=json.loads((ROOT/'mechanical/review/routing-progress-63-checkpoint.json').read_text())
+    assert all(entry in plan.get('track_replacements',[]) for entry in prior['track_replacements'])
+
+
 def validate(plan, manifest):
     runpy.run_path(str(ROOT/'tools/routing_pad_necks.py'))['validate_necks'](plan)
     runpy.run_path(str(ROOT/'tools/routing_track_replacements.py'))['validate_plan'](plan)
@@ -210,6 +216,10 @@ def main():
     validate_69_checkpoint(plan)
     validate_65_checkpoint(plan)
     validate_64_checkpoint(plan)
+    validate_63_checkpoint(plan)
+    chain=runpy.run_path(str(ROOT/'tools/routing_source_chain.py'))
+    chain['validate_plan'](plan,required=True)
+    assert manifest['source_chain_catalog_sha256']==chain['CATALOG_SHA256']
     digital=runpy.run_path(str(ROOT/'tools/routing_digital_width.py'))
     narrow=digital['validate_plan'](plan,required=True)
     assert manifest['digital_width_catalog_sha256']==digital['CATALOG_SHA256']

@@ -3,7 +3,7 @@
 # ADR 0047: Scoped 0.12 mm digital-signal routing study
 
 Date: 2026-10-23
-Status: Exact USB_RAW_OUT2 inventory selected at 63 edges; other digital-width studies remain unselected.
+Status: Exact USB_RAW_OUT2 and UART0_TX inventories selected at 62 edges; other digital-width studies remain unselected.
 
 ## Context and source review
 
@@ -42,3 +42,11 @@ A native check caught one candidate via at 0.1953 mm clearance. Moving only new 
 ## Selected outcome at 63 edges
 
 The exact USB_RAW_OUT2-only inventory passes all required gates: 63 native/physical opens, unchanged 104 full findings, all frozen 64-edge copper/groups/poses, three stable refills, byte-identical regeneration, 43 native/87 portable faults, canonical/source/256 LED checks and unchanged three-orphan restoration. The [63-edge study](../development/led-routing-progress-63-study-2026-10-28.md) records hashes and review holds. No ADR 0058 spacing or ADR 0059/0060 ground retirement is selected. The 50-edge target and independent Gate A remain open.
+
+## Exact UART digital candidate gate
+
+The 62-edge candidate adds only the pinned UART0_TX 0.12 mm inventory beside the unchanged selected USB_RAW_OUT2 inventory. It connects R47.2 and TP4.1 after the exact ADR 0061 RAW-chain detour and one unchanged-width application-supply restoration. Freeze every 63-edge addition and physical group; retain the original 120 mm digital bound and 0.20 mm other-net clearance. The native width rule may extend only to UART0_TX, with an independently pinned per-net copper and source-pin inventory. No other narrow track, source chain, component/current/mode/protection/enable change is permitted. Full acceptance and retained engineering holds precede selection.
+
+Rechecked [Espressif ESP32-S3-WROOM-1/1U datasheet v1.8](https://documentation.espressif.com/esp32-s3-wroom-1_wroom-1u_datasheet_en.pdf), pin 37 TXD0/U0TXD/GPIO43, and the [Panasonic ERJ datasheet dated 2025-05-29](https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf). Exact ESP32-S3-WROOM-1U-N16R8, ERJ2RKF4990X, module/resistor pin maps, land geometry and 499 Ω resistance stay unchanged. The new narrow route is on the test-pad side of that resistor; no production GPIO or output-drive configuration is introduced. Actual edge/probe loading, UART timing, return/partial-power and assembly/process qualification remain open.
+
+The exact UART candidate passes the complete [62-edge gate](../development/led-routing-progress-62-study-2026-10-28.md). The selected catalog contains 13 USB status / 28 UART narrow tracks and three / sixteen adjacent microvias respectively. Calculated lengths are 13.215457 / 47.598552 mm. Native and independent pin inventories enforce each join separately; the 120 mm per-net bound and original clearances remain unchanged. No other digital net is selected.

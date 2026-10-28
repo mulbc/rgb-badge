@@ -8,9 +8,9 @@ from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
 CATALOG=ROOT/'mechanical/review/routing-progress-digital-width.json'
-CATALOG_SHA256='ab694bdd60606fbe29b2cb7dab18b357958e4398e6832eb539b18e293d8a7733'
+CATALOG_SHA256='0e5cfeab6fc1b579e02f922b487c5084ac356c0df515e1fbc1fe59a4f0d785ce'
 LAYERS=['F.Cu','In1.Cu','In2.Cu','In3.Cu','In4.Cu','B.Cu']
-NETS=['USB_RAW_OUT2']
+NETS=['USB_RAW_OUT2','UART0_TX']
 
 
 def catalog():
@@ -24,7 +24,7 @@ def validate_plan(plan,required=False):
     assert entry==catalog(), 'Exact digital-width catalog omitted or changed'
     assert entry['nets']==NETS and entry['track_width_iu']==120000
     assert entry['maximum_narrow_length_per_net_iu']==120000000
-    assert entry['joined_pads']==[['U24','3'],['R61','1'],['U31','8']]
+    assert entry['joined_pads']=={'USB_RAW_OUT2':[['U24','3'],['R61','1'],['U31','8']],'UART0_TX':[['R47','2'],['TP4','1']]}
     rows=entry['added_copper'];assert len(rows)==len(set(map(tuple,rows)))
     narrow=Counter();lengths=Counter()
     for row in rows:
@@ -48,7 +48,7 @@ def validate_plan(plan,required=False):
 def native_rule(plan):
     if 'digital_width' not in plan:return ''
     validate_plan(plan,required=True)
-    return '\n(rule "ADR0047 exact USB status width"\n (condition "A.NetName == \'USB_RAW_OUT2\'")\n (constraint track_width (min 0.12mm)))\n'
+    return ''.join('\n(rule "ADR0047 exact ' + net + ' width"\n (condition "A.NetName == \'' + net + '\'")\n (constraint track_width (min 0.12mm)))\n' for net in NETS)
 
 
 def verify_native(board,plan,signature,physical_cluster):
@@ -56,12 +56,11 @@ def verify_native(board,plan,signature,physical_cluster):
     if not wanted:return 0
     actual=Counter(signature(board,t) for t in board.GetTracks())
     assert not wanted-actual, 'Native digital copper missing'
-    pads={}
-    for part in board.GetFootprints():
-        for pad in part.Pads():
-            if pad.GetNetname() in NETS:pads[(part.GetReference(),pad.GetNumber())]=pad
-    expected=set(map(tuple,catalog()['joined_pads']))
-    assert set(pads)==expected, 'Digital source pin inventory differs'
-    groups={physical_cluster(board,pad) for pad in pads.values()}
-    assert len(groups)==1, 'Digital status source pads are not joined'
+    for net in NETS:
+        pads={(part.GetReference(),pad.GetNumber()):pad
+              for part in board.GetFootprints() for pad in part.Pads() if pad.GetNetname()==net}
+        expected=set(map(tuple,catalog()['joined_pads'][net]))
+        assert set(pads)==expected, 'Digital source pin inventory differs'
+        groups={physical_cluster(board,pad) for pad in pads.values()}
+        assert len(groups)==1, 'Digital status source pads are not joined: '+net
     return sum(wanted.values())

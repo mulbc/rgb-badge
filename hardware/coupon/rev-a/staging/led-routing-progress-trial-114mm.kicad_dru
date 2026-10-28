@@ -8,6 +8,10 @@
  (condition "A.Layer == 'B.Cu' && A.intersectsCourtyard('U52') && (A.NetName == '+3V3_APP' || A.NetName == 'DISPLAY_CLEAR_3' || A.NetName == 'DISPLAY_CLEAR_OK' || A.NetName == 'DISPLAY_ENABLE' || A.NetName == 'GND')")
  (constraint track_width (min 0.12mm)))
 
-(rule "ADR0047 exact USB status width"
+(rule "ADR0047 exact USB_RAW_OUT2 width"
  (condition "A.NetName == 'USB_RAW_OUT2'")
+ (constraint track_width (min 0.12mm)))
+
+(rule "ADR0047 exact UART0_TX width"
+ (condition "A.NetName == 'UART0_TX'")
  (constraint track_width (min 0.12mm)))

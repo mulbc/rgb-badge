@@ -229,6 +229,49 @@ class RoutingProgressGuards(unittest.TestCase):
         item.SetLayer(p.B_Cu);item.SetWidth(120000);item.SetNetCode(self.new.FindNet('GND').GetNetCode());self.new.Add(item)
         self.plan['added_copper'].append(list(c.signature(self.new,item)));self.reject()
 
+    def test_63_checkpoint_copper_cannot_be_retired(self):
+        prior=json.loads((ROOT/'mechanical/review/routing-progress-63-checkpoint.json').read_text())
+        row=prior['digital_width']['added_copper'][0]
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        self.new.Remove(item);self.plan['added_copper'].remove(row);self.reject()
+
+    def test_source_chain_original_cannot_be_restored(self):
+        row=self.plan['source_chain_replacement']['original'][0]
+        item=p.PCB_TRACK(self.new);item.SetStart(p.VECTOR2I(*row[2:4]));item.SetEnd(p.VECTOR2I(*row[4:6]));item.SetWidth(row[7]);item.SetLayer(self.new.GetLayerID(row[6]));item.SetNetCode(self.new.FindNet(row[1]).GetNetCode());self.new.Add(item)
+        self.plan['added_copper'].append(row.copy());self.reject()
+
+    def test_source_chain_metadata_cannot_be_omitted(self):
+        del self.plan['source_chain_replacement'];self.reject()
+
+    def test_source_chain_contact_inventory_is_independent(self):
+        policy=c.module('chain_contacts_fault','routing_source_chain.py')
+        self.plan['source_chain_replacement']['external_contacts'].pop()
+        policy.catalog=lambda:self.plan['source_chain_replacement']
+        contacts=c.module('chain_contacts_source','routing_track_replacements.py').contacts
+        with self.assertRaisesRegex(AssertionError,'Source-chain external contact inventory differs'):
+            policy.verify_native(self.old,self.new,self.plan,c.signature,c.physical_identity,contacts)
+
+    def test_source_chain_interface_is_independent(self):
+        policy=c.module('chain_endpoint_fault','routing_source_chain.py')
+        entry=self.plan['source_chain_replacement'];endpoint=[51350000,9000000]
+        row=next(row for row in entry['replacement'] if row[4:6]==endpoint)
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        self.plan['added_copper'].remove(row);row[4]-=400000;item.SetEnd(p.VECTOR2I(*row[4:6]));self.plan['added_copper'].append(row.copy())
+        policy.catalog=lambda:entry;contacts=c.module('chain_endpoint_source','routing_track_replacements.py').contacts
+        with self.assertRaisesRegex(AssertionError,'Source-chain interface detached'):
+            policy.verify_native(self.old,self.new,self.plan,c.signature,c.physical_identity,contacts)
+
+    def test_source_chain_actual_width_cannot_change(self):
+        row=self.plan['source_chain_replacement']['replacement'][0]
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row));item.SetWidth(190000);self.reject()
+
+    def test_uart_probe_join_is_checked_independently(self):
+        policy=c.module('uart_join_fault','routing_digital_width.py')
+        pad=next(q for q in self.parts['TP4'].Pads() if q.GetNumber()=='1')
+        pad.Move(p.VECTOR2I(0,5000000));self.new.BuildConnectivity()
+        with self.assertRaisesRegex(AssertionError,'Digital status source pads are not joined: UART0_TX'):
+            policy.verify_native(self.new,self.plan,c.signature,c.physical_cluster)
+
     def test_added_route_detached(self):
         next(t for t in self.added if not isinstance(t,p.PCB_VIA)).Move(p.VECTOR2I(0,5000000));self.reject()
 

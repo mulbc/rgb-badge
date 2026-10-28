@@ -18,7 +18,7 @@ Relative to the frozen 215-edge source, the selected board retains 15,392 nonzer
 
 ## Validation
 
-[Full DRC](led-routing-progress-63-drc-2026-10-28.json), [native checks](../../mechanical/review/routing-progress-63-native-check-2026-10-28.json), [orphan-restoration DRC](led-routing-progress-63-orphan-restoration-drc-2026-10-28.json), [remaining-net counts](../../mechanical/review/routing-progress-open-nets.json) and [validation fingerprints](../../mechanical/review/routing-progress-63-validation-2026-10-28.json) record the selection. Board SHA-256: `a5807c556358dba4d0c17d69dfd629fc5369c7658637c9169331c012770f9ef6`.
+[Full DRC](led-routing-progress-63-drc-2026-10-28.json), [native checks](../../mechanical/review/routing-progress-63-native-check-2026-10-28.json), [orphan-restoration DRC](led-routing-progress-63-orphan-restoration-drc-2026-10-28.json), [remaining-net counts](../../mechanical/review/routing-progress-63-open-nets-2026-10-28.json) and [validation fingerprints](../../mechanical/review/routing-progress-63-validation-2026-10-28.json) record the selection. Board SHA-256: `a5807c556358dba4d0c17d69dfd629fc5369c7658637c9169331c012770f9ef6`.
 
 Three stable refills and byte-identical PCB/project/custom-rule regeneration pass. The gate passes **43 isolated native guards / 87 portable plan guards**, canonical metadata and **256 LED checks**. Source-only CI also passes 21 canonical faults, 14 distance tests, six path tests and 13 clearance tests. Added faults preserve the 64-edge checkpoint, reject thinner/differently scoped copper and independently detach the actual U31 status pin. Restoring the three retired source vias leaves exactly 63 opens and adds only their original three dangling findings, without a group or other DRC difference.
 

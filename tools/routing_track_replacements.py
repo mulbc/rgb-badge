@@ -3,6 +3,7 @@
 from collections import Counter
 import hashlib
 import json
+import runpy
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -30,7 +31,7 @@ def validate_plan(plan, required=False):
         for row in entry['replacement']:
             assert row[1] == entry['original'][1]
             assert (row[0] == 'track' and row[7] == 200000) or (row[0] == 'via' and row[6:] == [300000,100000])
-    return retired
+    return retired+runpy.run_path(str(ROOT/'tools/routing_source_chain.py'))['validate_plan'](plan)
 
 
 def contacts(board, original, signature, physical_identity):
@@ -77,4 +78,5 @@ def verify_native(old, new, plan, signature, physical_identity):
             assert any(t.GetEffectiveShape(layer).Collide(dot,0) for t in on_layer), 'Original-layer endpoint detached'
         for key,item in witnesses:
             assert any(t.GetEffectiveShape(layer).Collide(item.GetEffectiveShape(layer),0) for t in on_layer), 'Original-layer junction detached'
+    runpy.run_path(str(ROOT/'tools/routing_source_chain.py'))['verify_native'](old,new,plan,signature,physical_identity,contacts)
     return retired
