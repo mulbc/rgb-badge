@@ -1,28 +1,29 @@
 {
   "SPDX-License-Identifier": "CERN-OHL-S-2.0",
   "added_microvias": 822,
-  "added_tracks": 1656,
-  "board_sha256": "8a763a39aa0089c8c3d2c110e0a73f46a7b17cc905ea1ce6734417a0ea65c8c9",
+  "added_tracks": 1660,
+  "board_sha256": "a6a458a697d769ebba7c555f44d31dbe2c0945803847999e88116a399eb009e1",
   "canonical_contract_sha256": "3b7f150bd2dcd5b6d6efd7df4350da27ee625d483439e6c5e3ff2cfc5c45131c",
   "custom_rules_sha256": "1a1ca66607593e40db2967f1b5d839532ec64082bd211d40e9fef225c653952e",
   "fabrication_release_allowed": false,
   "footprints": 483,
-  "generator_sha256": "7cdfab2cdc2a701d3a7ae95232890f85cc4d0e5283f302b83c385c4aad030332",
+  "generator_sha256": "05be4bc63790c6537d82994ca296e22bca9e2de67dc1f5ba4a6c919457917771",
   "microvia_diameter_drill_mm": [
     0.3,
     0.1
   ],
   "minimum_annular_width_mm": 0.1,
-  "native_open_edges": 69,
+  "native_open_edges": 65,
   "ordinary_track_width_mm": 0.2,
   "other_net_clearance_mm": 0.2,
-  "pad_cluster_open_edges": 69,
+  "pad_cluster_open_edges": 65,
   "pad_neck_width_mm": 0.12,
   "pad_necks": 2,
-  "plan_sha256": "4afcfc21c9c28463a9b0a4d58a85fe82428ab5ae3b10b27347b9de1000473086",
+  "plan_sha256": "9fcfd0b2da807e2b620d3ca7f5933f57a612abfe8beb42de9aa3f85449493f32",
   "power_zones": 4,
   "project_sha256": "1141b004ecffd1e7e8e0c30cf21aeae7ce6381093df674998133d226ab9c27fb",
   "relocated_passives": 34,
+  "relocated_testpads": 4,
   "replaced_source_tracks": 5,
   "replacement_catalog_sha256": "917746d45be4c9387b766c87fa1cc31a27b1476b4aca3f10e3d988d2e4edf4c4",
   "retained_nonzero_source_copper": 15393,
@@ -32,5 +33,6 @@
   "source_native_open_edges": 215,
   "source_sha256": "da3c3e093acef457ce2d0ebe73b57fd5006b9139a57b7fe8acfcd77e612dc246",
   "status": "UNQUALIFIED_LOCAL_ROUTING_PROGRESS_STUDY",
-  "tracks_and_vias": 17871
+  "testpad_catalog_sha256": "e7d5b933844d6b19843c2dfdae954f47dcbd68a328b793bd9c595ee5ad977dfc",
+  "tracks_and_vias": 17875
 }

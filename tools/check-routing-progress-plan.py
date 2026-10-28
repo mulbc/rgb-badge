@@ -79,9 +79,14 @@ def validate_70_checkpoint(plan):
     validate_frozen_checkpoint(plan,70,'ff0f5f4efb4f66e9fae84b55332dbbfaea790f56b55f620d35b7df007a368374')
 
 
+def validate_69_checkpoint(plan):
+    validate_frozen_checkpoint(plan,69,'4afcfc21c9c28463a9b0a4d58a85fe82428ab5ae3b10b27347b9de1000473086')
+
+
 def validate(plan, manifest):
     runpy.run_path(str(ROOT/'tools/routing_pad_necks.py'))['validate_necks'](plan)
     runpy.run_path(str(ROOT/'tools/routing_track_replacements.py'))['validate_plan'](plan)
+    runpy.run_path(str(ROOT/'tools/routing_testpad_placements.py'))['validate_plan'](plan)
     assert plan['source_sha256'] == manifest['source_sha256'] == 'da3c3e093acef457ce2d0ebe73b57fd5006b9139a57b7fe8acfcd77e612dc246'
     assert plan['open_edges'] == manifest['native_open_edges'] <= 100
     assert sum(plan['open_edges_by_net'].values()) == plan['open_edges']
@@ -176,6 +181,9 @@ def validate_profile(plan,manifest):
 
 def main():
     plan=json.loads(PLAN.read_text());manifest=json.loads(MANIFEST.read_text())
+    testpads=runpy.run_path(str(ROOT/'tools/routing_testpad_placements.py'))
+    testpads['validate_plan'](plan,required=True)
+    assert manifest['testpad_catalog_sha256']==testpads['CATALOG_SHA256']
     validate(plan,manifest)
     validate_prior_checkpoint(plan)
     validate_100_checkpoint(plan)
@@ -186,6 +194,7 @@ def main():
     validate_76_checkpoint(plan)
     validate_71_checkpoint(plan)
     validate_70_checkpoint(plan)
+    validate_69_checkpoint(plan)
     replacements=runpy.run_path(str(ROOT/'tools/routing_track_replacements.py'))
     replacements['validate_plan'](plan,required=True)
     assert manifest['replacement_catalog_sha256']==replacements['CATALOG_SHA256']

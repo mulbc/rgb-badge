@@ -30,7 +30,8 @@ def main():
     assert hashlib.sha256(SOURCE.read_bytes()).hexdigest() == plan['source_sha256']
     board = p.LoadBoard(str(SOURCE))
     parts = {f.GetReference(): f for f in board.GetFootprints()}
-    for entry in plan['placements']:
+    runpy.run_path(str(ROOT/'tools/routing_testpad_placements.py'))['validate_plan'](plan,required=True)
+    for entry in plan['placements']+plan.get('testpad_placements',[]):
         part = parts[entry['reference']]
         assert [part.GetPosition().x, part.GetPosition().y] == entry['old_position_iu']
         assert part.GetOrientation().AsDegrees() == entry['old_angle_deg']

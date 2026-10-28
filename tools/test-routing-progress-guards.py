@@ -117,6 +117,38 @@ class RoutingProgressGuards(unittest.TestCase):
         with self.assertRaisesRegex(AssertionError,'Accepted 71-edge copper changed'):
             c.validate_geometry(self.old,self.new,self.plan)
 
+    def test_testpad_catalog_cannot_be_omitted(self):
+        del self.plan['testpad_placements'];self.reject()
+
+    def test_unselected_testpad_cannot_move(self):
+        self.parts['TP4'].Move(p.VECTOR2I(100000,0));self.reject()
+
+    def test_selected_testpad_land_cannot_change(self):
+        list(self.parts['TP11'].Pads())[0].SetSize(p.VECTOR2I(1100000,1000000));self.reject()
+
+    def test_testpad_lead_cannot_retire_in_candidate_and_plan(self):
+        row=self.plan['testpad_placements'][0]['connection'][0]
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        self.new.Remove(item);self.plan['added_copper'].remove(row);self.reject()
+
+    def test_testpad_prior_copper_contact_is_checked_independently(self):
+        policy=c.module('testpads','routing_testpad_placements.py')
+        part=next(f for f in self.old.GetFootprints() if f.GetReference()=='TP1')
+        pad=list(part.Pads())[0];item=p.PCB_TRACK(self.old)
+        point=pad.GetPosition();item.SetStart(point);item.SetEnd(p.VECTOR2I(point.x+100000,point.y))
+        item.SetLayer(p.B_Cu);item.SetWidth(200000);item.SetNetCode(pad.GetNetCode());self.old.Add(item)
+        with self.assertRaisesRegex(AssertionError,'Testpad originally contacted copper'):
+            policy.verify_native(self.old,self.new,self.plan,c.signature,c.physical_identity,c.physical_cluster)
+
+    def test_testpad_join_is_checked_independently_of_catalog(self):
+        policy=c.module('testpads','routing_testpad_placements.py')
+        entry=self.plan['testpad_placements'][0];row=entry['connection'][0]
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        self.new.Remove(item);self.new.BuildConnectivity();self.plan['added_copper'].remove(row)
+        entry['connection']=[];policy.catalog=lambda:self.plan['testpad_placements']
+        with self.assertRaisesRegex(AssertionError,'Testpad is not joined'):
+            policy.verify_native(self.old,self.new,self.plan,c.signature,c.physical_identity,c.physical_cluster)
+
     def test_reviewed_original_cannot_be_restored_in_candidate_and_plan(self):
         row=self.plan['track_replacements'][0]['original'];item=p.PCB_TRACK(self.new)
         item.SetStart(p.VECTOR2I(*row[2:4]));item.SetEnd(p.VECTOR2I(*row[4:6]))

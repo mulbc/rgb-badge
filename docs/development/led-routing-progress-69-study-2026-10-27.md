@@ -2,6 +2,8 @@
 
 # Routing continuation: 70 to 69 unconnected edges
 
+Historical checkpoint at commit 9015215; see the [65-edge continuation](led-routing-progress-65-study-2026-10-28.md). Validation fingerprints describe files at that commit.
+
 Date: 2026-10-27. Unbuilt, unqualified source study; no hardware measurements or fabrication release. The 50-edge target remains open.
 
 The selected transaction grounds TH1.2 and reduces native/independent physical-pad opens **70 → 69**, retaining exactly **104 unchanged intrinsic DRC findings**. Every accepted 70-edge added copper item and physical pad group survives. The [70-edge integer plan](../../mechanical/review/routing-progress-70-checkpoint.json) freezes commit 7c19554 under ADR 0052. All earlier source replacements and physical connections remain exact.
@@ -21,7 +23,7 @@ The board contains **483 footprints / 17,871 copper items**, retains **15,393 no
 
 ## Validation
 
-[Full DRC](led-routing-progress-69-drc-2026-10-27.json), [native checks](../../mechanical/review/routing-progress-69-native-check-2026-10-27.json), [orphan-restoration DRC](led-routing-progress-69-orphan-restoration-drc-2026-10-27.json), [remaining-net counts](../../mechanical/review/routing-progress-open-nets.json) and [validation fingerprints](../../mechanical/review/routing-progress-69-validation-2026-10-27.json) record this checkpoint. Three stable refills and two identical PCB/project/custom-rule replays pass. Board SHA-256: `8a763a39aa0089c8c3d2c110e0a73f46a7b17cc905ea1ce6734417a0ea65c8c9`.
+[Full DRC](led-routing-progress-69-drc-2026-10-27.json), [native checks](../../mechanical/review/routing-progress-69-native-check-2026-10-27.json), [orphan-restoration DRC](led-routing-progress-69-orphan-restoration-drc-2026-10-27.json), [remaining-net counts](../../mechanical/review/routing-progress-69-open-nets-2026-10-27.json) and [validation fingerprints](../../mechanical/review/routing-progress-69-validation-2026-10-27.json) record this checkpoint. Three stable refills and two identical PCB/project/custom-rule replays pass. Board SHA-256: `8a763a39aa0089c8c3d2c110e0a73f46a7b17cc905ea1ce6734417a0ea65c8c9`.
 
 Acceptance passes **31 isolated native / 59 portable plan guards**, canonical metadata and **256 LED checks**, plus source-only CI's 21 canonical-source fault methods, 14 distance tests, six path tests and seven clearance tests. The new frozen-70 checks reject losing prior copper or the PAIR10 ground group. Exact catalog fingerprints and independent original-contact checks protect all five source replacements. The separate restored-orphan witness retains all groups and 69 opens while adding only the same three expected dangling-via findings. Final validation fingerprints record the completed checks. Run `./tools/check-routing-progress.sh`.
 

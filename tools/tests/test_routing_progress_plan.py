@@ -220,6 +220,54 @@ class PlanGuards(unittest.TestCase):
         with self.assertRaises(AssertionError):m.validate_70_checkpoint(plan)
 
 
+    def test_accepted_69_checkpoint_is_preserved(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        m.validate_69_checkpoint(plan)
+
+    def test_accepted_69_copper_cannot_be_dropped(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        prior=json.loads((ROOT/'mechanical/review/routing-progress-69-checkpoint.json').read_text())
+        plan['added_copper'].remove(prior['added_copper'][-1])
+        with self.assertRaises(AssertionError):m.validate_69_checkpoint(plan)
+
+    def test_accepted_69_join_cannot_be_lost(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        for row in plan['physical_group_witnesses']:
+            if row[0]=='GND':row[2]=[q for q in row[2] if q[:2]!=['TH1','2']]
+        with self.assertRaises(AssertionError):m.validate_69_checkpoint(plan)
+
+    def pad_placement_fixture(self):
+        policy=m.runpy.run_path(str(ROOT/'tools/routing_testpad_placements.py'))
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        return policy,plan
+
+    def test_testpad_catalog_is_preserved(self):
+        policy,plan=self.pad_placement_fixture();policy['validate_plan'](plan,required=True)
+
+    def test_testpad_catalog_cannot_be_omitted(self):
+        policy,plan=self.pad_placement_fixture();del plan['testpad_placements']
+        with self.assertRaises(AssertionError):policy['validate_plan'](plan,required=True)
+
+    def test_unselected_testpad_reference_is_rejected(self):
+        policy,plan=self.pad_placement_fixture();plan['testpad_placements'][0]['reference']='TP4'
+        with self.assertRaises(AssertionError):policy['validate_plan'](plan,required=True)
+
+    def test_testpad_net_cannot_change(self):
+        policy,plan=self.pad_placement_fixture();plan['testpad_placements'][0]['net']='VLED'
+        with self.assertRaises(AssertionError):policy['validate_plan'](plan,required=True)
+
+    def test_testpad_pose_cannot_change(self):
+        policy,plan=self.pad_placement_fixture();plan['testpad_placements'][0]['new_position_iu'][0]+=100000
+        with self.assertRaises(AssertionError):policy['validate_plan'](plan,required=True)
+
+    def test_testpad_lead_cannot_be_removed(self):
+        policy,plan=self.pad_placement_fixture();plan['added_copper'].remove(plan['testpad_placements'][0]['connection'][0])
+        with self.assertRaises(AssertionError):policy['validate_plan'](plan,required=True)
+
+    def test_testpad_lead_cannot_be_narrowed(self):
+        policy,plan=self.pad_placement_fixture();plan['testpad_placements'][0]['connection'][0][7]=120000
+        with self.assertRaises(AssertionError):policy['validate_plan'](plan,required=True)
+
     def replacement_fixture(self):
         policy=m.runpy.run_path(str(ROOT/'tools/routing_track_replacements.py'))
         plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())

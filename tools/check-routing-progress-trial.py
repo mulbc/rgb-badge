@@ -92,9 +92,13 @@ def validate_geometry(old, new, plan):
     old_parts = {f.GetReference(): f for f in old.GetFootprints()}
     new_parts = {f.GetReference(): f for f in new.GetFootprints()}
     assert old_parts.keys() == new_parts.keys() and len(new_parts) == 483, 'Component inventory changed'
+    testpad_policy=module('testpads','routing_testpad_placements.py')
+    testpad_entries=testpad_policy.validate_plan(plan,required=True)
     poses={entry['reference']:entry for entry in plan['placements']}
     assert len(poses)==len(plan['placements'])
     assert all(ref.startswith(('R','C')) and ref[1:].isdigit() and ref not in {'R45','R46'} for ref in poses), 'Unreviewed component move'
+    assert not set(poses)&{entry['reference'] for entry in testpad_entries}
+    poses.update({entry['reference']:entry for entry in testpad_entries})
     lookup = {}
     for ref, part in old_parts.items():
         other = new_parts[ref]
@@ -184,6 +188,8 @@ def validate_geometry(old, new, plan):
     prior_check.validate_76_checkpoint(plan)
     prior_check.validate_71_checkpoint(plan)
     prior_check.validate_70_checkpoint(plan)
+    prior_check.validate_69_checkpoint(plan)
+    testpad_policy.verify_native(old,new,plan,signature,physical_identity,physical_cluster)
     assert sorted(changed) == plan['changed_nets'], 'Changed net set differs'
     # A physical witness includes coordinates, including repeated logical pad numbers.
     normalized = json.loads(json.dumps(sorted(joins)))
@@ -195,7 +201,7 @@ def validate_geometry(old, new, plan):
     assert opens['native_open_edges'] == opens['pad_cluster_open_edges'] == plan['open_edges']
     assert opens['by_net'] == plan['open_edges_by_net']
     module('rows', 'check-row-drain-tie-trial.py').check_physical_rows(new)
-    return dict(checked_footprints=483, relocated_passives=len(poses), all_existing_physical_pad_groups_preserved=True,
+    return dict(checked_footprints=483, relocated_passives=len(plan['placements']), relocated_testpads=len(testpad_entries), all_existing_physical_pad_groups_preserved=True,
                 retained_source_copper=sum(retained.values()), retired_zero_length_tracks=116,
                 retired_orphan_microvias=sum(orphan.values()), replaced_source_tracks=sum(replaced.values()),
                 added_power_zones=len(plan.get('power_zones',[])),
@@ -227,6 +233,7 @@ def main():
     assert manifest['shared_footprints_with_canonical_metadata']==465
     for key,manifest_key in [('checked_footprints','footprints'),('relocated_passives','relocated_passives'),
                              ('retained_source_copper','retained_nonzero_source_copper'),
+                             ('relocated_testpads','relocated_testpads'),
                              ('retired_zero_length_tracks','retired_zero_length_tracks'),
                              ('retired_orphan_microvias','retired_orphan_microvias'),
                              ('replaced_source_tracks','replaced_source_tracks'),

@@ -32,3 +32,7 @@ Freeze abf4f99's integer plan and every completed group/addition. ADR 0053's exa
 ## Accepted 70-edge checkpoint, 2026-10-27
 
 Freeze 7c19554's integer plan, additions and completed groups. ADR 0053's fourth/fifth exact original-source replacements permit the separately verified TH1 ground transaction at 69 edges. No earlier addition or group may be lost; all other original copper, dimensions, parts, current/protection/enable boundaries and fabrication gates remain protected.
+
+## Accepted 69-edge checkpoint and isolated test lands, 2026-10-28
+
+Freeze 9015215's exact integer plan, every added copper item, completed physical group, original zone, parcel, DSF neck and five track-replacement records. ADR 0055 permits only the four independently verified isolated test-land poses selected at 65 edges. All accepted copper survives, unlike the earlier enumerated original-track replacements. The R/C poses and all other test pads remain fixed; electrical/current/protection/enable and fabrication gates remain unchanged.

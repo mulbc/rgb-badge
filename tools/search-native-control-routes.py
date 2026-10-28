@@ -217,7 +217,10 @@ def main():
                 continue
             for point in positions:
                 x, y = r.xy(point)
-                if r.X0 <= x <= r.X1 and r.Y0 <= y <= r.Y1:
+                # A valid pad may sit just outside the grid (e.g. y=0.65 mm).
+                # Keep its existing 0.60 mm probe reach; candidate grid points
+                # and every connecting lead still undergo the usual checks.
+                if r.X0-.6 <= x <= r.X1+.6 and r.Y0-.6 <= y <= r.Y1+.6:
                     for layer in layers:
                         for dx in range(-12,13):
                             for dy in range(-12,13):
