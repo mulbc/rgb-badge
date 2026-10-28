@@ -7,3 +7,7 @@
 (rule "U52 bounded DSF neck"
  (condition "A.Layer == 'B.Cu' && A.intersectsCourtyard('U52') && (A.NetName == '+3V3_APP' || A.NetName == 'DISPLAY_CLEAR_3' || A.NetName == 'DISPLAY_CLEAR_OK' || A.NetName == 'DISPLAY_ENABLE' || A.NetName == 'GND')")
  (constraint track_width (min 0.12mm)))
+
+(rule "ADR0047 exact USB status width"
+ (condition "A.NetName == 'USB_RAW_OUT2'")
+ (constraint track_width (min 0.12mm)))

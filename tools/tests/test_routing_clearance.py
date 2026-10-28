@@ -4,11 +4,54 @@ from collections import deque
 import importlib.util
 from pathlib import Path
 import unittest
+from unittest import mock
+import sys
+import types
+import array
 
 spec = importlib.util.spec_from_file_location('clearance',
     Path(__file__).resolve().parents[1]/'routing_clearance.py')
 c = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(c)
+
+
+class ViaFootprint(unittest.TestCase):
+    def router_fixture(self,width):
+        # Load the real raster code with only its import-time layer constants.
+        # The mask/footprint tests never construct a native board.
+        stub=types.ModuleType('pcbnew')
+        for i,name in enumerate(('In1_Cu','In2_Cu','In3_Cu','In4_Cu')):setattr(stub,name,i)
+        spec=importlib.util.spec_from_file_location('via_grid',Path(__file__).resolve().parents[1]/'generate-colour-fanout-grid-trial.py')
+        grid=importlib.util.module_from_spec(spec)
+        with mock.patch.dict(sys.modules,{'pcbnew':stub}):spec.loader.exec_module(grid)
+        grid.WIDTH=width;grid.NX=grid.NY=11;grid.SIZE=121
+        router=object.__new__(grid.Router);router.mask=[array.array('i',[0])*121]
+        return grid,router
+
+    def test_original_width_uses_one_extra_cell(self):
+        grid,router=self.router_fixture(.20);router.mask[0][5*11+7]=99
+        self.assertTrue(router.via_free(0,5*11+5,42))
+
+    def test_narrow_track_requires_two_cardinal_cells(self):
+        grid,router=self.router_fixture(.12);router.mask[0][5*11+7]=99
+        self.assertFalse(router.via_free(0,5*11+5,42))
+
+    def test_narrow_track_requires_two_diagonal_cells(self):
+        grid,router=self.router_fixture(.12);router.mask[0][7*11+7]=99
+        self.assertFalse(router.via_free(0,5*11+5,42))
+
+    def test_narrow_via_near_grid_edge_is_rejected(self):
+        grid,router=self.router_fixture(.12)
+        self.assertFalse(router.via_free(0,5*11+1,42))
+        self.assertTrue(router.via_free(0,5*11+2,42))
+
+    def test_same_net_cells_remain_usable(self):
+        grid,router=self.router_fixture(.12);router.mask[0][5*11+7]=42
+        self.assertTrue(router.via_free(0,5*11+5,42))
+
+    def test_larger_track_needs_no_extra_footprint(self):
+        grid,router=self.router_fixture(.30);router.mask[0][5*11+6]=99
+        self.assertTrue(router.via_free(0,5*11+5,42))
 
 
 class RoutingClearance(unittest.TestCase):

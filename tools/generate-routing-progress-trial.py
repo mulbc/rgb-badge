@@ -23,8 +23,8 @@ def main():
     policy=runpy.run_path(str(ROOT/'tools/routing_pad_necks.py'))
     profile=policy['project_profile'](ROOT,plan)
     OUTPUT.with_suffix('.kicad_pro').write_text(json.dumps(profile,indent=2)+'\n')
-    if plan.get('pad_necks'):
-        OUTPUT.with_suffix('.kicad_dru').write_text(policy['native_rules']())
+    if plan.get('pad_necks') or plan.get('digital_width'):
+        OUTPUT.with_suffix('.kicad_dru').write_text(policy['native_rules'](plan))
     else:
         OUTPUT.with_suffix('.kicad_dru').unlink(missing_ok=True)
     assert hashlib.sha256(SOURCE.read_bytes()).hexdigest() == plan['source_sha256']

@@ -190,6 +190,8 @@ def validate_geometry(old, new, plan):
     prior_check.validate_70_checkpoint(plan)
     prior_check.validate_69_checkpoint(plan)
     prior_check.validate_65_checkpoint(plan)
+    prior_check.validate_64_checkpoint(plan)
+    digital_count=module('digital_width','routing_digital_width.py').verify_native(new,plan,signature,physical_cluster)
     testpad_policy.verify_native(old,new,plan,signature,physical_identity,physical_cluster)
     assert sorted(changed) == plan['changed_nets'], 'Changed net set differs'
     # A physical witness includes coordinates, including repeated logical pad numbers.
@@ -203,6 +205,7 @@ def validate_geometry(old, new, plan):
     assert opens['by_net'] == plan['open_edges_by_net']
     module('rows', 'check-row-drain-tie-trial.py').check_physical_rows(new)
     return dict(checked_footprints=483, relocated_passives=len(plan['placements']), relocated_testpads=len(testpad_entries), all_existing_physical_pad_groups_preserved=True,
+                digital_narrow_tracks=digital_count, digital_nets=len(plan.get('digital_width',{}).get('nets',[])),
                 retained_source_copper=sum(retained.values()), retired_zero_length_tracks=116,
                 retired_orphan_microvias=sum(orphan.values()), replaced_source_tracks=sum(replaced.values()),
                 added_power_zones=len(plan.get('power_zones',[])),
@@ -235,6 +238,7 @@ def main():
     for key,manifest_key in [('checked_footprints','footprints'),('relocated_passives','relocated_passives'),
                              ('retained_source_copper','retained_nonzero_source_copper'),
                              ('relocated_testpads','relocated_testpads'),
+                             ('digital_narrow_tracks','digital_narrow_tracks'),('digital_nets','digital_nets'),
                              ('retired_zero_length_tracks','retired_zero_length_tracks'),
                              ('retired_orphan_microvias','retired_orphan_microvias'),
                              ('replaced_source_tracks','replaced_source_tracks'),

@@ -20,3 +20,13 @@ Require actual native and physical-pad-cluster edge reduction, unchanged 104 int
 ## Consequences
 
 This is a placement/routing source study, not electrical or manufacturing approval. Bypass locality, obsolete branch cleanup, feedback/Kelvin returns, switching loops, copper/via current capacity, RF/thermal/mechanical fit and HDI process remain review work. No source merge releases fabrication files; independent Gate A remains required.
+
+## Local R96 follow-up screen, 2026-10-28
+
+The fixed-pose E1_ILM probe calculates to 4.81452 mm but splits U44.8 from ground, and its initial local ground repairs fail; that probe is excluded. ADR 0045 already permits an ignored R96 placement screen with exact Panasonic `ERJ2RKF3321X`, 3.32 kΩ ±1%, unchanged two 0.50 × 0.50 mm lands at ±0.50 mm, pin 1/E1_ILM and pin 2/GND. Rechecked Panasonic's ERJ datasheet (29-May-25) and recommended lands (24-Dec-25): https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf and https://industrial.panasonic.com/cdbs/www-data/pdf/RDM0000/DMM0000COL17.pdf . The exact-part web page timed out; the manufacturer family ordering table covers the unchanged MPN and value. No vendor PDF is committed.
+
+Bound this screen to 5 mm from R96's old centre and 3 mm from U44. Preserve all 64-edge copper/groups and previously selected poses. Keep total new E1_ILM trace at most 5 mm, widths/clearance/vias unchanged and reconnect the resistor's ground to its entire old group. This does not change the setting resistance or authorize any higher current. A pose is not selected before lower independent opens, stable full DRC/replay, exact metadata and fault/source evidence. Current-limit accuracy/noise, ground-reference and assembly review remain open.
+
+The 0.25 mm placement screen makes no complete candidate; the finer 0.10 mm screen finds zero legal courtyard/other-net-clearance poses inside both bounds. R96 remains at its accepted 64-edge position. The fixed-pose 4.81452 mm E1_ILM route is also excluded: it isolates U44.8, and both the short plane-bridge and local ground-path screens fail to restore that pad. No new current-setting route or component pose is selected; finite screens do not prove impossibility.
+
+A second ignored screen may expand the distance from U44 to 5 mm while retaining the 5 mm maximum displacement from R96's old centre and the 5 mm total setting-trace bound. The original pose lies outside the first 3 mm IC-locality screen. All exact-part, prior-copper/group and validation limits remain unchanged; this expands only the ignored pose search.

@@ -90,6 +90,12 @@ def validate_65_checkpoint(plan):
         assert all(entry in plan.get(key,[]) for entry in prior[key]), 'Accepted 65-edge %s changed'%key
 
 
+def validate_64_checkpoint(plan):
+    validate_frozen_checkpoint(plan,64,'55b799efccd46eb3709ecc4419d52529d3ea14f12db86b0a800ac28518673294')
+    prior=json.loads((ROOT/'mechanical/review/routing-progress-64-checkpoint.json').read_text())
+    assert all(entry in plan.get('track_replacements',[]) for entry in prior['track_replacements']), 'Accepted 64-edge replacement changed'
+
+
 def validate(plan, manifest):
     runpy.run_path(str(ROOT/'tools/routing_pad_necks.py'))['validate_necks'](plan)
     runpy.run_path(str(ROOT/'tools/routing_track_replacements.py'))['validate_plan'](plan)
@@ -172,8 +178,8 @@ def validate_profile(plan,manifest):
     policy=runpy.run_path(str(ROOT/'tools/routing_pad_necks.py'))
     assert pro==policy['project_profile'](ROOT,plan), 'Unreviewed project-rule change'
     rules=OUTPUT.with_suffix('.kicad_dru')
-    if plan.get('pad_necks'):
-        assert rules.read_text()==policy['native_rules']()
+    if plan.get('pad_necks') or plan.get('digital_width'):
+        assert rules.read_text()==policy['native_rules'](plan)
         assert hashlib.sha256(rules.read_bytes()).hexdigest()==manifest['custom_rules_sha256']
         assert manifest['pad_necks']==len(plan['pad_necks'])
     else:
@@ -203,6 +209,12 @@ def main():
     validate_70_checkpoint(plan)
     validate_69_checkpoint(plan)
     validate_65_checkpoint(plan)
+    validate_64_checkpoint(plan)
+    digital=runpy.run_path(str(ROOT/'tools/routing_digital_width.py'))
+    narrow=digital['validate_plan'](plan,required=True)
+    assert manifest['digital_width_catalog_sha256']==digital['CATALOG_SHA256']
+    assert manifest['digital_narrow_tracks']==sum(narrow.values())
+    assert manifest['digital_nets']==len(digital['NETS'])
     replacements=runpy.run_path(str(ROOT/'tools/routing_track_replacements.py'))
     replacements['validate_plan'](plan,required=True)
     assert manifest['replacement_catalog_sha256']==replacements['CATALOG_SHA256']

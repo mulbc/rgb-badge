@@ -267,6 +267,68 @@ class PlanGuards(unittest.TestCase):
         plan['track_replacements'][0]['junction_contacts'].pop()
         with self.assertRaisesRegex(AssertionError,'65-edge track_replacements changed'):m.validate_65_checkpoint(plan)
 
+    def test_accepted_64_checkpoint_is_preserved(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        m.validate_64_checkpoint(plan)
+
+    def test_accepted_64_copper_cannot_be_dropped(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        prior=json.loads((ROOT/'mechanical/review/routing-progress-64-checkpoint.json').read_text())
+        plan['added_copper'].remove(prior['added_copper'][-1])
+        with self.assertRaisesRegex(AssertionError,'Accepted 64-edge copper changed'):m.validate_64_checkpoint(plan)
+
+    def test_accepted_64_temperature_join_cannot_be_lost(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        for row in plan['physical_group_witnesses']:
+            if row[0]=='TEMP_OK':row[2]=[q for q in row[2] if q[:2]!=['U39','6']]
+        with self.assertRaises(AssertionError):m.validate_64_checkpoint(plan)
+
+    def test_accepted_64_replacement_is_frozen(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        plan['track_replacements'][-1]['junction_contacts'].pop()
+        with self.assertRaisesRegex(AssertionError,'64-edge replacement changed'):m.validate_64_checkpoint(plan)
+
+    def digital_fixture(self):
+        spec=importlib.util.spec_from_file_location('digital_width_test',ROOT/'tools/routing_digital_width.py')
+        policy=importlib.util.module_from_spec(spec);spec.loader.exec_module(policy)
+        return policy,json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+
+    def test_exact_digital_catalog_passes(self):
+        policy,plan=self.digital_fixture()
+        self.assertEqual(sum(policy.validate_plan(plan,required=True).values()),13)
+
+    def test_digital_catalog_cannot_be_omitted(self):
+        policy,plan=self.digital_fixture();del plan['digital_width']
+        with self.assertRaises(AssertionError):policy.validate_plan(plan,required=True)
+
+    def test_digital_copper_cannot_be_dropped(self):
+        policy,plan=self.digital_fixture();plan['added_copper'].remove(plan['digital_width']['added_copper'][0])
+        with self.assertRaisesRegex(AssertionError,'Reviewed digital copper missing'):policy.validate_plan(plan)
+
+    def test_extra_narrow_digital_copper_is_rejected(self):
+        policy,plan=self.digital_fixture();plan['added_copper'].append(['track','USB_RAW_OUT2',0,0,1000000,0,'B.Cu',120000])
+        with self.assertRaisesRegex(AssertionError,'Unreviewed narrow digital copper'):policy.validate_plan(plan)
+
+    def test_digital_net_scope_is_independent_of_catalog(self):
+        policy,plan=self.digital_fixture();row=plan['digital_width']['added_copper'][0]
+        plan['added_copper'].remove(row);row[1]='GND';plan['added_copper'].append(row.copy());policy.catalog=lambda:plan['digital_width']
+        with self.assertRaisesRegex(AssertionError,'Net outside digital-width scope'):policy.validate_plan(plan)
+
+    def test_digital_width_is_independent_of_catalog(self):
+        policy,plan=self.digital_fixture();row=plan['digital_width']['added_copper'][0]
+        plan['added_copper'].remove(row);row[7]=110000;plan['added_copper'].append(row.copy());policy.catalog=lambda:plan['digital_width']
+        with self.assertRaises(AssertionError):policy.validate_plan(plan)
+
+    def test_digital_length_is_independent_of_catalog(self):
+        policy,plan=self.digital_fixture();row=plan['digital_width']['added_copper'][0]
+        plan['added_copper'].remove(row);row[4]+=121000000;plan['added_copper'].append(row.copy());policy.catalog=lambda:plan['digital_width']
+        with self.assertRaisesRegex(AssertionError,'Digital-width length bound exceeded'):policy.validate_plan(plan)
+
+    def test_native_digital_rule_has_only_the_selected_net(self):
+        policy,plan=self.digital_fixture();rule=policy.native_rule(plan)
+        self.assertIn("A.NetName == 'USB_RAW_OUT2'",rule)
+        self.assertNotIn('UART0_TX',rule);self.assertNotIn('GND',rule)
+
     def pad_placement_fixture(self):
         policy=m.runpy.run_path(str(ROOT/'tools/routing_testpad_placements.py'))
         plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())

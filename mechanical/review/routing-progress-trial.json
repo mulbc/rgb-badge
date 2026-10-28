@@ -1,25 +1,28 @@
 {
   "SPDX-License-Identifier": "CERN-OHL-S-2.0",
-  "added_microvias": 834,
-  "added_tracks": 1758,
-  "board_sha256": "5b67c6618d8bbf1c945492c2c2ab96cf722edf7475799f2689d14be317c769ae",
+  "added_microvias": 837,
+  "added_tracks": 1771,
+  "board_sha256": "a5807c556358dba4d0c17d69dfd629fc5369c7658637c9169331c012770f9ef6",
   "canonical_contract_sha256": "3b7f150bd2dcd5b6d6efd7df4350da27ee625d483439e6c5e3ff2cfc5c45131c",
-  "custom_rules_sha256": "1a1ca66607593e40db2967f1b5d839532ec64082bd211d40e9fef225c653952e",
+  "custom_rules_sha256": "6bba2ea3037cad5657e4ebcaae6ef919b9265e0d50ff0ad8eedf5d10cece196c",
+  "digital_narrow_tracks": 13,
+  "digital_nets": 1,
+  "digital_width_catalog_sha256": "ab694bdd60606fbe29b2cb7dab18b357958e4398e6832eb539b18e293d8a7733",
   "fabrication_release_allowed": false,
   "footprints": 483,
-  "generator_sha256": "05be4bc63790c6537d82994ca296e22bca9e2de67dc1f5ba4a6c919457917771",
+  "generator_sha256": "8764f313f871748831cee843c5c1fa7bd37028ff9841e0f5ec86d617fd69de9c",
   "microvia_diameter_drill_mm": [
     0.3,
     0.1
   ],
   "minimum_annular_width_mm": 0.1,
-  "native_open_edges": 64,
+  "native_open_edges": 63,
   "ordinary_track_width_mm": 0.2,
   "other_net_clearance_mm": 0.2,
-  "pad_cluster_open_edges": 64,
+  "pad_cluster_open_edges": 63,
   "pad_neck_width_mm": 0.12,
   "pad_necks": 2,
-  "plan_sha256": "55b799efccd46eb3709ecc4419d52529d3ea14f12db86b0a800ac28518673294",
+  "plan_sha256": "d0d9ec0226bc9846fa54635bc9d0b86d39e0dc14d727a0b5fb12a714f3fd31c0",
   "power_zones": 4,
   "project_sha256": "1141b004ecffd1e7e8e0c30cf21aeae7ce6381093df674998133d226ab9c27fb",
   "relocated_passives": 34,
@@ -34,5 +37,5 @@
   "source_sha256": "da3c3e093acef457ce2d0ebe73b57fd5006b9139a57b7fe8acfcd77e612dc246",
   "status": "UNQUALIFIED_LOCAL_ROUTING_PROGRESS_STUDY",
   "testpad_catalog_sha256": "e7d5b933844d6b19843c2dfdae954f47dcbd68a328b793bd9c595ee5ad977dfc",
-  "tracks_and_vias": 17984
+  "tracks_and_vias": 18000
 }

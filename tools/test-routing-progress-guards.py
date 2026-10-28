@@ -202,6 +202,33 @@ class RoutingProgressGuards(unittest.TestCase):
         with self.assertRaisesRegex(AssertionError,'Original-layer endpoint detached'):
             policy.verify_native(self.old,self.new,self.plan,c.signature,c.physical_identity)
 
+    def test_64_checkpoint_cannot_be_retired_in_candidate_and_plan(self):
+        prior=json.loads((ROOT/'mechanical/review/routing-progress-64-checkpoint.json').read_text())
+        old=json.loads((ROOT/'mechanical/review/routing-progress-65-checkpoint.json').read_text())
+        connections={tuple(row) for entry in self.plan['track_replacements'] for row in entry['connection']}
+        row=next(row for row in prior['added_copper'] if row[0]=='track' and row[1]=='TEMP_OK' and row not in old['added_copper'] and tuple(row) not in connections)
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        self.new.Remove(item);self.plan['added_copper'].remove(row);self.new.BuildConnectivity()
+        with self.assertRaisesRegex(AssertionError,'Accepted 64-edge copper changed'):
+            c.validate_geometry(self.old,self.new,self.plan)
+
+    def test_selected_digital_track_cannot_be_thinner(self):
+        row=next(row for row in self.plan['digital_width']['added_copper'] if row[0]=='track')
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        item.SetWidth(110000);self.reject()
+
+    def test_digital_source_join_is_checked_independently(self):
+        policy=c.module('native_digital_join','routing_digital_width.py')
+        pad=next(q for q in self.parts['U31'].Pads() if q.GetNumber()=='8')
+        pad.Move(p.VECTOR2I(0,5000000));self.new.BuildConnectivity()
+        with self.assertRaisesRegex(AssertionError,'Digital status source pads are not joined'):
+            policy.verify_native(self.new,self.plan,c.signature,c.physical_cluster)
+
+    def test_digital_scope_does_not_allow_a_narrow_ground_track(self):
+        item=p.PCB_TRACK(self.new);item.SetStart(p.VECTOR2I(100000000,30000000));item.SetEnd(p.VECTOR2I(101000000,30000000))
+        item.SetLayer(p.B_Cu);item.SetWidth(120000);item.SetNetCode(self.new.FindNet('GND').GetNetCode());self.new.Add(item)
+        self.plan['added_copper'].append(list(c.signature(self.new,item)));self.reject()
+
     def test_added_route_detached(self):
         next(t for t in self.added if not isinstance(t,p.PCB_VIA)).Move(p.VECTOR2I(0,5000000));self.reject()
 

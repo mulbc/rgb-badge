@@ -118,14 +118,15 @@ class Router:
         return self.mask[layer][cell] in (0,net)
 
     def via_free(self, layer, cell, net):
-        # A via is 0.10 mm wider than a track; require another grid step
-        # of clearance in cardinal and diagonal directions on both layers.
+        # The mask already includes the selected track's radius. Expand it
+        # for the remaining via radius, including narrower trial tracks.
+        extra = math.ceil(max(0, VIA_D-WIDTH)/(2*STEP))
         gy,gx=divmod(cell,NX)
-        if gx < 1 or gx >= NX-1 or gy < 1 or gy >= NY-1:
+        if gx < extra or gx >= NX-extra or gy < extra or gy >= NY-extra:
             return False
         return all(self.free(layer,cell+dy*NX+dx,net)
-                   for dx,dy in ((0,0),(1,0),(-1,0),(0,1),(0,-1),
-                                 (1,1),(1,-1),(-1,1),(-1,-1)))
+                   for dx in range(-extra,extra+1)
+                   for dy in range(-extra,extra+1))
 
     def search(self, net, start, max_nodes):
         goals = self.targets[net]
