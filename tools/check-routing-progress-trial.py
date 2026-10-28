@@ -189,6 +189,7 @@ def validate_geometry(old, new, plan):
     prior_check.validate_71_checkpoint(plan)
     prior_check.validate_70_checkpoint(plan)
     prior_check.validate_69_checkpoint(plan)
+    prior_check.validate_65_checkpoint(plan)
     testpad_policy.verify_native(old,new,plan,signature,physical_identity,physical_cluster)
     assert sorted(changed) == plan['changed_nets'], 'Changed net set differs'
     # A physical witness includes coordinates, including repeated logical pad numbers.

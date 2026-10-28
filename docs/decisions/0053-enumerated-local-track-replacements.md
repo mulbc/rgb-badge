@@ -3,7 +3,7 @@
 # ADR 0053: Enumerated local track replacements for blocked escapes
 
 Date: 2026-10-27
-Status: Accepted for the unqualified 69-edge continuation; exactly five catalog replacements selected.
+Status: Accepted for the unqualified 64-edge continuation; exactly six catalog replacements selected.
 
 ## Context
 
@@ -47,3 +47,17 @@ The 70-edge continuation passes three stable refills, byte-identical replays, 31
 The TH1.2 ground transaction requires exactly two further original tracks: ROW_GATE_09 on In2, (54.2, 12.6)–(54.2, 19.9) mm, and ROW_SEL_05 on In4, (53.35, 15.75)–(55.15, 15.75) mm. The ignored 69-edge candidate preserves their four/two direct contacts and endpoints, all earlier groups and the full intrinsic DRC. Calculated replacement track lengths are 7.5 versus 7.3 mm and 7.4 versus 1.8 mm; layer/via changes remain timing/return review items. Pin only these two additional catalog entries, freeze the accepted 70-edge plan, and require full stable replay/native/fault/source proof before selection. No power bus, source via, package/current/enable boundary changes are authorized.
 
 The selected 69-edge continuation passes full unchanged DRC, independent pad counts, three stable fills, two byte-identical replays, 31 native/59 portable guards, canonical/LED checks and separate orphan restoration. Catalog SHA-256: `917746d45be4c9387b766c87fa1cc31a27b1476b4aca3f10e3d988d2e4edf4c4`. All five replacements preserve 23 direct source contacts. See [69-edge evidence](../development/led-routing-progress-69-study-2026-10-27.md). Only the two extra signatures above are selected; all 70-edge additions/groups remain frozen and all other source copper remains protected.
+
+## Coordinated driver-port feasibility screen, 2026-10-28
+
+Single-track and greedy multi-track trials can fail when adjacent original colour trunks must move together. Permit an ignored local-shove experiment on original 0.20 mm COL_* In4 segments intersecting the driver-port region x = 80–86 mm, y = 7–12.5 mm. Existing endpoints/vias, every component and all accepted added copper stay fixed in the experiment. The router may adjust eligible colour geometry together, retaining 0.20 mm widths/clearance and the existing adjacent microvia dimensions for new routes. No power, ground, USB, accepted added track or source via is unlocked.
+
+Any prospective selection still needs the exact original/replacement catalog, original-layer endpoint/interior-contact proof, documented local changed region and lengths, every prior pad group, lower native/independent opens, unchanged full DRC, replay and guards. A global display reroute or a lower exchange-format score alone is excluded. The 65-edge source remains canonical until that complete gate passes; no current/protection/enable or fabrication boundary changes are authorized.
+
+## 64-edge candidate selection gate, 2026-10-28
+
+The second temperature-output escape can replace one further exact original COL_02_R In4 segment, (77.9, 14.75)–(51.95, 14.75) mm. Its local replacement calculates to 26.85 mm versus 25.95 mm and preserves four direct original source contacts. The new TEMP_OK connection joins U39.6 to the existing U40.1/R91.2 group; U39.4 remains open. The route uses unchanged 0.20 mm dimensions and two short application-supply bridges restore every previous physical group. Bridge track lengths calculate to 1.0 mm on In3 and 1.2 mm on B, with unchanged adjacent microvias. These are restorations of prior supply connections, with no current-setting change or electrical rating implied.
+
+Freeze the complete 65-edge plan, including all four selected test-land poses, 34 R/C poses, previous additions and five replacements. Select only the sixth exact catalog entry after native original-contact proof, three stable fills, unchanged full 104 intrinsic findings, independent 64-edge counts, replay, negative/source/LED checks and separate orphan restoration pass. No whole-chain replacement, further test land, package move, geometry relaxation, power parcel or fabrication output is selected.
+
+The [64-edge evidence](../development/led-routing-progress-64-study-2026-10-28.md) passes the complete gate: 39 native/75 portable guards, independent counts, stable fills/replay, all 27 original contacts and three-orphan restoration. Exactly the sixth entry is selected; the two supply bridges calculate to 1.0 and 1.2 mm. No broader replacement or fabrication exception is selected.

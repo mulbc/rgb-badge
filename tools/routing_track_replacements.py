@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT/'mechanical/review/routing-progress-track-replacements.json'
-CATALOG_SHA256 = '917746d45be4c9387b766c87fa1cc31a27b1476b4aca3f10e3d988d2e4edf4c4'
+CATALOG_SHA256 = '0f69fa50a68a19a2b897013b04a9986068c09c09694f518c344965e5a049dec4'
 
 
 def catalog():

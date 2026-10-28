@@ -236,6 +236,37 @@ class PlanGuards(unittest.TestCase):
             if row[0]=='GND':row[2]=[q for q in row[2] if q[:2]!=['TH1','2']]
         with self.assertRaises(AssertionError):m.validate_69_checkpoint(plan)
 
+    def test_accepted_65_checkpoint_is_preserved(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        m.validate_65_checkpoint(plan)
+
+    def test_accepted_65_copper_cannot_be_dropped(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        prior=json.loads((ROOT/'mechanical/review/routing-progress-65-checkpoint.json').read_text())
+        plan['added_copper'].remove(prior['testpad_placements'][0]['connection'][0])
+        with self.assertRaisesRegex(AssertionError,'Accepted 65-edge copper changed'):m.validate_65_checkpoint(plan)
+
+    def test_accepted_65_join_cannot_be_lost(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        for row in plan['physical_group_witnesses']:
+            if row[0]=='USB_RAW_OUT1':row[2]=[q for q in row[2] if q[:2]!=['TP20','1']]
+        with self.assertRaises(AssertionError):m.validate_65_checkpoint(plan)
+
+    def test_accepted_65_testpad_pose_is_frozen(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        plan['testpad_placements'][0]['new_position_iu'][0]+=100000
+        with self.assertRaisesRegex(AssertionError,'65-edge testpad_placements changed'):m.validate_65_checkpoint(plan)
+
+    def test_accepted_65_passive_pose_is_frozen(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        plan['placements'][0]['new_position_iu'][0]+=100000
+        with self.assertRaisesRegex(AssertionError,'65-edge placements changed'):m.validate_65_checkpoint(plan)
+
+    def test_accepted_65_replacement_is_frozen(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        plan['track_replacements'][0]['junction_contacts'].pop()
+        with self.assertRaisesRegex(AssertionError,'65-edge track_replacements changed'):m.validate_65_checkpoint(plan)
+
     def pad_placement_fixture(self):
         policy=m.runpy.run_path(str(ROOT/'tools/routing_testpad_placements.py'))
         plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())

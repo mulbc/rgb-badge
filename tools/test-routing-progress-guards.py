@@ -181,6 +181,27 @@ class RoutingProgressGuards(unittest.TestCase):
         with self.assertRaisesRegex(AssertionError,'Original-layer endpoint detached'):
             policy.verify_native(self.old,self.new,self.plan,c.signature,c.physical_identity)
 
+    def test_temperature_replacement_contacts_are_independent_of_catalog(self):
+        policy=c.module('fault_temperature_contacts','routing_track_replacements.py')
+        self.plan['track_replacements'][-1]['junction_contacts'].pop()
+        policy.catalog=lambda:self.plan['track_replacements']
+        with self.assertRaisesRegex(AssertionError,'Source junction inventory differs'):
+            policy.verify_native(self.old,self.new,self.plan,c.signature,c.physical_identity)
+
+    def test_temperature_replacement_endpoint_is_independent_of_catalog(self):
+        policy=c.module('fault_temperature_endpoint','routing_track_replacements.py')
+        entry=self.plan['track_replacements'][-1];endpoint=entry['original'][2:4]
+        row=next(row for row in entry['replacement'] if row[0]=='track' and endpoint in [row[2:4],row[4:6]])
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        self.plan['added_copper'].remove(row)
+        if row[2:4]==endpoint:
+            row[2]-=400000;item.SetStart(p.VECTOR2I(row[2],row[3]))
+        else:
+            row[4]-=400000;item.SetEnd(p.VECTOR2I(row[4],row[5]))
+        self.plan['added_copper'].append(row.copy());policy.catalog=lambda:self.plan['track_replacements']
+        with self.assertRaisesRegex(AssertionError,'Original-layer endpoint detached'):
+            policy.verify_native(self.old,self.new,self.plan,c.signature,c.physical_identity)
+
     def test_added_route_detached(self):
         next(t for t in self.added if not isinstance(t,p.PCB_VIA)).Move(p.VECTOR2I(0,5000000));self.reject()
 
