@@ -358,6 +358,15 @@ class PlanGuards(unittest.TestCase):
             if row[0]=='UART0_TX':row[2]=[x for x in row[2] if x[:2]!=['TP4','1']]
         with self.assertRaises(AssertionError):m.validate_62_checkpoint(plan)
 
+    def test_accepted_61_checkpoint_is_preserved(self):
+        m.validate_61_checkpoint(json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text()))
+
+    def test_accepted_61_copper_cannot_be_dropped(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        row=next(e['track'] for e in plan['pad_necks'] if e['reference']=='U52' and e['pin']=='3')
+        plan['added_copper'].remove(row)
+        with self.assertRaisesRegex(AssertionError,'Accepted 61-edge copper changed'):m.validate_61_checkpoint(plan)
+
     def transfer_fixture(self):
         spec=importlib.util.spec_from_file_location('transfer_test',ROOT/'tools/routing_track_replacements.py')
         policy=importlib.util.module_from_spec(spec);spec.loader.exec_module(policy)
@@ -371,6 +380,15 @@ class PlanGuards(unittest.TestCase):
 
     def test_colour_transfer_length_is_independent_of_catalog(self):
         policy,plan,entry=self.transfer_fixture();row=entry['replacement'][0]
+        plan['added_copper'].remove(row);row[4]+=3000000;plan['added_copper'].append(row.copy())
+        with self.assertRaisesRegex(AssertionError,'Colour-transfer length bound exceeded'):policy.validate_plan(plan)
+
+    def test_row_colour_transfer_original_is_independent_of_catalog(self):
+        policy,plan,_=self.transfer_fixture();entry=next(e for e in plan['track_replacements'] if e['original'][1]=='COL_03_B');entry['original'][2]+=1
+        with self.assertRaisesRegex(AssertionError,'Unreviewed colour-transfer original'):policy.validate_plan(plan)
+
+    def test_row_colour_transfer_length_is_independent_of_catalog(self):
+        policy,plan,_=self.transfer_fixture();entry=next(e for e in plan['track_replacements'] if e['original'][1]=='COL_03_B');row=entry['replacement'][0]
         plan['added_copper'].remove(row);row[4]+=3000000;plan['added_copper'].append(row.copy())
         with self.assertRaisesRegex(AssertionError,'Colour-transfer length bound exceeded'):policy.validate_plan(plan)
 

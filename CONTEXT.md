@@ -2,7 +2,7 @@
 
 # Project context
 
-**2026-10-29 routing continuation — 61 edges:** The [current checkpoint](docs/development/led-routing-progress-61-study-2026-10-29.md) grounds U52.3 through an exact local COL_10_R layer transfer, reducing native/physical opens **62 → 61** with exactly 104 unchanged intrinsic findings. Every 62-edge addition/group/pose survives. Original widths/clearance and all electrical settings remain fixed; only the authorized exact U52 ground neck is added. Stable replay, original-orphan restoration and source/fault checks pass. The 50-edge target and independent Gate A remain open.
+**2026-10-29 routing continuation — 60 edges:** The [current checkpoint](docs/development/led-routing-progress-60-study-2026-10-29.md) joins the PAIR06/07/08 ground island through an exact local COL_03_B rework, reducing native/physical opens **61 → 60** with exactly 104 unchanged intrinsic findings. Every 61-edge addition/group/pose survives, including all previous narrow copper and the U52 ground join. Original dimensions and electrical settings remain fixed. Stable replay, original-orphan restoration and source/fault checks pass. The 50-edge target and independent Gate A remain open.
 
 **2026-10-29 search contact correction:** The [pad-edge endpoint regression](docs/development/native-pad-contact-endpoints-2026-10-29.md) proves a full-width native fixture join that the centre-only search misses, with identical source bytes, two unchanged intrinsic clearances, retained ground/pads and exact replay. The accepted board remains 62 opens; finite follow-on control/plane/test-land studies have not yet produced another accepted join.
 

@@ -290,6 +290,19 @@ class RoutingProgressGuards(unittest.TestCase):
         with self.assertRaisesRegex(AssertionError,'Source junction inventory differs'):
             policy.verify_native(self.old,self.new,self.plan,c.signature,c.physical_identity)
 
+    def test_row_ground_transfer_contacts_are_independent_of_catalog(self):
+        policy=c.module('fault_row_ground_contacts','routing_track_replacements.py')
+        entry=next(e for e in self.plan['track_replacements'] if e['original'][1]=='COL_03_B')
+        entry['junction_contacts'].pop();policy.catalog=lambda:self.plan['track_replacements']
+        with self.assertRaisesRegex(AssertionError,'Source junction inventory differs'):
+            policy.verify_native(self.old,self.new,self.plan,c.signature,c.physical_identity)
+
+    def test_row_ground_added_route_cannot_be_removed(self):
+        entry=next(e for e in self.plan['track_replacements'] if e['original'][1]=='COL_03_B')
+        row=next(row for row in entry['connection'] if row[0]=='track' and row[6]=='In1.Cu')
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        self.new.Remove(item);self.reject()
+
     def test_u52_ground_neck_cannot_be_removed(self):
         row=next(e['track'] for e in self.plan['pad_necks'] if e['reference']=='U52' and e['pin']=='3')
         item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
