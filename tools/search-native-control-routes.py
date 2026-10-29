@@ -201,7 +201,14 @@ def main():
                                   q.GetPosition().y, q.m_Uuid.AsString()))
         for item in items:
             if isinstance(item, p.PAD):
-                positions = [item.GetPosition()]
+                # Start on actual land boundaries as well as the centre. A
+                # full-width cap still overlaps the pad, while its new copper
+                # need not inherit an existing neighbouring land's tight gap.
+                centre=item.GetPosition();size=item.GetSize();angle=item.GetOrientation().AsRadians()
+                positions=[centre]+[p.VECTOR2I(
+                    centre.x+round(dx*math.cos(angle)-dy*math.sin(angle)),
+                    centre.y+round(dx*math.sin(angle)+dy*math.cos(angle)))
+                    for dx,dy in [(size.x/2,0),(-size.x/2,0),(0,size.y/2),(0,-size.y/2)]]
                 layers = [i for i, native in enumerate(r.LAYERS) if item.IsOnLayer(native)]
             elif isinstance(item, p.PCB_VIA):
                 positions = [item.GetPosition()]
