@@ -3,12 +3,13 @@
 from collections import Counter
 import hashlib
 import json
+import math
 import runpy
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT/'mechanical/review/routing-progress-track-replacements.json'
-CATALOG_SHA256 = '0f69fa50a68a19a2b897013b04a9986068c09c09694f518c344965e5a049dec4'
+CATALOG_SHA256 = '8adcbea98e766d4ff9e2a61c4587abdfdf7d767b76aa2420e1f5f979ab4f6ad0'
 
 
 def catalog():
@@ -31,6 +32,20 @@ def validate_plan(plan, required=False):
         for row in entry['replacement']:
             assert row[1] == entry['original'][1]
             assert (row[0] == 'track' and row[7] == 200000) or (row[0] == 'via' and row[6:] == [300000,100000])
+    # ADR 0062 adds one exact full-width layer transfer, not a general
+    # permission to move or lengthen colour outputs.
+    for entry in entries:
+        if entry['original'][1]!='COL_10_R':
+            continue
+        assert entry['original']==['track','COL_10_R',83750000,1100000,70250000,1100000,'In4.Cu',200000], 'Unreviewed colour-transfer original'
+        tracks=[row for row in entry['replacement'] if row[0]=='track']
+        assert sum(math.dist(row[2:4],row[4:6]) for row in tracks)<=15500000.01, 'Colour-transfer length bound exceeded'
+        excursion=[row for row in tracks if row[6]!='In4.Cu']
+        assert excursion, 'Colour-transfer excursion omitted'
+        xs=[row[i] for row in excursion for i in (2,4)]
+        assert max(xs)-min(xs)<=2000000, 'Colour-transfer interval too wide'
+        assert all(70250000<=row[i]<=83750000 for row in tracks for i in (2,4)), 'Colour-transfer outside original extent'
+        assert all(abs(row[i]-1100000)<=1000000 for row in tracks for i in (3,5)), 'Colour-transfer local region exceeded'
     return retired+runpy.run_path(str(ROOT/'tools/routing_source_chain.py'))['validate_plan'](plan)
 
 

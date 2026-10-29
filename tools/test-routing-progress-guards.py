@@ -183,14 +183,14 @@ class RoutingProgressGuards(unittest.TestCase):
 
     def test_temperature_replacement_contacts_are_independent_of_catalog(self):
         policy=c.module('fault_temperature_contacts','routing_track_replacements.py')
-        self.plan['track_replacements'][-1]['junction_contacts'].pop()
+        next(e for e in self.plan['track_replacements'] if e['original'][1]=='COL_02_R')['junction_contacts'].pop()
         policy.catalog=lambda:self.plan['track_replacements']
         with self.assertRaisesRegex(AssertionError,'Source junction inventory differs'):
             policy.verify_native(self.old,self.new,self.plan,c.signature,c.physical_identity)
 
     def test_temperature_replacement_endpoint_is_independent_of_catalog(self):
         policy=c.module('fault_temperature_endpoint','routing_track_replacements.py')
-        entry=self.plan['track_replacements'][-1];endpoint=entry['original'][2:4]
+        entry=next(e for e in self.plan['track_replacements'] if e['original'][1]=='COL_02_R');endpoint=entry['original'][2:4]
         row=next(row for row in entry['replacement'] if row[0]=='track' and endpoint in [row[2:4],row[4:6]])
         item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
         self.plan['added_copper'].remove(row)
@@ -283,8 +283,25 @@ class RoutingProgressGuards(unittest.TestCase):
         pad=next(q for q in self.parts['U3'].Pads() if q.GetNumber()=='4')
         pad.SetNet(self.new.FindNet('GND'));self.reject()
 
+    def test_colour_transfer_contacts_are_independent_of_catalog(self):
+        policy=c.module('fault_colour_transfer_contacts','routing_track_replacements.py')
+        entry=next(e for e in self.plan['track_replacements'] if e['original'][1]=='COL_10_R')
+        entry['junction_contacts'].pop();policy.catalog=lambda:self.plan['track_replacements']
+        with self.assertRaisesRegex(AssertionError,'Source junction inventory differs'):
+            policy.verify_native(self.old,self.new,self.plan,c.signature,c.physical_identity)
+
+    def test_u52_ground_neck_cannot_be_removed(self):
+        row=next(e['track'] for e in self.plan['pad_necks'] if e['reference']=='U52' and e['pin']=='3')
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        self.new.Remove(item);self.reject()
+
+    def test_colour_transfer_actual_layer_cannot_change(self):
+        row=next(row for e in self.plan['track_replacements'] if e['original'][1]=='COL_10_R' for row in e['replacement'] if row[0]=='track' and row[6]=='In3.Cu')
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        item.SetLayer(p.In2_Cu);self.reject()
+
     def test_power_trace_narrowed(self):
-        item=next(t for t in self.added if not isinstance(t,p.PCB_VIA) and t.GetNetname()=='GND')
+        item=next(t for t in self.added if not isinstance(t,p.PCB_VIA) and t.GetNetname()=='GND' and t.GetWidth()==200000)
         item.SetWidth(120000);self.reject()
 
     def test_neck_metadata_cannot_be_omitted(self):

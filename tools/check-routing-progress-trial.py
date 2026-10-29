@@ -192,6 +192,7 @@ def validate_geometry(old, new, plan):
     prior_check.validate_65_checkpoint(plan)
     prior_check.validate_64_checkpoint(plan)
     prior_check.validate_63_checkpoint(plan)
+    prior_check.validate_62_checkpoint(plan)
     digital_count=module('digital_width','routing_digital_width.py').verify_native(new,plan,signature,physical_cluster)
     testpad_policy.verify_native(old,new,plan,signature,physical_identity,physical_cluster)
     assert sorted(changed) == plan['changed_nets'], 'Changed net set differs'

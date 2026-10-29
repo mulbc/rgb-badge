@@ -285,7 +285,7 @@ class PlanGuards(unittest.TestCase):
 
     def test_accepted_64_replacement_is_frozen(self):
         plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
-        plan['track_replacements'][-1]['junction_contacts'].pop()
+        next(e for e in plan['track_replacements'] if e['original'][1]=='COL_02_R')['junction_contacts'].pop()
         with self.assertRaisesRegex(AssertionError,'64-edge replacement changed'):m.validate_64_checkpoint(plan)
 
     def digital_fixture(self):
@@ -343,6 +343,36 @@ class PlanGuards(unittest.TestCase):
         for row in plan['physical_group_witnesses']:
             if row[0]=='USB_RAW_OUT2':row[2]=[x for x in row[2] if x[:2]!=['U31','8']]
         with self.assertRaises(AssertionError):m.validate_63_checkpoint(plan)
+
+    def test_accepted_62_checkpoint_is_preserved(self):
+        m.validate_62_checkpoint(json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text()))
+
+    def test_accepted_62_copper_cannot_be_dropped(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        plan['added_copper'].remove(plan['source_chain_replacement']['replacement'][0])
+        with self.assertRaisesRegex(AssertionError,'Accepted 62-edge copper changed'):m.validate_62_checkpoint(plan)
+
+    def test_accepted_62_join_cannot_be_lost(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        for row in plan['physical_group_witnesses']:
+            if row[0]=='UART0_TX':row[2]=[x for x in row[2] if x[:2]!=['TP4','1']]
+        with self.assertRaises(AssertionError):m.validate_62_checkpoint(plan)
+
+    def transfer_fixture(self):
+        spec=importlib.util.spec_from_file_location('transfer_test',ROOT/'tools/routing_track_replacements.py')
+        policy=importlib.util.module_from_spec(spec);spec.loader.exec_module(policy)
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        policy.catalog=lambda:plan['track_replacements']
+        return policy,plan,next(e for e in plan['track_replacements'] if e['original'][1]=='COL_10_R')
+
+    def test_colour_transfer_original_is_independent_of_catalog(self):
+        policy,plan,entry=self.transfer_fixture();entry['original'][2]+=1
+        with self.assertRaisesRegex(AssertionError,'Unreviewed colour-transfer original'):policy.validate_plan(plan)
+
+    def test_colour_transfer_length_is_independent_of_catalog(self):
+        policy,plan,entry=self.transfer_fixture();row=entry['replacement'][0]
+        plan['added_copper'].remove(row);row[4]+=3000000;plan['added_copper'].append(row.copy())
+        with self.assertRaisesRegex(AssertionError,'Colour-transfer length bound exceeded'):policy.validate_plan(plan)
 
     def chain_fixture(self):
         spec=importlib.util.spec_from_file_location('chain_test',ROOT/'tools/routing_source_chain.py')
