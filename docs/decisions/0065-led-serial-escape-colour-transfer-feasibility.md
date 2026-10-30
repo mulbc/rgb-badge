@@ -3,7 +3,7 @@
 # ADR 0065: Exact LED serial escape colour-transfer feasibility
 
 Date: 2026-10-29; continuation 2026-10-30
-Status: Ignored feasibility only; no additional original retirement selected.
+Status: Selected only within the exact ADR 0067 59-edge coordinated source transaction.
 
 The 60-edge board leaves LED_SOUT open at U1.42. A native obstruction screen
 finds that short B.Cu escapes toward x = 82.20–81.10 mm, y = 1.75 mm meet

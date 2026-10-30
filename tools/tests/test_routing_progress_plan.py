@@ -295,7 +295,7 @@ class PlanGuards(unittest.TestCase):
 
     def test_exact_digital_catalog_passes(self):
         policy,plan=self.digital_fixture()
-        self.assertEqual(sum(policy.validate_plan(plan,required=True).values()),41)
+        self.assertEqual(sum(policy.validate_plan(plan,required=True).values()),174)
 
     def test_digital_catalog_cannot_be_omitted(self):
         policy,plan=self.digital_fixture();del plan['digital_width']
@@ -327,7 +327,8 @@ class PlanGuards(unittest.TestCase):
     def test_native_digital_rule_has_only_the_selected_net(self):
         policy,plan=self.digital_fixture();rule=policy.native_rule(plan)
         self.assertIn("A.NetName == 'USB_RAW_OUT2'",rule)
-        self.assertIn("A.NetName == 'UART0_TX'",rule);self.assertNotIn('GND',rule)
+        self.assertIn("A.NetName == 'UART0_TX'",rule)
+        self.assertIn("A.NetName == 'LED_SOUT'",rule);self.assertNotIn('GND',rule)
 
     def test_accepted_63_checkpoint_is_preserved(self):
         m.validate_63_checkpoint(json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text()))
@@ -543,6 +544,53 @@ class PlanGuards(unittest.TestCase):
     def test_duplicate_neck_pin_is_rejected(self):
         self.neck();self.plan['pad_necks']*=2
         with self.assertRaises(AssertionError):m.validate(self.plan,self.manifest)
+
+    def test_accepted_60_checkpoint_is_preserved(self):
+        m.validate_60_checkpoint(json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text()))
+
+    def test_accepted_60_copper_cannot_be_dropped(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        prior=json.loads((ROOT/'mechanical/review/routing-progress-60-checkpoint.json').read_text())
+        plan['added_copper'].remove(prior['added_copper'][-1])
+        with self.assertRaisesRegex(AssertionError,'Accepted 60-edge copper changed'):m.validate_60_checkpoint(plan)
+
+    def test_accepted_60_join_cannot_be_lost(self):
+        plan=json.loads((ROOT/'mechanical/review/routing-progress-plan.json').read_text())
+        for row in plan['physical_group_witnesses']:
+            if row[0]=='GND':row[2]=[p for p in row[2] if p[:2]!=['PAIR06','1']]
+        with self.assertRaises(AssertionError):m.validate_60_checkpoint(plan)
+
+    def test_accepted_digital_metadata_cannot_be_changed(self):
+        policy,plan=self.digital_fixture()
+        plan['digital_width']['joined_pads']['UART0_TX'][0][1]='1'
+        with self.assertRaisesRegex(AssertionError,'Accepted digital pin inventory changed'):m.validate_60_checkpoint(plan)
+
+    def test_serial_transfer_originals_are_independent_of_catalog(self):
+        for net in ('COL_10_B','COL_14_B','COL_15_G','COL_15_R'):
+            with self.subTest(net=net):
+                policy,plan,_=self.transfer_fixture()
+                entry=next(e for e in plan['track_replacements'] if e['original'][1]==net)
+                entry['original'][2]+=1
+                with self.assertRaisesRegex(AssertionError,'Unreviewed serial-transfer original'):policy.validate_plan(plan)
+
+    def test_serial_transfer_lengths_are_independent_of_catalog(self):
+        for net in ('COL_10_B','COL_14_B','COL_15_G','COL_15_R'):
+            with self.subTest(net=net):
+                policy,plan,_=self.transfer_fixture()
+                row=next(e for e in plan['track_replacements'] if e['original'][1]==net)['replacement'][0]
+                plan['added_copper'].remove(row);row[4]+=30000000;plan['added_copper'].append(row.copy())
+                with self.assertRaisesRegex(AssertionError,'Serial colour-transfer length bound exceeded'):policy.validate_plan(plan)
+
+    def test_serial_digital_length_cannot_be_relaxed_with_catalog(self):
+        policy,plan=self.digital_fixture()
+        row=next(row for row in plan['digital_width']['added_copper'] if row[0]=='track' and row[1]=='LED_SOUT')
+        plan['added_copper'].remove(row);row[4]+=121000000;plan['added_copper'].append(row.copy());policy.catalog=lambda:plan['digital_width']
+        with self.assertRaisesRegex(AssertionError,'Digital-width length bound exceeded'):policy.validate_plan(plan)
+
+    def test_serial_source_pin_inventory_is_independent_of_catalog(self):
+        policy,plan=self.digital_fixture();plan['digital_width']['joined_pads']['LED_SOUT'][0][1]='43'
+        policy.catalog=lambda:plan['digital_width']
+        with self.assertRaises(AssertionError):policy.validate_plan(plan)
 
     def test_unreviewed_neck_pin_is_rejected(self):
         self.neck();self.plan['pad_necks'][0]['pin']='5'

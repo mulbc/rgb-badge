@@ -8,9 +8,9 @@ from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
 CATALOG=ROOT/'mechanical/review/routing-progress-digital-width.json'
-CATALOG_SHA256='0e5cfeab6fc1b579e02f922b487c5084ac356c0df515e1fbc1fe59a4f0d785ce'
+CATALOG_SHA256='f7537d0eaaccceba289105f9d95557d26d7de794a96937ef489b8c97f2d7501c'
 LAYERS=['F.Cu','In1.Cu','In2.Cu','In3.Cu','In4.Cu','B.Cu']
-NETS=['USB_RAW_OUT2','UART0_TX']
+NETS=['USB_RAW_OUT2','UART0_TX','LED_SOUT']
 
 
 def catalog():
@@ -24,7 +24,7 @@ def validate_plan(plan,required=False):
     assert entry==catalog(), 'Exact digital-width catalog omitted or changed'
     assert entry['nets']==NETS and entry['track_width_iu']==120000
     assert entry['maximum_narrow_length_per_net_iu']==120000000
-    assert entry['joined_pads']=={'USB_RAW_OUT2':[['U24','3'],['R61','1'],['U31','8']],'UART0_TX':[['R47','2'],['TP4','1']]}
+    assert entry['joined_pads']=={'USB_RAW_OUT2':[['U24','3'],['R61','1'],['U31','8']],'UART0_TX':[['R47','2'],['TP4','1']],'LED_SOUT':[['U1','42'],['U3','22'],['TP1','1']]}
     rows=entry['added_copper'];assert len(rows)==len(set(map(tuple,rows)))
     narrow=Counter();lengths=Counter()
     for row in rows:

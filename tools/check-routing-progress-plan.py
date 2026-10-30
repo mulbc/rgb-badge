@@ -105,9 +105,28 @@ def validate_63_checkpoint(plan):
 def validate_62_checkpoint(plan):
     validate_frozen_checkpoint(plan,62,'f9b2e73859a7da7ae4ffddd8677054776e0c172820380597c338646d5f665fbc')
     prior=json.loads((ROOT/'mechanical/review/routing-progress-62-checkpoint.json').read_text())
-    for key in ('digital_width','source_chain_replacement','placements','testpad_placements'):
+    validate_digital_retention(plan,prior)
+    for key in ('source_chain_replacement','placements','testpad_placements'):
         assert plan[key]==prior[key], 'Accepted 62-edge %s changed'%key
     assert all(entry in plan.get('track_replacements',[]) for entry in prior['track_replacements'])
+
+
+def validate_digital_retention(plan,prior):
+    old=prior['digital_width'];new=plan['digital_width']
+    for key in ('track_width_iu','maximum_narrow_length_per_net_iu'):
+        assert new[key]==old[key], 'Accepted digital dimension/length policy changed'
+    assert not Counter(map(tuple,old['added_copper']))-Counter(map(tuple,new['added_copper'])), 'Accepted digital inventory changed'
+    assert set(old['nets'])<=set(new['nets']), 'Accepted digital net omitted'
+    assert all(new['joined_pads'].get(net)==old['joined_pads'][net] for net in old['nets']), 'Accepted digital pin inventory changed'
+
+
+def validate_60_checkpoint(plan):
+    validate_frozen_checkpoint(plan,60,'059815e6ba582ffa4492cd620a0ec499166a0ad5d0fa653b5efedf50ac39ad78')
+    prior=json.loads((ROOT/'mechanical/review/routing-progress-60-checkpoint.json').read_text())
+    validate_digital_retention(plan,prior)
+    for key in ('placements','testpad_placements','source_chain_replacement'):
+        assert plan[key]==prior[key], 'Accepted 60-edge %s changed'%key
+    assert all(entry in plan.get('track_replacements',[]) for entry in prior['track_replacements']), 'Accepted 60-edge replacement changed'
 
 
 def validate_61_checkpoint(plan):
@@ -233,6 +252,7 @@ def main():
     validate_63_checkpoint(plan)
     validate_62_checkpoint(plan)
     validate_61_checkpoint(plan)
+    validate_60_checkpoint(plan)
     chain=runpy.run_path(str(ROOT/'tools/routing_source_chain.py'))
     chain['validate_plan'](plan,required=True)
     assert manifest['source_chain_catalog_sha256']==chain['CATALOG_SHA256']

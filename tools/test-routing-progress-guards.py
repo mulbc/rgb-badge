@@ -313,6 +313,34 @@ class RoutingProgressGuards(unittest.TestCase):
         item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
         item.SetLayer(p.In2_Cu);self.reject()
 
+    def test_four_serial_transfer_contacts_are_independent_of_catalog(self):
+        policy=c.module('serial_contact_fault','routing_track_replacements.py')
+        policy.catalog=lambda:self.plan['track_replacements']
+        for net in ('COL_10_B','COL_14_B','COL_15_G','COL_15_R'):
+            with self.subTest(net=net):
+                entry=next(e for e in self.plan['track_replacements'] if e['original'][1]==net)
+                contact=entry['junction_contacts'].pop()
+                with self.assertRaisesRegex(AssertionError,'Source junction inventory differs'):
+                    policy.verify_native(self.old,self.new,self.plan,c.signature,c.physical_identity)
+                entry['junction_contacts'].append(contact)
+
+    def test_serial_original_layer_endpoint_is_independent_of_catalog(self):
+        policy=c.module('serial_endpoint_fault','routing_track_replacements.py')
+        entry=next(e for e in self.plan['track_replacements'] if e['original'][1]=='COL_14_B')
+        row=next(row for row in entry['replacement'] if row[0]=='via' and row[2:4]==[82750000,1750000])
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        self.new.Remove(item);entry['replacement'].remove(row);self.plan['added_copper'].remove(row)
+        policy.catalog=lambda:self.plan['track_replacements']
+        with self.assertRaisesRegex(AssertionError,'Original-layer endpoint detached'):
+            policy.verify_native(self.old,self.new,self.plan,c.signature,c.physical_identity)
+
+    def test_serial_source_join_is_checked_independently(self):
+        policy=c.module('serial_join_fault','routing_digital_width.py')
+        pad=next(q for q in self.parts['U1'].Pads() if q.GetNumber()=='42')
+        pad.Move(p.VECTOR2I(0,5000000));self.new.BuildConnectivity()
+        with self.assertRaisesRegex(AssertionError,'Digital status source pads are not joined: LED_SOUT'):
+            policy.verify_native(self.new,self.plan,c.signature,c.physical_cluster)
+
     def test_power_trace_narrowed(self):
         item=next(t for t in self.added if not isinstance(t,p.PCB_VIA) and t.GetNetname()=='GND' and t.GetWidth()==200000)
         item.SetWidth(120000);self.reject()

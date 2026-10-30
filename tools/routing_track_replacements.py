@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT/'mechanical/review/routing-progress-track-replacements.json'
-CATALOG_SHA256 = 'ce082f65a6e1b3636a13a6699e8e18925d73ef82067627cd17b1ba7c39d11343'
+CATALOG_SHA256 = '51233937450d59df1ae7cf5902e3971edb8ab89234cdb480bf35cf2163ca4c4c'
 
 
 def catalog():
@@ -51,6 +51,25 @@ def validate_plan(plan, required=False):
         assert max(xs)-min(xs)<=2000000, 'Colour-transfer interval too wide'
         assert all(min(original[2],original[4])<=row[i]<=max(original[2],original[4]) for row in tracks for i in (2,4)), 'Colour-transfer outside original extent'
         assert all(abs(row[i]-original[3])<=1000000 for row in tracks for i in (3,5)), 'Colour-transfer local region exceeded'
+    # ADRs 0065/0067: four exact originals; never generic layer deletion.
+    serial = {
+        'COL_10_B': ['track','COL_10_B',84400000,1600000,61700000,1600000,'In4.Cu',200000],
+        'COL_14_B': ['track','COL_14_B',82750000,1750000,74600000,1750000,'In1.Cu',200000],
+        'COL_15_G': ['track','COL_15_G',82750000,1750000,74600000,1750000,'In2.Cu',200000],
+        'COL_15_R': ['track','COL_15_R',82750000,1750000,74100000,1750000,'In3.Cu',200000],
+    }
+    for entry in entries:
+        net=entry['original'][1]
+        if net not in serial:continue
+        original=serial[net]
+        assert entry['original']==original, 'Unreviewed serial-transfer original'
+        tracks=[row for row in entry['replacement'] if row[0]=='track']
+        assert sum(math.dist(row[2:4],row[4:6]) for row in tracks)<=math.dist(original[2:4],original[4:6])+2000000.01, 'Serial colour-transfer length bound exceeded'
+        assert any(row[6]!=original[6] for row in tracks), 'Serial colour-transfer excursion omitted'
+        xmin=min(original[2],original[4]);xmax=85200000 if net=='COL_10_B' else max(original[2],original[4])
+        ymin,ymax=(650000,3000000) if net=='COL_10_B' else (1750000,1750000)
+        assert all(xmin<=row[i]<=xmax for row in tracks for i in (2,4)), 'Serial colour-transfer x extent exceeded'
+        assert all(ymin<=row[i]<=ymax for row in tracks for i in (3,5)), 'Serial colour-transfer y extent exceeded'
     return retired+runpy.run_path(str(ROOT/'tools/routing_source_chain.py'))['validate_plan'](plan)
 
 

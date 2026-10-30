@@ -3,7 +3,7 @@
 # ADR 0067: Exact coordinated serial-escape layer transfers
 
 Date: 2026-10-30
-Status: Ignored feasibility only; no additional canonical retirement selected.
+Status: Selected only as the exact independently checked 59-edge source transaction.
 
 The ADR 0065 local search cannot reach In3. Native frontier analysis identifies
 38 reachable sites where exactly one original COL_15_R In3 track obstructs an
@@ -58,3 +58,26 @@ contacts beyond the retired horizontal segment. Joining an existing same-net
 portal is allowed without recreating it; this does not authorize retirement or
 new clearance violations at that portal. Original-plus-2-mm length bounds and
 all other source/geometry/validation requirements stay unchanged.
+
+## Prechecked candidate and exact-policy implementation
+
+The 59-edge candidate preserves all 60-edge copper other than the four originals,
+all poses/zones/physical groups and all 24 newly derived original-layer contacts.
+Calculated COL_10_B length is 24.537006 mm versus 22.7 mm original; the other
+three lengths remain 8.15/8.15/8.65 mm. A short serial detour and three full-width
+ground bridges preserve old plane groups. Straightening only unaccepted serial
+copper yields 117.886618 mm of 0.12 mm LED_SOUT track, below the unchanged
+120 mm bound. Three fills and original-orphan restoration pass at 59 opens with
+104 unchanged findings (+3 original dangling vias only in the restoration).
+Implement only these exact source/interface and digital catalogs, freezing the
+complete 60-edge plan. Promotion still requires full replay/native/fault/source
+checks. No accepted added copper or original zone is retired.
+
+## Selected checkpoint
+
+The [59-edge study](../development/led-routing-progress-59-study-2026-10-30.md)
+passes full native/physical counts, all prior groups/copper/poses, 24 new source
+contacts, 104 unchanged findings, stable fills/replay, original-orphan restoration
+and 58 native/116 portable guard methods. The exact catalogs are selected for
+only the four enumerated originals and LED_SOUT. All preceding exceptions and
+electrical/fabrication holds remain fixed; the 50-edge target remains open.

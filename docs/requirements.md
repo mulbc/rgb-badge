@@ -212,3 +212,18 @@ The [proposal's six capture holds](design/power-architecture-2026-10-05.md#8-one
 **2026-10-30 C32 land-pattern discrepancy:** The supplied Murata sheet exposes oversized b/c dimensions in the current shared GRM18 land for exact GRM188R60J106ME47D. ADR 0066 permits only ignored C32-specific 0.65 × 0.70 mm lands at ±0.675 mm, with explicit old/new identity mapping and all other copper/groups/geometry retained. No canonical package change or new lower count is selected before exact library/source-contract, native/replay/fault and orphan proofs pass. Do not alter other MPNs' shared footprints without their own datasheets.
 
 **2026-10-30 coordinated serial-escape feasibility:** ADR 0067 permits only ignored exact COL_10_B/In4, COL_15_R/In3, COL_15_G/In2 and COL_14_B/In1 local transfers, with original widths, clearance, adjacent vias, interfaces and all other 60-edge copper/groups retained. No new canonical retirement or narrow inventory is selected before the full independent/native/replay/fault/source/orphan gate. All electrical settings and fabrication holds remain fixed.
+
+**2026-10-30 serial candidate implementation:** ADR 0067's prechecked 59-edge
+candidate permits exact catalogs for the four originals and LED_SOUT only,
+with the complete 60-edge plan frozen. Preserve all old copper/groups/poses,
+24 new direct source contacts, original widths/spacing, the 120 mm narrow-digital
+bound and all electrical/fabrication holds. Final promotion requires full
+native/replay/fault/source checks in addition to the completed precheck.
+
+**2026-10-30 selected 59-edge checkpoint:** ADRs 0065/0067 select exactly four
+source colour replacements and the exact LED_SOUT digital inventory, preserving
+every 60-edge added item/group/pose and 24 newly derived original-layer contacts.
+Native/physical counts, unchanged full 104 findings, stable replay/fills, original-
+orphan restoration and 58 native/116 portable guards pass. The digital length
+remains below 120 mm; original widths/spacing, settings, previous exceptions and
+fabrication holds stay fixed. No Murata package migration is selected here.

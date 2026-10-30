@@ -15,3 +15,7 @@
 (rule "ADR0047 exact UART0_TX width"
  (condition "A.NetName == 'UART0_TX'")
  (constraint track_width (min 0.12mm)))
+
+(rule "ADR0047 exact LED_SOUT width"
+ (condition "A.NetName == 'LED_SOUT'")
+ (constraint track_width (min 0.12mm)))

@@ -1,9 +1,9 @@
 {
   "SPDX-License-Identifier": "CERN-OHL-S-2.0",
   "board": "hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb",
-  "board_sha256": "bcab9da70ee06970f94fef8fc37f4e3ed4b35cd89f621fec93e0563ed8700a01",
-  "native_open_edges": 60,
-  "pad_cluster_open_edges": 60,
+  "board_sha256": "a28258edac032d3dd047f2d7404c0752b25c472af4236b4618b3854717ddfc62",
+  "native_open_edges": 59,
+  "pad_cluster_open_edges": 59,
   "by_net": {
     "VLED": 8,
     "+BAT_GAUGE_SW": 3,
@@ -27,7 +27,6 @@
     "LED_IREF": 1,
     "LED_LAT": 1,
     "LED_SCLK": 1,
-    "LED_SOUT": 1,
     "Net-(L2-~-Pad1)": 1,
     "Net-(L2-~-Pad2)": 1,
     "Net-(U36-LX1)": 1,
