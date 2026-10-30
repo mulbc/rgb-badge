@@ -3,6 +3,7 @@
   "accepted_board_unchanged": true,
   "accepted_drc_findings": 104,
   "accepted_opens": 58,
+  "affected_prior_pad_groups": 5,
   "candidate_drc_types": {
     "clearance": 104,
     "track_dangling": 6,
@@ -13,6 +14,9 @@
   "intrinsic_clearance_description_pad_uuid_inventory_matches": true,
   "inventory_byte_identical_replay": true,
   "local_raw_sha256": {
+    "hardware/coupon/rev-a/build/converter-floorplan-58/contact-rework-scope.json": "a60a74af65b0895ee5e2fddd8c5d1864b40e6b7af46161c5e984e2c866f39dea",
+    "hardware/coupon/rev-a/build/converter-floorplan-58/contact-scope.log": "98223be94f18e5853b638ba4d5054c959e2a3d5020385c2edae3a68a160b1b58",
+    "hardware/coupon/rev-a/build/converter-floorplan-58/contact-scope.py": "a9ee787071c7fe5e3c533ac1fabd0242d8dcdd672af986bde259735a52692751",
     "hardware/coupon/rev-a/build/converter-floorplan-58/fp-lib-table": "9f4cf26ff827f08ba7c71d3c6f7fe8fef3a8d3af0a971713557d8a2427d37c9c",
     "hardware/coupon/rev-a/build/converter-floorplan-58/inventory-replay.log": "70d7445db3ad1ac7a3f0952fbd67ed9dba0739076a9bc0133cc6e45a3aeec110",
     "hardware/coupon/rev-a/build/converter-floorplan-58/inventory.json": "fe602f6d39cb1501f7ca812efc1502461b8c94986ebef3abc06f782c5b1eefad",
@@ -42,10 +46,12 @@
   "native_filled_candidate_opens": 76,
   "native_other_net_copper_oracle_pairs": 211585,
   "packing_byte_identical_replay": true,
+  "pad_cluster_open_increase_explained_by_splits": 15,
   "preliminary_clear_poses": 1,
   "public_evidence_sha256": {
     "docs/development/vled-rigid-floorplan-drc-2026-10-30.json": "b8c80836c17f6265abc97190f79f998e53dba8967e9e7da1e2e4a73ea02b9f87",
     "mechanical/review/converter-floorplan-58-inventory-2026-10-30.json": "fe602f6d39cb1501f7ca812efc1502461b8c94986ebef3abc06f782c5b1eefad",
+    "mechanical/review/vled-floorplan-contact-rework-scope-2026-10-30.json": "a60a74af65b0895ee5e2fddd8c5d1864b40e6b7af46161c5e984e2c866f39dea",
     "mechanical/review/vled-rigid-floorplan-58-2026-10-30.json": "6b2e6d000ba8d6b47e9be789cd501bd474891ba230dfeec0b6a16b76745d9f7d",
     "mechanical/review/vled-rigid-floorplan-oracle-2026-10-30.json": "ca929227dbc03c8bef0cd09726bb1f6c5f97caa8c8796bdc339d5f099b7e3eaa",
     "mechanical/review/vled-rigid-floorplan-witness-2026-10-30.json": "437c328860d5d56ba6572c604ef62dc57a659df1130285aeed20b32c1f20f3e4"

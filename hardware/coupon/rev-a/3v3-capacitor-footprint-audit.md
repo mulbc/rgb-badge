@@ -2,6 +2,22 @@
 
 # 3.3 V converter capacitor land audit — first author
 
+**2026-10-30 remaining exact-drawing hold:** GRM187R61A226ME15 at
+C40/C41/C46/C47/C48/C49 and GRM219R60J476ME44 at C42/C43 still use the
+historical shared lands. Their suffix-free source identities are provisional;
+confirm the orderable packaging code explicitly before a purchase BOM. The
+checker now describes its actual scope as frozen library identity/geometry,
+not conformity to current manufacturer recommendations. Neither its passing
+result nor the historical a/b table below closes the drawing hold. A current
+search finds indexed January 2025 manufacturer reference sheets, but normal
+opens of both official PDF links return 404. The owner has been asked for local
+copies; no geometry or part code is changed while awaiting them. Reference
+sheet URLs: [GRM187](https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM187R61A226ME15-01A.pdf)
+and [GRM219](https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM219R60J476ME44-01A.pdf).
+These unavailable files have not been downloaded or visually reviewed in this
+continuation. Any later supplied revision must be cached, hashed and checked
+directly; do not infer a corrective land pattern from another part's sheet.
+
 **2026-10-30 exact-part adoption:** [ADR 0069](../../../docs/decisions/0069-exact-murata-six-capacitor-migration.md) migrates GRM188R60J106ME47D to its dedicated `C_Murata_GRM188R60J106ME47_0603` footprint at all six affected references. The supplied sheet's Table 2 uses inner gap a = 0.70 mm, ONE-land length b = 0.65 mm and width c = 0.70 mm. The shared GRM18/GRM21 dimensions below remain historical and are not qualified by this correction; other exact MPNs still require their own drawing review.
 
 **2026-10-30 land-pattern review hold:** The [supplied exact-part review](../../../docs/development/c32-exact-land-review-2026-10-30.md) exposes oversized shared GRM18 lands for GRM188R60J106ME47D. In the supplied drawing, a is the inner gap and b is one land length. The historical geometry/label claims below do not establish conformity to that drawing. All exact MPNs sharing these lands require their own drawing review before migration; the new C32-only candidate is unselected. No fabrication approval follows from the older passing checks.

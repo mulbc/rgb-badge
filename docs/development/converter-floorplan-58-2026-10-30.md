@@ -104,6 +104,16 @@ canonical unchanged-DRC gate. An initial DRC invocation without a local library
 table also produced 199 lookup warnings; the corrected library-backed run is
 the reported 118-finding result.
 
+The [exact rework-scope catalog](../../mechanical/review/vled-floorplan-contact-rework-scope-2026-10-30.json)
+partitions the five broken prior groups: SYS has 13 physical pads divided into
+seven groups; VLED has 34 divided into seven; each two-pad switching group
+and the two-pad feedback midpoint divide into two. Their 15 additional
+pad-cluster opens explain 58 → 73, while three padless copper opens explain
+73 → 76. The catalog identifies all fourteen newly dangling retained copper
+items and their original direct pad contacts. It grants no deletion or
+replacement permission. Historical normalized physical keys distinguish pad
+identities from the actual current Murata pad coordinates in the inventory.
+
 No pose or copper deletion is adopted. The accepted board remains **58 opens /
 104 findings**. A useful next implementation is an explicit converter-stage
 rework contract: catalog all old contacts and each proposed copper replacement,

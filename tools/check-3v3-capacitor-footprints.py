@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: Apache-2.0
-"""Check provisional TPS631000 capacitor lands against exact Murata reflow tables."""
+"""Freeze provisional capacitor identity/geometry, not approval-sheet conformity.
+
+The historical a/b interpretation is on hold after the exact GRM188 review.
+GRM187/GRM219 need their own current drawing and packaging-code review; passing
+this check must not be reported as manufacturer land-pattern approval.
+"""
 
 from decimal import Decimal as D
 from pathlib import Path
@@ -68,13 +73,11 @@ def check_symbols():
 
 def main():
     try:
-        # GRM187R61A226ME15: 1.6 ±0.2 × 0.8 ±0.2 mm body;
-        # reflow a=0.7–0.9, b=0.7–0.8, c=0.8–1.0 mm.
+        # Freeze historical GRM187 geometry pending its own drawing review.
         check("C_Murata_GRM18_0603", D("0.8"), D("0.9"), D("0.7"), D("0.9"),
               (D("-0.8"), D("-0.4"), D("0.8"), D("0.4")),
               (D("-1.5"), D("-0.65"), D("1.5"), D("0.65")))
-        # GRM219R60J476ME44: 2.0 ±0.2 × 1.25 ±0.2 mm body;
-        # reflow a=1.0–1.4, b=0.6–0.8, c=1.2–1.4 mm.
+        # Freeze historical GRM219 geometry pending its own drawing review.
         check("C_Murata_GRM21_0805", D("0.95"), D("1.2"), D("0.7"), D("1.3"),
               (D("-1"), D("-0.625"), D("1"), D("0.625")),
               (D("-1.8"), D("-1"), D("1.8"), D("1")))
@@ -82,7 +85,7 @@ def main():
     except (OSError, ValueError, KeyError, IndexError) as error:
         print(f"3V3 capacitor land check failed: {error}", file=sys.stderr)
         return 1
-    print("3V3 capacitor libraries passed: two exact passive MPNs, GRM18 reuse and GRM21 land")
+    print("Provisional capacitor identity/geometry retained; GRM187/GRM219 drawing and order-code approval remain open")
     return 0
 
 
