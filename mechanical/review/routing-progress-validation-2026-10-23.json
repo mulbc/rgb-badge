@@ -1,0 +1,49 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "board_sha256": "cd4c51dc74c6ef15d408e0ce004645c3077df6da15681378a6e48d11284d98f6",
+  "canonical_source_guard_methods_passed_in_ci_layout": 21,
+  "checked_led_placements": 256,
+  "deterministic_replay_sha256": [
+    "cd4c51dc74c6ef15d408e0ce004645c3077df6da15681378a6e48d11284d98f6",
+    "cd4c51dc74c6ef15d408e0ce004645c3077df6da15681378a6e48d11284d98f6"
+  ],
+  "evidence_sha256": {
+    "docs/development/led-routing-progress-drc-2026-10-23.json": "7f393acfb8a5d7de79ebd273a8f2edc339bf0cea12bbcbd74200ebee1cef4000",
+    "mechanical/review/routing-progress-native-check-2026-10-23.json": "541f2077c2061cd0b8063c4e81d4063382fb803b249b2877f2e733c380ea2518",
+    "mechanical/review/routing-progress-open-nets-2026-10-23.json": "3c2f22fddff56703ecd52fa7695d0cb21d87f705820665f9efa580f13ac5eefe"
+  },
+  "fabrication_release_allowed": false,
+  "kicad_version": "10.0.6",
+  "native_guard_methods": [
+    "test_added_route_detached",
+    "test_duplicate_physical_drain_land_changed",
+    "test_exact_mpn_changed",
+    "test_land_corner_radius_changed",
+    "test_nonadjacent_microvia",
+    "test_nonzero_original_copper_removed",
+    "test_pad_net_changed",
+    "test_power_trace_narrowed",
+    "test_reviewed_pose_not_applied",
+    "test_selected_checkpoint_passes",
+    "test_unreviewed_ic_move",
+    "test_zero_cleanup_preserves_every_source_group_exactly",
+    "test_zero_length_source_artifact_restored"
+  ],
+  "native_guard_methods_passed": 13,
+  "native_open_edges": 150,
+  "pad_cluster_open_edges": 150,
+  "portable_plan_guard_methods_passed": 10,
+  "source_only_ci_layout_passed": true,
+  "source_sha256": "da3c3e093acef457ce2d0ebe73b57fd5006b9139a57b7fe8acfcd77e612dc246",
+  "status": "NATIVE_SOURCE_CHECKS_NOT_HARDWARE_MEASUREMENTS",
+  "tool_sha256": {
+    "tools/check-routing-progress-plan.py": "6fd8a9d345989c77059fea0ba75cff411c854e928ac90aa2f25a2d5e6c42168f",
+    "tools/check-routing-progress-trial.py": "12063b48faae5f07a65c87b64f3fb01b010d707bb8d6454c18422f6334c0fa3b",
+    "tools/generate-routing-progress-trial.py": "8dffb7fb351e606b5aa4586633ce478ad930acda1c23ff1506b8c282c3f26c10",
+    "tools/test-routing-progress-guards.py": "1746732db89f523f997450900a1e880f146ca1283d21a3294cbb2bd98a0edfdd",
+    "tools/tests/test_routing_progress_plan.py": "aeb3e2f595796898ef6a7a03bf31fd69d7d21634264d17f3ad546d904123a430"
+  },
+  "unchanged_native_drc_findings": 104,
+  "zero_cleanup_original_open_edges": 215,
+  "zero_cleanup_original_pad_groups_exact": true
+}

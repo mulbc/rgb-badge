@@ -1,0 +1,471 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: Apache-2.0
+"""Isolated native faults for the routing/placement checkpoint's verifier."""
+from collections import Counter
+import importlib.util
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+import unittest
+import pcbnew as p
+
+ROOT=Path(__file__).resolve().parents[1]
+spec=importlib.util.spec_from_file_location('check',ROOT/'tools/check-routing-progress-trial.py')
+c=importlib.util.module_from_spec(spec);spec.loader.exec_module(c)
+
+
+# Fault fixtures keep removed native objects alive until their isolated process
+# exits. KiCad/SWIG teardown can otherwise crash after successful assertions.
+_NATIVE_FIXTURES=[]
+
+class RoutingProgressGuards(unittest.TestCase):
+    def setUp(self):
+        _NATIVE_FIXTURES.append(self)
+        self.old=p.LoadBoard(str(c.SOURCE));self.new=p.LoadBoard(str(c.OUTPUT))
+        self.plan=json.loads(c.PLAN.read_text());self.parts={f.GetReference():f for f in self.new.GetFootprints()}
+        originals=Counter(c.signature(self.old,t) for t in self.old.GetTracks());self.added=[]
+        for item in self.new.GetTracks():
+            sig=c.signature(self.new,item)
+            if originals[sig]:originals[sig]-=1
+            else:self.added.append(item)
+
+    def reject(self):
+        p.ZONE_FILLER(self.new).Fill(self.new.Zones());self.new.BuildConnectivity()
+        with self.assertRaises(AssertionError):c.validate_geometry(self.old,self.new,self.plan)
+
+    def test_zero_cleanup_preserves_every_source_group_exactly(self):
+        groups={}
+        for part in self.old.GetFootprints():
+            for pad in part.Pads():
+                if pad.GetNetname():groups.setdefault(c.physical_cluster(self.old,pad),pad)
+        original_items=list(self.old.GetTracks())
+        retired=[t for t in original_items if not isinstance(t,p.PCB_VIA) and t.GetStart()==t.GetEnd()]
+        self.assertEqual(len(retired),116)
+        for item in retired:self.old.Remove(item)
+        p.ZONE_FILLER(self.old).Fill(self.old.Zones());self.old.BuildConnectivity()
+        self.assertEqual(self.old.GetConnectivity().GetUnconnectedCount(False),215)
+        for group,pad in groups.items():self.assertEqual(group,c.physical_cluster(self.old,pad))
+
+    def test_selected_checkpoint_passes(self):
+        self.assertLessEqual(c.validate_geometry(self.old,self.new,self.plan)['native_open_edges'],100)
+
+    def test_gauge_supply_source_join_is_independent_of_catalog(self):
+        policy=c.module('gauge_supply_fault','routing_supply_join.py')
+        policy.verify_join(self.new,c.physical_cluster)
+        # Remove the independently named SW2 pad lead, not a catalog hash.
+        lead=next(t for t in self.new.GetTracks() if not isinstance(t,p.PCB_VIA)
+                  and t.GetNetname()=='+BAT_GAUGE_SW' and t.GetStart()==p.VECTOR2I(3200000,3100000))
+        self.new.Remove(lead)
+        self.new.BuildConnectivity()
+        with self.assertRaisesRegex(AssertionError,'Gauge switch supply not joined'):
+            policy.verify_join(self.new,c.physical_cluster)
+
+    def test_59_checkpoint_copper_cannot_be_removed_with_the_plan(self):
+        prior=json.loads((ROOT/'mechanical/review/routing-progress-59-checkpoint.json').read_text())
+        older=json.loads((ROOT/'mechanical/review/routing-progress-60-checkpoint.json').read_text())
+        row=next(row for row in prior['added_copper'] if row not in older['added_copper'])
+        self.plan['added_copper'].remove(row)
+        with self.assertRaisesRegex(AssertionError,'Accepted 59-edge copper changed'):
+            c.module('retention59','check-routing-progress-plan.py').validate_59_checkpoint(self.plan)
+
+    def test_switch_printed_numbers_cannot_hide_a_wrong_common(self):
+        part=self.parts['SW2'];c.switch_pins.verify_part(part,True)
+        pad=next(q for q in part.Pads() if q.GetNumber()=='7');pad.SetNumber('6')
+        with self.assertRaises(AssertionError):c.switch_pins.verify_part(part,True)
+        with self.assertRaises(AssertionError):c.physical_identity(pad)
+
+    def test_all_six_exact_murata_packages_are_required(self):
+        for ref in c.murata.REFS:
+            with self.subTest(ref=ref):
+                part=self.parts[ref]
+                c.murata.verify_part(part,True)
+                part.SetFPIDAsString(c.murata.OLD)
+                with self.assertRaises(AssertionError):c.murata.verify_part(part,True)
+                part.SetFPIDAsString(c.murata.NEW)
+
+    def test_murata_oversized_land_cannot_use_identity_mapping(self):
+        for ref in c.murata.REFS:
+            with self.subTest(ref=ref):
+                pad=next(iter(self.parts[ref].Pads()))
+                pad.SetSize(p.VECTOR2I(900000,900000))
+                with self.assertRaises(AssertionError):c.murata.normalized_signature(pad,c.local_pad_signature)
+
+    def test_murata_mapping_rejects_legacy_position_under_new_label(self):
+        pad=next(q for q in self.parts['C32'].Pads() if q.GetNumber()=='1')
+        pad.SetFPRelativePosition(p.VECTOR2I(-800000,0))
+        with self.assertRaises(AssertionError):c.physical_identity(pad)
+
+    def test_murata_migration_does_not_change_numbered_nets(self):
+        pad=next(iter(self.parts['C53'].Pads()))
+        pad.SetNetCode(self.new.FindNet('VLED').GetNetCode())
+        with self.assertRaises(AssertionError):c.murata.verify_part(self.parts['C53'],True)
+
+    def test_unreviewed_ic_move(self):
+        self.parts['U39'].Move(p.VECTOR2I(100000,0));self.reject()
+
+    def test_reviewed_pose_not_applied(self):
+        entry=self.plan['placements'][0];part=self.parts[entry['reference']]
+        part.SetPosition(p.VECTOR2I(*entry['old_position_iu']));part.SetOrientationDegrees(entry['old_angle_deg']);self.reject()
+
+    def test_duplicate_physical_drain_land_changed(self):
+        pads=[q for q in self.parts['PAIR01'].Pads() if q.GetNumber()=='3']
+        self.assertEqual(len(pads),2);pads[0].Move(p.VECTOR2I(100000,0));self.reject()
+
+    def test_nonzero_original_copper_removed(self):
+        for item in self.new.GetTracks():
+            if item.GetNetname()=='ROW_00_A' and not isinstance(item,p.PCB_VIA) and item.GetStart()!=item.GetEnd():
+                self.new.Remove(item);break
+        else:self.fail('Original row copper witness missing')
+        self.reject()
+
+    def test_94_checkpoint_cannot_be_retired_in_candidate_and_plan(self):
+        prior=json.loads((ROOT/'mechanical/review/routing-progress-94-checkpoint.json').read_text())
+        old=json.loads((ROOT/'mechanical/review/routing-progress-100-checkpoint.json').read_text())
+        row=next(row for row in prior['added_copper'] if row[0]=='track' and row[1]=='MODE_BOOT_N' and row not in old['added_copper'])
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        self.new.Remove(item);self.plan['added_copper'].remove(row)
+        self.new.BuildConnectivity()
+        with self.assertRaisesRegex(AssertionError,'Accepted 94-edge copper changed'):
+            c.validate_geometry(self.old,self.new,self.plan)
+
+    def test_91_checkpoint_cannot_be_retired_in_candidate_and_plan(self):
+        prior=json.loads((ROOT/'mechanical/review/routing-progress-91-checkpoint.json').read_text())
+        old=json.loads((ROOT/'mechanical/review/routing-progress-94-checkpoint.json').read_text())
+        row=next(row for row in prior['added_copper'] if row[0]=='track' and row[1]=='MODE_BOOT_N' and row not in old['added_copper'])
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        self.new.Remove(item);self.plan['added_copper'].remove(row);self.new.BuildConnectivity()
+        with self.assertRaisesRegex(AssertionError,'Accepted 91-edge copper changed'):
+            c.validate_geometry(self.old,self.new,self.plan)
+
+    def test_84_checkpoint_cannot_be_retired_in_candidate_and_plan(self):
+        prior=json.loads((ROOT/'mechanical/review/routing-progress-84-checkpoint.json').read_text())
+        old=json.loads((ROOT/'mechanical/review/routing-progress-91-checkpoint.json').read_text())
+        row=next(row for row in prior['added_copper'] if row[0]=='track' and row[1]=='ROW_A2' and row not in old['added_copper'])
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        self.new.Remove(item);self.plan['added_copper'].remove(row);self.new.BuildConnectivity()
+        with self.assertRaisesRegex(AssertionError,'Accepted 84-edge copper changed'):
+            c.validate_geometry(self.old,self.new,self.plan)
+
+    def test_82_checkpoint_cannot_be_retired_in_candidate_and_plan(self):
+        prior=json.loads((ROOT/'mechanical/review/routing-progress-82-checkpoint.json').read_text())
+        old=json.loads((ROOT/'mechanical/review/routing-progress-84-checkpoint.json').read_text())
+        row=next(row for row in prior['added_copper'] if row[0]=='track' and row[1]=='ROW_A1' and row not in old['added_copper'])
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        self.new.Remove(item);self.plan['added_copper'].remove(row);self.new.BuildConnectivity()
+        with self.assertRaisesRegex(AssertionError,'Accepted 82-edge copper changed'):
+            c.validate_geometry(self.old,self.new,self.plan)
+
+    def test_76_checkpoint_cannot_be_retired_in_candidate_and_plan(self):
+        prior=json.loads((ROOT/'mechanical/review/routing-progress-76-checkpoint.json').read_text())
+        row=next(row for row in prior['added_copper'] if row[0]=='track' and row[1]=='USB_CONN_DP')
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        self.new.Remove(item);self.plan['added_copper'].remove(row);self.new.BuildConnectivity()
+        with self.assertRaisesRegex(AssertionError,'Accepted 76-edge copper changed'):
+            c.validate_geometry(self.old,self.new,self.plan)
+
+    def test_71_checkpoint_cannot_be_retired_in_candidate_and_plan(self):
+        prior=json.loads((ROOT/'mechanical/review/routing-progress-71-checkpoint.json').read_text())
+        old=json.loads((ROOT/'mechanical/review/routing-progress-76-checkpoint.json').read_text())
+        row=next(row for row in prior['added_copper'] if row[0]=='track' and row[1]=='LED_SIN' and row not in old['added_copper'])
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        self.new.Remove(item);self.plan['added_copper'].remove(row);self.new.BuildConnectivity()
+        with self.assertRaisesRegex(AssertionError,'Accepted 71-edge copper changed'):
+            c.validate_geometry(self.old,self.new,self.plan)
+
+    def test_testpad_catalog_cannot_be_omitted(self):
+        del self.plan['testpad_placements'];self.reject()
+
+    def test_unselected_testpad_cannot_move(self):
+        self.parts['TP4'].Move(p.VECTOR2I(100000,0));self.reject()
+
+    def test_selected_testpad_land_cannot_change(self):
+        list(self.parts['TP11'].Pads())[0].SetSize(p.VECTOR2I(1100000,1000000));self.reject()
+
+    def test_testpad_lead_cannot_retire_in_candidate_and_plan(self):
+        row=self.plan['testpad_placements'][0]['connection'][0]
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        self.new.Remove(item);self.plan['added_copper'].remove(row);self.reject()
+
+    def test_testpad_prior_copper_contact_is_checked_independently(self):
+        policy=c.module('testpads','routing_testpad_placements.py')
+        part=next(f for f in self.old.GetFootprints() if f.GetReference()=='TP1')
+        pad=list(part.Pads())[0];item=p.PCB_TRACK(self.old)
+        point=pad.GetPosition();item.SetStart(point);item.SetEnd(p.VECTOR2I(point.x+100000,point.y))
+        item.SetLayer(p.B_Cu);item.SetWidth(200000);item.SetNetCode(pad.GetNetCode());self.old.Add(item)
+        with self.assertRaisesRegex(AssertionError,'Testpad originally contacted copper'):
+            policy.verify_native(self.old,self.new,self.plan,c.signature,c.physical_identity,c.physical_cluster)
+
+    def test_testpad_join_is_checked_independently_of_catalog(self):
+        policy=c.module('testpads','routing_testpad_placements.py')
+        entry=self.plan['testpad_placements'][0];row=entry['connection'][0]
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        self.new.Remove(item);self.new.BuildConnectivity();self.plan['added_copper'].remove(row)
+        entry['connection']=[];policy.catalog=lambda:self.plan['testpad_placements']
+        with self.assertRaisesRegex(AssertionError,'Testpad is not joined'):
+            policy.verify_native(self.old,self.new,self.plan,c.signature,c.physical_identity,c.physical_cluster)
+
+    def test_reviewed_original_cannot_be_restored_in_candidate_and_plan(self):
+        row=self.plan['track_replacements'][0]['original'];item=p.PCB_TRACK(self.new)
+        item.SetStart(p.VECTOR2I(*row[2:4]));item.SetEnd(p.VECTOR2I(*row[4:6]))
+        item.SetLayer(self.new.GetLayerID(row[6]));item.SetWidth(row[7]);item.SetNet(self.new.FindNet(row[1]))
+        self.new.Add(item);self.plan['added_copper'].append(row.copy())
+        with self.assertRaisesRegex(AssertionError,'Replaced original restored'):
+            c.validate_geometry(self.old,self.new,self.plan)
+
+    def test_replacement_cannot_be_removed_in_candidate_and_plan(self):
+        row=self.plan['track_replacements'][0]['replacement'][0]
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        self.new.Remove(item);self.plan['added_copper'].remove(row)
+        with self.assertRaisesRegex(AssertionError,'Reviewed replacement or connection copper missing'):
+            c.validate_geometry(self.old,self.new,self.plan)
+
+    def test_source_junction_inventory_is_independent_of_catalog(self):
+        policy=c.module('fault_replacements','routing_track_replacements.py')
+        self.plan['track_replacements'][0]['junction_contacts'].pop()
+        policy.catalog=lambda:self.plan['track_replacements']  # Bypass fingerprint only to exercise source proof.
+        with self.assertRaisesRegex(AssertionError,'Source junction inventory differs'):
+            policy.verify_native(self.old,self.new,self.plan,c.signature,c.physical_identity)
+
+    def test_original_endpoint_is_independent_of_catalog(self):
+        policy=c.module('fault_replacement_endpoint','routing_track_replacements.py')
+        entry=self.plan['track_replacements'][0];row=entry['replacement'][0]
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        self.plan['added_copper'].remove(row);item.SetStart(p.VECTOR2I(row[2]+400000,row[3]))
+        row[2]+=400000;self.plan['added_copper'].append(row.copy())
+        policy.catalog=lambda:self.plan['track_replacements']  # Exercise actual contact, beyond fingerprints.
+        with self.assertRaisesRegex(AssertionError,'Original-layer endpoint detached'):
+            policy.verify_native(self.old,self.new,self.plan,c.signature,c.physical_identity)
+
+    def test_temperature_replacement_contacts_are_independent_of_catalog(self):
+        policy=c.module('fault_temperature_contacts','routing_track_replacements.py')
+        next(e for e in self.plan['track_replacements'] if e['original'][1]=='COL_02_R')['junction_contacts'].pop()
+        policy.catalog=lambda:self.plan['track_replacements']
+        with self.assertRaisesRegex(AssertionError,'Source junction inventory differs'):
+            policy.verify_native(self.old,self.new,self.plan,c.signature,c.physical_identity)
+
+    def test_temperature_replacement_endpoint_is_independent_of_catalog(self):
+        policy=c.module('fault_temperature_endpoint','routing_track_replacements.py')
+        entry=next(e for e in self.plan['track_replacements'] if e['original'][1]=='COL_02_R');endpoint=entry['original'][2:4]
+        row=next(row for row in entry['replacement'] if row[0]=='track' and endpoint in [row[2:4],row[4:6]])
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        self.plan['added_copper'].remove(row)
+        if row[2:4]==endpoint:
+            row[2]-=400000;item.SetStart(p.VECTOR2I(row[2],row[3]))
+        else:
+            row[4]-=400000;item.SetEnd(p.VECTOR2I(row[4],row[5]))
+        self.plan['added_copper'].append(row.copy());policy.catalog=lambda:self.plan['track_replacements']
+        with self.assertRaisesRegex(AssertionError,'Original-layer endpoint detached'):
+            policy.verify_native(self.old,self.new,self.plan,c.signature,c.physical_identity)
+
+    def test_64_checkpoint_cannot_be_retired_in_candidate_and_plan(self):
+        prior=json.loads((ROOT/'mechanical/review/routing-progress-64-checkpoint.json').read_text())
+        old=json.loads((ROOT/'mechanical/review/routing-progress-65-checkpoint.json').read_text())
+        connections={tuple(row) for entry in self.plan['track_replacements'] for row in entry['connection']}
+        row=next(row for row in prior['added_copper'] if row[0]=='track' and row[1]=='TEMP_OK' and row not in old['added_copper'] and tuple(row) not in connections)
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        self.new.Remove(item);self.plan['added_copper'].remove(row);self.new.BuildConnectivity()
+        with self.assertRaisesRegex(AssertionError,'Accepted 64-edge copper changed'):
+            c.validate_geometry(self.old,self.new,self.plan)
+
+    def test_selected_digital_track_cannot_be_thinner(self):
+        row=next(row for row in self.plan['digital_width']['added_copper'] if row[0]=='track')
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        item.SetWidth(110000);self.reject()
+
+    def test_digital_source_join_is_checked_independently(self):
+        policy=c.module('native_digital_join','routing_digital_width.py')
+        pad=next(q for q in self.parts['U31'].Pads() if q.GetNumber()=='8')
+        pad.Move(p.VECTOR2I(0,5000000));self.new.BuildConnectivity()
+        with self.assertRaisesRegex(AssertionError,'Digital status source pads are not joined'):
+            policy.verify_native(self.new,self.plan,c.signature,c.physical_cluster)
+
+    def test_digital_scope_does_not_allow_a_narrow_ground_track(self):
+        item=p.PCB_TRACK(self.new);item.SetStart(p.VECTOR2I(100000000,30000000));item.SetEnd(p.VECTOR2I(101000000,30000000))
+        item.SetLayer(p.B_Cu);item.SetWidth(120000);item.SetNetCode(self.new.FindNet('GND').GetNetCode());self.new.Add(item)
+        self.plan['added_copper'].append(list(c.signature(self.new,item)));self.reject()
+
+    def test_63_checkpoint_copper_cannot_be_retired(self):
+        prior=json.loads((ROOT/'mechanical/review/routing-progress-63-checkpoint.json').read_text())
+        row=prior['digital_width']['added_copper'][0]
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        self.new.Remove(item);self.plan['added_copper'].remove(row);self.reject()
+
+    def test_source_chain_original_cannot_be_restored(self):
+        row=self.plan['source_chain_replacement']['original'][0]
+        item=p.PCB_TRACK(self.new);item.SetStart(p.VECTOR2I(*row[2:4]));item.SetEnd(p.VECTOR2I(*row[4:6]));item.SetWidth(row[7]);item.SetLayer(self.new.GetLayerID(row[6]));item.SetNetCode(self.new.FindNet(row[1]).GetNetCode());self.new.Add(item)
+        self.plan['added_copper'].append(row.copy());self.reject()
+
+    def test_source_chain_metadata_cannot_be_omitted(self):
+        del self.plan['source_chain_replacement'];self.reject()
+
+    def test_source_chain_contact_inventory_is_independent(self):
+        policy=c.module('chain_contacts_fault','routing_source_chain.py')
+        self.plan['source_chain_replacement']['external_contacts'].pop()
+        policy.catalog=lambda:self.plan['source_chain_replacement']
+        contacts=c.module('chain_contacts_source','routing_track_replacements.py').contacts
+        with self.assertRaisesRegex(AssertionError,'Source-chain external contact inventory differs'):
+            policy.verify_native(self.old,self.new,self.plan,c.signature,c.physical_identity,contacts)
+
+    def test_source_chain_interface_is_independent(self):
+        policy=c.module('chain_endpoint_fault','routing_source_chain.py')
+        entry=self.plan['source_chain_replacement'];endpoint=[51350000,9000000]
+        row=next(row for row in entry['replacement'] if row[4:6]==endpoint)
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        self.plan['added_copper'].remove(row);row[4]-=400000;item.SetEnd(p.VECTOR2I(*row[4:6]));self.plan['added_copper'].append(row.copy())
+        policy.catalog=lambda:entry;contacts=c.module('chain_endpoint_source','routing_track_replacements.py').contacts
+        with self.assertRaisesRegex(AssertionError,'Source-chain interface detached'):
+            policy.verify_native(self.old,self.new,self.plan,c.signature,c.physical_identity,contacts)
+
+    def test_source_chain_actual_width_cannot_change(self):
+        row=self.plan['source_chain_replacement']['replacement'][0]
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row));item.SetWidth(190000);self.reject()
+
+    def test_uart_probe_join_is_checked_independently(self):
+        policy=c.module('uart_join_fault','routing_digital_width.py')
+        pad=next(q for q in self.parts['TP4'].Pads() if q.GetNumber()=='1')
+        pad.Move(p.VECTOR2I(0,5000000));self.new.BuildConnectivity()
+        with self.assertRaisesRegex(AssertionError,'Digital status source pads are not joined: UART0_TX'):
+            policy.verify_native(self.new,self.plan,c.signature,c.physical_cluster)
+
+    def test_added_route_detached(self):
+        next(t for t in self.added if not isinstance(t,p.PCB_VIA)).Move(p.VECTOR2I(0,5000000));self.reject()
+
+    def test_land_corner_radius_changed(self):
+        pad=next(iter(self.parts['R89'].Pads()));value=pad.GetRoundRectRadiusRatio()
+        pad.SetRoundRectRadiusRatio(.1 if value!=.1 else .2);self.reject()
+
+    def test_pad_net_changed(self):
+        pad=next(q for q in self.parts['U3'].Pads() if q.GetNumber()=='4')
+        pad.SetNet(self.new.FindNet('GND'));self.reject()
+
+    def test_colour_transfer_contacts_are_independent_of_catalog(self):
+        policy=c.module('fault_colour_transfer_contacts','routing_track_replacements.py')
+        entry=next(e for e in self.plan['track_replacements'] if e['original'][1]=='COL_10_R')
+        entry['junction_contacts'].pop();policy.catalog=lambda:self.plan['track_replacements']
+        with self.assertRaisesRegex(AssertionError,'Source junction inventory differs'):
+            policy.verify_native(self.old,self.new,self.plan,c.signature,c.physical_identity)
+
+    def test_row_ground_transfer_contacts_are_independent_of_catalog(self):
+        policy=c.module('fault_row_ground_contacts','routing_track_replacements.py')
+        entry=next(e for e in self.plan['track_replacements'] if e['original'][1]=='COL_03_B')
+        entry['junction_contacts'].pop();policy.catalog=lambda:self.plan['track_replacements']
+        with self.assertRaisesRegex(AssertionError,'Source junction inventory differs'):
+            policy.verify_native(self.old,self.new,self.plan,c.signature,c.physical_identity)
+
+    def test_row_ground_added_route_cannot_be_removed(self):
+        entry=next(e for e in self.plan['track_replacements'] if e['original'][1]=='COL_03_B')
+        row=next(row for row in entry['connection'] if row[0]=='track' and row[6]=='In1.Cu')
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        self.new.Remove(item);self.reject()
+
+    def test_u52_ground_neck_cannot_be_removed(self):
+        row=next(e['track'] for e in self.plan['pad_necks'] if e['reference']=='U52' and e['pin']=='3')
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        self.new.Remove(item);self.reject()
+
+    def test_colour_transfer_actual_layer_cannot_change(self):
+        row=next(row for e in self.plan['track_replacements'] if e['original'][1]=='COL_10_R' for row in e['replacement'] if row[0]=='track' and row[6]=='In3.Cu')
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        item.SetLayer(p.In2_Cu);self.reject()
+
+    def test_four_serial_transfer_contacts_are_independent_of_catalog(self):
+        policy=c.module('serial_contact_fault','routing_track_replacements.py')
+        policy.catalog=lambda:self.plan['track_replacements']
+        for net in ('COL_10_B','COL_14_B','COL_15_G','COL_15_R'):
+            with self.subTest(net=net):
+                entry=next(e for e in self.plan['track_replacements'] if e['original'][1]==net)
+                contact=entry['junction_contacts'].pop()
+                with self.assertRaisesRegex(AssertionError,'Source junction inventory differs'):
+                    policy.verify_native(self.old,self.new,self.plan,c.signature,c.physical_identity)
+                entry['junction_contacts'].append(contact)
+
+    def test_serial_original_layer_endpoint_is_independent_of_catalog(self):
+        policy=c.module('serial_endpoint_fault','routing_track_replacements.py')
+        entry=next(e for e in self.plan['track_replacements'] if e['original'][1]=='COL_14_B')
+        row=next(row for row in entry['replacement'] if row[0]=='via' and row[2:4]==[82750000,1750000])
+        item=next(t for t in self.new.GetTracks() if c.signature(self.new,t)==tuple(row))
+        self.new.Remove(item);entry['replacement'].remove(row);self.plan['added_copper'].remove(row)
+        policy.catalog=lambda:self.plan['track_replacements']
+        with self.assertRaisesRegex(AssertionError,'Original-layer endpoint detached'):
+            policy.verify_native(self.old,self.new,self.plan,c.signature,c.physical_identity)
+
+    def test_serial_source_join_is_checked_independently(self):
+        policy=c.module('serial_join_fault','routing_digital_width.py')
+        pad=next(q for q in self.parts['U1'].Pads() if q.GetNumber()=='42')
+        pad.Move(p.VECTOR2I(0,5000000));self.new.BuildConnectivity()
+        with self.assertRaisesRegex(AssertionError,'Digital status source pads are not joined: LED_SOUT'):
+            policy.verify_native(self.new,self.plan,c.signature,c.physical_cluster)
+
+    def test_power_trace_narrowed(self):
+        item=next(t for t in self.added if not isinstance(t,p.PCB_VIA) and t.GetNetname()=='GND' and t.GetWidth()==200000)
+        item.SetWidth(120000);self.reject()
+
+    def test_neck_metadata_cannot_be_omitted(self):
+        self.assertTrue(self.plan.get('pad_necks'))
+        self.plan.pop('pad_necks');self.reject()
+
+    def test_neck_policy_rejects_coordinated_geometry_edit(self):
+        entry=self.plan['pad_necks'][0];row=entry['track']
+        original=list(row)
+        item=next(t for t in self.added if c.signature(self.new,t)==tuple(row))
+        # Even a coordinated candidate/plan edit cannot extend the exception.
+        item.SetEnd(p.VECTOR2I(row[4],row[5]+100000));row[5]+=100000
+        self.plan['added_copper']=[list(row) if r==original else r for r in self.plan['added_copper']]
+        with self.assertRaises(AssertionError):c.validate_geometry(self.old,self.new,self.plan)
+
+    def test_nonadjacent_microvia(self):
+        via=next(t for t in self.added if isinstance(t,p.PCB_VIA));stack=list(self.new.GetEnabledLayers().CuStack())
+        via.SetLayerPair(stack[0],stack[2]);self.reject()
+
+    def test_zero_length_source_artifact_restored(self):
+        net,x,y,layer,width=self.plan['retired_zero_length_tracks'][0]
+        item=p.PCB_TRACK(self.new);item.SetStart(p.VECTOR2I(x,y));item.SetEnd(p.VECTOR2I(x,y))
+        item.SetLayer(self.new.GetLayerID(layer));item.SetWidth(width);item.SetNetCode(self.new.FindNet(net).GetNetCode());self.new.Add(item);self.reject()
+
+    def test_original_usb_branch_cannot_be_relabelled(self):
+        originals={c.signature(self.old,t) for t in self.old.GetTracks()}
+        item=next(t for t in self.new.GetTracks() if not isinstance(t,p.PCB_VIA) and t.GetNetname()=='+3V3_USB' and c.signature(self.new,t) in originals)
+        item.SetNetCode(self.new.FindNet('+3V3_APP').GetNetCode())
+        # A refill may propagate the neighbouring net and undo this injected fault.
+        with self.assertRaises(AssertionError):c.validate_geometry(self.old,self.new,self.plan)
+
+    def test_original_zone_clearance_changed(self):
+        zone=next(z for z in self.new.Zones() if not z.GetZoneName().startswith('ADR0049-'))
+        zone.SetLocalClearance(120000);self.reject()
+
+    def test_power_zone_net_changed(self):
+        zone=next(z for z in self.new.Zones() if z.GetZoneName().startswith('ADR0049-'))
+        zone.SetNetCode(self.new.FindNet('GND').GetNetCode());self.reject()
+
+    def test_power_zone_boundary_changed(self):
+        zone=next(z for z in self.new.Zones() if z.GetZoneName().startswith('ADR0049-'))
+        zone.Move(p.VECTOR2I(100000,0));self.reject()
+
+    def test_power_zone_unanchored_islands_allowed(self):
+        zone=next(z for z in self.new.Zones() if z.GetZoneName().startswith('ADR0049-'))
+        zone.SetIslandRemovalMode(p.ISLAND_REMOVAL_MODE_NEVER);self.reject()
+
+    def test_orphan_via_restored_without_witness(self):
+        _,net,x,y,top,bottom,diameter,drill=self.plan['retired_orphan_microvias'][0]
+        via=p.PCB_VIA(self.new);via.SetNetCode(self.new.FindNet(net).GetNetCode())
+        via.SetPosition(p.VECTOR2I(x,y));via.SetViaType(p.VIATYPE_MICROVIA)
+        via.SetLayerPair(self.new.GetLayerID(top),self.new.GetLayerID(bottom));via.SetWidth(diameter);via.SetDrill(drill)
+        self.new.Add(via);self.reject()
+
+    def test_exact_mpn_changed(self):
+        self.parts['R89'].GetField('MPN').SetText('UNREVIEWED_SUBSTITUTE');self.reject()
+
+
+if __name__=='__main__':
+    if any(arg.startswith('RoutingProgressGuards.') for arg in sys.argv[1:]):
+        result=unittest.main(exit=False).result
+        # All assertions and unittest result reporting have completed. Bypass
+        # only interpreter/native-object teardown, never a failed test result.
+        sys.stdout.flush();sys.stderr.flush()
+        os._exit(0 if result.wasSuccessful() else 1)
+    else:
+        names=unittest.defaultTestLoader.getTestCaseNames(RoutingProgressGuards)
+        for name in names:subprocess.run([sys.executable,__file__,'RoutingProgressGuards.'+name,'-v'],check=True)
+        print('All %d isolated native routing-progress guard checks passed.'%len(names))

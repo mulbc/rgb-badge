@@ -1,0 +1,63 @@
+{
+  "SPDX-License-Identifier": "Apache-2.0",
+  "arrival_budget_cases": 1625,
+  "base_revision": "712c94b292ca70764718d313de886dbe3c8cf6b1",
+  "commands": [
+    "./tools/check-playback.sh",
+    "./tools/check-firmware-core.sh",
+    "./tools/check-assets.sh"
+  ],
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+  "esp_idf_target_build": "NOT_RUN",
+  "executed_at_utc": "2026-10-21T19:20:11.809705+00:00",
+  "firmware_revision": "Base revision plus exact source_sha256 entries below; host core only",
+  "hardware_measurements": "NONE",
+  "hardware_revision": "NONE: host simulation, no board attached",
+  "host_architecture": "arm64",
+  "native_asset_regression_checks": 7847,
+  "native_colour_regression_checks": 1810,
+  "native_playback_checks": 67941,
+  "physical_display_blanking": "NOT_IMPLEMENTED by the host core",
+  "playback_object_bytes_host": 4736,
+  "python_asset_regression_tests": 21,
+  "python_playback_integration_tests": 6,
+  "raw_evidence": {
+    "/private/tmp/rgb-playback-assets-regression.log": "3ec86ba4d8637ff02e03abba11c0f48135eb44028bcdd7320b2043a0ea063723",
+    "/private/tmp/rgb-playback-check.log": "8071b3486a6aaa0f183cd7f4824ee2f0aee39359105177c1576f2d94bac9f6d5",
+    "/private/tmp/rgb-playback-colour-regression.log": "1c403115687ed96f70752a7208229d8e58b3b953c54cdca728d310a8391e5656"
+  },
+  "representative_content_storage": "NOT_VERIFIED",
+  "sanitizer_recovery": false,
+  "sanitizers": [
+    "address",
+    "undefined"
+  ],
+  "simulated_timeline": {
+    "duration_us": 300000000,
+    "expected_boundaries": "origin + ceil(frame_index * 1000000 / 60)",
+    "frames": 18000,
+    "height": 16,
+    "width": 48
+  },
+  "source_sha256": {
+    ".github/workflows/host-software.yml": "1648cbcf355a83fdf36f6d1d441edbf03bedd4a91aba21fbb1900cc76fbb8f06",
+    "docs/decisions/0037-host-playback-deadlines.md": "9fd01670b56701ef8411259ff50983f673561297fcc4b04a51920ab0bdcdea8e",
+    "firmware/core/asset_playback.cpp": "82afea7a0135da13a8cf0d972f6c1094bdc510c6cba1deb11771aed55fdf12a9",
+    "firmware/core/asset_reader.cpp": "2116b9e817e24416eb7c21bd5778ed7770e6f558b7843d94134f954010e5ccf3",
+    "firmware/core/include/rgb_badge/asset_playback.h": "afd0640a0de97b7bd8cb11212196e6c7f04d38dddf0a4bfdae0437ec8568f4ae",
+    "firmware/core/include/rgb_badge/asset_reader.h": "3253d1beadbc25c6b94f82123fffa867ba799235d5e1ed707d70b7004212b76d",
+    "firmware/playback.md": "4df749f31839475cd163a8100f04821e30bed9e0e79652b4c30502a0e5e8bf24",
+    "firmware/tests/asset_playback_cli.cpp": "ea4b51f66c0c877ed35f532f75cc535c4b61bc667fe8b65f834e02e926f1dfd5",
+    "firmware/tests/asset_playback_test.cpp": "62a1abf26ef7e38738d3b84521753eb351351dcf9cc5ac446df81c5a075f1f37",
+    "firmware/tests/test_asset_playback.py": "becdea62fd972ba2fd27cd99701465ddd9cd2ecfd1d12947b356f497b3787706",
+    "tools/check-playback.sh": "63e2f64837f579e37422777f5a4a30a51e973ebb02ef4d82431de8477dd88eca",
+    "tools/compile-assets.py": "bb6d39e0139069a38faee4142b10f6ad357d104fbe8752639c35480bf7da7ce1"
+  },
+  "supported_asset_versions": [
+    1,
+    2
+  ],
+  "target_decode_latch_timing": "NOT_QUALIFIED",
+  "target_lateness_budget": "NOT_SELECTED; host default zero is explicit development policy",
+  "target_stack_object_placement": "NOT_QUALIFIED"
+}

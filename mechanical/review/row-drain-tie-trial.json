@@ -1,0 +1,205 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_tracks": 16,
+  "board_sha256": "c668d3e58ba2f66549c0378ee541acb6622769c686b04d2d9bb9b030dab12efe",
+  "kicad_version": "10.0.6",
+  "open_edges": 246,
+  "routes": [
+    {
+      "end_mm": [
+        76.675,
+        4.4
+      ],
+      "net": "ROW_00_A",
+      "pair": "PAIR01",
+      "start_mm": [
+        75.75,
+        4.25
+      ]
+    },
+    {
+      "end_mm": [
+        80.675,
+        6.65
+      ],
+      "net": "ROW_01_A",
+      "pair": "PAIR02",
+      "start_mm": [
+        79.75,
+        6.5
+      ]
+    },
+    {
+      "end_mm": [
+        76.675,
+        8.15
+      ],
+      "net": "ROW_02_A",
+      "pair": "PAIR03",
+      "start_mm": [
+        75.75,
+        8.0
+      ]
+    },
+    {
+      "end_mm": [
+        80.675,
+        10.15
+      ],
+      "net": "ROW_03_A",
+      "pair": "PAIR04",
+      "start_mm": [
+        79.75,
+        10.0
+      ]
+    },
+    {
+      "end_mm": [
+        76.675,
+        11.9
+      ],
+      "net": "ROW_04_A",
+      "pair": "PAIR05",
+      "start_mm": [
+        75.75,
+        11.75
+      ]
+    },
+    {
+      "end_mm": [
+        80.675,
+        13.65
+      ],
+      "net": "ROW_05_A",
+      "pair": "PAIR06",
+      "start_mm": [
+        79.75,
+        13.5
+      ]
+    },
+    {
+      "end_mm": [
+        76.675,
+        15.65
+      ],
+      "net": "ROW_06_A",
+      "pair": "PAIR07",
+      "start_mm": [
+        75.75,
+        15.5
+      ]
+    },
+    {
+      "end_mm": [
+        80.675,
+        17.15
+      ],
+      "net": "ROW_07_A",
+      "pair": "PAIR08",
+      "start_mm": [
+        79.75,
+        17.0
+      ]
+    },
+    {
+      "end_mm": [
+        76.675,
+        19.4
+      ],
+      "net": "ROW_08_A",
+      "pair": "PAIR09",
+      "start_mm": [
+        75.75,
+        19.25
+      ]
+    },
+    {
+      "end_mm": [
+        80.675,
+        20.65
+      ],
+      "net": "ROW_09_A",
+      "pair": "PAIR10",
+      "start_mm": [
+        79.75,
+        20.5
+      ]
+    },
+    {
+      "end_mm": [
+        76.675,
+        23.15
+      ],
+      "net": "ROW_10_A",
+      "pair": "PAIR11",
+      "start_mm": [
+        75.75,
+        23.0
+      ]
+    },
+    {
+      "end_mm": [
+        80.675,
+        24.15
+      ],
+      "net": "ROW_11_A",
+      "pair": "PAIR12",
+      "start_mm": [
+        79.75,
+        24.0
+      ]
+    },
+    {
+      "end_mm": [
+        76.675,
+        26.9
+      ],
+      "net": "ROW_12_A",
+      "pair": "PAIR13",
+      "start_mm": [
+        75.75,
+        26.75
+      ]
+    },
+    {
+      "end_mm": [
+        80.675,
+        27.65
+      ],
+      "net": "ROW_13_A",
+      "pair": "PAIR14",
+      "start_mm": [
+        79.75,
+        27.5
+      ]
+    },
+    {
+      "end_mm": [
+        76.675,
+        30.65
+      ],
+      "net": "ROW_14_A",
+      "pair": "PAIR15",
+      "start_mm": [
+        75.75,
+        30.5
+      ]
+    },
+    {
+      "end_mm": [
+        80.675,
+        31.15
+      ],
+      "net": "ROW_15_A",
+      "pair": "PAIR16",
+      "start_mm": [
+        79.75,
+        31.0
+      ]
+    }
+  ],
+  "source_sha256": "b6fde6e68dcba7f2ec012989f1d8d97cb71dea4efc4fd009f2951cfc7d61e5e7",
+  "status": "UNQUALIFIED_PHYSICAL_DRAIN_TIE_STUDY",
+  "tracks_and_vias": 14195,
+  "width_mm": 0.2
+}

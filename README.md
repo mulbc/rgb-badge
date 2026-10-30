@@ -4,7 +4,9 @@
 
 An open-source, full-colour wearable LED badge inspired by the FOSSASIA Badge Magic form factor.
 
-The project is currently in **pre-schematic development**. Requirements and the system architecture are agreed, but no PCB in this repository has yet been electrically reviewed, fabricated or tested. Do not treat any current design material as production-ready.
+The project is currently in **draft schematic development**. Several coupon circuits are captured, including a provisional charger core, but the complete power circuit and PCB are unfinished. No board in this repository has been independently reviewed, fabricated or tested. Do not treat current design material as production-ready.
+
+The current [58-edge study](docs/development/led-routing-progress-58-study-2026-10-30.md) adds a switched-gauge supply connection and corrects printed switch terminal labels while retaining every preceding connection. It has **58 unconnected edges and 104 existing DRC findings**. The [inductor-locality screen](docs/development/converter-inductor-locality-2026-10-30.md) finds no compliant sampled pose beside the fixed converters. The 50-edge target, power-stage floorplan, electrical qualification and independent review remain open.
 
 ## Product target
 
@@ -12,7 +14,7 @@ The project is currently in **pre-schematic development**. Requirements and the 
 |---|---:|
 | Display | 48 × 16 individually controlled RGB pixels |
 | Pixel pitch | 1.95 mm |
-| Finished envelope | ≤110 × 35 × 11 mm |
+| Finished envelope | ≤118 × 35 × 11 mm working limit; 114 × 32.5 mm PCB target |
 | Finished weight | ≤75 g target; 100 g absolute maximum |
 | Reference runtime | Approximately 6 h at the defined mixed-content workload and fixed indoor brightness |
 | Charging/data | USB-C, 5 V, A-to-C and C-to-C; native USB data |
@@ -25,6 +27,8 @@ Six hours is not a maximum-brightness guarantee. The initial model predicts abou
 ## Development strategy
 
 The first physical board is a production-intent 16 × 16 coupon. It compares Everlight `EAST10105RGBA0` 1010 and QT Brightek `QBLP1515A-RGB2A` 1515 common-anode RGB LEDs while exercising the intended controller, matrix driver, USB-C, charger, battery gauge, power converters, antenna and controls. The full 48 × 16 badge will not be ordered until the coupon passes its electrical, optical, thermal, runtime and RF acceptance tests.
+
+For coupon routing, [ADR 0034](docs/decisions/0034-uniform-qt-coupon-pitch-proposal.md) sets the 1515 half to 2.2 mm horizontal / 1.95 mm vertical pitch and uniform orientation; the 1010 half stays at 1.95 mm in both axes. The final badge still targets no more than 1.95 mm in either axis, so coupon optical comparisons must account for the different spacing.
 
 Start with:
 

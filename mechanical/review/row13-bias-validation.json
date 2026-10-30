@@ -1,0 +1,78 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "base_revision": "b7ef7867884c5863d56330b38d84187f0321f1ef",
+  "canonical_schematic_bom_libraries_unchanged": true,
+  "commands": [
+    "KiCad bundled Python: tools/generate-row13-bias-trial.py (two generations)",
+    "./tools/check-row13-bias.sh",
+    "KiCad bundled Python: tools/report-coupon-board-connectivity.py hardware/coupon/rev-a/staging/led-row13-bias-trial-114mm.kicad_pcb --by-net"
+  ],
+  "current_limits_unchanged": true,
+  "electrical_timing_process_qualified": false,
+  "exact_led_placements_passed": 256,
+  "executed_at_utc": "2026-10-22T01:00:41.022130+00:00",
+  "existing_physical_pad_groups_preserved": true,
+  "firmware_revision": "b7ef7867884c5863d56330b38d84187f0321f1ef (unchanged software)",
+  "gate_side_pullups_connected": 9,
+  "hardware_measurements": "NONE",
+  "hardware_revision": "Unbuilt Coupon Rev A mixed-source row-13 derivative; exact board hash below",
+  "independent_gate_a": "OPEN",
+  "isolated_native_guard_cases_passed": 8,
+  "kicad_version": "10.0.6",
+  "limitations": [
+    "234 opens including seven gate terminals, 27 GND and 14 VLED",
+    "104 intrinsic fine-pitch DRC findings unresolved",
+    "R19.2 via-in-pad filling/capping, wicking/stencil and HDI qualification",
+    "Current capacity, turn-off/dead time, return/capacitor locality and interlock faults unqualified",
+    "Canonical row-package adoption/BOM synchronization and RF/battery/enclosure fit pending",
+    "Independent Gate A required before fabrication"
+  ],
+  "moved_footprints": [
+    "R19"
+  ],
+  "native_and_pad_cluster_counts_reconcile": true,
+  "native_drc_comparison": "Exact full normalized finding multiset equals control-continuation baseline",
+  "native_drc_new_findings": 0,
+  "native_full_drc_violations": 104,
+  "native_open_edges_after": 234,
+  "native_open_edges_before": 236,
+  "native_python": "KiCad bundled Python 3.9",
+  "physical_anode_pads_per_row": 18,
+  "raw_evidence_sha256": {
+    "/private/tmp/rgb-gate-13-supply.log": "bbbb1a696c2a226df268ce2f3a0724030a94ad6e6a2e190021cbf72a974e548f",
+    "/private/tmp/rgb-gate-endpoints-probe.log": "a5f8c4d837e080b955a64d78e22878aadc908fcade4f286b1936ba88b4a96f68",
+    "/private/tmp/rgb-gate-placement-13.log": "fa3f1cf6b03c141e719199024891967bfcd5ec2b7cd1b68723332a33575eb599",
+    "/private/tmp/rgb-row13-bias-faults.log": "ce5925db6944a23eef5186d413fa0ed2bf257ac655b99ba4e1ccfcfc6711eb3e",
+    "/private/tmp/rgb-row13-bias-full-check.log": "7c180f7b8f035584fd6f35ae28cef830f1a8a051830b40cd81bf002d835840ee",
+    "/private/tmp/rgb-row13-bias-generate.log": "4f4b16079c83e7aef0bc2abdc6a7818320ca29718f9e4d0831411c5fc2c434ef",
+    "/private/tmp/rgb-row13-bias-reproduce.log": "1d6b6d04c3fd47b27ce3dc2d64e937d6c6b9ce6b5d3a1f002a901047e156232b"
+  },
+  "repeated_generation_byte_identical": true,
+  "reviewed_manufacturer_sources": {
+    "onsemi_owner_supplied_pdf_sha256": "202122bd220e16138c458ac93bb737ab4fdb8a60d3a3722059636636f47d7aed",
+    "onsemi_review": "Existing Rev. 6 numbered pin map/package audit retained; no pad library change",
+    "panasonic_reference": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
+    "panasonic_reference_date": "29-May-25; ERJ2RK identity/0402 size unchanged"
+  },
+  "source_copper_preserved": true,
+  "source_sha256": {
+    ".gitignore": "dc7a93995afbaefbe1c53e2192e3a793efb85a1bc03ea156983f161e58b86d43",
+    "CONTEXT.md": "fb161c1afb3c764cf00d8dbc8cdb3d743f0cc7a182a96421e4dc6620465b809d",
+    "docs/development/led-row13-bias-drc-2026-10-21.json": "5aa9e52c24582d5b2b809261010442644fbc2f9d68afa3ce40470235f034fb1a",
+    "docs/development/led-row13-bias-study-2026-10-21.md": "3ab7bd0a64970db573c98a21dafd1e1962be05dcf1eb5dabe3ffaad56f5a44f7",
+    "hardware/coupon/rev-a/README.md": "534e64c6fe1c6abef422942f3517ce31b1b315e321cbca36fccaf67023b156d3",
+    "hardware/coupon/rev-a/staging/README.md": "dbcae16ede795144ee03addd5fc9a35f741cf0a28411cbac471cf43c73df2fef",
+    "hardware/coupon/rev-a/staging/led-control-continuation-trial-114mm.kicad_pcb": "f945becb2b685e14bc08a3402e07bf1c2fc56af6b940e12b3470f6fad3e16851",
+    "hardware/coupon/rev-a/staging/led-row13-bias-trial-114mm.kicad_pcb": "7541a0f2eb8eabc383e89ae153131e0bc53d14a257033c8e79b72a7b9ead16f0",
+    "mechanical/review/row13-bias-check.json": "334e0501244b8f30466acf33021d9e8c04a5dc35c05ba279f2661cf32b697131",
+    "mechanical/review/row13-bias-open-nets.json": "40c89ad725ca0fe192d6c7081125780e34499a92dbb42d912d23f8f86861adef",
+    "mechanical/review/row13-bias-reproduction.json": "8321e89149b1075ff91c6a0bbf43731a108571dfd3d8ec236f1102ac1a9fdbb7",
+    "mechanical/review/row13-bias-trial.json": "4dd5c429597bcc538db18e0d489b3889af006081116a212271957846e4812b36",
+    "tools/check-row13-bias-trial.py": "f9b9d30b96edffc9df389e2c37a7bcc30f564f93577124358630aee8c8395d66",
+    "tools/check-row13-bias.sh": "5b604cc23538204f66a82fe08dab553410a78ec1e7d59090204eb852cc7f61e1",
+    "tools/generate-row13-bias-trial.py": "797e0ef7d46a0c05a95bd0b6dbf654b442b173ec6e205928d4b2d49322030eb1",
+    "tools/test-row13-bias-guards.py": "dc7025c6df843950105f451a7222a99f390e4a5aef61a1aad2faab59fbb4d842"
+  },
+  "status": "NATIVE_GEOMETRY_CHECKED_NOT_FABRICATION_SOURCE",
+  "unchanged_footprints": 482
+}

@@ -11,7 +11,7 @@ Status: exact-part KiCad libraries authored; owner KiCad 10.0.6 rendering review
 | Active-high 1-of-16 decoder | `74HC4514PW,118` | Nexperia SOT355-1 / TSSOP24 | [Nexperia datasheet](https://assets.nexperia.com/documents/data-sheet/74HC_HCT4514.pdf), rev. 6.1, 2024-08-12 |
 | High-side row switch | `DMP2066LSN-7` | Diodes SC-59 | [Diodes datasheet](https://www.diodes.com/datasheet/download/DMP2066LSN.pdf), DS31467 rev. 4-2, 2011-08 |
 | Gate pull-down / level shift | `2N7002K-7` | Diodes SOT23 | [Diodes datasheet](https://www.diodes.com/assets/Datasheets/2N7002K.pdf), DS30896 rev. 20-2, 2024-07 |
-| P-MOSFET gate pull-up | `ERJ-2RKF1001X` | Panasonic 0402 | [Panasonic ERJ data sheet](https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf); 1 kΩ, ±1% |
+| P-MOSFET gate pull-up | `ERJ2RKF1001X` | Panasonic 0402 | [Panasonic ERJ data sheet](https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf); 1 kΩ, ±1% |
 
 The first three downloaded source files hashed as follows during transcription. A later upstream revision requires a fresh comparison, not an automatic hash update.
 

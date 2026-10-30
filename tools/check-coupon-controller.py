@@ -28,22 +28,23 @@ PROJECT = A["PROJECT_DIR"]
 
 PARTS = {
     "U3": ("ESP32-S3-WROOM-1U-N16R8", "ESP32-S3-WROOM-1U-N16R8", "rgb-badge-coupon:ESP32-S3-WROOM-1U"),
-    "C3": ("GRM188R60J106ME47D", "10u 6.3V X5R", "rgb-badge-coupon:C_Murata_GRM18_0603"),
+    "C3": ("GRM188R60J106ME47D", "10u 6.3V X5R", "rgb-badge-coupon:C_Murata_GRM188R60J106ME47_0603"),
     "C4": ("GRM155R71C104KA88D", "100n 16V X7R", "rgb-badge-coupon:C_Murata_GRM15_0402"),
     "C5": ("GRM155C71A105KE11D", "1u 10V X7S", "rgb-badge-coupon:C_Murata_GRM15_0402"),
-    "R43": ("ERJ-2RKF1002X", "10k 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
-    "R44": ("ERJ-2RKF1002X", "10k 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
-    "R45": ("ERJ-2RKF22R0X", "22R 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
-    "R46": ("ERJ-2RKF22R0X", "22R 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
-    "R47": ("ERJ-2RKF4990X", "499R 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
+    "R43": ("ERJ2RKF1002X", "10k 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
+    "R44": ("ERJ2RKF1002X", "10k 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
+    "R45": ("ERJ2RKF22R0X", "22R 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
+    "R46": ("ERJ2RKF22R0X", "22R 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
+    "R47": ("ERJ2RKF4990X", "499R 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
     "SW1": ("EVQP7J01P", "EVQP7J01P", "rgb-badge-coupon:SW_Panasonic_EVQP7J01P"),
 }
 PARTS.update({f"TP{i}": ("TestPoint_Pad", "TestPoint_Pad", "rgb-badge-coupon:TestPoint_Pad_D1.0mm") for i in range(2, 13)})
 
 MODULE_NETS = {
     "1": "GND", "2": "+3V3_APP", "3": "ESP_EN", "4": "ROW_A0", "5": "ROW_A1",
-    "6": "ROW_A2", "7": "ROW_A3", "10": "SYS_I2C_SDA", "11": "SYS_I2C_SCL",
-    "12": "ROW_ENABLE_N", "13": "USB_DN_MCU", "14": "USB_DP_MCU",
+    "6": "ROW_A2", "7": "ROW_A3", "8": "DISPLAY_HEARTBEAT",
+    "9": "DISPLAY_ARM_CLK", "10": "SYS_I2C_SDA", "11": "SYS_I2C_SCL",
+    "12": "ROW_ENABLE_REQ_N", "13": "USB_DN_MCU", "14": "USB_DP_MCU",
     "17": "DISPLAY_ENABLE", "18": "LED_LAT", "19": "LED_SIN", "20": "LED_SCLK",
     "21": "LED_GCLK", "22": "LED_SOUT", "27": "MODE_BOOT_N", "36": "UART0_RX",
     "37": "UART0_TX_RAW", "40": "GND", "41": "GND",
@@ -78,7 +79,7 @@ def expected_connections():
         ("SW1", "1"): "MODE_BOOT_N", ("SW1", "2"): "GND",
     })
     for i, net in enumerate(("ESP_EN", "MODE_BOOT_N", "UART0_TX", "UART0_RX", "LED_GCLK",
-                             "ROW_ENABLE_N", "+3V3_APP", "GND", "DISPLAY_ENABLE",
+                             "ROW_ENABLE_REQ_N", "+3V3_APP", "GND", "DISPLAY_ENABLE",
                              "SYS_I2C_SDA", "SYS_I2C_SCL"), 2):
         result[(f"TP{i}", "1")] = net
     return result
@@ -105,7 +106,7 @@ def check_sources(project=PROJECT):
     LIB["check_libraries"](project)
     root = parse(project / "rgb-badge-coupon.kicad_sch")
     sheets = children(root, "sheet")
-    require(len(sheets) == 7, "Expected four matrix, driver, row and controller sheets")
+    require(len(sheets) == 19, "Expected matrix, driver, rows, controller, USB, gauge, application power, temperature, charger, VLED and isolated interlock")
     targets = [s for s in sheets if props(s)["Sheetfile"] == "controller.kicad_sch"]
     require(len(targets) == 1 and not children(root, "symbol"), "Controller sheet missing/duplicated or root contains components")
     sheet_uuid = one(targets[0], "uuid", "controller sheet")[1]
@@ -178,6 +179,7 @@ def check_sources(project=PROJECT):
     require(seen == set(PARTS), "Controller population incomplete")
     require(nc_positions == {module_pin_positions[n] for n in MODULE_NC}, "No-connect markers differ from unused module pins")
     require(connections == expected_connections(), "Controller source pin-to-net mismatch")
+    return connections
 
 
 def check_netlist(path):
@@ -200,6 +202,73 @@ def check_netlist(path):
     expected_nets.update(ROWS["expected_connections"]())
     expected_nets.update(expected_connections())
     expected_nets.update(expected_native_no_connects())
+    permission = runpy.run_path(str(TOOLS / "check-coupon-permission.py"))
+    expected_components.update({ref: (value, footprint) for ref, (_, value, footprint) in permission["PARTS"].items()})
+    expected_nets.update(permission["expected_connections"]())
+    expected_nets.update(permission["expected_native_no_connects"]())
+    usb = runpy.run_path(str(TOOLS / "check-coupon-usb.py"))
+    expected_components.update({ref: (value, footprint) for ref, (_, value, footprint) in usb["PARTS"].items()})
+    expected_nets.update(usb["expected_connections"]())
+    expected_nets.update(usb["expected_native_no_connects"]())
+    gauge = runpy.run_path(str(TOOLS / "check-coupon-gauge.py"))
+    expected_components.update({ref: (value, footprint) for ref, (_, value, footprint) in gauge["PARTS"].items() if not ref.startswith('#')})
+    expected_nets.update({pair: net for pair, net in gauge["CONNECTIONS"].items() if not pair[0].startswith('#')})
+    expected_nets[('U35','5')] = 'unconnected-(U35-ALRT-Pad5)'
+    converter = runpy.run_path(str(TOOLS / "check-coupon-3v3.py"))
+    generator = runpy.run_path(str(TOOLS / "generate-coupon-3v3.py"))
+    expected_components.update({ref: (value, 'rgb-badge-coupon:' + footprint)
+                                for ref, (_, value, footprint, _, _, _) in generator['PARTS'].items()})
+    expected_nets.update({pair: ('Net-(U36-' + net + ')' if net in ('LX1', 'LX2') else net)
+                          for pair, net in converter['EXPECTED'].items()})
+    temperature = runpy.run_path(str(TOOLS / "check-coupon-temperature.py"))
+    temperature_generator = runpy.run_path(str(TOOLS / "generate-coupon-temperature.py"))
+    expected_components.update({ref: (value, 'rgb-badge-coupon:' + footprint)
+                                for ref, (_, value, footprint, _, _, _) in temperature_generator['h'].PARTS.items()})
+    expected_nets.update(temperature['EXPECTED'])
+    charger = runpy.run_path(str(TOOLS / "check-coupon-charger-core.py"))
+    charger_generator = runpy.run_path(str(TOOLS / "generate-coupon-charger-core.py"))
+    expected_components.update({ref: (value, 'rgb-badge-coupon:' + footprint)
+                                for ref, (_, value, footprint, _, _, _) in charger_generator['h'].PARTS.items()})
+    expected_nets.update(charger['EXPECTED'])
+    gate = runpy.run_path(str(TOOLS / "check-coupon-charger-gate.py"))
+    gate_generator = runpy.run_path(str(TOOLS / "generate-coupon-charger-gate.py"))
+    expected_components.update({ref: (value, 'rgb-badge-coupon:' + footprint)
+                                for ref, (_, value, footprint, _, _, _) in gate_generator['h'].PARTS.items()})
+    expected_nets.update(gate['EXPECTED'])
+    e0 = runpy.run_path(str(TOOLS / "check-coupon-e0.py"))
+    e0_generator = runpy.run_path(str(TOOLS / "generate-coupon-e0.py"))
+    expected_components.update({ref: (value, 'rgb-badge-coupon:' + footprint)
+                                for ref, (_, value, footprint, _, _, _) in e0_generator['h'].PARTS.items()})
+    expected_nets.update(e0['EXPECTED'])
+    vled = runpy.run_path(str(TOOLS / "check-coupon-vled.py"))
+    vled_generator = runpy.run_path(str(TOOLS / "generate-coupon-vled.py"))
+    expected_components.update({('C63' if ref == 'C50' else ref): (value, 'rgb-badge-coupon:' + footprint)
+                                for ref, (_, value, footprint, _, _, _) in vled_generator['helper'].PARTS.items()})
+    expected_nets.update({(('C63' if ref == 'C50' else ref), pin): net for net, nodes in vled['EXPECTED'].items()
+                          for ref, pin in (node.split('.') for node in nodes)})
+    interlock = runpy.run_path(str(TOOLS / "generate-coupon-display-interlock.py"))
+    expected_components.update({ref: (value, 'rgb-badge-coupon:' + footprint)
+                                for ref, (_, value, footprint, _, _, _) in interlock['h'].PARTS.items()})
+    for ref, pin_nets in interlock['PIN_NETS'].items():
+        expected_nets.update({(ref, str(pin)): net for pin, net in pin_nets.items()})
+        mpn = interlock['h'].PARTS[ref][0]
+        symbol = interlock['symbols'][mpn]
+        for pin, node in interlock['lib']['library_pins'](symbol).items():
+            if int(pin) not in pin_nets:
+                name = interlock['lib']['one'](node, 'name', 'pin')[1]
+                expected_nets[(ref, pin)] = f'unconnected-({ref}-{name}-Pad{pin})'
+    for ref in (f'C{n}' for n in range(66, 75)):
+        expected_nets.update({(ref, '1'): '+3V3_APP', (ref, '2'): 'GND'})
+    for ref, (left, right) in interlock['RESISTOR_NETS'].items():
+        expected_nets.update({(ref, '1'): left, (ref, '2'): right})
+    expected_nets.update({('TP13', '1'): 'VLED_ENABLE_CANDIDATE',
+                          ('TP14', '1'): 'ROW_ENABLE_N_CANDIDATE'})
+    expected_components['SW2'] = ('JS202011JCQN', 'rgb-badge-coupon:SW_CK_JS202011JCQN_ManufacturerPins')
+    expected_nets.update({('SW2','2'): '+SYS_APP_IN_DRAFT', ('SW2','3'): 'APP_ON_SW_DRAFT',
+                          ('SW2','1'): 'unconnected-(SW2-A1-Pad1)',
+                          ('SW2','5'): 'unconnected-(SW2-A2-Pad5)',
+                          ('SW2','6'): '+BAT_PROTECTED_DRAFT',
+                          ('SW2','7'): '+BAT_GAUGE_SW'})
     require(components == expected_components, "Complete coupon XML population/value/footprint mismatch")
     require(connections == expected_nets,
             "Complete coupon XML pin-to-net mismatch: " + mapping_difference(connections, expected_nets))
@@ -213,7 +282,7 @@ def main():
     try:
         if args.netlist:
             check_netlist(args.netlist)
-            print("KiCad XML complete coupon check passed: 356 PCB items, 1360 logical pins; matrix + driver + rows + controller.")
+            print("KiCad XML complete coupon check passed: 497 PCB items, 1814 logical pins; isolated interlock trial plus provisional E0/E1/charger/gauge/app 3V3 and dark VLED.")
         else:
             check_sources(args.project_dir)
             print("Controller source connectivity check passed: N16R8 module, safe boot/reset, USB/UART boundaries and 11 test pads (not KiCad ERC).")

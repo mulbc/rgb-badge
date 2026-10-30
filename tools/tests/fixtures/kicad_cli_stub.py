@@ -4,18 +4,24 @@
 
 import os
 from pathlib import Path
+import runpy
 import sys
 import xml.etree.ElementTree as ET
 
 
-def fabrication_svg():
+def fabrication_svg(profile="led"):
     # Minimal KiCad-shaped text structure for wrapper/overlay tests. The paths
     # are deliberately dummy strokes, not a real LED footprint or digit font.
     groups = "".join(
         f'<g style="fill:none;stroke:#000000;stroke-width:0.012500;stroke-linecap:round">'
         f'<g class="stroked-text"><desc>{number}</desc>'
         f'<path d="M{x} {y} L{x + 0.1} {y + 0.15}"/></g></g>'
-        for number, x, y in ((1, 1.3, 0.4), (2, 1.3, 1.3), (3, 0.4, 1.3), (4, 0.4, 0.4))
+        for number, x, y in (
+            ((1, 1.3, 0.4), (2, 1.3, 1.3), (3, 0.4, 1.3), (4, 0.4, 0.4))
+            if profile == "led" else
+            tuple((n, n / 10, copy / 10) for n in range(1, 11)
+                  for copy in range(2 if n in (1, 4, 7, 10) else 1))
+        )
     )
     return (
         '<svg xmlns="http://www.w3.org/2000/svg" width="2.000000mm" '
@@ -136,13 +142,13 @@ def complete_coupon_netlist():
     return root
 
 
-def controller_coupon_netlist():
+def legacy_controller_coupon_netlist():
     """Synthetic complete coupon including the controller; never native evidence."""
     root = complete_coupon_netlist()
     components = root.find('components')
     parts = [
         ('U3', 'ESP32-S3-WROOM-1U-N16R8', 'ESP32-S3-WROOM-1U'),
-        ('C3', '10u 6.3V X5R', 'C_Murata_GRM18_0603'),
+        ('C3', '10u 6.3V X5R', 'C_Murata_GRM188R60J106ME47_0603'),
         ('C4', '100n 16V X7R', 'C_Murata_GRM15_0402'),
         ('C5', '1u 10V X7S', 'C_Murata_GRM15_0402'),
         ('R43', '10k 1%', 'R_Panasonic_ERJ2_0402'),
@@ -166,8 +172,9 @@ def controller_coupon_netlist():
 
     module = {
         1: 'GND', 2: '+3V3_APP', 3: 'ESP_EN', 4: 'ROW_A0', 5: 'ROW_A1',
-        6: 'ROW_A2', 7: 'ROW_A3', 10: 'SYS_I2C_SDA', 11: 'SYS_I2C_SCL',
-        12: 'ROW_ENABLE_N', 13: 'USB_DN_MCU', 14: 'USB_DP_MCU',
+        6: 'ROW_A2', 7: 'ROW_A3', 8: 'DISPLAY_HEARTBEAT', 9: 'DISPLAY_ARM_CLK',
+        10: 'SYS_I2C_SDA', 11: 'SYS_I2C_SCL',
+        12: 'ROW_ENABLE_REQ_N', 13: 'USB_DN_MCU', 14: 'USB_DP_MCU',
         17: 'DISPLAY_ENABLE', 18: 'LED_LAT', 19: 'LED_SIN', 20: 'LED_SCLK',
         21: 'LED_GCLK', 22: 'LED_SOUT', 27: 'MODE_BOOT_N', 36: 'UART0_RX',
         37: 'UART0_TX_RAW', 40: 'GND', 41: 'GND',
@@ -176,7 +183,7 @@ def controller_coupon_netlist():
     # KiCad's native XML exporter includes explicitly no-connected pins as
     # one-node nets. Keep this fixture aligned with the captured native export.
     unused_module_pins = {
-        8: 'GPIO15', 9: 'GPIO16', 15: 'GPIO3', 16: 'GPIO46', 23: 'GPIO21',
+        15: 'GPIO3', 16: 'GPIO46', 23: 'GPIO21',
         24: 'GPIO47', 25: 'GPIO48', 26: 'GPIO45', 28: 'GPIO35/PSRAM',
         29: 'GPIO36/PSRAM', 30: 'GPIO37/PSRAM', 31: 'GPIO38', 32: 'GPIO39',
         33: 'GPIO40', 34: 'GPIO41', 35: 'GPIO42', 38: 'GPIO2', 39: 'GPIO1',
@@ -191,9 +198,262 @@ def controller_coupon_netlist():
     ):
         add(ref, 1, left); add(ref, 2, right)
     for i, net in enumerate(('ESP_EN', 'MODE_BOOT_N', 'UART0_TX', 'UART0_RX', 'LED_GCLK',
-                             'ROW_ENABLE_N', '+3V3_APP', 'GND', 'DISPLAY_ENABLE',
+                             'ROW_ENABLE_REQ_N', '+3V3_APP', 'GND', 'DISPLAY_ENABLE',
                              'SYS_I2C_SDA', 'SYS_I2C_SCL'), 2):
         add(f'TP{i}', 1, net)
+    return root
+
+
+def permission_coupon_netlist():
+    """Independent synthetic full-coupon fixture including staged USB gates."""
+    root = legacy_controller_coupon_netlist()
+    components = root.find('components')
+    nets = {n.get('name'): n for n in root.findall('./nets/net')}
+
+    def add(ref, pin, name):
+        if name not in nets:
+            nets[name] = ET.SubElement(root.find('nets'), 'net', name=name)
+        ET.SubElement(nets[name], 'node', ref=ref, pin=str(pin))
+
+    def part(ref, value, footprint):
+        comp = ET.SubElement(components, 'comp', ref=ref)
+        ET.SubElement(comp, 'value').text = value
+        ET.SubElement(comp, 'footprint').text = 'rgb-badge-coupon:' + footprint
+
+    gate_map = [
+        (11,'04',[(2,'OUT1'),(4,'CC_HIGH')]),
+        (17,'11',[(1,'VBUS_VALID'),(3,'LOGIC_READY'),(6,'CC_HIGH'),(4,'CHARGE_REQ')]),
+        (23,'06',[(2,'CHARGE_REQ'),(4,'EN1_RAW_N')]),
+    ]
+    for number,code,pins in gate_map:
+        ref = f'U{number}'
+        part(ref,f'SN74LVC1G{code}DBVR','SOT23_TI_DBV0006A' if code=='11' else 'SOT23_TI_DBV0005A')
+        for pin,net in pins:add(ref,pin,'USB_'+net)
+        add(ref,2 if code=='11' else 3,'GND');add(ref,5,'+3V3_USB')
+        if code in ('04','06'):add(ref,1,f'unconnected-({ref}-NC-Pad1)')
+    raw = ['OUT1','OUT2','VBUS_VALID','LOGIC_READY']
+    for i in range(2):
+        ref = f'U{24+i}'
+        part(ref,'SN74LVC2G17DBVR','SOT23_TI_DBV0006A')
+        for pin,name in [(1,'USB_RAW_'+raw[2*i]),(3,'USB_RAW_'+raw[2*i+1]),
+                         (6,'USB_'+raw[2*i]),(4,'USB_'+raw[2*i+1]),(2,'GND'),(5,'+3V3_USB')]:add(ref,pin,name)
+    for i in (11,17,23,24,25):
+        part(f'C{i}','100n 16V X7R','C_Murata_GRM15_0402')
+        add(f'C{i}',1,'+3V3_USB');add(f'C{i}',2,'GND')
+    for i,name in enumerate(raw):
+        up = i in (0,1)
+        part(f'R{60+i}','10k 1%' if up else ('1M 1%' if name=='LOGIC_READY' else '100k 1%'),'R_Panasonic_ERJ2_0402')
+        add(f'R{60+i}',1,'USB_RAW_'+name);add(f'R{60+i}',2,'+3V3_USB' if up else 'GND')
+        part(f'TP{20+i}',name,'TestPoint_Pad_D1.0mm');add(f'TP{20+i}',1,'USB_OUT2' if i==1 else 'USB_RAW_'+name)
+    part('R70','10k 1%','R_Panasonic_ERJ2_0402');add('R70',1,'+3V3_USB');add('R70',2,'USB_EN1_RAW_N')
+    for ref,name in [('TP30','CHARGE_REQ'),('TP31','EN1_RAW_N')]:
+        part(ref,name,'TestPoint_Pad_D1.0mm');add(ref,1,'USB_'+name)
+    part('U34','TPS3808G01DBVR','SOT23_TI_DBV0006A')
+    for pin,net in [(1,'USB_RAW_LOGIC_READY'),(2,'GND'),(3,'+3V3_USB'),(4,'USB_LOGIC_CT'),(5,'USB_LOGIC_SENSE'),(6,'+3V3_USB')]:
+        add('U34',pin,net)
+    part('C38','100n 16V X7R','C_Murata_GRM15_0402');add('C38',1,'+3V3_USB');add('C38',2,'GND')
+    for ref,value,a,b in [('R75','620k 1%','+3V3_USB','USB_LOGIC_SENSE'),
+                         ('R76','100k 1%','USB_LOGIC_SENSE','GND'),
+                         ('R77','100k 1%','+3V3_USB','USB_LOGIC_CT'),
+                         ('R78','100k 1%','+3V3_USB','USB_RAW_LOGIC_READY')]:
+        part(ref,value,'R_Panasonic_ERJ2_0402');add(ref,1,a);add(ref,2,b)
+    return root
+
+
+def controller_coupon_netlist():
+    """Test-only USB capture fixture, transcribed separately from the checker."""
+    root=permission_coupon_netlist()
+    nets={n.get('name'):n for n in root.findall('./nets/net')}
+    def add(ref,pin,name):
+        if name not in nets:nets[name]=ET.SubElement(root.find('nets'),'net',name=name)
+        ET.SubElement(nets[name],'node',ref=ref,pin=str(pin))
+    def part(ref,value,footprint,pins):
+        comp=ET.SubElement(root.find('components'),'comp',ref=ref)
+        ET.SubElement(comp,'value').text=value
+        ET.SubElement(comp,'footprint').text='rgb-badge-coupon:'+footprint
+        for p,n in pins.items():add(ref,p,n)
+    part('J1','USB4505-03-0-A','USB_C_GCT_USB4505-03-0-A_MidMount',{
+        'A1_B12':'GND','A4_B9':'VBUS_CONNECTOR','B8':'unconnected-(J1-SBU2-PadB8)',
+        'A5':'USB_CC1','B7':'USB_CONN_DM','A6':'USB_CONN_DP','A7':'USB_CONN_DM','B6':'USB_CONN_DP',
+        'A8':'unconnected-(J1-SBU1-PadA8)','B5':'USB_CC2','B4_A9':'VBUS_CONNECTOR','B1_A12':'GND','S1':'GND'})
+    part('U29','TPS70933DBVR','SOT23_TI_DBV0005A',{
+        1:'+5V_USB',2:'GND',3:'unconnected-(U29-EN-Pad3)',4:'unconnected-(U29-NC-Pad4)',5:'+3V3_USB'})
+    part('U31','TUSB320LAIRWBR','X2QFN_TI_RWB0012A_1.6x1.6mm_P0.4mm',{
+        1:'USB_CC1',2:'USB_CC2',3:'GND',4:'USB_VBUS_DET',5:'unconnected-(U31-ADDR-Pad5)',
+        6:'unconnected-(U31-INT_N/OUT3-Pad6)',7:'USB_RAW_OUT1',8:'USB_RAW_OUT2',
+        9:'unconnected-(U31-ID-Pad9)',10:'GND',11:'GND',12:'+3V3_USB'})
+    part('U32','TS3USB31ERSER','UQFN_TI_RSE0008A_1.5x1.5mm_P0.5mm',{
+        1:'GND',2:'USB_D+',3:'USB_CONN_DP',4:'GND',5:'USB_CONN_DM',6:'USB_D-',7:'unconnected-(U32-NC-Pad7)',8:'+3V3_APP'})
+    part('U33','TPD4E05U06DQAR','USON_TI_DQA0010A',{
+        1:'USB_CONN_DP',2:'USB_CONN_DM',3:'GND',4:'USB_CC1',5:'USB_CC2',6:'unconnected-(U33-NC-Pad6)',
+        7:'unconnected-(U33-NC-Pad7)',8:'GND',9:'unconnected-(U33-NC-Pad9)',10:'unconnected-(U33-NC-Pad10)'})
+    for ref,a,b,v in [('R71','VBUS_CONNECTOR','USB_VBUS_DET','887k 1%')]:
+        part(ref,v,'R_Panasonic_ERJ2_0402',{1:a,2:b})
+    for ref,rail in [('C30','+5V_USB'),('C31','+5V_USB')]:
+        part(ref,'1u 10V X7S','C_Murata_GRM15_0402',{1:rail,2:'GND'})
+    part('C32','10u 6.3V X5R','C_Murata_GRM188R60J106ME47_0603',{1:'+3V3_USB',2:'GND'})
+    for ref,rail in [('C36','+3V3_USB'),('C37','+3V3_APP')]:
+        part(ref,'100n 16V X7R','C_Murata_GRM15_0402',{1:rail,2:'GND'})
+    for ref,value,net in [('TP32','VBUS_CONNECTOR','VBUS_CONNECTOR'),('TP33','5V_USB_BOUNDARY','+5V_USB')]:
+        part(ref,value,'TestPoint_Pad_D1.0mm',{1:net})
+    # Switched gauge and two-segment I2C buffer.
+    part('U35','MAX17048G+T10','TDFN_Maxim_T822-3_2x2mm_P0.5mm_EP0.7x1.38mm',{
+        1:'GND',2:'+BAT_GAUGE_SW',3:'+BAT_GAUGE_SW',4:'GND',
+        5:'unconnected-(U35-ALRT-Pad5)',6:'GND',7:'GAUGE_I2C_SCL',8:'GAUGE_I2C_SDA',9:'GND'})
+    for ref,net in [('R79','SYS_I2C_SDA'),('R80','SYS_I2C_SCL')]:
+        part(ref,'2.2k 1%','R_Panasonic_ERJ2_0402',{1:'+3V3_APP',2:net})
+    part('C39','100n 16V X7R','C_Murata_GRM15_0402',{1:'+BAT_GAUGE_SW',2:'GND'})
+    part('U46','TCA9517ADGKR','VSSOP_TI_DGK0008A',{
+        1:'+BAT_GAUGE_SW',2:'GAUGE_I2C_SCL',3:'GAUGE_I2C_SDA',4:'GND',
+        5:'+3V3_APP',6:'SYS_I2C_SDA',7:'SYS_I2C_SCL',8:'+3V3_APP'})
+    for ref,net in [('R101','GAUGE_I2C_SDA'),('R102','GAUGE_I2C_SCL')]:
+        part(ref,'2.2k 1%','R_Panasonic_ERJ2_0402',{1:'+BAT_GAUGE_SW',2:net})
+    part('C64','100n 16V X7R','C_Murata_GRM15_0402',{1:'+BAT_GAUGE_SW',2:'GND'})
+    part('C65','100n 16V X7R','C_Murata_GRM15_0402',{1:'+3V3_APP',2:'GND'})
+    # Provisional switched application supply and battery-facing temperature block.
+    part('SW2','JS202011JCQN','SW_CK_JS202011JCQN_ManufacturerPins',{
+        1:'unconnected-(SW2-A1-Pad1)',2:'+SYS_APP_IN_DRAFT',3:'APP_ON_SW_DRAFT',
+        5:'unconnected-(SW2-A2-Pad5)',6:'+BAT_PROTECTED_DRAFT',7:'+BAT_GAUGE_SW'})
+    part('U36','TPS631000DRLR','SOT5X3_TI_DRL0008A',{
+        1:'+3V3_APP',2:'Net-(U36-LX2)',3:'Net-(U36-LX1)',4:'+SYS_APP_IN_DRAFT',
+        5:'APP_ON_SW_DRAFT',6:'GND',7:'GND',8:'APP_3V3_FB'})
+    part('L1','1u 20%','L_Murata_DFE252012P',{1:'Net-(U36-LX1)',2:'Net-(U36-LX2)'})
+    for ref,value,fp,a,b in [
+        ('C40','22u 10V X5R','C_Murata_GRM18_0603','+SYS_APP_IN_DRAFT','GND'),
+        ('C41','22u 10V X5R','C_Murata_GRM18_0603','+SYS_APP_IN_DRAFT','GND'),
+        ('C42','47u 6.3V X5R','C_Murata_GRM21_0805','+3V3_APP','GND'),
+        ('C43','47u 6.3V X5R','C_Murata_GRM21_0805','+3V3_APP','GND'),
+        ('R81','511k 1%','R_Panasonic_ERJ2_0402','+3V3_APP','APP_3V3_FB'),
+        ('R82','91k 1%','R_Panasonic_ERJ2_0402','APP_3V3_FB','GND'),
+        ('R83','100k 1%','R_Panasonic_ERJ2_0402','APP_ON_SW_DRAFT','GND'),
+    ]:
+        part(ref,value,fp,{1:a,2:b})
+    part('TH1','10k NTC','NTC_Murata_NCU15_0402',{1:'CHARGER_TS',2:'GND'})
+    part('U39','TMP390A2DRLR','SOT563_TI_DRL0006A',{
+        1:'TMP_HOT_SET',2:'TMP_COLD_SET',3:'GND',4:'TEMP_OK',5:'+3V3_USB',6:'TEMP_OK'})
+    part('U40','SN74AUP1G125DBVR','SOT23_TI_DBV0005A',{
+        1:'TEMP_OK',2:'GND',3:'GND',4:'CHARGER_GATE_EN',5:'+3V3_USB'})
+    for ref,value,a,b in [
+        ('R89','2.15k 1%','TMP_HOT_SET','GND'),
+        ('R90','14k 1%','TMP_COLD_SET','GND'),
+        ('R91','10k 1%','+3V3_USB','TEMP_OK'),
+        ('C50','100n 16V X7R','+3V3_USB','GND'),
+        ('C51','100n 16V X7R','+3V3_USB','GND'),
+    ]:
+        part(ref,value,'C_Murata_GRM15_0402' if ref.startswith('C') else 'R_Panasonic_ERJ2_0402',{1:a,2:b})
+    part('TP34','TestPoint_Pad','TestPoint_Pad_D1.0mm',{1:'CHARGER_TS'})
+    part('TP35','TestPoint_Pad','TestPoint_Pad_D1.0mm',{1:'CHARGER_GATE_EN'})
+    part('J2','S2B-PH-SM4-TB','JST_PH_S2B-PH-SM4-TB',{1:'+BAT_PROTECTED_DRAFT',2:'GND'})
+    part('U41','BQ24074RGTR','VQFN_TI_RGT0016C_3x3mm_P0.5mm_EP1.68mm',{
+        1:'CHARGER_TS',2:'+BAT_PROTECTED_DRAFT',3:'+BAT_PROTECTED_DRAFT',4:'GND',
+        5:'CHARGER_EN2',6:'GND',7:'unconnected-(U41-PGOOD-Pad7)',8:'GND',
+        9:'unconnected-(U41-CHG-Pad9)',10:'+SYS_APP_IN_DRAFT',11:'+SYS_APP_IN_DRAFT',
+        12:'CHARGER_ILIM',13:'CHARGER_IN_DRAFT',14:'unconnected-(U41-TMR-Pad14)',
+        15:'unconnected-(U41-ITERM-Pad15)',16:'CHARGER_ISET',17:'GND'})
+    for ref,value,fp,positive in [
+        ('R92','2.49k 0.1%','R_Panasonic_ERA2_0402','CHARGER_ISET'),
+        ('R93','3.65k 0.1%','R_Panasonic_ERA2_0402','CHARGER_ILIM'),
+        ('C52','1u 10V X7S','C_Murata_GRM15_0402','CHARGER_IN_DRAFT'),
+        ('C53','10u 6.3V X5R','C_Murata_GRM188R60J106ME47_0603','+BAT_PROTECTED_DRAFT'),
+        ('C54','10u 6.3V X5R','C_Murata_GRM188R60J106ME47_0603','+SYS_APP_IN_DRAFT'),
+    ]:
+        part(ref,value,fp,{1:positive,2:'GND'})
+    part('R88','10k 1%','R_Panasonic_ERJ2_0402',{1:'CHARGER_IN_DRAFT',2:'CHARGER_EN2'})
+    part('U38','2.5V shunt','SOT23_TI_DBZ0003A',{1:'CHARGER_EN2',2:'GND',3:'GND'})
+    part('U44','TPS259474ARPWR','VQFN_TI_RPW0010A_2x2mm_HotRod',{
+        1:'CHARGER_GATE_EN',2:'GND',3:'unconnected-(U44-PG-Pad3)',
+        4:'unconnected-(U44-PGTH-Pad4)',5:'+5V_USB',6:'CHARGER_IN_DRAFT',
+        7:'E1_DVDT',8:'GND',9:'E1_ILM',10:'unconnected-(U44-ITIMER-Pad10)'})
+    for ref,request in [('U42','USB_CHARGE_REQ'),('U43','USB_RAW_LOGIC_READY')]:
+        part(ref,'SN74AUP1G125DBVR','SOT23_TI_DBV0005A',{
+            1:request,2:'GND',3:'GND',4:'CHARGER_GATE_EN',5:'+3V3_USB'})
+    for ref,value,positive,negative in [
+        ('R94','220k 1%','+3V3_USB','CHARGER_GATE_EN'),
+        ('R95','270k 1%','CHARGER_GATE_EN','GND'),
+        ('R96','3.32k 1%','E1_ILM','GND')]:
+        part(ref,value,'R_Panasonic_ERJ2_0402',{1:positive,2:negative})
+    for ref,value,footprint,positive in [
+        ('C55','100n 16V X7R','C_Murata_GRM15_0402','+5V_USB'),
+        ('C56','22u 10V X5R','C_Murata_GRM18_0603','CHARGER_IN_DRAFT'),
+        ('C57','2.2n 50V C0G','C_Murata_GRM15_0402','E1_DVDT'),
+        ('C58','100n 16V X7R','C_Murata_GRM15_0402','+3V3_USB'),
+        ('C59','100n 16V X7R','C_Murata_GRM15_0402','+3V3_USB')]:
+        part(ref,value,footprint,{1:positive,2:'GND'})
+    part('U45','TPS259474ARPWR','VQFN_TI_RPW0010A_2x2mm_HotRod',{
+        1:'E0_EN',2:'E0_OVLO',3:'unconnected-(U45-PG-Pad3)',
+        4:'unconnected-(U45-PGTH-Pad4)',5:'VBUS_CONNECTOR',6:'+5V_USB',
+        7:'E0_DVDT',8:'GND',9:'E0_ILM',10:'unconnected-(U45-ITIMER-Pad10)'})
+    for ref,value,left,right in [
+        ('R97','38.3k 1%','VBUS_CONNECTOR','E0_OVLO'),
+        ('R98','10k 1%','E0_OVLO','GND'),
+        ('R99','390k 1%','VBUS_CONNECTOR','E0_EN'),
+        ('R100','3.32k 1%','E0_ILM','GND')]:
+        part(ref,value,'R_Panasonic_ERJ2_0402',{1:left,2:right})
+    part('C60','1u 50V X7R','C_TDK_C1608_0603',{1:'VBUS_CONNECTOR',2:'GND'})
+    part('C61','22u 10V X5R','C_Murata_GRM18_0603',{1:'+5V_USB',2:'GND'})
+    part('C62','2.2n 50V C0G','C_Murata_GRM15_0402',{1:'E0_DVDT',2:'GND'})
+    part('U37','TPS63020DSJT','VSON_TI_DSJ0014_4x3mm_P0.5mm_EP2.85x1.58mm',{
+        1:'+SYS_APP_IN_DRAFT',2:'GND',3:'VLED_FB',4:'VLED',5:'VLED',
+        6:'Net-(L2-~-Pad2)',7:'Net-(L2-~-Pad2)',8:'Net-(L2-~-Pad1)',9:'Net-(L2-~-Pad1)',
+        10:'+SYS_APP_IN_DRAFT',11:'+SYS_APP_IN_DRAFT',12:'VLED_ENABLE_DRAFT',
+        13:'GND',14:'unconnected-(U37-PG-Pad14)',15:'GND'})
+    part('L2','1.5u 20%','L_Murata_DFE252012P',{1:'Net-(L2-~-Pad1)',2:'Net-(L2-~-Pad2)'})
+    for ref,value,fp,left,right in [
+        ('C44','10u 6.3V X5R','C_Murata_GRM188R60J106ME47_0603','+SYS_APP_IN_DRAFT','GND'),
+        ('C45','10u 6.3V X5R','C_Murata_GRM188R60J106ME47_0603','+SYS_APP_IN_DRAFT','GND'),
+        ('C46','22u 10V X5R','C_Murata_GRM18_0603','VLED','GND'),
+        ('C47','22u 10V X5R','C_Murata_GRM18_0603','VLED','GND'),
+        ('C48','22u 10V X5R','C_Murata_GRM18_0603','VLED','GND'),
+        ('C49','22u 10V X5R','C_Murata_GRM18_0603','VLED','GND'),
+        ('C63','100n 16V X7R','C_Murata_GRM15_0402','+SYS_APP_IN_DRAFT','GND'),
+        ('R84','620k 1%','R_Panasonic_ERJ2_0402','VLED','VLED_FB_TOP_MID'),
+        ('R85','620k 1%','R_Panasonic_ERJ2_0402','VLED_FB_TOP_MID','VLED_FB'),
+        ('R86','180k 1%','R_Panasonic_ERJ2_0402','VLED_FB','GND'),
+        ('R87','100k 1%','R_Panasonic_ERJ2_0402','VLED_ENABLE_DRAFT','GND'),
+    ]:
+        part(ref,value,fp,{1:left,2:right})
+    interlock = runpy.run_path(str(Path(__file__).resolve().parents[3] / 'tools/generate-coupon-display-interlock.py'))
+    for ref, (mpn, value, footprint, _, _, count) in interlock['h'].PARTS.items():
+        if ref in interlock['PIN_NETS']:
+            pin_nets = dict(interlock['PIN_NETS'][ref])
+            for number, node in interlock['lib']['library_pins'](interlock['symbols'][mpn]).items():
+                if int(number) not in pin_nets:
+                    name = interlock['lib']['one'](node, 'name', 'pin')[1]
+                    pin_nets[int(number)] = f'unconnected-({ref}-{name}-Pad{number})'
+        elif ref.startswith('C'):
+            pin_nets = {1: '+3V3_APP', 2: 'GND'}
+        elif ref in interlock['RESISTOR_NETS']:
+            pin_nets = dict(enumerate(interlock['RESISTOR_NETS'][ref], 1))
+        else:
+            pin_nets = {1: 'VLED_ENABLE_CANDIDATE' if ref == 'TP13' else 'ROW_ENABLE_N_CANDIDATE'}
+        assert len(pin_nets) == count
+        part(ref, value, footprint, pin_nets)
+    return root
+
+
+def onsemi_candidate_netlist():
+    """Synthetic isolated row sheet for command plumbing, not native evidence."""
+    root=ET.Element('export');parts=ET.SubElement(root,'components');nets=ET.SubElement(root,'nets')
+    def part(ref,value,fp):
+        q=ET.SubElement(parts,'comp',ref=ref)
+        ET.SubElement(q,'value').text=value
+        ET.SubElement(q,'footprint').text='rgb-badge-coupon:'+fp
+    def net(name,nodes):
+        q=ET.SubElement(nets,'net',name=name)
+        for ref,pin in nodes:ET.SubElement(q,'node',ref=ref,pin=str(pin))
+    part('U2','74HC4514PW,118','TSSOP_Nexperia_SOT355-1_24')
+    part('C2','100n 16V X7R','C_Murata_GRM15_0402')
+    for n in range(6,43):part(f'R{n}','1k 1%' if n<22 else '100k 1%','R_Panasonic_ERJ2_0402')
+    vled=[];gnd=[]
+    pins=(11,9,10,8,7,6,5,4,18,17,20,19,14,13,16,15)
+    for row,pin in enumerate(pins):
+        pair=f'Q{row+1}';up=f'R{row+6}';down=f'R{row+22}'
+        part(pair,'NTLJD3119CTBG','WDFN6_2x2_onsemi_NTLJD3119C')
+        net(f'ROW_{row:02d}_A',[(pair,3)])
+        net(f'ROW_GATE_{row:02d}',[(pair,5),(pair,6),(up,2)])
+        net(f'ROW_SEL_{row:02d}',[(pair,2),(down,1),('U2',pin)])
+        vled.extend([(pair,4),(up,1)]);gnd.extend([(pair,1),(down,2)])
+    net('VLED',vled);net('GND',gnd)
     return root
 
 
@@ -209,7 +469,7 @@ def main():
         assert args[args.index('--format') + 1] == 'kicadxml'
         if os.environ.get('RGB_BADGE_TEST_FAIL') == 'netlist':
             return 7
-        root = controller_coupon_netlist()
+        root = onsemi_candidate_netlist() if 'onsemi-row-candidate' in args[-1] else controller_coupon_netlist()
         if os.environ.get('RGB_BADGE_TEST_BAD_MATRIX') == '1':
             root.find('./nets/net/node').set('pin', '99')
         if os.environ.get('RGB_BADGE_TEST_BAD_DRIVER') == '1':
@@ -218,6 +478,22 @@ def main():
             root.find("./nets/net/node[@ref='U2'][@pin='23']").set('pin', '24')
         if os.environ.get('RGB_BADGE_TEST_BAD_CONTROLLER') == '1':
             root.find("./nets/net/node[@ref='U3'][@pin='27']").set('pin', '26')
+        if os.environ.get('RGB_BADGE_TEST_BYPASS_ROW_INTERLOCK') == '1':
+            request_net = next(net for net in root.findall('./nets/net') if net.get('name') == 'ROW_ENABLE_REQ_N')
+            enable_net = next(net for net in root.findall('./nets/net') if net.get('name') == 'ROW_ENABLE_N')
+            gpio8 = request_net.find("./node[@ref='U3'][@pin='12']")
+            request_net.remove(gpio8)
+            enable_net.append(gpio8)
+        if os.environ.get('RGB_BADGE_TEST_BAD_E1') == '1':
+            root.find("./nets/net/node[@ref='U44'][@pin='6']").set('pin', '99')
+        if os.environ.get('RGB_BADGE_TEST_BAD_E0') == '1':
+            root.find("./nets/net/node[@ref='U45'][@pin='6']").set('pin', '99')
+        if os.environ.get('RGB_BADGE_TEST_BAD_VLED') == '1':
+            root.find("./nets/net/node[@ref='U37'][@pin='12']").set('pin', '99')
+        if os.environ.get('RGB_BADGE_TEST_BAD_BAT_HEADER') == '1':
+            root.find("./nets/net/node[@ref='J2'][@pin='1']").set('pin', '99')
+        if os.environ.get('RGB_BADGE_TEST_BAD_GAUGE_BUFFER') == '1':
+            root.find("./nets/net/node[@ref='U46'][@pin='2']").set('pin', '99')
         output.write_bytes(ET.tostring(root))
         return 0
     elif args[:3] == ["sch", "export", "pdf"]:
@@ -227,8 +503,17 @@ def main():
         output.write_text('Stub only: not a PDF or KiCad render.\n')
         return 0
     elif args[:3] == ["sym", "export", "svg"]:
-        names = [n + "_unit1.svg" for n in ("EAST10105RGBA0", "QBLP1515A-RGB2A", "TLC59581RTQT", "ERJ-2RKF3922X", "ERJ-2RKF1003X", "GRM155R71C104KA88D", "PWR_FLAG", "TestPoint_Pad", "74HC4514PW,118", "DMP2066LSN-7", "2N7002K-7", "ERJ-2RKF1001X", "ESP32-S3-WROOM-1U-N16R8", "ERJ-2RKF1002X", "ERJ-2RKF22R0X", "ERJ-2RKF4990X", "GRM155C71A105KE11D", "GRM188R60J106ME47D", "EVQP7J01P")]
+        names = [n + "_unit1.svg" for n in ("EAST10105RGBA0", "QBLP1515A-RGB2A", "TLC59581RTQT", "ERJ2RKF3922X", "ERJ2RKF1003X", "ERJ2RKF1004X", "ERJ2RKF2203X", "ERJ2RKF2703X", "ERJ2RKF3321X", "ERJ2RKF3832X", "ERJ2RKF3903X", "C1608X7R1H105K080AB", "GRM1555C1H222GA01D", "GRM155R71C104KA88D", "PWR_FLAG", "TestPoint_Pad", "74HC4514PW,118", "DMP2066LSN-7", "2N7002K-7", "ERJ2RKF1001X", "ESP32-S3-WROOM-1U-N16R8", "ERJ2RKF1002X", "ERJ2RKF2201X", "ERJ2RKF22R0X", "ERJ2RKF4990X", "GRM155C71A105KE11D", "GRM188R60J106ME47D", "EVQP7J01P", "BQ24074RGTR", "BQ24392RSER", "TS3USB31ERSER", "BQ25616JRTWT", "TPS631000DRLR", "TPS70933DBVR", "TLV75533PDBVR", "SN74LVC1G04DBVR", "INA232AIDDFR", "TPD4E05U06DQAR", "TUSB320LAIRWBR", "TPS63020DSJT", "MAX17048G+T10", "SN74LVC1G00DBVR", "SN74LVC1G06DBVR", "SN74LVC1G08DBVR", "SN74LVC1G11DBVR", "SN74LVC1G32DBVR", "TPS3808G01DBVR", "SN74LVC2G17DBVR", "ERJ2RKF8873X", "ERJ2RCF2R20X", "LM4040A25IDBZT")]
+        names.append("ERJ2RKF2201X_unit1.svg")
+        names.append("TCA9517ADGKR_unit1.svg")
+        names.extend(n + "_unit1.svg" for n in (
+            "TPS3823A-33DBVR", "SN74LVC1G74RSER", "SN74LVC1G04DSFR",
+            "SN74LVC1G08DSFR", "SN74LVC2G00DCUR", "SN74LVC2G08DCUR",
+            "TLV6700DSER", "SN74LVC1G11DRYR", "ERJ2RKF1603X",
+            "ERJ2RKF1963X", "ERJ2RKF2002X", "ERJ2RKF4701X",
+        ))
     elif args[:3] == ["fp", "export", "svg"]:
+        # Added independently of the source parser: exercise wrapper requirements.
         layers = args[args.index("--layers") + 1]
         if output.name == "fabrication":
             assert layers == "F.Fab,F.SilkS,F.CrtYd", "Fabrication view must exclude solid pad layers"
@@ -238,11 +523,24 @@ def main():
             assert "--sketch-pads-on-fab-layers" not in args
         elif output.name == "paste":
             assert layers == "F.Paste"
+        elif output.name == "mechanical":
+            assert layers == "F.Fab,Dwgs.User"
         else:
             raise AssertionError(f"Unexpected footprint export destination: {output}")
         stage = output.name
-        names = [n + ".svg" for n in ("LED_Everlight_EAST10105RGBA0", "LED_QTBrightek_QBLP1515A-RGB2A", "QFN_TI_RTQ0056E_8x8mm_P0.5mm_EP5.7mm", "R_Panasonic_ERJ2_0402", "C_Murata_GRM15_0402", "TestPoint_Pad_D1.0mm", "TSSOP_Nexperia_SOT355-1_24", "SC59_Diodes_DMP2066LSN", "SOT23_Diodes_2N7002K", "ESP32-S3-WROOM-1U", "C_Murata_GRM18_0603", "SW_Panasonic_EVQP7J01P")]
+        names = [n + ".svg" for n in ("LED_Everlight_EAST10105RGBA0", "LED_QTBrightek_QBLP1515A-RGB2A", "QFN_TI_RTQ0056E_8x8mm_P0.5mm_EP5.7mm", "R_Panasonic_ERJ2_0402", "C_Murata_GRM15_0402", "TestPoint_Pad_D1.0mm", "TSSOP_Nexperia_SOT355-1_24", "SC59_Diodes_DMP2066LSN", "SOT23_Diodes_2N7002K", "ESP32-S3-WROOM-1U", "C_Murata_GRM18_0603", "C_Murata_GRM188R60J106ME47_0603", "C_TDK_C1608_0603", "SW_Panasonic_EVQP7J01P", "VQFN_TI_RGT0016C_3x3mm_P0.5mm_EP1.68mm", "UQFN_TI_RSE0010A_2x1.5mm_P0.5mm", "UQFN_TI_RSE0008A_1.5x1.5mm_P0.5mm", "QFN_TI_RTW0024A_4x4mm_P0.5mm_EP2.7mm", "SOT5X3_TI_DRL0008A", "SOT23_TI_DBV0005A", "SOT23_THIN_TI_DDF0008A", "USON_TI_DQA0010A", "X2QFN_TI_RWB0012A_1.6x1.6mm_P0.4mm", "VSON_TI_DSJ0014_4x3mm_P0.5mm_EP2.85x1.58mm", "TDFN_Maxim_T822-3_2x2mm_P0.5mm_EP0.7x1.38mm", "SOT23_TI_DBV0006A", "SOT23_TI_DBZ0003A")]
+        names.extend(n + ".svg" for n in (
+            "X2SON_TI_DSF0006A_1x1mm_P0.35mm", "VSSOP_TI_DCU0008A",
+            "WSON_TI_DSE0006A_1p5x1p5mm_P0p5mm", "USON_TI_DRY0006A_1p45x1mm_P0p5mm",
+        ))
     elif args[:2] == ["sch", "erc"]:
+        if 'onsemi-row-candidate' in args[-1]:
+            import json
+            assert args[args.index('--format')+1]=='json'
+            violations=[{'severity':'error','type':'power_pin_not_driven'} for _ in range(2)]
+            violations += [{'severity':'warning','type':'isolated_pin_label'} for _ in range(16)]
+            output.write_text(json.dumps({'sheets':[{'violations':violations}]}))
+            return 0
         assert "--severity-all" in args and "--exit-code-violations" not in args
         if os.environ.get("RGB_BADGE_TEST_FAIL") == stage:
             return 5
@@ -271,9 +569,19 @@ def main():
 
     if os.environ.get("RGB_BADGE_TEST_FAIL") == stage:
         return 7
+    if stage == "sym/export":
+        names.extend(n + "_unit1.svg" for n in ("TPS259472ARPWR", "TPS259474ARPWR", "USB4505-03-0-A", "ERJ2RKF6203X", "ERA2AEB3651X", "ERA2AEB3481X", "ERA2AEB1131X", "ERA2AEB2491X", "ADG4612BCPZ-REEL7", "DFE252012P-1R0M=P2", "DFE252012P-1R5M=P2", "ERJ2RKF1803X", "GRM187R61A226ME15", "GRM219R60J476ME44", "ERJ2RKF5113X", "ERJ2RKF9102X", "JS202011JCQN", "TMP390A2DRLR", "NCU15XH103F60RC", "SN74AUP1G125DBVR", "ERJ2RKF2151X", "ERJ2RKF1402X"))
+    elif stage in ("fabrication", "copper", "paste", "mechanical"):
+        if not (stage == "mechanical" and
+                os.environ.get("RGB_BADGE_TEST_MISSING_USB_CONNECTOR") == "1"):
+            names.append("USB_C_GCT_USB4505-03-0-A_MidMount.svg")
+    if stage in ("fabrication", "copper", "paste", "mechanical"):
+        names.extend(("VQFN_TI_RPW0010A_2x2mm_HotRod.svg", "R_Panasonic_ERA2_0402.svg", "LFCSP_ADI_CP16_22_3x3mm_P0.5mm_EP1.75mm.svg", "L_Murata_DFE252012P.svg", "C_Murata_GRM21_0805.svg", "SW_CK_JS202011JCQN.svg", "SW_CK_JS202011JCQN_ManufacturerPins.svg", "SOT563_TI_DRL0006A.svg", "NTC_Murata_NCU15_0402.svg", "JST_PH_S2B-PH-SM4-TB.svg", "VSSOP_TI_DGK0008A.svg", "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB.svg"))
     for name in names:
+        if name == os.environ.get("RGB_BADGE_TEST_MISSING_NAMED"):
+            continue
         file = output / name
-        if "QFN_TI" in name and stage == "paste" and os.environ.get("RGB_BADGE_TEST_MISSING_PASTE") == "1":
+        if "QFN_TI_RTQ0056E" in name and stage == "paste" and os.environ.get("RGB_BADGE_TEST_MISSING_PASTE") == "1":
             continue
         # Always exercise a missing/empty export of the second copper part.
         target = stage == "copper" and "QTBrightek" in name
@@ -281,7 +589,7 @@ def main():
             continue
         svg = '<svg xmlns="http://www.w3.org/2000/svg"><desc>Test stub, not a KiCad render</desc></svg>\n'
         if stage == "fabrication":
-            svg = fabrication_svg()
+            svg = fabrication_svg("rpw" if "RPW0010A" in name else "led")
             if os.environ.get("RGB_BADGE_TEST_BAD_LABELS") == "1":
                 svg = svg.replace('<desc>4</desc>', '<desc>3</desc>')
         if target and os.environ.get("RGB_BADGE_TEST_EMPTY") == "1":

@@ -2,7 +2,7 @@
 
 # ADR 0007: Populate the coupon with two final-product LED candidates
 
-- Status: Accepted
+- Status: Accepted LED pair; equal-pitch clause superseded for Coupon Rev A by ADR 0034 on 2026-10-18
 - Date: 2026-09-06
 
 ## Context

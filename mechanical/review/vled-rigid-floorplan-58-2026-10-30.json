@@ -1,0 +1,705 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "clear_poses": [
+    {
+      "ic_position_iu": [
+        45500000,
+        17500000
+      ],
+      "poses": {
+        "C44": {
+          "angle_deg": 180.0,
+          "position_iu": [
+            44650000,
+            14650001
+          ]
+        },
+        "C45": {
+          "angle_deg": -0.0,
+          "position_iu": [
+            47800000,
+            14650001
+          ]
+        },
+        "C46": {
+          "angle_deg": 180.0,
+          "position_iu": [
+            44650000,
+            20350000
+          ]
+        },
+        "C47": {
+          "angle_deg": -0.0,
+          "position_iu": [
+            47800000,
+            20350000
+          ]
+        },
+        "C48": {
+          "angle_deg": -0.0,
+          "position_iu": [
+            52500000,
+            20350000
+          ]
+        },
+        "C49": {
+          "angle_deg": -0.0,
+          "position_iu": [
+            52550000,
+            18900001
+          ]
+        },
+        "C63": {
+          "angle_deg": -0.0,
+          "position_iu": [
+            44150000,
+            21650000
+          ]
+        },
+        "L2": {
+          "angle_deg": -90.0,
+          "position_iu": [
+            49550000,
+            17500000
+          ]
+        },
+        "R84": {
+          "angle_deg": 180.0,
+          "position_iu": [
+            50600000,
+            21650000
+          ]
+        },
+        "R85": {
+          "angle_deg": 180.0,
+          "position_iu": [
+            48450000,
+            21650000
+          ]
+        },
+        "R86": {
+          "angle_deg": 180.0,
+          "position_iu": [
+            46300000,
+            21650000
+          ]
+        },
+        "R87": {
+          "angle_deg": 180.0,
+          "position_iu": [
+            44150000,
+            13350000
+          ]
+        },
+        "U37": {
+          "angle_deg": -0.0,
+          "position_iu": [
+            45500000,
+            17500000
+          ]
+        }
+      },
+      "rotation_deg": 0
+    }
+  ],
+  "clearance_iu": 200000,
+  "copper_edge_clearance_iu": 500000,
+  "counts": {
+    "courtyard_clear": 3397,
+    "courtyard_inside_board": 36926,
+    "courtyard_obstructed": 33529,
+    "courtyard_outside_board": 23530,
+    "pad_and_courtyard_clear": 1,
+    "pad_copper_or_edge_obstructed": 3396,
+    "sampled_poses": 60456
+  },
+  "fabrication_release_allowed": false,
+  "fixed_courtyard_blocker_histogram": {
+    "0": 3397,
+    "1": 3171,
+    "2": 1467,
+    "3": 1688,
+    "4": 2427,
+    "5": 2326,
+    "6": 2817,
+    "7": 2843,
+    "8": 2794,
+    "9": 2747,
+    "10": 2386,
+    "11": 1839,
+    "12": 1460,
+    "13": 1174,
+    "14": 891,
+    "15": 795,
+    "16": 556,
+    "17": 400,
+    "18": 388,
+    "19": 319,
+    "20": 238,
+    "21": 257,
+    "22": 219,
+    "23": 160,
+    "24": 82,
+    "25": 52,
+    "26": 18,
+    "27": 13,
+    "28": 2
+  },
+  "fixed_courtyard_observations": {
+    "C1": 433,
+    "C11": 433,
+    "C17": 433,
+    "C2": 433,
+    "C23": 433,
+    "C24": 433,
+    "C25": 433,
+    "C3": 219,
+    "C30": 1080,
+    "C31": 1570,
+    "C32": 1724,
+    "C36": 433,
+    "C37": 433,
+    "C38": 433,
+    "C39": 452,
+    "C4": 1666,
+    "C40": 745,
+    "C41": 231,
+    "C42": 1937,
+    "C43": 1867,
+    "C5": 1644,
+    "C50": 1664,
+    "C51": 1658,
+    "C52": 1482,
+    "C53": 1256,
+    "C54": 948,
+    "C55": 1630,
+    "C56": 422,
+    "C57": 1638,
+    "C58": 679,
+    "C59": 679,
+    "C60": 1587,
+    "C61": 1648,
+    "C62": 1638,
+    "C64": 461,
+    "C65": 679,
+    "C66": 1638,
+    "C67": 142,
+    "C68": 224,
+    "C69": 145,
+    "C70": 515,
+    "C71": 542,
+    "C72": 145,
+    "C73": 1610,
+    "C74": 1615,
+    "J2": 2952,
+    "L1": 1546,
+    "PAIR01": 852,
+    "PAIR02": 1297,
+    "PAIR03": 1579,
+    "PAIR04": 1930,
+    "PAIR05": 2130,
+    "PAIR06": 2238,
+    "PAIR07": 2238,
+    "PAIR08": 2238,
+    "PAIR09": 2224,
+    "PAIR10": 2238,
+    "PAIR11": 2000,
+    "PAIR12": 1847,
+    "PAIR13": 1334,
+    "PAIR14": 1203,
+    "PAIR15": 625,
+    "PAIR16": 533,
+    "PROJ_U1_2": 5286,
+    "PROJ_U1_3": 2605,
+    "R1": 679,
+    "R10": 679,
+    "R100": 1638,
+    "R101": 679,
+    "R102": 679,
+    "R103": 1642,
+    "R104": 679,
+    "R105": 604,
+    "R106": 1007,
+    "R107": 1609,
+    "R108": 639,
+    "R109": 1089,
+    "R11": 679,
+    "R110": 921,
+    "R111": 921,
+    "R112": 921,
+    "R113": 921,
+    "R12": 921,
+    "R13": 921,
+    "R14": 921,
+    "R15": 921,
+    "R16": 921,
+    "R17": 921,
+    "R18": 921,
+    "R19": 819,
+    "R2": 292,
+    "R20": 428,
+    "R21": 921,
+    "R22": 921,
+    "R23": 921,
+    "R24": 1652,
+    "R25": 1167,
+    "R26": 1167,
+    "R27": 1167,
+    "R28": 1167,
+    "R29": 1167,
+    "R3": 279,
+    "R30": 1167,
+    "R31": 1167,
+    "R32": 1167,
+    "R33": 1167,
+    "R34": 1167,
+    "R35": 1167,
+    "R36": 1167,
+    "R37": 1167,
+    "R38": 554,
+    "R39": 292,
+    "R4": 1395,
+    "R40": 1395,
+    "R41": 1395,
+    "R42": 819,
+    "R43": 1395,
+    "R44": 57,
+    "R45": 1395,
+    "R46": 1395,
+    "R47": 1395,
+    "R5": 755,
+    "R6": 1395,
+    "R60": 685,
+    "R61": 1395,
+    "R62": 1395,
+    "R63": 1438,
+    "R7": 1395,
+    "R70": 1530,
+    "R71": 1546,
+    "R75": 1546,
+    "R76": 1546,
+    "R77": 1546,
+    "R78": 1574,
+    "R79": 1546,
+    "R8": 1418,
+    "R80": 1546,
+    "R81": 1546,
+    "R82": 1546,
+    "R83": 1546,
+    "R88": 1175,
+    "R89": 1668,
+    "R9": 1630,
+    "R90": 1630,
+    "R91": 1630,
+    "R92": 613,
+    "R93": 166,
+    "R94": 1630,
+    "R95": 1630,
+    "R96": 1548,
+    "R97": 1175,
+    "R98": 1630,
+    "R99": 1638,
+    "SW1": 675,
+    "SW2": 685,
+    "TH1": 1631,
+    "TP1": 232,
+    "TP10": 266,
+    "TP11": 1635,
+    "TP12": 1082,
+    "TP13": 1546,
+    "TP14": 197,
+    "TP2": 1641,
+    "TP20": 440,
+    "TP21": 1624,
+    "TP22": 1572,
+    "TP23": 1572,
+    "TP3": 1572,
+    "TP30": 1305,
+    "TP31": 1305,
+    "TP32": 1189,
+    "TP33": 1189,
+    "TP34": 1185,
+    "TP35": 1185,
+    "TP4": 1112,
+    "TP5": 1112,
+    "TP6": 1001,
+    "TP7": 1002,
+    "TP8": 872,
+    "TP9": 874,
+    "U1": 2605,
+    "U11": 1564,
+    "U17": 1670,
+    "U2": 1123,
+    "U23": 526,
+    "U24": 1203,
+    "U25": 2403,
+    "U29": 2496,
+    "U3": 7042,
+    "U31": 1444,
+    "U32": 1765,
+    "U33": 1648,
+    "U34": 2664,
+    "U35": 2041,
+    "U36": 1052,
+    "U38": 688,
+    "U39": 2076,
+    "U40": 2664,
+    "U41": 971,
+    "U42": 2683,
+    "U43": 2692,
+    "U44": 2214,
+    "U45": 2214,
+    "U46": 1081,
+    "U47": 2692,
+    "U48": 215,
+    "U49": 344,
+    "U50": 377,
+    "U51": 282,
+    "U52": 215,
+    "U53": 839,
+    "U54": 2563,
+    "U55": 2451
+  },
+  "grid_step_iu": 500000,
+  "initial_parts": {
+    "C44": {
+      "angle_deg": 180.0,
+      "footprint": "rgb-badge-coupon:C_Murata_GRM188R60J106ME47_0603",
+      "mpn": "GRM188R60J106ME47D",
+      "position_iu": [
+        36750000,
+        1000000
+      ]
+    },
+    "C45": {
+      "angle_deg": 0.0,
+      "footprint": "rgb-badge-coupon:C_Murata_GRM188R60J106ME47_0603",
+      "mpn": "GRM188R60J106ME47D",
+      "position_iu": [
+        5000000,
+        30500000
+      ]
+    },
+    "C46": {
+      "angle_deg": 180.0,
+      "footprint": "rgb-badge-coupon:C_Murata_GRM18_0603",
+      "mpn": "GRM187R61A226ME15",
+      "position_iu": [
+        50750000,
+        1000000
+      ]
+    },
+    "C47": {
+      "angle_deg": 180.0,
+      "footprint": "rgb-badge-coupon:C_Murata_GRM18_0603",
+      "mpn": "GRM187R61A226ME15",
+      "position_iu": [
+        54250000,
+        1000000
+      ]
+    },
+    "C48": {
+      "angle_deg": 180.0,
+      "footprint": "rgb-badge-coupon:C_Murata_GRM18_0603",
+      "mpn": "GRM187R61A226ME15",
+      "position_iu": [
+        57750000,
+        1000000
+      ]
+    },
+    "C49": {
+      "angle_deg": 180.0,
+      "footprint": "rgb-badge-coupon:C_Murata_GRM18_0603",
+      "mpn": "GRM187R61A226ME15",
+      "position_iu": [
+        61250000,
+        1000000
+      ]
+    },
+    "C63": {
+      "angle_deg": 180.0,
+      "footprint": "rgb-badge-coupon:C_Murata_GRM15_0402",
+      "mpn": "GRM155R71C104KA88D",
+      "position_iu": [
+        37250000,
+        4250000
+      ]
+    },
+    "L2": {
+      "angle_deg": -90.0,
+      "footprint": "rgb-badge-coupon:L_Murata_DFE252012P",
+      "mpn": "DFE252012P-1R5M=P2",
+      "position_iu": [
+        16000000,
+        7375000
+      ]
+    },
+    "R84": {
+      "angle_deg": 180.0,
+      "footprint": "rgb-badge-coupon:R_Panasonic_ERJ2_0402",
+      "mpn": "ERJ2RKF6203X",
+      "position_iu": [
+        59750000,
+        10250000
+      ]
+    },
+    "R85": {
+      "angle_deg": 180.0,
+      "footprint": "rgb-badge-coupon:R_Panasonic_ERJ2_0402",
+      "mpn": "ERJ2RKF6203X",
+      "position_iu": [
+        62250000,
+        10250000
+      ]
+    },
+    "R86": {
+      "angle_deg": 180.0,
+      "footprint": "rgb-badge-coupon:R_Panasonic_ERJ2_0402",
+      "mpn": "ERJ2RKF1803X",
+      "position_iu": [
+        64750000,
+        10250000
+      ]
+    },
+    "R87": {
+      "angle_deg": 180.0,
+      "footprint": "rgb-badge-coupon:R_Panasonic_ERJ2_0402",
+      "mpn": "ERJ2RKF1003X",
+      "position_iu": [
+        67250000,
+        10250000
+      ]
+    },
+    "U37": {
+      "angle_deg": 0.0,
+      "footprint": "rgb-badge-coupon:VSON_TI_DSJ0014_4x3mm_P0.5mm_EP2.85x1.58mm",
+      "mpn": "TPS63020DSJT",
+      "position_iu": [
+        93750000,
+        2250000
+      ]
+    }
+  },
+  "kicad_version": "10.0.6",
+  "limitations": [
+    "Finite rigid historical template only; no proof against other arrangements or between samples",
+    "Historical poses only; current footprints/pads/nets/MPNs retained",
+    "Filled zones excluded from copper clearance screening",
+    "No old-contact reconnection, routing, refill, DRC, current, thermal, EMI or layout acceptance"
+  ],
+  "minimum_blocker_examples": [
+    {
+      "fixed_courtyard_blockers": [],
+      "ic_position_iu": [
+        32000000,
+        23500000
+      ],
+      "rotation_deg": 0
+    },
+    {
+      "fixed_courtyard_blockers": [],
+      "ic_position_iu": [
+        32000000,
+        24000000
+      ],
+      "rotation_deg": 0
+    },
+    {
+      "fixed_courtyard_blockers": [],
+      "ic_position_iu": [
+        32000000,
+        24500000
+      ],
+      "rotation_deg": 0
+    },
+    {
+      "fixed_courtyard_blockers": [],
+      "ic_position_iu": [
+        32000000,
+        25000000
+      ],
+      "rotation_deg": 0
+    },
+    {
+      "fixed_courtyard_blockers": [],
+      "ic_position_iu": [
+        32000000,
+        25500000
+      ],
+      "rotation_deg": 0
+    },
+    {
+      "fixed_courtyard_blockers": [],
+      "ic_position_iu": [
+        32000000,
+        26000000
+      ],
+      "rotation_deg": 0
+    },
+    {
+      "fixed_courtyard_blockers": [],
+      "ic_position_iu": [
+        32000000,
+        26500000
+      ],
+      "rotation_deg": 0
+    },
+    {
+      "fixed_courtyard_blockers": [],
+      "ic_position_iu": [
+        32000000,
+        27000000
+      ],
+      "rotation_deg": 0
+    },
+    {
+      "fixed_courtyard_blockers": [],
+      "ic_position_iu": [
+        32000000,
+        27500000
+      ],
+      "rotation_deg": 0
+    },
+    {
+      "fixed_courtyard_blockers": [],
+      "ic_position_iu": [
+        32500000,
+        23500000
+      ],
+      "rotation_deg": 0
+    },
+    {
+      "fixed_courtyard_blockers": [],
+      "ic_position_iu": [
+        32500000,
+        24000000
+      ],
+      "rotation_deg": 0
+    },
+    {
+      "fixed_courtyard_blockers": [],
+      "ic_position_iu": [
+        32500000,
+        24500000
+      ],
+      "rotation_deg": 0
+    },
+    {
+      "fixed_courtyard_blockers": [],
+      "ic_position_iu": [
+        32500000,
+        25000000
+      ],
+      "rotation_deg": 0
+    },
+    {
+      "fixed_courtyard_blockers": [],
+      "ic_position_iu": [
+        32500000,
+        25500000
+      ],
+      "rotation_deg": 0
+    },
+    {
+      "fixed_courtyard_blockers": [],
+      "ic_position_iu": [
+        32500000,
+        26000000
+      ],
+      "rotation_deg": 0
+    },
+    {
+      "fixed_courtyard_blockers": [],
+      "ic_position_iu": [
+        32500000,
+        26500000
+      ],
+      "rotation_deg": 0
+    },
+    {
+      "fixed_courtyard_blockers": [],
+      "ic_position_iu": [
+        32500000,
+        27000000
+      ],
+      "rotation_deg": 0
+    },
+    {
+      "fixed_courtyard_blockers": [],
+      "ic_position_iu": [
+        32500000,
+        27500000
+      ],
+      "rotation_deg": 0
+    },
+    {
+      "fixed_courtyard_blockers": [],
+      "ic_position_iu": [
+        33000000,
+        23500000
+      ],
+      "rotation_deg": 0
+    },
+    {
+      "fixed_courtyard_blockers": [],
+      "ic_position_iu": [
+        33000000,
+        24000000
+      ],
+      "rotation_deg": 0
+    }
+  ],
+  "minimum_fixed_courtyard_blockers": 0,
+  "rotations": [
+    {
+      "internal_courtyard_obstructions": [],
+      "relative_courtyard_bounds_iu": [
+        -2445000,
+        -4645000,
+        8545000,
+        4645000
+      ],
+      "rotation_deg": 0
+    },
+    {
+      "internal_courtyard_obstructions": [],
+      "relative_courtyard_bounds_iu": [
+        -4645000,
+        -8545000,
+        4645000,
+        2445000
+      ],
+      "rotation_deg": 90
+    },
+    {
+      "internal_courtyard_obstructions": [],
+      "relative_courtyard_bounds_iu": [
+        -8545000,
+        -4645000,
+        2445000,
+        4645000
+      ],
+      "rotation_deg": 180
+    },
+    {
+      "internal_courtyard_obstructions": [],
+      "relative_courtyard_bounds_iu": [
+        -4645000,
+        -2445000,
+        4645000,
+        8545000
+      ],
+      "rotation_deg": 270
+    }
+  ],
+  "source_sha256": "3451177253a021d8706ff818696212afabf539a108f15ef9e5d6921e46435acc",
+  "source_unchanged": true,
+  "status": "UNSELECTED_FINITE_RIGID_VLED_PACKING_SCREEN_NOT_LAYOUT_ACCEPTANCE",
+  "template_sha256": "8907f5d51f93211c5d67e74254ece1e54f7e37bc4bd41e7e03c4ecb85d956cec",
+  "template_unchanged": true,
+  "tool_sha256": {
+    "tools/convex_geometry.py": "348be312df0198d253257cfb134959b432a6ade829207662d2c6d45d9d010962",
+    "tools/screen-converter-inductor-locality.py": "8f8bc79624f1501744ce9632269d32f695c28d42c713d467461bb0e83c6e3bfd",
+    "tools/screen-vled-cluster-floorplan.py": "49869b03645960f1ee4f09c46da506ed3c125a5a944b875718037b3ac0fa8701"
+  }
+}

@@ -11,6 +11,9 @@ _autosave-*
 *.kicad_sch-bak
 *.lck
 fp-info-cache
+hardware/coupon/rev-a/staging/full-coupon-placement-trial-120mm.kicad_pro
+hardware/coupon/rev-a/staging/led-row13-bias-trial-114mm.kicad_pro
+hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pro
 
 # Local/generated electronics output. Signed release artifacts are tracked
 # explicitly below manufacturing/.
@@ -35,3 +38,6 @@ mechanical/build/
 .vscode/
 .DS_Store
 Thumbs.db
+
+# Local vendor references: do not redistribute third-party datasheets.
+hardware/coupon/rev-a/reference/vendor-datasheets/

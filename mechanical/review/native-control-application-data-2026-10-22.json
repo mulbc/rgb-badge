@@ -1,0 +1,167 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "accepted_join": {
+    "anchor": [
+      "R79",
+      "2"
+    ],
+    "net": "SYS_I2C_SDA",
+    "source": [
+      "U46",
+      "6"
+    ]
+  },
+  "all_old_copper_placements_and_pad_groups_preserved": true,
+  "application_data_connected_pad_group": [
+    [
+      "R79",
+      "2"
+    ],
+    [
+      "U3",
+      "10"
+    ],
+    [
+      "U46",
+      "6"
+    ]
+  ],
+  "base_board_sha256": "20e56a776dc6e27a6bfab389753d8acba29998926dba10272f32f4e9034785c9",
+  "base_revision": "aa1c58e9634723cded5949d1063818ce4be3c359",
+  "board_sha256": "9844ae5d0d9ff9ed5e839cefa9734e89693dd405fce39092f68e8c3c7e62bc04",
+  "bounded_followups": {
+    "exact_goal_gauge_routes": [
+      {
+        "expanded_nodes": 400001,
+        "net": "GAUGE_I2C_SDA",
+        "routed": false,
+        "source": [
+          "U35",
+          "8"
+        ]
+      },
+      {
+        "expanded_nodes": 400001,
+        "net": "GAUGE_I2C_SCL",
+        "routed": false,
+        "source": [
+          "U35",
+          "7"
+        ]
+      }
+    ],
+    "old_bounding_rectangle_heuristic": [
+      {
+        "expanded_nodes": 1732,
+        "net": "SYS_I2C_SDA",
+        "routed": false,
+        "source": [
+          "TP11",
+          "1"
+        ]
+      },
+      {
+        "expanded_nodes": 400001,
+        "net": "SYS_I2C_SDA",
+        "routed": false,
+        "source": [
+          "U46",
+          "6"
+        ]
+      },
+      {
+        "expanded_nodes": 400001,
+        "net": "GAUGE_I2C_SDA",
+        "routed": false,
+        "source": [
+          "U35",
+          "8"
+        ]
+      },
+      {
+        "expanded_nodes": 400001,
+        "net": "GAUGE_I2C_SCL",
+        "routed": false,
+        "source": [
+          "U35",
+          "7"
+        ]
+      }
+    ],
+    "row_02_pullup_escape": "380 reachable rear grid cells, no native-clear adjacent-layer via or accepted placement",
+    "tp11_direct_on_existing_rear_copper_placement": "419 candidate points, no accepted courtyard/clearance site; no source moved"
+  },
+  "exact_unchanged_intrinsic_drc_findings": 104,
+  "fabrication_release_allowed": false,
+  "graph_neighbor_consistency_comparisons": 5100,
+  "hardware_measurements": "NONE",
+  "heuristic_test_methods_passed": 7,
+  "heuristic_test_python_versions": [
+    "Host Python",
+    "KiCad bundled Python 3.9"
+  ],
+  "increment_added_adjacent_layer_microvias": 4,
+  "increment_added_tracks": 65,
+  "limitations": [
+    "TP11 remains open; each gauge IC bus connection remains open",
+    "Bounded failed searches do not prove routing impossible",
+    "No bus electrical/transition/leakage/current/return qualification or independent Gate A"
+  ],
+  "native_open_edges_after": 224,
+  "native_open_edges_before": 225,
+  "new_power_copper": false,
+  "remaining_application_data_pad": [
+    "TP11",
+    "1"
+  ],
+  "search_output_net_bound_guard_cases_passed": 4,
+  "search_repeated_board_bytes_identical": true,
+  "seeded_brute_force_queries": 900,
+  "selected_search": {
+    "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+    "added_tracks_and_vias": 69,
+    "allowed_nets": [
+      "SYS_I2C_SDA"
+    ],
+    "board_sha256": "9af23a0b6b710740d5efe24af0f28a0cc290fab389cbe42e1248c0307250cce9",
+    "clearance_mm": 0.2,
+    "connected_copper_endpoints": true,
+    "grid_mm": 0.05,
+    "heuristic": "exact_nearest_goal_manhattan_with_minimum_layer_cost",
+    "heuristic_sha256": "68ddf2c795097e84b29c7bb3043524c88e1f81719640edc3e1e5863e483e9944",
+    "kicad_version": "10.0.6",
+    "max_nodes": 400000,
+    "microvia_diameter_drill_mm": [
+      0.3,
+      0.1
+    ],
+    "open_edges": 224,
+    "preserve_clusters_after_each_join": true,
+    "routes": [
+      {
+        "expanded_nodes": 1732,
+        "net": "SYS_I2C_SDA",
+        "routed": false,
+        "source": [
+          "TP11",
+          "1"
+        ]
+      },
+      {
+        "expanded_nodes": 66263,
+        "net": "SYS_I2C_SDA",
+        "routed": true,
+        "source": [
+          "U46",
+          "6"
+        ]
+      }
+    ],
+    "search_tool_sha256": "c4196f6c14afedee45d0637ceb40132f5c0891a7763cc79717e257213bdd5e5f",
+    "source_sha256": "20e56a776dc6e27a6bfab389753d8acba29998926dba10272f32f4e9034785c9",
+    "status": "UNQUALIFIED_LOCAL_CONTROL_STUDY",
+    "tracks_and_vias": 14875,
+    "width_mm": 0.2
+  },
+  "status": "CHECKED_APPLICATION_DATA_ROUTE_NOT_FABRICATION_SOURCE"
+}

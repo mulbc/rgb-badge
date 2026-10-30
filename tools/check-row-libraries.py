@@ -44,7 +44,7 @@ PARTS = {
         "datasheet": "https://www.diodes.com/assets/Datasheets/2N7002K.pdf",
         "pins": {1: ("G", "input"), 2: ("S", "passive"), 3: ("D", "passive")},
     },
-    "ERJ-2RKF1001X": {
+    "ERJ2RKF1001X": {
         "footprint": "R_Panasonic_ERJ2_0402",
         "datasheet": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf",
         "pins": {1: ("~", "passive"), 2: ("~", "passive")},
