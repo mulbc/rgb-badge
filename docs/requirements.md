@@ -227,3 +227,17 @@ Native/physical counts, unchanged full 104 findings, stable replay/fills, origin
 orphan restoration and 58 native/116 portable guards pass. The digital length
 remains below 120 mm; original widths/spacing, settings, previous exceptions and
 fabrication holds stay fixed. No Murata package migration is selected here.
+
+**2026-10-30 clock/latch feasibility:** ADR 0068 permits only an ignored exact
+COL_05_B In4 local transfer, retaining every original source-layer interface and
+all other accepted 59-edge copper/groups/poses/zones. Keep full colour width,
+original clearance/adjacent vias and original-plus-2-mm length. Clock/latch
+remain unselected exact ADR 0047 digital trials within 120 mm per net. Full
+independent/native/replay/fault/source/orphan evidence precedes any selection;
+all electrical and fabrication holds remain fixed.
+
+The bounded ADR 0068 screen completes with zero other-net-clear candidates
+across 7,752 doglegs; the separate digital and USB restoration screens likewise
+select no new route. The accepted 59-edge board, retention policy and all
+electrical/fabrication boundaries remain unchanged. These finite results do not
+prove impossibility; source evidence is recorded with the follow-on study.
