@@ -275,3 +275,5 @@ old/new physical identity guards, canonical native XML/ERC/rendering, full
 retention/count/DRC/replay/fault/orphan evidence. Independent bottom/top-view,
 received-part, actuation, transition and assembly reconciliation remains open;
 no current or fabrication restriction changes.
+
+**2026-10-30 coordinated converter feasibility:** [ADR 0072](decisions/0072-coordinated-converter-floorplan-feasibility.md) permits an ignored finite rigid-placement screen of the thirteen current exact VLED footprints using historical local poses only. Retain all accepted copper, other components, exact pads/nets/parts and current/protection/enable settings. No canonical IC/passive move or copper replacement is selected. A future selection requires a bounded exact contact/rework policy, suitable power-path geometry, all prior groups restored, native/independent connectivity, full DRC and replay/fault/source evidence; qualification and Gate A remain open.
