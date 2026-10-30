@@ -2,6 +2,8 @@
 
 # C32 manufacturer characteristic review
 
+**2026-10-30 land-pattern review hold:** The [supplied exact-part review](../../../docs/development/c32-exact-land-review-2026-10-30.md) exposes oversized shared GRM18 lands for GRM188R60J106ME47D. In the supplied drawing, a is the inner gap and b is one land length. The historical geometry/label claims below do not establish conformity to that drawing. All exact MPNs sharing these lands require their own drawing review before migration; the new C32-only candidate is unselected. No fabrication approval follows from the older passing checks.
+
 2026-09-19. Applies to the TPS70933DBVR USB-only regulator introduced by ADR 0014. This is document screening, not a board measurement or fabrication release.
 
 ## Evidence

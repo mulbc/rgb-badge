@@ -1,0 +1,31 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "all_component_poses_and_fields_preserved": true,
+  "all_prior_pad_groups_preserved": true,
+  "all_source_copper_retained": true,
+  "candidate_board_sha256": "acc6510a5cc87a76b73a43402cbd91e72dcbe17d51a25e429f772291253f4afc",
+  "candidate_footprint_sha256": "5f5b57007ad18b5eff09c44b6d1ffbe732dd5797bb8a157e9b6b591e77d316e7",
+  "canonical_adoption": false,
+  "custom_rules_sha256": "ba474da205c5bbeff7622d5d03e3ce46942cd0030c2027f9b9f4efa223e66d1a",
+  "datasheet_reflow_page": 27,
+  "datasheet_sha256": "f51cff8dad7a6983263ab35b5705f4d1d4b9977b1f03739c653381ba03d94ea8",
+  "datasheet_specification_date": "2026-06-14",
+  "drc_sha256": "766bf0e886d346e577f4afa114a63d9356d727217474a23dbee1b9d7c3950246",
+  "fabrication_release_allowed": false,
+  "host_regressions_passed": 4,
+  "identity_mapping": "Only corrected C32 numbered pads map back to their explicitly checked legacy +/-0.8 mm reference identities",
+  "kicad_version": "10.0.6",
+  "native_open_edges": 60,
+  "original_orphan_proof_required_before_adoption": true,
+  "project_sha256": "1141b004ecffd1e7e8e0c30cf21aeae7ce6381093df674998133d226ab9c27fb",
+  "raw_drc_evidence": "docs/development/c32-exact-land-candidate-drc-2026-10-30.json",
+  "source_sha256": "bcab9da70ee06970f94fef8fc37f4e3ed4b35cd89f621fec93e0563ed8700a01",
+  "stable_refill_passes": 3,
+  "status": "UNSELECTED_EXACT_C32_LAND_REVIEW_NOT_HARDWARE_MEASUREMENTS",
+  "tool_sha256": {
+    "tools/check-c32-land-candidate.py": "e78262bcff136b52ec79acaa5c318c14dd8a88f4f4bc313ba83ff68624917c2a",
+    "tools/review-c32-land-candidate.py": "ee8273fe6353fc0460d620d23ec31f49735e5dddc41170078b7de16702db0e62",
+    "tools/tests/test_c32_land_candidate.py": "826deaeec9e57490d47b7dea9973bdfa141d27d2489a1f407820678e7297dd2f"
+  },
+  "unchanged_intrinsic_findings": 104
+}
