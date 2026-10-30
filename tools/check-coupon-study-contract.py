@@ -19,6 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PROJECT = ROOT / 'hardware/coupon/rev-a'
 BOARD = PROJECT / 'staging/led-routing-progress-trial-114mm.kicad_pcb'
 MURATA = runpy.run_path(str(ROOT/'tools/murata_land_migration.py'))
+SWITCH = runpy.run_path(str(ROOT/'tools/switch_pin_migration.py'))
 CONTRACT = ROOT / 'mechanical/review/coupon-canonical-net-contract.json'
 CHECK = runpy.run_path(str(ROOT / 'tools/check-coupon-controller.py'))
 A = CHECK['A']
@@ -136,7 +137,7 @@ def read_board(path):
     return result
 
 
-def compare(data, board, require_metadata=True, legacy_land_study=False):
+def compare(data, board, require_metadata=True, legacy_land_study=False, legacy_switch_study=False):
     canonical = data['components']
     rows = {f'Q{i}' for i in range(1,33)}
     pairs = {f'PAIR{i:02d}' for i in range(1,17)}
@@ -146,13 +147,16 @@ def compare(data, board, require_metadata=True, legacy_land_study=False):
     counts = Counter()
     missing_mpn = []
     legacy_lands = []
+    legacy_switch = []
     for ref in sorted(set(canonical) & set(board)):
         expected, actual = canonical[ref], board[ref]
         legacy=(legacy_land_study and ref in MURATA['REFS'] and
                 expected['mpn']==MURATA['MPN'] and expected['footprint']==MURATA['NEW'] and
                 actual['footprint']==MURATA['OLD'])
+        old_switch=(legacy_switch_study and ref=='SW2' and expected['footprint']==SWITCH['NEW'] and actual['footprint']==SWITCH['OLD'])
+        if old_switch:legacy_switch.append(ref)
         for key in ('value', 'footprint'):
-            require((legacy and key=='footprint') or expected[key] == actual[key], 'PCB '+key+' differs: '+ref)
+            require(((legacy or old_switch) and key=='footprint') or expected[key] == actual[key], 'PCB '+key+' differs: '+ref)
         if ref in MURATA['REFS']:
             from decimal import Decimal as D
             require(expected['mpn']==MURATA['MPN'] and expected['footprint']==MURATA['NEW'],
@@ -167,6 +171,15 @@ def compare(data, board, require_metadata=True, legacy_land_study=False):
                         len(q['land_layers'])==3 and set(q['land_layers']) in ({'F.Cu','F.Paste','F.Mask'},{'B.Cu','B.Paste','B.Mask'}),
                         'Exact Murata geometry differs: '+ref)
             if legacy:legacy_lands.append(ref)
+        if ref=='SW2':
+            from decimal import Decimal as D
+            expected_switch={k if old_switch else SWITCH['FORWARD'][k]:v for k,v in SWITCH['LEGACY_PADS'].items()}
+            require(len(actual['pads'])==6 and {q['number'] for q in actual['pads']}==set(expected_switch), 'Printed switch pin set differs')
+            for q in actual['pads']:
+                x,y,net=expected_switch[q['number']]
+                require(list(map(D,q['land_at']))==[D(x)/1000000,D(y)/1000000] and
+                        list(map(D,q['land_size']))==[D('1'),D('1.6')] and q['net']==net,
+                        'Switch physical land/net mapping differs')
         # The opt-out is only for checking the historical generator input before
         # projecting metadata. Ordinary checks require both fields, even where
         # canonical source intentionally leaves a value blank (e.g. PCB pads).
@@ -181,6 +194,9 @@ def compare(data, board, require_metadata=True, legacy_land_study=False):
         seen = set()
         for pad in actual['pads']:
             number, net = pad['number'], pad['net']
+            if old_switch:
+                require(number in SWITCH['FORWARD'], 'Unexpected legacy switch pad')
+                number=SWITCH['FORWARD'][number]
             if number in expected['pins']:
                 entry = expected['pins'][number]
                 require(pad['copper'], 'Electrical pin lost its copper: '+ref+'.'+number)
@@ -224,6 +240,7 @@ def compare(data, board, require_metadata=True, legacy_land_study=False):
             'absent_canonical_row_devices':sorted(rows), 'pcb_references_with_blank_mpn_values':missing_mpn,
             'shared_metadata_required':require_metadata,
             'historical_legacy_murata_assignments':legacy_lands,
+            'historical_legacy_switch_assignments':legacy_switch,
             'canonical_references_without_mpn':sorted(ref for ref in set(canonical) & set(board)
                                                        if not canonical[ref]['mpn']),
             'canonical_references_without_manufacturer':sorted(ref for ref in set(canonical) & set(board)
@@ -241,6 +258,7 @@ def main():
     ap.add_argument('--contract', type=Path, default=CONTRACT)
     ap.add_argument('--board', type=Path, default=BOARD)
     ap.add_argument('--report', type=Path)
+    ap.add_argument('--legacy-switch-study',action='store_true',help='Report historical switch pad labels; never current pin-map acceptance')
     ap.add_argument('--legacy-land-study', action='store_true',
                     help='Explicitly report historical, uncorrected six-Murata assignments; never final package acceptance')
     ap.add_argument('--historical-generator-input', action='store_true',
@@ -258,10 +276,14 @@ def main():
             if args.netlist:
                 require(refresh(args.netlist) == data, 'Fresh native XML differs from the source-pinned snapshot')
         result = compare(data, read_board(args.board), require_metadata=not args.historical_generator_input,
-                         legacy_land_study=args.legacy_land_study or args.historical_generator_input)
+                         legacy_land_study=args.legacy_land_study or args.historical_generator_input,
+                         legacy_switch_study=args.legacy_switch_study or args.historical_generator_input)
         if result['historical_legacy_murata_assignments']:
             print('Historical uncorrected Murata lands: '+', '.join(result['historical_legacy_murata_assignments']))
             result['status']='HISTORICAL_STUDY_WITH_UNCORRECTED_MURATA_LANDS'
+        if result['historical_legacy_switch_assignments']:
+            print('Historical uncorrected switch labels: SW2')
+            result['status']='HISTORICAL_STUDY_WITH_UNCORRECTED_SWITCH_LABELS'
         if args.historical_generator_input:
             result['status'] = 'HISTORICAL_INPUT_BEFORE_METADATA_PROJECTION'
         result.update(board_sha256=sha(args.board), canonical_contract_sha256=sha(args.contract),

@@ -9214,7 +9214,7 @@
       "value": "EVQP7J01P"
     },
     "SW2": {
-      "footprint": "rgb-badge-coupon:SW_CK_JS202011JCQN",
+      "footprint": "rgb-badge-coupon:SW_CK_JS202011JCQN_ManufacturerPins",
       "manufacturer": "C&K / Littelfuse",
       "mpn": "JS202011JCQN",
       "pins": {
@@ -9230,15 +9230,15 @@
           "native_net": "APP_ON_SW_DRAFT",
           "no_connect": false
         },
-        "4": {
-          "native_net": "unconnected-(SW2-A2-Pad4)",
+        "5": {
+          "native_net": "unconnected-(SW2-A2-Pad5)",
           "no_connect": true
         },
-        "5": {
+        "6": {
           "native_net": "+BAT_PROTECTED_DRAFT",
           "no_connect": false
         },
-        "6": {
+        "7": {
           "native_net": "+BAT_GAUGE_SW",
           "no_connect": false
         }
@@ -11238,7 +11238,7 @@
   "schema_version": 1,
   "source_sha256": {
     "hardware/coupon/rev-a/3v3-converter.kicad_sch": "f63177991932b43c6a5ec21de6e464e770b47152ef5ec67d1c205a154f4715b2",
-    "hardware/coupon/rev-a/app-control.kicad_sch": "2bef3daca9b00cbb153c70ac5097d0e8af1aa872df13b567e6f0feec2da97b5e",
+    "hardware/coupon/rev-a/app-control.kicad_sch": "57efe491a8554508467016f9574ba35a0bbeb0126721341cb5e13e7a56b5ef80",
     "hardware/coupon/rev-a/charger-core.kicad_sch": "a295e86e0d5fd249b7dc6b30f12e6f736d643844e9def31f8ef804b7b96c05ef",
     "hardware/coupon/rev-a/charger-gate.kicad_sch": "c1d1140251dc7ddfb9070715b47fbab8451e66740cde295272ec07d66a3f6d18",
     "hardware/coupon/rev-a/charger-temperature.kicad_sch": "0fcd6c67d76ecb6b936ee36b338664467a4a6e9c9ba666ef6bb52c8e99fcd02a",
@@ -11270,6 +11270,7 @@
     "hardware/coupon/rev-a/footprints/rgb-badge-coupon.pretty/SOT563_TI_DRL0006A.kicad_mod": "c55c16b8a57aa2c144d603be12da3c7909f441e68b081d9222456182dc637c4e",
     "hardware/coupon/rev-a/footprints/rgb-badge-coupon.pretty/SOT5X3_TI_DRL0008A.kicad_mod": "c02efdea4b565a7cb3ddd3266caadd875e3fa90c8de401bf8b47ad0cf446a330",
     "hardware/coupon/rev-a/footprints/rgb-badge-coupon.pretty/SW_CK_JS202011JCQN.kicad_mod": "fa050c2fa9f8d6741d5d91dcae2fe0a58829d9fbc71d70fc6a76b73a80c1344b",
+    "hardware/coupon/rev-a/footprints/rgb-badge-coupon.pretty/SW_CK_JS202011JCQN_ManufacturerPins.kicad_mod": "faa485c7a72ca8ad9b51469af50bad4ceb4dba4775393c2c28efea5e3f33de21",
     "hardware/coupon/rev-a/footprints/rgb-badge-coupon.pretty/SW_Panasonic_EVQP7J01P.kicad_mod": "04f5d32e53dc732b73168b28581310290e998510b00729204037bffc341ac313",
     "hardware/coupon/rev-a/footprints/rgb-badge-coupon.pretty/TDFN_Maxim_T822-3_2x2mm_P0.5mm_EP0.7x1.38mm.kicad_mod": "9ba72b46cd0954783514c19be33ad53fe1c09b5fc217fe3d786aed628546faf3",
     "hardware/coupon/rev-a/footprints/rgb-badge-coupon.pretty/TSSOP_Nexperia_SOT355-1_24.kicad_mod": "0610f5c37f3add9afc6eceddaa8a9490a31056523bfb8f9fe1d7a3bd2da7cc78",
@@ -11296,7 +11297,7 @@
     "hardware/coupon/rev-a/matrix-r08-c08.kicad_sch": "493f8f8a7bb20e39421dd644c0e9368a49cb80c44bf4e78f17b2ab142d988a46",
     "hardware/coupon/rev-a/rgb-badge-coupon.kicad_sch": "d01d130b7c2f46a725792bd83dd9cc56cc3eba5a1f855d686f271c2ed0dbf7a5",
     "hardware/coupon/rev-a/rows.kicad_sch": "e332b3a7d50a1e66fba1797a9481fff820d7df3dd5a5181797295764b742aa28",
-    "hardware/coupon/rev-a/symbols/rgb-badge-coupon.kicad_sym": "6a98051c230f795547c4b962fba02d7b155fcfc9af635a51904051805b08f645",
+    "hardware/coupon/rev-a/symbols/rgb-badge-coupon.kicad_sym": "42df3b921cc8d3249b40515a1c0555c7752ca35cc5fa73f69a3689e4ee271f22",
     "hardware/coupon/rev-a/usb-conditioning.kicad_sch": "695a40b382ccf8584f6181b1df84ecef1d2bdf12f0cfe47c5be60ce07cd87b5c",
     "hardware/coupon/rev-a/usb-interface.kicad_sch": "d27b929bcecb9e7618f9d4eb5ecb5c671ad512835f97b28c131fd3f70e143aad",
     "hardware/coupon/rev-a/usb-permission.kicad_sch": "b03f537846d1bb3da56ee5b0448464f0a3d5ce2d6814356a4767c494fde70204",

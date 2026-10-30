@@ -34,6 +34,7 @@ jobs:
             /hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb
             /hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pro
             /hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_dru
+            /mechanical/review/routing-progress-gauge-supply-join.json
             /mechanical/review/routing-progress-plan.json
             /mechanical/review/routing-progress-150-checkpoint.json
             /mechanical/review/routing-progress-100-checkpoint.json
@@ -61,11 +62,14 @@ jobs:
       - name: Canonical source assignment and injected-fault checks
         run: |
           python3 tools/check-coupon-study-contract.py
-          python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb --legacy-land-study
+          python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb --legacy-land-study --legacy-switch-study
           python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb
           python3 tools/check-routing-progress-plan.py
           python3 tools/check-c32-land-candidate.py
           python3 -m unittest discover -s tools/tests -p test_c32_land_candidate.py -v
+          python3 -m unittest discover -s tools/tests -p test_convex_geometry.py -v
+          python3 -m unittest discover -s tools/tests -p test_routing_supply_join.py -v
+          python3 -m unittest discover -s tools/tests -p test_slide_switch_library.py -v
           python3 -m unittest discover -s tools/tests -p test_routing_progress_plan.py -v
           python3 -m unittest discover -s tools/tests -p test_coupon_study_contract.py -v
           python3 -m unittest discover -s tools/tests -p test_routing_goal_distance.py -v

@@ -52,3 +52,6 @@ Decision records explain choices that materially constrain later work. Accepted 
 - [0044: Localize unrouted study passives](0044-localize-unrouted-study-passives.md) — exact components and all nonzero frozen-source copper retained; no fabrication release.
 
 - [0069: Exact Murata six-capacitor land migration](0069-exact-murata-six-capacitor-migration.md) — dedicated exact-part assignment, historical identity mapping and frozen 59-edge retention; hardware/assembly qualification remains open.
+
+- [0070: Additive gauge-switch supply routing](0070-additive-gauge-switch-supply-routing.md) — ordinary-width candidate with complete frozen 59-edge retention.
+- [0071: Printed switch terminal numbers](0071-manufacturer-switch-terminal-numbering.md) — correct the second-pole labels with explicit physical identity preservation; assembly/actuation qualification remains open.

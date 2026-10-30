@@ -3,7 +3,7 @@
   "canonical_project": "hardware/coupon/rev-a/rgb-badge-coupon.kicad_pro",
   "canonical_source_sha256": {
     "3v3-converter.kicad_sch": "f63177991932b43c6a5ec21de6e464e770b47152ef5ec67d1c205a154f4715b2",
-    "app-control.kicad_sch": "2bef3daca9b00cbb153c70ac5097d0e8af1aa872df13b567e6f0feec2da97b5e",
+    "app-control.kicad_sch": "57efe491a8554508467016f9574ba35a0bbeb0126721341cb5e13e7a56b5ef80",
     "charger-core.kicad_sch": "a295e86e0d5fd249b7dc6b30f12e6f736d643844e9def31f8ef804b7b96c05ef",
     "charger-gate.kicad_sch": "c1d1140251dc7ddfb9070715b47fbab8451e66740cde295272ec07d66a3f6d18",
     "charger-temperature.kicad_sch": "0fcd6c67d76ecb6b936ee36b338664467a4a6e9c9ba666ef6bb52c8e99fcd02a",
@@ -18,7 +18,7 @@
     "matrix-r08-c08.kicad_sch": "493f8f8a7bb20e39421dd644c0e9368a49cb80c44bf4e78f17b2ab142d988a46",
     "rgb-badge-coupon.kicad_sch": "d01d130b7c2f46a725792bd83dd9cc56cc3eba5a1f855d686f271c2ed0dbf7a5",
     "rows.kicad_sch": "e332b3a7d50a1e66fba1797a9481fff820d7df3dd5a5181797295764b742aa28",
-    "symbols/rgb-badge-coupon.kicad_sym": "6a98051c230f795547c4b962fba02d7b155fcfc9af635a51904051805b08f645",
+    "symbols/rgb-badge-coupon.kicad_sym": "42df3b921cc8d3249b40515a1c0555c7752ca35cc5fa73f69a3689e4ee271f22",
     "usb-conditioning.kicad_sch": "695a40b382ccf8584f6181b1df84ecef1d2bdf12f0cfe47c5be60ce07cd87b5c",
     "usb-interface.kicad_sch": "d27b929bcecb9e7618f9d4eb5ecb5c671ad512835f97b28c131fd3f70e143aad",
     "usb-permission.kicad_sch": "b03f537846d1bb3da56ee5b0448464f0a3d5ce2d6814356a4767c494fde70204",
@@ -30,7 +30,7 @@
   "generation_tool_sha256": {
     "check-board-pin-map.py": "d2ceb48d6958d1ca206b7df8d667f01eb617378ff2ce1e6d218efe65dbe3dee1",
     "check-controller-libraries.py": "792115bae24a2e13df8fae71cf6a75876431a44b963a5ca9a3b68c8f7d36aad8",
-    "check-coupon-controller.py": "c23ba69209b6510e3802605684c2611406c635ed4465a390be3139b53a85fccc"
+    "check-coupon-controller.py": "cdf5bb5855565b2c99fe439dbef7931d64e5b18734e0d607622342cf2a727eec"
   },
   "hardware_revision": "coupon-rev-a",
   "manufacturer": "Espressif Systems",

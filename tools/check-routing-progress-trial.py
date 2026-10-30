@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 import sys
 sys.path.insert(0,str(ROOT/'tools'))
 import murata_land_migration as murata
+import switch_pin_migration as switch_pins
 SOURCE = ROOT/'hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb'
 OUTPUT = ROOT/'hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb'
 PLAN = ROOT/'mechanical/review/routing-progress-plan.json'
@@ -37,7 +38,7 @@ def signature(board, item):
 
 
 def physical_identity(pad):
-    return murata.historical_identity(pad)
+    return switch_pins.historical_identity(pad,murata.historical_identity(pad))
 
 
 def physical_cluster(board,pad):
@@ -106,7 +107,8 @@ def validate_geometry(old, new, plan):
         other = new_parts[ref]
         if ref in murata.REFS:
             murata.verify_part(part,False);murata.verify_part(other,True)
-        expected_fpid=murata.NEW if ref in murata.REFS else part.GetFPIDAsString()
+        if ref=='SW2':switch_pins.verify_part(part,False);switch_pins.verify_part(other,True)
+        expected_fpid=switch_pins.NEW if ref=='SW2' else murata.NEW if ref in murata.REFS else part.GetFPIDAsString()
         assert (part.GetValue(),expected_fpid,part.GetLayer()) == (
             other.GetValue(),other.GetFPIDAsString(),other.GetLayer()), ('Part identity changed',ref)
         if ref in poses:
@@ -119,7 +121,7 @@ def validate_geometry(old, new, plan):
         else:
             assert (part.GetPosition(),part.GetOrientation().AsDegrees()) == (
                 other.GetPosition(),other.GetOrientation().AsDegrees()), ('Unexpected placement change',ref)
-        assert Counter(map(local_pad_signature,part.Pads()))==Counter(murata.normalized_signature(q,local_pad_signature) for q in other.Pads()), ('Physical pad changed',ref)
+        assert Counter(map(local_pad_signature,part.Pads()))==Counter(switch_pins.normalized_signature(q,murata.normalized_signature(q,local_pad_signature)) for q in other.Pads()), ('Physical pad changed',ref)
         assert sorted((f.GetName(), f.GetText()) for f in part.GetFields()) == sorted(
             (f.GetName(), f.GetText()) for f in other.GetFields()), ('Component metadata changed', ref)
         for pad in other.Pads():
@@ -201,6 +203,7 @@ def validate_geometry(old, new, plan):
     prior_check.validate_61_checkpoint(plan)
     prior_check.validate_60_checkpoint(plan)
     prior_check.validate_59_checkpoint(plan)
+    module('gauge_supply','routing_supply_join.py').verify_native(new,plan,signature,physical_cluster)
     digital_count=module('digital_width','routing_digital_width.py').verify_native(new,plan,signature,physical_cluster)
     testpad_policy.verify_native(old,new,plan,signature,physical_identity,physical_cluster)
     assert sorted(changed) == plan['changed_nets'], 'Changed net set differs'
@@ -237,6 +240,7 @@ def main():
     portable=module('plan','check-routing-progress-plan.py')
     portable.validate(plan,manifest);portable.validate_profile(plan,manifest)
     assert manifest['murata_migration_policy_sha256']==hashlib.sha256((ROOT/'tools/murata_land_migration.py').read_bytes()).hexdigest()
+    assert manifest['switch_pin_policy_sha256']==hashlib.sha256((ROOT/'tools/switch_pin_migration.py').read_bytes()).hexdigest()
     for path, key in [(SOURCE, 'source_sha256'), (OUTPUT, 'board_sha256'), (PLAN, 'plan_sha256'),
                       (ROOT/'tools/generate-routing-progress-trial.py', 'generator_sha256')]:
         assert hashlib.sha256(path.read_bytes()).hexdigest() == manifest[key], (key, 'Fingerprint changed')

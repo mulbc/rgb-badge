@@ -253,3 +253,25 @@ stable fills, independent counts, unchanged-or-better full DRC, replay,
 original-orphan and fault evidence before selecting corrected routing source.
 Other MPNs sharing the legacy footprint require their own drawing reviews.
 Electrical/process/assembly qualification and independent Gate A remain open.
+
+**2026-10-30 switched-gauge routing continuation (ADR 0070):** PWR-003/007
+and MFG-001/003 retain the existing switch/buffer circuit, exact parts, current
+settings and provisional switch-mapping/transition holds. Only the exact
+ordinary-width additive +BAT_GAUGE_SW inventory may join SW2.6 to C39.1/U46.1.
+Freeze all 59-edge copper/groups/poses/zones and the six corrected capacitor
+packages. Preserve all prior exceptions, require the source-pin join independently
+of plan/catalog fingerprints, and pass lower native/physical counts, unchanged
+full DRC, stable fills/replay, source/fault and original-orphan checks before
+selection. Other gauge groups and inductor locality remain incomplete;
+independent Gate A and fabrication restrictions are unchanged.
+
+**2026-10-30 printed switch-terminal correction (ADR 0071):** MFG-001/003,
+PWR-003/007 and CTL-001 retain exact JS202011JCQN and all physical land/net
+connections. Transcribe the supplied page-9 row labels as 1/2/3 and 5/6/7,
+with commons 2/6; map legacy 4/5/6 to printed 5/6/7 explicitly. Use a dedicated
+corrected footprint while preserving historical sources and source snapshots.
+The gauge routing witness is SW2.7/C39.1/U46.1 after correction. Require exact
+old/new physical identity guards, canonical native XML/ERC/rendering, full
+retention/count/DRC/replay/fault/orphan evidence. Independent bottom/top-view,
+received-part, actuation, transition and assembly reconciliation remains open;
+no current or fabrication restriction changes.

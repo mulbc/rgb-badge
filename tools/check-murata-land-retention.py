@@ -16,7 +16,7 @@ BEFORE_SHA256='a28258edac032d3dd047f2d7404c0752b25c472af4236b4618b3854717ddfc62'
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--before',type=Path,required=True,help='Exact pre-migration board from commit d88599a (historical evidence remains in Git)')
-    parser.add_argument('--after',type=Path,default=ROOT/'hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb')
+    parser.add_argument('--after',type=Path,required=True,help='Exact corrected 59-edge board from commit 73a6c26; newer routing is a separate transaction')
     parser.add_argument('--report',type=Path)
     args=parser.parse_args()
     sha=lambda path:hashlib.sha256(path.read_bytes()).hexdigest()

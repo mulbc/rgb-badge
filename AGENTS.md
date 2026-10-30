@@ -43,6 +43,7 @@ When giving the owner shell commands, assume the current directory is the reposi
 - CadQuery source is canonical for the enclosure; STEP/STL files are reviewed release outputs.
 - Production firmware uses ESP-IDF and native C/C++. Host-side tools may use Python.
 - Prefer deterministic generation, tests and machine-readable manifests over manual release steps.
+- Cache owner-supplied manufacturer PDFs in `hardware/coupon/rev-a/reference/vendor-datasheets/`, preserving exact bytes and SHA-256. That directory is ignored; never force-add vendor PDFs or rendered vendor pages.
 - Do not commit local KiCad backups, firmware build output or unsigned manufacturing output.
 
 ## Licensing

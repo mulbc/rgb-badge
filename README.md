@@ -6,7 +6,7 @@ An open-source, full-colour wearable LED badge inspired by the FOSSASIA Badge Ma
 
 The project is currently in **draft schematic development**. Several coupon circuits are captured, including a provisional charger core, but the complete power circuit and PCB are unfinished. No board in this repository has been independently reviewed, fabricated or tested. Do not treat current design material as production-ready.
 
-The current [59-edge routing study](docs/development/led-routing-progress-59-study-2026-10-30.md) retains **59 unconnected edges and 104 existing DRC findings**. The [exact Murata land migration](docs/development/murata-land-migration-2026-10-30.md) corrects all six affected capacitor footprints while preserving every completed connection. The 50-edge target, electrical qualification and independent review remain open.
+The current [58-edge study](docs/development/led-routing-progress-58-study-2026-10-30.md) adds a switched-gauge supply connection and corrects printed switch terminal labels while retaining every preceding connection. It has **58 unconnected edges and 104 existing DRC findings**. The [inductor-locality screen](docs/development/converter-inductor-locality-2026-10-30.md) finds no compliant sampled pose beside the fixed converters. The 50-edge target, power-stage floorplan, electrical qualification and independent review remain open.
 
 ## Product target
 

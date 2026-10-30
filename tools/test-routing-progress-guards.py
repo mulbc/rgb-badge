@@ -51,6 +51,31 @@ class RoutingProgressGuards(unittest.TestCase):
     def test_selected_checkpoint_passes(self):
         self.assertLessEqual(c.validate_geometry(self.old,self.new,self.plan)['native_open_edges'],100)
 
+    def test_gauge_supply_source_join_is_independent_of_catalog(self):
+        policy=c.module('gauge_supply_fault','routing_supply_join.py')
+        policy.verify_join(self.new,c.physical_cluster)
+        # Remove the independently named SW2 pad lead, not a catalog hash.
+        lead=next(t for t in self.new.GetTracks() if not isinstance(t,p.PCB_VIA)
+                  and t.GetNetname()=='+BAT_GAUGE_SW' and t.GetStart()==p.VECTOR2I(3200000,3100000))
+        self.new.Remove(lead)
+        self.new.BuildConnectivity()
+        with self.assertRaisesRegex(AssertionError,'Gauge switch supply not joined'):
+            policy.verify_join(self.new,c.physical_cluster)
+
+    def test_59_checkpoint_copper_cannot_be_removed_with_the_plan(self):
+        prior=json.loads((ROOT/'mechanical/review/routing-progress-59-checkpoint.json').read_text())
+        older=json.loads((ROOT/'mechanical/review/routing-progress-60-checkpoint.json').read_text())
+        row=next(row for row in prior['added_copper'] if row not in older['added_copper'])
+        self.plan['added_copper'].remove(row)
+        with self.assertRaisesRegex(AssertionError,'Accepted 59-edge copper changed'):
+            c.module('retention59','check-routing-progress-plan.py').validate_59_checkpoint(self.plan)
+
+    def test_switch_printed_numbers_cannot_hide_a_wrong_common(self):
+        part=self.parts['SW2'];c.switch_pins.verify_part(part,True)
+        pad=next(q for q in part.Pads() if q.GetNumber()=='7');pad.SetNumber('6')
+        with self.assertRaises(AssertionError):c.switch_pins.verify_part(part,True)
+        with self.assertRaises(AssertionError):c.physical_identity(pad)
+
     def test_all_six_exact_murata_packages_are_required(self):
         for ref in c.murata.REFS:
             with self.subTest(ref=ref):

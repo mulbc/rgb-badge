@@ -263,12 +263,12 @@ def check_netlist(path):
         expected_nets.update({(ref, '1'): left, (ref, '2'): right})
     expected_nets.update({('TP13', '1'): 'VLED_ENABLE_CANDIDATE',
                           ('TP14', '1'): 'ROW_ENABLE_N_CANDIDATE'})
-    expected_components['SW2'] = ('JS202011JCQN', 'rgb-badge-coupon:SW_CK_JS202011JCQN')
+    expected_components['SW2'] = ('JS202011JCQN', 'rgb-badge-coupon:SW_CK_JS202011JCQN_ManufacturerPins')
     expected_nets.update({('SW2','2'): '+SYS_APP_IN_DRAFT', ('SW2','3'): 'APP_ON_SW_DRAFT',
                           ('SW2','1'): 'unconnected-(SW2-A1-Pad1)',
-                          ('SW2','4'): 'unconnected-(SW2-A2-Pad4)',
-                          ('SW2','5'): '+BAT_PROTECTED_DRAFT',
-                          ('SW2','6'): '+BAT_GAUGE_SW'})
+                          ('SW2','5'): 'unconnected-(SW2-A2-Pad5)',
+                          ('SW2','6'): '+BAT_PROTECTED_DRAFT',
+                          ('SW2','7'): '+BAT_GAUGE_SW'})
     require(components == expected_components, "Complete coupon XML population/value/footprint mismatch")
     require(connections == expected_nets,
             "Complete coupon XML pin-to-net mismatch: " + mapping_difference(connections, expected_nets))

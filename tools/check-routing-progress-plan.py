@@ -130,9 +130,11 @@ def validate_60_checkpoint(plan):
 
 
 def validate_59_checkpoint(plan):
-    path=ROOT/'mechanical/review/routing-progress-59-checkpoint.json'
-    assert hashlib.sha256(path.read_bytes()).hexdigest()=='25651a5204f4772ad47764a3ee343c4738f8b8424160f9a61830037db4c33856'
-    assert plan==json.loads(path.read_text()), 'ADR 0069 changes no accepted routing plan'
+    validate_frozen_checkpoint(plan,59,'25651a5204f4772ad47764a3ee343c4738f8b8424160f9a61830037db4c33856')
+    prior=json.loads((ROOT/'mechanical/review/routing-progress-59-checkpoint.json').read_text())
+    validate_digital_retention(plan,prior)
+    for key in ('placements','testpad_placements','source_chain_replacement','track_replacements'):
+        assert plan[key]==prior[key], 'Accepted 59-edge %s changed'%key
 
 
 def validate_61_checkpoint(plan):
@@ -145,6 +147,7 @@ def validate(plan, manifest):
     runpy.run_path(str(ROOT/'tools/routing_pad_necks.py'))['validate_necks'](plan)
     runpy.run_path(str(ROOT/'tools/routing_track_replacements.py'))['validate_plan'](plan)
     runpy.run_path(str(ROOT/'tools/routing_testpad_placements.py'))['validate_plan'](plan)
+    runpy.run_path(str(ROOT/'tools/routing_supply_join.py'))['validate_plan'](plan)
     assert plan['source_sha256'] == manifest['source_sha256'] == 'da3c3e093acef457ce2d0ebe73b57fd5006b9139a57b7fe8acfcd77e612dc246'
     assert plan['open_edges'] == manifest['native_open_edges'] <= 100
     assert sum(plan['open_edges_by_net'].values()) == plan['open_edges']
@@ -245,6 +248,8 @@ def main():
     validate(plan,manifest)
     assert manifest['murata_migration_policy_sha256']==hashlib.sha256((ROOT/'tools/murata_land_migration.py').read_bytes()).hexdigest(), 'Murata policy fingerprint changed'
     assert manifest['exact_murata_migrated_references']==['C3','C32','C44','C45','C53','C54']
+    assert manifest['switch_pin_policy_sha256']==hashlib.sha256((ROOT/'tools/switch_pin_migration.py').read_bytes()).hexdigest()
+    assert manifest['printed_switch_pins_migrated'] is True
     validate_prior_checkpoint(plan)
     validate_100_checkpoint(plan)
     validate_94_checkpoint(plan)
@@ -262,6 +267,9 @@ def main():
     validate_61_checkpoint(plan)
     validate_60_checkpoint(plan)
     validate_59_checkpoint(plan)
+    supply=runpy.run_path(str(ROOT/'tools/routing_supply_join.py'))
+    supply['validate_plan'](plan,required=True)
+    assert manifest['gauge_supply_catalog_sha256']==supply['CATALOG_SHA256']
     chain=runpy.run_path(str(ROOT/'tools/routing_source_chain.py'))
     chain['validate_plan'](plan,required=True)
     assert manifest['source_chain_catalog_sha256']==chain['CATALOG_SHA256']

@@ -63,6 +63,15 @@ class StudyContract(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'geometry differs'):
             c.compare(self.data,self.board,legacy_land_study=True)
 
+    def test_legacy_switch_labels_require_explicit_historical_mode(self):
+        self.board['SW2']['footprint']=c.SWITCH['OLD']
+        for pad in self.board['SW2']['pads']:pad['number']=c.SWITCH['REVERSE'][pad['number']]
+        self.reject()
+        r=c.compare(self.data,self.board,legacy_switch_study=True)
+        self.assertEqual(r['historical_legacy_switch_assignments'],['SW2'])
+        next(q for q in self.board['SW2']['pads'] if q['number']=='5')['net']='+BAT_GAUGE_SW'
+        with self.assertRaises(ValueError):c.compare(self.data,self.board,legacy_switch_study=True)
+
     def test_snapshot_net_drift_is_checked_against_existing_circuit_contract(self):
         self.data['components']['R47']['pins']['1']['native_net'] = 'UART0_TX'
         with self.assertRaisesRegex(ValueError, 'pin-to-net mismatch'):

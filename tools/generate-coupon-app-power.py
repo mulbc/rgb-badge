@@ -82,14 +82,14 @@ def generate_control():
              f'(text "Pole 1 drives TPS631000 EN with a separate 100k OFF pull-down on the converter page." (at 20.320 20.320 0) {effects(justify="left")} (uuid {q(uid("note/control"))}))',
              f'(text "Pole 2 switches protected BAT to gauge VDD/CELL and A-side buffer; verify arbitrary contact order." (at 20.320 27.940 0) {effects(justify="left")} (uuid {q(uid("note/gauge"))}))',
              f'(text "JCQN mechanical/throw-direction review remains open. Do not populate a board from this draft." (at 20.320 35.560 0) {effects(justify="left")} (uuid {q(uid("note/fit"))}))']
-    lines += component('SW2', 'JS202011JCQN', 120.65, 86.36, [str(i) for i in range(1, 7)],
-                       'JS202011JCQN', 'rgb-badge-coupon:SW_CK_JS202011JCQN',
+    lines += component('SW2', 'JS202011JCQN', 120.65, 86.36, [str(i) for i in (1,2,3,5,6,7)],
+                       'JS202011JCQN', 'rgb-badge-coupon:SW_CK_JS202011JCQN_ManufacturerPins',
                        'C&K / Littelfuse', 'https://www.ckswitches.com/media/1422/js.pdf')
     lines += wire_label('+SYS_APP_IN_DRAFT', 110.49, 78.74, 77.47, 78.74, 'SW2/2')
     lines += wire_label('APP_ON_SW_DRAFT', 130.81, 81.28, 163.83, 81.28, 'SW2/3')
-    lines += wire_label('+BAT_PROTECTED_DRAFT', 110.49, 93.98, 77.47, 93.98, 'SW2/5')
-    lines += wire_label('+BAT_GAUGE_SW', 130.81, 96.52, 163.83, 96.52, 'SW2/6')
-    for pin, x, y in [(1,130.81,76.20),(4,130.81,91.44)]:
+    lines += wire_label('+BAT_PROTECTED_DRAFT', 110.49, 93.98, 77.47, 93.98, 'SW2/6')
+    lines += wire_label('+BAT_GAUGE_SW', 130.81, 96.52, 163.83, 96.52, 'SW2/7')
+    for pin, x, y in [(1,130.81,76.20),(5,130.81,91.44)]:
         lines.append(f'(no_connect (at {x:.3f} {y:.3f}) (uuid {q(uid("SW2/" + str(pin) + "/nc"))}))')
     lines += ['(embedded_fonts no)', ')']
     return '\n'.join(lines) + '\n'

@@ -38,3 +38,6 @@ mechanical/build/
 .vscode/
 .DS_Store
 Thumbs.db
+
+# Local vendor references: do not redistribute third-party datasheets.
+hardware/coupon/rev-a/reference/vendor-datasheets/

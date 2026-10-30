@@ -1,6 +1,6 @@
 <!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
 
-Current routed derivative: [59-edge source with six exact Murata lands](led-routing-progress-trial-114mm.kicad_pcb). The [migration record](../../../../docs/development/murata-land-migration-2026-10-30.md) preserves every completed group and all accepted copper at 59 native/physical opens and 104 unchanged intrinsic findings. Run `./tools/check-routing-progress.sh` from the repository root. Other studies below are historical; the board is unbuilt and fabrication is prohibited pending qualification and independent Gate A.
+Current routed derivative: [58-edge source with printed switch terminals](led-routing-progress-trial-114mm.kicad_pcb). The [source record](../../../../docs/development/led-routing-progress-58-study-2026-10-30.md) preserves all earlier physical groups/copper/poses and the 104 intrinsic findings, corrects the second-pole labels without moving contacts, and adds the exact gauge-switch supply join. Run `./tools/check-routing-progress.sh`. Inductor locality, electrical/assembly qualification and independent Gate A remain open; fabrication is prohibited.
 
 Historical routed derivative: [native-clearance gate/control continuation](../../../../docs/development/led-native-control-study-2026-10-21.md)
 records nineteen joins and exact retirement of twenty-five source tracks/four vias across ROW_SEL_04/COL_07_R/COL_06_G/COL_02_G, with

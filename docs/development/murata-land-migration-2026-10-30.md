@@ -2,6 +2,8 @@
 
 # Exact Murata six-capacitor land migration
 
+**Historical scope:** Later routing and ADR 0071 switch-label correction are separate transactions. To replay this exact six-capacitor comparison, supply `--after` with the corrected 59-edge board from commit `73a6c26`, along with `--before` from `d88599a`. The checker no longer assumes that the active board is this historical checkpoint.
+
 Date: 2026-10-30. Coupon Rev A is unbuilt. This record describes first-author
 source, drawing and native geometry checks, not hardware measurements.
 Firmware logic is unchanged; the provisional board inventory is regenerated

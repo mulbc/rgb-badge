@@ -311,9 +311,9 @@ def controller_coupon_netlist():
     part('C64','100n 16V X7R','C_Murata_GRM15_0402',{1:'+BAT_GAUGE_SW',2:'GND'})
     part('C65','100n 16V X7R','C_Murata_GRM15_0402',{1:'+3V3_APP',2:'GND'})
     # Provisional switched application supply and battery-facing temperature block.
-    part('SW2','JS202011JCQN','SW_CK_JS202011JCQN',{
+    part('SW2','JS202011JCQN','SW_CK_JS202011JCQN_ManufacturerPins',{
         1:'unconnected-(SW2-A1-Pad1)',2:'+SYS_APP_IN_DRAFT',3:'APP_ON_SW_DRAFT',
-        4:'unconnected-(SW2-A2-Pad4)',5:'+BAT_PROTECTED_DRAFT',6:'+BAT_GAUGE_SW'})
+        5:'unconnected-(SW2-A2-Pad5)',6:'+BAT_PROTECTED_DRAFT',7:'+BAT_GAUGE_SW'})
     part('U36','TPS631000DRLR','SOT5X3_TI_DRL0008A',{
         1:'+3V3_APP',2:'Net-(U36-LX2)',3:'Net-(U36-LX1)',4:'+SYS_APP_IN_DRAFT',
         5:'APP_ON_SW_DRAFT',6:'GND',7:'GND',8:'APP_3V3_FB'})
@@ -576,7 +576,7 @@ def main():
                 os.environ.get("RGB_BADGE_TEST_MISSING_USB_CONNECTOR") == "1"):
             names.append("USB_C_GCT_USB4505-03-0-A_MidMount.svg")
     if stage in ("fabrication", "copper", "paste", "mechanical"):
-        names.extend(("VQFN_TI_RPW0010A_2x2mm_HotRod.svg", "R_Panasonic_ERA2_0402.svg", "LFCSP_ADI_CP16_22_3x3mm_P0.5mm_EP1.75mm.svg", "L_Murata_DFE252012P.svg", "C_Murata_GRM21_0805.svg", "SW_CK_JS202011JCQN.svg", "SOT563_TI_DRL0006A.svg", "NTC_Murata_NCU15_0402.svg", "JST_PH_S2B-PH-SM4-TB.svg", "VSSOP_TI_DGK0008A.svg", "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB.svg"))
+        names.extend(("VQFN_TI_RPW0010A_2x2mm_HotRod.svg", "R_Panasonic_ERA2_0402.svg", "LFCSP_ADI_CP16_22_3x3mm_P0.5mm_EP1.75mm.svg", "L_Murata_DFE252012P.svg", "C_Murata_GRM21_0805.svg", "SW_CK_JS202011JCQN.svg", "SW_CK_JS202011JCQN_ManufacturerPins.svg", "SOT563_TI_DRL0006A.svg", "NTC_Murata_NCU15_0402.svg", "JST_PH_S2B-PH-SM4-TB.svg", "VSSOP_TI_DGK0008A.svg", "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB.svg"))
     for name in names:
         if name == os.environ.get("RGB_BADGE_TEST_MISSING_NAMED"):
             continue
