@@ -323,7 +323,7 @@ for footprint_name in VQFN_TI_RGT0016C_3x3mm_P0.5mm_EP1.68mm UQFN_TI_RSE0010A_2x
     done
 done
 
-for footprint_name in ESP32-S3-WROOM-1U C_Murata_GRM18_0603 C_TDK_C1608_0603 SW_Panasonic_EVQP7J01P; do
+for footprint_name in ESP32-S3-WROOM-1U C_Murata_GRM188R60J106ME47_0603 C_TDK_C1608_0603 SW_Panasonic_EVQP7J01P; do
     for view_dir in "${footprint_fab_dir}" "${footprint_copper_dir}" "${footprint_paste_dir}"; do
         if [[ ! -s "${view_dir}/${footprint_name}.svg" ]]; then
             echo "Expected non-empty controller footprint SVG: ${view_dir}/${footprint_name}.svg" >&2

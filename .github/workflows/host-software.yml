@@ -46,6 +46,7 @@ jobs:
             /mechanical/review/routing-progress-70-checkpoint.json
             /mechanical/review/routing-progress-69-checkpoint.json
             /mechanical/review/routing-progress-65-checkpoint.json
+            /mechanical/review/routing-progress-59-checkpoint.json
             /mechanical/review/routing-progress-60-checkpoint.json
             /mechanical/review/routing-progress-61-checkpoint.json
             /mechanical/review/routing-progress-62-checkpoint.json
@@ -60,6 +61,7 @@ jobs:
       - name: Canonical source assignment and injected-fault checks
         run: |
           python3 tools/check-coupon-study-contract.py
+          python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb --legacy-land-study
           python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb
           python3 tools/check-routing-progress-plan.py
           python3 tools/check-c32-land-candidate.py

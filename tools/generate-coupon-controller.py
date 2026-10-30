@@ -61,7 +61,7 @@ METADATA = {
     "ERJ2RKF22R0X": ("Panasonic", "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
     "ERJ2RKF4990X": ("Panasonic", "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),
     "GRM155C71A105KE11D": ("Murata", "https://pim.murata.com/en-global/pim/details/?partNum=GRM155C71A105KE11D", "rgb-badge-coupon:C_Murata_GRM15_0402"),
-    "GRM188R60J106ME47D": ("Murata", "https://pim.murata.com/en-global/pim/details/?partNum=GRM188R60J106ME47D", "rgb-badge-coupon:C_Murata_GRM18_0603"),
+    "GRM188R60J106ME47D": ("Murata", "https://pim.murata.com/en-global/pim/details/?partNum=GRM188R60J106ME47D", "rgb-badge-coupon:C_Murata_GRM188R60J106ME47_0603"),
     "GRM155R71C104KA88D": ("Murata", "https://pim.murata.com/asset/pim4/ceramicCapacitorSMD/GRM155R71C104KA88-01A-EN_PDF_CERAMICCAPACITORSMD", "rgb-badge-coupon:C_Murata_GRM15_0402"),
     "EVQP7J01P": ("Panasonic", "https://industrial.panasonic.com/cdbs/www-data/pdf/ATK0000/ATK0000C378.pdf", "rgb-badge-coupon:SW_Panasonic_EVQP7J01P"),
     "TestPoint_Pad": ("PCB copper feature", "", "rgb-badge-coupon:TestPoint_Pad_D1.0mm"),

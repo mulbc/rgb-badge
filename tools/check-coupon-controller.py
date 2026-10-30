@@ -28,7 +28,7 @@ PROJECT = A["PROJECT_DIR"]
 
 PARTS = {
     "U3": ("ESP32-S3-WROOM-1U-N16R8", "ESP32-S3-WROOM-1U-N16R8", "rgb-badge-coupon:ESP32-S3-WROOM-1U"),
-    "C3": ("GRM188R60J106ME47D", "10u 6.3V X5R", "rgb-badge-coupon:C_Murata_GRM18_0603"),
+    "C3": ("GRM188R60J106ME47D", "10u 6.3V X5R", "rgb-badge-coupon:C_Murata_GRM188R60J106ME47_0603"),
     "C4": ("GRM155R71C104KA88D", "100n 16V X7R", "rgb-badge-coupon:C_Murata_GRM15_0402"),
     "C5": ("GRM155C71A105KE11D", "1u 10V X7S", "rgb-badge-coupon:C_Murata_GRM15_0402"),
     "R43": ("ERJ2RKF1002X", "10k 1%", "rgb-badge-coupon:R_Panasonic_ERJ2_0402"),

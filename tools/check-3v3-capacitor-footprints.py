@@ -60,7 +60,7 @@ def check_symbols():
     for mpn, footprint in (("GRM187R61A226ME15", "C_Murata_GRM18_0603"),
                            ("GRM219R60J476ME44", "C_Murata_GRM21_0805")):
         expected = replace(template, reference, mpn)
-        expected = replace(expected, "rgb-badge-coupon:C_Murata_GRM18_0603",
+        expected = replace(expected, "rgb-badge-coupon:C_Murata_GRM188R60J106ME47_0603",
                            "rgb-badge-coupon:" + footprint)
         if symbols.get(mpn) != expected:
             raise ValueError(f"{mpn}: exact MPN, passive pins, datasheet or footprint differs from template")

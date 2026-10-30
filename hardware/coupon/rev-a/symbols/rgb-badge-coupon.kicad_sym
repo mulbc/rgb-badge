@@ -825,7 +825,7 @@
 (pin_names (offset 1.016) hide) (in_bom yes) (on_board yes)
 (property "Reference" "C" (at 0 6.35 0) (effects (font (size 1.27 1.27))))
 (property "Value" "GRM188R60J106ME47D" (at 0 3.81 0) (effects (font (size 1.27 1.27))))
-(property "Footprint" "rgb-badge-coupon:C_Murata_GRM18_0603" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
+(property "Footprint" "rgb-badge-coupon:C_Murata_GRM188R60J106ME47_0603" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Datasheet" "https://pim.murata.com/en-global/pim/details/?partNum=GRM188R60J106ME47D" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "Manufacturer" "Murata" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))
 (property "MPN" "GRM188R60J106ME47D" (at 0 0 0) (effects (font (size 1.27 1.27)) (hide yes)))

@@ -241,3 +241,15 @@ across 7,752 doglegs; the separate digital and USB restoration screens likewise
 select no new route. The accepted 59-edge board, retention policy and all
 electrical/fabrication boundaries remain unchanged. These finite results do not
 prove impossibility; source evidence is recorded with the follow-on study.
+
+**2026-10-30 exact Murata migration (ADR 0069):** MFG-001/003 and SAF-003
+require a dedicated GRM188R60J106ME47D footprint at C3/C32/C44/C45/C53/C54,
+using the supplied exact-part reflow row: 0.65 × 0.70 mm lands at ±0.675 mm.
+Preserve numbered nets, exact identities, all accepted 59-edge copper/groups,
+poses, zones and electrical settings. Explicitly verify the six old/new pad
+identity mappings; keep historical sources/plans unchanged and report legacy
+assignments in historical comparisons. Require native XML/ERC, drawing/render,
+stable fills, independent counts, unchanged-or-better full DRC, replay,
+original-orphan and fault evidence before selecting corrected routing source.
+Other MPNs sharing the legacy footprint require their own drawing reviews.
+Electrical/process/assembly qualification and independent Gate A remain open.

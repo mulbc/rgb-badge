@@ -18,8 +18,8 @@ helper.FILE_UUID = str(uuid.uuid5(helper.SCOPE, "file"))
 helper.PARTS = {
     "U37": ("TPS63020DSJT", "TPS63020DSJT", "VSON_TI_DSJ0014_4x3mm_P0.5mm_EP2.85x1.58mm", "Texas Instruments", "https://www.ti.com/lit/ds/symlink/tps63020.pdf", 15),
     "L2": ("DFE252012P-1R5M=P2", "1.5u 20%", "L_Murata_DFE252012P", "Murata", "https://www.murata.com/~/media/webrenewal/products/inductor/chip/tokoproducts/wirewoundmetalalloychiptype/m_dfe252012p.ashx", 2),
-    "C44": ("GRM188R60J106ME47D", "10u 6.3V X5R", "C_Murata_GRM18_0603", "Murata", "https://pim.murata.com/en-global/pim/details/?partNum=GRM188R60J106ME47D", 2),
-    "C45": ("GRM188R60J106ME47D", "10u 6.3V X5R", "C_Murata_GRM18_0603", "Murata", "https://pim.murata.com/en-global/pim/details/?partNum=GRM188R60J106ME47D", 2),
+    "C44": ("GRM188R60J106ME47D", "10u 6.3V X5R", "C_Murata_GRM188R60J106ME47_0603", "Murata", "https://pim.murata.com/en-global/pim/details/?partNum=GRM188R60J106ME47D", 2),
+    "C45": ("GRM188R60J106ME47D", "10u 6.3V X5R", "C_Murata_GRM188R60J106ME47_0603", "Murata", "https://pim.murata.com/en-global/pim/details/?partNum=GRM188R60J106ME47D", 2),
     "C46": ("GRM187R61A226ME15", "22u 10V X5R", "C_Murata_GRM18_0603", "Murata", "https://pim.murata.com/en-global/pim/details/?partNum=GRM187R61A226ME15", 2),
     "C47": ("GRM187R61A226ME15", "22u 10V X5R", "C_Murata_GRM18_0603", "Murata", "https://pim.murata.com/en-global/pim/details/?partNum=GRM187R61A226ME15", 2),
     "C48": ("GRM187R61A226ME15", "22u 10V X5R", "C_Murata_GRM18_0603", "Murata", "https://pim.murata.com/en-global/pim/details/?partNum=GRM187R61A226ME15", 2),

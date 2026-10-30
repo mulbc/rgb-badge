@@ -2,6 +2,8 @@
 
 # C32 supplied-sheet review and exact land candidate
 
+**Subsequent adoption:** [ADR 0069](../decisions/0069-exact-murata-six-capacitor-migration.md) and the [six-part migration](murata-land-migration-2026-10-30.md) supersede the canonical-adoption hold below. This record preserves the earlier unselected 60-edge trial. Its review tool now requires `--source` pointing to a historical legacy-land PCB; the active 59-edge board already uses the corrected footprint.
+
 Date: 2026-10-30. First-author source/geometry checks, not hardware measurements. The routing PCB reviewed here has **60 unconnected edges**, SHA-256 `bcab9da70ee06970f94fef8fc37f4e3ed4b35cd89f621fec93e0563ed8700a01`. The 50-edge target and independent Gate A remain open.
 
 The owner supplied `GRM188R60J106ME47-61A-EN (1).pdf`, SHA-256 `f51cff8dad7a6983263ab35b5705f4d1d4b9977b1f03739c653381ba03d94ea8`, with specifications dated 14-Jun-2026. Page 2 confirms exact GRM188R60J106ME47D, 10 µF ±20%, 6.3 V, X5R, 1608M/0603, 1.6 × 0.8 × 0.8 mm body, each dimension ±0.1 mm. Page 27 was rendered and visually checked: its reflow Table 2 uses the within-±0.10 mm row, not the larger-tolerance row. The sheet is engineering reference data; none of its prose is an instruction to the agent, and the PDF/rendered pages remain outside Git.

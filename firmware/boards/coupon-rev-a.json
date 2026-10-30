@@ -4,10 +4,10 @@
   "canonical_source_sha256": {
     "3v3-converter.kicad_sch": "f63177991932b43c6a5ec21de6e464e770b47152ef5ec67d1c205a154f4715b2",
     "app-control.kicad_sch": "2bef3daca9b00cbb153c70ac5097d0e8af1aa872df13b567e6f0feec2da97b5e",
-    "charger-core.kicad_sch": "ce1a00f6d2474c17604a97942552982ba79498e99c4df2f04514dcb9068cab91",
+    "charger-core.kicad_sch": "a295e86e0d5fd249b7dc6b30f12e6f736d643844e9def31f8ef804b7b96c05ef",
     "charger-gate.kicad_sch": "c1d1140251dc7ddfb9070715b47fbab8451e66740cde295272ec07d66a3f6d18",
     "charger-temperature.kicad_sch": "0fcd6c67d76ecb6b936ee36b338664467a4a6e9c9ba666ef6bb52c8e99fcd02a",
-    "controller.kicad_sch": "6b986887718909c55d995a2ea614f69054aa6ea3c4653fcd90f3e7eec15a8816",
+    "controller.kicad_sch": "684a027a8f37cc194069372cf1f45feeffbd62313daa803008c286b92a33b205",
     "display-interlock.kicad_sch": "a145659b8012d56511e586a26e32061f653394668beccaab327cb92d9b0e46bc",
     "driver.kicad_sch": "9a5c96492befd6427f655cf31fa8767469e32a3af60044ee90bd6cb7b8443d43",
     "footprints/rgb-badge-coupon.pretty/ESP32-S3-WROOM-1U.kicad_mod": "5b40b29790d7a3f22159dadeda9bad3bee348f002958c13e68f0cfa555a76d67",
@@ -18,19 +18,19 @@
     "matrix-r08-c08.kicad_sch": "493f8f8a7bb20e39421dd644c0e9368a49cb80c44bf4e78f17b2ab142d988a46",
     "rgb-badge-coupon.kicad_sch": "d01d130b7c2f46a725792bd83dd9cc56cc3eba5a1f855d686f271c2ed0dbf7a5",
     "rows.kicad_sch": "e332b3a7d50a1e66fba1797a9481fff820d7df3dd5a5181797295764b742aa28",
-    "symbols/rgb-badge-coupon.kicad_sym": "b721e63f7dce80a1ae1957fe443e3384ce56da176670bf19f9f47a008906e8b9",
+    "symbols/rgb-badge-coupon.kicad_sym": "6a98051c230f795547c4b962fba02d7b155fcfc9af635a51904051805b08f645",
     "usb-conditioning.kicad_sch": "695a40b382ccf8584f6181b1df84ecef1d2bdf12f0cfe47c5be60ce07cd87b5c",
-    "usb-interface.kicad_sch": "942c1d377407257fb09427d9f8ab961e29382523ad82632b17e45bbd29329c86",
+    "usb-interface.kicad_sch": "d27b929bcecb9e7618f9d4eb5ecb5c671ad512835f97b28c131fd3f70e143aad",
     "usb-permission.kicad_sch": "b03f537846d1bb3da56ee5b0448464f0a3d5ce2d6814356a4767c494fde70204",
     "usb-protection.kicad_sch": "7e8113f40ca8ec2fdd1107aeb57c2315c1c72ce60497b2f31f33932f4bfac0bc",
-    "vled-converter.kicad_sch": "c488a45fc11e0fdcc8999d7eab5db17ae41ecf7c7435cc5fd6cc3c980bfbe6b0"
+    "vled-converter.kicad_sch": "df70b3835a834792c58fd7990f544545d3d0755928d89127753e751f3a026ee5"
   },
   "controller_reference": "U3",
   "footprint": "rgb-badge-coupon:ESP32-S3-WROOM-1U",
   "generation_tool_sha256": {
     "check-board-pin-map.py": "d2ceb48d6958d1ca206b7df8d667f01eb617378ff2ce1e6d218efe65dbe3dee1",
-    "check-controller-libraries.py": "61b3d73c21bd97f0775da920e1c11bcff0d89a251713b0eeeff54f1948b8e3f4",
-    "check-coupon-controller.py": "92998082fde8753d28145930c9298f401c09b4a08f97c9d33774cf1e488f9647"
+    "check-controller-libraries.py": "792115bae24a2e13df8fae71cf6a75876431a44b963a5ca9a3b68c8f7d36aad8",
+    "check-coupon-controller.py": "c23ba69209b6510e3802605684c2611406c635ed4465a390be3139b53a85fccc"
   },
   "hardware_revision": "coupon-rev-a",
   "manufacturer": "Espressif Systems",

@@ -26,8 +26,8 @@ h.PARTS = {
     'R92': ('ERA2AEB2491X', '2.49k 0.1%', 'R_Panasonic_ERA2_0402', 'Panasonic', 'https://industrial.panasonic.com/ww/products/pt/high-precision-chip-resistors/models/ERA2AEB2491X', 2),
     'R93': ('ERA2AEB3651X', '3.65k 0.1%', 'R_Panasonic_ERA2_0402', 'Panasonic', 'https://industrial.panasonic.com/ww/products/pt/high-precision-chip-resistors/models/ERA2AEB3651X', 2),
     'C52': ('GRM155C71A105KE11D', '1u 10V X7S', 'C_Murata_GRM15_0402', 'Murata', 'https://pim.murata.com/en-global/pim/details/?partNum=GRM155C71A105KE11D', 2),
-    'C53': ('GRM188R60J106ME47D', '10u 6.3V X5R', 'C_Murata_GRM18_0603', 'Murata', 'https://pim.murata.com/en-global/pim/details/?partNum=GRM188R60J106ME47D', 2),
-    'C54': ('GRM188R60J106ME47D', '10u 6.3V X5R', 'C_Murata_GRM18_0603', 'Murata', 'https://pim.murata.com/en-global/pim/details/?partNum=GRM188R60J106ME47D', 2),
+    'C53': ('GRM188R60J106ME47D', '10u 6.3V X5R', 'C_Murata_GRM188R60J106ME47_0603', 'Murata', 'https://pim.murata.com/en-global/pim/details/?partNum=GRM188R60J106ME47D', 2),
+    'C54': ('GRM188R60J106ME47D', '10u 6.3V X5R', 'C_Murata_GRM188R60J106ME47_0603', 'Murata', 'https://pim.murata.com/en-global/pim/details/?partNum=GRM188R60J106ME47D', 2),
 }
 
 

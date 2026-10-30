@@ -4,6 +4,7 @@
 from collections import Counter
 import importlib.util
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -15,8 +16,13 @@ spec=importlib.util.spec_from_file_location('check',ROOT/'tools/check-routing-pr
 c=importlib.util.module_from_spec(spec);spec.loader.exec_module(c)
 
 
+# Fault fixtures keep removed native objects alive until their isolated process
+# exits. KiCad/SWIG teardown can otherwise crash after successful assertions.
+_NATIVE_FIXTURES=[]
+
 class RoutingProgressGuards(unittest.TestCase):
     def setUp(self):
+        _NATIVE_FIXTURES.append(self)
         self.old=p.LoadBoard(str(c.SOURCE));self.new=p.LoadBoard(str(c.OUTPUT))
         self.plan=json.loads(c.PLAN.read_text());self.parts={f.GetReference():f for f in self.new.GetFootprints()}
         originals=Counter(c.signature(self.old,t) for t in self.old.GetTracks());self.added=[]
@@ -44,6 +50,32 @@ class RoutingProgressGuards(unittest.TestCase):
 
     def test_selected_checkpoint_passes(self):
         self.assertLessEqual(c.validate_geometry(self.old,self.new,self.plan)['native_open_edges'],100)
+
+    def test_all_six_exact_murata_packages_are_required(self):
+        for ref in c.murata.REFS:
+            with self.subTest(ref=ref):
+                part=self.parts[ref]
+                c.murata.verify_part(part,True)
+                part.SetFPIDAsString(c.murata.OLD)
+                with self.assertRaises(AssertionError):c.murata.verify_part(part,True)
+                part.SetFPIDAsString(c.murata.NEW)
+
+    def test_murata_oversized_land_cannot_use_identity_mapping(self):
+        for ref in c.murata.REFS:
+            with self.subTest(ref=ref):
+                pad=next(iter(self.parts[ref].Pads()))
+                pad.SetSize(p.VECTOR2I(900000,900000))
+                with self.assertRaises(AssertionError):c.murata.normalized_signature(pad,c.local_pad_signature)
+
+    def test_murata_mapping_rejects_legacy_position_under_new_label(self):
+        pad=next(q for q in self.parts['C32'].Pads() if q.GetNumber()=='1')
+        pad.SetFPRelativePosition(p.VECTOR2I(-800000,0))
+        with self.assertRaises(AssertionError):c.physical_identity(pad)
+
+    def test_murata_migration_does_not_change_numbered_nets(self):
+        pad=next(iter(self.parts['C53'].Pads()))
+        pad.SetNetCode(self.new.FindNet('VLED').GetNetCode())
+        with self.assertRaises(AssertionError):c.murata.verify_part(self.parts['C53'],True)
 
     def test_unreviewed_ic_move(self):
         self.parts['U39'].Move(p.VECTOR2I(100000,0));self.reject()
@@ -402,7 +434,12 @@ class RoutingProgressGuards(unittest.TestCase):
 
 
 if __name__=='__main__':
-    if any(arg.startswith('RoutingProgressGuards.') for arg in sys.argv[1:]):unittest.main()
+    if any(arg.startswith('RoutingProgressGuards.') for arg in sys.argv[1:]):
+        result=unittest.main(exit=False).result
+        # All assertions and unittest result reporting have completed. Bypass
+        # only interpreter/native-object teardown, never a failed test result.
+        sys.stdout.flush();sys.stderr.flush()
+        os._exit(0 if result.wasSuccessful() else 1)
     else:
         names=unittest.defaultTestLoader.getTestCaseNames(RoutingProgressGuards)
         for name in names:subprocess.run([sys.executable,__file__,'RoutingProgressGuards.'+name,'-v'],check=True)

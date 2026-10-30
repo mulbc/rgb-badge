@@ -180,6 +180,9 @@ def main():
     args = parser.parse_args()
     manifest = json.loads((ROOT / 'mechanical/review/native-control-trial.json').read_text())
     contract_path = ROOT / 'mechanical/review/coupon-canonical-net-contract.json'
+    if hashlib.sha256(contract_path.read_bytes()).hexdigest() != manifest['canonical_contract_sha256']:
+        # ADR 0069 preserves the historical study and its original source snapshot.
+        contract_path=ROOT/'mechanical/review/coupon-canonical-net-contract-before-murata.json'
     assert hashlib.sha256(contract_path.read_bytes()).hexdigest() == manifest['canonical_contract_sha256']
     assert manifest['shared_footprints_with_canonical_metadata'] == 465
     plan_path = ROOT / 'mechanical/review/native-control-routing-plan.json'

@@ -41,6 +41,28 @@ class StudyContract(unittest.TestCase):
         self.assertTrue(r['shared_metadata_required'])
         self.assertFalse(r['fabrication_release_allowed'])
 
+    def test_every_corrected_murata_land_is_enforced(self):
+        for ref in c.MURATA['REFS']:
+            for key,value in [('land_size',['.9','.9']),('land_at',['-.8','0']),
+                              ('land_type',['smd','roundrect']),('land_layers',['B.Cu'])]:
+                with self.subTest(ref=ref,key=key):
+                    self.board=copy.deepcopy(self.inventory)
+                    self.board[ref]['pads'][0][key]=value
+                    self.reject()
+
+    def test_legacy_assignment_requires_explicit_historical_mode_and_geometry(self):
+        for ref in c.MURATA['REFS']:
+            self.board[ref]['footprint']=c.MURATA['OLD']
+            for q in self.board[ref]['pads']:
+                q['land_at']=['-.8' if q['number']=='1' else '.8','0']
+                q['land_size']=['.9','.9']
+        self.reject()
+        r=c.compare(self.data,self.board,legacy_land_study=True)
+        self.assertEqual(set(r['historical_legacy_murata_assignments']),set(c.MURATA['REFS']))
+        self.board['C3']['pads'][0]['land_size']=['.65','.70']
+        with self.assertRaisesRegex(ValueError,'geometry differs'):
+            c.compare(self.data,self.board,legacy_land_study=True)
+
     def test_snapshot_net_drift_is_checked_against_existing_circuit_contract(self):
         self.data['components']['R47']['pins']['1']['native_net'] = 'UART0_TX'
         with self.assertRaisesRegex(ValueError, 'pin-to-net mismatch'):

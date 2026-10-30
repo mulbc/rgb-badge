@@ -148,7 +148,7 @@ def legacy_controller_coupon_netlist():
     components = root.find('components')
     parts = [
         ('U3', 'ESP32-S3-WROOM-1U-N16R8', 'ESP32-S3-WROOM-1U'),
-        ('C3', '10u 6.3V X5R', 'C_Murata_GRM18_0603'),
+        ('C3', '10u 6.3V X5R', 'C_Murata_GRM188R60J106ME47_0603'),
         ('C4', '100n 16V X7R', 'C_Murata_GRM15_0402'),
         ('C5', '1u 10V X7S', 'C_Murata_GRM15_0402'),
         ('R43', '10k 1%', 'R_Panasonic_ERJ2_0402'),
@@ -291,7 +291,7 @@ def controller_coupon_netlist():
         part(ref,v,'R_Panasonic_ERJ2_0402',{1:a,2:b})
     for ref,rail in [('C30','+5V_USB'),('C31','+5V_USB')]:
         part(ref,'1u 10V X7S','C_Murata_GRM15_0402',{1:rail,2:'GND'})
-    part('C32','10u 6.3V X5R','C_Murata_GRM18_0603',{1:'+3V3_USB',2:'GND'})
+    part('C32','10u 6.3V X5R','C_Murata_GRM188R60J106ME47_0603',{1:'+3V3_USB',2:'GND'})
     for ref,rail in [('C36','+3V3_USB'),('C37','+3V3_APP')]:
         part(ref,'100n 16V X7R','C_Murata_GRM15_0402',{1:rail,2:'GND'})
     for ref,value,net in [('TP32','VBUS_CONNECTOR','VBUS_CONNECTOR'),('TP33','5V_USB_BOUNDARY','+5V_USB')]:
@@ -354,8 +354,8 @@ def controller_coupon_netlist():
         ('R92','2.49k 0.1%','R_Panasonic_ERA2_0402','CHARGER_ISET'),
         ('R93','3.65k 0.1%','R_Panasonic_ERA2_0402','CHARGER_ILIM'),
         ('C52','1u 10V X7S','C_Murata_GRM15_0402','CHARGER_IN_DRAFT'),
-        ('C53','10u 6.3V X5R','C_Murata_GRM18_0603','+BAT_PROTECTED_DRAFT'),
-        ('C54','10u 6.3V X5R','C_Murata_GRM18_0603','+SYS_APP_IN_DRAFT'),
+        ('C53','10u 6.3V X5R','C_Murata_GRM188R60J106ME47_0603','+BAT_PROTECTED_DRAFT'),
+        ('C54','10u 6.3V X5R','C_Murata_GRM188R60J106ME47_0603','+SYS_APP_IN_DRAFT'),
     ]:
         part(ref,value,fp,{1:positive,2:'GND'})
     part('R88','10k 1%','R_Panasonic_ERJ2_0402',{1:'CHARGER_IN_DRAFT',2:'CHARGER_EN2'})
@@ -399,8 +399,8 @@ def controller_coupon_netlist():
         13:'GND',14:'unconnected-(U37-PG-Pad14)',15:'GND'})
     part('L2','1.5u 20%','L_Murata_DFE252012P',{1:'Net-(L2-~-Pad1)',2:'Net-(L2-~-Pad2)'})
     for ref,value,fp,left,right in [
-        ('C44','10u 6.3V X5R','C_Murata_GRM18_0603','+SYS_APP_IN_DRAFT','GND'),
-        ('C45','10u 6.3V X5R','C_Murata_GRM18_0603','+SYS_APP_IN_DRAFT','GND'),
+        ('C44','10u 6.3V X5R','C_Murata_GRM188R60J106ME47_0603','+SYS_APP_IN_DRAFT','GND'),
+        ('C45','10u 6.3V X5R','C_Murata_GRM188R60J106ME47_0603','+SYS_APP_IN_DRAFT','GND'),
         ('C46','22u 10V X5R','C_Murata_GRM18_0603','VLED','GND'),
         ('C47','22u 10V X5R','C_Murata_GRM18_0603','VLED','GND'),
         ('C48','22u 10V X5R','C_Murata_GRM18_0603','VLED','GND'),
@@ -431,6 +431,32 @@ def controller_coupon_netlist():
     return root
 
 
+def onsemi_candidate_netlist():
+    """Synthetic isolated row sheet for command plumbing, not native evidence."""
+    root=ET.Element('export');parts=ET.SubElement(root,'components');nets=ET.SubElement(root,'nets')
+    def part(ref,value,fp):
+        q=ET.SubElement(parts,'comp',ref=ref)
+        ET.SubElement(q,'value').text=value
+        ET.SubElement(q,'footprint').text='rgb-badge-coupon:'+fp
+    def net(name,nodes):
+        q=ET.SubElement(nets,'net',name=name)
+        for ref,pin in nodes:ET.SubElement(q,'node',ref=ref,pin=str(pin))
+    part('U2','74HC4514PW,118','TSSOP_Nexperia_SOT355-1_24')
+    part('C2','100n 16V X7R','C_Murata_GRM15_0402')
+    for n in range(6,43):part(f'R{n}','1k 1%' if n<22 else '100k 1%','R_Panasonic_ERJ2_0402')
+    vled=[];gnd=[]
+    pins=(11,9,10,8,7,6,5,4,18,17,20,19,14,13,16,15)
+    for row,pin in enumerate(pins):
+        pair=f'Q{row+1}';up=f'R{row+6}';down=f'R{row+22}'
+        part(pair,'NTLJD3119CTBG','WDFN6_2x2_onsemi_NTLJD3119C')
+        net(f'ROW_{row:02d}_A',[(pair,3)])
+        net(f'ROW_GATE_{row:02d}',[(pair,5),(pair,6),(up,2)])
+        net(f'ROW_SEL_{row:02d}',[(pair,2),(down,1),('U2',pin)])
+        vled.extend([(pair,4),(up,1)]);gnd.extend([(pair,1),(down,2)])
+    net('VLED',vled);net('GND',gnd)
+    return root
+
+
 def main():
     args = sys.argv[1:]
     if args == ["version"]:
@@ -443,7 +469,7 @@ def main():
         assert args[args.index('--format') + 1] == 'kicadxml'
         if os.environ.get('RGB_BADGE_TEST_FAIL') == 'netlist':
             return 7
-        root = controller_coupon_netlist()
+        root = onsemi_candidate_netlist() if 'onsemi-row-candidate' in args[-1] else controller_coupon_netlist()
         if os.environ.get('RGB_BADGE_TEST_BAD_MATRIX') == '1':
             root.find('./nets/net/node').set('pin', '99')
         if os.environ.get('RGB_BADGE_TEST_BAD_DRIVER') == '1':
@@ -502,12 +528,19 @@ def main():
         else:
             raise AssertionError(f"Unexpected footprint export destination: {output}")
         stage = output.name
-        names = [n + ".svg" for n in ("LED_Everlight_EAST10105RGBA0", "LED_QTBrightek_QBLP1515A-RGB2A", "QFN_TI_RTQ0056E_8x8mm_P0.5mm_EP5.7mm", "R_Panasonic_ERJ2_0402", "C_Murata_GRM15_0402", "TestPoint_Pad_D1.0mm", "TSSOP_Nexperia_SOT355-1_24", "SC59_Diodes_DMP2066LSN", "SOT23_Diodes_2N7002K", "ESP32-S3-WROOM-1U", "C_Murata_GRM18_0603", "C_TDK_C1608_0603", "SW_Panasonic_EVQP7J01P", "VQFN_TI_RGT0016C_3x3mm_P0.5mm_EP1.68mm", "UQFN_TI_RSE0010A_2x1.5mm_P0.5mm", "UQFN_TI_RSE0008A_1.5x1.5mm_P0.5mm", "QFN_TI_RTW0024A_4x4mm_P0.5mm_EP2.7mm", "SOT5X3_TI_DRL0008A", "SOT23_TI_DBV0005A", "SOT23_THIN_TI_DDF0008A", "USON_TI_DQA0010A", "X2QFN_TI_RWB0012A_1.6x1.6mm_P0.4mm", "VSON_TI_DSJ0014_4x3mm_P0.5mm_EP2.85x1.58mm", "TDFN_Maxim_T822-3_2x2mm_P0.5mm_EP0.7x1.38mm", "SOT23_TI_DBV0006A", "SOT23_TI_DBZ0003A")]
+        names = [n + ".svg" for n in ("LED_Everlight_EAST10105RGBA0", "LED_QTBrightek_QBLP1515A-RGB2A", "QFN_TI_RTQ0056E_8x8mm_P0.5mm_EP5.7mm", "R_Panasonic_ERJ2_0402", "C_Murata_GRM15_0402", "TestPoint_Pad_D1.0mm", "TSSOP_Nexperia_SOT355-1_24", "SC59_Diodes_DMP2066LSN", "SOT23_Diodes_2N7002K", "ESP32-S3-WROOM-1U", "C_Murata_GRM18_0603", "C_Murata_GRM188R60J106ME47_0603", "C_TDK_C1608_0603", "SW_Panasonic_EVQP7J01P", "VQFN_TI_RGT0016C_3x3mm_P0.5mm_EP1.68mm", "UQFN_TI_RSE0010A_2x1.5mm_P0.5mm", "UQFN_TI_RSE0008A_1.5x1.5mm_P0.5mm", "QFN_TI_RTW0024A_4x4mm_P0.5mm_EP2.7mm", "SOT5X3_TI_DRL0008A", "SOT23_TI_DBV0005A", "SOT23_THIN_TI_DDF0008A", "USON_TI_DQA0010A", "X2QFN_TI_RWB0012A_1.6x1.6mm_P0.4mm", "VSON_TI_DSJ0014_4x3mm_P0.5mm_EP2.85x1.58mm", "TDFN_Maxim_T822-3_2x2mm_P0.5mm_EP0.7x1.38mm", "SOT23_TI_DBV0006A", "SOT23_TI_DBZ0003A")]
         names.extend(n + ".svg" for n in (
             "X2SON_TI_DSF0006A_1x1mm_P0.35mm", "VSSOP_TI_DCU0008A",
             "WSON_TI_DSE0006A_1p5x1p5mm_P0p5mm", "USON_TI_DRY0006A_1p45x1mm_P0p5mm",
         ))
     elif args[:2] == ["sch", "erc"]:
+        if 'onsemi-row-candidate' in args[-1]:
+            import json
+            assert args[args.index('--format')+1]=='json'
+            violations=[{'severity':'error','type':'power_pin_not_driven'} for _ in range(2)]
+            violations += [{'severity':'warning','type':'isolated_pin_label'} for _ in range(16)]
+            output.write_text(json.dumps({'sheets':[{'violations':violations}]}))
+            return 0
         assert "--severity-all" in args and "--exit-code-violations" not in args
         if os.environ.get("RGB_BADGE_TEST_FAIL") == stage:
             return 5

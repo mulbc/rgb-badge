@@ -50,3 +50,5 @@ Decision records explain choices that materially constrain later work. Accepted 
 
 - [0043: Fine-pitch signal escape study](0043-bounded-signal-pad-escapes.md) — narrower candidates evaluated; selected checkpoint retains the original track, clearance and via dimensions.
 - [0044: Localize unrouted study passives](0044-localize-unrouted-study-passives.md) — exact components and all nonzero frozen-source copper retained; no fabrication release.
+
+- [0069: Exact Murata six-capacitor land migration](0069-exact-murata-six-capacitor-migration.md) — dedicated exact-part assignment, historical identity mapping and frozen 59-edge retention; hardware/assembly qualification remains open.

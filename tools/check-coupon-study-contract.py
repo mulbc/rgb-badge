@@ -17,7 +17,8 @@ import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 PROJECT = ROOT / 'hardware/coupon/rev-a'
-BOARD = PROJECT / 'staging/led-native-control-trial-114mm.kicad_pcb'
+BOARD = PROJECT / 'staging/led-routing-progress-trial-114mm.kicad_pcb'
+MURATA = runpy.run_path(str(ROOT/'tools/murata_land_migration.py'))
 CONTRACT = ROOT / 'mechanical/review/coupon-canonical-net-contract.json'
 CHECK = runpy.run_path(str(ROOT / 'tools/check-coupon-controller.py'))
 A = CHECK['A']
@@ -125,7 +126,9 @@ def read_board(path):
             nets = A['children'](q, 'net')
             require(len(nets) <= 1, 'Duplicate PCB pad-net declaration: '+ref)
             layers = A['only_child'](q, 'layers', ref+' pad layers')[1:]
-            pads.append(dict(number=q[1], net=nets[0][-1] if nets else '',
+            pads.append(dict(number=q[1], land_type=q[2:4], land_layers=layers, land_at=next((n[1:3] for n in q if isinstance(n,list) and n[0]=='at'),[]),
+                             land_size=next((n[1:3] for n in q if isinstance(n,list) and n[0]=='size'),[]),
+                             net=nets[0][-1] if nets else '',
                              copper=any(l.endswith('.Cu') for l in layers)))
         result[ref] = dict(value=fields['Value'], footprint=f[1],
                           mpn=fields.get('MPN', ''), manufacturer=fields.get('Manufacturer', ''),
@@ -133,7 +136,7 @@ def read_board(path):
     return result
 
 
-def compare(data, board, require_metadata=True):
+def compare(data, board, require_metadata=True, legacy_land_study=False):
     canonical = data['components']
     rows = {f'Q{i}' for i in range(1,33)}
     pairs = {f'PAIR{i:02d}' for i in range(1,17)}
@@ -142,10 +145,28 @@ def compare(data, board, require_metadata=True):
     require(set(board)-set(canonical) == pairs | projected, 'Unexpected PCB-only components')
     counts = Counter()
     missing_mpn = []
+    legacy_lands = []
     for ref in sorted(set(canonical) & set(board)):
         expected, actual = canonical[ref], board[ref]
+        legacy=(legacy_land_study and ref in MURATA['REFS'] and
+                expected['mpn']==MURATA['MPN'] and expected['footprint']==MURATA['NEW'] and
+                actual['footprint']==MURATA['OLD'])
         for key in ('value', 'footprint'):
-            require(expected[key] == actual[key], 'PCB '+key+' differs: '+ref)
+            require((legacy and key=='footprint') or expected[key] == actual[key], 'PCB '+key+' differs: '+ref)
+        if ref in MURATA['REFS']:
+            from decimal import Decimal as D
+            require(expected['mpn']==MURATA['MPN'] and expected['footprint']==MURATA['NEW'],
+                    'Canonical exact Murata assignment differs: '+ref)
+            require(len(actual['pads'])==2 and {q['number'] for q in actual['pads']}=={'1','2'},
+                    'Murata pad count differs: '+ref)
+            for q in actual['pads']:
+                offset=D('.8') if legacy else D('.675')
+                size=[D('.9'),D('.9')] if legacy else [D('.65'),D('.70')]
+                require(list(map(D,q['land_at']))==[-offset if q['number']=='1' else offset,D(0)] and
+                        list(map(D,q['land_size']))==size and q['land_type']==['smd','rect'] and
+                        len(q['land_layers'])==3 and set(q['land_layers']) in ({'F.Cu','F.Paste','F.Mask'},{'B.Cu','B.Paste','B.Mask'}),
+                        'Exact Murata geometry differs: '+ref)
+            if legacy:legacy_lands.append(ref)
         # The opt-out is only for checking the historical generator input before
         # projecting metadata. Ordinary checks require both fields, even where
         # canonical source intentionally leaves a value blank (e.g. PCB pads).
@@ -202,6 +223,7 @@ def compare(data, board, require_metadata=True):
             'trial_pairs_with_checked_logical_pin_maps':16, 'netless_projected_drivers':2,
             'absent_canonical_row_devices':sorted(rows), 'pcb_references_with_blank_mpn_values':missing_mpn,
             'shared_metadata_required':require_metadata,
+            'historical_legacy_murata_assignments':legacy_lands,
             'canonical_references_without_mpn':sorted(ref for ref in set(canonical) & set(board)
                                                        if not canonical[ref]['mpn']),
             'canonical_references_without_manufacturer':sorted(ref for ref in set(canonical) & set(board)
@@ -219,6 +241,8 @@ def main():
     ap.add_argument('--contract', type=Path, default=CONTRACT)
     ap.add_argument('--board', type=Path, default=BOARD)
     ap.add_argument('--report', type=Path)
+    ap.add_argument('--legacy-land-study', action='store_true',
+                    help='Explicitly report historical, uncorrected six-Murata assignments; never final package acceptance')
     ap.add_argument('--historical-generator-input', action='store_true',
                     help='Check the historical replay input before metadata projection; not final-study acceptance')
     args = ap.parse_args()
@@ -233,7 +257,11 @@ def main():
             validate_contract(data)
             if args.netlist:
                 require(refresh(args.netlist) == data, 'Fresh native XML differs from the source-pinned snapshot')
-        result = compare(data, read_board(args.board), require_metadata=not args.historical_generator_input)
+        result = compare(data, read_board(args.board), require_metadata=not args.historical_generator_input,
+                         legacy_land_study=args.legacy_land_study or args.historical_generator_input)
+        if result['historical_legacy_murata_assignments']:
+            print('Historical uncorrected Murata lands: '+', '.join(result['historical_legacy_murata_assignments']))
+            result['status']='HISTORICAL_STUDY_WITH_UNCORRECTED_MURATA_LANDS'
         if args.historical_generator_input:
             result['status'] = 'HISTORICAL_INPUT_BEFORE_METADATA_PROJECTION'
         result.update(board_sha256=sha(args.board), canonical_contract_sha256=sha(args.contract),

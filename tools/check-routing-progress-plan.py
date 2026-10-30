@@ -129,6 +129,12 @@ def validate_60_checkpoint(plan):
     assert all(entry in plan.get('track_replacements',[]) for entry in prior['track_replacements']), 'Accepted 60-edge replacement changed'
 
 
+def validate_59_checkpoint(plan):
+    path=ROOT/'mechanical/review/routing-progress-59-checkpoint.json'
+    assert hashlib.sha256(path.read_bytes()).hexdigest()=='25651a5204f4772ad47764a3ee343c4738f8b8424160f9a61830037db4c33856'
+    assert plan==json.loads(path.read_text()), 'ADR 0069 changes no accepted routing plan'
+
+
 def validate_61_checkpoint(plan):
     validate_frozen_checkpoint(plan,61,'d6bb680c8d994e833429774e991e1c4c21d721c1164482ab889e26487d9e1902')
     prior=json.loads((ROOT/'mechanical/review/routing-progress-61-checkpoint.json').read_text())
@@ -237,6 +243,8 @@ def main():
     testpads['validate_plan'](plan,required=True)
     assert manifest['testpad_catalog_sha256']==testpads['CATALOG_SHA256']
     validate(plan,manifest)
+    assert manifest['murata_migration_policy_sha256']==hashlib.sha256((ROOT/'tools/murata_land_migration.py').read_bytes()).hexdigest(), 'Murata policy fingerprint changed'
+    assert manifest['exact_murata_migrated_references']==['C3','C32','C44','C45','C53','C54']
     validate_prior_checkpoint(plan)
     validate_100_checkpoint(plan)
     validate_94_checkpoint(plan)
@@ -253,6 +261,7 @@ def main():
     validate_62_checkpoint(plan)
     validate_61_checkpoint(plan)
     validate_60_checkpoint(plan)
+    validate_59_checkpoint(plan)
     chain=runpy.run_path(str(ROOT/'tools/routing_source_chain.py'))
     chain['validate_plan'](plan,required=True)
     assert manifest['source_chain_catalog_sha256']==chain['CATALOG_SHA256']

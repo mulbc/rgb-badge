@@ -32,8 +32,11 @@ def module(name,file):
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--source',type=Path,required=True,help='Historical PCB with the legacy lands; the active board has migrated under ADR 0069')
     parser.add_argument('--output',type=Path,default=BUILD/'c32-land-review/candidate.kicad_pcb')
     args=parser.parse_args();out=args.output.resolve()
+    global SOURCE
+    SOURCE=args.source.resolve()
     if BUILD.resolve() not in out.parents or out.suffix!='.kicad_pcb':
         parser.error('Output must be a PCB inside the ignored Rev A build directory')
     out.parent.mkdir(parents=True,exist_ok=True)

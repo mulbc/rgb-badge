@@ -3,7 +3,7 @@
 # ADR 0066: Exact C32 reflow-land correction feasibility
 
 Date: 2026-10-30
-Status: Ignored exact-part correction/placement trials; canonical adoption pending.
+Status: Historical C32-only feasibility; canonical six-part adoption is recorded in ADR 0069.
 
 The owner supplied GRM188R60J106ME47-61A-EN (1).pdf, specifications dated
 14-Jun-2026, SHA-256 f51cff8dad7a6983263ab35b5705f4d1d4b9977b1f03739c653381ba03d94ea8.

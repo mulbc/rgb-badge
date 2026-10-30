@@ -1,6 +1,8 @@
 <!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
 
-Latest routed derivative: [native-clearance gate/control continuation](../../../../docs/development/led-native-control-study-2026-10-21.md)
+Current routed derivative: [59-edge source with six exact Murata lands](led-routing-progress-trial-114mm.kicad_pcb). The [migration record](../../../../docs/development/murata-land-migration-2026-10-30.md) preserves every completed group and all accepted copper at 59 native/physical opens and 104 unchanged intrinsic findings. Run `./tools/check-routing-progress.sh` from the repository root. Other studies below are historical; the board is unbuilt and fabrication is prohibited pending qualification and independent Gate A.
+
+Historical routed derivative: [native-clearance gate/control continuation](../../../../docs/development/led-native-control-study-2026-10-21.md)
 records nineteen joins and exact retirement of twenty-five source tracks/four vias across ROW_SEL_04/COL_07_R/COL_06_G/COL_02_G, with
 no placement changes, leaving 215 native opens and the
 same 104 intrinsic DRC findings. Run `./tools/check-native-control.sh` from the
@@ -15,7 +17,7 @@ root. This mixed-source, unbuilt study is never fabrication source.
 
 # Coupon staging and layout studies
 
-**Latest combined routing study:** The [guarded control continuation](led-control-continuation-trial-114mm.kicad_pcb) has 236 native opens and exactly 104 unchanged intrinsic DRC findings. [Evidence](../../../../docs/development/led-control-continuation-study-2026-10-21.md) records ten joins, preserved existing physical pad groups and rollback of plane-splitting routes. Run `./tools/check-control-continuation.sh` from the repository root. No component, current setting or display-output boundary changes; this unbuilt mixed-source study is never fabrication source.
+**Historical combined routing study:** The [guarded control continuation](led-control-continuation-trial-114mm.kicad_pcb) has 236 native opens and exactly 104 unchanged intrinsic DRC findings. [Evidence](../../../../docs/development/led-control-continuation-study-2026-10-21.md) records ten joins, preserved existing physical pad groups and rollback of plane-splitting routes. Run `./tools/check-control-continuation.sh` from the repository root. No component, current setting or display-output boundary changes; this unbuilt mixed-source study is never fabrication source.
 
 **Previous physical-drain checkpoint:** [Both physical row-drain lands](led-row-drain-tie-trial-114mm.kicad_pcb) are now joined on all sixteen pairs. [Evidence](../../../../docs/development/led-row-drain-tie-study-2026-10-20.md) records 246 native opens, unchanged source tracks/placements/other pad clusters, exactly 104 intrinsic DRC findings, deterministic regeneration and a negative missing-tie test. Run `./tools/check-row-drain-tie.sh` from the repository root. This unbuilt mixed-source study is never fabrication source.
 

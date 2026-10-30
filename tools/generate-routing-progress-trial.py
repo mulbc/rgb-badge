@@ -96,6 +96,7 @@ def main():
                 for x,y in hole:poly.Append(x,y,index,hi)
         board.Add(zone)
         assert zone.GetNetname()==entry['net']
+    runpy.run_path(str(ROOT/'tools/murata_land_migration.py'))['apply'](board)
     for fill_pass in range(3):
         board.BuildConnectivity()
         p.ZONE_FILLER(board).Fill(board.Zones())
