@@ -2,6 +2,16 @@
 
 # 3.3 V converter capacitor land audit — first author
 
+**2026-10-31 supplied catalogue finding:** The two supplied filenames contain the
+same January 2021 Murata catalogue. Rendered pages 277–278 confirm a = inner gap,
+b = one-land length, c = width. The actual shared GRM18 geometry is
+0.70/0.90/0.90 mm, and GRM21 is 0.70/1.20/1.30 mm. Neither matches any
+relevant GRM family reflow row. The historical a/b interpretation and conformity
+claims below are incorrect. The [catalogue review](../../../docs/development/murata-catalogue-land-review-2026-10-31.md)
+records eight affected references and four regression guards. Current exact-part
+approval sheets/orderable suffixes remain open; this historical catalogue does
+not authorize a shared land shrink or source migration.
+
 **2026-10-30 remaining exact-drawing hold:** GRM187R61A226ME15 at
 C40/C41/C46/C47/C48/C49 and GRM219R60J476ME44 at C42/C43 still use the
 historical shared lands. Their suffix-free source identities are provisional;
@@ -26,13 +36,13 @@ directly; do not infer a corrective land pattern from another part's sheet.
 
 Manufacturer-authored reference sheets consulted: Murata `GRM187R61A226ME15-01A` (2017 revision, [copy of manufacturer PDF](https://s3.amazonaws.com/snapeda/datasheet/GRM187R61A226ME15J_Murata_Electronics.pdf), page 25) and `GRM219R60J476ME44-01A` ([copy of manufacturer PDF](https://www.mouser.lt/datasheet/2/281/1/GRM219R60J476ME44_01A-1986316.pdf), page 26). Murata's [current product list](https://www.murata.com/-/media/webrenewal/tool/library/common-pdf/dynamic-model/component-list-d-mlcc-2506.ashx?cvid=20250805040419000000&la=en) independently identifies the MPN dimensions and ratings. The reference sheets explicitly direct board-specific land evaluation and use the wording "For only mobile devices" under limited application; confirm whether the intended wearable use is covered by the current approval conditions. Their manufacturer-hosted historic PDF URLs returned 404 on 2026-09-30; the copies are reference-sheet evidence, not an assertion that the recommendations are current approval sheets. Confirm the orderable packaging suffix and current approval drawing before PCBA release.
 
-The Murata reflow diagram labels `a` as copper land length along the chip, `b` as the inner gap and `c` as copper width perpendicular to the chip. All units below are mm. Both parts are two-terminal nonpolar MLCCs; pad 1/2 orientation has no electrical polarity. For the 0603 part the existing project footprint is reused. The new 0805 footprint uses the midpoints of the exact-part GRM21 ±0.20 mm body-tolerance reflow row.
+The original audit reversed the diagram labels. The supplied catalogue confirms `a` is the inner gap, `b` is one copper land length, and `c` is transverse width. All units below are mm. Both parts are two-terminal nonpolar MLCCs. The table now gives the actual source a/b/c values; the reference ranges are historical, pending current exact-part/tolerance verification. The intended GRM21 midpoint construction was not achieved because the labels were reversed.
 
-| Exact MPN | Body L × W / height | Murata reflow a, b, c | Project footprint / selected a, b, c | KiCad pad centers and sizes |
+| Exact MPN | Body L × W / height | Murata reflow a, b, c | Project footprint / actual a, b, c | KiCad pad centers and sizes |
 |---|---|---|---|---|
-| `GRM187R61A226ME15` | 1.6 ±0.2 × 0.8 ±0.2 / 0.7 ±0.1 | a 0.7–0.9, b 0.7–0.8, c 0.8–1.0 | `C_Murata_GRM18_0603`: 0.9, 0.7, 0.9 | x = ±0.8; each 0.9 × 0.9; F.Cu/F.Paste/F.Mask |
-| `GRM219R60J476ME44` | 2.0 ±0.2 × 1.25 ±0.2 / 0.85 ±0.1 | a 1.0–1.4, b 0.6–0.8, c 1.2–1.4 | `C_Murata_GRM21_0805`: 1.2, 0.7, 1.3 | x = ±0.95; each 1.2 × 1.3; F.Cu/F.Paste/F.Mask |
+| `GRM187R61A226ME15` | 1.6 ±0.2 × 0.8 ±0.2 / 0.7 ±0.1 | a 0.7–0.9, b 0.7–0.8, c 0.8–1.0 | `C_Murata_GRM18_0603`: 0.7, 0.9, 0.9 | x = ±0.8; each 0.9 × 0.9; F.Cu/F.Paste/F.Mask |
+| `GRM219R60J476ME44` | 2.0 ±0.2 × 1.25 ±0.2 / 0.85 ±0.1 | a 1.0–1.4, b 0.6–0.8, c 1.2–1.4 | `C_Murata_GRM21_0805`: 0.7, 1.2, 1.3 | x = ±0.95; each 1.2 × 1.3; F.Cu/F.Paste/F.Mask |
 
-The 0805 footprint's F.Fab body is the 2.0 × 1.25 nominal outline. Its F.CrtYd is 3.6 × 2.0, giving ≥0.25 mm to the outer copper and ≥0.275 mm to the largest stated body width. No silk polarity mark, separate solder-mask expansion or custom paste reduction is invented. The 0603 footprint's existing 3.0 × 1.3 courtyard is retained; its pad is at the top of the recommended a range. Component-side routing and panel-break/screw flex need review because Murata cautions against MLCC cracking from board bending. Solder volume and reflow profile require assembler qualification.
+The 0805 footprint's F.Fab body is the 2.0 × 1.25 nominal outline. Its F.CrtYd is 3.6 × 2.0, giving ≥0.25 mm to the outer copper and ≥0.275 mm to the largest stated body width. No silk polarity mark, separate solder-mask expansion or custom paste reduction is invented. The 0603 footprint's existing 3.0 × 1.3 courtyard is retained; its 0.9 mm one-land length exceeds the catalogue's relevant b ranges. Component-side routing and panel-break/screw flex need review because Murata cautions against MLCC cracking from board bending. Solder volume and reflow profile require assembler qualification.
 
-This audit establishes staged symbol/footprint identity and land geometry against manufacturer-authored **reference** sheets only. It does not establish the combined bias/temperature/aging capacitance floor, dynamic behavior of two parallel parts, or final placement within the LED badge. The [converter capture contract](3v3-converter-capture-contract.md) tracks those electrical conditions.
+The identity/geometry checker freezes historical source; it does not establish land conformity to the manufacturer reference sheets. The supplied-catalogue review records the discovered conflicts explicitly. It does not establish the combined bias/temperature/aging capacitance floor, dynamic behavior of two parallel parts, or final placement within the LED badge. The [converter capture contract](3v3-converter-capture-contract.md) tracks those electrical conditions.

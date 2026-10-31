@@ -67,6 +67,7 @@ jobs:
           python3 tools/check-routing-progress-plan.py
           python3 tools/check-c32-land-candidate.py
           python3 -m unittest discover -s tools/tests -p test_c32_land_candidate.py -v
+          python3 -m unittest discover -s tools/tests -p test_murata_catalogue_lands.py -v
           python3 -m unittest discover -s tools/tests -p test_convex_geometry.py -v
           python3 -m unittest discover -s tools/tests -p test_routing_supply_join.py -v
           python3 -m unittest discover -s tools/tests -p test_slide_switch_library.py -v
