@@ -2,6 +2,8 @@
 
 # Project context
 
+**2026-10-31 C32 ground continuation:** The [ADR 0073 native study](docs/development/c32-ground-feasibility-2026-10-31.md) identifies exact first/second-layer colour obstructions. A partial route grows main ground 193 → 194 pads but leaves two original colour groups split and 59 opens. All 51 bounded prefix restoration cases remain incomplete. No source retirement or ground route is selected; accepted PCB bytes remain unchanged at 58 opens / 104 findings. Further coordinated topology and qualification work remain open.
+
 **2026-10-31 supplied Murata catalogue:** The [document/source review](docs/development/murata-catalogue-land-review-2026-10-31.md) confirms that two supplied filenames are the same January 2021 catalogue. Its diagram reverses the historical audit's a/b interpretation, and both remaining shared GRM18/GRM21 converter lands conflict with all relevant family reflow rows. Four source-only regression guards pass. Current exact-part drawings/order codes and assembly/electrical qualification remain open; no geometry is migrated and the accepted board remains 58 opens / 104 findings.
 
 **2026-10-30 coordinated converter feasibility:** The [read-only floorplan study](docs/development/converter-floorplan-58-2026-10-30.md) inventories existing contacts and screens 60,456 rigid VLED poses. One pose passes preliminary courtyard/pad checks, but native fills reject it with 76 opens, 53 split-pad witnesses and 14 new dangling findings. No pose is selected; the accepted board remains 58 opens / 104 findings. ADR 0072 bounds the ignored experiment. Explicit contact-preserving converter rework, electrical/process qualification and independent Gate A remain open.
