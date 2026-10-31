@@ -55,3 +55,6 @@ Decision records explain choices that materially constrain later work. Accepted 
 
 - [0070: Additive gauge-switch supply routing](0070-additive-gauge-switch-supply-routing.md) — ordinary-width candidate with complete frozen 59-edge retention.
 - [0071: Printed switch terminal numbers](0071-manufacturer-switch-terminal-numbering.md) — correct the second-pole labels with explicit physical identity preservation; assembly/actuation qualification remains open.
+- [0072: Coordinated converter floorplan feasibility](0072-coordinated-converter-floorplan-feasibility.md) — one preliminary rigid VLED packing seed; old-group losses prevent selection.
+- [0073: C32 staggered ground escape](0073-c32-staggered-ground-escape-feasibility.md) — bounded colour-rework screens; no complete restoration or source retirement selected.
+- [0074: Local VLED switching-node feasibility](0074-local-vled-switching-node-feasibility.md) — two short local switching paths at the packing seed; supply restoration and full power-stage qualification remain open.

@@ -2,6 +2,8 @@
 
 # Project context
 
+**2026-10-31 local VLED switching feasibility:** [ADR 0074's native probes](docs/development/vled-local-switching-feasibility-2026-10-31.md) route U37.8/9–L2.1 and U37.6/7–L2.2 locally with two 3.215685425 mm paths, six ordinary-width B.Cu tracks and no new vias. The two-part move leaves only SYS/VLED prior-group losses; the full stage also splits its feedback midpoint. Native counts 63/72 and dangling findings prevent selection. Both replays are byte-identical and source bytes remain at the accepted 58-edge checkpoint. Exact reconnection/obsolete-copper policy, L1/U36, power-path/part/process qualification and Gate A remain open.
+
 **2026-10-31 C32 ground continuation:** The [ADR 0073 native study](docs/development/c32-ground-feasibility-2026-10-31.md) identifies exact first/second-layer colour obstructions. A partial route grows main ground 193 → 194 pads but leaves two original colour groups split and 59 opens. All 51 bounded prefix restoration cases remain incomplete. No source retirement or ground route is selected; accepted PCB bytes remain unchanged at 58 opens / 104 findings. Further coordinated topology and qualification work remain open.
 
 **2026-10-31 supplied Murata catalogue:** The [document/source review](docs/development/murata-catalogue-land-review-2026-10-31.md) confirms that two supplied filenames are the same January 2021 catalogue. Its diagram reverses the historical audit's a/b interpretation, and both remaining shared GRM18/GRM21 converter lands conflict with all relevant family reflow rows. Four source-only regression guards pass. Current exact-part drawings/order codes and assembly/electrical qualification remain open; no geometry is migrated and the accepted board remains 58 opens / 104 findings.
