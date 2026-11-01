@@ -320,3 +320,17 @@ Keep every current group and item, native widths/clearance and all earlier
 supply bounds; repeat an outer VLED join only after complete return validation.
 No source retirement, current/process qualification or canonical adoption is
 selected by this additive experiment.
+
+**2026-11-01 full-stage obsolete-copper feasibility:** [ADR 0081](decisions/0081-full-stage-obsolete-copper-cleanup-feasibility.md)
+permits only a bounded ignored dangling-copper simulation in five enumerated old
+stage windows, on five named nets and unique retained 58-edge signatures. Keep
+all current and earlier groups, all other old/new copper and exact geometry/
+settings; record origin/contacts and stop at scope limits. No canonical source
+retirement or new orphan waiver is selected without an exact independent policy
+and the full adoption evidence.
+
+ADR 0081's exact leaf continuation permits only the three documented obsolete
+F.Cu SYS branches after frozen/current contact proof; both shared buses and all
+other current geometry/groups remain fixed. The private 52-item cleanup cohort
+is separate from the two UART retirements and original three-orphan waiver;
+canonical selection still requires the independent full adoption policy.
