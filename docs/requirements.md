@@ -290,3 +290,17 @@ ADR 0076's exact leaf continuation additionally permits private removal of only
 the two documented obsolete SYS F.Cu branches after current/frozen contact
 proof. The shared bus, every other copper item and all old groups remain fixed;
 no general boundary expansion or canonical retirement is authorized.
+
+**2026-11-01 local VLED stage feasibility:** [ADR 0077](decisions/0077-local-vled-stage-connections-feasibility.md)
+permits an ignored finite B.Cu-only ordinary-width local connection screen among
+the fixed thirteen exact stage components. Retain all old copper, switching
+paths, poses, zones and settings; bound pair/net length and report obstructions
+and all prior-group losses. No new via, source retirement, global reconnection,
+canonical adoption or power-stage qualification is selected by the screen.
+
+**2026-11-01 exact UART obstruction feasibility:** [ADR 0078](decisions/0078-local-vled-uart-obstruction-feasibility.md)
+permits only a private transfer of the two exact accepted UART items, with both
+retained interfaces verified. Use one fixed adjacent via and bounded ordinary-
+width In4.Cu tracks; preserve every other copper item and current pad group.
+Only after successful native/full-DRC restoration may the local-stage screen be
+repeated. No canonical source exception or power-stage qualification follows.
