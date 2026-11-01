@@ -304,3 +304,19 @@ retained interfaces verified. Use one fixed adjacent via and bounded ordinary-
 width In4.Cu tracks; preserve every other copper item and current pad group.
 Only after successful native/full-DRC restoration may the local-stage screen be
 repeated. No canonical source exception or power-stage qualification follows.
+
+**2026-11-01 full VLED supply feasibility:** [ADR 0079](decisions/0079-full-vled-stage-supply-restoration-feasibility.md)
+permits ignored additive SYS/VLED restoration in the exact full-stage/UART
+candidate. Preserve all current copper/groups/poses/zones/settings and restrict
+ordinary-width additions to fixed stage pads and current supply anchors, with
+bounded global length and search effort. Reject every collateral split. Complete
+restoration requires all earlier accepted groups and full independent/native
+evidence; no power-copper retirement or canonical adoption is granted.
+
+**2026-11-01 C47 return/feedback feasibility:** [ADR 0080](decisions/0080-c47-return-and-feedback-combination-feasibility.md)
+permits only private combination of the exact bounded feedback path with the
+retained global parent, plus a finite local three-via C47.2-to-In2 return screen.
+Keep every current group and item, native widths/clearance and all earlier
+supply bounds; repeat an outer VLED join only after complete return validation.
+No source retirement, current/process qualification or canonical adoption is
+selected by this additive experiment.
