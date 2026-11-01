@@ -2,6 +2,8 @@
 
 # Project context
 
+**2026-11-01 VLED supply/cleanup feasibility:** The [native continuation](docs/development/vled-supply-cleanup-feasibility-2026-11-01.md) preserves all 246 old pad groups and reaches 56 native/physical opens with exactly 104 intrinsic clearances in an ignored two-part trial. Exact 23-item obsolete-copper cleanup, byte-identical replays/fills, eight rejection cases and original-orphan restoration pass. Canonical source remains the accepted 58-edge board; coordinated capacitors/feedback/returns, power-path qualification, L1/U36 and Gate A remain open.
+
 **2026-10-31 local VLED switching feasibility:** [ADR 0074's native probes](docs/development/vled-local-switching-feasibility-2026-10-31.md) route U37.8/9–L2.1 and U37.6/7–L2.2 locally with two 3.215685425 mm paths, six ordinary-width B.Cu tracks and no new vias. The two-part move leaves only SYS/VLED prior-group losses; the full stage also splits its feedback midpoint. Native counts 63/72 and dangling findings prevent selection. Both replays are byte-identical and source bytes remain at the accepted 58-edge checkpoint. Exact reconnection/obsolete-copper policy, L1/U36, power-path/part/process qualification and Gate A remain open.
 
 **2026-10-31 C32 ground continuation:** The [ADR 0073 native study](docs/development/c32-ground-feasibility-2026-10-31.md) identifies exact first/second-layer colour obstructions. A partial route grows main ground 193 → 194 pads but leaves two original colour groups split and 59 opens. All 51 bounded prefix restoration cases remain incomplete. No source retirement or ground route is selected; accepted PCB bytes remain unchanged at 58 opens / 104 findings. Further coordinated topology and qualification work remain open.

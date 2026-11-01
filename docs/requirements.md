@@ -281,3 +281,12 @@ no current or fabrication restriction changes.
 **2026-10-30 C32 ground feasibility:** [ADR 0073](decisions/0073-c32-staggered-ground-escape-feasibility.md) permits ignored local replacement of only three enumerated original In4/In3 colour segments to investigate a staggered adjacent-via escape from fixed C32.2. Retain all original-layer contacts, all other 58-edge copper/groups/poses/zones, exact parts and electrical settings. Bound colour length/excursion and ground length; keep ordinary geometry and unchanged full DRC. No source retirement or new narrow route is selected before full native/physical/replay/fault/source/orphan evidence.
 
 **2026-10-31 local VLED switching feasibility:** [ADR 0074](decisions/0074-local-vled-switching-node-feasibility.md) permits ignored two-part and thirteen-part pose comparisons at the recorded clear packing seed. Keep all existing copper, exact parts/pads/nets and electrical settings. Test only two local switching nets on B.Cu at ordinary width, each bounded to 5 mm. Record all old-group losses and native DRC; no canonical IC move, current-capacity approval or incomplete power stage is selected from these geometry experiments.
+
+**2026-11-01 VLED pair supply feasibility:** [ADR 0075](decisions/0075-vled-pair-supply-restoration-feasibility.md) permits ignored ordinary-width additive restoration of U37's SYS and VLED contacts in the two-part switching probe. Retain all existing copper/poses/zones, local switching joins and previous groups; bound new length per net and reject any split after refill. No obsolete-copper retirement, canonical pose selection or power-stage qualification follows from this screen.
+
+**2026-11-01 obsolete-U37 copper feasibility:** [ADR 0076](decisions/0076-obsolete-u37-copper-cleanup-feasibility.md) permits only a bounded ignored dangling-copper simulation inside the vacated U37 window, on four named nets and retained 58-edge items. Enumerate each removal and source/accepted origin; preserve all old groups and unchanged intrinsic clearances. Stop at boundaries/item/round limits. This grants no canonical source retirement; an exact independent policy and complete replay/fault/source/orphan gate remain required.
+
+ADR 0076's exact leaf continuation additionally permits private removal of only
+the two documented obsolete SYS F.Cu branches after current/frozen contact
+proof. The shared bus, every other copper item and all old groups remain fixed;
+no general boundary expansion or canonical retirement is authorized.
