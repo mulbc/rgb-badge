@@ -2,6 +2,8 @@
 
 # Review of the supplied MLCC summary screenshot
 
+**Follow-up:** The [owner-supplied June 2026 sheets](remaining-murata-lands-2026-11-04.md) now resolve the missing reference evidence and confirm the catalogue reflow ranges. The review below preserves the earlier screenshot-only state.
+
 Date: 2026-11-04. Source/document review only; no hardware measurement,
 manufacturer approval, BOM or footprint change.
 

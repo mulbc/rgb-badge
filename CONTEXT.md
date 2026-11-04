@@ -2,6 +2,8 @@
 
 # Project context
 
+**2026-11-04 supplied exact Murata sheets:** The [ten-capacitor review](docs/development/remaining-murata-lands-2026-11-04.md) verifies June 10, 2026 reference sheets and confirms the catalogue reflow ranges, resolving the screenshot discrepancy. Ignored corrected-pad trials preserve 58 opens on the accepted source; an exact 0.475 mm C49 contact extension preserves 52 opens on the cleaned converter candidate. Both retain all prior groups and the exact 104 intrinsic findings, with stable fills/replays and ten rejection cases. Canonical migration, packaging/approval/qualification and Gate A remain open.
+
 **2026-11-04 owner MLCC summary:** The [screenshot review](docs/development/owner-mlcc-summary-review-2026-11-04.md) finds body dimensions/D/J packaging consistent with indexed 2025 Murata references, while the supplied land-length ranges conflict with the 2021 catalogue. Both direct indexed PDF opens return 404; no current approval or footprint/BOM change is inferred. The exact Murata source behind the land table remains needed.
 
 **2026-11-04 remaining L1 locality:** The [cleaned-basis screen](docs/development/l1-cleaned-locality-2026-11-04.md) selects no L1/U36 candidate across 481,944 fixed-IC poses and 302,640 regional pair templates. All 86 fixed-IC pad failures and 351 pair coil-courtyard failures have witnesses; six fixed blockers are identified. Source bytes remain at the unselected 52-edge checkpoint, with canonical source still 58 edges. Broader coordinated 3.3 V floorplanning, approval/qualification and Gate A remain open.

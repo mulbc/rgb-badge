@@ -349,3 +349,19 @@ replace a manufacturer land drawing. Its D/J/body data agree with indexed
 2021 catalogue. Preserve exact source/approval distinctions and all current
 footprint/BOM/qualification holds until the underlying Murata diagram/revision
 is verified; no geometry or order-code selection follows from the screenshot.
+
+
+**2026-11-04 remaining Murata land feasibility:** [ADR 0083](decisions/0083-remaining-murata-land-feasibility.md) permits ignored exact-part pad-only trials for all eight GRM187 and two GRM219 instances, using the supplied June 10, 2026 reference sheets and their verified ±0.20 mm reflow branches. Preserve every other item/pose/field/net/setting and report all old-group losses after native fills. Dedicated candidate lands are 0.75 × 0.90 mm at ±0.775 mm and 0.70 × 1.30 mm at ±0.950 mm respectively. Keep source MPN packaging choices, canonical geometry, approval/assembly/electrical and Gate A holds open; no failed retention result may be promoted.
+
+ADR 0083's exact C49 continuation permits only the documented 0.475 mm
+ordinary-width B.Cu VLED contact extension in the ignored cleaned-52 trial.
+Preserve every source item and old group; require 52 native/physical opens
+and unchanged full 104 findings before calling the reconnection successful.
+
+The supplied June 2026 sheets resolve the previously missing body-tolerance
+and reflow-row evidence. ADR 0083's successful ignored trials preserve 58/58
+opens without added copper on the accepted source, and 52/52 with only the
+exact C49 lead on the cleaned candidate. Both retain all prior groups and
+exact full 104 intrinsic findings; stable replays and ten rejection cases pass.
+No canonical migration, packaging selection, separate approval or assembly/
+electrical qualification is inferred from these native geometry results.
