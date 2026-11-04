@@ -334,3 +334,18 @@ F.Cu SYS branches after frozen/current contact proof; both shared buses and all
 other current geometry/groups remain fixed. The private 52-item cleanup cohort
 is separate from the two UART retirements and original three-orphan waiver;
 canonical selection still requires the independent full adoption policy.
+
+**2026-11-01 corrected L1/U36 locality:** [ADR 0082](decisions/0082-corrected-l1-u36-locality-feasibility.md)
+permits only ignored fixed-U36 L1 screening and a bounded two-part cardinal
+placement/short-switching-node template screen on the exact cleaned candidate.
+Keep all old copper, other components and settings; record all affected supply/
+control groups and reject ground/other-net splits. Pin 7 is U36's ground return,
+pin 6 is MODE tied low. No canonical move, footprint/current change or incomplete
+old-group restoration is selected.
+
+**2026-11-04 owner MLCC evidence:** The supplied summary screenshot does not
+replace a manufacturer land drawing. Its D/J/body data agree with indexed
+2025 reference excerpts, while its reflow ranges conflict with the supplied
+2021 catalogue. Preserve exact source/approval distinctions and all current
+footprint/BOM/qualification holds until the underlying Murata diagram/revision
+is verified; no geometry or order-code selection follows from the screenshot.

@@ -40,38 +40,45 @@ def courtyards(fp):
 
 def main():
     ap=argparse.ArgumentParser(description=__doc__)
+    ap.add_argument('--basis',choices=('corrected59','cleaned52'),default='corrected59')
     ap.add_argument('--source',type=Path,default=SOURCE,help='Exact corrected 59-edge board, including an archived copy')
     ap.add_argument('--output',type=Path,default=BUILD/'converter-locality-59/angled-poses.json')
     ap.add_argument('--step-iu',type=int,default=200000)
     ap.add_argument('--angle-step',type=int,default=15)
     args=ap.parse_args();out=args.output.resolve();source=args.source.resolve()
-    assert BUILD.resolve() in out.parents and out.suffix=='.json'
+    assert source!=out, 'Output must not overwrite input'
+    assert BUILD.resolve() in out.parents and out.suffix=='.json', 'Output must be an ignored build JSON'
     assert args.step_iu in (100000,200000) and args.angle_step in (15,45,90)
-    assert hashlib.sha256(source.read_bytes()).hexdigest()==SOURCE_SHA256
+    expected_sha=SOURCE_SHA256 if args.basis=='corrected59' else '7c5196b19decc3a4fbaf5724a24aae479a0fdb9c2679706f3cc5f86253992e11'
+    assert hashlib.sha256(source.read_bytes()).hexdigest()==expected_sha, 'Exact recorded source basis required'
+    moving={'L1','L2'} if args.basis=='corrected59' else {'L1'}
     b=p.LoadBoard(str(source));parts={f.GetReference():f for f in b.GetFootprints()}
     footprint_parts={}
     for ref,mpn in [('L1','DFE252012P-1R0M=P2'),('L2','DFE252012P-1R5M=P2')]:
+        if ref not in moving:continue
         f=parts[ref];assert f.GetField('MPN').GetText()==mpn
         assert f.GetFPIDAsString()=='rgb-badge-coupon:L_Murata_DFE252012P' and f.GetLayer()==p.B_Cu
         assert sorted((q.GetNumber(),q.GetFPRelativePosition().x,q.GetFPRelativePosition().y,q.GetSize().x,q.GetSize().y) for q in f.Pads())==[('1',-1000000,0,800000,2000000),('2',1000000,0,800000,2000000)]
         footprint_parts[ref]=dict(mpn=mpn,old_position_iu=[f.GetPosition().x,f.GetPosition().y],old_angle_deg=f.GetOrientation().AsDegrees())
-    copper_bins=defaultdict(list);copper=[]
-    for item in list(b.GetTracks())+[q for f in b.GetFootprints() if f.GetReference() not in ('L1','L2') for q in f.Pads()]:
+    copper_bins=defaultdict(list);copper=[];copper_ids=[]
+    for item in list(b.GetTracks())+[q for f in b.GetFootprints() if f.GetReference() not in moving for q in f.Pads()]:
         if not item.IsOnLayer(p.B_Cu):continue
         box=native_box(item.GetBoundingBox());index=len(copper)
         copper.append((item.GetNetCode(),item.GetEffectiveShape(p.B_Cu)))
+        copper_ids.append(dict(uuid=item.m_Uuid.AsString(),net=item.GetNetname(),pad=[item.GetParentFootprint().GetReference(),item.GetNumber()] if isinstance(item,p.PAD) else None))
         for cell in cells(box):copper_bins[cell].append(index)
     courtyard_bins=defaultdict(list);courtyard_data=[]
     for f in b.GetFootprints():
-        if f.GetReference() in ('L1','L2') or f.GetLayer()!=p.B_Cu:continue
+        if f.GetReference() in moving or f.GetLayer()!=p.B_Cu:continue
         for poly in courtyards(f):
             box=geometry.bounds(poly);index=len(courtyard_data)
             courtyard_data.append((f.GetReference(),box,poly))
             for cell in cells(box):courtyard_bins[cell].append(index)
     results={}
     for ref,ic in [('L1','U36'),('L2','U37')]:
+        if ref not in moving:continue
         f=parts[ref];centre=parts[ic].GetPosition();old=f.GetPosition();old_angle=f.GetOrientation().AsDegrees()
-        counts=Counter();blockers=Counter();success=[]
+        counts=Counter();blockers=Counter();success=[];witnesses=[]
         for rot in range(0,360,args.angle_step):
             f.SetPosition(old);f.SetOrientationDegrees(rot)
             base=courtyards(f);assert len(base)==1
@@ -91,10 +98,13 @@ def main():
                     for q in f.Pads():
                         qb=q.GetBoundingBox()
                         if qb.GetX()<500000 or qb.GetY()<500000 or qb.GetRight()>113500000 or qb.GetBottom()>32000000:
+                            if len(witnesses)<512:witnesses.append(dict(position_iu=[x,y],angle_deg=rot,pad=q.GetNumber(),reason='COPPER_EDGE_BOUND'))
                             clear=False;break
                         qb.Inflate(200000);candidates={i for cell in cells(native_box(qb)) for i in copper_bins[cell]}
                         shape=q.GetEffectiveShape(p.B_Cu)
-                        if any(net!=q.GetNetCode() and shape.Collide(other,200000) for net,other in (copper[i] for i in candidates)):
+                        hits=[i for i in candidates if copper[i][0]!=q.GetNetCode() and shape.Collide(copper[i][1],200000)]
+                        if hits:
+                            if len(witnesses)<512:witnesses.append(dict(position_iu=[x,y],angle_deg=rot,pad=q.GetNumber(),reason='FOREIGN_NATIVE_SHAPE',blockers=[copper_ids[i] for i in sorted(hits)]))
                             clear=False;break
                     if not clear:counts['pad_copper_or_edge_obstructed']+=1;continue
                     counts['pad_and_courtyard_clear']+=1
@@ -104,13 +114,13 @@ def main():
                         distances.append(min(((q.GetPosition().x-z.GetPosition().x)**2+(q.GetPosition().y-z.GetPosition().y)**2)**.5/1e6 for z in targets))
                     success.append(dict(position_iu=[x,y],angle_deg=rot,pad_centre_distances_mm=distances))
         f.SetPosition(old);f.SetOrientationDegrees(old_angle)
-        results[ref]=dict(counts=dict(counts),courtyard_blockers=dict(sorted(blockers.items())),clear_poses=success)
+        results[ref]=dict(counts=dict(counts),courtyard_blockers=dict(sorted(blockers.items())),clear_poses=success,pad_or_edge_rejection_witnesses=witnesses)
         print(ref,dict(counts),'clear poses',len(success),flush=True)
     report=dict(status='UNSELECTED_FINITE_INDUCTOR_LOCALITY_SCREEN_NOT_HARDWARE_MEASUREMENTS',
-                source_sha256=SOURCE_SHA256,kicad_version=p.GetBuildVersion(),step_iu=args.step_iu,
+                source_sha256=expected_sha,basis=args.basis,kicad_version=p.GetBuildVersion(),step_iu=args.step_iu,
                 angle_step_deg=args.angle_step,radius_iu=8000000,clearance_iu=200000,
                 copper_edge_clearance_iu=500000,footprint_parts=footprint_parts,results=results,
-                source_unchanged=hashlib.sha256(source.read_bytes()).hexdigest()==SOURCE_SHA256,
+                source_unchanged=hashlib.sha256(source.read_bytes()).hexdigest()==expected_sha,
                 fabrication_release_allowed=False,limitations=['Finite sampled positions/angles only',
                     'No route, refill, current, bypass, return or thermal acceptance implied',
                     'Centre distances are planning observations, not pad-edge routing lower bounds'])
