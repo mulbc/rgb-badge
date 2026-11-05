@@ -258,7 +258,7 @@
       "value": "100n 16V X7R"
     },
     "C40": {
-      "footprint": "rgb-badge-coupon:C_Murata_GRM18_0603",
+      "footprint": "rgb-badge-coupon:C_Murata_GRM187R61A226ME15_0603",
       "manufacturer": "Murata",
       "mpn": "GRM187R61A226ME15",
       "pins": {
@@ -274,7 +274,7 @@
       "value": "22u 10V X5R"
     },
     "C41": {
-      "footprint": "rgb-badge-coupon:C_Murata_GRM18_0603",
+      "footprint": "rgb-badge-coupon:C_Murata_GRM187R61A226ME15_0603",
       "manufacturer": "Murata",
       "mpn": "GRM187R61A226ME15",
       "pins": {
@@ -290,7 +290,7 @@
       "value": "22u 10V X5R"
     },
     "C42": {
-      "footprint": "rgb-badge-coupon:C_Murata_GRM21_0805",
+      "footprint": "rgb-badge-coupon:C_Murata_GRM219R60J476ME44_0805",
       "manufacturer": "Murata",
       "mpn": "GRM219R60J476ME44",
       "pins": {
@@ -306,7 +306,7 @@
       "value": "47u 6.3V X5R"
     },
     "C43": {
-      "footprint": "rgb-badge-coupon:C_Murata_GRM21_0805",
+      "footprint": "rgb-badge-coupon:C_Murata_GRM219R60J476ME44_0805",
       "manufacturer": "Murata",
       "mpn": "GRM219R60J476ME44",
       "pins": {
@@ -354,7 +354,7 @@
       "value": "10u 6.3V X5R"
     },
     "C46": {
-      "footprint": "rgb-badge-coupon:C_Murata_GRM18_0603",
+      "footprint": "rgb-badge-coupon:C_Murata_GRM187R61A226ME15_0603",
       "manufacturer": "Murata",
       "mpn": "GRM187R61A226ME15",
       "pins": {
@@ -370,7 +370,7 @@
       "value": "22u 10V X5R"
     },
     "C47": {
-      "footprint": "rgb-badge-coupon:C_Murata_GRM18_0603",
+      "footprint": "rgb-badge-coupon:C_Murata_GRM187R61A226ME15_0603",
       "manufacturer": "Murata",
       "mpn": "GRM187R61A226ME15",
       "pins": {
@@ -386,7 +386,7 @@
       "value": "22u 10V X5R"
     },
     "C48": {
-      "footprint": "rgb-badge-coupon:C_Murata_GRM18_0603",
+      "footprint": "rgb-badge-coupon:C_Murata_GRM187R61A226ME15_0603",
       "manufacturer": "Murata",
       "mpn": "GRM187R61A226ME15",
       "pins": {
@@ -402,7 +402,7 @@
       "value": "22u 10V X5R"
     },
     "C49": {
-      "footprint": "rgb-badge-coupon:C_Murata_GRM18_0603",
+      "footprint": "rgb-badge-coupon:C_Murata_GRM187R61A226ME15_0603",
       "manufacturer": "Murata",
       "mpn": "GRM187R61A226ME15",
       "pins": {
@@ -530,7 +530,7 @@
       "value": "100n 16V X7R"
     },
     "C56": {
-      "footprint": "rgb-badge-coupon:C_Murata_GRM18_0603",
+      "footprint": "rgb-badge-coupon:C_Murata_GRM187R61A226ME15_0603",
       "manufacturer": "Murata",
       "mpn": "GRM187R61A226ME15",
       "pins": {
@@ -610,7 +610,7 @@
       "value": "1u 50V X7R"
     },
     "C61": {
-      "footprint": "rgb-badge-coupon:C_Murata_GRM18_0603",
+      "footprint": "rgb-badge-coupon:C_Murata_GRM187R61A226ME15_0603",
       "manufacturer": "Murata",
       "mpn": "GRM187R61A226ME15",
       "pins": {
@@ -11237,17 +11237,19 @@
   "native_export_tool": "Eeschema 10.0.6",
   "schema_version": 1,
   "source_sha256": {
-    "hardware/coupon/rev-a/3v3-converter.kicad_sch": "f63177991932b43c6a5ec21de6e464e770b47152ef5ec67d1c205a154f4715b2",
+    "hardware/coupon/rev-a/3v3-converter.kicad_sch": "fe2257f9b993340776dff2138cb07e2afe5d4888da10d0c465f421e7f8956d9e",
     "hardware/coupon/rev-a/app-control.kicad_sch": "57efe491a8554508467016f9574ba35a0bbeb0126721341cb5e13e7a56b5ef80",
     "hardware/coupon/rev-a/charger-core.kicad_sch": "a295e86e0d5fd249b7dc6b30f12e6f736d643844e9def31f8ef804b7b96c05ef",
-    "hardware/coupon/rev-a/charger-gate.kicad_sch": "c1d1140251dc7ddfb9070715b47fbab8451e66740cde295272ec07d66a3f6d18",
+    "hardware/coupon/rev-a/charger-gate.kicad_sch": "3e5f35ac2b04ef8539d79ee13cc7997294d4121d985a372e7afb702852465700",
     "hardware/coupon/rev-a/charger-temperature.kicad_sch": "0fcd6c67d76ecb6b936ee36b338664467a4a6e9c9ba666ef6bb52c8e99fcd02a",
     "hardware/coupon/rev-a/controller.kicad_sch": "684a027a8f37cc194069372cf1f45feeffbd62313daa803008c286b92a33b205",
     "hardware/coupon/rev-a/display-interlock.kicad_sch": "a145659b8012d56511e586a26e32061f653394668beccaab327cb92d9b0e46bc",
     "hardware/coupon/rev-a/driver.kicad_sch": "9a5c96492befd6427f655cf31fa8767469e32a3af60044ee90bd6cb7b8443d43",
     "hardware/coupon/rev-a/footprints/rgb-badge-coupon.pretty/C_Murata_GRM15_0402.kicad_mod": "f802c2c53ca832a6b7b8cdda0ff00b940f4ff138dc81ddf21248d6a07fec11ca",
+    "hardware/coupon/rev-a/footprints/rgb-badge-coupon.pretty/C_Murata_GRM187R61A226ME15_0603.kicad_mod": "ecb110da38c93f4732c6604cf5b5b79f8c12c49e8f0c55911cea9825a3d557e8",
     "hardware/coupon/rev-a/footprints/rgb-badge-coupon.pretty/C_Murata_GRM188R60J106ME47_0603.kicad_mod": "bb729fa5134cdd32c27b908926a61791916940c0f3fc1d837effb92e5f483ce7",
     "hardware/coupon/rev-a/footprints/rgb-badge-coupon.pretty/C_Murata_GRM18_0603.kicad_mod": "bbe251cf755a2c796fa94f24a9454d0ed75ac1edf0b8a5af81c1527106c74491",
+    "hardware/coupon/rev-a/footprints/rgb-badge-coupon.pretty/C_Murata_GRM219R60J476ME44_0805.kicad_mod": "6724afe37bcbb51723acc071fd197b59bee5c5c1f38ae3ebd4676f73ea8a138d",
     "hardware/coupon/rev-a/footprints/rgb-badge-coupon.pretty/C_Murata_GRM21_0805.kicad_mod": "6abb32797d41713a2187723bc2d338df0683842eb874bd56fb25895dcb17332b",
     "hardware/coupon/rev-a/footprints/rgb-badge-coupon.pretty/C_TDK_C1608_0603.kicad_mod": "7565b2d9997c139cd35c9c9e5cd3f55396c6bd763cb6d61f8794d47d0e83f0f2",
     "hardware/coupon/rev-a/footprints/rgb-badge-coupon.pretty/ESP32-S3-WROOM-1U.kicad_mod": "5b40b29790d7a3f22159dadeda9bad3bee348f002958c13e68f0cfa555a76d67",
@@ -11297,12 +11299,12 @@
     "hardware/coupon/rev-a/matrix-r08-c08.kicad_sch": "493f8f8a7bb20e39421dd644c0e9368a49cb80c44bf4e78f17b2ab142d988a46",
     "hardware/coupon/rev-a/rgb-badge-coupon.kicad_sch": "d01d130b7c2f46a725792bd83dd9cc56cc3eba5a1f855d686f271c2ed0dbf7a5",
     "hardware/coupon/rev-a/rows.kicad_sch": "e332b3a7d50a1e66fba1797a9481fff820d7df3dd5a5181797295764b742aa28",
-    "hardware/coupon/rev-a/symbols/rgb-badge-coupon.kicad_sym": "42df3b921cc8d3249b40515a1c0555c7752ca35cc5fa73f69a3689e4ee271f22",
+    "hardware/coupon/rev-a/symbols/rgb-badge-coupon.kicad_sym": "49b3316f5aa2c6d4ec84d6cc5d32762a5b7f5a61d366ac67a954df7e893423cc",
     "hardware/coupon/rev-a/usb-conditioning.kicad_sch": "695a40b382ccf8584f6181b1df84ecef1d2bdf12f0cfe47c5be60ce07cd87b5c",
     "hardware/coupon/rev-a/usb-interface.kicad_sch": "d27b929bcecb9e7618f9d4eb5ecb5c671ad512835f97b28c131fd3f70e143aad",
     "hardware/coupon/rev-a/usb-permission.kicad_sch": "b03f537846d1bb3da56ee5b0448464f0a3d5ce2d6814356a4767c494fde70204",
-    "hardware/coupon/rev-a/usb-protection.kicad_sch": "7e8113f40ca8ec2fdd1107aeb57c2315c1c72ce60497b2f31f33932f4bfac0bc",
-    "hardware/coupon/rev-a/vled-converter.kicad_sch": "df70b3835a834792c58fd7990f544545d3d0755928d89127753e751f3a026ee5"
+    "hardware/coupon/rev-a/usb-protection.kicad_sch": "c38eb24e04e43b44a9c8321715ca10d0bf23f3eaaf8e60985620caa90b5b3e03",
+    "hardware/coupon/rev-a/vled-converter.kicad_sch": "aeca55738f2ebcf685a47a9a00aaa0010170440d1b83e57926df26b179bdcd74"
   },
   "status": "CANONICAL_SOURCE_SNAPSHOT_NOT_A_FABRICATION_BOM"
 }

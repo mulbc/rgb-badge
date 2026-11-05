@@ -2,6 +2,8 @@
 
 # Supplied remaining Murata sheets and ten-capacitor land feasibility
 
+**Historical trial scope:** ADR 0084's later canonical source migration is recorded in the [November 5 source review](remaining-murata-migration-2026-11-05.md). Reproduce the exact trial/tool environment below from commit `b40e36e`; its source hashes deliberately reject the later corrected source. Neither the earlier 52-edge trial nor its C49 lead is adopted by that pad-only source migration.
+
 Date: 2026-11-04. Coupon Rev A is unbuilt. This is document review and native
 CAD connectivity/geometry evidence, not a hardware measurement or assembly
 qualification. Firmware and all current/protection/enable settings are unchanged.

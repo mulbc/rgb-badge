@@ -365,3 +365,13 @@ exact C49 lead on the cleaned candidate. Both retain all prior groups and
 exact full 104 intrinsic findings; stable replays and ten rejection cases pass.
 No canonical migration, packaging selection, separate approval or assembly/
 electrical qualification is inferred from these native geometry results.
+
+
+**2026-11-05 remaining Murata source migration:** [ADR 0084](decisions/0084-remaining-murata-source-migration.md) adopts dedicated corrected GRM187/GRM219 lands for exactly C40/C41/C42/C43/C46/C47/C48/C49/C56/C61 after the complete source/native gate. Freeze the preceding 58-edge plan/contract and preserve every copper item, pose, field, numbered net, zone and electrical setting. Require all 246 physical groups, 58 native/physical opens, exact 104 intrinsic findings, stable fills/replay, native XML/ERC/rendering, fault/source checks and original-orphan restoration. The separate ignored converter/C49 rework is not selected. Packaging/approval/assembly/electrical and independent Gate A holds remain open.
+
+ADR 0084's exact ten-capacitor pad-only migration passes the complete acceptance
+gate and is selected for canonical source. Preserve the frozen 58-edge plan,
+all source copper/groups/poses, prior exceptions and original-orphan waiver.
+The source retains 58 native/physical opens and exactly 104 intrinsic findings;
+no converter placement/rework or lower routing count is selected. Packaging/
+approval/assembly/electrical and independent Gate A holds remain open.

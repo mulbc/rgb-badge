@@ -2,6 +2,8 @@
 
 # Project context
 
+**2026-11-05 ten-capacitor source migration:** [ADR 0084](docs/decisions/0084-remaining-murata-source-migration.md) adopts dedicated corrected GRM187/GRM219 lands at all ten references. The [source review](docs/development/remaining-murata-migration-2026-11-05.md) records unchanged 58 native/physical opens, exact 104 intrinsic findings, all 246 physical groups/copper/poses retained, stable fills/replay, native XML/ERC/rendering, original-orphan proof, 69 native/116 portable routing guards and 26 contract guards. The 52-edge converter candidate remains unselected; packaging/approval/electrical/process/fit and independent Gate A holds remain open.
+
 **2026-11-04 supplied exact Murata sheets:** The [ten-capacitor review](docs/development/remaining-murata-lands-2026-11-04.md) verifies June 10, 2026 reference sheets and confirms the catalogue reflow ranges, resolving the screenshot discrepancy. Ignored corrected-pad trials preserve 58 opens on the accepted source; an exact 0.475 mm C49 contact extension preserves 52 opens on the cleaned converter candidate. Both retain all prior groups and the exact 104 intrinsic findings, with stable fills/replays and ten rejection cases. Canonical migration, packaging/approval/qualification and Gate A remain open.
 
 **2026-11-04 owner MLCC summary:** The [screenshot review](docs/development/owner-mlcc-summary-review-2026-11-04.md) finds body dimensions/D/J packaging consistent with indexed 2025 Murata references, while the supplied land-length ranges conflict with the 2021 catalogue. Both direct indexed PDF opens return 404; no current approval or footprint/BOM change is inferred. The exact Murata source behind the land table remains needed.

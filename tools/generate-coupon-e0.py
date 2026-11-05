@@ -26,7 +26,7 @@ h.PARTS={
  'R99':('ERJ2RKF3903X','390k 1%','R_Panasonic_ERJ2_0402','Panasonic',PAN+'ERJ2RKF3903X',2),
  'R100':('ERJ2RKF3321X','3.32k 1%','R_Panasonic_ERJ2_0402','Panasonic',PAN+'ERJ2RKF3321X',2),
  'C60':('C1608X7R1H105K080AB','1u 50V X7R','C_TDK_C1608_0603','TDK','https://product.tdk.com/en/search/capacitor/ceramic/mlcc/info?part_no=C1608X7R1H105K080AB',2),
- 'C61':('GRM187R61A226ME15','22u 10V X5R','C_Murata_GRM18_0603','Murata','https://pim.murata.com/en-global/pim/details/?partNum=GRM187R61A226ME15',2),
+ 'C61':('GRM187R61A226ME15','22u 10V X5R','C_Murata_GRM187R61A226ME15_0603','Murata','https://pim.murata.com/en-global/pim/details/?partNum=GRM187R61A226ME15',2),
  'C62':('GRM1555C1H222GA01D','2.2n 50V C0G','C_Murata_GRM15_0402','Murata','https://www.murata.com/en-us/products/productdetail?partno=GRM1555C1H222GA01%23',2),
 }
 

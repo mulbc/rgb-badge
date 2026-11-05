@@ -85,6 +85,33 @@ class RoutingProgressGuards(unittest.TestCase):
                 with self.assertRaises(AssertionError):c.murata.verify_part(part,True)
                 part.SetFPIDAsString(c.murata.NEW)
 
+    def test_remaining_ten_exact_murata_assignments_are_required(self):
+        for ref in c.remaining.REFS:
+            with self.subTest(ref=ref):
+                part=self.parts[ref];c.remaining.verify_part(part,True)
+                name=part.GetFPIDAsString()
+                part.SetFPIDAsString('rgb-badge-coupon:'+c.remaining.spec_for(ref)[1]['old'])
+                with self.assertRaises(AssertionError):c.remaining.verify_part(part,True)
+                part.SetFPIDAsString(name)
+
+    def test_remaining_oversized_lands_cannot_use_identity_normalization(self):
+        for ref in c.remaining.REFS:
+            with self.subTest(ref=ref):
+                pad=next(iter(self.parts[ref].Pads()))
+                pad.SetSize(p.VECTOR2I(*c.remaining.spec_for(ref)[1]['old_size']))
+                with self.assertRaises(AssertionError):c.physical_identity(pad)
+                with self.assertRaises(AssertionError):c.remaining.normalized_signature(pad,c.local_pad_signature(pad))
+
+    def test_remaining_legacy_position_under_new_label_is_rejected(self):
+        pad=next(q for q in self.parts['C40'].Pads() if q.GetNumber()=='1')
+        pad.SetFPRelativePosition(p.VECTOR2I(-800000,0))
+        with self.assertRaises(AssertionError):c.physical_identity(pad)
+
+    def test_remaining_numbered_nets_cannot_change(self):
+        pad=next(q for q in self.parts['C61'].Pads() if q.GetNumber()=='1')
+        pad.SetNetCode(self.new.FindNet('VLED').GetNetCode())
+        with self.assertRaises(AssertionError):c.remaining.verify_part(self.parts['C61'],True)
+
     def test_murata_oversized_land_cannot_use_identity_mapping(self):
         for ref in c.murata.REFS:
             with self.subTest(ref=ref):

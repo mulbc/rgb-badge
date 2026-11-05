@@ -50,6 +50,27 @@ class StudyContract(unittest.TestCase):
                     self.board[ref]['pads'][0][key]=value
                     self.reject()
 
+    def test_remaining_ten_land_geometry_is_enforced_even_with_historical_opt_out(self):
+        for ref in c.REMAINING['REFS']:
+            with self.subTest(ref=ref):
+                self.board=copy.deepcopy(self.inventory)
+                self.board[ref]['pads'][0]['land_size']=['.9','.9']
+                with self.assertRaisesRegex(ValueError,'geometry differs'):
+                    c.compare(self.data,self.board,legacy_land_study=True)
+
+    def test_remaining_legacy_assignments_require_explicit_historical_geometry(self):
+        for ref in c.REMAINING['REFS']:
+            spec=c.REMAINING['spec_for'](ref)[1]
+            self.board[ref]['footprint']='rgb-badge-coupon:'+spec['old']
+            for q in self.board[ref]['pads']:
+                from decimal import Decimal as D
+                x=D(spec['old_offset'])/1000000
+                q['land_at']=[str(-x if q['number']=='1' else x),'0']
+                q['land_size']=[str(D(n)/1000000) for n in spec['old_size']]
+        self.reject()
+        result=c.compare(self.data,self.board,legacy_land_study=True)
+        self.assertEqual(set(result['historical_legacy_murata_assignments']),set(c.REMAINING['REFS']))
+
     def test_legacy_assignment_requires_explicit_historical_mode_and_geometry(self):
         for ref in c.MURATA['REFS']:
             self.board[ref]['footprint']=c.MURATA['OLD']

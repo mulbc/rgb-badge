@@ -2,6 +2,8 @@
 
 # 3.3 V converter capacitor land audit — first author
 
+**2026-11-05 source correction:** [ADR 0084](../../../docs/decisions/0084-remaining-murata-source-migration.md) and the [current footprint audit](remaining-murata-footprint-audit.md) supersede the historical shared-land assignments and drawing holds below. The supplied June 2026 sheets establish the applicable reflow rows; dedicated GRM187/GRM219 source lands use those midpoints. Packaging, approval consultation, assembly/electrical qualification and Gate A remain open.
+
 **2026-10-31 supplied catalogue finding:** The two supplied filenames contain the
 same January 2021 Murata catalogue. Rendered pages 277–278 confirm a = inner gap,
 b = one-land length, c = width. The actual shared GRM18 geometry is

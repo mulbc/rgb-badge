@@ -19,6 +19,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PROJECT = ROOT / 'hardware/coupon/rev-a'
 BOARD = PROJECT / 'staging/led-routing-progress-trial-114mm.kicad_pcb'
 MURATA = runpy.run_path(str(ROOT/'tools/murata_land_migration.py'))
+REMAINING = runpy.run_path(str(ROOT/'tools/remaining_murata_migration.py'))
 SWITCH = runpy.run_path(str(ROOT/'tools/switch_pin_migration.py'))
 CONTRACT = ROOT / 'mechanical/review/coupon-canonical-net-contract.json'
 CHECK = runpy.run_path(str(ROOT / 'tools/check-coupon-controller.py'))
@@ -153,10 +154,14 @@ def compare(data, board, require_metadata=True, legacy_land_study=False, legacy_
         legacy=(legacy_land_study and ref in MURATA['REFS'] and
                 expected['mpn']==MURATA['MPN'] and expected['footprint']==MURATA['NEW'] and
                 actual['footprint']==MURATA['OLD'])
+        remaining_spec=REMAINING['spec_for'](ref) if ref in REMAINING['REFS'] else None
+        legacy_remaining=(legacy_land_study and remaining_spec is not None and
+            expected['mpn']==remaining_spec[0] and expected['footprint']=='rgb-badge-coupon:'+remaining_spec[1]['name'] and
+            actual['footprint']=='rgb-badge-coupon:'+remaining_spec[1]['old'])
         old_switch=(legacy_switch_study and ref=='SW2' and expected['footprint']==SWITCH['NEW'] and actual['footprint']==SWITCH['OLD'])
         if old_switch:legacy_switch.append(ref)
         for key in ('value', 'footprint'):
-            require(((legacy or old_switch) and key=='footprint') or expected[key] == actual[key], 'PCB '+key+' differs: '+ref)
+            require(((legacy or legacy_remaining or old_switch) and key=='footprint') or expected[key] == actual[key], 'PCB '+key+' differs: '+ref)
         if ref in MURATA['REFS']:
             from decimal import Decimal as D
             require(expected['mpn']==MURATA['MPN'] and expected['footprint']==MURATA['NEW'],
@@ -171,6 +176,19 @@ def compare(data, board, require_metadata=True, legacy_land_study=False, legacy_
                         len(q['land_layers'])==3 and set(q['land_layers']) in ({'F.Cu','F.Paste','F.Mask'},{'B.Cu','B.Paste','B.Mask'}),
                         'Exact Murata geometry differs: '+ref)
             if legacy:legacy_lands.append(ref)
+        if remaining_spec is not None:
+            from decimal import Decimal as D
+            mpn,spec=remaining_spec
+            require(expected['mpn']==mpn and expected['footprint']=='rgb-badge-coupon:'+spec['name'], 'Canonical remaining Murata assignment differs: '+ref)
+            require(len(actual['pads'])==2 and {q['number'] for q in actual['pads']}=={'1','2'}, 'Remaining Murata pad count differs: '+ref)
+            for q in actual['pads']:
+                offset=D(spec['old_offset' if legacy_remaining else 'offset'])/1000000
+                size=[D(x)/1000000 for x in spec['old_size' if legacy_remaining else 'size']]
+                require(list(map(D,q['land_at']))==[-offset if q['number']=='1' else offset,D(0)] and
+                    list(map(D,q['land_size']))==size and q['land_type']==['smd','rect'] and
+                    len(q['land_layers'])==3 and set(q['land_layers']) in ({'F.Cu','F.Paste','F.Mask'},{'B.Cu','B.Paste','B.Mask'}),
+                    'Remaining exact Murata geometry differs: '+ref)
+            if legacy_remaining:legacy_lands.append(ref)
         if ref=='SW2':
             from decimal import Decimal as D
             expected_switch={k if old_switch else SWITCH['FORWARD'][k]:v for k,v in SWITCH['LEGACY_PADS'].items()}
@@ -260,7 +278,7 @@ def main():
     ap.add_argument('--report', type=Path)
     ap.add_argument('--legacy-switch-study',action='store_true',help='Report historical switch pad labels; never current pin-map acceptance')
     ap.add_argument('--legacy-land-study', action='store_true',
-                    help='Explicitly report historical, uncorrected six-Murata assignments; never final package acceptance')
+                    help='Explicitly report historical, uncorrected Murata assignments; never final package acceptance')
     ap.add_argument('--historical-generator-input', action='store_true',
                     help='Check the historical replay input before metadata projection; not final-study acceptance')
     args = ap.parse_args()

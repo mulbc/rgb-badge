@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: Apache-2.0
-"""Read-only comparison with the supplied 2021 catalogue, not part approval."""
+"""Frozen pre-ADR-0084 comparison with the 2021 catalogue, not part approval."""
 import argparse
 from decimal import Decimal as D
 import hashlib
@@ -47,7 +47,7 @@ def mismatches(measured,row):
 
 
 def report():
-    parts = json.loads((ROOT/'mechanical/review/coupon-canonical-net-contract.json').read_text())['components']
+    parts = json.loads((ROOT/'mechanical/review/coupon-canonical-net-contract-before-remaining-murata.json').read_text())['components']
     records = {}
     for identity,footprint,code,page in [
         ('GRM187R61A226ME15','C_Murata_GRM18_0603','18',107),
@@ -97,7 +97,7 @@ def main():
         output.write_text(json.dumps(result,indent=2,sort_keys=True)+'\n')
     for identity,row in result['parts'].items():
         print(identity,row['measured_mm'],'matches listed family row:',row['matches_any_listed_family_row'])
-    print('Read-only catalogue comparison; exact-part drawing and order-code approval remain open.')
+    print('Historical catalogue comparison; later exact-part migration is recorded separately.')
 
 
 if __name__=='__main__': main()

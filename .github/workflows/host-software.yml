@@ -31,6 +31,7 @@ jobs:
             /hardware/coupon/rev-a/staging/library-candidates.pretty/
             /hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb
             /mechanical/review/coupon-canonical-net-contract.json
+            /mechanical/review/coupon-canonical-net-contract-before-remaining-murata.json
             /hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb
             /hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pro
             /hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_dru
@@ -48,6 +49,7 @@ jobs:
             /mechanical/review/routing-progress-69-checkpoint.json
             /mechanical/review/routing-progress-65-checkpoint.json
             /mechanical/review/routing-progress-59-checkpoint.json
+            /mechanical/review/routing-progress-58-checkpoint.json
             /mechanical/review/routing-progress-60-checkpoint.json
             /mechanical/review/routing-progress-61-checkpoint.json
             /mechanical/review/routing-progress-62-checkpoint.json

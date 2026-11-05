@@ -250,6 +250,12 @@ def main():
     assert manifest['exact_murata_migrated_references']==['C3','C32','C44','C45','C53','C54']
     assert manifest['switch_pin_policy_sha256']==hashlib.sha256((ROOT/'tools/switch_pin_migration.py').read_bytes()).hexdigest()
     assert manifest['printed_switch_pins_migrated'] is True
+    remaining=runpy.run_path(str(ROOT/'tools/remaining_murata_migration.py'))
+    assert manifest['remaining_murata_policy_sha256']==hashlib.sha256((ROOT/'tools/remaining_murata_migration.py').read_bytes()).hexdigest()
+    assert manifest['remaining_murata_migrated_references']==list(remaining['REFS'])
+    validate_frozen_checkpoint(plan,58,'7dada5e89215def36204290082193a94184d3843faa2afa4682057658ff4d709')
+    prior58=json.loads((ROOT/'mechanical/review/routing-progress-58-checkpoint.json').read_text())
+    assert plan==prior58, 'Pad-only adoption cannot change routing plan'
     validate_prior_checkpoint(plan)
     validate_100_checkpoint(plan)
     validate_94_checkpoint(plan)

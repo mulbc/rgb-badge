@@ -25,7 +25,7 @@ h.PARTS = {
     'R95': ('ERJ2RKF2703X','270k 1%','R_Panasonic_ERJ2_0402','Panasonic','https://industrial.panasonic.com/ww/products/pt/general-purpose-chip-resistors/models/ERJ2RKF2703X',2),
     'R96': ('ERJ2RKF3321X','3.32k 1%','R_Panasonic_ERJ2_0402','Panasonic','https://industrial.panasonic.com/ww/products/pt/general-purpose-chip-resistors/models/ERJ2RKF3321X',2),
     'C55': ('GRM155R71C104KA88D','100n 16V X7R','C_Murata_GRM15_0402','Murata','https://pim.murata.com/asset/pim4/ceramicCapacitorSMD/GRM155R71C104KA88-01A-EN_PDF_CERAMICCAPACITORSMD',2),
-    'C56': ('GRM187R61A226ME15','22u 10V X5R','C_Murata_GRM18_0603','Murata','https://pim.murata.com/en-global/pim/details/?partNum=GRM187R61A226ME15',2),
+    'C56': ('GRM187R61A226ME15','22u 10V X5R','C_Murata_GRM187R61A226ME15_0603','Murata','https://pim.murata.com/en-global/pim/details/?partNum=GRM187R61A226ME15',2),
     'C57': ('GRM1555C1H222GA01D','2.2n 50V C0G','C_Murata_GRM15_0402','Murata','https://www.murata.com/en-us/products/productdetail?partno=GRM1555C1H222GA01%23',2),
     'C58': ('GRM155R71C104KA88D','100n 16V X7R','C_Murata_GRM15_0402','Murata','https://pim.murata.com/asset/pim4/ceramicCapacitorSMD/GRM155R71C104KA88-01A-EN_PDF_CERAMICCAPACITORSMD',2),
     'C59': ('GRM155R71C104KA88D','100n 16V X7R','C_Murata_GRM15_0402','Murata','https://pim.murata.com/asset/pim4/ceramicCapacitorSMD/GRM155R71C104KA88-01A-EN_PDF_CERAMICCAPACITORSMD',2),

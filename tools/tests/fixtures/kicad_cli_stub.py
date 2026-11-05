@@ -319,10 +319,10 @@ def controller_coupon_netlist():
         5:'APP_ON_SW_DRAFT',6:'GND',7:'GND',8:'APP_3V3_FB'})
     part('L1','1u 20%','L_Murata_DFE252012P',{1:'Net-(U36-LX1)',2:'Net-(U36-LX2)'})
     for ref,value,fp,a,b in [
-        ('C40','22u 10V X5R','C_Murata_GRM18_0603','+SYS_APP_IN_DRAFT','GND'),
-        ('C41','22u 10V X5R','C_Murata_GRM18_0603','+SYS_APP_IN_DRAFT','GND'),
-        ('C42','47u 6.3V X5R','C_Murata_GRM21_0805','+3V3_APP','GND'),
-        ('C43','47u 6.3V X5R','C_Murata_GRM21_0805','+3V3_APP','GND'),
+        ('C40','22u 10V X5R','C_Murata_GRM187R61A226ME15_0603','+SYS_APP_IN_DRAFT','GND'),
+        ('C41','22u 10V X5R','C_Murata_GRM187R61A226ME15_0603','+SYS_APP_IN_DRAFT','GND'),
+        ('C42','47u 6.3V X5R','C_Murata_GRM219R60J476ME44_0805','+3V3_APP','GND'),
+        ('C43','47u 6.3V X5R','C_Murata_GRM219R60J476ME44_0805','+3V3_APP','GND'),
         ('R81','511k 1%','R_Panasonic_ERJ2_0402','+3V3_APP','APP_3V3_FB'),
         ('R82','91k 1%','R_Panasonic_ERJ2_0402','APP_3V3_FB','GND'),
         ('R83','100k 1%','R_Panasonic_ERJ2_0402','APP_ON_SW_DRAFT','GND'),
@@ -374,7 +374,7 @@ def controller_coupon_netlist():
         part(ref,value,'R_Panasonic_ERJ2_0402',{1:positive,2:negative})
     for ref,value,footprint,positive in [
         ('C55','100n 16V X7R','C_Murata_GRM15_0402','+5V_USB'),
-        ('C56','22u 10V X5R','C_Murata_GRM18_0603','CHARGER_IN_DRAFT'),
+        ('C56','22u 10V X5R','C_Murata_GRM187R61A226ME15_0603','CHARGER_IN_DRAFT'),
         ('C57','2.2n 50V C0G','C_Murata_GRM15_0402','E1_DVDT'),
         ('C58','100n 16V X7R','C_Murata_GRM15_0402','+3V3_USB'),
         ('C59','100n 16V X7R','C_Murata_GRM15_0402','+3V3_USB')]:
@@ -390,7 +390,7 @@ def controller_coupon_netlist():
         ('R100','3.32k 1%','E0_ILM','GND')]:
         part(ref,value,'R_Panasonic_ERJ2_0402',{1:left,2:right})
     part('C60','1u 50V X7R','C_TDK_C1608_0603',{1:'VBUS_CONNECTOR',2:'GND'})
-    part('C61','22u 10V X5R','C_Murata_GRM18_0603',{1:'+5V_USB',2:'GND'})
+    part('C61','22u 10V X5R','C_Murata_GRM187R61A226ME15_0603',{1:'+5V_USB',2:'GND'})
     part('C62','2.2n 50V C0G','C_Murata_GRM15_0402',{1:'E0_DVDT',2:'GND'})
     part('U37','TPS63020DSJT','VSON_TI_DSJ0014_4x3mm_P0.5mm_EP2.85x1.58mm',{
         1:'+SYS_APP_IN_DRAFT',2:'GND',3:'VLED_FB',4:'VLED',5:'VLED',
@@ -401,10 +401,10 @@ def controller_coupon_netlist():
     for ref,value,fp,left,right in [
         ('C44','10u 6.3V X5R','C_Murata_GRM188R60J106ME47_0603','+SYS_APP_IN_DRAFT','GND'),
         ('C45','10u 6.3V X5R','C_Murata_GRM188R60J106ME47_0603','+SYS_APP_IN_DRAFT','GND'),
-        ('C46','22u 10V X5R','C_Murata_GRM18_0603','VLED','GND'),
-        ('C47','22u 10V X5R','C_Murata_GRM18_0603','VLED','GND'),
-        ('C48','22u 10V X5R','C_Murata_GRM18_0603','VLED','GND'),
-        ('C49','22u 10V X5R','C_Murata_GRM18_0603','VLED','GND'),
+        ('C46','22u 10V X5R','C_Murata_GRM187R61A226ME15_0603','VLED','GND'),
+        ('C47','22u 10V X5R','C_Murata_GRM187R61A226ME15_0603','VLED','GND'),
+        ('C48','22u 10V X5R','C_Murata_GRM187R61A226ME15_0603','VLED','GND'),
+        ('C49','22u 10V X5R','C_Murata_GRM187R61A226ME15_0603','VLED','GND'),
         ('C63','100n 16V X7R','C_Murata_GRM15_0402','+SYS_APP_IN_DRAFT','GND'),
         ('R84','620k 1%','R_Panasonic_ERJ2_0402','VLED','VLED_FB_TOP_MID'),
         ('R85','620k 1%','R_Panasonic_ERJ2_0402','VLED_FB_TOP_MID','VLED_FB'),
@@ -528,7 +528,7 @@ def main():
         else:
             raise AssertionError(f"Unexpected footprint export destination: {output}")
         stage = output.name
-        names = [n + ".svg" for n in ("LED_Everlight_EAST10105RGBA0", "LED_QTBrightek_QBLP1515A-RGB2A", "QFN_TI_RTQ0056E_8x8mm_P0.5mm_EP5.7mm", "R_Panasonic_ERJ2_0402", "C_Murata_GRM15_0402", "TestPoint_Pad_D1.0mm", "TSSOP_Nexperia_SOT355-1_24", "SC59_Diodes_DMP2066LSN", "SOT23_Diodes_2N7002K", "ESP32-S3-WROOM-1U", "C_Murata_GRM18_0603", "C_Murata_GRM188R60J106ME47_0603", "C_TDK_C1608_0603", "SW_Panasonic_EVQP7J01P", "VQFN_TI_RGT0016C_3x3mm_P0.5mm_EP1.68mm", "UQFN_TI_RSE0010A_2x1.5mm_P0.5mm", "UQFN_TI_RSE0008A_1.5x1.5mm_P0.5mm", "QFN_TI_RTW0024A_4x4mm_P0.5mm_EP2.7mm", "SOT5X3_TI_DRL0008A", "SOT23_TI_DBV0005A", "SOT23_THIN_TI_DDF0008A", "USON_TI_DQA0010A", "X2QFN_TI_RWB0012A_1.6x1.6mm_P0.4mm", "VSON_TI_DSJ0014_4x3mm_P0.5mm_EP2.85x1.58mm", "TDFN_Maxim_T822-3_2x2mm_P0.5mm_EP0.7x1.38mm", "SOT23_TI_DBV0006A", "SOT23_TI_DBZ0003A")]
+        names = [n + ".svg" for n in ("LED_Everlight_EAST10105RGBA0", "LED_QTBrightek_QBLP1515A-RGB2A", "QFN_TI_RTQ0056E_8x8mm_P0.5mm_EP5.7mm", "R_Panasonic_ERJ2_0402", "C_Murata_GRM15_0402", "TestPoint_Pad_D1.0mm", "TSSOP_Nexperia_SOT355-1_24", "SC59_Diodes_DMP2066LSN", "SOT23_Diodes_2N7002K", "ESP32-S3-WROOM-1U", "C_Murata_GRM187R61A226ME15_0603", "C_Murata_GRM188R60J106ME47_0603", "C_TDK_C1608_0603", "SW_Panasonic_EVQP7J01P", "VQFN_TI_RGT0016C_3x3mm_P0.5mm_EP1.68mm", "UQFN_TI_RSE0010A_2x1.5mm_P0.5mm", "UQFN_TI_RSE0008A_1.5x1.5mm_P0.5mm", "QFN_TI_RTW0024A_4x4mm_P0.5mm_EP2.7mm", "SOT5X3_TI_DRL0008A", "SOT23_TI_DBV0005A", "SOT23_THIN_TI_DDF0008A", "USON_TI_DQA0010A", "X2QFN_TI_RWB0012A_1.6x1.6mm_P0.4mm", "VSON_TI_DSJ0014_4x3mm_P0.5mm_EP2.85x1.58mm", "TDFN_Maxim_T822-3_2x2mm_P0.5mm_EP0.7x1.38mm", "SOT23_TI_DBV0006A", "SOT23_TI_DBZ0003A")]
         names.extend(n + ".svg" for n in (
             "X2SON_TI_DSF0006A_1x1mm_P0.35mm", "VSSOP_TI_DCU0008A",
             "WSON_TI_DSE0006A_1p5x1p5mm_P0p5mm", "USON_TI_DRY0006A_1p45x1mm_P0p5mm",
@@ -576,7 +576,7 @@ def main():
                 os.environ.get("RGB_BADGE_TEST_MISSING_USB_CONNECTOR") == "1"):
             names.append("USB_C_GCT_USB4505-03-0-A_MidMount.svg")
     if stage in ("fabrication", "copper", "paste", "mechanical"):
-        names.extend(("VQFN_TI_RPW0010A_2x2mm_HotRod.svg", "R_Panasonic_ERA2_0402.svg", "LFCSP_ADI_CP16_22_3x3mm_P0.5mm_EP1.75mm.svg", "L_Murata_DFE252012P.svg", "C_Murata_GRM21_0805.svg", "SW_CK_JS202011JCQN.svg", "SW_CK_JS202011JCQN_ManufacturerPins.svg", "SOT563_TI_DRL0006A.svg", "NTC_Murata_NCU15_0402.svg", "JST_PH_S2B-PH-SM4-TB.svg", "VSSOP_TI_DGK0008A.svg", "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB.svg"))
+        names.extend(("VQFN_TI_RPW0010A_2x2mm_HotRod.svg", "R_Panasonic_ERA2_0402.svg", "LFCSP_ADI_CP16_22_3x3mm_P0.5mm_EP1.75mm.svg", "L_Murata_DFE252012P.svg", "C_Murata_GRM219R60J476ME44_0805.svg", "SW_CK_JS202011JCQN.svg", "SW_CK_JS202011JCQN_ManufacturerPins.svg", "SOT563_TI_DRL0006A.svg", "NTC_Murata_NCU15_0402.svg", "JST_PH_S2B-PH-SM4-TB.svg", "VSSOP_TI_DGK0008A.svg", "U-DFN2020-6_TypeB_Diodes_DMC1229UFDB.svg"))
     for name in names:
         if name == os.environ.get("RGB_BADGE_TEST_MISSING_NAMED"):
             continue

@@ -1,11 +1,6 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: Apache-2.0
-"""Freeze provisional capacitor identity/geometry, not approval-sheet conformity.
-
-The historical a/b interpretation is on hold after the exact GRM188 review.
-GRM187/GRM219 need their own current drawing and packaging-code review; passing
-this check must not be reported as manufacturer land-pattern approval.
-"""
+"""Check ADR 0084 exact reflow geometry; assembly/order approval remains open."""
 
 from decimal import Decimal as D
 from pathlib import Path
@@ -62,8 +57,8 @@ def check_symbols():
             return [replace(x, old, new) for x in node]
         return node.replace(old, new) if isinstance(node, str) else node
 
-    for mpn, footprint in (("GRM187R61A226ME15", "C_Murata_GRM18_0603"),
-                           ("GRM219R60J476ME44", "C_Murata_GRM21_0805")):
+    for mpn, footprint in (("GRM187R61A226ME15", "C_Murata_GRM187R61A226ME15_0603"),
+                           ("GRM219R60J476ME44", "C_Murata_GRM219R60J476ME44_0805")):
         expected = replace(template, reference, mpn)
         expected = replace(expected, "rgb-badge-coupon:C_Murata_GRM188R60J106ME47_0603",
                            "rgb-badge-coupon:" + footprint)
@@ -73,19 +68,19 @@ def check_symbols():
 
 def main():
     try:
-        # Freeze historical GRM187 geometry pending its own drawing review.
-        check("C_Murata_GRM18_0603", D("0.8"), D("0.9"), D("0.7"), D("0.9"),
+        # June 10, 2026 reference, page 27 Table 2, +/-0.20 mm row.
+        check("C_Murata_GRM187R61A226ME15_0603", D("0.775"), D("0.75"), D("0.80"), D("0.9"),
               (D("-0.8"), D("-0.4"), D("0.8"), D("0.4")),
               (D("-1.5"), D("-0.65"), D("1.5"), D("0.65")))
-        # Freeze historical GRM219 geometry pending its own drawing review.
-        check("C_Murata_GRM21_0805", D("0.95"), D("1.2"), D("0.7"), D("1.3"),
+        # Same exact-part reference table/tolerance branch for GRM219.
+        check("C_Murata_GRM219R60J476ME44_0805", D("0.95"), D("0.7"), D("1.2"), D("1.3"),
               (D("-1"), D("-0.625"), D("1"), D("0.625")),
               (D("-1.8"), D("-1"), D("1.8"), D("1")))
         check_symbols()
     except (OSError, ValueError, KeyError, IndexError) as error:
         print(f"3V3 capacitor land check failed: {error}", file=sys.stderr)
         return 1
-    print("Provisional capacitor identity/geometry retained; GRM187/GRM219 drawing and order-code approval remain open")
+    print("Exact GRM187/GRM219 reflow midpoint geometry checked; packaging/order and assembly qualification remain open")
     return 0
 
 

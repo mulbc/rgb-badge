@@ -2,10 +2,10 @@
   "SPDX-License-Identifier": "Apache-2.0",
   "canonical_project": "hardware/coupon/rev-a/rgb-badge-coupon.kicad_pro",
   "canonical_source_sha256": {
-    "3v3-converter.kicad_sch": "f63177991932b43c6a5ec21de6e464e770b47152ef5ec67d1c205a154f4715b2",
+    "3v3-converter.kicad_sch": "fe2257f9b993340776dff2138cb07e2afe5d4888da10d0c465f421e7f8956d9e",
     "app-control.kicad_sch": "57efe491a8554508467016f9574ba35a0bbeb0126721341cb5e13e7a56b5ef80",
     "charger-core.kicad_sch": "a295e86e0d5fd249b7dc6b30f12e6f736d643844e9def31f8ef804b7b96c05ef",
-    "charger-gate.kicad_sch": "c1d1140251dc7ddfb9070715b47fbab8451e66740cde295272ec07d66a3f6d18",
+    "charger-gate.kicad_sch": "3e5f35ac2b04ef8539d79ee13cc7997294d4121d985a372e7afb702852465700",
     "charger-temperature.kicad_sch": "0fcd6c67d76ecb6b936ee36b338664467a4a6e9c9ba666ef6bb52c8e99fcd02a",
     "controller.kicad_sch": "684a027a8f37cc194069372cf1f45feeffbd62313daa803008c286b92a33b205",
     "display-interlock.kicad_sch": "a145659b8012d56511e586a26e32061f653394668beccaab327cb92d9b0e46bc",
@@ -18,12 +18,12 @@
     "matrix-r08-c08.kicad_sch": "493f8f8a7bb20e39421dd644c0e9368a49cb80c44bf4e78f17b2ab142d988a46",
     "rgb-badge-coupon.kicad_sch": "d01d130b7c2f46a725792bd83dd9cc56cc3eba5a1f855d686f271c2ed0dbf7a5",
     "rows.kicad_sch": "e332b3a7d50a1e66fba1797a9481fff820d7df3dd5a5181797295764b742aa28",
-    "symbols/rgb-badge-coupon.kicad_sym": "42df3b921cc8d3249b40515a1c0555c7752ca35cc5fa73f69a3689e4ee271f22",
+    "symbols/rgb-badge-coupon.kicad_sym": "49b3316f5aa2c6d4ec84d6cc5d32762a5b7f5a61d366ac67a954df7e893423cc",
     "usb-conditioning.kicad_sch": "695a40b382ccf8584f6181b1df84ecef1d2bdf12f0cfe47c5be60ce07cd87b5c",
     "usb-interface.kicad_sch": "d27b929bcecb9e7618f9d4eb5ecb5c671ad512835f97b28c131fd3f70e143aad",
     "usb-permission.kicad_sch": "b03f537846d1bb3da56ee5b0448464f0a3d5ce2d6814356a4767c494fde70204",
-    "usb-protection.kicad_sch": "7e8113f40ca8ec2fdd1107aeb57c2315c1c72ce60497b2f31f33932f4bfac0bc",
-    "vled-converter.kicad_sch": "df70b3835a834792c58fd7990f544545d3d0755928d89127753e751f3a026ee5"
+    "usb-protection.kicad_sch": "c38eb24e04e43b44a9c8321715ca10d0bf23f3eaaf8e60985620caa90b5b3e03",
+    "vled-converter.kicad_sch": "aeca55738f2ebcf685a47a9a00aaa0010170440d1b83e57926df26b179bdcd74"
   },
   "controller_reference": "U3",
   "footprint": "rgb-badge-coupon:ESP32-S3-WROOM-1U",
