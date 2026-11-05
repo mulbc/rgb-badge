@@ -1,0 +1,5728 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "U37_derived_2x22uF_times_0p8_times_0p5_table_endpoint_uF_NOT_published_minimum": 17.6,
+  "calculator_sha256": "70b455e0e847f5df06a51c5dade57e6d4a60ed37de05d2b7cc1f7e034bbf5037",
+  "capacitor_bank_scenarios": [
+    {
+      "TI_effective_minimum_uF_if_explicit": 4.2,
+      "count": 2,
+      "hypothetical_factor_0p8_times_0p85_times_0p9_uF": 7.909262306881421,
+      "qualified_combined_lower_bound": false,
+      "scenario": "U36_input_SYS4.5",
+      "typical_curve_bank_uF_at_25C_AC0p5Vrms": 12.923631220394478,
+      "voltage_V": 4.5
+    },
+    {
+      "TI_effective_minimum_uF_if_explicit": 4.2,
+      "count": 2,
+      "hypothetical_factor_0p8_times_0p85_times_0p9_uF": 6.280856284145527,
+      "qualified_combined_lower_bound": false,
+      "scenario": "U36_input_SYS5.5_sensitivity",
+      "typical_curve_bank_uF_at_25C_AC0p5Vrms": 10.262837065597266,
+      "voltage_V": 5.5
+    },
+    {
+      "TI_effective_minimum_uF_if_explicit": 10.4,
+      "count": 2,
+      "hypothetical_factor_0p8_times_0p85_times_0p9_uF": 19.746966016417343,
+      "qualified_combined_lower_bound": false,
+      "scenario": "U36_output_rail_high_scenario",
+      "typical_curve_bank_uF_at_25C_AC0p5Vrms": 32.266284340551216,
+      "voltage_V": 3.432983745518957
+    },
+    {
+      "TI_effective_minimum_uF_if_explicit": null,
+      "count": 4,
+      "hypothetical_factor_0p8_times_0p85_times_0p9_uF": 18.417736068229633,
+      "qualified_combined_lower_bound": false,
+      "scenario": "U37_output_nominal_PWM",
+      "typical_curve_bank_uF_at_25C_AC0p5Vrms": 30.094339980767373,
+      "voltage_V": 3.9444444444444446
+    },
+    {
+      "TI_effective_minimum_uF_if_explicit": null,
+      "count": 4,
+      "hypothetical_factor_0p8_times_0p85_times_0p9_uF": 16.664076553300152,
+      "qualified_combined_lower_bound": false,
+      "scenario": "U37_output_power_save_high_scenario",
+      "typical_curve_bank_uF_at_25C_AC0p5Vrms": 27.228883257026393,
+      "voltage_V": 4.301867418314601
+    }
+  ],
+  "copper_scenarios": [
+    {
+      "copper_um_assumed": 18,
+      "drop_mV_at_0p9A": 13.035081915096708,
+      "length_mm": 2.4529975715,
+      "loss_mW_at_0p9A": 11.731573723587037,
+      "resistance_ohm": 0.014483424350107453,
+      "temperature_C_assumed": 80,
+      "width_mm": 0.2
+    },
+    {
+      "copper_um_assumed": 18,
+      "drop_mV_at_0p9A": 17.0879594073245,
+      "length_mm": 3.215685425,
+      "loss_mW_at_0p9A": 15.37916346659205,
+      "resistance_ohm": 0.01898662156369389,
+      "temperature_C_assumed": 80,
+      "width_mm": 0.2
+    },
+    {
+      "copper_um_assumed": 18,
+      "drop_mV_at_0p9A": 33.87630281340838,
+      "length_mm": 6.374987827,
+      "loss_mW_at_0p9A": 30.488672532067543,
+      "resistance_ohm": 0.037640336459342644,
+      "temperature_C_assumed": 80,
+      "width_mm": 0.2
+    },
+    {
+      "copper_um_assumed": 18,
+      "drop_mV_at_0p9A": 6.517540957548354,
+      "length_mm": 2.4529975715,
+      "loss_mW_at_0p9A": 5.865786861793518,
+      "resistance_ohm": 0.007241712175053727,
+      "temperature_C_assumed": 80,
+      "width_mm": 0.4
+    },
+    {
+      "copper_um_assumed": 18,
+      "drop_mV_at_0p9A": 8.54397970366225,
+      "length_mm": 3.215685425,
+      "loss_mW_at_0p9A": 7.689581733296025,
+      "resistance_ohm": 0.009493310781846944,
+      "temperature_C_assumed": 80,
+      "width_mm": 0.4
+    },
+    {
+      "copper_um_assumed": 18,
+      "drop_mV_at_0p9A": 16.93815140670419,
+      "length_mm": 6.374987827,
+      "loss_mW_at_0p9A": 15.244336266033772,
+      "resistance_ohm": 0.018820168229671322,
+      "temperature_C_assumed": 80,
+      "width_mm": 0.4
+    },
+    {
+      "copper_um_assumed": 18,
+      "drop_mV_at_0p9A": 4.345027305032236,
+      "length_mm": 2.4529975715,
+      "loss_mW_at_0p9A": 3.9105245745290125,
+      "resistance_ohm": 0.004827808116702485,
+      "temperature_C_assumed": 80,
+      "width_mm": 0.6
+    },
+    {
+      "copper_um_assumed": 18,
+      "drop_mV_at_0p9A": 5.695986469108167,
+      "length_mm": 3.215685425,
+      "loss_mW_at_0p9A": 5.12638782219735,
+      "resistance_ohm": 0.00632887385456463,
+      "temperature_C_assumed": 80,
+      "width_mm": 0.6
+    },
+    {
+      "copper_um_assumed": 18,
+      "drop_mV_at_0p9A": 11.292100937802793,
+      "length_mm": 6.374987827,
+      "loss_mW_at_0p9A": 10.162890844022515,
+      "resistance_ohm": 0.012546778819780882,
+      "temperature_C_assumed": 80,
+      "width_mm": 0.6
+    },
+    {
+      "copper_um_assumed": 18,
+      "drop_mV_at_0p9A": 3.258770478774177,
+      "length_mm": 2.4529975715,
+      "loss_mW_at_0p9A": 2.932893430896759,
+      "resistance_ohm": 0.0036208560875268633,
+      "temperature_C_assumed": 80,
+      "width_mm": 0.8
+    },
+    {
+      "copper_um_assumed": 18,
+      "drop_mV_at_0p9A": 4.271989851831125,
+      "length_mm": 3.215685425,
+      "loss_mW_at_0p9A": 3.8447908666480126,
+      "resistance_ohm": 0.004746655390923472,
+      "temperature_C_assumed": 80,
+      "width_mm": 0.8
+    },
+    {
+      "copper_um_assumed": 18,
+      "drop_mV_at_0p9A": 8.469075703352095,
+      "length_mm": 6.374987827,
+      "loss_mW_at_0p9A": 7.622168133016886,
+      "resistance_ohm": 0.009410084114835661,
+      "temperature_C_assumed": 80,
+      "width_mm": 0.8
+    },
+    {
+      "copper_um_assumed": 35,
+      "drop_mV_at_0p9A": 6.703756413478308,
+      "length_mm": 2.4529975715,
+      "loss_mW_at_0p9A": 6.033380772130477,
+      "resistance_ohm": 0.007448618237198119,
+      "temperature_C_assumed": 80,
+      "width_mm": 0.2
+    },
+    {
+      "copper_um_assumed": 35,
+      "drop_mV_at_0p9A": 8.78809340948117,
+      "length_mm": 3.215685425,
+      "loss_mW_at_0p9A": 7.909284068533054,
+      "resistance_ohm": 0.009764548232756857,
+      "temperature_C_assumed": 80,
+      "width_mm": 0.2
+    },
+    {
+      "copper_um_assumed": 35,
+      "drop_mV_at_0p9A": 17.42209858975288,
+      "length_mm": 6.374987827,
+      "loss_mW_at_0p9A": 15.679888730777593,
+      "resistance_ohm": 0.019357887321947646,
+      "temperature_C_assumed": 80,
+      "width_mm": 0.2
+    },
+    {
+      "copper_um_assumed": 35,
+      "drop_mV_at_0p9A": 3.351878206739154,
+      "length_mm": 2.4529975715,
+      "loss_mW_at_0p9A": 3.0166903860652385,
+      "resistance_ohm": 0.0037243091185990597,
+      "temperature_C_assumed": 80,
+      "width_mm": 0.4
+    },
+    {
+      "copper_um_assumed": 35,
+      "drop_mV_at_0p9A": 4.394046704740585,
+      "length_mm": 3.215685425,
+      "loss_mW_at_0p9A": 3.954642034266527,
+      "resistance_ohm": 0.004882274116378428,
+      "temperature_C_assumed": 80,
+      "width_mm": 0.4
+    },
+    {
+      "copper_um_assumed": 35,
+      "drop_mV_at_0p9A": 8.71104929487644,
+      "length_mm": 6.374987827,
+      "loss_mW_at_0p9A": 7.839944365388797,
+      "resistance_ohm": 0.009678943660973823,
+      "temperature_C_assumed": 80,
+      "width_mm": 0.4
+    },
+    {
+      "copper_um_assumed": 35,
+      "drop_mV_at_0p9A": 2.2345854711594364,
+      "length_mm": 2.4529975715,
+      "loss_mW_at_0p9A": 2.011126924043493,
+      "resistance_ohm": 0.002482872745732707,
+      "temperature_C_assumed": 80,
+      "width_mm": 0.6
+    },
+    {
+      "copper_um_assumed": 35,
+      "drop_mV_at_0p9A": 2.9293644698270573,
+      "length_mm": 3.215685425,
+      "loss_mW_at_0p9A": 2.6364280228443517,
+      "resistance_ohm": 0.0032548494109189527,
+      "temperature_C_assumed": 80,
+      "width_mm": 0.6
+    },
+    {
+      "copper_um_assumed": 35,
+      "drop_mV_at_0p9A": 5.807366196584295,
+      "length_mm": 6.374987827,
+      "loss_mW_at_0p9A": 5.226629576925865,
+      "resistance_ohm": 0.006452629107315883,
+      "temperature_C_assumed": 80,
+      "width_mm": 0.6
+    },
+    {
+      "copper_um_assumed": 35,
+      "drop_mV_at_0p9A": 1.675939103369577,
+      "length_mm": 2.4529975715,
+      "loss_mW_at_0p9A": 1.5083451930326193,
+      "resistance_ohm": 0.0018621545592995298,
+      "temperature_C_assumed": 80,
+      "width_mm": 0.8
+    },
+    {
+      "copper_um_assumed": 35,
+      "drop_mV_at_0p9A": 2.1970233523702927,
+      "length_mm": 3.215685425,
+      "loss_mW_at_0p9A": 1.9773210171332636,
+      "resistance_ohm": 0.002441137058189214,
+      "temperature_C_assumed": 80,
+      "width_mm": 0.8
+    },
+    {
+      "copper_um_assumed": 35,
+      "drop_mV_at_0p9A": 4.35552464743822,
+      "length_mm": 6.374987827,
+      "loss_mW_at_0p9A": 3.9199721826943983,
+      "resistance_ohm": 0.004839471830486912,
+      "temperature_C_assumed": 80,
+      "width_mm": 0.8
+    }
+  ],
+  "date": "2026-11-05",
+  "fabrication_release_allowed": false,
+  "feedback": {
+    "U36_60K_TCR_scenario": {
+      "excludes": "ripple, load/line dynamics, aging, self heating and combined manufacturer guarantee",
+      "nominal_pwm_V": 3.3076923076923075,
+      "static_high_V": 3.432983745518957,
+      "static_low_V": 3.1870736131573087,
+      "temperature_shift_K_scenario": 60
+    },
+    "U36_initial": {
+      "excludes": "ripple, load/line dynamics, aging, self heating and combined manufacturer guarantee",
+      "nominal_pwm_V": 3.3076923076923075,
+      "static_high_V": 3.398057498057498,
+      "static_low_V": 3.2195734958111197,
+      "temperature_shift_K_scenario": 0
+    },
+    "U37_60K_TCR_scenario": {
+      "excludes": "ripple, load/line dynamics, aging, self heating and combined manufacturer guarantee",
+      "nominal_pwm_V": 3.9444444444444446,
+      "power_save_static_high_V": 4.301867418314601,
+      "power_save_static_low_V": 3.8203903960396035,
+      "static_high_V": 4.097016588871049,
+      "static_low_V": 3.7976047674349935,
+      "temperature_shift_K_scenario": 60
+    },
+    "U37_initial": {
+      "excludes": "ripple, load/line dynamics, aging, self heating and combined manufacturer guarantee",
+      "nominal_pwm_V": 3.9444444444444446,
+      "power_save_static_high_V": 4.256877946127947,
+      "power_save_static_low_V": 3.8605000990099003,
+      "static_high_V": 4.054169472502807,
+      "static_low_V": 3.8374752475247518,
+      "temperature_shift_K_scenario": 0
+    }
+  },
+  "ideal_via_scenarios": [
+    {
+      "excludes": "taper, fill, interfaces, current crowding, fatigue and thermal qualification",
+      "finished_hole_mm_assumed": 0.1,
+      "height_mm_assumed": 0.05,
+      "ideal_cylindrical_barrel_R20_ohm": 0.0002488604564709636,
+      "plating_mm_assumed": 0.01
+    },
+    {
+      "excludes": "taper, fill, interfaces, current crowding, fatigue and thermal qualification",
+      "finished_hole_mm_assumed": 0.1,
+      "height_mm_assumed": 0.05,
+      "ideal_cylindrical_barrel_R20_ohm": 0.00011406104254919163,
+      "plating_mm_assumed": 0.02
+    },
+    {
+      "excludes": "taper, fill, interfaces, current crowding, fatigue and thermal qualification",
+      "finished_hole_mm_assumed": 0.1,
+      "height_mm_assumed": 0.1,
+      "ideal_cylindrical_barrel_R20_ohm": 0.0004977209129419272,
+      "plating_mm_assumed": 0.01
+    },
+    {
+      "excludes": "taper, fill, interfaces, current crowding, fatigue and thermal qualification",
+      "finished_hole_mm_assumed": 0.1,
+      "height_mm_assumed": 0.1,
+      "ideal_cylindrical_barrel_R20_ohm": 0.00022812208509838326,
+      "plating_mm_assumed": 0.02
+    }
+  ],
+  "inductor_scenarios": [
+    {
+      "CCM_nonnegative_current_condition": false,
+      "DCR_max_at_20C_ohm": 0.042,
+      "Iout_A_scenario": 0.1,
+      "L_initial_min_H": 8e-07,
+      "VIN_V_assumed": 2.8,
+      "VOUT_V": 3.3076923076923075,
+      "average_A": 0.14766483516483517,
+      "copper_loss_W_using_20C_DCR": 0.0012275585478612975,
+      "efficiency_assumed": 0.8,
+      "frequency_min_Hz": 1800000.0,
+      "minimum_A_CCM_model": -0.0015599710367152075,
+      "mode_caveat": "Fixed-frequency CCM approximation; PFM/DCM and current-limit behavior require separate analysis",
+      "peak_A": 0.2968896413663855,
+      "qualified_operating_point": false,
+      "recommended_20percent_peak_headroom_A": 0.3562675696396626,
+      "reference": "L1",
+      "ripple_pp_A": 0.29844961240310075,
+      "rms_A_triangular_CCM_model": 0.1709607688122864
+    },
+    {
+      "CCM_nonnegative_current_condition": true,
+      "DCR_max_at_20C_ohm": 0.042,
+      "Iout_A_scenario": 0.3,
+      "L_initial_min_H": 8e-07,
+      "VIN_V_assumed": 2.8,
+      "VOUT_V": 3.3076923076923075,
+      "average_A": 0.4429945054945055,
+      "copper_loss_W_using_20C_DCR": 0.008554006138731965,
+      "efficiency_assumed": 0.8,
+      "frequency_min_Hz": 1800000.0,
+      "minimum_A_CCM_model": 0.2937696992929551,
+      "mode_caveat": "Fixed-frequency CCM approximation; PFM/DCM and current-limit behavior require separate analysis",
+      "peak_A": 0.5922193116960559,
+      "qualified_operating_point": false,
+      "recommended_20percent_peak_headroom_A": 0.710663174035267,
+      "reference": "L1",
+      "ripple_pp_A": 0.29844961240310075,
+      "rms_A_triangular_CCM_model": 0.45129459649651416
+    },
+    {
+      "CCM_nonnegative_current_condition": true,
+      "DCR_max_at_20C_ohm": 0.042,
+      "Iout_A_scenario": 0.5,
+      "L_initial_min_H": 8e-07,
+      "VIN_V_assumed": 2.8,
+      "VOUT_V": 3.3076923076923075,
+      "average_A": 0.7383241758241759,
+      "copper_loss_W_using_20C_DCR": 0.02320690132047331,
+      "efficiency_assumed": 0.8,
+      "frequency_min_Hz": 1800000.0,
+      "minimum_A_CCM_model": 0.5890993696226254,
+      "mode_caveat": "Fixed-frequency CCM approximation; PFM/DCM and current-limit behavior require separate analysis",
+      "peak_A": 0.8875489820257263,
+      "qualified_operating_point": false,
+      "recommended_20percent_peak_headroom_A": 1.0650587784308716,
+      "reference": "L1",
+      "ripple_pp_A": 0.29844961240310075,
+      "rms_A_triangular_CCM_model": 0.7433338883268263
+    },
+    {
+      "CCM_nonnegative_current_condition": true,
+      "DCR_max_at_20C_ohm": 0.06,
+      "Iout_A_scenario": 0.23302,
+      "L_initial_min_H": 1.2e-06,
+      "VIN_V_assumed": 2.8,
+      "VOUT_V": 4.301867418314601,
+      "average_A": 0.44750944009628063,
+      "copper_loss_W_using_20C_DCR": 0.012701413354090004,
+      "efficiency_assumed": 0.8,
+      "frequency_min_Hz": 2200000.0,
+      "minimum_A_CCM_model": 0.26237011207913413,
+      "mode_caveat": "Fixed-frequency CCM approximation; PFM/DCM and current-limit behavior require separate analysis",
+      "peak_A": 0.6326487681134272,
+      "qualified_operating_point": false,
+      "recommended_20percent_peak_headroom_A": 0.7591785217361126,
+      "reference": "L2",
+      "ripple_pp_A": 0.370278656034293,
+      "rms_A_triangular_CCM_model": 0.4600980575574806
+    },
+    {
+      "CCM_nonnegative_current_condition": true,
+      "DCR_max_at_20C_ohm": 0.06,
+      "Iout_A_scenario": 0.69906,
+      "L_initial_min_H": 1.2e-06,
+      "VIN_V_assumed": 2.8,
+      "VOUT_V": 4.301867418314601,
+      "average_A": 1.3425283202888418,
+      "copper_loss_W_using_20C_DCR": 0.10882846886222755,
+      "efficiency_assumed": 0.8,
+      "frequency_min_Hz": 2200000.0,
+      "minimum_A_CCM_model": 1.1573889922716953,
+      "mode_caveat": "Fixed-frequency CCM approximation; PFM/DCM and current-limit behavior require separate analysis",
+      "peak_A": 1.5276676483059883,
+      "qualified_operating_point": false,
+      "recommended_20percent_peak_headroom_A": 1.833201177967186,
+      "reference": "L2",
+      "ripple_pp_A": 0.370278656034293,
+      "rms_A_triangular_CCM_model": 1.3467768242624534
+    }
+  ],
+  "native_inventory": {
+    "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+    "all_104_classified_findings": [
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              650000
+            ],
+            "net": "GND",
+            "number": "1",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "adf54e80-f735-5e6f-8382-84ec3eaa660b"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_12",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "6d249686-4a02-5680-a970-98405076c8dd"
+          }
+        ],
+        "reference": "PAIR13",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              650000
+            ],
+            "net": "GND",
+            "number": "1",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "426f1317-08e4-5414-8336-acb0c98f3833"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_09",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "241d907d-ad74-54a1-87b6-d8aaa20bf18c"
+          }
+        ],
+        "reference": "PAIR10",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              0
+            ],
+            "net": "ROW_SEL_12",
+            "number": "2",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "0a28c37b-0eb0-57d2-8b58-a6524202d121"
+          },
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_12_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "d9c04d89-5527-5570-af8f-2e7d9a59fe2d"
+          }
+        ],
+        "reference": "PAIR13",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              0
+            ],
+            "net": "ROW_SEL_12",
+            "number": "2",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "0a28c37b-0eb0-57d2-8b58-a6524202d121"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_12",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "6d249686-4a02-5680-a970-98405076c8dd"
+          }
+        ],
+        "reference": "PAIR13",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              0
+            ],
+            "net": "ROW_SEL_09",
+            "number": "2",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "9ea0b482-3570-5b74-a7cf-43b37b8986c7"
+          },
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_09_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "d4991eb2-2376-5aae-8b65-de615db99ed9"
+          }
+        ],
+        "reference": "PAIR10",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              0
+            ],
+            "net": "ROW_SEL_09",
+            "number": "2",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "9ea0b482-3570-5b74-a7cf-43b37b8986c7"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_09",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "241d907d-ad74-54a1-87b6-d8aaa20bf18c"
+          }
+        ],
+        "reference": "PAIR10",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_12_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "d9c04d89-5527-5570-af8f-2e7d9a59fe2d"
+          },
+          {
+            "local_position_iu": [
+              925000,
+              -650000
+            ],
+            "net": "VLED",
+            "number": "4",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "06eb6970-6910-55c0-9820-766a0266a2f1"
+          }
+        ],
+        "reference": "PAIR13",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_12_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "d9c04d89-5527-5570-af8f-2e7d9a59fe2d"
+          },
+          {
+            "local_position_iu": [
+              925000,
+              0
+            ],
+            "net": "ROW_GATE_12",
+            "number": "5",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "4090af1f-e4fd-509b-ad37-3331e5b476aa"
+          }
+        ],
+        "reference": "PAIR13",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.18,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_12_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "d9c04d89-5527-5570-af8f-2e7d9a59fe2d"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_12",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "6d249686-4a02-5680-a970-98405076c8dd"
+          }
+        ],
+        "reference": "PAIR13",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_09_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "d4991eb2-2376-5aae-8b65-de615db99ed9"
+          },
+          {
+            "local_position_iu": [
+              925000,
+              -650000
+            ],
+            "net": "VLED",
+            "number": "4",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "00b5d77d-37f4-5657-b10c-75e075218808"
+          }
+        ],
+        "reference": "PAIR10",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_09_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "d4991eb2-2376-5aae-8b65-de615db99ed9"
+          },
+          {
+            "local_position_iu": [
+              925000,
+              0
+            ],
+            "net": "ROW_GATE_09",
+            "number": "5",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "1361c47f-f2f3-5fb1-a7ee-d92579c1ff9b"
+          }
+        ],
+        "reference": "PAIR10",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.18,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_09_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "d4991eb2-2376-5aae-8b65-de615db99ed9"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_09",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "241d907d-ad74-54a1-87b6-d8aaa20bf18c"
+          }
+        ],
+        "reference": "PAIR10",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.18,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:X2SON_TI_DSF0006A_1x1mm_P0.35mm",
+        "pads": [
+          {
+            "local_position_iu": [
+              -400000,
+              350000
+            ],
+            "net": "DISPLAY_CLEAR_3",
+            "number": "1",
+            "size_iu": [
+              600000,
+              170000
+            ],
+            "uuid": "16270d52-ec71-573c-9a87-e03403138935"
+          },
+          {
+            "local_position_iu": [
+              -400000,
+              0
+            ],
+            "net": "DISPLAY_ENABLE",
+            "number": "2",
+            "size_iu": [
+              600000,
+              170000
+            ],
+            "uuid": "0dcad158-411e-5ad4-a5d8-9035686bb84d"
+          }
+        ],
+        "reference": "U52",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.18,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:X2SON_TI_DSF0006A_1x1mm_P0.35mm",
+        "pads": [
+          {
+            "local_position_iu": [
+              -400000,
+              0
+            ],
+            "net": "DISPLAY_ENABLE",
+            "number": "2",
+            "size_iu": [
+              600000,
+              170000
+            ],
+            "uuid": "0dcad158-411e-5ad4-a5d8-9035686bb84d"
+          },
+          {
+            "local_position_iu": [
+              -400000,
+              -350000
+            ],
+            "net": "GND",
+            "number": "3",
+            "size_iu": [
+              600000,
+              170000
+            ],
+            "uuid": "1cfc3ec5-6e26-5c17-9dac-6a9abd67775f"
+          }
+        ],
+        "reference": "U52",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              650000
+            ],
+            "net": "GND",
+            "number": "1",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "9dfe972d-0415-5dfd-ae28-2a2085e4f430"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_00",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "d9c5fade-f5ad-5d3f-8316-5874304fc61b"
+          }
+        ],
+        "reference": "PAIR01",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.18,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:X2SON_TI_DSF0006A_1x1mm_P0.35mm",
+        "pads": [
+          {
+            "local_position_iu": [
+              400000,
+              -350000
+            ],
+            "net": "DISPLAY_CLEAR_OK",
+            "number": "4",
+            "size_iu": [
+              600000,
+              170000
+            ],
+            "uuid": "36e2add3-0f3b-534f-8a19-502003e3b11c"
+          },
+          {
+            "local_position_iu": [
+              400000,
+              0
+            ],
+            "net": "",
+            "number": "5",
+            "size_iu": [
+              600000,
+              170000
+            ],
+            "uuid": "18721f2c-3557-558f-8eb5-31fd1d72fb98"
+          }
+        ],
+        "reference": "U52",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              0
+            ],
+            "net": "ROW_SEL_00",
+            "number": "2",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "82e310fb-4dfb-5766-bff0-2571e59c4800"
+          },
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_00_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "7fcca6e5-4b07-5f7a-be25-ebb96618ed57"
+          }
+        ],
+        "reference": "PAIR01",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              0
+            ],
+            "net": "ROW_SEL_00",
+            "number": "2",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "82e310fb-4dfb-5766-bff0-2571e59c4800"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_00",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "d9c5fade-f5ad-5d3f-8316-5874304fc61b"
+          }
+        ],
+        "reference": "PAIR01",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_00_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "7fcca6e5-4b07-5f7a-be25-ebb96618ed57"
+          },
+          {
+            "local_position_iu": [
+              925000,
+              -650000
+            ],
+            "net": "VLED",
+            "number": "4",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "e7ac5a42-e8b9-58c3-8b49-fc7eaf43c8e5"
+          }
+        ],
+        "reference": "PAIR01",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_00_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "7fcca6e5-4b07-5f7a-be25-ebb96618ed57"
+          },
+          {
+            "local_position_iu": [
+              925000,
+              0
+            ],
+            "net": "ROW_GATE_00",
+            "number": "5",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "58ff0f01-08bf-5257-85fd-14cc4910ef86"
+          }
+        ],
+        "reference": "PAIR01",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.18,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_00_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "7fcca6e5-4b07-5f7a-be25-ebb96618ed57"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_00",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "d9c5fade-f5ad-5d3f-8316-5874304fc61b"
+          }
+        ],
+        "reference": "PAIR01",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              650000
+            ],
+            "net": "GND",
+            "number": "1",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "b9557aa9-fb7d-5ecc-9fd8-f33ab93e0db6"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_06",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "cb902f23-8c7e-5abb-90c0-b81128783b68"
+          }
+        ],
+        "reference": "PAIR07",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.18,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:X2SON_TI_DSF0006A_1x1mm_P0.35mm",
+        "pads": [
+          {
+            "local_position_iu": [
+              400000,
+              0
+            ],
+            "net": "",
+            "number": "5",
+            "size_iu": [
+              600000,
+              170000
+            ],
+            "uuid": "18721f2c-3557-558f-8eb5-31fd1d72fb98"
+          },
+          {
+            "local_position_iu": [
+              400000,
+              350000
+            ],
+            "net": "+3V3_APP",
+            "number": "6",
+            "size_iu": [
+              600000,
+              170000
+            ],
+            "uuid": "a7fa0fdf-475d-5c35-a19a-130360cbc5dc"
+          }
+        ],
+        "reference": "U52",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              0
+            ],
+            "net": "ROW_SEL_06",
+            "number": "2",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "8038e9e3-5398-5835-9746-07b81f4c613d"
+          },
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_06_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "b934fcf8-8a15-595b-9edd-cb91c255a724"
+          }
+        ],
+        "reference": "PAIR07",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              0
+            ],
+            "net": "ROW_SEL_06",
+            "number": "2",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "8038e9e3-5398-5835-9746-07b81f4c613d"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_06",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "cb902f23-8c7e-5abb-90c0-b81128783b68"
+          }
+        ],
+        "reference": "PAIR07",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_06_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "b934fcf8-8a15-595b-9edd-cb91c255a724"
+          },
+          {
+            "local_position_iu": [
+              925000,
+              -650000
+            ],
+            "net": "VLED",
+            "number": "4",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "8db33706-dfe1-58d6-b9a3-41f7a0041eb5"
+          }
+        ],
+        "reference": "PAIR07",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.18,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_06_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "b934fcf8-8a15-595b-9edd-cb91c255a724"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_06",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "cb902f23-8c7e-5abb-90c0-b81128783b68"
+          }
+        ],
+        "reference": "PAIR07",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_06_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "b934fcf8-8a15-595b-9edd-cb91c255a724"
+          },
+          {
+            "local_position_iu": [
+              925000,
+              0
+            ],
+            "net": "ROW_GATE_06",
+            "number": "5",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "9f2d36e8-6278-58f2-8d25-a44e1c3e097c"
+          }
+        ],
+        "reference": "PAIR07",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              650000
+            ],
+            "net": "GND",
+            "number": "1",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "be05fac4-8a28-5be3-8398-2bcb14f71101"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_08",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "cdfc76f1-9235-508f-9cff-743ed40b6171"
+          }
+        ],
+        "reference": "PAIR09",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              0
+            ],
+            "net": "ROW_SEL_08",
+            "number": "2",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "466a1793-3d53-5e33-b3b3-c5d5f70688ae"
+          },
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_08_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "dc788659-fe7f-5218-82bd-91388c32bf24"
+          }
+        ],
+        "reference": "PAIR09",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              0
+            ],
+            "net": "ROW_SEL_08",
+            "number": "2",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "466a1793-3d53-5e33-b3b3-c5d5f70688ae"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_08",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "cdfc76f1-9235-508f-9cff-743ed40b6171"
+          }
+        ],
+        "reference": "PAIR09",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              650000
+            ],
+            "net": "GND",
+            "number": "1",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "d2764f79-ad35-5cdd-ba37-ec097abf225b"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_04",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "956efc22-d22c-5f43-9dcf-5e9ab7df3fe5"
+          }
+        ],
+        "reference": "PAIR05",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              650000
+            ],
+            "net": "GND",
+            "number": "1",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "c6f093a7-ad96-5e03-bd4b-c0c5011ad64b"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_05",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "70e6465a-5f37-500b-bf25-f7597b9ca11e"
+          }
+        ],
+        "reference": "PAIR06",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_08_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "dc788659-fe7f-5218-82bd-91388c32bf24"
+          },
+          {
+            "local_position_iu": [
+              925000,
+              -650000
+            ],
+            "net": "VLED",
+            "number": "4",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "e0be1d17-b986-509d-9a99-f36239fc9d82"
+          }
+        ],
+        "reference": "PAIR09",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_08_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "dc788659-fe7f-5218-82bd-91388c32bf24"
+          },
+          {
+            "local_position_iu": [
+              925000,
+              0
+            ],
+            "net": "ROW_GATE_08",
+            "number": "5",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "169c64d8-17fa-57f0-b9cb-029eda71590d"
+          }
+        ],
+        "reference": "PAIR09",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.18,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_08_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "dc788659-fe7f-5218-82bd-91388c32bf24"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_08",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "cdfc76f1-9235-508f-9cff-743ed40b6171"
+          }
+        ],
+        "reference": "PAIR09",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              650000
+            ],
+            "net": "GND",
+            "number": "1",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "134b1f49-e8c6-5e97-b88a-8a770554158c"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_10",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "728eb6cb-b8fc-5730-88a3-68b1d84bd5d1"
+          }
+        ],
+        "reference": "PAIR11",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              0
+            ],
+            "net": "ROW_SEL_10",
+            "number": "2",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "fa799d0f-1ed4-574b-ba89-1d125a76308d"
+          },
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_10_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "b8cb00f3-e294-5f6b-a1f0-c47f082a6a91"
+          }
+        ],
+        "reference": "PAIR11",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              0
+            ],
+            "net": "ROW_SEL_04",
+            "number": "2",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "c24f34e4-cd06-519a-91b2-2f1bf53f1231"
+          },
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_04_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "bf43d51b-d1b5-56bd-8185-b5ecea2103f7"
+          }
+        ],
+        "reference": "PAIR05",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              0
+            ],
+            "net": "ROW_SEL_05",
+            "number": "2",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "46d47700-27ce-503b-941d-f1979d6f501f"
+          },
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_05_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "ea333314-98aa-569b-b5cb-4d58741db1ca"
+          }
+        ],
+        "reference": "PAIR06",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              0
+            ],
+            "net": "ROW_SEL_10",
+            "number": "2",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "fa799d0f-1ed4-574b-ba89-1d125a76308d"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_10",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "728eb6cb-b8fc-5730-88a3-68b1d84bd5d1"
+          }
+        ],
+        "reference": "PAIR11",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              0
+            ],
+            "net": "ROW_SEL_04",
+            "number": "2",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "c24f34e4-cd06-519a-91b2-2f1bf53f1231"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_04",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "956efc22-d22c-5f43-9dcf-5e9ab7df3fe5"
+          }
+        ],
+        "reference": "PAIR05",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              0
+            ],
+            "net": "ROW_SEL_05",
+            "number": "2",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "46d47700-27ce-503b-941d-f1979d6f501f"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_05",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "70e6465a-5f37-500b-bf25-f7597b9ca11e"
+          }
+        ],
+        "reference": "PAIR06",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_10_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "b8cb00f3-e294-5f6b-a1f0-c47f082a6a91"
+          },
+          {
+            "local_position_iu": [
+              925000,
+              -650000
+            ],
+            "net": "VLED",
+            "number": "4",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "7d184ad5-ce90-5b7e-a602-dff91c3e93c4"
+          }
+        ],
+        "reference": "PAIR11",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_05_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "ea333314-98aa-569b-b5cb-4d58741db1ca"
+          },
+          {
+            "local_position_iu": [
+              925000,
+              -650000
+            ],
+            "net": "VLED",
+            "number": "4",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "2e9747a5-e8ac-525f-8bbd-240b5e10f2a7"
+          }
+        ],
+        "reference": "PAIR06",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_05_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "ea333314-98aa-569b-b5cb-4d58741db1ca"
+          },
+          {
+            "local_position_iu": [
+              925000,
+              0
+            ],
+            "net": "ROW_GATE_05",
+            "number": "5",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "4f5e056c-ef13-5062-b82c-164d28b751c5"
+          }
+        ],
+        "reference": "PAIR06",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.18,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_05_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "ea333314-98aa-569b-b5cb-4d58741db1ca"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_05",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "70e6465a-5f37-500b-bf25-f7597b9ca11e"
+          }
+        ],
+        "reference": "PAIR06",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_04_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "bf43d51b-d1b5-56bd-8185-b5ecea2103f7"
+          },
+          {
+            "local_position_iu": [
+              925000,
+              -650000
+            ],
+            "net": "VLED",
+            "number": "4",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "9731f59e-69d7-50dc-962b-1c72e51bc0d8"
+          }
+        ],
+        "reference": "PAIR05",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_10_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "b8cb00f3-e294-5f6b-a1f0-c47f082a6a91"
+          },
+          {
+            "local_position_iu": [
+              925000,
+              0
+            ],
+            "net": "ROW_GATE_10",
+            "number": "5",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "009c29a4-05d1-524d-ae2e-e2e5d7de3010"
+          }
+        ],
+        "reference": "PAIR11",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_04_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "bf43d51b-d1b5-56bd-8185-b5ecea2103f7"
+          },
+          {
+            "local_position_iu": [
+              925000,
+              0
+            ],
+            "net": "ROW_GATE_04",
+            "number": "5",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "6923fab3-3fa1-5a1f-a067-ecfcf260fefc"
+          }
+        ],
+        "reference": "PAIR05",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.18,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_04_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "bf43d51b-d1b5-56bd-8185-b5ecea2103f7"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_04",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "956efc22-d22c-5f43-9dcf-5e9ab7df3fe5"
+          }
+        ],
+        "reference": "PAIR05",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.18,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_10_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "b8cb00f3-e294-5f6b-a1f0-c47f082a6a91"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_10",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "728eb6cb-b8fc-5730-88a3-68b1d84bd5d1"
+          }
+        ],
+        "reference": "PAIR11",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              650000
+            ],
+            "net": "GND",
+            "number": "1",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "aa09e6fb-3fd1-5825-aa80-fa512fdcdd3a"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_15",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "c1ebf9c3-817b-5848-bee2-4abb390ad92c"
+          }
+        ],
+        "reference": "PAIR16",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              650000
+            ],
+            "net": "GND",
+            "number": "1",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "3b751da5-3336-52cc-8ab1-cf72c0444fe4"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_07",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "23b6db42-85ba-5341-8b7d-8d00def66198"
+          }
+        ],
+        "reference": "PAIR08",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              0
+            ],
+            "net": "ROW_SEL_15",
+            "number": "2",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "d8d4df72-aa9b-5151-8810-edbbfcdb62ef"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_15",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "c1ebf9c3-817b-5848-bee2-4abb390ad92c"
+          }
+        ],
+        "reference": "PAIR16",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              0
+            ],
+            "net": "ROW_SEL_07",
+            "number": "2",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "c74a25c4-99e1-57eb-8197-375893066c26"
+          },
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_07_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "7392e1e2-4e83-5fad-af61-e680db3f1804"
+          }
+        ],
+        "reference": "PAIR08",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              0
+            ],
+            "net": "ROW_SEL_15",
+            "number": "2",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "d8d4df72-aa9b-5151-8810-edbbfcdb62ef"
+          },
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_15_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "3c4f950b-2941-598a-bc1a-2ce7b1ada702"
+          }
+        ],
+        "reference": "PAIR16",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              0
+            ],
+            "net": "ROW_SEL_07",
+            "number": "2",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "c74a25c4-99e1-57eb-8197-375893066c26"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_07",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "23b6db42-85ba-5341-8b7d-8d00def66198"
+          }
+        ],
+        "reference": "PAIR08",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.18,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_15_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "3c4f950b-2941-598a-bc1a-2ce7b1ada702"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_15",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "c1ebf9c3-817b-5848-bee2-4abb390ad92c"
+          }
+        ],
+        "reference": "PAIR16",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_15_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "3c4f950b-2941-598a-bc1a-2ce7b1ada702"
+          },
+          {
+            "local_position_iu": [
+              925000,
+              -650000
+            ],
+            "net": "VLED",
+            "number": "4",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "c73be171-85bd-5cc9-b8e5-df9cbe2c70f4"
+          }
+        ],
+        "reference": "PAIR16",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_15_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "3c4f950b-2941-598a-bc1a-2ce7b1ada702"
+          },
+          {
+            "local_position_iu": [
+              925000,
+              0
+            ],
+            "net": "ROW_GATE_15",
+            "number": "5",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "57d613d4-d449-5747-a70a-b7c37372eae8"
+          }
+        ],
+        "reference": "PAIR16",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_07_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "7392e1e2-4e83-5fad-af61-e680db3f1804"
+          },
+          {
+            "local_position_iu": [
+              925000,
+              -650000
+            ],
+            "net": "VLED",
+            "number": "4",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "3f0bbc04-3408-5738-8b6c-11dc23e7a0f9"
+          }
+        ],
+        "reference": "PAIR08",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_07_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "7392e1e2-4e83-5fad-af61-e680db3f1804"
+          },
+          {
+            "local_position_iu": [
+              925000,
+              0
+            ],
+            "net": "ROW_GATE_07",
+            "number": "5",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "ff95a288-61ae-56a8-b593-5729d4ccfafc"
+          }
+        ],
+        "reference": "PAIR08",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.18,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_07_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "7392e1e2-4e83-5fad-af61-e680db3f1804"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_07",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "23b6db42-85ba-5341-8b7d-8d00def66198"
+          }
+        ],
+        "reference": "PAIR08",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              650000
+            ],
+            "net": "GND",
+            "number": "1",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "93a8846a-fc20-56cc-9eaa-ddca64d8ee80"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_13",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "16a9f03d-ed0d-5d53-9bf0-dc3b07de6be2"
+          }
+        ],
+        "reference": "PAIR14",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              0
+            ],
+            "net": "ROW_SEL_13",
+            "number": "2",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "c2201418-1ac6-5348-ad29-4c2e0220e821"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_13",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "16a9f03d-ed0d-5d53-9bf0-dc3b07de6be2"
+          }
+        ],
+        "reference": "PAIR14",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              0
+            ],
+            "net": "ROW_SEL_13",
+            "number": "2",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "c2201418-1ac6-5348-ad29-4c2e0220e821"
+          },
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_13_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "019e9805-0dc4-5397-a618-61ffec6eea50"
+          }
+        ],
+        "reference": "PAIR14",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.18,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_13_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "019e9805-0dc4-5397-a618-61ffec6eea50"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_13",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "16a9f03d-ed0d-5d53-9bf0-dc3b07de6be2"
+          }
+        ],
+        "reference": "PAIR14",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_13_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "019e9805-0dc4-5397-a618-61ffec6eea50"
+          },
+          {
+            "local_position_iu": [
+              925000,
+              -650000
+            ],
+            "net": "VLED",
+            "number": "4",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "094c56af-6dce-5e6d-a24e-ae3ca7c23c20"
+          }
+        ],
+        "reference": "PAIR14",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_13_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "019e9805-0dc4-5397-a618-61ffec6eea50"
+          },
+          {
+            "local_position_iu": [
+              925000,
+              0
+            ],
+            "net": "ROW_GATE_13",
+            "number": "5",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "d0f1e0cc-2838-5793-8a8a-78d43e7209ff"
+          }
+        ],
+        "reference": "PAIR14",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              650000
+            ],
+            "net": "GND",
+            "number": "1",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "9d57a176-6e1a-5f40-85e2-5f6cd174e495"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_11",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "ff4d7bd4-6a11-5322-a402-c02ce208f59e"
+          }
+        ],
+        "reference": "PAIR12",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              650000
+            ],
+            "net": "GND",
+            "number": "1",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "72784215-f7a5-5c0d-87ff-af056c6bb0e6"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_03",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "6424fff6-4eb8-5d40-aae4-2fb93b6ab4fd"
+          }
+        ],
+        "reference": "PAIR04",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              0
+            ],
+            "net": "ROW_SEL_11",
+            "number": "2",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "1bb55323-9731-5e64-96af-235be6765639"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_11",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "ff4d7bd4-6a11-5322-a402-c02ce208f59e"
+          }
+        ],
+        "reference": "PAIR12",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              0
+            ],
+            "net": "ROW_SEL_11",
+            "number": "2",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "1bb55323-9731-5e64-96af-235be6765639"
+          },
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_11_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "dd974865-f67b-5010-bcdc-7f8aab313816"
+          }
+        ],
+        "reference": "PAIR12",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              0
+            ],
+            "net": "ROW_SEL_03",
+            "number": "2",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "9949e012-a8fc-52e1-b0e8-eb312dc0fb45"
+          },
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_03_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "12cacc22-9254-5b70-8158-3fa322937d19"
+          }
+        ],
+        "reference": "PAIR04",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              0
+            ],
+            "net": "ROW_SEL_03",
+            "number": "2",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "9949e012-a8fc-52e1-b0e8-eb312dc0fb45"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_03",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "6424fff6-4eb8-5d40-aae4-2fb93b6ab4fd"
+          }
+        ],
+        "reference": "PAIR04",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.18,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_11_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "dd974865-f67b-5010-bcdc-7f8aab313816"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_11",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "ff4d7bd4-6a11-5322-a402-c02ce208f59e"
+          }
+        ],
+        "reference": "PAIR12",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_03_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "12cacc22-9254-5b70-8158-3fa322937d19"
+          },
+          {
+            "local_position_iu": [
+              925000,
+              0
+            ],
+            "net": "ROW_GATE_03",
+            "number": "5",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "5f8734f1-d459-57b5-afd9-85a9d034805c"
+          }
+        ],
+        "reference": "PAIR04",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_11_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "dd974865-f67b-5010-bcdc-7f8aab313816"
+          },
+          {
+            "local_position_iu": [
+              925000,
+              -650000
+            ],
+            "net": "VLED",
+            "number": "4",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "216e0c45-3c09-57d2-aaec-09ebf8194847"
+          }
+        ],
+        "reference": "PAIR12",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_03_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "12cacc22-9254-5b70-8158-3fa322937d19"
+          },
+          {
+            "local_position_iu": [
+              925000,
+              -650000
+            ],
+            "net": "VLED",
+            "number": "4",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "48ae23bc-9b69-5764-bf2f-cb74368f5054"
+          }
+        ],
+        "reference": "PAIR04",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_11_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "dd974865-f67b-5010-bcdc-7f8aab313816"
+          },
+          {
+            "local_position_iu": [
+              925000,
+              0
+            ],
+            "net": "ROW_GATE_11",
+            "number": "5",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "7bf3f5fd-8b8c-5020-912f-e584193df155"
+          }
+        ],
+        "reference": "PAIR12",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.18,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_03_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "12cacc22-9254-5b70-8158-3fa322937d19"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_03",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "6424fff6-4eb8-5d40-aae4-2fb93b6ab4fd"
+          }
+        ],
+        "reference": "PAIR04",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              650000
+            ],
+            "net": "GND",
+            "number": "1",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "adc2bf2b-9282-504a-942b-257a21848b55"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_14",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "2010117e-3e91-5df1-9353-9a705c597ab0"
+          }
+        ],
+        "reference": "PAIR15",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              0
+            ],
+            "net": "ROW_SEL_14",
+            "number": "2",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "3aad70ed-935b-5492-b43c-0e334db28e63"
+          },
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_14_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "fb9a003a-ed2d-5780-8d5b-4fbf2d64e258"
+          }
+        ],
+        "reference": "PAIR15",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              0
+            ],
+            "net": "ROW_SEL_14",
+            "number": "2",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "3aad70ed-935b-5492-b43c-0e334db28e63"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_14",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "2010117e-3e91-5df1-9353-9a705c597ab0"
+          }
+        ],
+        "reference": "PAIR15",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              650000
+            ],
+            "net": "GND",
+            "number": "1",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "22b150ab-f0a9-507e-943c-cb1e5fd74303"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_01",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "62ef9322-09b8-5895-a50e-d84b85468422"
+          }
+        ],
+        "reference": "PAIR02",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_14_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "fb9a003a-ed2d-5780-8d5b-4fbf2d64e258"
+          },
+          {
+            "local_position_iu": [
+              925000,
+              -650000
+            ],
+            "net": "VLED",
+            "number": "4",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "6d8cb1b1-e96e-51a7-8eb5-1c6e61694d56"
+          }
+        ],
+        "reference": "PAIR15",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_14_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "fb9a003a-ed2d-5780-8d5b-4fbf2d64e258"
+          },
+          {
+            "local_position_iu": [
+              925000,
+              0
+            ],
+            "net": "ROW_GATE_14",
+            "number": "5",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "48e7e1b8-917f-5bb3-abd3-ff1755f45c55"
+          }
+        ],
+        "reference": "PAIR15",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              0
+            ],
+            "net": "ROW_SEL_01",
+            "number": "2",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "63f04649-5acf-5afd-8e1d-c0be001e0940"
+          },
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_01_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "11355e7d-b338-5337-bbcb-cbcfbc8e70f8"
+          }
+        ],
+        "reference": "PAIR02",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.18,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_14_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "fb9a003a-ed2d-5780-8d5b-4fbf2d64e258"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_14",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "2010117e-3e91-5df1-9353-9a705c597ab0"
+          }
+        ],
+        "reference": "PAIR15",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              0
+            ],
+            "net": "ROW_SEL_01",
+            "number": "2",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "63f04649-5acf-5afd-8e1d-c0be001e0940"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_01",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "62ef9322-09b8-5895-a50e-d84b85468422"
+          }
+        ],
+        "reference": "PAIR02",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_01_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "11355e7d-b338-5337-bbcb-cbcfbc8e70f8"
+          },
+          {
+            "local_position_iu": [
+              925000,
+              -650000
+            ],
+            "net": "VLED",
+            "number": "4",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "75480661-8dea-5444-ac43-3481bde8d9b8"
+          }
+        ],
+        "reference": "PAIR02",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_01_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "11355e7d-b338-5337-bbcb-cbcfbc8e70f8"
+          },
+          {
+            "local_position_iu": [
+              925000,
+              0
+            ],
+            "net": "ROW_GATE_01",
+            "number": "5",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "fd0213c8-0dfa-5e9b-a36c-5e283562cb0e"
+          }
+        ],
+        "reference": "PAIR02",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.18,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_01_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "11355e7d-b338-5337-bbcb-cbcfbc8e70f8"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_01",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "62ef9322-09b8-5895-a50e-d84b85468422"
+          }
+        ],
+        "reference": "PAIR02",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              650000
+            ],
+            "net": "GND",
+            "number": "1",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "18c2957d-80b7-547e-887b-3948630ff2b4"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_02",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "0583a22b-f80c-59d1-a19a-f568fac5be55"
+          }
+        ],
+        "reference": "PAIR03",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              0
+            ],
+            "net": "ROW_SEL_02",
+            "number": "2",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "b475fb7c-6150-5b2b-a4f9-9a9945f99559"
+          },
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_02_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "c3a08bbf-b881-5314-8dd4-2399ae2e08db"
+          }
+        ],
+        "reference": "PAIR03",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              -925000,
+              0
+            ],
+            "net": "ROW_SEL_02",
+            "number": "2",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "b475fb7c-6150-5b2b-a4f9-9a9945f99559"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_02",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "0583a22b-f80c-59d1-a19a-f568fac5be55"
+          }
+        ],
+        "reference": "PAIR03",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_02_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "c3a08bbf-b881-5314-8dd4-2399ae2e08db"
+          },
+          {
+            "local_position_iu": [
+              925000,
+              -650000
+            ],
+            "net": "VLED",
+            "number": "4",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "2607f574-5636-5e7c-9d82-58041b990583"
+          }
+        ],
+        "reference": "PAIR03",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.15,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_02_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "c3a08bbf-b881-5314-8dd4-2399ae2e08db"
+          },
+          {
+            "local_position_iu": [
+              925000,
+              0
+            ],
+            "net": "ROW_GATE_02",
+            "number": "5",
+            "size_iu": [
+              450000,
+              390000
+            ],
+            "uuid": "101bf463-70cf-58a0-b57a-be78979841cc"
+          }
+        ],
+        "reference": "PAIR03",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.18,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C",
+        "pads": [
+          {
+            "local_position_iu": [
+              0,
+              -500000
+            ],
+            "net": "ROW_02_A",
+            "number": "3",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "c3a08bbf-b881-5314-8dd4-2399ae2e08db"
+          },
+          {
+            "local_position_iu": [
+              0,
+              500000
+            ],
+            "net": "ROW_GATE_02",
+            "number": "6",
+            "size_iu": [
+              1100000,
+              820000
+            ],
+            "uuid": "0583a22b-f80c-59d1-a19a-f568fac5be55"
+          }
+        ],
+        "reference": "PAIR03",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.18,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:X2SON_TI_DSF0006A_1x1mm_P0.35mm",
+        "pads": [
+          {
+            "local_position_iu": [
+              -400000,
+              350000
+            ],
+            "net": "",
+            "number": "1",
+            "size_iu": [
+              600000,
+              170000
+            ],
+            "uuid": "88a4f051-d3a8-5672-b0f3-d0f806d0c2b5"
+          },
+          {
+            "local_position_iu": [
+              -400000,
+              0
+            ],
+            "net": "DISPLAY_HEARTBEAT",
+            "number": "2",
+            "size_iu": [
+              600000,
+              170000
+            ],
+            "uuid": "b36af90f-81ac-5111-950c-5fdc3cb1d1fe"
+          }
+        ],
+        "reference": "U48",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.18,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:X2SON_TI_DSF0006A_1x1mm_P0.35mm",
+        "pads": [
+          {
+            "local_position_iu": [
+              -400000,
+              0
+            ],
+            "net": "DISPLAY_HEARTBEAT",
+            "number": "2",
+            "size_iu": [
+              600000,
+              170000
+            ],
+            "uuid": "b36af90f-81ac-5111-950c-5fdc3cb1d1fe"
+          },
+          {
+            "local_position_iu": [
+              -400000,
+              -350000
+            ],
+            "net": "GND",
+            "number": "3",
+            "size_iu": [
+              600000,
+              170000
+            ],
+            "uuid": "d1afe07f-44d3-5959-8e1c-83c47e92e4b4"
+          }
+        ],
+        "reference": "U48",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.18,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:X2SON_TI_DSF0006A_1x1mm_P0.35mm",
+        "pads": [
+          {
+            "local_position_iu": [
+              400000,
+              -350000
+            ],
+            "net": "HEARTBEAT_FALL_CLK",
+            "number": "4",
+            "size_iu": [
+              600000,
+              170000
+            ],
+            "uuid": "6df1b7c7-d86b-54ef-9a74-06d0ba86fa29"
+          },
+          {
+            "local_position_iu": [
+              400000,
+              0
+            ],
+            "net": "",
+            "number": "5",
+            "size_iu": [
+              600000,
+              170000
+            ],
+            "uuid": "86ca78a6-a740-52b2-9c3c-a86a26d29a23"
+          }
+        ],
+        "reference": "U48",
+        "required_clearance_mm": 0.2
+      },
+      {
+        "accepted_for_fabrication": false,
+        "actual_clearance_mm": 0.18,
+        "classification": "INTERNAL_PACKAGE_LAND_SPACING_REQUIRES_MASK_PROCESS_AND_SCOPED_RULE_DISPOSITION",
+        "footprint": "rgb-badge-coupon:X2SON_TI_DSF0006A_1x1mm_P0.35mm",
+        "pads": [
+          {
+            "local_position_iu": [
+              400000,
+              0
+            ],
+            "net": "",
+            "number": "5",
+            "size_iu": [
+              600000,
+              170000
+            ],
+            "uuid": "86ca78a6-a740-52b2-9c3c-a86a26d29a23"
+          },
+          {
+            "local_position_iu": [
+              400000,
+              350000
+            ],
+            "net": "+3V3_APP",
+            "number": "6",
+            "size_iu": [
+              600000,
+              170000
+            ],
+            "uuid": "6bad936f-74bd-580a-8f77-02361c3ebace"
+          }
+        ],
+        "reference": "U48",
+        "required_clearance_mm": 0.2
+      }
+    ],
+    "board_sha256": "5e07fb866cc059de670e34102045d9dfd88c88f101355fcdbb27253c0ae26e43",
+    "control_net_groups": {
+      "APP_3V3_FB": [
+        [
+          [
+            "R82",
+            "1"
+          ],
+          [
+            "R81",
+            "2"
+          ]
+        ],
+        [
+          [
+            "U36",
+            "8"
+          ]
+        ]
+      ],
+      "APP_ON_SW_DRAFT": [
+        [
+          [
+            "U36",
+            "5"
+          ]
+        ],
+        [
+          [
+            "R83",
+            "1"
+          ]
+        ],
+        [
+          [
+            "SW2",
+            "3"
+          ]
+        ]
+      ],
+      "VLED_ENABLE_DRAFT": [
+        [
+          [
+            "R87",
+            "1"
+          ],
+          [
+            "U37",
+            "12"
+          ]
+        ]
+      ],
+      "VLED_FB": [
+        [
+          [
+            "R85",
+            "2"
+          ],
+          [
+            "U37",
+            "3"
+          ],
+          [
+            "R86",
+            "1"
+          ]
+        ]
+      ],
+      "VLED_FB_TOP_MID": [
+        [
+          [
+            "R84",
+            "2"
+          ],
+          [
+            "R85",
+            "1"
+          ]
+        ]
+      ]
+    },
+    "distance_interpretation": "Native CAD centres and conservative AABB lower bounds; not routed path length or loop inductance",
+    "drc_sha256": "2da6b7a52a2adfd069a52723005c74141123782dd079d83fe78c9b7c75ab433d",
+    "fabrication_release_allowed": false,
+    "intrinsic_drc_summary": {
+      "rgb-badge-coupon:WDFN6_2x2_onsemi_NTLJD3119C": {
+        "findings": 96,
+        "gap_counts_mm": {
+          "0.15": 80,
+          "0.18": 16
+        },
+        "references": [
+          "PAIR01",
+          "PAIR02",
+          "PAIR03",
+          "PAIR04",
+          "PAIR05",
+          "PAIR06",
+          "PAIR07",
+          "PAIR08",
+          "PAIR09",
+          "PAIR10",
+          "PAIR11",
+          "PAIR12",
+          "PAIR13",
+          "PAIR14",
+          "PAIR15",
+          "PAIR16"
+        ]
+      },
+      "rgb-badge-coupon:X2SON_TI_DSF0006A_1x1mm_P0.35mm": {
+        "findings": 8,
+        "gap_counts_mm": {
+          "0.18": 8
+        },
+        "references": [
+          "U48",
+          "U52"
+        ]
+      }
+    },
+    "kicad_version": "10.0.6",
+    "native_opens": 50,
+    "power_track_width_counts": [
+      {
+        "layer": "B.Cu",
+        "net": "+3V3_APP",
+        "segments": 2,
+        "width_mm": 0.12
+      },
+      {
+        "layer": "B.Cu",
+        "net": "+3V3_APP",
+        "segments": 25,
+        "width_mm": 0.2
+      },
+      {
+        "layer": "F.Cu",
+        "net": "+3V3_APP",
+        "segments": 5,
+        "width_mm": 0.2
+      },
+      {
+        "layer": "In1.Cu",
+        "net": "+3V3_APP",
+        "segments": 1,
+        "width_mm": 0.2
+      },
+      {
+        "layer": "In3.Cu",
+        "net": "+3V3_APP",
+        "segments": 29,
+        "width_mm": 0.2
+      },
+      {
+        "layer": "In4.Cu",
+        "net": "+3V3_APP",
+        "segments": 12,
+        "width_mm": 0.2
+      },
+      {
+        "layer": "B.Cu",
+        "net": "+SYS_APP_IN_DRAFT",
+        "segments": 40,
+        "width_mm": 0.2
+      },
+      {
+        "layer": "F.Cu",
+        "net": "+SYS_APP_IN_DRAFT",
+        "segments": 12,
+        "width_mm": 0.2
+      },
+      {
+        "layer": "In1.Cu",
+        "net": "+SYS_APP_IN_DRAFT",
+        "segments": 4,
+        "width_mm": 0.2
+      },
+      {
+        "layer": "In3.Cu",
+        "net": "+SYS_APP_IN_DRAFT",
+        "segments": 3,
+        "width_mm": 0.2
+      },
+      {
+        "layer": "In4.Cu",
+        "net": "+SYS_APP_IN_DRAFT",
+        "segments": 12,
+        "width_mm": 0.2
+      },
+      {
+        "layer": "B.Cu",
+        "net": "Net-(L2-~-Pad1)",
+        "segments": 3,
+        "width_mm": 0.2
+      },
+      {
+        "layer": "B.Cu",
+        "net": "Net-(L2-~-Pad2)",
+        "segments": 3,
+        "width_mm": 0.2
+      },
+      {
+        "layer": "B.Cu",
+        "net": "Net-(U36-LX1)",
+        "segments": 2,
+        "width_mm": 0.2
+      },
+      {
+        "layer": "B.Cu",
+        "net": "Net-(U36-LX2)",
+        "segments": 2,
+        "width_mm": 0.2
+      },
+      {
+        "layer": "B.Cu",
+        "net": "VLED",
+        "segments": 64,
+        "width_mm": 0.2
+      },
+      {
+        "layer": "F.Cu",
+        "net": "VLED",
+        "segments": 3,
+        "width_mm": 0.2
+      },
+      {
+        "layer": "In1.Cu",
+        "net": "VLED",
+        "segments": 5,
+        "width_mm": 0.2
+      },
+      {
+        "layer": "In2.Cu",
+        "net": "VLED",
+        "segments": 41,
+        "width_mm": 0.2
+      },
+      {
+        "layer": "In3.Cu",
+        "net": "VLED",
+        "segments": 26,
+        "width_mm": 0.2
+      },
+      {
+        "layer": "In4.Cu",
+        "net": "VLED",
+        "segments": 110,
+        "width_mm": 0.2
+      }
+    ],
+    "source_geometry_changed": false,
+    "stackup_copper_thickness_defined": false,
+    "stages": {
+      "U36": {
+        "capacitors": {
+          "C40": {
+            "function": "input",
+            "mpn": "GRM187R61A226ME15",
+            "return": {
+              "aabb_edge_gap_lower_bound_mm": 68.75193179104134,
+              "centres_mm": [
+                [
+                  108.01,
+                  12.25
+                ],
+                [
+                  38.975,
+                  4.0
+                ]
+              ],
+              "first": [
+                "U36",
+                "7"
+              ],
+              "nets": [
+                "GND",
+                "GND"
+              ],
+              "physically_connected": true,
+              "second": [
+                "C40",
+                "2"
+              ],
+              "straight_centre_distance_mm": 69.52620890714522
+            },
+            "supply": {
+              "aabb_edge_gap_lower_bound_mm": 68.80092677428117,
+              "centres_mm": [
+                [
+                  109.49,
+                  13.25
+                ],
+                [
+                  40.525,
+                  4.0
+                ]
+              ],
+              "first": [
+                "U36",
+                "4"
+              ],
+              "nets": [
+                "+SYS_APP_IN_DRAFT",
+                "+SYS_APP_IN_DRAFT"
+              ],
+              "physically_connected": true,
+              "second": [
+                "C40",
+                "1"
+              ],
+              "straight_centre_distance_mm": 69.58256768041835
+            }
+          },
+          "C41": {
+            "function": "input",
+            "mpn": "GRM187R61A226ME15",
+            "return": {
+              "aabb_edge_gap_lower_bound_mm": 68.65604944212855,
+              "centres_mm": [
+                [
+                  108.01,
+                  12.25
+                ],
+                [
+                  39.475,
+                  1.0
+                ]
+              ],
+              "first": [
+                "U36",
+                "7"
+              ],
+              "nets": [
+                "GND",
+                "GND"
+              ],
+              "physically_connected": true,
+              "second": [
+                "C41",
+                "2"
+              ],
+              "straight_centre_distance_mm": 69.45220460863715
+            },
+            "supply": {
+              "aabb_edge_gap_lower_bound_mm": 68.74927290524604,
+              "centres_mm": [
+                [
+                  109.49,
+                  13.25
+                ],
+                [
+                  41.025,
+                  1.0
+                ]
+              ],
+              "first": [
+                "U36",
+                "4"
+              ],
+              "nets": [
+                "+SYS_APP_IN_DRAFT",
+                "+SYS_APP_IN_DRAFT"
+              ],
+              "physically_connected": true,
+              "second": [
+                "C41",
+                "1"
+              ],
+              "straight_centre_distance_mm": 69.55227332733274
+            }
+          },
+          "C42": {
+            "function": "output",
+            "mpn": "GRM219R60J476ME44",
+            "return": {
+              "aabb_edge_gap_lower_bound_mm": 17.989232890815547,
+              "centres_mm": [
+                [
+                  108.01,
+                  12.25
+                ],
+                [
+                  92.175,
+                  22.75
+                ]
+              ],
+              "first": [
+                "U36",
+                "7"
+              ],
+              "nets": [
+                "GND",
+                "GND"
+              ],
+              "physically_connected": true,
+              "second": [
+                "C42",
+                "2"
+              ],
+              "straight_centre_distance_mm": 18.99992697354388
+            },
+            "supply": {
+              "aabb_edge_gap_lower_bound_mm": 17.91683286744619,
+              "centres_mm": [
+                [
+                  109.49,
+                  11.75
+                ],
+                [
+                  94.075,
+                  22.75
+                ]
+              ],
+              "first": [
+                "U36",
+                "1"
+              ],
+              "nets": [
+                "+3V3_APP",
+                "+3V3_APP"
+              ],
+              "physically_connected": true,
+              "second": [
+                "C42",
+                "1"
+              ],
+              "straight_centre_distance_mm": 18.93732359653813
+            }
+          },
+          "C43": {
+            "function": "output",
+            "mpn": "GRM219R60J476ME44",
+            "return": {
+              "aabb_edge_gap_lower_bound_mm": 86.50346813856656,
+              "centres_mm": [
+                [
+                  108.01,
+                  12.25
+                ],
+                [
+                  21.425,
+                  23.25
+                ]
+              ],
+              "first": [
+                "U36",
+                "7"
+              ],
+              "nets": [
+                "GND",
+                "GND"
+              ],
+              "physically_connected": true,
+              "second": [
+                "C43",
+                "2"
+              ],
+              "straight_centre_distance_mm": 87.28093849747492
+            },
+            "supply": {
+              "aabb_edge_gap_lower_bound_mm": 86.14708584740403,
+              "centres_mm": [
+                [
+                  109.49,
+                  11.75
+                ],
+                [
+                  23.325,
+                  23.25
+                ]
+              ],
+              "first": [
+                "U36",
+                "1"
+              ],
+              "nets": [
+                "+3V3_APP",
+                "+3V3_APP"
+              ],
+              "physically_connected": true,
+              "second": [
+                "C43",
+                "1"
+              ],
+              "straight_centre_distance_mm": 86.92903556925039
+            }
+          }
+        },
+        "enable_to_pulldown": {
+          "aabb_edge_gap_lower_bound_mm": 49.74299573809361,
+          "centres_mm": [
+            [
+              108.01,
+              13.25
+            ],
+            [
+              57.75,
+              10.25
+            ]
+          ],
+          "first": [
+            "U36",
+            "5"
+          ],
+          "nets": [
+            "APP_ON_SW_DRAFT",
+            "APP_ON_SW_DRAFT"
+          ],
+          "physically_connected": false,
+          "second": [
+            "R83",
+            "1"
+          ],
+          "straight_centre_distance_mm": 50.34945481333438
+        },
+        "feedback_chain": {
+          "aabb_edge_gap_lower_bound_mm": 3.0,
+          "centres_mm": [
+            [
+              51.75,
+              10.25
+            ],
+            [
+              55.25,
+              10.25
+            ]
+          ],
+          "first": [
+            "R81",
+            "2"
+          ],
+          "nets": [
+            "APP_3V3_FB",
+            "APP_3V3_FB"
+          ],
+          "physically_connected": true,
+          "second": [
+            "R82",
+            "1"
+          ],
+          "straight_centre_distance_mm": 3.5
+        },
+        "feedback_to_IC": [
+          {
+            "aabb_edge_gap_lower_bound_mm": 55.68586557646383,
+            "centres_mm": [
+              [
+                108.01,
+                11.75
+              ],
+              [
+                51.75,
+                10.25
+              ]
+            ],
+            "first": [
+              "U36",
+              "8"
+            ],
+            "nets": [
+              "APP_3V3_FB",
+              "APP_3V3_FB"
+            ],
+            "physically_connected": false,
+            "second": [
+              "R81",
+              "2"
+            ],
+            "straight_centre_distance_mm": 56.27999289267901
+          },
+          {
+            "aabb_edge_gap_lower_bound_mm": 52.18659430351822,
+            "centres_mm": [
+              [
+                108.01,
+                11.75
+              ],
+              [
+                55.25,
+                10.25
+              ]
+            ],
+            "first": [
+              "U36",
+              "8"
+            ],
+            "nets": [
+              "APP_3V3_FB",
+              "APP_3V3_FB"
+            ],
+            "physically_connected": false,
+            "second": [
+              "R82",
+              "1"
+            ],
+            "straight_centre_distance_mm": 52.7813186648458
+          }
+        ],
+        "ground_pin_connected_to_main_ground": true,
+        "ground_vias_under_ground_pad_aabb": [],
+        "ground_vias_within_3mm": [
+          {
+            "centre_distance_mm": 1.1034491379307019,
+            "diameter_mm": 0.3,
+            "drill_mm": 0.1,
+            "layers": [
+              "F.Cu",
+              "In1.Cu"
+            ],
+            "position_mm": [
+              107.25,
+              13.05
+            ]
+          },
+          {
+            "centre_distance_mm": 1.1034491379307019,
+            "diameter_mm": 0.3,
+            "drill_mm": 0.1,
+            "layers": [
+              "In1.Cu",
+              "In2.Cu"
+            ],
+            "position_mm": [
+              107.25,
+              13.05
+            ]
+          },
+          {
+            "centre_distance_mm": 1.646845469374707,
+            "diameter_mm": 0.3,
+            "drill_mm": 0.1,
+            "layers": [
+              "In2.Cu",
+              "In3.Cu"
+            ],
+            "position_mm": [
+              108.4,
+              10.65
+            ]
+          },
+          {
+            "centre_distance_mm": 1.646845469374707,
+            "diameter_mm": 0.3,
+            "drill_mm": 0.1,
+            "layers": [
+              "In3.Cu",
+              "In4.Cu"
+            ],
+            "position_mm": [
+              108.4,
+              10.65
+            ]
+          },
+          {
+            "centre_distance_mm": 1.646845469374707,
+            "diameter_mm": 0.3,
+            "drill_mm": 0.1,
+            "layers": [
+              "In4.Cu",
+              "B.Cu"
+            ],
+            "position_mm": [
+              108.4,
+              10.65
+            ]
+          }
+        ],
+        "mpn": "TPS631000DRLR",
+        "pins": [
+          {
+            "net": "+3V3_APP",
+            "number": "1",
+            "position_mm": [
+              109.49,
+              11.75
+            ]
+          },
+          {
+            "net": "Net-(U36-LX2)",
+            "number": "2",
+            "position_mm": [
+              109.49,
+              12.25
+            ]
+          },
+          {
+            "net": "Net-(U36-LX1)",
+            "number": "3",
+            "position_mm": [
+              109.49,
+              12.75
+            ]
+          },
+          {
+            "net": "+SYS_APP_IN_DRAFT",
+            "number": "4",
+            "position_mm": [
+              109.49,
+              13.25
+            ]
+          },
+          {
+            "net": "APP_ON_SW_DRAFT",
+            "number": "5",
+            "position_mm": [
+              108.01,
+              13.25
+            ]
+          },
+          {
+            "net": "GND",
+            "number": "6",
+            "position_mm": [
+              108.01,
+              12.75
+            ]
+          },
+          {
+            "net": "GND",
+            "number": "7",
+            "position_mm": [
+              108.01,
+              12.25
+            ]
+          },
+          {
+            "net": "APP_3V3_FB",
+            "number": "8",
+            "position_mm": [
+              108.01,
+              11.75
+            ]
+          }
+        ],
+        "position_mm": [
+          108.75,
+          12.5
+        ]
+      },
+      "U37": {
+        "VINA_bypass": {
+          "return": {
+            "aabb_edge_gap_lower_bound_mm": 2.2,
+            "centres_mm": [
+              [
+                44.5,
+                18.9
+              ],
+              [
+                44.55,
+                21.65
+              ]
+            ],
+            "first": [
+              "U37",
+              "2"
+            ],
+            "nets": [
+              "GND",
+              "GND"
+            ],
+            "physically_connected": true,
+            "second": [
+              "C63",
+              "2"
+            ],
+            "straight_centre_distance_mm": 2.7504545078950136
+          },
+          "supply": {
+            "aabb_edge_gap_lower_bound_mm": 2.2,
+            "centres_mm": [
+              [
+                44.0,
+                18.9
+              ],
+              [
+                43.75,
+                21.65
+              ]
+            ],
+            "first": [
+              "U37",
+              "1"
+            ],
+            "nets": [
+              "+SYS_APP_IN_DRAFT",
+              "+SYS_APP_IN_DRAFT"
+            ],
+            "physically_connected": true,
+            "second": [
+              "C63",
+              "1"
+            ],
+            "straight_centre_distance_mm": 2.7613402542968153
+          }
+        },
+        "capacitors": {
+          "C44": {
+            "function": "input",
+            "mpn": "GRM188R60J106ME47D",
+            "return": {
+              "aabb_edge_gap_lower_bound_mm": 1.709999,
+              "centres_mm": [
+                [
+                  45.5,
+                  17.5
+                ],
+                [
+                  43.975,
+                  14.650001
+                ]
+              ],
+              "first": [
+                "U37",
+                "15"
+              ],
+              "nets": [
+                "GND",
+                "GND"
+              ],
+              "physically_connected": true,
+              "second": [
+                "C44",
+                "2"
+              ],
+              "straight_centre_distance_mm": 3.232355070223721
+            },
+            "supply": {
+              "aabb_edge_gap_lower_bound_mm": 0.8324051897970122,
+              "centres_mm": [
+                [
+                  46.0,
+                  16.1
+                ],
+                [
+                  45.325,
+                  14.650001
+                ]
+              ],
+              "first": [
+                "U37",
+                "10"
+              ],
+              "nets": [
+                "+SYS_APP_IN_DRAFT",
+                "+SYS_APP_IN_DRAFT"
+              ],
+              "physically_connected": true,
+              "second": [
+                "C44",
+                "1"
+              ],
+              "straight_centre_distance_mm": 1.5994130485903264
+            }
+          },
+          "C45": {
+            "function": "input",
+            "mpn": "GRM188R60J106ME47D",
+            "return": {
+              "aabb_edge_gap_lower_bound_mm": 2.1035022177314193,
+              "centres_mm": [
+                [
+                  45.5,
+                  17.5
+                ],
+                [
+                  48.475,
+                  14.650001
+                ]
+              ],
+              "first": [
+                "U37",
+                "15"
+              ],
+              "nets": [
+                "GND",
+                "GND"
+              ],
+              "physically_connected": true,
+              "second": [
+                "C45",
+                "2"
+              ],
+              "straight_centre_distance_mm": 4.119844572311074
+            },
+            "supply": {
+              "aabb_edge_gap_lower_bound_mm": 1.049951617933417,
+              "centres_mm": [
+                [
+                  46.0,
+                  16.1
+                ],
+                [
+                  47.125,
+                  14.650001
+                ]
+              ],
+              "first": [
+                "U37",
+                "10"
+              ],
+              "nets": [
+                "+SYS_APP_IN_DRAFT",
+                "+SYS_APP_IN_DRAFT"
+              ],
+              "physically_connected": true,
+              "second": [
+                "C45",
+                "1"
+              ],
+              "straight_centre_distance_mm": 1.8352444251382445
+            }
+          },
+          "C46": {
+            "function": "output",
+            "mpn": "GRM187R61A226ME15",
+            "return": {
+              "aabb_edge_gap_lower_bound_mm": 1.61,
+              "centres_mm": [
+                [
+                  45.5,
+                  17.5
+                ],
+                [
+                  43.875,
+                  20.35
+                ]
+              ],
+              "first": [
+                "U37",
+                "15"
+              ],
+              "nets": [
+                "GND",
+                "GND"
+              ],
+              "physically_connected": true,
+              "second": [
+                "C46",
+                "2"
+              ],
+              "straight_centre_distance_mm": 3.2807201953229734
+            },
+            "supply": {
+              "aabb_edge_gap_lower_bound_mm": 0.7,
+              "centres_mm": [
+                [
+                  45.5,
+                  18.9
+                ],
+                [
+                  45.425,
+                  20.35
+                ]
+              ],
+              "first": [
+                "U37",
+                "4"
+              ],
+              "nets": [
+                "VLED",
+                "VLED"
+              ],
+              "physically_connected": true,
+              "second": [
+                "C46",
+                "1"
+              ],
+              "straight_centre_distance_mm": 1.4519383595731634
+            }
+          },
+          "C47": {
+            "function": "output",
+            "mpn": "GRM187R61A226ME15",
+            "return": {
+              "aabb_edge_gap_lower_bound_mm": 2.0537100574326455,
+              "centres_mm": [
+                [
+                  45.5,
+                  17.5
+                ],
+                [
+                  48.575,
+                  20.35
+                ]
+              ],
+              "first": [
+                "U37",
+                "15"
+              ],
+              "nets": [
+                "GND",
+                "GND"
+              ],
+              "physically_connected": true,
+              "second": [
+                "C47",
+                "2"
+              ],
+              "straight_centre_distance_mm": 4.192627457812109
+            },
+            "supply": {
+              "aabb_edge_gap_lower_bound_mm": 1.2453513560437472,
+              "centres_mm": [
+                [
+                  45.5,
+                  18.9
+                ],
+                [
+                  47.025,
+                  20.35
+                ]
+              ],
+              "first": [
+                "U37",
+                "4"
+              ],
+              "nets": [
+                "VLED",
+                "VLED"
+              ],
+              "physically_connected": true,
+              "second": [
+                "C47",
+                "1"
+              ],
+              "straight_centre_distance_mm": 2.1043110511518974
+            }
+          },
+          "C48": {
+            "function": "output",
+            "mpn": "GRM187R61A226ME15",
+            "return": {
+              "aabb_edge_gap_lower_bound_mm": 6.188111585936375,
+              "centres_mm": [
+                [
+                  45.5,
+                  17.5
+                ],
+                [
+                  53.275,
+                  20.35
+                ]
+              ],
+              "first": [
+                "U37",
+                "15"
+              ],
+              "nets": [
+                "GND",
+                "GND"
+              ],
+              "physically_connected": true,
+              "second": [
+                "C48",
+                "2"
+              ],
+              "straight_centre_distance_mm": 8.280889143081193
+            },
+            "supply": {
+              "aabb_edge_gap_lower_bound_mm": 5.772599068010873,
+              "centres_mm": [
+                [
+                  45.5,
+                  18.9
+                ],
+                [
+                  51.725,
+                  20.35
+                ]
+              ],
+              "first": [
+                "U37",
+                "4"
+              ],
+              "nets": [
+                "VLED",
+                "VLED"
+              ],
+              "physically_connected": true,
+              "second": [
+                "C48",
+                "1"
+              ],
+              "straight_centre_distance_mm": 6.391644936946985
+            }
+          },
+          "C49": {
+            "function": "output",
+            "mpn": "GRM187R61A226ME15",
+            "return": {
+              "aabb_edge_gap_lower_bound_mm": 6.027124133448804,
+              "centres_mm": [
+                [
+                  45.5,
+                  17.5
+                ],
+                [
+                  53.325,
+                  18.900001
+                ]
+              ],
+              "first": [
+                "U37",
+                "15"
+              ],
+              "nets": [
+                "GND",
+                "GND"
+              ],
+              "physically_connected": true,
+              "second": [
+                "C49",
+                "2"
+              ],
+              "straight_centre_distance_mm": 7.949253285686717
+            },
+            "supply": {
+              "aabb_edge_gap_lower_bound_mm": 5.78,
+              "centres_mm": [
+                [
+                  45.5,
+                  18.9
+                ],
+                [
+                  51.775,
+                  18.900001
+                ]
+              ],
+              "first": [
+                "U37",
+                "4"
+              ],
+              "nets": [
+                "VLED",
+                "VLED"
+              ],
+              "physically_connected": true,
+              "second": [
+                "C49",
+                "1"
+              ],
+              "straight_centre_distance_mm": 6.275000000000078
+            }
+          }
+        },
+        "enable_to_pulldown": {
+          "aabb_edge_gap_lower_bound_mm": 2.2,
+          "centres_mm": [
+            [
+              45.0,
+              16.1
+            ],
+            [
+              44.65,
+              13.35
+            ]
+          ],
+          "first": [
+            "U37",
+            "12"
+          ],
+          "nets": [
+            "VLED_ENABLE_DRAFT",
+            "VLED_ENABLE_DRAFT"
+          ],
+          "physically_connected": true,
+          "second": [
+            "R87",
+            "1"
+          ],
+          "straight_centre_distance_mm": 2.772183255125824
+        },
+        "feedback_chain": {
+          "aabb_edge_gap_lower_bound_mm": 0.65,
+          "centres_mm": [
+            [
+              47.95,
+              21.65
+            ],
+            [
+              46.8,
+              21.65
+            ]
+          ],
+          "first": [
+            "R85",
+            "2"
+          ],
+          "nets": [
+            "VLED_FB",
+            "VLED_FB"
+          ],
+          "physically_connected": true,
+          "second": [
+            "R86",
+            "1"
+          ],
+          "straight_centre_distance_mm": 1.1500000000000057
+        },
+        "feedback_to_IC": [
+          {
+            "aabb_edge_gap_lower_bound_mm": 5.216598508606926,
+            "centres_mm": [
+              [
+                45.0,
+                18.9
+              ],
+              [
+                50.1,
+                21.65
+              ]
+            ],
+            "first": [
+              "U37",
+              "3"
+            ],
+            "nets": [
+              "VLED_FB",
+              "VLED_FB_TOP_MID"
+            ],
+            "physically_connected": false,
+            "second": [
+              "R84",
+              "2"
+            ],
+            "straight_centre_distance_mm": 5.7941781125540155
+          },
+          {
+            "aabb_edge_gap_lower_bound_mm": 3.3906341589738047,
+            "centres_mm": [
+              [
+                45.0,
+                18.9
+              ],
+              [
+                47.95,
+                21.65
+              ]
+            ],
+            "first": [
+              "U37",
+              "3"
+            ],
+            "nets": [
+              "VLED_FB",
+              "VLED_FB"
+            ],
+            "physically_connected": true,
+            "second": [
+              "R85",
+              "2"
+            ],
+            "straight_centre_distance_mm": 4.032988966015158
+          },
+          {
+            "aabb_edge_gap_lower_bound_mm": 2.623909297212844,
+            "centres_mm": [
+              [
+                45.0,
+                18.9
+              ],
+              [
+                46.8,
+                21.65
+              ]
+            ],
+            "first": [
+              "U37",
+              "3"
+            ],
+            "nets": [
+              "VLED_FB",
+              "VLED_FB"
+            ],
+            "physically_connected": true,
+            "second": [
+              "R86",
+              "1"
+            ],
+            "straight_centre_distance_mm": 3.2867156859089577
+          }
+        ],
+        "ground_pin_connected_to_main_ground": true,
+        "ground_vias_under_ground_pad_aabb": [],
+        "ground_vias_within_3mm": [],
+        "mpn": "TPS63020DSJT",
+        "pins": [
+          {
+            "net": "+SYS_APP_IN_DRAFT",
+            "number": "1",
+            "position_mm": [
+              44.0,
+              18.9
+            ]
+          },
+          {
+            "net": "GND",
+            "number": "2",
+            "position_mm": [
+              44.5,
+              18.9
+            ]
+          },
+          {
+            "net": "VLED_FB",
+            "number": "3",
+            "position_mm": [
+              45.0,
+              18.9
+            ]
+          },
+          {
+            "net": "VLED",
+            "number": "4",
+            "position_mm": [
+              45.5,
+              18.9
+            ]
+          },
+          {
+            "net": "VLED",
+            "number": "5",
+            "position_mm": [
+              46.0,
+              18.9
+            ]
+          },
+          {
+            "net": "Net-(L2-~-Pad2)",
+            "number": "6",
+            "position_mm": [
+              46.5,
+              18.9
+            ]
+          },
+          {
+            "net": "Net-(L2-~-Pad2)",
+            "number": "7",
+            "position_mm": [
+              47.0,
+              18.9
+            ]
+          },
+          {
+            "net": "Net-(L2-~-Pad1)",
+            "number": "8",
+            "position_mm": [
+              47.0,
+              16.1
+            ]
+          },
+          {
+            "net": "Net-(L2-~-Pad1)",
+            "number": "9",
+            "position_mm": [
+              46.5,
+              16.1
+            ]
+          },
+          {
+            "net": "+SYS_APP_IN_DRAFT",
+            "number": "10",
+            "position_mm": [
+              46.0,
+              16.1
+            ]
+          },
+          {
+            "net": "+SYS_APP_IN_DRAFT",
+            "number": "11",
+            "position_mm": [
+              45.5,
+              16.1
+            ]
+          },
+          {
+            "net": "VLED_ENABLE_DRAFT",
+            "number": "12",
+            "position_mm": [
+              45.0,
+              16.1
+            ]
+          },
+          {
+            "net": "GND",
+            "number": "13",
+            "position_mm": [
+              44.5,
+              16.1
+            ]
+          },
+          {
+            "net": "",
+            "number": "14",
+            "position_mm": [
+              44.0,
+              16.1
+            ]
+          },
+          {
+            "net": "GND",
+            "number": "15",
+            "position_mm": [
+              43.6875,
+              16.81
+            ]
+          },
+          {
+            "net": "GND",
+            "number": "15",
+            "position_mm": [
+              43.6875,
+              17.27
+            ]
+          },
+          {
+            "net": "GND",
+            "number": "15",
+            "position_mm": [
+              43.6875,
+              17.73
+            ]
+          },
+          {
+            "net": "GND",
+            "number": "15",
+            "position_mm": [
+              43.6875,
+              18.19
+            ]
+          },
+          {
+            "net": "GND",
+            "number": "15",
+            "position_mm": [
+              45.5,
+              17.5
+            ]
+          },
+          {
+            "net": "GND",
+            "number": "15",
+            "position_mm": [
+              47.3125,
+              16.81
+            ]
+          },
+          {
+            "net": "GND",
+            "number": "15",
+            "position_mm": [
+              47.3125,
+              17.27
+            ]
+          },
+          {
+            "net": "GND",
+            "number": "15",
+            "position_mm": [
+              47.3125,
+              17.73
+            ]
+          },
+          {
+            "net": "GND",
+            "number": "15",
+            "position_mm": [
+              47.3125,
+              18.19
+            ]
+          }
+        ],
+        "position_mm": [
+          45.5,
+          17.5
+        ]
+      }
+    },
+    "status": "READ_ONLY_NATIVE_LAYOUT_INVENTORY_NOT_HARDWARE_OR_ELECTRICAL_APPROVAL",
+    "tool_sha256": "a697b2c21931f8046c9b4d0ebac5818f4676f5d0184684605f6958b12071f5f7",
+    "total_board_thickness_mm": 1.0
+  },
+  "power_budget_scenarios": [
+    {
+      "VIN_V_assumed": 2.8,
+      "VLED_load_A_nominal_driver_scenario": 0.23302,
+      "app_load_A_assumed": 0.1,
+      "calculated_input_A_excluding_other_loads": 0.5579927121489622,
+      "efficiency_assumed": 0.8,
+      "recorded_pack_discharge_A_not_confirmed_continuous": 0.9
+    },
+    {
+      "VIN_V_assumed": 2.8,
+      "VLED_load_A_nominal_driver_scenario": 0.23302,
+      "app_load_A_assumed": 0.3,
+      "calculated_input_A_excluding_other_loads": 0.8533223824786326,
+      "efficiency_assumed": 0.8,
+      "recorded_pack_discharge_A_not_confirmed_continuous": 0.9
+    },
+    {
+      "VIN_V_assumed": 2.8,
+      "VLED_load_A_nominal_driver_scenario": 0.23302,
+      "app_load_A_assumed": 0.5,
+      "calculated_input_A_excluding_other_loads": 1.1486520528083028,
+      "efficiency_assumed": 0.8,
+      "recorded_pack_discharge_A_not_confirmed_continuous": 0.9
+    },
+    {
+      "VIN_V_assumed": 2.8,
+      "VLED_load_A_nominal_driver_scenario": 0.69906,
+      "app_load_A_assumed": 0.1,
+      "calculated_input_A_excluding_other_loads": 1.3786484661172165,
+      "efficiency_assumed": 0.8,
+      "recorded_pack_discharge_A_not_confirmed_continuous": 0.9
+    }
+  ],
+  "source_circuit_or_rules_changed": false,
+  "sources_sha256": {
+    "GRM187R61A226ME15-01A-EN.pdf": "8fc5a9d8e4f05c979eeca00354c982335d2b15552eb7ba5516924e3a9395acbb",
+    "GRM188R60J106ME47-61A-EN.pdf": "f51cff8dad7a6983263ab35b5705f4d1d4b9977b1f03739c653381ba03d94ea8",
+    "GRM219R60J476ME44-01A-EN.pdf": "97ac8bc37c063e920aa768521386524edb6a5d60cd0e3080f318ca567f75bafe",
+    "GRM219R60J476ME44_InProduction.csv": "79839e9d42e739c23f68490a2ea4248ca1c6cb45026c2a8897408973abaaa57e",
+    "NTLJD3119C-D.PDF": "202122bd220e16138c458ac93bb737ab4fdb8a60d3a3722059636636f47d7aed",
+    "m_dfe252012p.pdf": "ce259ba611fb3ea196baf60e2c7080a21cd897cdb662bf77552cc842c2b91c3e",
+    "sn74lvc1g04-2026-11-05.pdf": "5322c1ab3cd3bd3f7af9c9bfa1c6139dad799d0968d9eea3ee2d84648ffc2e9e",
+    "sn74lvc1g08-2026-11-05.pdf": "30b963cc44233cf3ca35c891ff987c8323a2244ecc765e23296ec96ca4b42666",
+    "tps63020.pdf": "d117773bb7370fd79377bc70ce987eec3469ea5979547a09df52fca5f95b2e69",
+    "tps631000.pdf": "b52a4064a8c2cbb4c9dd97f366b398dedcb490ffc9d564245f297536a19b426b"
+  },
+  "status": "REVIEW_AND_SENSITIVITY_CALCULATIONS_ONLY_NOT_HARDWARE_QUALIFICATION",
+  "unknowns": [
+    "GRM188 combined effective C",
+    "GRM187/GRM219 combined bias-temperature-aging bound",
+    "actual L(I,T)",
+    "actual rail/load/transient envelope",
+    "finished copper and dielectric stack",
+    "microvia build and reliability",
+    "package mask/paste process",
+    "complete thermal model"
+  ]
+}

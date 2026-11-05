@@ -401,3 +401,5 @@ parent groups, exact ledger/poses/pads/profiles and original-orphan proof pass.
 The local-converter goal and 50-edge planning target are achieved. Remaining
 circuit opens and all electrical/part/process/fit and independent Gate A holds
 remain open; no fabrication release follows.
+
+**2026-11-05 complete-stage planning (ADR 0089):** Before continuing arbitrary open-count closure, deliver a complete-stage correction plan covering U36 physical feedback/default pull-down and local input/output bypass; U37 control/power returns, exposed-pad heat spreading and power-save/window compatibility; combined effective capacitance and L(I,T); full source/load and finished-copper/HDI process budgets. Retain the 50/104 checkpoint unchanged during this review. Inventory every intrinsic physical pad pair; no global clearance reduction or fabrication acceptance is implied. Subsequent geometry, part, mode, threshold or rule changes require their own bounded design disposition and validation. See the [review and acceptance queue](development/converter-power-layout-review-2026-11-05.md).

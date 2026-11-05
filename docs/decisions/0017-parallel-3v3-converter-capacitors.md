@@ -30,3 +30,7 @@ Before freezing the BOM or fabrication package:
 4. On the coupon, measure cold/hot startup, OFF-to-ON, charging transitions, RF and display load steps at the ESP32 pads, charger OUT and converter VIN/VOUT. Check the 3.0–3.6 V module operating range and restart/overshoot behavior. Independent Gate A review remains mandatory.
 
 Sources: [TI TPS631000 Rev. C](https://www.ti.com/lit/ds/symlink/tps631000.pdf), §§5.3 and 7.2.2.3–4; [TI BQ24074 Rev. N](https://www.ti.com/lit/ds/symlink/bq24074.pdf), §§8.5 and 9.3.2–4; owner-supplied Murata SimSurfing CSV identified and summarized in the capture contract. No PCB or battery order is authorized by this decision.
+
+## 2026-11-05 source clarification
+
+[ADR 0089's review](../development/converter-power-layout-review-2026-11-05.md) records that the cached TPS631000 Rev C operating table specifies a 330 µF output maximum, despite the application prose saying no upper limit. The explicit table governs pending clarification; the selected 94 µF nominal bank is below it. Earlier no-upper-limit wording does not authorize arbitrary output-capacitance increases. Combined effective capacitance, placement and electrical qualification remain open.
