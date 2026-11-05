@@ -61,12 +61,23 @@ jobs:
             /mechanical/review/routing-progress-track-replacements.json
             /mechanical/review/routing-progress-100-project.json
             /mechanical/review/routing-progress-trial.json
+            /mechanical/review/converter-routing-checkpoint.json
+            /mechanical/review/converter-routing-checkpoint-plan.json
+            /mechanical/review/converter-vled-52-checkpoint.json
+            /mechanical/review/vled-cleaned-stage-plan-2026-11-01.json
+            /mechanical/review/vled-local-switching-stage-2026-10-31.json
+            /mechanical/review/vled-rigid-floorplan-58-2026-10-30.json
+            /hardware/coupon/rev-a/staging/led-converter-routing-trial-114mm.kicad_pcb
+            /hardware/coupon/rev-a/staging/led-converter-routing-trial-114mm.kicad_pro
+            /hardware/coupon/rev-a/staging/led-converter-routing-trial-114mm.kicad_dru
       - name: Canonical source assignment and injected-fault checks
         run: |
           python3 tools/check-coupon-study-contract.py
           python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb --legacy-land-study --legacy-switch-study
           python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb
           python3 tools/check-routing-progress-plan.py
+          python3 tools/check-converter-checkpoint-plan.py
+          python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-converter-routing-trial-114mm.kicad_pcb
           python3 tools/check-c32-land-candidate.py
           python3 -m unittest discover -s tools/tests -p test_c32_land_candidate.py -v
           python3 -m unittest discover -s tools/tests -p test_murata_catalogue_lands.py -v

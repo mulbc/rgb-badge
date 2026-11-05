@@ -375,3 +375,29 @@ all source copper/groups/poses, prior exceptions and original-orphan waiver.
 The source retains 58 native/physical opens and exactly 104 intrinsic findings;
 no converter placement/rework or lower routing count is selected. Packaging/
 approval/assembly/electrical and independent Gate A holds remain open.
+
+
+**2026-11-05 checked converter checkpoint:** [ADR 0085](decisions/0085-selected-converter-routing-checkpoint.md) permits a separately validated child of the immutable corrected 58-edge parent. Enforce exactly thirteen VLED poses, 54 catalogued retirements, 102 additions including the C49 lead, all 246 parent groups and new named converter joins. Require 52 native/physical opens, exact 104 findings, stable fills/replay, origin/structure/profile/source/fault/orphan evidence before selection. Parent retention checks stay unchanged; current settings, part/pad geometry, protection/enable/firmware and all qualification/fabrication holds remain fixed.
+
+
+**2026-11-05 whole-coupon L1/U36 feasibility:** [ADR 0086](decisions/0086-global-u36-l1-pair-feasibility.md) permits an ignored whole-coupon 0.25 mm/cardinal pair screen on the exact corrected child trial, using existing numbered-pin short-node templates and unchanged native clearance/width/edge rules. Keep all other geometry/settings fixed. Report finite results and every filled group loss; no placement may be selected without complete restoration and the full adoption gate.
+
+
+**2026-11-05 U36 pair restoration:** [ADR 0087](decisions/0087-u36-pair-restoration-feasibility.md) permits ignored bounded ordinary-width SYS/+3V3_APP restoration for the exact new pair, followed only by native-dangling, source-present supply copper cleanup within the vacated U36 window. Preserve every old/current group and all other geometry/settings; require 50 native/physical opens and exact intrinsic DRC before proposing exact source adoption.
+
+ADR 0087's bounded cleanup stops at an active SYS shared leaf. Permit only
+its documented exact tail replacement, retaining the new route's two current
+interfaces and the original bottom bus. Do not delete the active branch or
+count retained original tail geometry as a new supply excursion. Require
+full origin/contact/inventory, 50-open and exact-DRC evidence before selection.
+
+
+**2026-11-05 exact dual-converter routing adoption:** [ADR 0088](decisions/0088-dual-converter-routing-selection.md) permits the final cumulative child ledger only: 15 poses, 65 retirements (20 originals/45 accepted), 134 additions, all 246 parent groups and named dual-converter joins. Preserve the frozen 52-edge plan and unchanged 58-edge parent gate. Select only after 50 native/physical opens, exact 104 findings, stable replay/fills, path-length, source/fault/orphan and exact shared-tail-interface evidence. Remaining circuit opens and all electrical/part/process/fit/Gate A/fabrication holds remain open.
+
+ADR 0088's cumulative dual-converter checkpoint passes the complete parent/child
+acceptance gate and is selected at 50 native/physical opens / exact 104 intrinsic
+findings. Both numbered switching-node pairs are local and below 5 mm; all 246
+parent groups, exact ledger/poses/pads/profiles and original-orphan proof pass.
+The local-converter goal and 50-edge planning target are achieved. Remaining
+circuit opens and all electrical/part/process/fit and independent Gate A holds
+remain open; no fabrication release follows.

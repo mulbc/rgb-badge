@@ -18,3 +18,9 @@ python3 "$repo_root/tools/check-coupon-study-contract.py" --board "$board"
   --restored-via-drc "$review_dir/restored-orphan-vias.json"
 "$kicad_python" "$repo_root/tools/check-coupon-led-placement.py" "$board"
 "$kicad_python" "$repo_root/tools/test-routing-progress-guards.py" -v
+
+# ADR 0085: verify the selected child in addition to its immutable parent.
+python3 "$repo_root/tools/check-converter-checkpoint-plan.py"
+python3 "$repo_root/tools/check-coupon-study-contract.py" --board "$repo_root/hardware/coupon/rev-a/staging/led-converter-routing-trial-114mm.kicad_pcb"
+"$kicad_python" "$repo_root/tools/check-converter-checkpoint.py" --check-orphans
+"$kicad_python" "$repo_root/tools/test-converter-checkpoint-guards.py"

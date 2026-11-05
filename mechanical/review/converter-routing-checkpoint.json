@@ -1,0 +1,25 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "all_246_parent_groups_preserved": true,
+  "board_sha256": "5e07fb866cc059de670e34102045d9dfd88c88f101355fcdbb27253c0ae26e43",
+  "fabrication_release_allowed": false,
+  "intrinsic_findings": 104,
+  "native_opens": 50,
+  "new_copper_items": 134,
+  "original_orphan_restoration_passed": true,
+  "parent_sha256": "817241b48eee1ae6ccc6ff0a99bf89d6c373bde6b45cba687a71e2309115f3d4",
+  "physical_opens": 50,
+  "plan_sha256": "2b5e0c59a0a86ac0e791fe7ed78d66b2e6a8252288686e8dceb59a675adac640",
+  "project_sha256": "1141b004ecffd1e7e8e0c30cf21aeae7ce6381093df674998133d226ab9c27fb",
+  "retired_accepted_items": 45,
+  "retired_original_items": 20,
+  "rules_sha256": "80c92b0cdef868dd0ef0037aa2f63d1266f709a2dd0326094735c75ffbd31a2e",
+  "status": "SELECTED_UNQUALIFIED_DUAL_CONVERTER_ROUTING_STUDY",
+  "tool_sha256": {
+    "tools/check-converter-checkpoint-plan.py": "18868c284285cd9d4c3f7b71c5db2249d3ed67f4101c8cf91cd74e526f4f2783",
+    "tools/check-converter-checkpoint.py": "601b64e93bd0f219206d6b106092a29d8e96363f9e199686bdc43702c2bf48ce",
+    "tools/converter_checkpoint.py": "d6d80ad6c3b72959b178d0613105164b9023e2ff67cdc30a8cf5116306893bb8",
+    "tools/generate-converter-checkpoint.py": "07f092e3ce5223405beeb679f054a8adfbd8406e14c7d3fd388cda5404dce8a6",
+    "tools/test-converter-checkpoint-guards.py": "7bf8d4fe44ae5d0385151ab087c4149bace21e3cd2e55ab22b4b31a213e5bb96"
+  }
+}

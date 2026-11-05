@@ -1,0 +1,5078 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_copper": [
+    [
+      "track",
+      "+3V3_APP",
+      109490000,
+      11600000,
+      109600000,
+      11000000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+3V3_APP",
+      109600000,
+      10950000,
+      109600000,
+      9950000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+3V3_APP",
+      109600000,
+      11000000,
+      109600000,
+      10950000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+3V3_APP",
+      109600000,
+      9950000,
+      108987500,
+      9345000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      103865000,
+      13037450,
+      103865000,
+      31800000,
+      "F.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      103950000,
+      13600000,
+      103865000,
+      13037450,
+      "F.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      104100000,
+      13600000,
+      103950000,
+      13600000,
+      "In1.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      104950000,
+      13600000,
+      104100000,
+      13600000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      105000000,
+      13550000,
+      104950000,
+      13600000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      105400000,
+      13550000,
+      105000000,
+      13550000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      105450000,
+      13600000,
+      105400000,
+      13550000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      106250000,
+      13600000,
+      105450000,
+      13600000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      106450000,
+      13350000,
+      106450000,
+      13400000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      106450000,
+      13400000,
+      106250000,
+      13600000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      107300000,
+      13350000,
+      106450000,
+      13350000,
+      "In3.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      107300000,
+      13600000,
+      107300000,
+      13350000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      107400000,
+      13700000,
+      107300000,
+      13600000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      108450000,
+      13700000,
+      107400000,
+      13700000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      108550000,
+      13600000,
+      108450000,
+      13700000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      109155000,
+      13250000,
+      108550000,
+      13600000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      40750000,
+      14750000,
+      40150000,
+      14800000,
+      "F.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      40850000,
+      14750000,
+      40750000,
+      14750000,
+      "F.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      40950000,
+      13850000,
+      41050000,
+      13950000,
+      "In1.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      41000000,
+      13900000,
+      40950000,
+      13850000,
+      "In3.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      41050000,
+      13950000,
+      41050000,
+      14550000,
+      "In1.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      41050000,
+      14550000,
+      40850000,
+      14750000,
+      "In1.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      41350000,
+      14350000,
+      41400000,
+      14300000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      41350000,
+      14850000,
+      41350000,
+      14350000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      41400000,
+      14250000,
+      41450000,
+      14200000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      41400000,
+      14300000,
+      41400000,
+      14250000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      41400000,
+      14900000,
+      41350000,
+      14850000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      41400000,
+      14950000,
+      41400000,
+      14900000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      41450000,
+      14150000,
+      41500000,
+      14100000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      41450000,
+      14200000,
+      41450000,
+      14150000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      41450000,
+      15000000,
+      41400000,
+      14950000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      41450000,
+      15050000,
+      41450000,
+      15000000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      41500000,
+      13900000,
+      41000000,
+      13900000,
+      "In3.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      41500000,
+      14100000,
+      41500000,
+      13900000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      41700000,
+      15300000,
+      41450000,
+      15050000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      41750000,
+      15300000,
+      41700000,
+      15300000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      41800000,
+      15350000,
+      41750000,
+      15300000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      41900000,
+      15350000,
+      41800000,
+      15350000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      41950000,
+      15400000,
+      41900000,
+      15350000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      42500000,
+      16000000,
+      41950000,
+      15400000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      42500000,
+      18300000,
+      42500000,
+      16000000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      43100000,
+      18900000,
+      42500000,
+      18300000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      43100000,
+      18900000,
+      43100000,
+      21650000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      43100000,
+      21650000,
+      43750000,
+      21650000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      43300000,
+      14750000,
+      43350000,
+      14800000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      43350000,
+      14800000,
+      43350000,
+      15150000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      43350000,
+      15150000,
+      43500000,
+      15300000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      43400000,
+      15400000,
+      41950000,
+      15400000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      43500000,
+      15300000,
+      43400000,
+      15400000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      44000000,
+      18900000,
+      43100000,
+      18900000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      45100000,
+      14750000,
+      43300000,
+      14750000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      45325000,
+      14650001,
+      45100000,
+      14750000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      45325000,
+      14650001,
+      45350000,
+      14650001,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      45350000,
+      14650001,
+      47125000,
+      14650001,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      45500000,
+      16100000,
+      45325000,
+      14650001,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      45500000,
+      16100000,
+      45550000,
+      16100000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      45550000,
+      16100000,
+      46000000,
+      16100000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "GND",
+      48600000,
+      20350000,
+      48600000,
+      20150000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "Net-(L2-~-Pad1)",
+      46500000,
+      16100000,
+      47000000,
+      16100000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "Net-(L2-~-Pad1)",
+      47000000,
+      16100000,
+      49150000,
+      16100000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "Net-(L2-~-Pad1)",
+      49150000,
+      16100000,
+      49550000,
+      16500000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "Net-(L2-~-Pad2)",
+      46500000,
+      18900000,
+      47000000,
+      18900000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "Net-(L2-~-Pad2)",
+      47000000,
+      18900000,
+      49150000,
+      18900000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "Net-(L2-~-Pad2)",
+      49150000,
+      18900000,
+      49550000,
+      18500000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "Net-(U36-LX1)",
+      109490000,
+      12750000,
+      110090000,
+      12750000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "Net-(U36-LX1)",
+      110090000,
+      12750000,
+      111650000,
+      13750000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "Net-(U36-LX2)",
+      109490000,
+      12250000,
+      110090000,
+      12250000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "Net-(U36-LX2)",
+      110090000,
+      12250000,
+      111650000,
+      11750000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "UART0_TX",
+      31050000,
+      19500000,
+      31100000,
+      19500000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "UART0_TX",
+      31100000,
+      19500000,
+      47700000,
+      19500000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED",
+      45450000,
+      20350000,
+      45500000,
+      20350000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED",
+      45500000,
+      18900000,
+      45450000,
+      20350000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED",
+      45500000,
+      18900000,
+      45550000,
+      18900000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED",
+      45500000,
+      20350000,
+      47000000,
+      20350000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED",
+      45550000,
+      18900000,
+      46000000,
+      18900000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED",
+      47450000,
+      19900000,
+      48050000,
+      19300000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED",
+      48050000,
+      19300000,
+      48350000,
+      19300000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED",
+      48350000,
+      19300000,
+      48400000,
+      19350000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED",
+      48400000,
+      19350000,
+      54800000,
+      19350000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED",
+      50900000,
+      18750000,
+      50300000,
+      19350000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED",
+      51300000,
+      18900001,
+      50900000,
+      18750000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED",
+      51300000,
+      18900001,
+      51775000,
+      18900001,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED",
+      51700000,
+      20350000,
+      51100000,
+      21650000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED",
+      51700000,
+      20350000,
+      51750000,
+      18900001,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED",
+      54800000,
+      19350000,
+      54850000,
+      19400000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED",
+      54850000,
+      19400000,
+      54900000,
+      19400000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED",
+      54900000,
+      19400000,
+      55250000,
+      19750000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED",
+      55250000,
+      19750000,
+      55250000,
+      20550000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED",
+      55250000,
+      20550000,
+      56250000,
+      20550000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED",
+      56250000,
+      20550000,
+      56300000,
+      20600000,
+      "In3.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED",
+      56300000,
+      20600000,
+      58450000,
+      20600000,
+      "In3.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED",
+      58450000,
+      20600000,
+      59000000,
+      20000000,
+      "In2.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED_ENABLE_DRAFT",
+      44650000,
+      15350000,
+      44650000,
+      13350000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED_ENABLE_DRAFT",
+      45000000,
+      15350000,
+      44650000,
+      15350000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED_ENABLE_DRAFT",
+      45000000,
+      16100000,
+      45000000,
+      15350000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED_FB",
+      44700000,
+      19750000,
+      44700000,
+      20950000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED_FB",
+      44700000,
+      20950000,
+      44850000,
+      21100000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED_FB",
+      44850000,
+      21100000,
+      46200000,
+      21100000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED_FB",
+      45000000,
+      18900000,
+      45000000,
+      19450000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED_FB",
+      45000000,
+      19450000,
+      44700000,
+      19750000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED_FB",
+      46200000,
+      21100000,
+      46700000,
+      21600000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED_FB",
+      46700000,
+      21600000,
+      46750000,
+      21600000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED_FB",
+      46750000,
+      21600000,
+      46800000,
+      21650000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED_FB",
+      47950000,
+      21650000,
+      46800000,
+      21650000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED_FB_TOP_MID",
+      50100000,
+      21650000,
+      48950000,
+      21650000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "via",
+      "+3V3_APP",
+      109600000,
+      10950000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      103950000,
+      13600000,
+      "F.Cu",
+      "In1.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      104100000,
+      13600000,
+      "In1.Cu",
+      "In2.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      104100000,
+      13600000,
+      "In2.Cu",
+      "In3.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      104100000,
+      13600000,
+      "In3.Cu",
+      "In4.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      106450000,
+      13350000,
+      "In3.Cu",
+      "In4.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      107300000,
+      13350000,
+      "In3.Cu",
+      "In4.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      107300000,
+      13350000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      40850000,
+      14750000,
+      "F.Cu",
+      "In1.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      40950000,
+      13850000,
+      "In1.Cu",
+      "In2.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      40950000,
+      13850000,
+      "In2.Cu",
+      "In3.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      41500000,
+      13900000,
+      "In3.Cu",
+      "In4.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      41500000,
+      13900000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      43300000,
+      14750000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      45100000,
+      14750000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "GND",
+      48600000,
+      20150000,
+      "In2.Cu",
+      "In3.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "GND",
+      48600000,
+      20150000,
+      "In3.Cu",
+      "In4.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "GND",
+      48600000,
+      20150000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "UART0_TX",
+      31050000,
+      19500000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "VLED",
+      48400000,
+      19350000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "VLED",
+      50900000,
+      18750000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "VLED",
+      55250000,
+      20550000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "VLED",
+      56250000,
+      20550000,
+      "In3.Cu",
+      "In4.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "VLED",
+      56250000,
+      20550000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "VLED",
+      58450000,
+      20600000,
+      "In2.Cu",
+      "In3.Cu",
+      300000,
+      100000
+    ]
+  ],
+  "app_retained_tail": [
+    "track",
+    "+SYS_APP_IN_DRAFT",
+    103865000,
+    13037450,
+    103865000,
+    31800000,
+    "F.Cu",
+    200000
+  ],
+  "app_shared_leaf_contacts": {
+    "contacts": {
+      "current": {
+        "contacts": [
+          [
+            "copper",
+            "track",
+            "+SYS_APP_IN_DRAFT",
+            103950000,
+            13600000,
+            103865000,
+            13037450,
+            "F.Cu",
+            200000
+          ],
+          [
+            "copper",
+            "track",
+            "+SYS_APP_IN_DRAFT",
+            84000000,
+            31800000,
+            104550000,
+            31800000,
+            "F.Cu",
+            200000
+          ],
+          [
+            "copper",
+            "via",
+            "+SYS_APP_IN_DRAFT",
+            103950000,
+            13600000,
+            "F.Cu",
+            "In1.Cu",
+            300000,
+            100000
+          ]
+        ],
+        "present": 1
+      },
+      "original215": {
+        "contacts": [],
+        "present": 0
+      },
+      "parent52": {
+        "contacts": [
+          [
+            "copper",
+            "track",
+            "+SYS_APP_IN_DRAFT",
+            84000000,
+            31800000,
+            104550000,
+            31800000,
+            "F.Cu",
+            200000
+          ],
+          [
+            "copper",
+            "via",
+            "+SYS_APP_IN_DRAFT",
+            103865000,
+            6750000,
+            "F.Cu",
+            "In1.Cu",
+            300000,
+            100000
+          ]
+        ],
+        "present": 1
+      },
+      "parent58": {
+        "contacts": [
+          [
+            "copper",
+            "track",
+            "+SYS_APP_IN_DRAFT",
+            84000000,
+            31800000,
+            104550000,
+            31800000,
+            "F.Cu",
+            200000
+          ],
+          [
+            "copper",
+            "via",
+            "+SYS_APP_IN_DRAFT",
+            103865000,
+            6750000,
+            "F.Cu",
+            "In1.Cu",
+            300000,
+            100000
+          ]
+        ],
+        "present": 1
+      }
+    },
+    "signature": [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      103865000,
+      6750000,
+      103865000,
+      31800000,
+      "F.Cu",
+      200000
+    ]
+  },
+  "app_supply_search": {
+    "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+    "added_tracks_and_vias": 27,
+    "allowed_nets": [
+      "+3V3_APP",
+      "+SYS_APP_IN_DRAFT"
+    ],
+    "board_sha256": "210a61d77f230625a58a0e85bc8d964fc15f2e37a3235d21a33d6ee6bfb24231",
+    "clearance_mm": 0.2,
+    "connected_copper_endpoints": true,
+    "digital_width_policy": {
+      "focus": [
+        "+3V3_APP",
+        "+SYS_APP_IN_DRAFT"
+      ],
+      "note": "No narrow copper: ordinary 0.20 mm ignored geometry trial"
+    },
+    "exact_native_grid_fallback": true,
+    "fabrication_release_allowed": false,
+    "grid_mm": 0.05,
+    "heuristic": "eight_neighbour_biased_bidirectional_feasibility_forward_manhattan_reverse_manhattan_not_optimal",
+    "heuristic_sha256": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4",
+    "heuristic_storage_bytes": 0,
+    "kicad_version": "10.0.6",
+    "max_nodes": 400000,
+    "microvia_diameter_drill_mm": [
+      0.3,
+      0.1
+    ],
+    "native_grid_statistics": {
+      "native_clear_masked_edges": 750,
+      "native_clear_masked_points": 7135,
+      "native_edge_queries": 750,
+      "native_point_queries": 89012
+    },
+    "native_rules_sha256": "80c92b0cdef868dd0ef0037aa2f63d1266f709a2dd0326094735c75ffbd31a2e",
+    "new_track_length_mm_by_net": {
+      "+3V3_APP": 2.520918840541884,
+      "+SYS_APP_IN_DRAFT": 6.3749878272324505
+    },
+    "open_edges": 50,
+    "preserve_clusters_after_each_join": true,
+    "profile_sha256": "1141b004ecffd1e7e8e0c30cf21aeae7ce6381093df674998133d226ab9c27fb",
+    "reverse_search": false,
+    "routes": [
+      {
+        "expanded_nodes": 278,
+        "net": "+SYS_APP_IN_DRAFT",
+        "routed": true,
+        "search_outcome": "accepted_join",
+        "source": [
+          "U36",
+          "4"
+        ],
+        "usable_anchor_cells": 89746,
+        "usable_source_cells": 596
+      },
+      {
+        "expanded_nodes": 217,
+        "net": "+3V3_APP",
+        "routed": true,
+        "search_outcome": "accepted_join",
+        "source": [
+          "U36",
+          "1"
+        ],
+        "usable_anchor_cells": 75205,
+        "usable_source_cells": 462
+      }
+    ],
+    "search_tool_sha256": "1a67e19698ecc5623985695cc061422a579f698fba7afe63e77f33b43d6efd7e",
+    "source_sha256": "eaf6b62dc0ad29f15cf6ca4aefb5a7664ee4090ee898cc76c982ffd8cd27b158",
+    "status": "IGNORED_ADR0087_U36_SUPPLY_RESTORATION_NOT_POWER_STAGE_ACCEPTANCE",
+    "tool_source_sha256": {
+      "hardware/coupon/rev-a/build/converter-checkpoint-2026-11-05/u36-supply-search.py": "1a67e19698ecc5623985695cc061422a579f698fba7afe63e77f33b43d6efd7e",
+      "tools/generate-colour-fanout-grid-trial.py": "8bca8c0edd3d981dadb5f3fca8b34689bc3280a1e7e3fdbcb3780b59f1aa76f2",
+      "tools/generate-paired-charger-114mm-routing.py": "807eaba5aea8e92ecbf514ca16ab767c30d006703c6697a9fec10cf2e46e1441",
+      "tools/routing_clearance.py": "d1797c13ac7f5df4d066fc5e245fb143a67f002ad6bf7c0a67b96ff456d7db91",
+      "tools/routing_goal_distance.py": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4"
+    },
+    "tracks_and_vias": 18417,
+    "width_mm": 0.2
+  },
+  "app_switching_routes": [
+    {
+      "coil_pad": "1",
+      "ic_pin": "3",
+      "length_mm": 2.452997571504075,
+      "net": "Net-(U36-LX1)",
+      "tracks": [
+        [
+          "track",
+          "Net-(U36-LX1)",
+          109490000,
+          12750000,
+          110090000,
+          12750000,
+          "B.Cu",
+          200000
+        ],
+        [
+          "track",
+          "Net-(U36-LX1)",
+          110090000,
+          12750000,
+          111650000,
+          13750000,
+          "B.Cu",
+          200000
+        ]
+      ]
+    },
+    {
+      "coil_pad": "2",
+      "ic_pin": "2",
+      "length_mm": 2.2381697103780183,
+      "net": "Net-(U36-LX2)",
+      "tracks": [
+        [
+          "track",
+          "Net-(U36-LX2)",
+          109490000,
+          12250000,
+          110090000,
+          12250000,
+          "B.Cu",
+          200000
+        ],
+        [
+          "track",
+          "Net-(U36-LX2)",
+          110090000,
+          12250000,
+          111650000,
+          11750000,
+          "B.Cu",
+          200000
+        ]
+      ]
+    }
+  ],
+  "cleanup_ledger": [
+    {
+      "direct_contacts": {
+        "B.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        },
+        "In4.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "via",
+              "VLED",
+              93750000,
+              3650000,
+              "In3.Cu",
+              "In4.Cu",
+              300000,
+              100000
+            ]
+          ],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "frozen_215_source",
+      "round": 0,
+      "signature": [
+        "via",
+        "VLED",
+        93750000,
+        3650000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "5fef2e49-e055-5b01-9887-21ce1de7bdca"
+    },
+    {
+      "direct_contacts": {
+        "B.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        },
+        "In4.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "via",
+              "VLED",
+              94250000,
+              3650000,
+              "In3.Cu",
+              "In4.Cu",
+              300000,
+              100000
+            ]
+          ],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "frozen_215_source",
+      "round": 0,
+      "signature": [
+        "via",
+        "VLED",
+        94250000,
+        3650000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "a65101fe-6007-5583-b913-d8af8981b8ac"
+    },
+    {
+      "direct_contacts": {
+        "B.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        },
+        "In4.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "track",
+              "VLED",
+              55050000,
+              1000000,
+              53950000,
+              1000000,
+              "In4.Cu",
+              200000
+            ],
+            [
+              "copper",
+              "track",
+              "VLED",
+              56400000,
+              1000000,
+              53950000,
+              1000000,
+              "In4.Cu",
+              200000
+            ],
+            [
+              "copper",
+              "track",
+              "VLED",
+              56400000,
+              1000000,
+              53950000,
+              1000000,
+              "In4.Cu",
+              200000
+            ]
+          ],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "frozen_215_source",
+      "round": 0,
+      "signature": [
+        "via",
+        "VLED",
+        55050000,
+        1000000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "b2dbe1f9-338d-5ee8-b22d-191904323bc1"
+    },
+    {
+      "direct_contacts": {
+        "B.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        },
+        "In4.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "via",
+              "VLED",
+              62050000,
+              1000000,
+              "In3.Cu",
+              "In4.Cu",
+              300000,
+              100000
+            ]
+          ],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "frozen_215_source",
+      "round": 0,
+      "signature": [
+        "via",
+        "VLED",
+        62050000,
+        1000000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "c4f3b028-eb9c-539d-a73e-25d1eb6e11b7"
+    },
+    {
+      "direct_contacts": {
+        "B.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        },
+        "In4.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "via",
+              "VLED",
+              58550000,
+              1000000,
+              "In3.Cu",
+              "In4.Cu",
+              300000,
+              100000
+            ]
+          ],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "frozen_215_source",
+      "round": 0,
+      "signature": [
+        "via",
+        "VLED",
+        58550000,
+        1000000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "df1fa6ea-4e6a-561e-970b-c85b9cb0e617"
+    },
+    {
+      "direct_contacts": {
+        "B.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "track",
+              "+SYS_APP_IN_DRAFT",
+              40550000,
+              4750000,
+              37650000,
+              4750000,
+              "B.Cu",
+              200000
+            ]
+          ],
+          "filled_zones": []
+        }
+      },
+      "finding": "track_dangling",
+      "origin": "accepted_addition",
+      "round": 0,
+      "signature": [
+        "track",
+        "+SYS_APP_IN_DRAFT",
+        37650000,
+        4750000,
+        37650000,
+        4250000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "359c8990-154c-54cd-b369-04f78c7e5f77"
+    },
+    {
+      "direct_contacts": {
+        "B.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "via",
+              "+SYS_APP_IN_DRAFT",
+              94250000,
+              850000,
+              "In4.Cu",
+              "B.Cu",
+              300000,
+              100000
+            ]
+          ],
+          "filled_zones": []
+        }
+      },
+      "finding": "track_dangling",
+      "origin": "accepted_addition",
+      "round": 0,
+      "signature": [
+        "track",
+        "+SYS_APP_IN_DRAFT",
+        94250000,
+        850000,
+        93750000,
+        850000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "9a76ecf9-cc48-58a2-b170-8b2f3cd44ec6"
+    },
+    {
+      "direct_contacts": {
+        "B.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        },
+        "In4.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "via",
+              "+SYS_APP_IN_DRAFT",
+              4200000,
+              30500000,
+              "In3.Cu",
+              "In4.Cu",
+              300000,
+              100000
+            ]
+          ],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "accepted_addition",
+      "round": 0,
+      "signature": [
+        "via",
+        "+SYS_APP_IN_DRAFT",
+        4200000,
+        30500000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "0ef41dd2-7b91-52a4-a8ad-50966eff5ea3"
+    },
+    {
+      "direct_contacts": {
+        "B.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        },
+        "In4.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "via",
+              "+SYS_APP_IN_DRAFT",
+              37550000,
+              1000000,
+              "In3.Cu",
+              "In4.Cu",
+              300000,
+              100000
+            ]
+          ],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "accepted_addition",
+      "round": 0,
+      "signature": [
+        "via",
+        "+SYS_APP_IN_DRAFT",
+        37550000,
+        1000000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "24250800-3759-568d-b78e-75bb32b05346"
+    },
+    {
+      "direct_contacts": {
+        "B.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        },
+        "In4.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "via",
+              "+SYS_APP_IN_DRAFT",
+              92250000,
+              3650000,
+              "In3.Cu",
+              "In4.Cu",
+              300000,
+              100000
+            ]
+          ],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "accepted_addition",
+      "round": 0,
+      "signature": [
+        "via",
+        "+SYS_APP_IN_DRAFT",
+        92250000,
+        3650000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "6f5ebe73-1b13-5622-99b1-27f9fe9e68bd"
+    },
+    {
+      "direct_contacts": {
+        "B.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "via",
+              "VLED_FB_TOP_MID",
+              59650000,
+              10200000,
+              "In4.Cu",
+              "B.Cu",
+              300000,
+              100000
+            ]
+          ],
+          "filled_zones": []
+        }
+      },
+      "finding": "track_dangling",
+      "origin": "accepted_addition",
+      "round": 0,
+      "signature": [
+        "track",
+        "VLED_FB_TOP_MID",
+        59650000,
+        10200000,
+        59250000,
+        10250000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "341caacb-4fb9-56a7-b578-f40b1e442d16"
+    },
+    {
+      "direct_contacts": {
+        "B.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "via",
+              "VLED_FB_TOP_MID",
+              62350000,
+              10200000,
+              "In4.Cu",
+              "B.Cu",
+              300000,
+              100000
+            ]
+          ],
+          "filled_zones": []
+        }
+      },
+      "finding": "track_dangling",
+      "origin": "accepted_addition",
+      "round": 0,
+      "signature": [
+        "track",
+        "VLED_FB_TOP_MID",
+        62750000,
+        10250000,
+        62350000,
+        10200000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "6655fa02-407e-5454-ac01-b710e11a5f32"
+    },
+    {
+      "direct_contacts": {
+        "B.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        }
+      },
+      "finding": "track_dangling",
+      "origin": "accepted_addition",
+      "round": 0,
+      "signature": [
+        "track",
+        "Net-(L2-~-Pad1)",
+        95250000,
+        850000,
+        94750000,
+        850000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "384449f3-77cc-55e7-9f35-580a0ce2360b"
+    },
+    {
+      "direct_contacts": {
+        "B.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        }
+      },
+      "finding": "track_dangling",
+      "origin": "accepted_addition",
+      "round": 0,
+      "signature": [
+        "track",
+        "Net-(L2-~-Pad2)",
+        94750000,
+        3650000,
+        95250000,
+        3650000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "c75ac1f6-44ab-550c-b65b-36422858142c"
+    },
+    {
+      "direct_contacts": {
+        "In3.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "track",
+              "VLED",
+              62050000,
+              1000000,
+              56400000,
+              1000000,
+              "In3.Cu",
+              200000
+            ]
+          ],
+          "filled_zones": []
+        },
+        "In4.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "frozen_215_source",
+      "round": 1,
+      "signature": [
+        "via",
+        "VLED",
+        62050000,
+        1000000,
+        "In3.Cu",
+        "In4.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "070bfe9b-1556-5f1d-96de-1f0b7789263f"
+    },
+    {
+      "direct_contacts": {
+        "In3.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "via",
+              "VLED",
+              94250000,
+              3650000,
+              "In2.Cu",
+              "In3.Cu",
+              300000,
+              100000
+            ]
+          ],
+          "filled_zones": []
+        },
+        "In4.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "frozen_215_source",
+      "round": 1,
+      "signature": [
+        "via",
+        "VLED",
+        94250000,
+        3650000,
+        "In3.Cu",
+        "In4.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "6b006d54-86c9-5faa-bc16-05197482ac9e"
+    },
+    {
+      "direct_contacts": {
+        "In3.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "via",
+              "VLED",
+              93750000,
+              3650000,
+              "In2.Cu",
+              "In3.Cu",
+              300000,
+              100000
+            ]
+          ],
+          "filled_zones": []
+        },
+        "In4.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "frozen_215_source",
+      "round": 1,
+      "signature": [
+        "via",
+        "VLED",
+        93750000,
+        3650000,
+        "In3.Cu",
+        "In4.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "7ae80afd-ba0d-5eae-98e1-fc8349478fc9"
+    },
+    {
+      "direct_contacts": {
+        "In3.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "track",
+              "VLED",
+              58550000,
+              1000000,
+              56400000,
+              1000000,
+              "In3.Cu",
+              200000
+            ],
+            [
+              "copper",
+              "track",
+              "VLED",
+              62050000,
+              1000000,
+              56400000,
+              1000000,
+              "In3.Cu",
+              200000
+            ]
+          ],
+          "filled_zones": []
+        },
+        "In4.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "frozen_215_source",
+      "round": 1,
+      "signature": [
+        "via",
+        "VLED",
+        58550000,
+        1000000,
+        "In3.Cu",
+        "In4.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "f00549a9-96be-5c3d-8421-2e461a9c2e3c"
+    },
+    {
+      "direct_contacts": {
+        "In4.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "track",
+              "VLED",
+              53900000,
+              1150000,
+              53900000,
+              1250000,
+              "In4.Cu",
+              200000
+            ],
+            [
+              "copper",
+              "track",
+              "VLED",
+              53900000,
+              1150000,
+              53900000,
+              1250000,
+              "In4.Cu",
+              200000
+            ],
+            [
+              "copper",
+              "track",
+              "VLED",
+              53900000,
+              1150000,
+              53900000,
+              1250000,
+              "In4.Cu",
+              200000
+            ],
+            [
+              "copper",
+              "track",
+              "VLED",
+              53950000,
+              1000000,
+              53950000,
+              1150000,
+              "In4.Cu",
+              200000
+            ],
+            [
+              "copper",
+              "track",
+              "VLED",
+              53950000,
+              1000000,
+              53950000,
+              1150000,
+              "In4.Cu",
+              200000
+            ],
+            [
+              "copper",
+              "track",
+              "VLED",
+              53950000,
+              1000000,
+              53950000,
+              1150000,
+              "In4.Cu",
+              200000
+            ],
+            [
+              "copper",
+              "track",
+              "VLED",
+              53950000,
+              1150000,
+              53900000,
+              1150000,
+              "In4.Cu",
+              200000
+            ],
+            [
+              "copper",
+              "track",
+              "VLED",
+              53950000,
+              1150000,
+              53900000,
+              1150000,
+              "In4.Cu",
+              200000
+            ],
+            [
+              "copper",
+              "track",
+              "VLED",
+              53950000,
+              1150000,
+              53900000,
+              1150000,
+              "In4.Cu",
+              200000
+            ],
+            [
+              "copper",
+              "track",
+              "VLED",
+              56400000,
+              1000000,
+              53950000,
+              1000000,
+              "In4.Cu",
+              200000
+            ],
+            [
+              "copper",
+              "track",
+              "VLED",
+              56400000,
+              1000000,
+              53950000,
+              1000000,
+              "In4.Cu",
+              200000
+            ]
+          ],
+          "filled_zones": []
+        }
+      },
+      "finding": "track_dangling",
+      "origin": "frozen_215_source",
+      "round": 1,
+      "signature": [
+        "track",
+        "VLED",
+        55050000,
+        1000000,
+        53950000,
+        1000000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "7eaaa94c-a5cc-568f-8ccb-c9785b15561d"
+    },
+    {
+      "direct_contacts": {
+        "B.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "track",
+              "+SYS_APP_IN_DRAFT",
+              40550000,
+              4000000,
+              40550000,
+              4750000,
+              "B.Cu",
+              200000
+            ]
+          ],
+          "filled_zones": []
+        }
+      },
+      "finding": "track_dangling",
+      "origin": "accepted_addition",
+      "round": 1,
+      "signature": [
+        "track",
+        "+SYS_APP_IN_DRAFT",
+        40550000,
+        4750000,
+        37650000,
+        4750000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "da5990fe-d3b8-59fd-bf0a-ef2b2ce0d425"
+    },
+    {
+      "direct_contacts": {
+        "In3.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "via",
+              "+SYS_APP_IN_DRAFT",
+              37550000,
+              1000000,
+              "In2.Cu",
+              "In3.Cu",
+              300000,
+              100000
+            ]
+          ],
+          "filled_zones": []
+        },
+        "In4.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "accepted_addition",
+      "round": 1,
+      "signature": [
+        "via",
+        "+SYS_APP_IN_DRAFT",
+        37550000,
+        1000000,
+        "In3.Cu",
+        "In4.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "20f1a84e-e482-5300-bfda-dff036273d71"
+    },
+    {
+      "direct_contacts": {
+        "In3.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "via",
+              "+SYS_APP_IN_DRAFT",
+              92250000,
+              3650000,
+              "In2.Cu",
+              "In3.Cu",
+              300000,
+              100000
+            ]
+          ],
+          "filled_zones": []
+        },
+        "In4.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "accepted_addition",
+      "round": 1,
+      "signature": [
+        "via",
+        "+SYS_APP_IN_DRAFT",
+        92250000,
+        3650000,
+        "In3.Cu",
+        "In4.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "c9085365-2db3-5c4c-af45-3c55a8816139"
+    },
+    {
+      "direct_contacts": {
+        "In3.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "via",
+              "+SYS_APP_IN_DRAFT",
+              4200000,
+              30500000,
+              "In2.Cu",
+              "In3.Cu",
+              300000,
+              100000
+            ]
+          ],
+          "filled_zones": []
+        },
+        "In4.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "accepted_addition",
+      "round": 1,
+      "signature": [
+        "via",
+        "+SYS_APP_IN_DRAFT",
+        4200000,
+        30500000,
+        "In3.Cu",
+        "In4.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "e6840000-a908-572b-acbd-515251a4a6aa"
+    },
+    {
+      "direct_contacts": {
+        "B.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        },
+        "In4.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "via",
+              "+SYS_APP_IN_DRAFT",
+              94250000,
+              850000,
+              "In3.Cu",
+              "In4.Cu",
+              300000,
+              100000
+            ]
+          ],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "accepted_addition",
+      "round": 1,
+      "signature": [
+        "via",
+        "+SYS_APP_IN_DRAFT",
+        94250000,
+        850000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "3609d409-d9b3-56b9-934b-dc87dea08f66"
+    },
+    {
+      "direct_contacts": {
+        "B.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        },
+        "In4.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "track",
+              "VLED_FB_TOP_MID",
+              62350000,
+              10200000,
+              59650000,
+              10200000,
+              "In4.Cu",
+              200000
+            ]
+          ],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "accepted_addition",
+      "round": 1,
+      "signature": [
+        "via",
+        "VLED_FB_TOP_MID",
+        62350000,
+        10200000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "d4de2cd0-4a49-50a5-ac85-cd9d8074b226"
+    },
+    {
+      "direct_contacts": {
+        "B.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        },
+        "In4.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "track",
+              "VLED_FB_TOP_MID",
+              62350000,
+              10200000,
+              59650000,
+              10200000,
+              "In4.Cu",
+              200000
+            ]
+          ],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "accepted_addition",
+      "round": 1,
+      "signature": [
+        "via",
+        "VLED_FB_TOP_MID",
+        59650000,
+        10200000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "ef195f9d-258a-5f23-bd56-c4ad8bedc294"
+    },
+    {
+      "direct_contacts": {
+        "In2.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "via",
+              "VLED",
+              94250000,
+              3650000,
+              "In1.Cu",
+              "In2.Cu",
+              300000,
+              100000
+            ]
+          ],
+          "filled_zones": []
+        },
+        "In3.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "frozen_215_source",
+      "round": 2,
+      "signature": [
+        "via",
+        "VLED",
+        94250000,
+        3650000,
+        "In2.Cu",
+        "In3.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "0e14d02d-a062-5017-8655-e7b0e18ec031"
+    },
+    {
+      "direct_contacts": {
+        "In2.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "via",
+              "VLED",
+              93750000,
+              3650000,
+              "In1.Cu",
+              "In2.Cu",
+              300000,
+              100000
+            ]
+          ],
+          "filled_zones": []
+        },
+        "In3.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "frozen_215_source",
+      "round": 2,
+      "signature": [
+        "via",
+        "VLED",
+        93750000,
+        3650000,
+        "In2.Cu",
+        "In3.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "45fbcbb0-b010-5ed5-aa94-0cec05b519d8"
+    },
+    {
+      "direct_contacts": {
+        "In3.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "track",
+              "VLED",
+              58550000,
+              1000000,
+              56400000,
+              1000000,
+              "In3.Cu",
+              200000
+            ],
+            [
+              "copper",
+              "via",
+              "VLED",
+              56400000,
+              1000000,
+              "In3.Cu",
+              "In4.Cu",
+              300000,
+              100000
+            ],
+            [
+              "copper",
+              "via",
+              "VLED",
+              56400000,
+              1000000,
+              "In3.Cu",
+              "In4.Cu",
+              300000,
+              100000
+            ]
+          ],
+          "filled_zones": []
+        }
+      },
+      "finding": "track_dangling",
+      "origin": "frozen_215_source",
+      "round": 2,
+      "signature": [
+        "track",
+        "VLED",
+        62050000,
+        1000000,
+        56400000,
+        1000000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "4f24f577-dbb4-5a68-8535-8d301d4ed1cd"
+    },
+    {
+      "direct_contacts": {
+        "In3.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "track",
+              "VLED",
+              62050000,
+              1000000,
+              56400000,
+              1000000,
+              "In3.Cu",
+              200000
+            ],
+            [
+              "copper",
+              "via",
+              "VLED",
+              56400000,
+              1000000,
+              "In3.Cu",
+              "In4.Cu",
+              300000,
+              100000
+            ],
+            [
+              "copper",
+              "via",
+              "VLED",
+              56400000,
+              1000000,
+              "In3.Cu",
+              "In4.Cu",
+              300000,
+              100000
+            ]
+          ],
+          "filled_zones": []
+        }
+      },
+      "finding": "track_dangling",
+      "origin": "frozen_215_source",
+      "round": 2,
+      "signature": [
+        "track",
+        "VLED",
+        58550000,
+        1000000,
+        56400000,
+        1000000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "72b204a0-9ebc-598e-8a11-13976692dabf"
+    },
+    {
+      "direct_contacts": {
+        "B.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "track",
+              "+SYS_APP_IN_DRAFT",
+              40550000,
+              4000000,
+              40550000,
+              4200000,
+              "B.Cu",
+              200000
+            ],
+            [
+              "copper",
+              "via",
+              "+SYS_APP_IN_DRAFT",
+              40550000,
+              4200000,
+              "In4.Cu",
+              "B.Cu",
+              300000,
+              100000
+            ],
+            [
+              "pad",
+              "C40",
+              "1",
+              -800000,
+              0
+            ]
+          ],
+          "filled_zones": []
+        }
+      },
+      "finding": "track_dangling",
+      "origin": "accepted_addition",
+      "round": 2,
+      "signature": [
+        "track",
+        "+SYS_APP_IN_DRAFT",
+        40550000,
+        4000000,
+        40550000,
+        4750000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "859a58d5-70cd-5f57-ad95-bb8e50f043bc"
+    },
+    {
+      "direct_contacts": {
+        "In2.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "via",
+              "+SYS_APP_IN_DRAFT",
+              4200000,
+              30500000,
+              "In1.Cu",
+              "In2.Cu",
+              300000,
+              100000
+            ]
+          ],
+          "filled_zones": []
+        },
+        "In3.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "accepted_addition",
+      "round": 2,
+      "signature": [
+        "via",
+        "+SYS_APP_IN_DRAFT",
+        4200000,
+        30500000,
+        "In2.Cu",
+        "In3.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "5b919239-17d9-5ea3-8510-17a53ec437e0"
+    },
+    {
+      "direct_contacts": {
+        "In2.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "via",
+              "+SYS_APP_IN_DRAFT",
+              37550000,
+              1000000,
+              "In1.Cu",
+              "In2.Cu",
+              300000,
+              100000
+            ]
+          ],
+          "filled_zones": []
+        },
+        "In3.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "accepted_addition",
+      "round": 2,
+      "signature": [
+        "via",
+        "+SYS_APP_IN_DRAFT",
+        37550000,
+        1000000,
+        "In2.Cu",
+        "In3.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "aa53c93a-fa27-5662-b513-4a4fbd15a5e4"
+    },
+    {
+      "direct_contacts": {
+        "In2.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "via",
+              "+SYS_APP_IN_DRAFT",
+              92250000,
+              3650000,
+              "In1.Cu",
+              "In2.Cu",
+              300000,
+              100000
+            ]
+          ],
+          "filled_zones": []
+        },
+        "In3.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "accepted_addition",
+      "round": 2,
+      "signature": [
+        "via",
+        "+SYS_APP_IN_DRAFT",
+        92250000,
+        3650000,
+        "In2.Cu",
+        "In3.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "bf52af98-ed4b-52dd-ac34-4e7cbead1af6"
+    },
+    {
+      "direct_contacts": {
+        "In3.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "via",
+              "+SYS_APP_IN_DRAFT",
+              94250000,
+              850000,
+              "In2.Cu",
+              "In3.Cu",
+              300000,
+              100000
+            ]
+          ],
+          "filled_zones": []
+        },
+        "In4.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "accepted_addition",
+      "round": 2,
+      "signature": [
+        "via",
+        "+SYS_APP_IN_DRAFT",
+        94250000,
+        850000,
+        "In3.Cu",
+        "In4.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "ff59be26-7187-5af5-923e-af20ca22bb1c"
+    },
+    {
+      "direct_contacts": {
+        "In4.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        }
+      },
+      "finding": "track_dangling",
+      "origin": "accepted_addition",
+      "round": 2,
+      "signature": [
+        "track",
+        "VLED_FB_TOP_MID",
+        62350000,
+        10200000,
+        59650000,
+        10200000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "7b5bfd6d-3b03-5844-a873-bb94a5cb062a"
+    },
+    {
+      "direct_contacts": {
+        "In1.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": [
+            {
+              "name": "",
+              "uuid": "566adf1a-30fb-5b01-a217-ee87a01be9a9"
+            }
+          ]
+        },
+        "In2.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "frozen_215_source",
+      "round": 3,
+      "signature": [
+        "via",
+        "VLED",
+        93750000,
+        3650000,
+        "In1.Cu",
+        "In2.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "31ad297a-4d92-5215-bc00-61c42b705928"
+    },
+    {
+      "direct_contacts": {
+        "In1.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": [
+            {
+              "name": "",
+              "uuid": "566adf1a-30fb-5b01-a217-ee87a01be9a9"
+            }
+          ]
+        },
+        "In2.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "frozen_215_source",
+      "round": 3,
+      "signature": [
+        "via",
+        "VLED",
+        94250000,
+        3650000,
+        "In1.Cu",
+        "In2.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "ba71fd52-f7be-55f4-becb-092469a175a1"
+    },
+    {
+      "direct_contacts": {
+        "In1.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "via",
+              "+SYS_APP_IN_DRAFT",
+              37550000,
+              1000000,
+              "F.Cu",
+              "In1.Cu",
+              300000,
+              100000
+            ]
+          ],
+          "filled_zones": []
+        },
+        "In2.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "accepted_addition",
+      "round": 3,
+      "signature": [
+        "via",
+        "+SYS_APP_IN_DRAFT",
+        37550000,
+        1000000,
+        "In1.Cu",
+        "In2.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "6aa3dc32-982d-5d0e-861e-145b41d59b54"
+    },
+    {
+      "direct_contacts": {
+        "In1.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "via",
+              "+SYS_APP_IN_DRAFT",
+              92250000,
+              3650000,
+              "F.Cu",
+              "In1.Cu",
+              300000,
+              100000
+            ]
+          ],
+          "filled_zones": []
+        },
+        "In2.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "accepted_addition",
+      "round": 3,
+      "signature": [
+        "via",
+        "+SYS_APP_IN_DRAFT",
+        92250000,
+        3650000,
+        "In1.Cu",
+        "In2.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "c65c5bb1-a968-5e9c-b40e-ab235991b258"
+    },
+    {
+      "direct_contacts": {
+        "In1.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "via",
+              "+SYS_APP_IN_DRAFT",
+              4200000,
+              30500000,
+              "F.Cu",
+              "In1.Cu",
+              300000,
+              100000
+            ]
+          ],
+          "filled_zones": []
+        },
+        "In2.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "accepted_addition",
+      "round": 3,
+      "signature": [
+        "via",
+        "+SYS_APP_IN_DRAFT",
+        4200000,
+        30500000,
+        "In1.Cu",
+        "In2.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "e0729ada-4fbb-5ca9-96b6-a9e5d8479fb7"
+    },
+    {
+      "direct_contacts": {
+        "In2.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "via",
+              "+SYS_APP_IN_DRAFT",
+              94250000,
+              850000,
+              "In1.Cu",
+              "In2.Cu",
+              300000,
+              100000
+            ]
+          ],
+          "filled_zones": []
+        },
+        "In3.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "accepted_addition",
+      "round": 3,
+      "signature": [
+        "via",
+        "+SYS_APP_IN_DRAFT",
+        94250000,
+        850000,
+        "In2.Cu",
+        "In3.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "ce87f69e-47a3-55f0-a3c2-f41a65eec9c3"
+    },
+    {
+      "direct_contacts": {
+        "F.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "track",
+              "+SYS_APP_IN_DRAFT",
+              92250000,
+              3650000,
+              92250000,
+              31800000,
+              "F.Cu",
+              200000
+            ]
+          ],
+          "filled_zones": []
+        },
+        "In1.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "accepted_addition",
+      "round": 4,
+      "signature": [
+        "via",
+        "+SYS_APP_IN_DRAFT",
+        92250000,
+        3650000,
+        "F.Cu",
+        "In1.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "4f608889-5b3c-5a16-a22f-8b02913688d7"
+    },
+    {
+      "direct_contacts": {
+        "F.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "track",
+              "+SYS_APP_IN_DRAFT",
+              37550000,
+              1000000,
+              37550000,
+              31800000,
+              "F.Cu",
+              200000
+            ]
+          ],
+          "filled_zones": []
+        },
+        "In1.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "accepted_addition",
+      "round": 4,
+      "signature": [
+        "via",
+        "+SYS_APP_IN_DRAFT",
+        37550000,
+        1000000,
+        "F.Cu",
+        "In1.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "6b540367-28c2-5ea8-b0db-b3494e19c18c"
+    },
+    {
+      "direct_contacts": {
+        "F.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "track",
+              "+SYS_APP_IN_DRAFT",
+              4200000,
+              30500000,
+              5300000,
+              30500000,
+              "F.Cu",
+              200000
+            ]
+          ],
+          "filled_zones": []
+        },
+        "In1.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "accepted_addition",
+      "round": 4,
+      "signature": [
+        "via",
+        "+SYS_APP_IN_DRAFT",
+        4200000,
+        30500000,
+        "F.Cu",
+        "In1.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "babd7c97-0a38-54d2-b33a-5e7944775385"
+    },
+    {
+      "direct_contacts": {
+        "In1.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "via",
+              "+SYS_APP_IN_DRAFT",
+              94250000,
+              850000,
+              "F.Cu",
+              "In1.Cu",
+              300000,
+              100000
+            ]
+          ],
+          "filled_zones": []
+        },
+        "In2.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "accepted_addition",
+      "round": 4,
+      "signature": [
+        "via",
+        "+SYS_APP_IN_DRAFT",
+        94250000,
+        850000,
+        "In1.Cu",
+        "In2.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "0e66cb45-11c0-5975-9208-4534fb7ebdca"
+    },
+    {
+      "direct_contacts": {
+        "F.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "track",
+              "+SYS_APP_IN_DRAFT",
+              5300000,
+              1400000,
+              5300000,
+              31800000,
+              "F.Cu",
+              200000
+            ],
+            [
+              "copper",
+              "track",
+              "+SYS_APP_IN_DRAFT",
+              5300000,
+              30500000,
+              5300000,
+              31800000,
+              "F.Cu",
+              200000
+            ]
+          ],
+          "filled_zones": []
+        }
+      },
+      "finding": "track_dangling",
+      "origin": "accepted_addition",
+      "round": 5,
+      "signature": [
+        "track",
+        "+SYS_APP_IN_DRAFT",
+        4200000,
+        30500000,
+        5300000,
+        30500000,
+        "F.Cu",
+        200000
+      ],
+      "uuid": "3ccb22ad-f9ab-56e4-8b46-aa6b28ab4359"
+    },
+    {
+      "direct_contacts": {
+        "F.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "track",
+              "+SYS_APP_IN_DRAFT",
+              94250000,
+              850000,
+              94250000,
+              31800000,
+              "F.Cu",
+              200000
+            ]
+          ],
+          "filled_zones": []
+        },
+        "In1.Cu": {
+          "copper_or_pads": [],
+          "filled_zones": []
+        }
+      },
+      "finding": "via_dangling",
+      "origin": "accepted_addition",
+      "round": 5,
+      "signature": [
+        "via",
+        "+SYS_APP_IN_DRAFT",
+        94250000,
+        850000,
+        "F.Cu",
+        "In1.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "e39e43ff-7bb8-5c32-8885-d55865129654"
+    },
+    {
+      "direct_contacts": {
+        "F.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "track",
+              "+SYS_APP_IN_DRAFT",
+              5300000,
+              1400000,
+              5300000,
+              31800000,
+              "F.Cu",
+              200000
+            ],
+            [
+              "copper",
+              "track",
+              "+SYS_APP_IN_DRAFT",
+              5300000,
+              31800000,
+              40000000,
+              31800000,
+              "F.Cu",
+              200000
+            ]
+          ],
+          "filled_zones": []
+        }
+      },
+      "finding": "track_dangling",
+      "origin": "accepted_addition",
+      "round": 6,
+      "signature": [
+        "track",
+        "+SYS_APP_IN_DRAFT",
+        5300000,
+        30500000,
+        5300000,
+        31800000,
+        "F.Cu",
+        200000
+      ],
+      "uuid": "7d7faf3e-9b1e-51a4-9f27-3aed5f831352"
+    },
+    {
+      "direct_contacts": {
+        "F.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "track",
+              "+SYS_APP_IN_DRAFT",
+              84000000,
+              31800000,
+              104550000,
+              31800000,
+              "F.Cu",
+              200000
+            ]
+          ],
+          "filled_zones": []
+        }
+      },
+      "finding": "track_dangling",
+      "origin": "accepted_addition",
+      "round": 0,
+      "signature": [
+        "track",
+        "+SYS_APP_IN_DRAFT",
+        92250000,
+        3650000,
+        92250000,
+        31800000,
+        "F.Cu",
+        200000
+      ],
+      "uuid": "0a390a21-8ae3-57b6-93f7-3c2e68b15ae3"
+    },
+    {
+      "direct_contacts": {
+        "F.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "track",
+              "+SYS_APP_IN_DRAFT",
+              5300000,
+              31800000,
+              40000000,
+              31800000,
+              "F.Cu",
+              200000
+            ]
+          ],
+          "filled_zones": []
+        }
+      },
+      "finding": "track_dangling",
+      "origin": "accepted_addition",
+      "round": 0,
+      "signature": [
+        "track",
+        "+SYS_APP_IN_DRAFT",
+        37550000,
+        1000000,
+        37550000,
+        31800000,
+        "F.Cu",
+        200000
+      ],
+      "uuid": "87e578c0-cf7b-5e5a-9864-73a1fc7ee6ab"
+    },
+    {
+      "direct_contacts": {
+        "F.Cu": {
+          "copper_or_pads": [
+            [
+              "copper",
+              "track",
+              "+SYS_APP_IN_DRAFT",
+              84000000,
+              31800000,
+              104550000,
+              31800000,
+              "F.Cu",
+              200000
+            ]
+          ],
+          "filled_zones": []
+        }
+      },
+      "finding": "track_dangling",
+      "origin": "accepted_addition",
+      "round": 0,
+      "signature": [
+        "track",
+        "+SYS_APP_IN_DRAFT",
+        94250000,
+        850000,
+        94250000,
+        31800000,
+        "F.Cu",
+        200000
+      ],
+      "uuid": "a4c6dc88-731e-5892-96ea-c38ef6093a80"
+    },
+    {
+      "direct_contacts": [
+        [
+          "copper",
+          "track",
+          "+3V3_APP",
+          103850000,
+          4750000,
+          103150000,
+          4750000,
+          "B.Cu",
+          200000
+        ]
+      ],
+      "origin": "frozen_215_source",
+      "round": 0,
+      "signature": [
+        "track",
+        "+3V3_APP",
+        103865000,
+        4750000,
+        103850000,
+        4750000,
+        "B.Cu",
+        200000
+      ]
+    },
+    {
+      "direct_contacts": [
+        [
+          "copper",
+          "via",
+          "+SYS_APP_IN_DRAFT",
+          103865000,
+          6250000,
+          "In3.Cu",
+          "In4.Cu",
+          300000,
+          100000
+        ]
+      ],
+      "origin": "accepted_addition",
+      "round": 0,
+      "signature": [
+        "via",
+        "+SYS_APP_IN_DRAFT",
+        103865000,
+        6250000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ]
+    },
+    {
+      "direct_contacts": [
+        [
+          "copper",
+          "track",
+          "+3V3_APP",
+          103150000,
+          4750000,
+          103150000,
+          5450000,
+          "B.Cu",
+          200000
+        ]
+      ],
+      "origin": "frozen_215_source",
+      "round": 1,
+      "signature": [
+        "track",
+        "+3V3_APP",
+        103850000,
+        4750000,
+        103150000,
+        4750000,
+        "B.Cu",
+        200000
+      ]
+    },
+    {
+      "direct_contacts": [
+        [
+          "copper",
+          "track",
+          "+SYS_APP_IN_DRAFT",
+          103865000,
+          6250000,
+          103865000,
+          6750000,
+          "In3.Cu",
+          200000
+        ]
+      ],
+      "origin": "accepted_addition",
+      "round": 1,
+      "signature": [
+        "via",
+        "+SYS_APP_IN_DRAFT",
+        103865000,
+        6250000,
+        "In3.Cu",
+        "In4.Cu",
+        300000,
+        100000
+      ]
+    },
+    {
+      "direct_contacts": [
+        [
+          "copper",
+          "via",
+          "+3V3_APP",
+          103150000,
+          5450000,
+          "In4.Cu",
+          "B.Cu",
+          300000,
+          100000
+        ]
+      ],
+      "origin": "frozen_215_source",
+      "round": 2,
+      "signature": [
+        "track",
+        "+3V3_APP",
+        103150000,
+        4750000,
+        103150000,
+        5450000,
+        "B.Cu",
+        200000
+      ]
+    },
+    {
+      "direct_contacts": [
+        [
+          "copper",
+          "via",
+          "+SYS_APP_IN_DRAFT",
+          103865000,
+          6750000,
+          "In2.Cu",
+          "In3.Cu",
+          300000,
+          100000
+        ]
+      ],
+      "origin": "accepted_addition",
+      "round": 2,
+      "signature": [
+        "track",
+        "+SYS_APP_IN_DRAFT",
+        103865000,
+        6250000,
+        103865000,
+        6750000,
+        "In3.Cu",
+        200000
+      ]
+    },
+    {
+      "direct_contacts": [],
+      "origin": "frozen_215_source",
+      "round": 3,
+      "signature": [
+        "via",
+        "+3V3_APP",
+        103150000,
+        5450000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ]
+    },
+    {
+      "direct_contacts": [
+        [
+          "copper",
+          "via",
+          "+SYS_APP_IN_DRAFT",
+          103865000,
+          6750000,
+          "In1.Cu",
+          "In2.Cu",
+          300000,
+          100000
+        ]
+      ],
+      "origin": "accepted_addition",
+      "round": 3,
+      "signature": [
+        "via",
+        "+SYS_APP_IN_DRAFT",
+        103865000,
+        6750000,
+        "In2.Cu",
+        "In3.Cu",
+        300000,
+        100000
+      ]
+    },
+    {
+      "direct_contacts": [
+        [
+          "copper",
+          "via",
+          "+SYS_APP_IN_DRAFT",
+          103865000,
+          6750000,
+          "F.Cu",
+          "In1.Cu",
+          300000,
+          100000
+        ]
+      ],
+      "origin": "accepted_addition",
+      "round": 4,
+      "signature": [
+        "via",
+        "+SYS_APP_IN_DRAFT",
+        103865000,
+        6750000,
+        "In1.Cu",
+        "In2.Cu",
+        300000,
+        100000
+      ]
+    },
+    {
+      "direct_contacts": [
+        [
+          "copper",
+          "track",
+          "+SYS_APP_IN_DRAFT",
+          103865000,
+          6750000,
+          103865000,
+          31800000,
+          "F.Cu",
+          200000
+        ]
+      ],
+      "origin": "accepted_addition",
+      "round": 5,
+      "signature": [
+        "via",
+        "+SYS_APP_IN_DRAFT",
+        103865000,
+        6750000,
+        "F.Cu",
+        "In1.Cu",
+        300000,
+        100000
+      ]
+    },
+    {
+      "direct_contacts": [
+        [
+          "copper",
+          "track",
+          "+SYS_APP_IN_DRAFT",
+          103950000,
+          13600000,
+          103865000,
+          13037450,
+          "F.Cu",
+          200000
+        ],
+        [
+          "copper",
+          "track",
+          "+SYS_APP_IN_DRAFT",
+          84000000,
+          31800000,
+          104550000,
+          31800000,
+          "F.Cu",
+          200000
+        ],
+        [
+          "copper",
+          "via",
+          "+SYS_APP_IN_DRAFT",
+          103950000,
+          13600000,
+          "F.Cu",
+          "In1.Cu",
+          300000,
+          100000
+        ]
+      ],
+      "origin": "accepted_addition",
+      "retained_tail": true,
+      "round": 6,
+      "signature": [
+        "track",
+        "+SYS_APP_IN_DRAFT",
+        103865000,
+        6750000,
+        103865000,
+        31800000,
+        "F.Cu",
+        200000
+      ]
+    }
+  ],
+  "cleanup_tail_contacts": [
+    {
+      "current_contacts": [
+        [
+          "copper",
+          "track",
+          "+SYS_APP_IN_DRAFT",
+          84000000,
+          31800000,
+          104550000,
+          31800000,
+          "F.Cu",
+          200000
+        ]
+      ],
+      "frozen_215_present": false,
+      "frozen_58_contacts": [
+        [
+          "copper",
+          "track",
+          "+SYS_APP_IN_DRAFT",
+          84000000,
+          31800000,
+          104550000,
+          31800000,
+          "F.Cu",
+          200000
+        ],
+        [
+          "copper",
+          "via",
+          "+SYS_APP_IN_DRAFT",
+          92250000,
+          3650000,
+          "F.Cu",
+          "In1.Cu",
+          300000,
+          100000
+        ]
+      ],
+      "signature": [
+        "track",
+        "+SYS_APP_IN_DRAFT",
+        92250000,
+        3650000,
+        92250000,
+        31800000,
+        "F.Cu",
+        200000
+      ]
+    },
+    {
+      "current_contacts": [
+        [
+          "copper",
+          "track",
+          "+SYS_APP_IN_DRAFT",
+          5300000,
+          31800000,
+          40000000,
+          31800000,
+          "F.Cu",
+          200000
+        ]
+      ],
+      "frozen_215_present": false,
+      "frozen_58_contacts": [
+        [
+          "copper",
+          "track",
+          "+SYS_APP_IN_DRAFT",
+          5300000,
+          31800000,
+          40000000,
+          31800000,
+          "F.Cu",
+          200000
+        ],
+        [
+          "copper",
+          "via",
+          "+SYS_APP_IN_DRAFT",
+          37550000,
+          1000000,
+          "F.Cu",
+          "In1.Cu",
+          300000,
+          100000
+        ]
+      ],
+      "signature": [
+        "track",
+        "+SYS_APP_IN_DRAFT",
+        37550000,
+        1000000,
+        37550000,
+        31800000,
+        "F.Cu",
+        200000
+      ]
+    },
+    {
+      "current_contacts": [
+        [
+          "copper",
+          "track",
+          "+SYS_APP_IN_DRAFT",
+          84000000,
+          31800000,
+          104550000,
+          31800000,
+          "F.Cu",
+          200000
+        ]
+      ],
+      "frozen_215_present": false,
+      "frozen_58_contacts": [
+        [
+          "copper",
+          "track",
+          "+SYS_APP_IN_DRAFT",
+          84000000,
+          31800000,
+          104550000,
+          31800000,
+          "F.Cu",
+          200000
+        ],
+        [
+          "copper",
+          "via",
+          "+SYS_APP_IN_DRAFT",
+          94250000,
+          850000,
+          "F.Cu",
+          "In1.Cu",
+          300000,
+          100000
+        ]
+      ],
+      "signature": [
+        "track",
+        "+SYS_APP_IN_DRAFT",
+        94250000,
+        850000,
+        94250000,
+        31800000,
+        "F.Cu",
+        200000
+      ]
+    }
+  ],
+  "fabrication_release_allowed": false,
+  "intrinsic_findings": 104,
+  "native_opens": 50,
+  "parent_sha256": "817241b48eee1ae6ccc6ff0a99bf89d6c373bde6b45cba687a71e2309115f3d4",
+  "physical_opens": 50,
+  "poses": {
+    "C44": {
+      "new_angle_deg": 180.0,
+      "new_position_iu": [
+        44650000,
+        14650001
+      ],
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        36750000,
+        1000000
+      ]
+    },
+    "C45": {
+      "new_angle_deg": -0.0,
+      "new_position_iu": [
+        47800000,
+        14650001
+      ],
+      "old_angle_deg": 0.0,
+      "old_position_iu": [
+        5000000,
+        30500000
+      ]
+    },
+    "C46": {
+      "new_angle_deg": 180.0,
+      "new_position_iu": [
+        44650000,
+        20350000
+      ],
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        50750000,
+        1000000
+      ]
+    },
+    "C47": {
+      "new_angle_deg": -0.0,
+      "new_position_iu": [
+        47800000,
+        20350000
+      ],
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        54250000,
+        1000000
+      ]
+    },
+    "C48": {
+      "new_angle_deg": -0.0,
+      "new_position_iu": [
+        52500000,
+        20350000
+      ],
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        57750000,
+        1000000
+      ]
+    },
+    "C49": {
+      "new_angle_deg": -0.0,
+      "new_position_iu": [
+        52550000,
+        18900001
+      ],
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        61250000,
+        1000000
+      ]
+    },
+    "C63": {
+      "new_angle_deg": -0.0,
+      "new_position_iu": [
+        44150000,
+        21650000
+      ],
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        37250000,
+        4250000
+      ]
+    },
+    "L1": {
+      "new_angle_deg": 90.0,
+      "new_position_iu": [
+        111650000,
+        12750000
+      ],
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        12000000,
+        7375000
+      ]
+    },
+    "L2": {
+      "new_angle_deg": -90.0,
+      "new_position_iu": [
+        49550000,
+        17500000
+      ],
+      "old_angle_deg": -90.0,
+      "old_position_iu": [
+        16000000,
+        7375000
+      ]
+    },
+    "R84": {
+      "new_angle_deg": 180.0,
+      "new_position_iu": [
+        50600000,
+        21650000
+      ],
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        59750000,
+        10250000
+      ]
+    },
+    "R85": {
+      "new_angle_deg": 180.0,
+      "new_position_iu": [
+        48450000,
+        21650000
+      ],
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        62250000,
+        10250000
+      ]
+    },
+    "R86": {
+      "new_angle_deg": 180.0,
+      "new_position_iu": [
+        46300000,
+        21650000
+      ],
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        64750000,
+        10250000
+      ]
+    },
+    "R87": {
+      "new_angle_deg": 180.0,
+      "new_position_iu": [
+        44150000,
+        13350000
+      ],
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        67250000,
+        10250000
+      ]
+    },
+    "U36": {
+      "new_angle_deg": 180.0,
+      "new_position_iu": [
+        108750000,
+        12500000
+      ],
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        103125000,
+        5500000
+      ]
+    },
+    "U37": {
+      "new_angle_deg": -0.0,
+      "new_position_iu": [
+        45500000,
+        17500000
+      ],
+      "old_angle_deg": 0.0,
+      "old_position_iu": [
+        93750000,
+        2250000
+      ]
+    }
+  },
+  "removed_accepted_items": 45,
+  "removed_copper": [
+    [
+      "track",
+      "+3V3_APP",
+      103150000,
+      4750000,
+      103150000,
+      5450000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+3V3_APP",
+      103850000,
+      4750000,
+      103150000,
+      4750000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+3V3_APP",
+      103865000,
+      4750000,
+      103850000,
+      4750000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      103865000,
+      6250000,
+      103865000,
+      6750000,
+      "In3.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      103865000,
+      6750000,
+      103865000,
+      31800000,
+      "F.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      37550000,
+      1000000,
+      37550000,
+      31800000,
+      "F.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      37650000,
+      4750000,
+      37650000,
+      4250000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      40550000,
+      4000000,
+      40550000,
+      4750000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      40550000,
+      4750000,
+      37650000,
+      4750000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      4200000,
+      30500000,
+      5300000,
+      30500000,
+      "F.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      5300000,
+      30500000,
+      5300000,
+      31800000,
+      "F.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      92250000,
+      3650000,
+      92250000,
+      31800000,
+      "F.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      94250000,
+      850000,
+      93750000,
+      850000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      94250000,
+      850000,
+      94250000,
+      31800000,
+      "F.Cu",
+      200000
+    ],
+    [
+      "track",
+      "Net-(L2-~-Pad1)",
+      95250000,
+      850000,
+      94750000,
+      850000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "Net-(L2-~-Pad2)",
+      94750000,
+      3650000,
+      95250000,
+      3650000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "UART0_TX",
+      31050000,
+      19500000,
+      47700000,
+      19500000,
+      "B.Cu",
+      120000
+    ],
+    [
+      "track",
+      "VLED",
+      55050000,
+      1000000,
+      53950000,
+      1000000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED",
+      58550000,
+      1000000,
+      56400000,
+      1000000,
+      "In3.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED",
+      62050000,
+      1000000,
+      56400000,
+      1000000,
+      "In3.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED_FB_TOP_MID",
+      59650000,
+      10200000,
+      59250000,
+      10250000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED_FB_TOP_MID",
+      62350000,
+      10200000,
+      59650000,
+      10200000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "VLED_FB_TOP_MID",
+      62750000,
+      10250000,
+      62350000,
+      10200000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "via",
+      "+3V3_APP",
+      103150000,
+      5450000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      103865000,
+      6250000,
+      "In3.Cu",
+      "In4.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      103865000,
+      6250000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      103865000,
+      6750000,
+      "F.Cu",
+      "In1.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      103865000,
+      6750000,
+      "In1.Cu",
+      "In2.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      103865000,
+      6750000,
+      "In2.Cu",
+      "In3.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      37550000,
+      1000000,
+      "F.Cu",
+      "In1.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      37550000,
+      1000000,
+      "In1.Cu",
+      "In2.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      37550000,
+      1000000,
+      "In2.Cu",
+      "In3.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      37550000,
+      1000000,
+      "In3.Cu",
+      "In4.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      37550000,
+      1000000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      4200000,
+      30500000,
+      "F.Cu",
+      "In1.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      4200000,
+      30500000,
+      "In1.Cu",
+      "In2.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      4200000,
+      30500000,
+      "In2.Cu",
+      "In3.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      4200000,
+      30500000,
+      "In3.Cu",
+      "In4.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      4200000,
+      30500000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      92250000,
+      3650000,
+      "F.Cu",
+      "In1.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      92250000,
+      3650000,
+      "In1.Cu",
+      "In2.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      92250000,
+      3650000,
+      "In2.Cu",
+      "In3.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      92250000,
+      3650000,
+      "In3.Cu",
+      "In4.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      92250000,
+      3650000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      94250000,
+      850000,
+      "F.Cu",
+      "In1.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      94250000,
+      850000,
+      "In1.Cu",
+      "In2.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      94250000,
+      850000,
+      "In2.Cu",
+      "In3.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      94250000,
+      850000,
+      "In3.Cu",
+      "In4.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      94250000,
+      850000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "UART0_TX",
+      47700000,
+      19500000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "VLED",
+      55050000,
+      1000000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "VLED",
+      58550000,
+      1000000,
+      "In3.Cu",
+      "In4.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "VLED",
+      58550000,
+      1000000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "VLED",
+      62050000,
+      1000000,
+      "In3.Cu",
+      "In4.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "VLED",
+      62050000,
+      1000000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "VLED",
+      93750000,
+      3650000,
+      "In1.Cu",
+      "In2.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "VLED",
+      93750000,
+      3650000,
+      "In2.Cu",
+      "In3.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "VLED",
+      93750000,
+      3650000,
+      "In3.Cu",
+      "In4.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "VLED",
+      93750000,
+      3650000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "VLED",
+      94250000,
+      3650000,
+      "In1.Cu",
+      "In2.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "VLED",
+      94250000,
+      3650000,
+      "In2.Cu",
+      "In3.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "VLED",
+      94250000,
+      3650000,
+      "In3.Cu",
+      "In4.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "VLED",
+      94250000,
+      3650000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "VLED_FB_TOP_MID",
+      59650000,
+      10200000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "VLED_FB_TOP_MID",
+      62350000,
+      10200000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ]
+  ],
+  "removed_original_items": 20,
+  "source_catalog_sha256": {
+    "mechanical/review/converter-vled-52-checkpoint.json": "f6879cf5bd8733a2031e512ff51a9cbd6d0e55ee0ccf918422df010aefc71b44",
+    "mechanical/review/vled-cleaned-stage-plan-2026-11-01.json": "22429a26d1c86f87a003423160e3e49b895aeeb4cbda98e0d463559e6a32007e",
+    "mechanical/review/vled-local-switching-stage-2026-10-31.json": "bbd6452843502acdade03df176bd50f7fd0997078f650bfeb4bdeec9f8041f18",
+    "mechanical/review/vled-rigid-floorplan-58-2026-10-30.json": "6b2e6d000ba8d6b47e9be789cd501bd474891ba230dfeec0b6a16b76745d9f7d"
+  },
+  "status": "EXACT_DUAL_CONVERTER_CHILD_PLAN_PENDING_ACCEPTANCE",
+  "uart_contacts": {
+    "board": "hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb",
+    "direct_contacts": [
+      [
+        "copper",
+        "track",
+        "UART0_TX",
+        31075000,
+        22575000,
+        31050000,
+        19500000,
+        "B.Cu",
+        120000
+      ],
+      [
+        "copper",
+        "via",
+        "UART0_TX",
+        47700000,
+        19500000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ]
+    ],
+    "original_215_present": false,
+    "signature": [
+      "track",
+      "UART0_TX",
+      31050000,
+      19500000,
+      47700000,
+      19500000,
+      "B.Cu",
+      120000
+    ]
+  },
+  "uart_via_contacts": {
+    "contacts": {
+      "B.Cu": [
+        [
+          "track",
+          "UART0_TX",
+          31050000,
+          19500000,
+          47700000,
+          19500000,
+          "B.Cu",
+          120000
+        ]
+      ],
+      "In4.Cu": [
+        [
+          "via",
+          "UART0_TX",
+          47700000,
+          19500000,
+          "In3.Cu",
+          "In4.Cu",
+          300000,
+          100000
+        ]
+      ]
+    },
+    "original_215_present": false,
+    "signature": [
+      "via",
+      "UART0_TX",
+      47700000,
+      19500000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ]
+  }
+}
