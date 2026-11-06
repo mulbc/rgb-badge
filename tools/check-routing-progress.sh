@@ -24,3 +24,9 @@ python3 "$repo_root/tools/check-converter-checkpoint-plan.py"
 python3 "$repo_root/tools/check-coupon-study-contract.py" --board "$repo_root/hardware/coupon/rev-a/staging/led-converter-routing-trial-114mm.kicad_pcb"
 "$kicad_python" "$repo_root/tools/check-converter-checkpoint.py" --check-orphans
 "$kicad_python" "$repo_root/tools/test-converter-checkpoint-guards.py"
+
+# ADR 0090: validate the selected complete-stage routing-study successor.
+python3 "$repo_root/tools/check-u36-stage-plan.py"
+python3 "$repo_root/tools/check-coupon-study-contract.py" --board "$repo_root/hardware/coupon/rev-a/staging/led-u36-stage-routing-trial-114mm.kicad_pcb"
+"$kicad_python" "$repo_root/tools/check-u36-stage-checkpoint.py" --check-orphans
+"$kicad_python" "$repo_root/tools/test-u36-stage-checkpoint-guards.py"

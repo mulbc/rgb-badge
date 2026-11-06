@@ -122,3 +122,7 @@ python3 tools/check-converter-checkpoint-plan.py
 Validation: source/cached PDF bytes and SHA agree; independent Decimal thickness
 arithmetic and native span inventory agree; replay is byte-identical; selected
 checkpoint fingerprints remain unchanged. This is no hardware test.
+
+## Implementation follow-up
+
+The [bounded corrections](bounded-corrections-2026-11-06.md) implement a fail-closed stack/via policy and select a separately validated 47-edge local-converter routing successor. This earlier 50-edge input review remains historical; no controlled fabrication build or exact combined GRM188 capacitance guarantee is inferred.

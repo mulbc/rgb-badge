@@ -25,6 +25,7 @@ jobs:
           sparse-checkout-cone-mode: false
           sparse-checkout: |
             /tools/
+            /manufacturing/planning/coupon-six-layer-stack.json
             /hardware/coupon/rev-a/*.kicad_sch
             /hardware/coupon/rev-a/symbols/
             /hardware/coupon/rev-a/footprints/
@@ -62,12 +63,17 @@ jobs:
             /mechanical/review/routing-progress-100-project.json
             /mechanical/review/routing-progress-trial.json
             /mechanical/review/converter-routing-checkpoint.json
+            /mechanical/review/u36-stage-checkpoint.json
+            /mechanical/review/u36-stage-checkpoint-plan.json
             /mechanical/review/converter-routing-checkpoint-plan.json
             /mechanical/review/converter-vled-52-checkpoint.json
             /mechanical/review/vled-cleaned-stage-plan-2026-11-01.json
             /mechanical/review/vled-local-switching-stage-2026-10-31.json
             /mechanical/review/vled-rigid-floorplan-58-2026-10-30.json
             /hardware/coupon/rev-a/staging/led-converter-routing-trial-114mm.kicad_pcb
+            /hardware/coupon/rev-a/staging/led-u36-stage-routing-trial-114mm.kicad_pcb
+            /hardware/coupon/rev-a/staging/led-u36-stage-routing-trial-114mm.kicad_pro
+            /hardware/coupon/rev-a/staging/led-u36-stage-routing-trial-114mm.kicad_dru
             /hardware/coupon/rev-a/staging/led-converter-routing-trial-114mm.kicad_pro
             /hardware/coupon/rev-a/staging/led-converter-routing-trial-114mm.kicad_dru
       - name: Canonical source assignment and injected-fault checks
@@ -77,7 +83,10 @@ jobs:
           python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb
           python3 tools/check-routing-progress-plan.py
           python3 tools/check-converter-checkpoint-plan.py
+          python3 tools/check-u36-stage-plan.py
+          python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-u36-stage-routing-trial-114mm.kicad_pcb
           python3 tools/test-converter-review-calculations.py
+          python3 tools/test-hdi-stack-policy.py
           python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-converter-routing-trial-114mm.kicad_pcb
           python3 tools/check-c32-land-candidate.py
           python3 -m unittest discover -s tools/tests -p test_c32_land_candidate.py -v
