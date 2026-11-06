@@ -274,3 +274,7 @@ checkpoint fingerprints pass. Native child geometry/DRC recheck confirms
 50 opens and exact unchanged 104 findings. Full earlier routing/fault/orphan
 evidence is linked in the [checkpoint closure](dual-converter-goal-closure-2026-11-05.md);
 it is not newly claimed as electrical validation.
+
+## 2026-11-06 owner-input follow-up
+
+The [supplied GRM188/HDI review](grm188-and-hdi-input-review-2026-11-06.md) verifies the duplicate manufacturer reference sheet and preserves its test/de-aging qualifications. Exact combined capacitance remains open. The proposed 1+4+1 stack has a thickness-sum discrepancy and does not support 1,670 current inner-layer microvia objects. It is not adopted; a fabricator build/topology and connector-thickness decision precedes production-intended routing selection. The original dated calculation JSON remains unchanged.

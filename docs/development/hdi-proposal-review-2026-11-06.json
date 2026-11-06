@@ -1,0 +1,154 @@
+{
+  "GRM188_pdf_sha256": "f51cff8dad7a6983263ab35b5705f4d1d4b9977b1f03739c653381ba03d94ea8",
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "board_sha256": "5e07fb866cc059de670e34102045d9dfd88c88f101355fcdbb27253c0ae26e43",
+  "central_dielectric_if_only_it_were_changed_to_reach_1p6_mm_NOT_ADOPTED": 1.038,
+  "current_board_thickness_mm": 1.0,
+  "current_microvia_nominal_annular_ring_mm": 0.1,
+  "current_vias": [
+    {
+      "count": 909,
+      "hole_mm": 0.1,
+      "layers": [
+        "F.Cu",
+        "In1.Cu"
+      ],
+      "pad_mm": 0.3,
+      "span_absent_from_owner_1plus4plus1_scheme": false,
+      "type": "microvia",
+      "witness": {
+        "net": "COL_14_B",
+        "position_mm": [
+          79.3,
+          1.75
+        ],
+        "uuid": "003e0438-fa62-5333-a2b7-e537e2d8a8ad"
+      }
+    },
+    {
+      "count": 506,
+      "hole_mm": 0.1,
+      "layers": [
+        "In1.Cu",
+        "In2.Cu"
+      ],
+      "pad_mm": 0.3,
+      "span_absent_from_owner_1plus4plus1_scheme": true,
+      "type": "microvia",
+      "witness": {
+        "net": "COL_03_G",
+        "position_mm": [
+          47.25,
+          1.6
+        ],
+        "uuid": "0054a47b-390a-595a-bf0c-e72810557d58"
+      }
+    },
+    {
+      "count": 557,
+      "hole_mm": 0.1,
+      "layers": [
+        "In2.Cu",
+        "In3.Cu"
+      ],
+      "pad_mm": 0.3,
+      "span_absent_from_owner_1plus4plus1_scheme": true,
+      "type": "microvia",
+      "witness": {
+        "net": "COL_06_R",
+        "position_mm": [
+          78.85,
+          7.75
+        ],
+        "uuid": "005e4fda-fa7b-5a40-a92b-9f41d0b23211"
+      }
+    },
+    {
+      "count": 607,
+      "hole_mm": 0.1,
+      "layers": [
+        "In3.Cu",
+        "In4.Cu"
+      ],
+      "pad_mm": 0.3,
+      "span_absent_from_owner_1plus4plus1_scheme": true,
+      "type": "microvia",
+      "witness": {
+        "net": "+BAT_PROTECTED_DRAFT",
+        "position_mm": [
+          6.099,
+          15.9505
+        ],
+        "uuid": "006e2105-13ce-5241-b8f1-071866cd0066"
+      }
+    },
+    {
+      "count": 705,
+      "hole_mm": 0.1,
+      "layers": [
+        "In4.Cu",
+        "B.Cu"
+      ],
+      "pad_mm": 0.3,
+      "span_absent_from_owner_1plus4plus1_scheme": false,
+      "type": "microvia",
+      "witness": {
+        "net": "+3V3_APP",
+        "position_mm": [
+          41.320125,
+          4.673124
+        ],
+        "uuid": "00554fbc-9296-5064-ab90-a6b89cc32de8"
+      }
+    },
+    {
+      "count": 16,
+      "hole_mm": 0.3,
+      "layers": [
+        "F.Cu",
+        "B.Cu"
+      ],
+      "pad_mm": 0.5,
+      "span_absent_from_owner_1plus4plus1_scheme": false,
+      "type": "through",
+      "witness": {
+        "net": "ROW_08_A",
+        "position_mm": [
+          77.25,
+          19.4
+        ],
+        "uuid": "21cc1455-74ac-52c8-845c-0f7f6204a584"
+      }
+    }
+  ],
+  "date": "2026-11-06",
+  "exact_part_combined_C_bound_received": false,
+  "fabrication_release_allowed": false,
+  "fabricator_controlled_stack_received": false,
+  "inner_microvias_not_supported_by_proposed_scheme": 1670,
+  "kicad_version": "10.0.6",
+  "listed_total_without_mask_finish_mm": 1.272,
+  "outer_dielectric_to_nominal_hole_ratio": 0.76,
+  "owner_PTH_nominal_aspect_ratio_at_1p6mm": 8,
+  "owner_microvia_nominal_annular_ring_mm": 0.075,
+  "owner_proposed_copper_um_per_layer": [
+    35,
+    35,
+    35,
+    35,
+    35,
+    35
+  ],
+  "owner_proposed_dielectric_mm": [
+    0.076,
+    0.1,
+    0.71,
+    0.1,
+    0.076
+  ],
+  "source_board_or_rules_changed": false,
+  "stated_target_thickness_mm": 1.6,
+  "status": "OWNER_PROPOSAL_REVIEW_NOT_FABRICATOR_APPROVAL",
+  "tool_sha256": "9d4701b31bc647da2c84e0cb38c5b511781b92afedc50c401fb388201c58af94",
+  "unaccounted_thickness_mm": 0.328
+}
