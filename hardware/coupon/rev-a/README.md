@@ -2,6 +2,8 @@
 
 # Coupon Rev A
 
+**2026-11-06 zero-open goal ongoing — 44 opens:** The [first routing continuation](../../../docs/development/routing-closure-2026-11-06.md) selects exact timing/IREF/ILIM joins and a local R1 placement, preserving all 235 parent groups and every original copper item. Native/physical 44 opens, exact unchanged 104 findings, deterministic replay and native/source/orphan/fault/visual checks pass. The immutable 47-open parent remains available. Remaining opens, 557 incompatible centre microvias, controlled-stack/electrical/process/fit qualification and independent Gate A remain open.
+
 **2026-11-06 corrected local stage selected — 47 opens:** [ADR 0090](../../../docs/decisions/0090-bounded-stack-and-complete-stage-corrections.md) and the [implementation record](../../../docs/development/bounded-corrections-2026-11-06.md) select the nine-part U36 correction: 14 exact retirements / 47 additions, all 238 parent groups retained, 47 native/physical opens and the exact unchanged 104 intrinsic findings. R81 output feed, feedback and enable pull-down are joined; short local capacitor routes, stable replay/fills, native/fault/source/orphan and visual checks pass. The 50-edge parent stays immutable. The corrected 0.80 mm manufacturing target remains provisional; 557 centre-layer transitions, electrical/process/fit qualification and independent Gate A still prohibit fabrication.
 
 Open the selected CAD routing study: [led-u36-stage-routing-trial-114mm.kicad_pro](staging/led-u36-stage-routing-trial-114mm.kicad_pro). The root schematic project remains unchanged.

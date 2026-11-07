@@ -407,3 +407,9 @@ remain open; no fabrication release follows.
 **2026-11-06 bounded corrections (ADR 0090):** Use a connector-driven 0.80 mm target and explicitly provisional 2+2+2 geometry while obtaining a controlled finished build; do not adopt the inconsistent 1.6 mm owner proposal or silently reclassify inner microvias. Enforce exact allowed via spans, pad/hole and nominal aspect policies in a fail-closed check, with supplier/release status distinct from geometric eligibility. Screen the complete nine-part U36 stage and retain all prior pad groups/interfaces before canonical selection. Preserve current/protection limits, exact parts, global clearances and independent Gate A. See [ADR 0090](decisions/0090-bounded-stack-and-complete-stage-corrections.md).
 
 **2026-11-06 selected local-stage correction (ADR 0090):** The separate 47-edge routing successor passes exact 9-pose/14-retirement/47-addition, all-238-parent-group, named local-pin, native/physical count, unchanged-104-DRC, replay/fill, source/fault/orphan and visual gates. Enforce primary C40 input and C43 output locality and bounded conductor paths, retaining all exact parts/current/protection settings, B.Cu feedback/default pull-down and the open switch/interlock boundaries. Preserve the 50-edge parent unchanged. Manufacturing eligibility remains fail-closed for the 557 legacy centre microvias, missing controlled stack and supplier/process/fit/Gate A evidence. The 0.80 mm stack is planning intent, not adoption of a fabrication build. See the [implementation evidence](development/bounded-corrections-2026-11-06.md).
+
+**2026-11-06 routing closure goal (ADR 0091):** Continue from the immutable
+47-open study to zero native and physical pad-cluster opens, preserving exact
+circuit boundaries, all live groups and accepted converter geometry. No added
+DRC findings, general width waiver, new unsupported central microvia or
+fabrication permission is allowed. Record and validate each selected successor.

@@ -30,3 +30,11 @@ python3 "$repo_root/tools/check-u36-stage-plan.py"
 python3 "$repo_root/tools/check-coupon-study-contract.py" --board "$repo_root/hardware/coupon/rev-a/staging/led-u36-stage-routing-trial-114mm.kicad_pcb"
 "$kicad_python" "$repo_root/tools/check-u36-stage-checkpoint.py" --check-orphans
 "$kicad_python" "$repo_root/tools/test-u36-stage-checkpoint-guards.py"
+
+# ADR 0091: validate the ongoing zero-open-goal successor and cap geometry.
+python3 "$repo_root/tools/check-routing-closure-plan.py"
+python3 "$repo_root/tools/check-coupon-study-contract.py" --board "$repo_root/hardware/coupon/rev-a/staging/led-routing-closure-trial-114mm.kicad_pcb"
+"$kicad_python" "$repo_root/tools/check-routing-closure.py" --check-orphans
+"$kicad_python" "$repo_root/tools/test-routing-closure-guards.py"
+"$kicad_python" "$repo_root/tools/test-route-cap-contact.py"
+"$kicad_python" "$repo_root/tools/test-native-zone-targets.py"

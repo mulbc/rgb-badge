@@ -64,6 +64,12 @@ jobs:
             /mechanical/review/routing-progress-trial.json
             /mechanical/review/converter-routing-checkpoint.json
             /mechanical/review/u36-stage-checkpoint.json
+            /mechanical/review/routing-closure-checkpoint.json
+            /mechanical/review/routing-closure-plan.json
+            /docs/development/routing-closure-drc-2026-11-06.json
+            /hardware/coupon/rev-a/staging/led-routing-closure-trial-114mm.kicad_pcb
+            /hardware/coupon/rev-a/staging/led-routing-closure-trial-114mm.kicad_pro
+            /hardware/coupon/rev-a/staging/led-routing-closure-trial-114mm.kicad_dru
             /mechanical/review/u36-stage-checkpoint-plan.json
             /mechanical/review/converter-routing-checkpoint-plan.json
             /mechanical/review/converter-vled-52-checkpoint.json
@@ -84,6 +90,8 @@ jobs:
           python3 tools/check-routing-progress-plan.py
           python3 tools/check-converter-checkpoint-plan.py
           python3 tools/check-u36-stage-plan.py
+          python3 tools/check-routing-closure-plan.py
+          python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-routing-closure-trial-114mm.kicad_pcb
           python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-u36-stage-routing-trial-114mm.kicad_pcb
           python3 tools/test-converter-review-calculations.py
           python3 tools/test-hdi-stack-policy.py
