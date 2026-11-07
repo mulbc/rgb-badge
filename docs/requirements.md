@@ -439,3 +439,15 @@ parent and previously selected pad groups/copper, recheck copper/net identity
 after refill, and pass the exact actual-source DRC and all other native gates.
 The current-board retired-via restoration experiment is separately reported,
 including net reassignment or extra opens; its output is never selected.
+
+ADR 0094 permits only a bounded R90 locality study with unchanged
+ERJ2RKF1402X / 14 kΩ programming and fixed U39 thermal position. A selected
+pose requires local SETB/ground geometry, ordinary B.Cu routing, complete
+41-open group/copper retention, exact unchanged native DRC and all normal
+successor validation. Temperature thresholds and protection are not retuned.
+
+ADR 0094 additionally permits exactly one full-width B.Cu GND return replacement
+at (59.865,16.000)–(58.365,16.000) mm to open the local cold-pin exit. Its exact
+replacement must retain both endpoints and every direct original-layer contact,
+stay inside the recorded local bounds, preserve all other accepted copper and
+all live groups, and pass the same complete successor checks before selection.

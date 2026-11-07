@@ -70,3 +70,10 @@ retirement proof to the immutable 43-open parent and separately records the
 rejected current-board restoration experiment. The actual selected source
 retains exact 104-finding DRC, full replay/source/group/copper and ten-fault
 validation. Zero-open work remains ongoing.
+
+ADR 0094's selected 40-open continuation localizes R90 and replaces one exact
+GND return, with both original endpoints and all five direct contacts retained.
+Every other accepted copper item and all preceding 229 live groups survive.
+This explicit, bounded replacement supersedes the no-new-retirement scope only
+for that recorded track. Full native/source/replay and fifteen-fault checks
+pass; zero-open and qualification work remain ongoing.

@@ -8,7 +8,7 @@ PARENT=ROOT/'hardware/coupon/rev-a/staging/led-switch-routing-trial-114mm.kicad_
 PARENT_SHA='b847f59f8a13a63d8db7a3c2ed2e7efc37239edc03c16fe12adc8b5758b4d524'
 OUTPUT=ROOT/'hardware/coupon/rev-a/staging/led-remaining-routing-trial-114mm.kicad_pcb'
 PLAN=ROOT/'mechanical/review/remaining-routing-plan.json'
-PLAN_SHA='9bb165260f67d79aab319feadb9c34526c7f2d79e924a93aac32e90cb8c42f6d'
+PLAN_SHA='06ae4a263811c7af0c7bfbfd646848fecb7f2b43039fd924dd15a428c34015ad'
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def load_plan():
  assert sha(PARENT)==PARENT_SHA and sha(PLAN)==PLAN_SHA,'Frozen routing source/plan changed'
@@ -29,6 +29,28 @@ def audit(path,plan=None,fill=True):
  a,b=inventory(old),inventory(new)
  assert a-b==Counter(map(tuple,plan['removed_copper'])),'Exact copper retirement differs'
  assert b-a==Counter(map(tuple,plan['added_copper'])),'Exact added copper differs'
+ allowed=('track','GND',59865000,16000000,58365000,16000000,'B.Cu',200000)
+ entry=plan.get('ground_return_replacement')
+ if entry:
+  assert plan['removed_copper']==[list(allowed)] and entry['original']==list(allowed),'Unreviewed retirement scope'
+  originals=[t for t in old.GetTracks() if signature(old,t)==allowed];assert len(originals)==1
+  h=runpy.run_path(str(ROOT/'tools/check-routing-progress-trial.py'))
+  witnesses=runpy.run_path(str(ROOT/'tools/routing_track_replacements.py'))['contacts'](old,originals[0],signature,h['physical_identity'])
+  assert [key for key,_ in witnesses]==entry['junction_contacts'],'Ground-return source contacts differ'
+  wanted=Counter(map(tuple,entry['replacement']));replacement=[]
+  for t in new.GetTracks():
+   key=signature(new,t)
+   if wanted[key]:replacement.append(t);wanted[key]-=1
+  assert not +wanted and replacement,'Ground-return replacement missing'
+  assert sum(math.dist(row[2:4],row[4:6]) for row in entry['replacement'])<8000000
+  for row in entry['replacement']:
+   assert row[:2]==['track','GND'] and row[6:]==['B.Cu',200000]
+   assert all(58300000<=row[i]<=60750000 for i in (2,4)) and all(16000000<=row[i]<=18250000 for i in (3,5))
+  for point in [originals[0].GetStart(),originals[0].GetEnd()]:
+   assert any(t.GetEffectiveShape(p.B_Cu).Collide(p.SHAPE_CIRCLE(point,1),0) for t in replacement),'Original return endpoint lost'
+  assert all(any(t.GetEffectiveShape(p.B_Cu).Collide(o.GetEffectiveShape(p.B_Cu),0) for t in replacement) for _,o in witnesses),'Original return junction lost'
+ else:assert not plan['removed_copper'],'Unreviewed original copper retirement'
+
  layers=['F.Cu','In1.Cu','In2.Cu','In3.Cu','In4.Cu','B.Cu']
  for row in plan['added_copper']:
   if row[0]=='track':assert row[-1]==200000,'General narrowing forbidden'
@@ -76,6 +98,17 @@ def audit(path,plan=None,fill=True):
  if 'R1' in plan['poses']:
   for x,y in [('1','1'),('2','56')]:
    assert math.dist((pin('R1',x).GetPosition().x,pin('R1',x).GetPosition().y),(pin('U1',y).GetPosition().x,pin('U1',y).GetPosition().y))<=3000000,'IREF resistor locality lost'
+ if 'R90' in plan['poses']:
+  for n,m in [('1','2'),('2','3')]:
+   assert math.dist((pin('R90',n).GetPosition().x,pin('R90',n).GetPosition().y),(pin('U39',m).GetPosition().x,pin('U39',m).GetPosition().y))<=3000000,'TMP390 resistor locality lost'
+  local_ground=False
+  for zone in new.Zones():
+   if zone.GetLayer()!=p.B_Cu or zone.GetNetCode()!=pin('R90','2').GetNetCode():continue
+   filled=zone.GetFilledPolysList(p.B_Cu)
+   for i in range(filled.OutlineCount()):
+    unit=filled.UnitSet(i)
+    if unit.Collide(pin('R90','2').GetEffectiveShape(p.B_Cu),0) and unit.Collide(pin('U39','3').GetEffectiveShape(p.B_Cu),0):local_ground=True;break
+  assert local_ground,'TMP390 local ground polygon lost'
  result=runpy.run_path(str(ROOT/'tools/report-coupon-board-connectivity.py'))['open_edges_by_net'](path)
  assert result['native_open_edges']==result['pad_cluster_open_edges']==plan['native_opens']
  return old,new,result
