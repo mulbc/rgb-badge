@@ -49,3 +49,16 @@ timing, IREF and ILIM; the LED current resistor moves close to U1 with an
 explicit local return. Stable replay, native/source/orphan/fault and visual
 checks pass. Rejected DSF/temperature/colour trials are absent from the ledger.
 The zero-open objective and fabrication/qualification holds remain open.
+
+## Remaining-routing continuation — 2026-11-07
+
+Continue from the immutable ADR 0092 43-open switch checkpoint into the named
+remaining-routing successor. Its exact plan may grow as real joins pass the
+same full validation; retain every 43-open source copper item and all 231 live
+pad groups. The first candidate closes U3.14–R46.1 (USB_DP_MCU), adding only
+ordinary-width tracks and adjacent outer microvias, with explicit APP-supply
+restoration. No part/net/current/rule changes are authorized. The 42-open
+candidate requires stable replay/fills, exact 104 native findings, source,
+original-orphan and isolated disconnection/fault checks before selection.
+USB pairing/impedance/skew/return paths and the new supply-path current/thermal
+review remain unresolved qualification; this is CAD continuity only.

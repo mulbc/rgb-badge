@@ -2,6 +2,8 @@
 
 
 **2026-11-07 switch routing selected — 43 opens:** The [validated successor](docs/development/switch-routing-2026-11-07.md) joins SW2.3–R83.1–U36.5, retains all 232 immutable 44-open parent groups and every prior copper item, and passes exact unchanged 104-finding DRC, stable replay/fills, source/orphan/fault and visual checks. The zero-open goal remains in progress. Added supply bridges, controlled stack, 557 historical centre microvias, electrical/process/fit qualification and independent Gate A remain open; fabrication is prohibited.
+
+**2026-11-07 remaining routing selected — 42 opens:** The [validated successor](docs/development/remaining-routing-2026-11-07.md) joins U3.14–R46.1 while restoring APP supply, retaining all 231 immutable 43-open parent groups and every prior copper item. Exact unchanged 104-finding DRC, stable replay/fills, source/orphan/fault and native endpoint views pass. The zero-open goal remains in progress. USB signal quality, supply current/thermal, stack/process/fit, 557 historical centre microvias and independent Gate A remain open; fabrication is prohibited.
 # Project context
 
 **2026-11-06 zero-open goal ongoing — 44 opens:** The [first routing continuation](docs/development/routing-closure-2026-11-06.md) selects exact timing/IREF/ILIM joins and a local R1 placement, preserving all 235 parent groups and every original copper item. Native/physical 44 opens, exact unchanged 104 findings, deterministic replay and native/source/orphan/fault/visual checks pass. The immutable 47-open parent remains available. Remaining opens, 557 incompatible centre microvias, controlled-stack/electrical/process/fit qualification and independent Gate A remain open.

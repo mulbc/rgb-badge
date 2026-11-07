@@ -426,3 +426,9 @@ DRC, deterministic replay and fault/source/orphan checks. Its two full-span
 vias use 0.50/0.30 mm; the new supply bridges require separate current/voltage-
 drop/thermal and return-path qualification. No fabrication or electrical
 validation is inferred from CAD continuity.
+
+ADR 0091's remaining-routing successor must retain all 231 groups and every
+copper item of the immutable ADR 0092 43-open source. Each accepted open-count
+reduction requires an exact current ledger, native/physical agreement, no new
+DRC finding, stable replay/fills and source/orphan/fault validation. USB signal
+quality and added supply-path ampacity remain separate qualification holds.

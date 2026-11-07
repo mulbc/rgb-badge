@@ -1,0 +1,222 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_copper_items": 83,
+  "all_231_parent_groups_preserved": true,
+  "board": "hardware/coupon/rev-a/staging/led-remaining-routing-trial-114mm.kicad_pcb",
+  "board_sha256": "844fd52387c41f6cfbbce1790e6a564a63d3285417b020769f91088d870ba4ca",
+  "by_net": {
+    "+3V3_USB": 1,
+    "+BAT_GAUGE_SW": 2,
+    "CHARGER_EN2": 1,
+    "CHARGER_TS": 1,
+    "DISPLAY_CLEAR_3": 1,
+    "DISPLAY_CLEAR_OK": 2,
+    "DISPLAY_ENABLE": 1,
+    "DISPLAY_HEARTBEAT": 1,
+    "ESP_EN": 1,
+    "GND": 3,
+    "HEARTBEAT_FALL_CLK": 1,
+    "HEARTBEAT_SEEN": 1,
+    "LED_GCLK": 1,
+    "LED_LAT": 1,
+    "LED_SCLK": 1,
+    "ROW_ENABLE_N_CANDIDATE": 1,
+    "ROW_GATE_00": 1,
+    "ROW_GATE_02": 1,
+    "ROW_GATE_03": 1,
+    "ROW_GATE_04": 1,
+    "ROW_GATE_06": 1,
+    "ROW_GATE_07": 1,
+    "TEMP_OK": 1,
+    "TMP_COLD_SET": 1,
+    "USB_CC1": 1,
+    "USB_D+": 1,
+    "USB_D-": 1,
+    "USB_DN_MCU": 1,
+    "USB_EN1_RAW_N": 1,
+    "VBUS_CONNECTOR": 1,
+    "VLED": 7,
+    "VLED_ENABLE_CANDIDATE": 1
+  },
+  "checker_sha256": "d657f38888582d4fbf159ef867befd0cb69ac24a1f23cd2861db27ff262374f8",
+  "date": "2026-11-07",
+  "drc_sha256": "f94e95ec419bcd6f6534c0ce173e4ef28e6e393e9348fc219e0f3e7d2e2093ae",
+  "fabrication_release_allowed": false,
+  "goal_status": "IN_PROGRESS_ZERO_OPEN_GOAL",
+  "interpretation": "Unconnected pad clusters minus one per net; no electrical or manufacturability qualification",
+  "intrinsic_findings": 104,
+  "isolated_fault_guards": [
+    {
+      "case": "usb-dp-open",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "app-supply-open",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "unsupported-full-span-microvia",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "outer-microvia-shrunk",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "ordinary-track-narrowed",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "converter-default-changed",
+      "reason": "Local pad/net geometry changed: U36",
+      "rejected": true
+    },
+    {
+      "case": "previous-switch-copper-removed",
+      "reason": "Exact copper retirement differs",
+      "rejected": true
+    }
+  ],
+  "legacy_centre_microvias_unresolved": 557,
+  "local_source_workflow_checks": [
+    {
+      "command": "python3 tools/check-coupon-study-contract.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb --legacy-land-study --legacy-switch-study",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-routing-progress-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-converter-checkpoint-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-u36-stage-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-routing-closure-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-switch-routing-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-remaining-routing-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-remaining-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-switch-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-routing-closure-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-u36-stage-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/test-converter-review-calculations.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/test-hdi-stack-policy.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-converter-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-c32-land-candidate.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_c32_land_candidate.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_murata_catalogue_lands.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_convex_geometry.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_supply_join.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_slide_switch_library.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_progress_plan.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_coupon_study_contract.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_goal_distance.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_native_route_paths.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_clearance.py -v",
+      "exit_code": 0
+    }
+  ],
+  "native_open_edges": 42,
+  "native_opens": 42,
+  "original_orphan_restoration": {
+    "all_live_pad_groups_identical": true,
+    "native_opens": 42,
+    "only_three_exact_original_orphan_warnings": true
+  },
+  "pad_cluster_open_edges": 42,
+  "parent_sha256": "b847f59f8a13a63d8db7a3c2ed2e7efc37239edc03c16fe12adc8b5758b4d524",
+  "physical_opens": 42,
+  "plan_sha256": "ece3b0976f9b396c72d2df74e9d4b11ba99789479470fe8dc12e81efd9249722",
+  "policy_sha256": "4d390cfb697f7458f16b807c319e1d71bd5ad86905066848b2a71b995b7253fa",
+  "poses": {},
+  "project_sha256": "1141b004ecffd1e7e8e0c30cf21aeae7ce6381093df674998133d226ab9c27fb",
+  "removed_copper_items": 0,
+  "rules_sha256": "80c92b0cdef868dd0ef0037aa2f63d1266f709a2dd0326094735c75ffbd31a2e",
+  "stable_fill_and_replay_identical": true,
+  "status": "PASS_GEOMETRIC_ROUTING_STUDY_ONLY",
+  "tool_sha256": {
+    "tools/check-remaining-routing-plan.py": "9cf40fec3f0ecfa4ae956fb220799b265062664f323a61c348779854d37b3020",
+    "tools/check-remaining-routing.py": "d657f38888582d4fbf159ef867befd0cb69ac24a1f23cd2861db27ff262374f8",
+    "tools/generate-remaining-routing.py": "32bd3d77c1a135b43b242a6afa005efd4b74961f501f3fcbb0db3ca03dd13b18",
+    "tools/routing_remaining.py": "4d390cfb697f7458f16b807c319e1d71bd5ad86905066848b2a71b995b7253fa",
+    "tools/test-remaining-routing-guards.py": "951738d6ae2504f33ba9938fe92a739deda0d2a4f7a4cfcb54caf15f117860c1"
+  },
+  "visual_review": "Native B.Cu MCU and series-resistor endpoint close-ups inspected: ignored build/remaining-routing/mcu-usb.png and series-resistor.png"
+}

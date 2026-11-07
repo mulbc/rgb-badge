@@ -44,3 +44,9 @@ python3 "$repo_root/tools/check-switch-routing-plan.py"
 python3 "$repo_root/tools/check-coupon-study-contract.py" --board "$repo_root/hardware/coupon/rev-a/staging/led-switch-routing-trial-114mm.kicad_pcb"
 "$kicad_python" "$repo_root/tools/check-switch-routing.py" --check-orphans
 "$kicad_python" "$repo_root/tools/test-switch-routing-guards.py"
+
+# ADR 0091 continuation from the immutable switch checkpoint.
+python3 "$repo_root/tools/check-remaining-routing-plan.py"
+python3 "$repo_root/tools/check-coupon-study-contract.py" --board "$repo_root/hardware/coupon/rev-a/staging/led-remaining-routing-trial-114mm.kicad_pcb"
+"$kicad_python" "$repo_root/tools/check-remaining-routing.py" --check-orphans
+"$kicad_python" "$repo_root/tools/test-remaining-routing-guards.py"
