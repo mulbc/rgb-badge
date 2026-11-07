@@ -90,7 +90,22 @@ def main():
  case('tp14-prior-contact-with-matching-ledger',contact_old_probe)
  assert results[-1]['reason']=='TP14 prior copper-contact proof failed'
 
- assert policy.sha(source)==before and len(results)==25
+ case('vled-enable-probe-open',disconnect('VLED_ENABLE_CANDIDATE',[('TP13','1'),('U55','7')]))
+ def rounded_native_capture(b):
+  row=next(row for row in plan['native_testpad_escape']['copper'] if row[0]=='via' and row[2:4]==[26250000,20875000]);v=next(t for t in b.GetTracks() if list(policy.signature(b,t))==row);v.SetPosition(p.VECTOR2I(26250000,20850000));changed=list(policy.signature(b,v));other=json.loads(json.dumps(plan));other['added_copper'].remove(row);other['added_copper'].append(changed);other['native_testpad_escape']['copper'].remove(row);other['native_testpad_escape']['copper'].append(changed);return other
+ case('native-source-rounded-with-matching-ledger',rounded_native_capture)
+ assert results[-1]['reason']=='Native source capture moved'
+ def contact_old_tp13(b):
+  x,y=plan['poses']['TP13']['old_position_iu'];t=p.PCB_TRACK(b);t.SetStart(p.VECTOR2I(x,y));t.SetEnd(p.VECTOR2I(x+100000,y));t.SetLayer(p.B_Cu);t.SetWidth(200000);t.SetNetCode(b.FindNet('VLED_ENABLE_CANDIDATE').GetNetCode());b.Add(t);other=json.loads(json.dumps(plan));other['added_copper'].append(list(policy.signature(b,t)));return other
+ case('tp13-prior-contact-with-matching-ledger',contact_old_tp13)
+ assert results[-1]['reason']=='TP13 prior copper-contact proof failed'
+ case('tp13-remote-again',lambda b:b.FindFootprintByReference('TP13').SetPosition(p.VECTOR2I(*plan['poses']['TP13']['old_position_iu'])))
+ def forge_isolation(b):
+  other=json.loads(json.dumps(plan));other['native_testpad_escape']['isolation_pad_group'].append(next(q for q in b.FindFootprintByReference('U55').Pads() if q.GetNumber()=='7').m_Uuid.AsString());return other
+ case('tp13-forged-historical-isolation',forge_isolation)
+ assert results[-1]['reason']=='Test-land historical isolation group differs'
+
+ assert policy.sha(source)==before and len(results)==30
  (BUILD/'results.json').write_text(json.dumps({'SPDX-License-Identifier':'CERN-OHL-S-2.0','source_sha256':before,'cases':results,'fabrication_release_allowed':False},indent=2,sort_keys=True)+'\n')
- print('PASS twenty-five remaining-routing faults, including real USB/supply disconnections')
+ print('PASS thirty remaining-routing faults, including real USB/supply disconnections')
 if __name__=='__main__':main()

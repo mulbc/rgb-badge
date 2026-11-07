@@ -487,3 +487,28 @@ ordinary B.Cu lead, and the exact permission-lead replacement retains both
 outer endpoints and all four external contacts. All 227 prior groups and
 219 additions, unchanged full DRC, replay/fills, 25 fault guards and 27 source
 checks pass. TP13 stays fixed; all qualification/fabrication holds remain.
+
+ADR 0100 permits only the exact two-track VLED_WINDOW_OK transfer for a
+completed TP13 join under ADR 0098. Preserve both outer B.Cu endpoints and
+all original external contacts, all prior groups/other copper and unchanged
+window/current/protection/default logic. Ordinary widths and adjacent
+0.30/0.10 mm B.Cu/In4.Cu vias, bounded local routing and complete successor
+validation precede selection; all qualification/fabrication holds remain.
+
+ADR 0100 also permits the same exact window replacement for a complete
+ordinary-width ADR 0091 route to fixed TP13, with a recorded adjacent output
+escape and unchanged land pose. A partial escape is never selected or counted
+as a circuit join; actual routing length/loading and all source/group/DRC
+checks remain required.
+
+ADR 0101 permits a bounded TP13 exact-pad-centre escape with unchanged
+0.30/0.10 mm B.Cu/In4.Cu microvias and at most 5 mm total ordinary B.Cu/In4.Cu
+trace. It changes no other pose or accepted copper and requires exact prior
+isolation, all groups/copper, full DRC/replay/source/fault/visual checks before
+selection. Via-in-pad/probe/process qualification and fabrication holds remain.
+
+ADR 0101 selects the additive 37-open successor: TP13 joins U55.7 through
+two adjacent microvias and a calculated 3.857541315 mm ordinary In4.Cu lead.
+All 226 preceding groups and 223 additions survive, with no new retirement;
+exact unchanged DRC, stable replay/fills, 30 fault guards, 27 source checks
+and native visual review pass. All qualification/fabrication holds remain.

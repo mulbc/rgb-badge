@@ -33,3 +33,7 @@ The 2026-11-07 ADR 0098/0099 successor separately selects TP14 after an exact
 permission-lead replacement. The original four-land catalog and historical
 65-edge source stay immutable; TP13 remains fixed. See the later decisions
 for the explicit 5 mm bound and complete new successor validation.
+
+ADR 0101 later selects TP13 with a bounded inner-layer lead and native
+pad-centre capture. Its explicit exception, original isolation and full
+validation are separate from the immutable historical four-land catalog.

@@ -18,11 +18,15 @@ def main():
  assert m['permission_lead_replacement_witness']['both_outer_endpoints_retained'] and m['permission_lead_replacement_witness']['all_original_bcu_contacts_retained']
  assert m['permission_lead_replacement_witness']['tp14_previous_isolation_and_no_copper_contact']
  assert m['permission_lead_replacement_witness']['tp14_joined_pad']==['U54','3'] and m['permission_lead_replacement_witness']['tp14_lead_length_mm']<=5
+ assert m['permission_lead_replacement_witness']['tp14_isolation_source_sha256']=='aab8f44a9ec3ae65aed4ee2500d52d57d4d3872c8428b8f50c765bfedd205a1e'
+ assert m['native_testpad_escape_witness']['source_capture_iu']==[26250000,20875000]
+ assert m['native_testpad_escape_witness']['prior_isolation_and_no_copper_contact'] and m['native_testpad_escape_witness']['joined_pad']==['U55','7']
+ assert m['native_testpad_escape_witness']['trace_length_mm']<=5 and m['native_testpad_escape_witness']['new_vias']==2 and not m['native_testpad_escape_witness']['source_copper_retired']
  assert m['inherited_original_orphan_restoration']['only_three_exact_original_orphan_warnings']
  assert m['inherited_original_orphan_restoration']['basis']=='IMMUTABLE_43_OPEN_PARENT'
  assert m['inherited_original_orphan_restoration']['board_sha256']==policy.PARENT_SHA
  assert m['selected_retirement_probe']['source_unchanged'] and m['selected_retirement_probe']['status']=='REJECTED_COUNTERFACTUAL_NOT_SELECTED_SOURCE'
- assert len(m['isolated_fault_guards'])==25 and all(row['rejected'] for row in m['isolated_fault_guards'])
+ assert len(m['isolated_fault_guards'])==30 and all(row['rejected'] for row in m['isolated_fault_guards'])
  for path,digest in m['tool_sha256'].items():assert policy.sha(policy.ROOT/path)==digest,path
  for ext,key in [('.kicad_pro','project_sha256'),('.kicad_dru','rules_sha256')]:
   assert policy.sha(policy.OUTPUT.with_suffix(ext))==m[key]

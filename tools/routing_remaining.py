@@ -8,7 +8,7 @@ PARENT=ROOT/'hardware/coupon/rev-a/staging/led-switch-routing-trial-114mm.kicad_
 PARENT_SHA='b847f59f8a13a63d8db7a3c2ed2e7efc37239edc03c16fe12adc8b5758b4d524'
 OUTPUT=ROOT/'hardware/coupon/rev-a/staging/led-remaining-routing-trial-114mm.kicad_pcb'
 PLAN=ROOT/'mechanical/review/remaining-routing-plan.json'
-PLAN_SHA='63f498761d6dd6eae045ab8ff5c4870616a603a3d422977bce3ed728e5ea5479'
+PLAN_SHA='3c67da39c2f1fff08e627908974e231056bc2f07e5982786e71795d131b7b724'
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def load_plan():
  assert sha(PARENT)==PARENT_SHA and sha(PLAN)==PLAN_SHA,'Frozen routing source/plan changed'
@@ -83,6 +83,8 @@ def audit(path,plan=None,fill=True):
   assert inventory(new)==b,'Refill changed exact copper/net identity'
   plane_witness=plane_verify(old,new,plan,signature,helpers['physical_identity'])
   permission_witness=permission_verify(old,new,plan,signature,helpers['physical_identity'])
+  from routing_native_testpad import verify_native as native_testpad_verify
+  native_testpad_witness=native_testpad_verify(old,new,plan,signature)
   assert all(group<=cluster(new,pb[key]) for group,key in groups.items()),'Parent pad group split'
   assert new.GetConnectivity().GetUnconnectedCount(False)==plan['native_opens'],'Native open count differs'
   previous=plan.get('previous_checkpoint')
@@ -119,4 +121,5 @@ def audit(path,plan=None,fill=True):
  assert result['native_open_edges']==result['pad_cluster_open_edges']==plan['native_opens']
  if plane_witness is not None:result['ground_plane_replacement_witness']=plane_witness
  if permission_witness is not None:result['permission_lead_replacement_witness']=permission_witness
+ if native_testpad_witness is not None:result['native_testpad_escape_witness']=native_testpad_witness
  return old,new,result

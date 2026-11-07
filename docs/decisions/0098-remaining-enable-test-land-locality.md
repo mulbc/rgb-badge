@@ -3,7 +3,7 @@
 # ADR 0098: Remaining isolated enable test lands
 
 Date: 2026-11-07
-Status: TP14 selected with ADR 0099 in the 38-open successor; TP13 remains fixed.
+Status: TP14 selected under ADR 0099; TP13 subsequently selected under ADR 0101.
 
 Extend ADR 0055's feasibility scope only for the still-isolated TP13
 (VLED_ENABLE_CANDIDATE) and TP14 (ROW_ENABLE_N_CANDIDATE) in the validated
@@ -39,5 +39,10 @@ ADR 0099 subsequently selects TP14 at (93.500,22.000) mm with an exact
 3.125 mm ordinary B.Cu lead, after a bounded permission-lead replacement.
 This is a coordinated change beyond the preceding fixed-copper screen.
 TP14 prior isolation/no-contact, all earlier groups/copper outside the exact
-replacement, full native/source/replay and 25 fault checks pass. TP13 and all
-other historical test-land poses remain unchanged.
+replacement, full native/source/replay and 25 fault checks pass. At that
+38-open checkpoint, TP13 and all other historical test-land poses remain unchanged.
+
+ADR 0101 subsequently selects TP13 with an exact native capture and a
+3.857541315 mm In4.Cu lead, explicitly extending the B.Cu-only experiment.
+The land and source fields/geometry remain unchanged, and every preceding
+copper item survives. All 30 fault guards and complete successor checks pass.

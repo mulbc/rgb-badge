@@ -1982,6 +1982,16 @@
       200000
     ],
     [
+      "track",
+      "VLED_ENABLE_CANDIDATE",
+      26250000,
+      20875000,
+      23250000,
+      23300000,
+      "In4.Cu",
+      200000
+    ],
+    [
       "via",
       "+3V3_APP",
       13250000,
@@ -2250,6 +2260,28 @@
       "USB_DP_MCU",
       49750000,
       8250000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000,
+      1
+    ],
+    [
+      "via",
+      "VLED_ENABLE_CANDIDATE",
+      23250000,
+      23300000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000,
+      1
+    ],
+    [
+      "via",
+      "VLED_ENABLE_CANDIDATE",
+      26250000,
+      20875000,
       "In4.Cu",
       "B.Cu",
       300000,
@@ -2559,9 +2591,65 @@
         "U54",
         "3"
       ]
+    ],
+    [
+      [
+        "TP13",
+        "1"
+      ],
+      [
+        "U55",
+        "7"
+      ]
     ]
   ],
-  "native_opens": 38,
+  "native_opens": 37,
+  "native_testpad_escape": {
+    "copper": [
+      [
+        "via",
+        "VLED_ENABLE_CANDIDATE",
+        26250000,
+        20875000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000,
+        1
+      ],
+      [
+        "via",
+        "VLED_ENABLE_CANDIDATE",
+        23250000,
+        23300000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000,
+        1
+      ],
+      [
+        "track",
+        "VLED_ENABLE_CANDIDATE",
+        26250000,
+        20875000,
+        23250000,
+        23300000,
+        "In4.Cu",
+        200000
+      ]
+    ],
+    "isolation_pad_group": [
+      "2d0e0f1f-6b4c-58f2-a0b8-cb005e3ee52a"
+    ],
+    "isolation_source_sha256": "01fb2e8a1ac781172797d369df99ff3c834016453ffeaa3d76c224b525355031",
+    "net": "VLED_ENABLE_CANDIDATE",
+    "reference": "TP13",
+    "source_pad": [
+      "U55",
+      "7"
+    ]
+  },
   "parent_groups": 231,
   "parent_sha256": "b847f59f8a13a63d8db7a3c2ed2e7efc37239edc03c16fe12adc8b5758b4d524",
   "permission_lead_replacement": {
@@ -2698,6 +2786,10 @@
           200000
         ]
       ],
+      "isolation_pad_group": [
+        "41b79175-69fb-5adf-bfdf-d00daca5fcee"
+      ],
+      "isolation_source_sha256": "aab8f44a9ec3ae65aed4ee2500d52d57d4d3872c8428b8f50c765bfedd205a1e",
       "joined_pad": [
         "U54",
         "3"
@@ -2706,7 +2798,7 @@
       "reference": "TP14"
     }
   },
-  "physical_opens": 38,
+  "physical_opens": 37,
   "poses": {
     "R90": {
       "angle_deg": 0,
@@ -2718,6 +2810,18 @@
       "position_iu": [
         60000000,
         16750000
+      ]
+    },
+    "TP13": {
+      "angle_deg": 180.0,
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        82501262,
+        10500001
+      ],
+      "position_iu": [
+        23250000,
+        23300000
       ]
     },
     "TP14": {
@@ -3192,6 +3296,26 @@
         17750000,
         58450000,
         17750000,
+        "B.Cu",
+        200000
+      ],
+      [
+        "track",
+        "ROW_ENABLE_N_CANDIDATE",
+        93500000,
+        19625000,
+        93500000,
+        22000000,
+        "B.Cu",
+        200000
+      ],
+      [
+        "track",
+        "ROW_ENABLE_N_CANDIDATE",
+        94250000,
+        19625000,
+        93500000,
+        19625000,
         "B.Cu",
         200000
       ],
@@ -4676,6 +4800,26 @@
         200000
       ],
       [
+        "track",
+        "USB_RAW_LOGIC_READY",
+        92900000,
+        18350000,
+        92900000,
+        20350000,
+        "B.Cu",
+        200000
+      ],
+      [
+        "track",
+        "USB_RAW_LOGIC_READY",
+        92900000,
+        20350000,
+        92500000,
+        20600000,
+        "B.Cu",
+        200000
+      ],
+      [
         "via",
         "+3V3_APP",
         13250000,
@@ -4951,8 +5095,8 @@
         1
       ]
     ],
-    "commit": "772c83a",
-    "native_opens": 39,
+    "commit": "d6a36e8",
+    "native_opens": 38,
     "pad_groups": [
       [
         "005d75a0-9491-5e66-96bc-7b12912c12d2",
@@ -6926,7 +7070,8 @@
         "d5e910de-2a4b-564c-afb8-f7de70d7887d"
       ],
       [
-        "41b79175-69fb-5adf-bfdf-d00daca5fcee"
+        "41b79175-69fb-5adf-bfdf-d00daca5fcee",
+        "6bd92d31-eaa0-55fe-8245-04550f9c4d83"
       ],
       [
         "4384170d-7ffe-5054-8d7a-176b029ba777"
@@ -7067,9 +7212,6 @@
         "6923fab3-3fa1-5a1f-a067-ecfcf260fefc",
         "956efc22-d22c-5f43-9dcf-5e9ab7df3fe5",
         "dcc7af0f-e9e7-5e01-a8c7-bf4917455245"
-      ],
-      [
-        "6bd92d31-eaa0-55fe-8245-04550f9c4d83"
       ],
       [
         "6d6002df-9ee0-5db5-8dcf-1469afc4a403",
@@ -7231,8 +7373,8 @@
         "fd81f748-60eb-5d66-8677-45190c27c41a"
       ]
     ],
-    "physical_opens": 39,
-    "source_sha256": "aab8f44a9ec3ae65aed4ee2500d52d57d4d3872c8428b8f50c765bfedd205a1e"
+    "physical_opens": 38,
+    "source_sha256": "01fb2e8a1ac781172797d369df99ff3c834016453ffeaa3d76c224b525355031"
   },
   "removed_copper": [
     [

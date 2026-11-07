@@ -70,7 +70,14 @@ def verify_native(old,new,plan,signature,physical_identity):
     cluster = lambda board,q:frozenset(t.m_Uuid.AsString() for t in board.GetConnectivity().GetConnectedItems(q) if isinstance(t,p.PAD))
     assert len(cluster(old,a)) == 1, 'TP14 previously connected'
     previous = plan['previous_checkpoint']['pad_groups']
-    assert next(group for group in previous if a.m_Uuid.AsString() in group) == [a.m_Uuid.AsString()], 'TP14 previous checkpoint not isolated'
+    assert entry['testpad']['isolation_source_sha256'] == 'aab8f44a9ec3ae65aed4ee2500d52d57d4d3872c8428b8f50c765bfedd205a1e', 'TP14 isolation basis differs'
+    assert entry['testpad']['isolation_pad_group'] == [a.m_Uuid.AsString()], 'TP14 historical isolation group differs'
+    prior_group = next(group for group in previous if a.m_Uuid.AsString() in group)
+    if plan['previous_checkpoint']['source_sha256'] == entry['testpad']['isolation_source_sha256']:
+        assert prior_group == [a.m_Uuid.AsString()], 'TP14 first-adoption source not isolated'
+    else:
+        target = next(q for q in new.FindFootprintByReference('U54').Pads() if q.GetNumber() == '3')
+        assert target.m_Uuid.AsString() in prior_group, 'TP14 previously selected join missing'
     # Parent copper plus the selected successor is a superset of all preceding
     # 39-open copper. This also tests the previous additions, not only the parent.
     shape,box = a.GetEffectiveShape(p.B_Cu),a.GetBoundingBox()
@@ -84,4 +91,4 @@ def verify_native(old,new,plan,signature,physical_identity):
     assert cluster(new,z) == cluster(new,target) and len(cluster(new,z)) > 1, 'TP14 numbered output join missing'
     return {'boundary_contact_count':len(boundary), 'both_outer_endpoints_retained':True,
         'all_original_bcu_contacts_retained':True, 'tp14_previous_isolation_and_no_copper_contact':True,
-        'tp14_joined_pad':['U54','3'], 'tp14_lead_length_mm':sum(math.dist(row[2:4],row[4:6]) for row in entry['testpad']['connection'])/1e6}
+        'tp14_isolation_source_sha256':entry['testpad']['isolation_source_sha256'], 'tp14_joined_pad':['U54','3'], 'tp14_lead_length_mm':sum(math.dist(row[2:4],row[4:6]) for row in entry['testpad']['connection'])/1e6}

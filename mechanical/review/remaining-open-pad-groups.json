@@ -1,10 +1,10 @@
 {
   "SPDX-License-Identifier": "CERN-OHL-S-2.0",
-  "all_named_pad_group_count": 226,
+  "all_named_pad_group_count": 225,
   "fabrication_release_allowed": false,
   "interpretation": "Actual native pad groups; distances are pad-centre geometry, not routes or electrical qualification",
   "named_net_count": 188,
-  "native_opens": 38,
+  "native_opens": 37,
   "nets": [
     {
       "groups": [
@@ -4678,57 +4678,10 @@
       ],
       "net": "VLED",
       "open_edges": 7
-    },
-    {
-      "groups": [
-        [
-          {
-            "pin": "1",
-            "position_iu": [
-              82501262,
-              10500001
-            ],
-            "reference": "TP13",
-            "uuid": "2d0e0f1f-6b4c-58f2-a0b8-cb005e3ee52a"
-          }
-        ],
-        [
-          {
-            "pin": "7",
-            "position_iu": [
-              26250000,
-              20875000
-            ],
-            "reference": "U55",
-            "uuid": "f04cf68b-13eb-5671-bbbb-1aff43bce663"
-          }
-        ]
-      ],
-      "nearest_pad_pairs": [
-        {
-          "groups": [
-            0,
-            1
-          ],
-          "pad_centre_distance_mm": 57.200044412942944,
-          "pads": [
-            [
-              "TP13",
-              "1"
-            ],
-            [
-              "U55",
-              "7"
-            ]
-          ]
-        }
-      ],
-      "net": "VLED_ENABLE_CANDIDATE",
-      "open_edges": 1
     }
   ],
-  "physical_opens": 38,
-  "source_sha256": "01fb2e8a1ac781172797d369df99ff3c834016453ffeaa3d76c224b525355031",
+  "physical_opens": 37,
+  "source_sha256": "ed6d3ff570f2481b47423d8375d9d4a40d756145cdd49e2c222bacc36edbfa57",
   "source_unchanged": true,
   "tool_sha256": "fd6ad99c999b44d7c8c879e8203c078e077cd6995333aed000ab8bbbd2624662"
 }
