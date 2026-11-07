@@ -27,6 +27,7 @@ def main():
     b.Add(t);p.ZONE_FILLER(b).Fill(b.Zones());b.BuildConnectivity()
    raise AssertionError('Native disconnection fixture unavailable: '+net)
   return apply
+ case('temperature-output-open',disconnect('TEMP_OK',[('U39','4'),('U39','6')]))
  case('cold-programming-open',disconnect('TMP_COLD_SET',[('R90','1'),('U39','2')]))
  case('usb-dp-open',disconnect('USB_DP_MCU',[('U3','14'),('R46','1')]))
  case('usb-dn-open',disconnect('USB_DN_MCU',[('U3','13'),('R45','1')]))
@@ -58,8 +59,17 @@ def main():
   t.SetStart(p.VECTOR2I(60100000,16000000));changed=list(policy.signature(b,t));other=json.loads(json.dumps(plan));other['added_copper'].remove(row);other['added_copper'].append(changed);other['ground_return_replacement']['replacement'][0]=changed;return other
  case('return-endpoint-lost-with-matching-ledger',lose_return_contact)
  assert results[-1]['reason']=='Original return endpoint lost'
+ def restore_strap(b):
+  row=plan['ground_plane_replacement']['original_copper'][0];_,net,x,y,a,z,layer,width=row
+  t=p.PCB_TRACK(b);t.SetStart(p.VECTOR2I(x,y));t.SetEnd(p.VECTOR2I(a,z));t.SetLayer(b.GetLayerID(layer));t.SetWidth(width);t.SetNetCode(b.FindNet(net).GetNetCode());b.Add(t)
+ case('obsolete-body-ground-strap-reintroduced',restore_strap)
+ def omit_plane_boundary(b):
+  other=json.loads(json.dumps(plan));other['ground_plane_replacement']['boundary_contacts'].pop();return other
+ case('plane-boundary-omitted-with-matching-copper',omit_plane_boundary)
+ assert results[-1]['reason']=='Plane replacement boundary inventory differs'
 
- assert policy.sha(source)==before and len(results)==15
+
+ assert policy.sha(source)==before and len(results)==18
  (BUILD/'results.json').write_text(json.dumps({'SPDX-License-Identifier':'CERN-OHL-S-2.0','source_sha256':before,'cases':results,'fabrication_release_allowed':False},indent=2,sort_keys=True)+'\n')
- print('PASS fifteen remaining-routing faults, including real USB/supply disconnections')
+ print('PASS eighteen remaining-routing faults, including real USB/supply disconnections')
 if __name__=='__main__':main()

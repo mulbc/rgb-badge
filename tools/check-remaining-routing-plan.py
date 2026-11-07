@@ -12,11 +12,13 @@ def main():
  assert m['previous_checkpoint_preserved']['all_groups_and_added_copper_preserved']
  assert m['previous_checkpoint_preserved']['source_sha256']==plan['previous_checkpoint']['source_sha256']
  assert m['native_actual_copper_endpoint_fixture_passed']
+ assert m['ground_plane_replacement_witness']['single_individual_bcu_ground_component']
+ assert m['ground_plane_replacement_witness']['boundary_contact_count']==5 and m['ground_plane_replacement_witness']['both_endpoint_disks_touch']
  assert m['inherited_original_orphan_restoration']['only_three_exact_original_orphan_warnings']
  assert m['inherited_original_orphan_restoration']['basis']=='IMMUTABLE_43_OPEN_PARENT'
  assert m['inherited_original_orphan_restoration']['board_sha256']==policy.PARENT_SHA
  assert m['selected_retirement_probe']['source_unchanged'] and m['selected_retirement_probe']['status']=='REJECTED_COUNTERFACTUAL_NOT_SELECTED_SOURCE'
- assert len(m['isolated_fault_guards'])==15 and all(row['rejected'] for row in m['isolated_fault_guards'])
+ assert len(m['isolated_fault_guards'])==18 and all(row['rejected'] for row in m['isolated_fault_guards'])
  for path,digest in m['tool_sha256'].items():assert policy.sha(policy.ROOT/path)==digest,path
  for ext,key in [('.kicad_pro','project_sha256'),('.kicad_dru','rules_sha256')]:
   assert policy.sha(policy.OUTPUT.with_suffix(ext))==m[key]

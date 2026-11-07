@@ -1,9 +1,9 @@
 {
   "SPDX-License-Identifier": "CERN-OHL-S-2.0",
-  "added_copper_items": 216,
+  "added_copper_items": 219,
   "all_231_parent_groups_preserved": true,
   "board": "hardware/coupon/rev-a/staging/led-remaining-routing-trial-114mm.kicad_pcb",
-  "board_sha256": "7a36c24652fa22d18f583b729a0e79b6641e72686cb0f42299452f30f7304bee",
+  "board_sha256": "aab8f44a9ec3ae65aed4ee2500d52d57d4d3872c8428b8f50c765bfedd205a1e",
   "by_net": {
     "+3V3_USB": 1,
     "+BAT_GAUGE_SW": 2,
@@ -27,7 +27,6 @@
     "ROW_GATE_04": 1,
     "ROW_GATE_06": 1,
     "ROW_GATE_07": 1,
-    "TEMP_OK": 1,
     "USB_CC1": 1,
     "USB_D+": 1,
     "USB_D-": 1,
@@ -38,9 +37,16 @@
   },
   "checker_sha256": "d2f81b3e0040192cf24df018c6a3cecb292105d837d8f497f6303a8578ec8fb3",
   "date": "2026-11-07",
-  "drc_sha256": "e837191e5b8a37640266e1a8be4307e0504968da5ba3f60213d993b935b4a303",
+  "drc_sha256": "d51d5c875066eebde5fb1b4b2cc2010dfa648b88e5da3a2e7f6eceedc7f5017a",
   "fabrication_release_allowed": false,
   "goal_status": "IN_PROGRESS_ZERO_OPEN_GOAL",
+  "ground_plane_replacement_witness": {
+    "both_endpoint_disks_touch": true,
+    "boundary_contact_count": 5,
+    "filled_component_index": 24,
+    "single_individual_bcu_ground_component": true,
+    "zone_uuid": "81b0abb6-bbba-5f7c-9599-18e6b0c72e0e"
+  },
   "ground_return_replacement": {
     "all_original_layer_contacts_retained": true,
     "both_original_endpoints_retained": true,
@@ -67,6 +73,11 @@
   "interpretation": "Unconnected pad clusters minus one per net; no electrical or manufacturability qualification",
   "intrinsic_findings": 104,
   "isolated_fault_guards": [
+    {
+      "case": "temperature-output-open",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
     {
       "case": "cold-programming-open",
       "reason": "Exact added copper differs",
@@ -140,6 +151,16 @@
     {
       "case": "return-endpoint-lost-with-matching-ledger",
       "reason": "Original return endpoint lost",
+      "rejected": true
+    },
+    {
+      "case": "obsolete-body-ground-strap-reintroduced",
+      "reason": "Exact copper retirement differs",
+      "rejected": true
+    },
+    {
+      "case": "plane-boundary-omitted-with-matching-copper",
+      "reason": "Plane replacement boundary inventory differs",
       "rejected": true
     }
   ],
@@ -255,13 +276,13 @@
     }
   ],
   "native_actual_copper_endpoint_fixture_passed": true,
-  "native_open_edges": 40,
-  "native_opens": 40,
-  "pad_cluster_open_edges": 40,
+  "native_open_edges": 39,
+  "native_opens": 39,
+  "pad_cluster_open_edges": 39,
   "parent_sha256": "b847f59f8a13a63d8db7a3c2ed2e7efc37239edc03c16fe12adc8b5758b4d524",
-  "physical_opens": 40,
-  "plan_sha256": "06ae4a263811c7af0c7bfbfd646848fecb7f2b43039fd924dd15a428c34015ad",
-  "policy_sha256": "e9ecbed6c12f1227df54785995e67dda2772893a8b66b3c1f898858997a0188b",
+  "physical_opens": 39,
+  "plan_sha256": "8af2b94ea99373c492fd9c96eb6733a2560dc856bbc457c6bdcbf00df64ae2b7",
+  "policy_sha256": "c804ce8b2706f3b4ac9ec65e8f5807609dc8f8c2b9c14cdbb169f2edbf38d88c",
   "poses": {
     "R90": {
       "angle_deg": 0,
@@ -277,18 +298,18 @@
     }
   },
   "previous_checkpoint_preserved": {
-    "added_copper_items": 208,
+    "added_copper_items": 216,
     "all_groups_and_added_copper_preserved": true,
-    "commit": "6d30b28",
-    "group_count": 229,
-    "source_sha256": "2341f341e992da39431d3892daefe633a905a3737cd4cd276b2ba3a329ac91f1"
+    "commit": "fb5744c",
+    "group_count": 228,
+    "source_sha256": "7a36c24652fa22d18f583b729a0e79b6641e72686cb0f42299452f30f7304bee"
   },
   "project_sha256": "1141b004ecffd1e7e8e0c30cf21aeae7ce6381093df674998133d226ab9c27fb",
-  "removed_copper_items": 1,
+  "removed_copper_items": 6,
   "rules_sha256": "80c92b0cdef868dd0ef0037aa2f63d1266f709a2dd0326094735c75ffbd31a2e",
   "selected_retirement_probe": {
     "all_live_pad_groups_identical": true,
-    "drc_sha256": "f9ab591d200f738678b37788276bb8170f46c6772ff6041fb18fe0d5e80e4f59",
+    "drc_sha256": "93c8757957a5d0639676516548e8a6e5f1c17b3da21412d91ff9314c1f905127",
     "drc_types": {
       "clearance": 104,
       "via_dangling": 3
@@ -361,7 +382,7 @@
         ]
       }
     ],
-    "native_opens": 40,
+    "native_opens": 39,
     "raw_report": "hardware/coupon/rev-a/build/remaining-routing/selected-retirement-probe.drc.json",
     "source_unchanged": true,
     "status": "REJECTED_COUNTERFACTUAL_NOT_SELECTED_SOURCE"
@@ -374,14 +395,15 @@
     "same_local_bcu_ground_polygon": true
   },
   "tool_sha256": {
-    "tools/check-remaining-routing-plan.py": "4bd5573f229af66915f7b789447ba366aea5dfa7d839185b0aa9737f7c43013c",
+    "tools/check-remaining-routing-plan.py": "05969579fa13b1b1c346c661f68c3509b32a2d65df93440949a02230a4fb6679",
     "tools/check-remaining-routing.py": "d2f81b3e0040192cf24df018c6a3cecb292105d837d8f497f6303a8578ec8fb3",
     "tools/generate-remaining-routing.py": "32bd3d77c1a135b43b242a6afa005efd4b74961f501f3fcbb0db3ca03dd13b18",
     "tools/localize-tmp390-resistor.py": "7ea5b644f591f37db48a673093aa535f076fbbca6d9f5398fb237e0a5f2703de",
-    "tools/routing_remaining.py": "e9ecbed6c12f1227df54785995e67dda2772893a8b66b3c1f898858997a0188b",
+    "tools/routing_ground_plane.py": "b37af5b2659bc01127d8e8fa1cf400a79d62ca4f9172bc5c73f4238216310f32",
+    "tools/routing_remaining.py": "c804ce8b2706f3b4ac9ec65e8f5807609dc8f8c2b9c14cdbb169f2edbf38d88c",
     "tools/search-routing-closure.py": "6c6b7fb3be76d03a65c35ddc78de9e0e2b33442042ba5a8aba17523a2de291b5",
     "tools/test-native-copper-endpoint.py": "338a517961c1828aed919bfcd4e67121471e9745e01483157087c9f6121e233e",
-    "tools/test-remaining-routing-guards.py": "7bada167671fcb12acc85713cde38f819393fb6dbf26979f02ab9ef706b8def2"
+    "tools/test-remaining-routing-guards.py": "384937eec804f4b070b6488bbaea52599baaee308540a4225a5f40db6c89b8dc"
   },
-  "visual_review": "Native B.Cu TMP390/R89/R90 and return geometry inspected: ignored build/remaining-routing/40-tmp390.png"
+  "visual_review": "Native B.Cu TMP390 output exit and retained ground contacts inspected: ignored build/remaining-routing/39-tmp390.png"
 }

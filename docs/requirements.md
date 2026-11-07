@@ -451,3 +451,15 @@ at (59.865,16.000)–(58.365,16.000) mm to open the local cold-pin exit. Its exa
 replacement must retain both endpoints and every direct original-layer contact,
 stay inside the recorded local bounds, preserve all other accepted copper and
 all live groups, and pass the same complete successor checks before selection.
+
+ADR 0095 permits a bounded anchored R8 pull-up rotation with fixed VLED-pad
+centre, exact ERJ2RKF1001X / 1 kΩ value and existing source nets. Any selected
+local row-gate join must retain all previous groups/copper, introduce no new
+retirement/via, and pass exact DRC, replay/source and fault validation. The
+paired-device trial marker and fabrication hold remain unchanged.
+
+ADR 0096 permits only the exact five-track TMP390-area ground-plane substitution
+recorded there. A selected TEMP_OK join requires the retained boundary contacts
+and both endpoints to touch one actual filled B.Cu ground component, with all
+previous live groups/copper otherwise retained and no zone/profile/part/net/
+current change. Exact native DRC and all successor gates remain mandatory.

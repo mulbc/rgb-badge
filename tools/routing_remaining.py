@@ -8,7 +8,7 @@ PARENT=ROOT/'hardware/coupon/rev-a/staging/led-switch-routing-trial-114mm.kicad_
 PARENT_SHA='b847f59f8a13a63d8db7a3c2ed2e7efc37239edc03c16fe12adc8b5758b4d524'
 OUTPUT=ROOT/'hardware/coupon/rev-a/staging/led-remaining-routing-trial-114mm.kicad_pcb'
 PLAN=ROOT/'mechanical/review/remaining-routing-plan.json'
-PLAN_SHA='06ae4a263811c7af0c7bfbfd646848fecb7f2b43039fd924dd15a428c34015ad'
+PLAN_SHA='8af2b94ea99373c492fd9c96eb6733a2560dc856bbc457c6bdcbf00df64ae2b7'
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def load_plan():
  assert sha(PARENT)==PARENT_SHA and sha(PLAN)==PLAN_SHA,'Frozen routing source/plan changed'
@@ -30,9 +30,11 @@ def audit(path,plan=None,fill=True):
  assert a-b==Counter(map(tuple,plan['removed_copper'])),'Exact copper retirement differs'
  assert b-a==Counter(map(tuple,plan['added_copper'])),'Exact added copper differs'
  allowed=('track','GND',59865000,16000000,58365000,16000000,'B.Cu',200000)
+ from routing_ground_plane import validate_plan as plane_plan,verify_native as plane_verify
+ plane_retired=plane_plan(plan)
  entry=plan.get('ground_return_replacement')
  if entry:
-  assert plan['removed_copper']==[list(allowed)] and entry['original']==list(allowed),'Unreviewed retirement scope'
+  assert Counter(map(tuple,plan['removed_copper']))==Counter([allowed])+plane_retired and entry['original']==list(allowed),'Unreviewed retirement scope'
   originals=[t for t in old.GetTracks() if signature(old,t)==allowed];assert len(originals)==1
   h=runpy.run_path(str(ROOT/'tools/check-routing-progress-trial.py'))
   witnesses=runpy.run_path(str(ROOT/'tools/routing_track_replacements.py'))['contacts'](old,originals[0],signature,h['physical_identity'])
@@ -49,7 +51,7 @@ def audit(path,plan=None,fill=True):
   for point in [originals[0].GetStart(),originals[0].GetEnd()]:
    assert any(t.GetEffectiveShape(p.B_Cu).Collide(p.SHAPE_CIRCLE(point,1),0) for t in replacement),'Original return endpoint lost'
   assert all(any(t.GetEffectiveShape(p.B_Cu).Collide(o.GetEffectiveShape(p.B_Cu),0) for t in replacement) for _,o in witnesses),'Original return junction lost'
- else:assert not plan['removed_copper'],'Unreviewed original copper retirement'
+ else:assert Counter(map(tuple,plan['removed_copper']))==plane_retired,'Unreviewed original copper retirement'
 
  layers=['F.Cu','In1.Cu','In2.Cu','In3.Cu','In4.Cu','B.Cu']
  for row in plan['added_copper']:
@@ -77,6 +79,7 @@ def audit(path,plan=None,fill=True):
  for _ in range(3 if fill else 1):
   if fill:p.ZONE_FILLER(new).Fill(new.Zones());new.BuildConnectivity()
   assert inventory(new)==b,'Refill changed exact copper/net identity'
+  plane_witness=plane_verify(old,new,plan,signature,helpers['physical_identity'])
   assert all(group<=cluster(new,pb[key]) for group,key in groups.items()),'Parent pad group split'
   assert new.GetConnectivity().GetUnconnectedCount(False)==plan['native_opens'],'Native open count differs'
   previous=plan.get('previous_checkpoint')
@@ -111,4 +114,5 @@ def audit(path,plan=None,fill=True):
   assert local_ground,'TMP390 local ground polygon lost'
  result=runpy.run_path(str(ROOT/'tools/report-coupon-board-connectivity.py'))['open_edges_by_net'](path)
  assert result['native_open_edges']==result['pad_cluster_open_edges']==plan['native_opens']
+ if plane_witness is not None:result['ground_plane_replacement_witness']=plane_witness
  return old,new,result
