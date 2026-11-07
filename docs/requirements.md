@@ -463,3 +463,15 @@ recorded there. A selected TEMP_OK join requires the retained boundary contacts
 and both endpoints to touch one actual filled B.Cu ground component, with all
 previous live groups/copper otherwise retained and no zone/profile/part/net/
 current change. Exact native DRC and all successor gates remain mandatory.
+
+ADR 0097 permits an ignored bounded U39/R89/R90 supply-routing study inside
+the existing battery-facing sensor reservation, with fixed TH1 and bypass
+capacitors. Exact local contact-preserving replacement evidence, unchanged
+thermal/current/protection settings and all native successor gates precede
+any selection. The selected source remains the validated 39-open checkpoint.
+
+ADR 0098 permits only ignored TP13/TP14 locality trials with their existing
+1.0 mm test lands and at most 5 mm of ordinary B.Cu lead. Prior isolation and
+no-contact proof, all existing copper/groups/other poses, numbered-pad joins
+and full successor validation precede selection. Hardware permissions and
+current/protection limits do not change; probe/loading/fit remain unqualified.

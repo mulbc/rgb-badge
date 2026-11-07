@@ -102,3 +102,11 @@ Remaining opens are inventoried by net. The named successor may grow through
 validated exact ledgers; the immutable 43-open source stays available. Supplier/
 stack, 557 historical centre-via, part/electrical/process/fit and independent
 Gate A holds remain open.
+
+The subsequent [bounded sensor supply screen](tmp390-supply-screen-2026-11-07.md)
+selects no placement and leaves these source bytes unchanged. Its finite
+rejections do not establish that a wider coordinated escape is impossible.
+
+[Follow-up routing experiments](remaining-routing-followup-2026-11-07.md)
+record rejected supply/heartbeat/test-land approaches. No later checkpoint is
+selected, and no additional finding is waived to reduce the count.
