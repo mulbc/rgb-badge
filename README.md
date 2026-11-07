@@ -1,5 +1,7 @@
 <!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
 
+
+**2026-11-07 switch routing selected — 43 opens:** The [validated successor](docs/development/switch-routing-2026-11-07.md) joins SW2.3–R83.1–U36.5, retains all 232 immutable 44-open parent groups and every prior copper item, and passes exact unchanged 104-finding DRC, stable replay/fills, source/orphan/fault and visual checks. The zero-open goal remains in progress. Added supply bridges, controlled stack, 557 historical centre microvias, electrical/process/fit qualification and independent Gate A remain open; fabrication is prohibited.
 # RGB Badge
 
 An open-source, full-colour wearable LED badge inspired by the FOSSASIA Badge Magic form factor.

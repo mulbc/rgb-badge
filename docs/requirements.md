@@ -413,3 +413,16 @@ remain open; no fabrication release follows.
 circuit boundaries, all live groups and accepted converter geometry. No added
 DRC findings, general width waiver, new unsupported central microvia or
 fabrication permission is allowed. Record and validate each selected successor.
+
+**2026-11-06 full-span feasibility (ADR 0092):** Existing 0.50/0.30 mm plated
+through-via geometry may be explored for direct plane joins under all-layer
+clearance, drilled-hole, live-group and exact-DRC guards. Keep trials ignored
+until their exact successor validation passes; supplier/assembly and Gate A
+holds remain unchanged.
+
+ADR 0092's exact 43-open switch-routing successor may be selected only after
+retaining all 232 immutable 44-open parent groups, exact unchanged intrinsic
+DRC, deterministic replay and fault/source/orphan checks. Its two full-span
+vias use 0.50/0.30 mm; the new supply bridges require separate current/voltage-
+drop/thermal and return-path qualification. No fabrication or electrical
+validation is inferred from CAD continuity.

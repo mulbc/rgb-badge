@@ -74,6 +74,7 @@ def main():
     global p
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--max-nodes', type=int, default=120000)
+    parser.add_argument('--through-vias',action='store_true',help='ADR0092 full-span 0.50/0.30 mm vias, screened on every layer')
     parser.add_argument('--zone-targets',action='store_true',help='Target individually copper-witnessed filled-plane components')
     parser.add_argument('--endpoint-radius',type=float,default=None,help='Limit actual copper targets around the current isolated pad')
     parser.add_argument('--preferred-layer', default=None, help='Prefer one physical layer; other layers cost five')
@@ -115,12 +116,19 @@ def main():
     r.LAYERS = tuple({'B.Cu':p.B_Cu,'In4.Cu':p.In4_Cu,'In3.Cu':p.In3_Cu,'In2.Cu':p.In2_Cu,'In1.Cu':p.In1_Cu,'F.Cu':p.F_Cu}[name] for name in args.layers)
     r.LAYER_INDEX = {layer: index for index, layer in enumerate(r.LAYERS)}
     physical=['F.Cu','In1.Cu','In2.Cu','In3.Cu','In4.Cu','B.Cu']
-    assert all(abs(physical.index(a)-physical.index(b))==1 for a,b in zip(args.layers,args.layers[1:])), 'Adjacent layer order required'
+    assert all(abs(physical.index(a)-physical.index(b))==1 or (args.through_vias and {a,b}=={'B.Cu','F.Cu'}) for a,b in zip(args.layers,args.layers[1:])), 'Physical adjacency or explicit whole-board through span required'
+    all_copper=(p.F_Cu,p.In1_Cu,p.In2_Cu,p.In3_Cu,p.In4_Cu,p.B_Cu)
+    via_cost=100 if len(r.LAYERS)==2 and set(args.layers)=={'B.Cu','F.Cu'} else 20
+    through_centres=p.SHAPE_POLY_SET()
+
     def step_cost(layer):
         if r.LAYERS[layer]==p.In2_Cu:return None
         if args.preferred_layer:return 1 if args.layers[layer]==args.preferred_layer else 5
         return 5 if r.LAYERS[layer]==p.B_Cu else 1
     def via_geometry(a,b):
+        if {a,b}=={p.F_Cu,p.B_Cu}:
+            assert args.through_vias
+            return p.VIATYPE_THROUGH,500000,300000
         central={a,b}=={p.In2_Cu,p.In3_Cu}
         return (p.VIATYPE_BURIED,500000,300000) if central else (p.VIATYPE_MICROVIA,300000,100000)
     def place_via(pos,top,bottom,net):
@@ -132,6 +140,9 @@ def main():
         parser.error('Net absent from source')
     original_ids={t.m_Uuid.AsString() for t in board.GetTracks()}
     initial_tracks = len(original_ids)
+    if args.through_vias:
+        assert board.GetBoardPolygonOutlines(through_centres,False)
+        through_centres.Inflate(-751000,p.CORNER_STRATEGY_ROUND_ALL_CORNERS,1000)
     router = r.Router(board)
     router.via=place_via
     for item in board.GetTracks():
@@ -168,7 +179,7 @@ def main():
     def rebuild_bins():
         bins.clear()
         for item in list(board.GetTracks()) + [pad for part in board.GetFootprints() for pad in part.Pads()]:
-            for layer in r.LAYERS:
+            for layer in all_copper:
                 if item.IsOnLayer(layer):
                     for cell in cells(item.GetBoundingBox(), p.FromMM(.201)):
                         bins[(layer,*cell)].append(item)
@@ -212,11 +223,18 @@ def main():
         via.SetWidth(width)
         via.SetDrill(hole)
         via.SetNetCode(net)
-        for native in (r.LAYERS[layer],r.LAYERS[other]):
+        natives=all_copper if kind==p.VIATYPE_THROUGH else (r.LAYERS[layer],r.LAYERS[other])
+        if kind==p.VIATYPE_THROUGH and not through_centres.Contains(via.GetPosition()):return False
+        for native in natives:
             others={item.m_Uuid.AsString():item for key in cells(via.GetBoundingBox()) for item in bins[(native,*key)]}
             if any(item.GetNetCode()!=net and via.GetEffectiveShape(native).Collide(item.GetEffectiveShape(native),p.FromMM(.2)-10)
                    for item in others.values()):
                 return False
+        if kind==p.VIATYPE_THROUGH:
+            near={item.m_Uuid.AsString():item for native in natives for key in cells(via.GetBoundingBox()) for item in bins[(native,*key)]}
+            for item in near.values():
+                if isinstance(item,p.PCB_VIA) or (isinstance(item,p.PAD) and max(item.GetDrillSize().x,item.GetDrillSize().y)>0):
+                    if via.GetEffectiveHoleShape().Collide(item.GetEffectiveHoleShape(),250000):return False
         return True
 
     endpoint_centre=None
@@ -243,6 +261,7 @@ def main():
                 positions = [item.GetPosition()]
                 layers = [i for i, native in enumerate(r.LAYERS) if item.IsOnLayer(native)]
             elif isinstance(item, p.PCB_TRACK):
+                if item.GetLayer() not in r.LAYER_INDEX:continue
                 ax,ay=r.xy(item.GetStart()); bx,by=r.xy(item.GetEnd())
                 steps=max(1,math.ceil(math.hypot(bx-ax,by-ay)/.1))
                 positions=[r.point(ax+(bx-ax)*i/steps,ay+(by-ay)*i/steps) for i in range(steps+1)]
@@ -296,15 +315,15 @@ def main():
         if args.heuristic == 'empty-grid':
             field = distance.EmptyGridGoals(r.NX, r.NY,
                 [step_cost(i) for i in range(len(r.LAYERS))],
-                20, ((i % r.SIZE % r.NX, i % r.SIZE // r.NX, i // r.SIZE) for i in goals))
+                via_cost, ((i % r.SIZE % r.NX, i % r.SIZE // r.NX, i // r.SIZE) for i in goals))
             heuristic_storage_bytes = max(heuristic_storage_bytes, field.storage_bytes)
             return search_with_heuristic(starts, goals, net, field.distance)
         goals_index = distance.ManhattanGoals(
-            (i % r.SIZE % r.NX, i % r.SIZE // r.NX, i // r.SIZE * 20) for i in goals)
+            (i % r.SIZE % r.NX, i % r.SIZE // r.NX, i // r.SIZE * via_cost) for i in goals)
         def h(index):
             layer,cell=divmod(index,r.SIZE)
             gy,gx=divmod(cell,r.NX)
-            return goals_index.distance((gx,gy,layer*20))
+            return goals_index.distance((gx,gy,layer*via_cost))
         return search_with_heuristic(starts, goals, net, h)
 
     def search_with_heuristic(starts, goals, net, h):
@@ -334,10 +353,14 @@ def main():
                     other = cell+dy*r.NX+dx
                     if screen.step(index, layer*r.SIZE+other):
                         neighbours.append((layer*r.SIZE+other, step_cost(layer)))
-            for other in (layer-1, layer+1):
+            via_neighbours={layer-1,layer+1}
+            if args.through_vias and r.LAYERS[layer] in (p.F_Cu,p.B_Cu):
+                via_neighbours.update(i for i,native in enumerate(r.LAYERS) if native in (p.F_Cu,p.B_Cu) and i!=layer)
+            for other in sorted(via_neighbours):
                 if 0 <= other < len(r.LAYERS) and screen.node(other*r.SIZE+cell):
                     if native_via_clear(layer,other,cell,net):
-                        neighbours.append((other*r.SIZE+cell,20))
+                        weight=100 if {r.LAYERS[layer],r.LAYERS[other]}=={p.F_Cu,p.B_Cu} else 20
+                        neighbours.append((other*r.SIZE+cell,weight))
             for other, weight in neighbours:
                 new_cost = cost+weight
                 if new_cost < costs.get(other, 10**12):
@@ -512,6 +535,7 @@ def main():
                   kicad_version=p.GetBuildVersion(), grid_mm=r.STEP,
                   width_mm=r.WIDTH, clearance_mm=r.CLEARANCE,
                   microvia_diameter_drill_mm=[r.VIA_D, r.VIA_HOLE],
+                  through_vias_enabled=args.through_vias, through_diameter_drill_mm=[.5,.3] if args.through_vias else None,
                   max_nodes=args.max_nodes, allowed_nets=nets, routes=routes,
                   connected_copper_endpoints=True,
                   preserve_clusters_after_each_join=True,

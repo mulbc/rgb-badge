@@ -38,3 +38,9 @@ python3 "$repo_root/tools/check-coupon-study-contract.py" --board "$repo_root/ha
 "$kicad_python" "$repo_root/tools/test-routing-closure-guards.py"
 "$kicad_python" "$repo_root/tools/test-route-cap-contact.py"
 "$kicad_python" "$repo_root/tools/test-native-zone-targets.py"
+
+# ADR 0092: preserve the immutable 44-open source and check the switch successor.
+python3 "$repo_root/tools/check-switch-routing-plan.py"
+python3 "$repo_root/tools/check-coupon-study-contract.py" --board "$repo_root/hardware/coupon/rev-a/staging/led-switch-routing-trial-114mm.kicad_pcb"
+"$kicad_python" "$repo_root/tools/check-switch-routing.py" --check-orphans
+"$kicad_python" "$repo_root/tools/test-switch-routing-guards.py"
