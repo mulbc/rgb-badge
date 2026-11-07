@@ -432,3 +432,10 @@ copper item of the immutable ADR 0092 43-open source. Each accepted open-count
 reduction requires an exact current ledger, native/physical agreement, no new
 DRC finding, stable replay/fills and source/orphan/fault validation. USB signal
 quality and added supply-path ampacity remain separate qualification holds.
+
+ADR 0093 keeps the strict three-via retirement proof on the immutable 43-open
+parent. A remaining-routing successor with no new retirements must retain all
+parent and previously selected pad groups/copper, recheck copper/net identity
+after refill, and pass the exact actual-source DRC and all other native gates.
+The current-board retired-via restoration experiment is separately reported,
+including net reassignment or extra opens; its output is never selected.

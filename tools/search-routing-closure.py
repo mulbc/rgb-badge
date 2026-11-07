@@ -74,6 +74,7 @@ def main():
     global p
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--max-nodes', type=int, default=120000)
+    parser.add_argument('--source-copper-uuid',default=None,help='Route from this actual retained copper item instead of pad representatives; does not invent or delete pads')
     parser.add_argument('--through-vias',action='store_true',help='ADR0092 full-span 0.50/0.30 mm vias, screened on every layer')
     parser.add_argument('--zone-targets',action='store_true',help='Target individually copper-witnessed filled-plane components')
     parser.add_argument('--endpoint-radius',type=float,default=None,help='Limit actual copper targets around the current isolated pad')
@@ -423,15 +424,20 @@ def main():
     for name in names:
         pads = sorted(pads_by_net[name], key=lambda q: (q.GetParentFootprint().GetReference(), q.GetNumber()))
         anchor = max(pads,key=lambda q:len(identities(board,q)))
+        sources=pads
+        if args.source_copper_uuid:
+            sources=[t for t in board.GetTracks() if t.m_Uuid.AsString()==args.source_copper_uuid and t.GetNetname()==name]
+            if len(sources)!=1:parser.error('Source copper UUID absent or on another selected net')
         # Initial clusters choose one representative each. Copper may merge
         # multiple groups en route, so rebuild native connectivity each time.
-        for pad in pads:
+        for pad in sources:
             board.BuildConnectivity()
             if identities(board, pad) == identities(board, anchor):
                 continue
             net = pad.GetNetCode()
             # Geometry caches are scoped to this immutable transaction only.
-            print('SEARCH',name,pad.GetParentFootprint().GetReference(),pad.GetNumber(),flush=True)
+            source_label=[pad.GetParentFootprint().GetReference(),pad.GetNumber()] if isinstance(pad,p.PAD) else ['COPPER',pad.m_Uuid.AsString()]
+            print('SEARCH',name,*source_label,flush=True)
             via_cache.clear()
             screen = new_screen(net)
             endpoint_centre=r.xy(pad.GetPosition())
@@ -470,7 +476,7 @@ def main():
                         if not group<=current:
                             split.append(dict(net=q.GetNetname(),anchor=[q.GetParentFootprint().GetReference(),q.GetNumber()],lost=sorted(group-current)))
                     snapshot = rejection_snapshot_path(output, source, name,
-                        pad.GetParentFootprint().GetReference(), pad.GetNumber())
+                        *source_label)
                     snapshot.parent.mkdir(exist_ok=True)
                     p.SaveBoard(str(snapshot),board)
                     (snapshot.with_suffix('.json')).write_text(json.dumps(split,indent=2)+'\n')
@@ -486,7 +492,7 @@ def main():
                     board.BuildConnectivity()
                     assert all(group <= identities(board, q) for q, group in groups_before)
                     path = None
-            entry = dict(net=name, source=[pad.GetParentFootprint().GetReference(), pad.GetNumber()],
+            entry = dict(net=name, source=source_label,
                          routed=bool(path), expanded_nodes=expanded,
                          search_outcome=('accepted_join' if path else rejection or
                              ('node_bound' if expanded > args.max_nodes else

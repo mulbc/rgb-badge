@@ -1,9 +1,9 @@
 {
   "SPDX-License-Identifier": "CERN-OHL-S-2.0",
-  "added_copper_items": 83,
+  "added_copper_items": 208,
   "all_231_parent_groups_preserved": true,
   "board": "hardware/coupon/rev-a/staging/led-remaining-routing-trial-114mm.kicad_pcb",
-  "board_sha256": "844fd52387c41f6cfbbce1790e6a564a63d3285417b020769f91088d870ba4ca",
+  "board_sha256": "2341f341e992da39431d3892daefe633a905a3737cd4cd276b2ba3a329ac91f1",
   "by_net": {
     "+3V3_USB": 1,
     "+BAT_GAUGE_SW": 2,
@@ -32,22 +32,38 @@
     "USB_CC1": 1,
     "USB_D+": 1,
     "USB_D-": 1,
-    "USB_DN_MCU": 1,
     "USB_EN1_RAW_N": 1,
     "VBUS_CONNECTOR": 1,
     "VLED": 7,
     "VLED_ENABLE_CANDIDATE": 1
   },
-  "checker_sha256": "d657f38888582d4fbf159ef867befd0cb69ac24a1f23cd2861db27ff262374f8",
+  "checker_sha256": "d2f81b3e0040192cf24df018c6a3cecb292105d837d8f497f6303a8578ec8fb3",
   "date": "2026-11-07",
-  "drc_sha256": "f94e95ec419bcd6f6534c0ce173e4ef28e6e393e9348fc219e0f3e7d2e2093ae",
+  "drc_sha256": "87c289c52081f3da69b4ea4359316e65baad767599b05840a097c98332862abb",
   "fabrication_release_allowed": false,
   "goal_status": "IN_PROGRESS_ZERO_OPEN_GOAL",
+  "inherited_original_orphan_restoration": {
+    "all_live_pad_groups_identical": true,
+    "basis": "IMMUTABLE_43_OPEN_PARENT",
+    "board_sha256": "b847f59f8a13a63d8db7a3c2ed2e7efc37239edc03c16fe12adc8b5758b4d524",
+    "native_opens": 43,
+    "only_three_exact_original_orphan_warnings": true
+  },
   "interpretation": "Unconnected pad clusters minus one per net; no electrical or manufacturability qualification",
   "intrinsic_findings": 104,
   "isolated_fault_guards": [
     {
       "case": "usb-dp-open",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "usb-dn-open",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "usb-supply-open",
       "reason": "Exact added copper differs",
       "rejected": true
     },
@@ -79,6 +95,11 @@
     {
       "case": "previous-switch-copper-removed",
       "reason": "Exact copper retirement differs",
+      "rejected": true
+    },
+    {
+      "case": "retired-via-reintroduced",
+      "reason": "Exact added copper differs",
       "rejected": true
     }
   ],
@@ -193,30 +214,115 @@
       "exit_code": 0
     }
   ],
-  "native_open_edges": 42,
-  "native_opens": 42,
-  "original_orphan_restoration": {
-    "all_live_pad_groups_identical": true,
-    "native_opens": 42,
-    "only_three_exact_original_orphan_warnings": true
-  },
-  "pad_cluster_open_edges": 42,
+  "native_actual_copper_endpoint_fixture_passed": true,
+  "native_open_edges": 41,
+  "native_opens": 41,
+  "pad_cluster_open_edges": 41,
   "parent_sha256": "b847f59f8a13a63d8db7a3c2ed2e7efc37239edc03c16fe12adc8b5758b4d524",
-  "physical_opens": 42,
-  "plan_sha256": "ece3b0976f9b396c72d2df74e9d4b11ba99789479470fe8dc12e81efd9249722",
-  "policy_sha256": "4d390cfb697f7458f16b807c319e1d71bd5ad86905066848b2a71b995b7253fa",
+  "physical_opens": 41,
+  "plan_sha256": "9bb165260f67d79aab319feadb9c34526c7f2d79e924a93aac32e90cb8c42f6d",
+  "policy_sha256": "d89062ceb5fb07b0c987fb71438d9c0aaadb23640740317c11fa7f0cc6ec77e4",
   "poses": {},
+  "previous_checkpoint_preserved": {
+    "added_copper_items": 83,
+    "all_groups_and_added_copper_preserved": true,
+    "commit": "de46325",
+    "group_count": 230,
+    "source_sha256": "844fd52387c41f6cfbbce1790e6a564a63d3285417b020769f91088d870ba4ca"
+  },
   "project_sha256": "1141b004ecffd1e7e8e0c30cf21aeae7ce6381093df674998133d226ab9c27fb",
   "removed_copper_items": 0,
   "rules_sha256": "80c92b0cdef868dd0ef0037aa2f63d1266f709a2dd0326094735c75ffbd31a2e",
+  "selected_retirement_probe": {
+    "all_live_pad_groups_identical": true,
+    "drc_sha256": "153a3696277c8922f1d023e07fbeb3c6ca46965b303d07e8956f31f2911f7351",
+    "drc_types": {
+      "clearance": 104,
+      "via_dangling": 3
+    },
+    "injected_via_identity": [
+      {
+        "expected": [
+          "via",
+          "+3V3_APP",
+          40250000,
+          8750000,
+          "In4.Cu",
+          "B.Cu",
+          300000,
+          100000
+        ],
+        "observed": [
+          "via",
+          "+3V3_APP",
+          40250000,
+          8750000,
+          "In4.Cu",
+          "B.Cu",
+          300000,
+          100000
+        ]
+      },
+      {
+        "expected": [
+          "via",
+          "+3V3_APP",
+          45250000,
+          8750000,
+          "In4.Cu",
+          "B.Cu",
+          300000,
+          100000
+        ],
+        "observed": [
+          "via",
+          "USB_DN_MCU",
+          45250000,
+          8750000,
+          "In4.Cu",
+          "B.Cu",
+          300000,
+          100000
+        ]
+      },
+      {
+        "expected": [
+          "via",
+          "+3V3_APP",
+          62750000,
+          4250000,
+          "In4.Cu",
+          "B.Cu",
+          300000,
+          100000
+        ],
+        "observed": [
+          "via",
+          "+3V3_APP",
+          62750000,
+          4250000,
+          "In4.Cu",
+          "B.Cu",
+          300000,
+          100000
+        ]
+      }
+    ],
+    "native_opens": 41,
+    "raw_report": "hardware/coupon/rev-a/build/remaining-routing/selected-retirement-probe.drc.json",
+    "source_unchanged": true,
+    "status": "REJECTED_COUNTERFACTUAL_NOT_SELECTED_SOURCE"
+  },
   "stable_fill_and_replay_identical": true,
   "status": "PASS_GEOMETRIC_ROUTING_STUDY_ONLY",
   "tool_sha256": {
-    "tools/check-remaining-routing-plan.py": "9cf40fec3f0ecfa4ae956fb220799b265062664f323a61c348779854d37b3020",
-    "tools/check-remaining-routing.py": "d657f38888582d4fbf159ef867befd0cb69ac24a1f23cd2861db27ff262374f8",
+    "tools/check-remaining-routing-plan.py": "7f1b95662e20f22104745cfe5eded8e040c0190a6da8fe86a08d6a4851f01517",
+    "tools/check-remaining-routing.py": "d2f81b3e0040192cf24df018c6a3cecb292105d837d8f497f6303a8578ec8fb3",
     "tools/generate-remaining-routing.py": "32bd3d77c1a135b43b242a6afa005efd4b74961f501f3fcbb0db3ca03dd13b18",
-    "tools/routing_remaining.py": "4d390cfb697f7458f16b807c319e1d71bd5ad86905066848b2a71b995b7253fa",
-    "tools/test-remaining-routing-guards.py": "951738d6ae2504f33ba9938fe92a739deda0d2a4f7a4cfcb54caf15f117860c1"
+    "tools/routing_remaining.py": "d89062ceb5fb07b0c987fb71438d9c0aaadb23640740317c11fa7f0cc6ec77e4",
+    "tools/search-routing-closure.py": "6c6b7fb3be76d03a65c35ddc78de9e0e2b33442042ba5a8aba17523a2de291b5",
+    "tools/test-native-copper-endpoint.py": "338a517961c1828aed919bfcd4e67121471e9745e01483157087c9f6121e233e",
+    "tools/test-remaining-routing-guards.py": "aa2c4346ba7899785df36f650c31a8121130ab045e06777db2162a097ace5b0c"
   },
-  "visual_review": "Native B.Cu MCU and series-resistor endpoint close-ups inspected: ignored build/remaining-routing/mcu-usb.png and series-resistor.png"
+  "visual_review": "Native B.Cu MCU and both series-resistor close-ups inspected: ignored build/remaining-routing/41-mcu-usb.png and 41-series-resistors.png"
 }

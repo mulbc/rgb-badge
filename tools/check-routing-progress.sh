@@ -50,3 +50,6 @@ python3 "$repo_root/tools/check-remaining-routing-plan.py"
 python3 "$repo_root/tools/check-coupon-study-contract.py" --board "$repo_root/hardware/coupon/rev-a/staging/led-remaining-routing-trial-114mm.kicad_pcb"
 "$kicad_python" "$repo_root/tools/check-remaining-routing.py" --check-orphans
 "$kicad_python" "$repo_root/tools/test-remaining-routing-guards.py"
+
+# Native retained-copper endpoint regression (no temporary source pads).
+"$kicad_python" "$repo_root/tools/test-native-copper-endpoint.py"

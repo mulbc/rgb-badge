@@ -8,7 +8,7 @@ PARENT=ROOT/'hardware/coupon/rev-a/staging/led-switch-routing-trial-114mm.kicad_
 PARENT_SHA='b847f59f8a13a63d8db7a3c2ed2e7efc37239edc03c16fe12adc8b5758b4d524'
 OUTPUT=ROOT/'hardware/coupon/rev-a/staging/led-remaining-routing-trial-114mm.kicad_pcb'
 PLAN=ROOT/'mechanical/review/remaining-routing-plan.json'
-PLAN_SHA='ece3b0976f9b396c72d2df74e9d4b11ba99789479470fe8dc12e81efd9249722'
+PLAN_SHA='9bb165260f67d79aab319feadb9c34526c7f2d79e924a93aac32e90cb8c42f6d'
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def load_plan():
  assert sha(PARENT)==PARENT_SHA and sha(PLAN)==PLAN_SHA,'Frozen routing source/plan changed'
@@ -54,8 +54,17 @@ def audit(path,plan=None,fill=True):
  groups={cluster(old,q):key for key,q in pa.items() if q.GetNetname()};assert len(groups)==231
  for _ in range(3 if fill else 1):
   if fill:p.ZONE_FILLER(new).Fill(new.Zones());new.BuildConnectivity()
+  assert inventory(new)==b,'Refill changed exact copper/net identity'
   assert all(group<=cluster(new,pb[key]) for group,key in groups.items()),'Parent pad group split'
   assert new.GetConnectivity().GetUnconnectedCount(False)==plan['native_opens'],'Native open count differs'
+  previous=plan.get('previous_checkpoint')
+  if previous:
+   assert not Counter(map(tuple,previous['added_copper_since_parent']))-(b-a),'Previous selected checkpoint copper retired'
+   named={k:q for k,q in pb.items() if q.GetNetname()}
+   assert previous['native_opens']==previous['physical_opens']
+   assert len(previous['pad_groups'])==len({q.GetNetname() for q in named.values()})+previous['physical_opens']
+   assert sorted(k for g in previous['pad_groups'] for k in g)==sorted(named),'Previous pad-group inventory incomplete or duplicated'
+   assert all(g and set(g)<=cluster(new,pb[g[0]]) for g in previous['pad_groups']),'Previous selected checkpoint group split'
  def pin(ref,n):
   qs=[q for q in bb[ref].Pads() if q.GetNumber()==n];assert len(qs)==1
   return qs[0]

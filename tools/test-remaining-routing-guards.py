@@ -28,6 +28,8 @@ def main():
    raise AssertionError('Native disconnection fixture unavailable: '+net)
   return apply
  case('usb-dp-open',disconnect('USB_DP_MCU',[('U3','14'),('R46','1')]))
+ case('usb-dn-open',disconnect('USB_DN_MCU',[('U3','13'),('R45','1')]))
+ case('usb-supply-open',disconnect('+3V3_USB',[('R75','1'),('U31','12')]))
  case('app-supply-open',disconnect('+3V3_APP',[('U3','2'),('U48','6')]))
  def wrong_span(b):selected(b,'USB_DP_MCU',True)[0].SetLayerPair(p.F_Cu,p.B_Cu)
  case('unsupported-full-span-microvia',wrong_span)
@@ -40,7 +42,10 @@ def main():
  def previous(b):
   t=next(t for t in b.GetTracks() if t.GetNetname()=='APP_ON_SW_DRAFT' and not isinstance(t,p.PCB_VIA));b.Remove(t);held.append(t)
  case('previous-switch-copper-removed',previous)
- assert policy.sha(source)==before and len(results)==7
+ def reinsert(b):
+  v=p.PCB_VIA(b);v.SetPosition(p.VECTOR2I(45250000,8750000));v.SetViaType(p.VIATYPE_MICROVIA);v.SetLayerPair(p.In4_Cu,p.B_Cu);v.SetWidth(300000);v.SetDrill(100000);v.SetNetCode(b.FindNet('+3V3_APP').GetNetCode());b.Add(v)
+ case('retired-via-reintroduced',reinsert)
+ assert policy.sha(source)==before and len(results)==10
  (BUILD/'results.json').write_text(json.dumps({'SPDX-License-Identifier':'CERN-OHL-S-2.0','source_sha256':before,'cases':results,'fabrication_release_allowed':False},indent=2,sort_keys=True)+'\n')
- print('PASS seven remaining-routing faults, including real USB/supply disconnections')
+ print('PASS ten remaining-routing faults, including real USB/supply disconnections')
 if __name__=='__main__':main()

@@ -62,3 +62,11 @@ candidate requires stable replay/fills, exact 104 native findings, source,
 original-orphan and isolated disconnection/fault checks before selection.
 USB pairing/impedance/skew/return paths and the new supply-path current/thermal
 review remain unresolved qualification; this is CAD continuity only.
+
+The 42-open first continuation is preserved in commit `de46325`. The selected
+41-open continuation additionally joins U3.13–R45.1, retaining all 230 previous
+groups and all 83 previous additions. ADR 0093 binds the strict historical
+retirement proof to the immutable 43-open parent and separately records the
+rejected current-board restoration experiment. The actual selected source
+retains exact 104-finding DRC, full replay/source/group/copper and ten-fault
+validation. Zero-open work remains ongoing.
