@@ -1,0 +1,843 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "base_revision": "7afca4924fc4452dbb91faf2c0f06fbf5f84eff3",
+  "diagnostic_script_sha256": "d4bdfe493d4eb21ae2b955986e59311ccf29083933ea5ffb4469541e9528305f",
+  "fabrication_release_allowed": false,
+  "interpretation": "Read-only short straight-rear-lead/adjacent-stack screen at the 220-open checkpoint; no global impossibility, return/current/process qualification or hardware measurement",
+  "kicad_version": "10.0.6",
+  "main_plane": "largest GND polygon on In2.Cu",
+  "microvia_diameter_drill_iu": [
+    300000,
+    100000
+  ],
+  "native_shape_gap_iu": 199990,
+  "offset_domain": "axis_aligned_square",
+  "offset_limit_per_axis_iu": 1000000,
+  "pad_entries": [
+    {
+      "group_size": 1,
+      "native_clear_rear_leads": 0,
+      "native_clear_stacks": 0,
+      "pad": "2",
+      "pad_position_iu": [
+        88450000,
+        10500000
+      ],
+      "points_over_main_plane": 0,
+      "reference": "C32"
+    },
+    {
+      "group_size": 1,
+      "native_clear_rear_leads": 0,
+      "native_clear_stacks": 0,
+      "pad": "2",
+      "pad_position_iu": [
+        69350000,
+        2750000
+      ],
+      "points_over_main_plane": 0,
+      "reference": "C51"
+    },
+    {
+      "group_size": 2,
+      "least_obstructed_stack": {
+        "obstacles": [
+          {
+            "end_iu": [
+              74700000,
+              2599999
+            ],
+            "kind": "PCB_TRACK",
+            "layer": "In3.Cu",
+            "net": "ROW_00_A",
+            "start_iu": [
+              40600000,
+              649999
+            ],
+            "uuid": "09ef05bf-8b81-5ee8-841e-cee1b6ce462e",
+            "width_iu": 200000
+          },
+          {
+            "end_iu": [
+              62100000,
+              2750000
+            ],
+            "kind": "PCB_TRACK",
+            "layer": "In4.Cu",
+            "net": "COL_09_G",
+            "start_iu": [
+              82600000,
+              2750000
+            ],
+            "uuid": "d0d4df2d-0de2-5a4a-aefe-9e386aefa4bb",
+            "width_iu": 200000
+          }
+        ],
+        "position_iu": [
+          71850000,
+          2750000
+        ]
+      },
+      "native_clear_rear_leads": 530,
+      "native_clear_stacks": 0,
+      "pad": "2",
+      "pad_position_iu": [
+        71850000,
+        2750000
+      ],
+      "points_over_main_plane": 1015,
+      "reference": "C55"
+    },
+    {
+      "group_size": 2,
+      "native_clear_rear_leads": 0,
+      "native_clear_stacks": 0,
+      "pad": "2",
+      "pad_position_iu": [
+        66350000,
+        750000
+      ],
+      "points_over_main_plane": 0,
+      "reference": "C67"
+    },
+    {
+      "group_size": 2,
+      "native_clear_rear_leads": 0,
+      "native_clear_stacks": 0,
+      "pad": "2",
+      "pad_position_iu": [
+        71350000,
+        750000
+      ],
+      "points_over_main_plane": 0,
+      "reference": "C71"
+    },
+    {
+      "group_size": 1,
+      "native_clear_rear_leads": 0,
+      "native_clear_stacks": 0,
+      "pad": "1",
+      "pad_position_iu": [
+        76675000,
+        3100000
+      ],
+      "points_over_main_plane": 0,
+      "reference": "PAIR01"
+    },
+    {
+      "group_size": 3,
+      "native_clear_rear_leads": 0,
+      "native_clear_stacks": 0,
+      "pad": "1",
+      "pad_position_iu": [
+        80675000,
+        12350000
+      ],
+      "points_over_main_plane": 0,
+      "reference": "PAIR06"
+    },
+    {
+      "group_size": 3,
+      "native_clear_rear_leads": 0,
+      "native_clear_stacks": 0,
+      "pad": "1",
+      "pad_position_iu": [
+        76675000,
+        14350000
+      ],
+      "points_over_main_plane": 0,
+      "reference": "PAIR07"
+    },
+    {
+      "group_size": 3,
+      "native_clear_rear_leads": 0,
+      "native_clear_stacks": 0,
+      "pad": "1",
+      "pad_position_iu": [
+        80675000,
+        15850000
+      ],
+      "points_over_main_plane": 0,
+      "reference": "PAIR08"
+    },
+    {
+      "group_size": 1,
+      "native_clear_rear_leads": 0,
+      "native_clear_stacks": 0,
+      "pad": "1",
+      "pad_position_iu": [
+        80675000,
+        19350000
+      ],
+      "points_over_main_plane": 329,
+      "reference": "PAIR10"
+    },
+    {
+      "group_size": 1,
+      "least_obstructed_stack": {
+        "obstacles": [
+          {
+            "end_iu": [
+              56450000,
+              6050000
+            ],
+            "kind": "PCB_TRACK",
+            "layer": "In4.Cu",
+            "net": "COL_07_R",
+            "start_iu": [
+              81400000,
+              6050000
+            ],
+            "uuid": "e4eea6ca-16b6-5616-950a-1298916d144f",
+            "width_iu": 200000
+          }
+        ],
+        "position_iu": [
+          61550000,
+          6200000
+        ]
+      },
+      "native_clear_rear_leads": 480,
+      "native_clear_stacks": 0,
+      "pad": "2",
+      "pad_position_iu": [
+        61750000,
+        5750000
+      ],
+      "points_over_main_plane": 1177,
+      "reference": "R2"
+    },
+    {
+      "group_size": 1,
+      "least_obstructed_stack": {
+        "obstacles": [
+          {
+            "end_iu": [
+              71450000,
+              5900000
+            ],
+            "kind": "PCB_TRACK",
+            "layer": "In3.Cu",
+            "net": "COL_11_R",
+            "start_iu": [
+              72300000,
+              5900000
+            ],
+            "uuid": "50a89e8c-ffa8-5791-b120-ee068bb0a313",
+            "width_iu": 200000
+          },
+          {
+            "end_iu": [
+              74700000,
+              6500000
+            ],
+            "kind": "PCB_TRACK",
+            "layer": "In3.Cu",
+            "net": "ROW_02_A",
+            "start_iu": [
+              40600000,
+              4550000
+            ],
+            "uuid": "9f68266c-93fa-5383-baaa-1ce64918f096",
+            "width_iu": 200000
+          },
+          {
+            "end_iu": [
+              56450000,
+              6050000
+            ],
+            "kind": "PCB_TRACK",
+            "layer": "In4.Cu",
+            "net": "COL_07_R",
+            "start_iu": [
+              81400000,
+              6050000
+            ],
+            "uuid": "e4eea6ca-16b6-5616-950a-1298916d144f",
+            "width_iu": 200000
+          }
+        ],
+        "position_iu": [
+          71850000,
+          6150000
+        ]
+      },
+      "native_clear_rear_leads": 315,
+      "native_clear_stacks": 0,
+      "pad": "2",
+      "pad_position_iu": [
+        71750000,
+        5750000
+      ],
+      "points_over_main_plane": 1060,
+      "reference": "R23"
+    },
+    {
+      "group_size": 1,
+      "least_obstructed_stack": {
+        "obstacles": [
+          {
+            "end_iu": [
+              54000000,
+              7250000
+            ],
+            "kind": "PCB_TRACK",
+            "layer": "In4.Cu",
+            "net": "ROW_SEL_04",
+            "start_iu": [
+              38600000,
+              7250000
+            ],
+            "uuid": "ea19c07a-9179-5038-93e2-d2ff847fff80",
+            "width_iu": 200000
+          }
+        ],
+        "position_iu": [
+          41850000,
+          7200000
+        ]
+      },
+      "native_clear_rear_leads": 89,
+      "native_clear_stacks": 0,
+      "pad": "2",
+      "pad_position_iu": [
+        41750000,
+        7250000
+      ],
+      "points_over_main_plane": 1068,
+      "reference": "R28"
+    },
+    {
+      "group_size": 1,
+      "least_obstructed_stack": {
+        "obstacles": [
+          {
+            "end_iu": [
+              54000000,
+              7250000
+            ],
+            "kind": "PCB_TRACK",
+            "layer": "In4.Cu",
+            "net": "ROW_SEL_04",
+            "start_iu": [
+              38600000,
+              7250000
+            ],
+            "uuid": "ea19c07a-9179-5038-93e2-d2ff847fff80",
+            "width_iu": 200000
+          }
+        ],
+        "position_iu": [
+          44250000,
+          7250000
+        ]
+      },
+      "native_clear_rear_leads": 81,
+      "native_clear_stacks": 0,
+      "pad": "2",
+      "pad_position_iu": [
+        44250000,
+        7250000
+      ],
+      "points_over_main_plane": 654,
+      "reference": "R29"
+    },
+    {
+      "group_size": 1,
+      "native_clear_rear_leads": 0,
+      "native_clear_stacks": 0,
+      "pad": "2",
+      "pad_position_iu": [
+        46750000,
+        7250000
+      ],
+      "points_over_main_plane": 573,
+      "reference": "R3"
+    },
+    {
+      "group_size": 1,
+      "native_clear_rear_leads": 0,
+      "native_clear_stacks": 0,
+      "pad": "2",
+      "pad_position_iu": [
+        51750000,
+        7250000
+      ],
+      "points_over_main_plane": 81,
+      "reference": "R31"
+    },
+    {
+      "group_size": 1,
+      "least_obstructed_stack": {
+        "obstacles": [
+          {
+            "end_iu": [
+              61900000,
+              7250000
+            ],
+            "kind": "PCB_TRACK",
+            "layer": "In4.Cu",
+            "net": "COL_06_G",
+            "start_iu": [
+              82600000,
+              7250000
+            ],
+            "uuid": "11e7e60e-fe24-5e34-b8de-b3cb1fa2ffb7",
+            "width_iu": 200000
+          },
+          {
+            "kind": "PCB_VIA",
+            "layer": "In3.Cu",
+            "net": "COL_06_G",
+            "position_iu": [
+              61900000,
+              7250000
+            ],
+            "uuid": "45bbab17-9c7a-5005-bd16-17f9b302a0af"
+          },
+          {
+            "kind": "PCB_VIA",
+            "layer": "In4.Cu",
+            "net": "COL_06_G",
+            "position_iu": [
+              61900000,
+              7250000
+            ],
+            "uuid": "45bbab17-9c7a-5005-bd16-17f9b302a0af"
+          },
+          {
+            "end_iu": [
+              60950000,
+              7250000
+            ],
+            "kind": "PCB_TRACK",
+            "layer": "In3.Cu",
+            "net": "COL_06_G",
+            "start_iu": [
+              61900000,
+              7250000
+            ],
+            "uuid": "b7411a6b-f458-52b5-ac9c-a2867df82514",
+            "width_iu": 200000
+          }
+        ],
+        "position_iu": [
+          61750000,
+          7250000
+        ]
+      },
+      "native_clear_rear_leads": 96,
+      "native_clear_stacks": 0,
+      "pad": "2",
+      "pad_position_iu": [
+        61750000,
+        7250000
+      ],
+      "points_over_main_plane": 1177,
+      "reference": "R35"
+    },
+    {
+      "group_size": 1,
+      "least_obstructed_stack": {
+        "obstacles": [
+          {
+            "end_iu": [
+              61900000,
+              7250000
+            ],
+            "kind": "PCB_TRACK",
+            "layer": "In4.Cu",
+            "net": "COL_06_G",
+            "start_iu": [
+              82600000,
+              7250000
+            ],
+            "uuid": "11e7e60e-fe24-5e34-b8de-b3cb1fa2ffb7",
+            "width_iu": 200000
+          }
+        ],
+        "position_iu": [
+          64100000,
+          7250000
+        ]
+      },
+      "native_clear_rear_leads": 41,
+      "native_clear_stacks": 0,
+      "pad": "2",
+      "pad_position_iu": [
+        64250000,
+        7250000
+      ],
+      "points_over_main_plane": 1168,
+      "reference": "R36"
+    },
+    {
+      "group_size": 1,
+      "native_clear_rear_leads": 0,
+      "native_clear_stacks": 0,
+      "pad": "2",
+      "pad_position_iu": [
+        66750000,
+        7250000
+      ],
+      "points_over_main_plane": 609,
+      "reference": "R37"
+    },
+    {
+      "group_size": 1,
+      "native_clear_rear_leads": 0,
+      "native_clear_stacks": 0,
+      "pad": "2",
+      "pad_position_iu": [
+        69250000,
+        7250000
+      ],
+      "points_over_main_plane": 0,
+      "reference": "R38"
+    },
+    {
+      "group_size": 1,
+      "least_obstructed_stack": {
+        "obstacles": [
+          {
+            "end_iu": [
+              61900000,
+              7250000
+            ],
+            "kind": "PCB_TRACK",
+            "layer": "In4.Cu",
+            "net": "COL_06_G",
+            "start_iu": [
+              82600000,
+              7250000
+            ],
+            "uuid": "11e7e60e-fe24-5e34-b8de-b3cb1fa2ffb7",
+            "width_iu": 200000
+          },
+          {
+            "end_iu": [
+              64599999,
+              7050000
+            ],
+            "kind": "PCB_TRACK",
+            "layer": "In3.Cu",
+            "net": "COL_11_G",
+            "start_iu": [
+              74100000,
+              7050000
+            ],
+            "uuid": "3fee816d-fa5e-5b59-a23d-494172f0fa9d",
+            "width_iu": 200000
+          },
+          {
+            "end_iu": [
+              68300000,
+              7550000
+            ],
+            "kind": "PCB_TRACK",
+            "layer": "In3.Cu",
+            "net": "COL_13_B",
+            "start_iu": [
+              73900000,
+              7550000
+            ],
+            "uuid": "5c847e06-1f4e-583e-9018-7751650dcd1f",
+            "width_iu": 200000
+          }
+        ],
+        "position_iu": [
+          71750000,
+          7250000
+        ]
+      },
+      "native_clear_rear_leads": 132,
+      "native_clear_stacks": 0,
+      "pad": "2",
+      "pad_position_iu": [
+        71750000,
+        7250000
+      ],
+      "points_over_main_plane": 1060,
+      "reference": "R39"
+    },
+    {
+      "group_size": 1,
+      "native_clear_rear_leads": 0,
+      "native_clear_stacks": 0,
+      "pad": "2",
+      "pad_position_iu": [
+        54250000,
+        8750000
+      ],
+      "points_over_main_plane": 0,
+      "reference": "R5"
+    },
+    {
+      "group_size": 1,
+      "native_clear_rear_leads": 0,
+      "native_clear_stacks": 0,
+      "pad": "2",
+      "pad_position_iu": [
+        66750000,
+        8750000
+      ],
+      "points_over_main_plane": 440,
+      "reference": "R63"
+    },
+    {
+      "group_size": 1,
+      "least_obstructed_stack": {
+        "obstacles": [
+          {
+            "end_iu": [
+              52700000,
+              10250000
+            ],
+            "kind": "PCB_TRACK",
+            "layer": "In4.Cu",
+            "net": "COL_02_G",
+            "start_iu": [
+              76350000,
+              10250000
+            ],
+            "uuid": "7c87c611-585c-5f3b-a653-d763492dd036",
+            "width_iu": 200000
+          }
+        ],
+        "position_iu": [
+          64100000,
+          10250000
+        ]
+      },
+      "native_clear_rear_leads": 74,
+      "native_clear_stacks": 0,
+      "pad": "2",
+      "pad_position_iu": [
+        64250000,
+        10250000
+      ],
+      "points_over_main_plane": 1175,
+      "reference": "R86"
+    },
+    {
+      "group_size": 1,
+      "least_obstructed_stack": {
+        "obstacles": [
+          {
+            "end_iu": [
+              52700000,
+              10250000
+            ],
+            "kind": "PCB_TRACK",
+            "layer": "In4.Cu",
+            "net": "COL_02_G",
+            "start_iu": [
+              76350000,
+              10250000
+            ],
+            "uuid": "7c87c611-585c-5f3b-a653-d763492dd036",
+            "width_iu": 200000
+          },
+          {
+            "end_iu": [
+              66775000,
+              11375000
+            ],
+            "kind": "PCB_TRACK",
+            "layer": "In2.Cu",
+            "net": "COL_12_G",
+            "start_iu": [
+              66775000,
+              9425000
+            ],
+            "uuid": "de41503f-8511-5025-a30f-1269a04a1805",
+            "width_iu": 200000
+          },
+          {
+            "end_iu": [
+              74700000,
+              10399999
+            ],
+            "kind": "PCB_TRACK",
+            "layer": "In3.Cu",
+            "net": "ROW_04_A",
+            "start_iu": [
+              40600000,
+              8450000
+            ],
+            "uuid": "f6455f89-8b0a-5a58-9bbd-4d6cf4ef0045",
+            "width_iu": 200000
+          }
+        ],
+        "position_iu": [
+          67100000,
+          10250000
+        ]
+      },
+      "native_clear_rear_leads": 35,
+      "native_clear_stacks": 0,
+      "pad": "2",
+      "pad_position_iu": [
+        66750000,
+        10250000
+      ],
+      "points_over_main_plane": 962,
+      "reference": "R87"
+    },
+    {
+      "group_size": 1,
+      "least_obstructed_stack": {
+        "obstacles": [
+          {
+            "end_iu": [
+              52700000,
+              10250000
+            ],
+            "kind": "PCB_TRACK",
+            "layer": "In4.Cu",
+            "net": "COL_02_G",
+            "start_iu": [
+              76350000,
+              10250000
+            ],
+            "uuid": "7c87c611-585c-5f3b-a653-d763492dd036",
+            "width_iu": 200000
+          },
+          {
+            "end_iu": [
+              74700000,
+              10399999
+            ],
+            "kind": "PCB_TRACK",
+            "layer": "In3.Cu",
+            "net": "ROW_04_A",
+            "start_iu": [
+              40600000,
+              8450000
+            ],
+            "uuid": "f6455f89-8b0a-5a58-9bbd-4d6cf4ef0045",
+            "width_iu": 200000
+          }
+        ],
+        "position_iu": [
+          71750000,
+          10250000
+        ]
+      },
+      "native_clear_rear_leads": 410,
+      "native_clear_stacks": 0,
+      "pad": "2",
+      "pad_position_iu": [
+        71750000,
+        10250000
+      ],
+      "points_over_main_plane": 1059,
+      "reference": "R89"
+    },
+    {
+      "group_size": 1,
+      "least_obstructed_stack": {
+        "obstacles": [
+          {
+            "end_iu": [
+              54200000,
+              19900000
+            ],
+            "kind": "PCB_TRACK",
+            "layer": "In2.Cu",
+            "net": "ROW_GATE_09",
+            "start_iu": [
+              54200000,
+              12600000
+            ],
+            "uuid": "39799356-ef29-58cb-b261-ea2f601a33f4",
+            "width_iu": 200000
+          },
+          {
+            "end_iu": [
+              55150000,
+              15750000
+            ],
+            "kind": "PCB_TRACK",
+            "layer": "In4.Cu",
+            "net": "ROW_SEL_05",
+            "start_iu": [
+              53350000,
+              15750000
+            ],
+            "uuid": "64b54d54-9eb4-57f1-964a-e4a12a3c6389",
+            "width_iu": 200000
+          }
+        ],
+        "position_iu": [
+          53850000,
+          15775000
+        ]
+      },
+      "native_clear_rear_leads": 59,
+      "native_clear_stacks": 0,
+      "pad": "2",
+      "pad_position_iu": [
+        53950000,
+        16125000
+      ],
+      "points_over_main_plane": 367,
+      "reference": "TH1"
+    },
+    {
+      "group_size": 1,
+      "native_clear_rear_leads": 0,
+      "native_clear_stacks": 0,
+      "pad": "2",
+      "pad_position_iu": [
+        79050000,
+        3275000
+      ],
+      "points_over_main_plane": 0,
+      "reference": "U38"
+    },
+    {
+      "group_size": 1,
+      "native_clear_rear_leads": 0,
+      "native_clear_stacks": 0,
+      "pad": "3",
+      "pad_position_iu": [
+        80000000,
+        1175000
+      ],
+      "points_over_main_plane": 0,
+      "reference": "U38"
+    },
+    {
+      "group_size": 2,
+      "native_clear_rear_leads": 0,
+      "native_clear_stacks": 0,
+      "pad": "3",
+      "pad_position_iu": [
+        64650000,
+        1350000
+      ],
+      "points_over_main_plane": 177,
+      "reference": "U48"
+    },
+    {
+      "group_size": 1,
+      "native_clear_rear_leads": 0,
+      "native_clear_stacks": 0,
+      "pad": "3",
+      "pad_position_iu": [
+        69650000,
+        1350000
+      ],
+      "points_over_main_plane": 0,
+      "reference": "U52"
+    }
+  ],
+  "raw_log": "/private/tmp/rgb-ground-escape-blockers.log",
+  "raw_log_sha256": "29aa2e8714201d4b985c679c325f8f238edafa08cb4cc4f4aaff2540105e236b",
+  "source_board_at_revision": "hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb",
+  "source_sha256": "b513c1522e56bbf791cb6e069ab2d6ef081802605327b7f4d50750fffddb98e1",
+  "status": "READ_ONLY_BOUNDED_GROUND_ESCAPE_SCREEN",
+  "step_iu": 50000,
+  "track_width_iu": 200000
+}

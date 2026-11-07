@@ -1,0 +1,15 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_ground_tracks_and_vias": 900,
+  "board_sha256": "7331ede6842cc438dc01e813948966b9a9e0ee0e414cfdc879fe7cfabbe48f30",
+  "drc_sha256": "9b7d95add7ddf6fb4e27dc9ce6f5549683b06a0f7403d1cfb16ae92daa9f16d9",
+  "full_drc": "104_UNCHANGED_INTRINSIC_FINDINGS",
+  "ground_open_edges": 44,
+  "kicad_version": "10.0.6",
+  "limitations": "Shape screen excludes zones, rule evaluation, mask, holes, RF, electrical and process qualification",
+  "native_open_edges": 383,
+  "native_shape_clearance_conflicts": 0,
+  "non_ground_clusters_preserved": true,
+  "unchanged_footprints": 483,
+  "zone_polygons": 6
+}

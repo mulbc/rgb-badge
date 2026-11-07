@@ -7,32 +7,43 @@ Source: requirements interview completed 2026-09-05
 
 “Coupon” means the production-intent 16 × 16 validation board. “Final” means a complete cased 48 × 16 badge.
 
+**MEC-001 revision, 2026-10-14 (ADR 0033):** The owner accepted 4 mm more PCB length for the working final-badge design. The 114 × 32.5 mm PCB target requires a 118 × 35 × 11 mm outer-case limit in this layout direction. Native placement has not established routing or enclosure fit; the case, USB opening, mass and battery stack remain verification work.
+
+**DSP-002/007/008 revision, 2026-10-18 (ADR 0034):** The owner accepted 2.2 mm horizontal pitch and uniform 0° orientation for the coupon's 1515 half. Its vertical pitch and both axes of the 1010 half remain 1.95 mm. The final badge's maximum 1.95 mm pitch is unchanged. The coupon halves therefore no longer provide an equal-pitch optical comparison.
+
 | ID | Requirement | Verification | Applies to |
 |---|---|---|---|
 | DSP-001 | Provide 48 × 16 individually controlled RGB pixels. | Design inspection and pixel self-test | Final |
-| DSP-002 | Pixel pitch shall be no greater than 1.95 mm; baseline is exactly 1.95 mm. | PCB dimension inspection | Coupon/final |
+| DSP-002 | Final-badge pixel pitch shall not exceed 1.95 mm in either axis. Coupon pitch shall meet DSP-007. | PCB dimension inspection | Coupon/final |
 | DSP-003 | Accept 24-bit source art and apply gamma and programmable white balance. | Golden-image firmware test and visual test | Coupon/final |
 | DSP-004 | Support 60 content-frame updates per second and at least 1 kHz visual refresh. | Logic trace and camera test | Coupon/final |
 | DSP-005 | Brightness shall remain at the user-programmed fixed value during normal playback. | Runtime state/telemetry test | Coupon/final |
 | DSP-006 | Safety logic may disable the display on an electrical or thermal fault, but shall not silently dim it. | Fault-injection test | Coupon/final |
-| DSP-007 | Coupon columns 0–7 shall use `EAST10105RGBA0` and columns 8–15 shall use `QBLP1515A-RGB2A`, both at 1.95 mm pitch; substitutions require written design review. | BOM, placement and incoming-part inspection | Coupon |
-| DSP-008 | QBLP1515 LEDs shall keep the manufacturer-recommended pad geometry and use the non-mirrored 0°/90° checkerboard placement defined by ADR 0008. | Footprint audit, generated placement check, PCB DRC, assembly plot and AOI | Coupon |
-| MEC-001 | Complete case shall not exceed 110 × 35 × 11 mm, excluding attachment thickness. | Caliper inspection | Final |
+| DSP-007 | Coupon columns 0–7 shall use `EAST10105RGBA0` at 1.95 mm pitch in both axes; columns 8–15 shall use `QBLP1515A-RGB2A` at 2.2 mm horizontal and 1.95 mm vertical pitch. Substitutions require written design review. | BOM, placement and incoming-part inspection | Coupon |
+| DSP-008 | Coupon `QBLP1515A-RGB2A` LEDs shall retain the manufacturer-recommended pad geometry and use uniform non-mirrored 0° placement under ADR 0034. | Footprint audit, generated placement check, PCB DRC, assembly plot and AOI | Coupon |
+| MEC-001 | Complete case shall not exceed 118 × 35 × 11 mm, excluding attachment thickness. The working PCB length is 114 mm. | Caliper inspection and PCB/case fit review | Final |
 | MEC-002 | Complete badge shall aim for ≤75 g and shall never exceed 100 g, including cell, case and magnetic attachment. | Calibrated scale | Final |
 | MEC-003 | Development case shall use two M2 screws plus tabs and support a replaceable diffuser. | Fit inspection | Coupon/final prototype |
 | MEC-004 | Final design shall tolerate sweat and incidental splashes without claiming an IP rating. | Defined splash demonstration and inspection | Final |
-| PWR-001 | A new selected cell shall provide roughly 6 h for the published reference workload and fixed brightness. | Logged full-charge runtime test | Final |
-| PWR-002 | Continuous maximum full-white runtime shall be measured and published separately. | Logged stress runtime test | Final |
-| PWR-003 | OFF-state battery drain with USB absent shall be below 50 µA. | Ammeter measurement after settling | Coupon/final |
+| PWR-001 | A new selected cell shall provide roughly 6 h for the published reference workload and fixed brightness. | Logged full-charge runtime test with external inline battery-current/energy measurement where needed (ADR 0021) | Final |
+| PWR-002 | Continuous maximum full-white runtime shall be measured and published separately. | Logged stress runtime test with external inline battery-current/energy measurement (ADR 0021) | Final |
+| PWR-003 | OFF-state battery drain with USB absent shall be below 50 µA. | External series ammeter measurement after settling (ADR 0021) | Coupon/final |
 | PWR-004 | Switch OFF shall disable the ESP32, display drivers, 3.3 V rail and LED rail. | Rail/current measurement | Coupon/final |
-| PWR-005 | Charging, cell qualification and charge status shall operate autonomously while the switch is OFF. | State-matrix test | Coupon/final |
-| PWR-006 | Operation while charging shall remain stable; the charger power path shall respect the input limit. | Load/charge test and USB power log | Coupon/final |
+| PWR-005 | With the switch OFF, charging and status shall operate autonomously only from USB-C sources advertising 1.5 A/3 A; all other sources leave the charger in standby. | State-matrix test (ADR 0013) | Coupon/final |
+| PWR-006 | Operation while charging shall remain stable; the charger power path shall respect the input limit. | Load/charge test, USB power log and external inline battery-current log (ADR 0021) | Coupon/final |
+| PWR-007 | The latching switch shall disconnect the fuel gauge in OFF while preserving hardware-only charging/status. On return to ON, initially uncertain SOC/runtime shall be identified as provisional until validated against the chosen pack. | OFF isolation/current test, OFF-charge state matrix and post-ON SOC comparison (ADR 0015) | Coupon/final |
+
+**2026-10-11 PWR-003/007 buffer capture (ADR 0030):** Use exact `TCA9517ADGKR` with the switched gauge on A and application I²C on B. Provide local pull-ups/decoupling for each supplied segment. Before Gate A, verify all LOW-level margins, rail-contact order and decay, powered-off isolation/leakage, bus recovery and OFF current with the populated board; library and schematic source checks cannot establish these behaviors.
+| PWR-008 | The TPS631000 3.3 V application converter shall maintain at least 4.2 µF effective input and 10.4 µF effective output capacitance over the qualified rail, temperature and lifetime conditions, and hold the ESP32 module pads within 3.0–3.6 V during the defined operating/transient tests. Parallel coupon capacitors are a provisional implementation choice (ADR 0017). | Exact-part derating evidence, full-rail source-state review, layout/ERC/DRC, startup/load-step/attach-detach pad measurements and Gate A review | Coupon/final |
 | USB-001 | Use a USB-C receptacle on the right short edge with 5 V input only; USB PD is not required. | Inspection and source test | Coupon/final |
 | USB-002 | Enumerate native USB in both connector orientations with compliant A-to-C and C-to-C cables while switched ON. | Enumeration matrix | Coupon/final |
-| USB-003 | Hardware shall default to a conservative input limit and shall not depend on application firmware to unlock higher Type-C current. | Unprogrammed-board and attach-state test | Coupon/final |
-| CHG-001 | Target approximately 80% charge in 45–60 min and full charge in 75–100 min with the display off, a capable source and a cell rated for the selected current. | Charge log | Coupon/final |
-| CHG-002 | Charge current shall never exceed the exact terminated-pack rating. | BOM/calculation review and current log | Coupon/final |
-| CHG-003 | A pack NTC and charger safety timer shall qualify charging without MCU assistance. | NTC boundary/fault tests | Coupon/final |
+| USB-003 | Hardware shall bound total USB input draw for startup, standby, permitted charging and Type-C source changes; higher Type-C current shall not depend on application firmware. | Complete source-state analysis plus unprogrammed-board, configuration, suspend and attach/detach tests (ADR 0009) | Coupon/final |
+| USB-004 | USB-A/default-current Type-C sources shall not charge or supply the application through the charger. Native USB data remains available while ON from battery power; recovery with a depleted/absent battery on these sources is not guaranteed. | USB data and power-state tests (ADR 0013) | Coupon/final |
+| USB-005 | Use one fixed external input-current setting, bounded by the existing 0.9753 A ceiling, enabled only by qualified Type-C 1.5 A/3 A hardware permission. No switched ILIM resistor or firmware charge grant. Budget all VBUS loads within source allowance. | Complete-port budget and source-transition tests (ADR 0013) | Coupon/final |
+| USB-006 | Account for 5.5 V normal VBUS at light load; derive the low-voltage and transient envelopes separately. Do not use a 5.25 V draft assumption as full input qualification. | Source-envelope and protection review (ADR 0014) | Coupon/final |
+| CHG-001 | Prioritize the finished size and roughly six-hour reference runtime over charging speed. With the display off and a qualified USB-C source, document an exact-pack-specific time-to-80% and time-to-full planning target before Gate A and measure both on the coupon/final hardware. Charging shall remain within the terminated pack's current, temperature and protection limits; the previous 45–60/75–100 min targets are withdrawn (ADR 0016). | Exact-pack profile and current-limit review; dated charge log showing pack, source, ambient and hardware revision | Coupon/final |
+| CHG-002 | Charge current shall never exceed the exact terminated-pack rating. | BOM/calculation review including qualified total ISET resistance error (ADR 0012), exact-pack rating and external inline pack-current log (ADR 0021) | Coupon/final |
+| CHG-003 | A battery-facing NTC connected to the charger and a charger safety timer shall qualify charging without MCU assistance. The NTC may be pack-integrated or board-mounted under ADR 0019; a board-mounted sensor requires measured cell-to-board temperature bounds before final approval. | NTC hot/cold/open/short tests; simultaneous cell-surface and board-sensor logs for a board-mounted NTC | Coupon/final |
 | RF-001 | BLE shall be disabled during normal playback. | Firmware state and current test | Coupon/final |
 | RF-002 | Holding the mode button for approximately three seconds shall enter programming mode and enable BLE. | Functional test | Coupon/final |
 | RF-003 | Programming-mode BLE shall work at 3 m line-of-sight in normal worn orientation. | Range test | Coupon/final |
@@ -41,7 +52,9 @@ Source: requirements interview completed 2026-09-05
 | MFG-001 | Maintain vendor-neutral KiCad, Gerber, drill, BOM and placement sources. | Release inspection | Coupon/final |
 | MFG-002 | PCBA delivery shall require no manual SMT soldering by the user. | Purchase package and incoming inspection | Coupon/final |
 | MFG-003 | Critical component substitutions require a written engineering review and updated BOM. | Release audit | Coupon/final |
-| SAF-001 | Use a protected, NTC-equipped, documented and keyed connectorized LiPo pack. | Supplier documentation and inspection | Coupon/final |
+| SAF-001 | Use a protected, documented and keyed connectorized LiPo pack. A two-wire pack is permitted when the charger has the independently operating battery-facing NTC arrangement and validation in ADR 0019. | Supplier documentation, connector/polarity inspection and temperature-sensing qualification | Coupon/final |
+
+**2026-10-11 SAF-001 assembly rule (ADR 0029):** Rev A schematic pad J2.1 is protected battery positive and J2.2 is GND. The selected LP452845/PHR-2 lead order is unverified. Before first mating, measure protected pack polarity at its keyed cavities, repin the harness if necessary, and independently check board-header pad polarity and mating orientation. Record lot, drawing revision and readings. Schematic capture alone does not satisfy this requirement.
 | SAF-002 | No cell surface may contact a component, solder joint, magnet or screw boss; swelling clearance is required. | CAD interference and physical inspection | Final |
 | SAF-003 | An experienced hardware engineer shall review the coupon schematic and preliminary layout before fabrication. | Recorded review disposition | Coupon |
 | SRC-001 | Quote JLCPCB, PCBWay and a vetted Alibaba turnkey PCBA supplier against the same frozen package. | Quote comparison | Final |
@@ -49,4 +62,404 @@ Source: requirements interview completed 2026-09-05
 
 ## Reference workload
 
+**2026-10-21 DSP-003/STO-001 image preparation (ADR 0042):** Import already-sized static 8-bit PNG and GIF source art without resampling, quantization, frame merging or implicit timing changes. Preserve decoded RGB/composited GIF frames and exact positive delays; require an explicit static duration and background for nonopaque alpha. Reject unsupported sample depth, animation/colour/orientation metadata, malformed input and resource-limit violations. Failed import shall preserve any existing output. Verify against independent pixel/duration expectations through the native decoder. This does not satisfy representative storage or target/hardware acceptance.
+
+**2026-10-21 provisional board definition (ADR 0041):** Derive the machine-readable Coupon Rev A U3 inventory from canonical KiCad source, preserving all module pins, explicit no-connects, exact MPN and package, USB/strapping/Octal-PSRAM restrictions and isolated display-request boundaries. Verify a fresh native XML export, record manufacturer-source identity and detect source/JSON drift in CI. The derived inventory remains provisional and shall not authorize production GPIO configuration or hardware arm; explicit freeze and independent review remain open.
+
+**2026-10-21 repeatable host verification (ADR 0040):** Build the existing software core through one reusable host library and exercise native/cross-language checks plus both capacity reproductions with GNU and Clang compilers. A host asset inspection success shall require decoding/CRC validation of every frame, not only container validation. Input allocation remains bounded by the format limit. Host build/integrity results do not satisfy target, representative storage or hardware acceptance.
+
+**2026-10-21 DSP-003/STO-001 software preparation (ADR 0035):** Host assets shall preserve exact RGB888 pixels and explicit frame durations through deterministic encoding and bounded native decoding. Reject malformed/unsupported containers and corruption, and verify cross-language golden frames before target integration. Parser resource bounds are format limits, not a flash-partition allocation. Representative five-minute capacity, dual application slots and target playback remain acceptance work.
+
+**2026-10-21 lossless delta extension (ADR 0036):** Version 2 may depend on a preceding validated frame, with an independent first frame and at most 59 consecutive deltas. Verify exact reconstructed pixels/durations, reference ownership, failure/rewind behavior and bounded memory alongside version 1 compatibility. No automatic dimming, quantization or frame dropping is permitted; target timing/stack and representative storage acceptance remain open.
+
 The provisional runtime workload consists of representative text, icons and animations with approximately 35% of pixels lit and brightness fixed at 25% of the validated hardware maximum. It is a repeatable engineering benchmark, not a restriction on user content. Coupon measurements will define the final asset bundle and calibrated power model.
+
+**2026-10-21 integrated host session (ADR 0039):** Compose validated source decoding, absolute playback deadlines, fixed colour/brightness and mode-button requests. Boot/reset, raw button interruption, programming, stop, completion and latched session faults shall clear software output. Start shall be explicit after release or completion; ordinary commands shall not clear session faults. BLE shall be requested only in Programming. Software eligibility is never hardware arm permission; physical blanking, radio resources, target timing/memory and the independent interlock remain acceptance work.
+
+**2026-10-21 DSP-003/004/006 playback preparation (ADR 0037):** Host playback shall use absolute monotonic microsecond deadlines and original frame durations, expose any admission lateness, and never silently drop frames or rebase timing. Exceeding an explicit lateness budget, an entirely expired next interval, backward time, timeline overflow or decoding failure shall latch a software error and clear software output. Explicit restart rewinds; completion/stop clear output. This does not qualify target timing, visual refresh or physical blanking.
+
+**2026-10-21 RF-001/002, CTL-001, DSP-006 mode preparation (ADR 0038):** The host mode-button model shall require an initial qualified release, debounce input, qualify one approximately three-second hold, request BLE only in Programming and immediately request display inhibit on a raw press. Backward time shall latch a fault with BLE request withdrawn and inhibit asserted. Explicit reset requires release again; removing inhibit is never a display-arm command. Actual GPIO polarity, sampling cadence, BLE resources/current, ROM recovery and physical interlock behavior remain target/hardware acceptance work.
+
+## Power-architecture proposal verification addendum
+
+2026-10-05: [ADR 0018](decisions/0018-complete-power-architecture-proposal.md) is **proposed, not an accepted replacement of the table above**. These verification refinements must be adopted/resolved before its material circuit changes are implemented. No current ceiling, battery rating or fabrication gate is relaxed.
+
+| Existing requirements | Proposed refinement / acceptance evidence |
+|---|---|
+| USB-003/004/005/006, PWR-005 | Treat an independently disconnected charger input as the proposed physical implementation of unsupported-source standby; preserve battery-only application operation. Prove default-disable and total port current through startup, all partial-supply states, source downgrade and detach, including capacitance outside the charger limiter. |
+| PWR-003/004/007 | Verify arbitrary switch-contact order, settling and bus isolation with either gauge or application rail absent/decaying; no reliance on firmware to order physical contacts. Retain provisional SOC after ON. |
+| PWR-001/002 | Include added buffer/control losses and exact-pack minimum capacity/cutoff in the model before battery freeze; preserve fixed-brightness workload and separate full-white result. |
+| DSP-006, PWR-004/008 | Hardware must keep VLED disabled and rows blank at boot, all reset paths, programming entry and physical OFF; audit residual rail energy, programmer injection and watchdog behavior. Define the exact interlock before capture. |
+| DSP-006, PWR-004/008 | [ADR 0031](decisions/0031-separate-row-request-from-decoder-enable.md) first separates GPIO8 `ROW_ENABLE_REQ_N` from decoder `ROW_ENABLE_N`, leaving R42 to hold rows blank while the gate is absent. Capture an exact hardware gate before either net can permit display operation; verify the distinct native pin nets. |
+| DSP-006, PWR-004/008 | [ADR 0032](decisions/0032-two-event-display-interlock-proposal.md) proposes a hardware-recorded watchdog heartbeat followed by a distinct arm edge, asynchronous reset/mode/fault clearing, and measured VLED-window gating of decoder E. The root-linked source now captures this logic with both candidate outputs isolated at test pads; before connecting actual EN/E, verify the exact clear and edge circuits, 3.3 V ramp and retained-VLED response. The dark schematic remains the source baseline. |
+| DSP-006, PWR-004/008 | ADR 0032 also proposes an exact 4.7 kΩ passive VLED bleed. Calculate its operating loss and ideal discharge, then verify actual VLED decay and row-off behavior with the built capacitor bank; the bleed alone is not an interlock acceptance test. |
+| CHG-001/002/003, SAF-001/002 | Select ISET, charge voltage, ITERM, NTC network and timer from the exact pack and full thermal budget; the 2.49 kΩ / 396 mA maximum is a conditional numerical proposal, not an approved BOM population. |
+
+The [proposal's six capture holds](design/power-architecture-2026-10-05.md#8-one-consolidated-capture-hold-list) separate required engineering evidence from the remaining supplier information. Native ERC alone does not close them.
+
+**2026-10-07 USB-005/PWR-006/CHG-001 proposal:** [ADR 0022](decisions/0022-lower-fixed-usb-input-limit-proposal.md) screens one fixed 3.65 kΩ ILIM resistor, calculated at 0.361–0.476 A, to separate the charger's steady input limit from the screened eFuse breaker threshold. It is not accepted or captured. Before adoption, verify charge-through operation and pack-specific charge times at the lower input limit, as well as the complete USB load/startup/fault envelope. Existing current ceilings and safeguards remain in force.
+
+**2026-10-07 PWR-005/USB-003/005 proposal, provisionally captured 2026-10-10:** [ADR 0023](decisions/0023-charger-en2-local-clamp-proposal.md) screens an EN2 mode source from the admitted charger input with a 2.5 V local clamp. The shunt symbol/pads have been audited and the source is now root-linked; confirm EN2 current across the intended clamp voltage, verify the resistor's local thermal rating, and capture attach/detach/downgrade/trip waveforms. This does not approve the charger gate or fixed-mode timing.
+
+**2026-10-09 CHG-001/002/003, SAF-001/002 design target:** [ADR 0024](decisions/0024-lp452845-pack-and-temperature-window.md) selects the protected `LP452845`/PHR-2 assembly of drawing FD_6225_10 index 1 and mating JST `S2B-PH-SM4-TB` for Rev A design. Keep its +10…+45 °C charge range, 450 mA charge ceiling and 4.20 V ±50 mV charge-voltage limit in the part-specific acceptance case. The BQ24074 TS NTC and safety timer remain active; an additional TMP390 hot/cold switch with a 10 kΩ output pull-up and AUP gate inhibits E1 at nominal 40/15 °C board temperatures. Prove combined sensor tolerance and cell-to-board thermal error leave the cell inside its charge range, test open/short and startup/fault states, and verify exact assembly polarity, discharge duty and current limits before BOM freeze. A source-design target is not a tested pack or fabrication approval.
+
+**2026-10-10 CHG-002 capture part:** ADR 0024 selects exact Panasonic `ERA2AEB2491X` (2.49 kΩ, 0.1%, ±25 ppm/K) as the ISET source part, now placed in the provisional charger core. Preserve the ±1% total resistance allowance and calculated 396 mA maximum; source capture does not approve charge-current, pack thermal or a fabrication BOM.
+
+**2026-10-10 CHG-001/002/003 and USB-005 provisional capture:** The root-linked charger core connects BQ24074 `TS` to the battery-facing Murata NTC, exact `ERA2AEB2491X` at ISET and one exact `ERA2AEB3651X` at ILIM. ADR 0022 selects the single lower ILIM setting for provisional capture, retaining the calculated 0.361–0.476 A interval when external mode is enabled. The initial checkpoint held EN2/EN1 low for 100 mA fallback; the EN2 amendment below supersedes that temporary mode. `ITERM` remains open for internal 10% termination and `TMR` open for TI's active default precharge/fast-charge safety timers, nominal 30 minutes/5 hours. The disconnected IN and BAT nets carry explicitly provisional ERC source flags pending E1 and exact pack connector; they are not physical supplies. Before gate/pack capture, review capacitor effective values and voltage stress, full-port and pack current, charging time versus timer, polarity, temperature tolerance and thermal behavior. Native ERC and XML connectivity do not satisfy these operating acceptance checks.
+
+**2026-10-10 CHG-003/USB-005 EN2 amendment:** [ADR 0023](decisions/0023-charger-en2-local-clamp-proposal.md) selects an exact 10 kΩ `ERJ2RKF1002X` feed from admitted `CHARGER_IN_DRAFT` into a 2.5 V `LM4040A25IDBZT` shunt on BQ EN2. EN1 and CE remain low; ILIM will set the limit when the input and clamp are valid. The previous direct EN2-to-ground capture is superseded. The shunt load margin still assumes an unverified EN2 current at approximately 2.5 V; check that, E1 fault voltage, input-valid/mode timing, compact-board resistor heat and source transitions before approving the gate. The source flags remain nonphysical boundaries, and no fabrication release follows.
+
+**2026-10-11 USB-005/PWR-005 supervisor domain:** [ADR 0025](decisions/0025-usb-supervisor-logic-rail.md) moves U34 VDD/MR and its local bypass/CT pull-up to `+3V3_USB` in the root-linked conditioning sheet, retaining the 2.916 V nominal logic-rail sense threshold and 180–420 ms fixed release interval. The exact connected E1 EN circuit must still bound RESET loading, rail-sequencing/injection and rapid brownout before charger permission can be accepted. This does not alter a current limit or release the charger input gate.
+
+**2026-10-11 USB-005/CHG-003 E1 capture selection:** [ADR 0026](decisions/0026-charger-e1-gate-network.md) selects the exact E1 breaker and a passive-low EN divider with three independent hardware sinks for Type-C source permission, temperature and USB supervisor. The existing supervisor RESET pull-up/pull-down are now revalued to reduce low-voltage load before connecting the third sink. Keep BQ's lower hardware ILIM and E1's own ILM resistor, safety timers, NTC and pack protection. The calculation in ADR 0026 is a source-capture screen; verify E0 fault containment, full-port current, gate rise/fall and startup/brownout waveforms, capacitor effective values and physical layout before charge operation or fabrication release.
+
+## Row-package proposal verification addendum
+
+2026-10-06: [ADR 0020](decisions/0020-dual-row-mosfet-package-proposal.md) proposes a complementary N/P package for each row to recover board area. It is **not accepted or implemented**. The following evidence is required before it could replace the captured row stage; the display, current and fail-safe requirements above remain unchanged.
+
+| Existing requirements | Proposed refinement / acceptance evidence |
+|---|---|
+| DSP-001/004/006, PWR-004 | Preserve 16 independently selected rows and hardware-default blanking during boot, reset, programming, OFF and VLED faults. Verify turn-off and row dead time under real multiplex timing, including visible ghosting. |
+| PWR-006/008, USB-003, CHG-002 | Bound a final 48-pixel row's current, tolerance and overlap/fault cases at the selected VLED rail. Review the candidate P device's hot resistance, switching loss, SOA, gate stress and compact-board copper; the manufacturer's large test-board current rating is not a badge rating. Do not raise existing limits through a package change. |
+| MFG-001/003, SAF-003 | Audit the exact manufacturer's N/P pin map, land pattern, polarity/pin-one mark and assemblability into project-local libraries. If selected, use the same stage on the coupon and measure it before relying on coupon results for the final board; include it in the independent Gate A review. |
+
+**2026-10-11 USB-005/CHG-003 E1 source follow-on:** The [root-linked provisional E1 sheet](../hardware/coupon/rev-a/charger-gate.kicad_sch) now connects three independent sink outputs to `CHARGER_GATE_EN`, E1 OUT to BQ IN, and the selected exact ILM/dVdt and bypass parts. Its input now joins the captured E0 protected `+5V_USB` output. Native ERC and XML check wiring only. E0 voltage and current protection, partial-rail behavior, current transient, capacitor effective value, thermal behavior and an independent Gate A review remain required before charge-operation acceptance or fabrication.
+
+**2026-10-11 PWR-005/USB-003 E0 source selection:** [ADR 0027](decisions/0027-e0-protected-usb-source-selection.md) selects exact TPS259474ARPWR E0, a 3.32 kΩ breaker setting, 38.3 kΩ/10 kΩ OVLO divider, 390 kΩ autonomous EN feed and exact input/output/slew capacitors for provisional source capture. The design must bridge connector VBUS to both the protected USB logic rail and E1 input, while retaining an independent hardware charger permission gate. This selection does not prove port transients, inrush, fault containment, sustained current or complete USB compliance.
+
+**2026-10-11 PWR-005/USB-003 E0 source follow-on:** The provisional E0 sheet now connects `VBUS_CONNECTOR` to `+5V_USB` and E1 input, replacing the two old protected-rail ERC source assumptions with a physical eFuse output. #FLG05 denotes the external connector supply only. Exact E0 threshold, input/output capacitors and slew part are populated in KiCad. Native ERC/XML validate source topology, not connector transient containment, port current/inrush, OVLO fault timing or thermal safety; retain those as engineering and Gate A acceptance items.
+
+**2026-10-11 PWR-004/DSP-004 VLED capture sequence:** [ADR 0028](decisions/0028-root-link-dark-vled-converter.md) permits source-capturing the exact TPS63020 VLED stage while EN is connected only to its 100 kΩ pull-down. Removing the VLED source flag validates the physical rail connection, not display operation. Do not add an EN driver or release board fabrication before a hardware interlock forces both converter disable and row blanking through boot, reset, programming, OFF and fault states. The existing DSP/PWR acceptance tests remain required.
+
+**2026-10-23 CTL-001/DSP-006 routing study (ADR 0043):** Narrower signal escapes were screened locally; the selected 150-edge derivative retains 0.20 mm tracks, 0.20 mm other-net clearance and 0.30/0.10 mm adjacent-layer microvias. Its checker shall reject narrower selected copper, preserve every prior physical pad group and all nonzero source copper, and retain the exact 104 recorded intrinsic DRC findings. This does not change current limits or fabrication gates. See [ADR 0043](decisions/0043-bounded-signal-pad-escapes.md).
+
+**2026-10-23 routing-locality study (ADR 0044):** Selected still-unrouted resistor/capacitor poses may change in the separate derivative after proving no direct contact to nonzero frozen-source copper. Exact component/pad/net data and all nonzero source copper shall remain intact. Record original/selected integer poses and preserve every earlier physical pad group using footprint-relative pad identities. Exclude ICs, sensors, connectors, differential USB series resistors and row pairs; require actual edge reductions and unchanged full native DRC findings. See [ADR 0044](decisions/0044-localize-unrouted-study-passives.md).
+
+### Connected-passive placement continuation (2026-10-23)
+
+[ADR 0045](decisions/0045-preserve-connected-groups-during-passive-relocation.md) permits exact resistor/capacitor relocation in an unqualified continuation, excluding R45/R46. Direct earlier copper contact is permitted only while retaining all accepted 150-edge copper and preserving every prior physical pad group after refill and reconnection. ICs, inductors, connectors, sensors, row pairs and test pads remain fixed. Exact parts, values, nets, relative pad geometry, original widths/vias and current settings remain unchanged; sensitive added routes retain the 5 mm limit. Record selected integer poses/copper, independent native/pad counts and the exact unchanged intrinsic DRC findings. Gate A and fabrication restrictions remain open.
+
+[ADR 0046](decisions/0046-retire-displaced-passive-orphan-vias.md) narrowly permits enumerated displaced-passive orphan microvia retirements. Retain all ordinary nonzero source tracks and all other accepted copper. Restore every retired via in an independent native witness: edge counts and all selected physical pad groups must remain identical, with DRC differing only by the exact expected `via_dangling` inventory. The selected board must retain exactly the original 104 intrinsic findings; no current, net, component or fabrication-release change is permitted.
+
+[ADR 0047](decisions/0047-scoped-digital-signal-width-study.md) records a narrower digital-control candidate that is not selected. The 100-edge checkpoint shall retain 0.20 mm tracks and the original 0.20 mm project floor, 0.20 mm clearance and original via/annular dimensions. No narrow-track or reduced-floor exception is accepted by its verifier. Any future width change requires separately pinned scope, native rules and electrical/process review.
+
+[ADR 0048](decisions/0048-local-display-track-detours-for-pad-escapes.md) records an evaluated display-track detour. No ordinary nonzero source track retires in the 100-edge checkpoint. Future selection would require exact, enumerated 0.20 mm display-track replacements and independent endpoint evidence. Preserve both source endpoints, every other original segment, every accepted 150-edge physical pad group, original track/via/clearance dimensions and the exact intrinsic DRC findings. Record replacement geometry, layers and lengths; reject undeclared retirement/restoration. Return-path, current/thermal, SI/process qualification and independent Gate A remain open.
+
+[ADR 0049](decisions/0049-bounded-power-distribution-parcels.md) permits explicitly enumerated inner-layer power-distribution parcels in the unqualified routing derivative. Retain original zone definitions and exact net/layer/priority/clearance/fill data; independently verify replay, every earlier physical pad group and the unchanged 104 intrinsic findings. Preserve original track/via dimensions and current/protection/enable boundaries. Filled area is not current/thermal qualification, and source/switch limits, bypass/return/RF/process review and independent Gate A remain open.
+
+**2026-10-26 routing continuation:** [ADR 0050](decisions/0050-preserve-100-edge-routing-checkpoint.md) requires exact retention of every accepted 100-edge copper item, power-zone definition and completed physical pad group. Additional original-width routing must pass the unchanged full native DRC and independent physical-pad counts. The existing three orphan-via proof, current settings, component constraints and fabrication gates remain in force.
+
+**2026-10-26 bounded pad escapes:** [ADR 0051](decisions/0051-bounded-dsf-pad-necks.md) permits only selected 0.12 mm straight B.Cu necks, 0.50–0.70 mm long, from exact U48/U52 DSF pad centres on the enumerated pins/nets. Enforce these signatures independently and retain 0.20 mm default/other routing with scoped native rules. Keep all prior copper/groups, exact packages, clearance/via dimensions, current settings and fabrication gates. Reject dangling seed vias, broad width exemptions and any new DRC finding. Pin every selected neck and the native rules/profile before accepting a candidate.
+
+**2026-10-26 continuation beyond 94 edges:** [ADR 0052](decisions/0052-preserve-94-edge-routing-checkpoint.md) freezes all accepted 94-edge copper, completed physical pad groups, power parcels and selected neck metadata. Verify any new signal and supply/ground repairs as one transaction, with exact old-net retention, lower independent counts and unchanged native DRC. Existing component, width/current/protection/enable and fabrication constraints remain in force.
+
+**2026-10-26 continuation beyond 91 edges:** The accepted-continuation section of [ADR 0052](decisions/0052-preserve-94-edge-routing-checkpoint.md) additionally freezes the 91-edge plan at 48cdb7a. Retain its selected copper, completed physical groups, power parcels and existing neck records alongside the earlier contracts; independently verify all new signal/repair transactions before selection.
+
+**2026-10-26 continuation beyond 84 edges:** [ADR 0052](decisions/0052-preserve-94-edge-routing-checkpoint.md) freezes the e095f3b plan in addition to every earlier checkpoint. Preserve its copper, completed groups, zone definitions and existing neck records; new pin escapes remain bounded by ADR 0051 and require completed connections and unchanged native DRC.
+
+**2026-10-27 continuation beyond 82 edges:** [ADR 0052](decisions/0052-preserve-94-edge-routing-checkpoint.md) additionally freezes the accepted 88fdcbe integer plan, copper, physical groups, zone definitions and neck records. Require lower independent/native opens and unchanged full DRC for new additive routing. USB connectivity evidence shall remain distinct from impedance, skew, stub and return-path qualification; no fabrication release is authorized.
+
+**2026-10-27 blocked-escape continuation:** [ADR 0053](decisions/0053-enumerated-local-track-replacements.md) permits ignored feasibility trials of exact local 0.20 mm display/row-control track replacements. Canonical selection requires a reviewed signature/junction catalog, preservation of every prior physical group and all other copper, lower independent/native opens, unchanged full DRC, replay and fault evidence. The selected 71-edge study passes those guards for exactly the two catalogued COL_09_R/ROW_SEL_08 originals, preserving twelve original direct contacts and all previous physical groups/additions. Every other original item remains subject to the prior freeze. No current, protection, enable, package, clearance, via or fabrication gate changes are permitted.
+
+**2026-10-27 converter locality experiments:** [ADR 0054](decisions/0054-local-converter-inductor-placement-study.md) permits ignored L1/L2 placement feasibility studies beside their exact fixed converters. Preserve exact parts/pads/nets, all accepted copper/groups and current/protection/enable settings; use short bounded switching-node paths and unchanged native geometry checks. No canonical inductor move or power-width exception is selected. Require exact pose/path policy, native and independent counts, full unchanged DRC, replay and fault evidence before selection; electrical/thermal/EMI qualification and Gate A remain open.
+
+**2026-10-27 continuation beyond 71:** Freeze the accepted abf4f99 integer plan and its additions/groups. ADR 0053 permits evaluating one additional exact ROW_SEL_08 source replacement for PAIR10 ground, with original-layer direct contact evidence. The selected 70-edge continuation passes full unchanged DRC, independent lower counts, stable replay and 31 native/56 portable fault/source guards. This permits no broader row, power or USB deletion and changes no electrical/current/fabrication boundary.
+
+**2026-10-27 continuation beyond 70:** Preserve the selected 70-edge checkpoint's additions and physical groups. Evaluate only the two exact ADR 0053 ROW_GATE_09/ROW_SEL_05 replacements for TH1.2 ground, preserving all direct original-layer contacts and requiring full unchanged DRC, lower independent counts, replay and guards. The selected 69-edge continuation passes 31 native/59 portable guards, stable replay, independent counts and unchanged full DRC. All existing electrical and fabrication restrictions remain in force.
+
+**2026-10-28 isolated test-land experiments:** [ADR 0055](decisions/0055-localize-isolated-test-lands.md) permits ignored localization trials for exactly seven isolated digital/control test lands. Preserve their complete geometry/fields/nets/orientation, back-side courtyard and edge clearance, all 69-edge copper/groups and existing electrical/fabrication boundaries. Selection requires independently proved prior isolation/no copper contact, exact bounded pose/lead policy, full unchanged DRC, lower counts, replay and fault evidence. The selected 65-edge continuation passes that gate for TP1, TP2, TP11 and TP20 only, under the exact pose/lead catalog; the other three candidate lands remain fixed.
+
+**2026-10-28 coupled UART placement experiment:** ADR 0055 narrowly permits ignored joint R47/TP4 trials under the existing R/C and isolated-test-land policies. Preserve the exact 499 Ω MPN/pins/footprint, TP4 geometry/fields/net/orientation, every 65-edge copper item/group and all four selected test-land poses. Bound R47 movement to 5 mm, new input reconnection to 8 mm and output test lead to 3 mm. No additional canonical move or electrical/fabrication exception is selected before full evidence and guards pass.
+
+**2026-10-28 rear VLED parcel experiment:** [ADR 0056](decisions/0056-bounded-rear-vled-distribution-study.md) permits an ignored, bounded B.Cu VLED distribution screen using unchanged 0.20 mm clearance/minimum copper thickness and current/voltage/protection/enable settings. Retain every 65-edge copper item, original zone/parcel definition, component pose and completed group. Reject any prior return/supply/signal split or new full DRC finding. Canonical selection requires exact polygon/fill policy, lower independent counts, stable replay, source and fault evidence; current/thermal, bypass/return/process/fit and independent Gate A remain open.
+
+**2026-10-28 coordinated colour-chain experiment:** [ADR 0057](decisions/0057-coordinated-colour-chain-fanout-study.md) permits ignored coordinated displacement of original 0.20 mm COL_* In4/B chains at the driver ports. Only internal chain vertices may move; all external original-layer pad/via/retained-copper contacts, every accepted added copper item and every 65-edge physical group must survive. Keep widths/clearance/vias and all electrical limits unchanged. Canonical selection requires an exact chain/interface policy, native/independent lower counts, unchanged full DRC, replay and fault evidence. No canonical chain replacement is selected.
+
+**2026-10-28 64-edge candidate:** ADR 0053 permits exactly one further catalogued COL_02_R replacement with all four original-layer direct contacts preserved. The temperature-output join includes two short supply restorations; retain every accepted 65-edge copper item/group, R/C and test-land pose, zone/parcel, earlier replacement and exact neck. Selection requires unchanged full DRC, stable independent counts/replay and fault/source checks. No current, clearance, package, protection/enable or fabrication boundary changes are permitted.
+
+**2026-10-28 scoped spacing experiment:** ADR 0058 permits only an ignored signal-net feasibility comparison with explicit 0.15 mm track-related / 0.18 mm via-pad/via spacing. Keep default, power/ground/analogue/setting and pad-pad clearance at 0.20 mm; retain widths, adjacent via dimensions and every 64-edge copper item/group, pose and zone. The accepted profile is unchanged. Canonical adoption requires an independently enforced exact pair policy, unchanged full baseline, replay/fault/source evidence and recorded engineering consequences; no fabrication exception follows.
+
+**2026-10-28 local ground fanout experiment:** ADR 0059 permits only an ignored, enumerated eleven-track added-GND rework at U48. Retain every original source item, all other accepted additions, components/zones and every 64-edge physical group/external interface. Keep original spacing, widths and via dimensions; added ground length is bounded. Canonical adoption needs a new exact retirement/interface policy, native/replay/fault/source evidence and unchanged orphan restoration. No current, protection/enable or fabrication boundary changes are included.
+
+**2026-10-28 redundant-ground experiment:** ADR 0060 permits ignored removal of exactly 87 native shape-covered added GND tracks and the separate ADR 0059 branch, 90 unique tracks total. Require conservative source coverage proof, original-source/via non-retirement, three stable refills, every 64-edge group and retained interface, unchanged full DRC and original routing dimensions. Canonical retirement remains prohibited until the exact new policy, native/fault/replay/source and lower-count evidence passes.
+
+**2026-10-28 exact USB status width candidate:** ADR 0047 permits only the pinned USB_RAW_OUT2 candidate: 13 narrow digital tracks and three adjacent microvias, with 0.20 mm clearance and the unchanged 120 mm per-net hard bound. Preserve all 64-edge copper/groups/poses and every earlier exception. Native default width remains 0.20 mm; independent metadata/native checks must reject unlisted or undeclared narrow copper. No input/charger/LED/regulator current limit, signal mode, part, net or protection/enable setting changes. Full acceptance evidence is required before selection.
+
+**2026-10-28 selected 63-edge checkpoint:** The exact USB status inventory above passes the full acceptance gate, retaining all 64-edge copper/groups/poses and the unchanged 104 native findings. Freeze the 64-edge plan and exact narrow-copper catalog; independently enforce the status-pin join and reject narrower/unlisted copper. No scoped-spacing or ground-retirement experiment is selected. The 50-edge target and all fabrication/engineering review holds remain open.
+
+**2026-10-28 local UART escape experiment:** ADR 0061 permits only an ignored exact rework of exactly seven original UART0_TX_RAW In4 staircase tracks beside R47, preserving every other original-source item, all accepted additions and every retained external same-layer contact/group. Keep RAW width/clearance at 0.20 mm, parts/poses/settings fixed, and bound added replacement length. No canonical chain retirement is selected; an independently enforced exact policy and complete lower-count/native/replay/fault/source/orphan evidence are required first.
+
+**2026-10-28 UART candidate length review:** The exact ADR 0061 candidate calculates to 5.039244 mm of 0.20 mm RAW replacement versus 1.15 mm retired, preserves five retained In4 contacts and passes the 62-edge preflight. Revise only its local planning bound to retired plus 4 mm; no current/timing rating or other bound is changed. Canonical selection still requires exact original-chain and digital inventories, frozen 63-edge preservation and the full acceptance gate.
+
+**2026-10-28 selected 62-edge checkpoint:** The exact ADR 0061 chain and ADR 0047 UART inventory pass the full gate: 62 native/physical opens, all 63-edge additions/groups/poses, five retained chain contacts/two interfaces, unchanged full 104 findings, stable replay, 50 native/99 portable guards, source/LED checks and unchanged orphan restoration. Only the seven original RAW signatures may retire under the new chain policy; all other original/accepted copper stays protected by existing rules. No additional ground, component/current/protection/enable or fabrication exception is selected.
+
+**2026-10-29 local colour-layer feasibility:** [ADR 0062](decisions/0062-local-colour-layer-transfer-feasibility.md) permits an ignored layer transfer using adjacent microvia stacks over at most 2 mm within exactly one original COL_10_R In4 track to investigate U52.3 ground access. Preserve original endpoints and all direct original-layer contacts, every other original/accepted copper item, pose, zone and completed group. Keep original width/clearance/vias, all current/protection/enable settings and the exact ADR 0051 neck restriction. No canonical replacement is selected; an independent exact retirement/interface policy and full lower-count/native/replay/fault/source/orphan evidence are required before adoption. Electrical/process/fit review and independent Gate A remain open.
+
+**2026-10-29 selected 61-edge checkpoint:** The exact ADR 0062 COL_10_R dogleg and ADR 0051 U52.3 ground neck pass lower native/physical counts, all frozen 62-edge additions/groups/poses, both original In4 contacts, unchanged 104 full findings, stable replay and original-orphan restoration. Independently pin seven individual replacements plus the unchanged seven-track UART chain, all three exact necks and the unchanged narrow digital inventory. No other transfer or ground retirement is selected. The 50-edge target and all engineering/fabrication holds remain open.
+
+**2026-10-29 row-ground feasibility:** [ADR 0063](decisions/0063-row-island-colour-transfer-feasibility.md) permits an ignored bounded In3 dogleg for exactly the original COL_03_B In4 signature obstructing PAIR06/07/08 ground access. Preserve every 61-edge addition/group/pose and all source-layer interfaces, width/clearance/vias, earlier exceptions and electrical settings. No new narrow neck or canonical retirement is selected. Require exact independent scope/length/contact enforcement and complete lower-count/native/replay/fault/source/orphan evidence before adoption; engineering and fabrication holds remain open.
+
+**2026-10-29 accepted-segment feasibility:** [ADR 0064](decisions/0064-exact-accepted-colour-segment-rework-feasibility.md) permits an ignored bounded rework of only the exact already accepted COL_09_R In4 segment obstructing PAIR01 ground. Existing canonical checkpoint and replacement retention still prohibit its retirement. Adoption needs a separate exact policy proving prior presence, native direct contacts, preservation of every other accepted item/group and the original-source replacement's interfaces, plus the full lower-count/native/replay/fault/source/orphan gate. Keep all widths, spacing, parts, settings and fabrication holds unchanged.
+
+**2026-10-29 selected 60-edge checkpoint:** The exact ADR 0063 COL_03_B transfer and full-width ground continuation join PAIR06/07/08, retaining every accepted 61-edge addition/group/pose and seven direct original In4 contacts. Stable native/physical counts, unchanged full 104 findings, replay, fault/source and original-orphan checks pass. Pin eight individual original replacements and the unchanged seven-track UART chain. No accepted-addition retirement, new narrow copper, electrical-setting or fabrication exception is selected; the 50-edge target remains open.
+
+**2026-10-29 LED serial escape feasibility:** [ADR 0065](decisions/0065-led-serial-escape-colour-transfer-feasibility.md) permits an ignored bounded rework of exactly one original COL_10_B In4 signature obstructing U1.42 LED_SOUT. Preserve every 60-edge addition/group/pose/zone and direct original-layer contact, full colour width, original spacing and adjacent vias. LED_SOUT remains an unselected ADR 0047 digital-width trial with the unchanged 120 mm bound. Canonical adoption requires exact independent catalogs and complete lower-count/native/replay/fault/source/orphan evidence. Current/protection/enable and fabrication holds remain unchanged.
+
+**2026-10-30 R1 locality feasibility:** ADR 0045 permits an ignored exact-part R1 placement screen beside U1, retaining all 60-edge copper/groups and reconnecting its former ground group. Keep 39.2 kΩ, exact pins/package, 0.20 mm geometry and the 5 mm aggregate LED_IREF limit unchanged. No canonical move or current change is selected before full independent/native/replay/fault/source/orphan evidence.
+
+**2026-10-30 C32 ground-locality feasibility:** ADR 0045 permits an ignored exact-part C32 pose screen that reconnects both its old USB-3.3-V group and main ground, with original copper, other poses, geometry and settings preserved. Canonical selection still requires the complete lower-count/native/replay/fault/source/orphan gate.
+
+**2026-10-30 C32 land-pattern discrepancy:** The supplied Murata sheet exposes oversized b/c dimensions in the current shared GRM18 land for exact GRM188R60J106ME47D. ADR 0066 permits only ignored C32-specific 0.65 × 0.70 mm lands at ±0.675 mm, with explicit old/new identity mapping and all other copper/groups/geometry retained. No canonical package change or new lower count is selected before exact library/source-contract, native/replay/fault and orphan proofs pass. Do not alter other MPNs' shared footprints without their own datasheets.
+
+**2026-10-30 coordinated serial-escape feasibility:** ADR 0067 permits only ignored exact COL_10_B/In4, COL_15_R/In3, COL_15_G/In2 and COL_14_B/In1 local transfers, with original widths, clearance, adjacent vias, interfaces and all other 60-edge copper/groups retained. No new canonical retirement or narrow inventory is selected before the full independent/native/replay/fault/source/orphan gate. All electrical settings and fabrication holds remain fixed.
+
+**2026-10-30 serial candidate implementation:** ADR 0067's prechecked 59-edge
+candidate permits exact catalogs for the four originals and LED_SOUT only,
+with the complete 60-edge plan frozen. Preserve all old copper/groups/poses,
+24 new direct source contacts, original widths/spacing, the 120 mm narrow-digital
+bound and all electrical/fabrication holds. Final promotion requires full
+native/replay/fault/source checks in addition to the completed precheck.
+
+**2026-10-30 selected 59-edge checkpoint:** ADRs 0065/0067 select exactly four
+source colour replacements and the exact LED_SOUT digital inventory, preserving
+every 60-edge added item/group/pose and 24 newly derived original-layer contacts.
+Native/physical counts, unchanged full 104 findings, stable replay/fills, original-
+orphan restoration and 58 native/116 portable guards pass. The digital length
+remains below 120 mm; original widths/spacing, settings, previous exceptions and
+fabrication holds stay fixed. No Murata package migration is selected here.
+
+**2026-10-30 clock/latch feasibility:** ADR 0068 permits only an ignored exact
+COL_05_B In4 local transfer, retaining every original source-layer interface and
+all other accepted 59-edge copper/groups/poses/zones. Keep full colour width,
+original clearance/adjacent vias and original-plus-2-mm length. Clock/latch
+remain unselected exact ADR 0047 digital trials within 120 mm per net. Full
+independent/native/replay/fault/source/orphan evidence precedes any selection;
+all electrical and fabrication holds remain fixed.
+
+The bounded ADR 0068 screen completes with zero other-net-clear candidates
+across 7,752 doglegs; the separate digital and USB restoration screens likewise
+select no new route. The accepted 59-edge board, retention policy and all
+electrical/fabrication boundaries remain unchanged. These finite results do not
+prove impossibility; source evidence is recorded with the follow-on study.
+
+**2026-10-30 exact Murata migration (ADR 0069):** MFG-001/003 and SAF-003
+require a dedicated GRM188R60J106ME47D footprint at C3/C32/C44/C45/C53/C54,
+using the supplied exact-part reflow row: 0.65 × 0.70 mm lands at ±0.675 mm.
+Preserve numbered nets, exact identities, all accepted 59-edge copper/groups,
+poses, zones and electrical settings. Explicitly verify the six old/new pad
+identity mappings; keep historical sources/plans unchanged and report legacy
+assignments in historical comparisons. Require native XML/ERC, drawing/render,
+stable fills, independent counts, unchanged-or-better full DRC, replay,
+original-orphan and fault evidence before selecting corrected routing source.
+Other MPNs sharing the legacy footprint require their own drawing reviews.
+Electrical/process/assembly qualification and independent Gate A remain open.
+
+**2026-10-30 switched-gauge routing continuation (ADR 0070):** PWR-003/007
+and MFG-001/003 retain the existing switch/buffer circuit, exact parts, current
+settings and provisional switch-mapping/transition holds. Only the exact
+ordinary-width additive +BAT_GAUGE_SW inventory may join SW2.6 to C39.1/U46.1.
+Freeze all 59-edge copper/groups/poses/zones and the six corrected capacitor
+packages. Preserve all prior exceptions, require the source-pin join independently
+of plan/catalog fingerprints, and pass lower native/physical counts, unchanged
+full DRC, stable fills/replay, source/fault and original-orphan checks before
+selection. Other gauge groups and inductor locality remain incomplete;
+independent Gate A and fabrication restrictions are unchanged.
+
+**2026-10-30 printed switch-terminal correction (ADR 0071):** MFG-001/003,
+PWR-003/007 and CTL-001 retain exact JS202011JCQN and all physical land/net
+connections. Transcribe the supplied page-9 row labels as 1/2/3 and 5/6/7,
+with commons 2/6; map legacy 4/5/6 to printed 5/6/7 explicitly. Use a dedicated
+corrected footprint while preserving historical sources and source snapshots.
+The gauge routing witness is SW2.7/C39.1/U46.1 after correction. Require exact
+old/new physical identity guards, canonical native XML/ERC/rendering, full
+retention/count/DRC/replay/fault/orphan evidence. Independent bottom/top-view,
+received-part, actuation, transition and assembly reconciliation remains open;
+no current or fabrication restriction changes.
+
+**2026-10-30 coordinated converter feasibility:** [ADR 0072](decisions/0072-coordinated-converter-floorplan-feasibility.md) permits an ignored finite rigid-placement screen of the thirteen current exact VLED footprints using historical local poses only. Retain all accepted copper, other components, exact pads/nets/parts and current/protection/enable settings. No canonical IC/passive move or copper replacement is selected. A future selection requires a bounded exact contact/rework policy, suitable power-path geometry, all prior groups restored, native/independent connectivity, full DRC and replay/fault/source evidence; qualification and Gate A remain open.
+
+**2026-10-30 C32 ground feasibility:** [ADR 0073](decisions/0073-c32-staggered-ground-escape-feasibility.md) permits ignored local replacement of only three enumerated original In4/In3 colour segments to investigate a staggered adjacent-via escape from fixed C32.2. Retain all original-layer contacts, all other 58-edge copper/groups/poses/zones, exact parts and electrical settings. Bound colour length/excursion and ground length; keep ordinary geometry and unchanged full DRC. No source retirement or new narrow route is selected before full native/physical/replay/fault/source/orphan evidence.
+
+**2026-10-31 local VLED switching feasibility:** [ADR 0074](decisions/0074-local-vled-switching-node-feasibility.md) permits ignored two-part and thirteen-part pose comparisons at the recorded clear packing seed. Keep all existing copper, exact parts/pads/nets and electrical settings. Test only two local switching nets on B.Cu at ordinary width, each bounded to 5 mm. Record all old-group losses and native DRC; no canonical IC move, current-capacity approval or incomplete power stage is selected from these geometry experiments.
+
+**2026-11-01 VLED pair supply feasibility:** [ADR 0075](decisions/0075-vled-pair-supply-restoration-feasibility.md) permits ignored ordinary-width additive restoration of U37's SYS and VLED contacts in the two-part switching probe. Retain all existing copper/poses/zones, local switching joins and previous groups; bound new length per net and reject any split after refill. No obsolete-copper retirement, canonical pose selection or power-stage qualification follows from this screen.
+
+**2026-11-01 obsolete-U37 copper feasibility:** [ADR 0076](decisions/0076-obsolete-u37-copper-cleanup-feasibility.md) permits only a bounded ignored dangling-copper simulation inside the vacated U37 window, on four named nets and retained 58-edge items. Enumerate each removal and source/accepted origin; preserve all old groups and unchanged intrinsic clearances. Stop at boundaries/item/round limits. This grants no canonical source retirement; an exact independent policy and complete replay/fault/source/orphan gate remain required.
+
+ADR 0076's exact leaf continuation additionally permits private removal of only
+the two documented obsolete SYS F.Cu branches after current/frozen contact
+proof. The shared bus, every other copper item and all old groups remain fixed;
+no general boundary expansion or canonical retirement is authorized.
+
+**2026-11-01 local VLED stage feasibility:** [ADR 0077](decisions/0077-local-vled-stage-connections-feasibility.md)
+permits an ignored finite B.Cu-only ordinary-width local connection screen among
+the fixed thirteen exact stage components. Retain all old copper, switching
+paths, poses, zones and settings; bound pair/net length and report obstructions
+and all prior-group losses. No new via, source retirement, global reconnection,
+canonical adoption or power-stage qualification is selected by the screen.
+
+**2026-11-01 exact UART obstruction feasibility:** [ADR 0078](decisions/0078-local-vled-uart-obstruction-feasibility.md)
+permits only a private transfer of the two exact accepted UART items, with both
+retained interfaces verified. Use one fixed adjacent via and bounded ordinary-
+width In4.Cu tracks; preserve every other copper item and current pad group.
+Only after successful native/full-DRC restoration may the local-stage screen be
+repeated. No canonical source exception or power-stage qualification follows.
+
+**2026-11-01 full VLED supply feasibility:** [ADR 0079](decisions/0079-full-vled-stage-supply-restoration-feasibility.md)
+permits ignored additive SYS/VLED restoration in the exact full-stage/UART
+candidate. Preserve all current copper/groups/poses/zones/settings and restrict
+ordinary-width additions to fixed stage pads and current supply anchors, with
+bounded global length and search effort. Reject every collateral split. Complete
+restoration requires all earlier accepted groups and full independent/native
+evidence; no power-copper retirement or canonical adoption is granted.
+
+**2026-11-01 C47 return/feedback feasibility:** [ADR 0080](decisions/0080-c47-return-and-feedback-combination-feasibility.md)
+permits only private combination of the exact bounded feedback path with the
+retained global parent, plus a finite local three-via C47.2-to-In2 return screen.
+Keep every current group and item, native widths/clearance and all earlier
+supply bounds; repeat an outer VLED join only after complete return validation.
+No source retirement, current/process qualification or canonical adoption is
+selected by this additive experiment.
+
+**2026-11-01 full-stage obsolete-copper feasibility:** [ADR 0081](decisions/0081-full-stage-obsolete-copper-cleanup-feasibility.md)
+permits only a bounded ignored dangling-copper simulation in five enumerated old
+stage windows, on five named nets and unique retained 58-edge signatures. Keep
+all current and earlier groups, all other old/new copper and exact geometry/
+settings; record origin/contacts and stop at scope limits. No canonical source
+retirement or new orphan waiver is selected without an exact independent policy
+and the full adoption evidence.
+
+ADR 0081's exact leaf continuation permits only the three documented obsolete
+F.Cu SYS branches after frozen/current contact proof; both shared buses and all
+other current geometry/groups remain fixed. The private 52-item cleanup cohort
+is separate from the two UART retirements and original three-orphan waiver;
+canonical selection still requires the independent full adoption policy.
+
+**2026-11-01 corrected L1/U36 locality:** [ADR 0082](decisions/0082-corrected-l1-u36-locality-feasibility.md)
+permits only ignored fixed-U36 L1 screening and a bounded two-part cardinal
+placement/short-switching-node template screen on the exact cleaned candidate.
+Keep all old copper, other components and settings; record all affected supply/
+control groups and reject ground/other-net splits. Pin 7 is U36's ground return,
+pin 6 is MODE tied low. No canonical move, footprint/current change or incomplete
+old-group restoration is selected.
+
+**2026-11-04 owner MLCC evidence:** The supplied summary screenshot does not
+replace a manufacturer land drawing. Its D/J/body data agree with indexed
+2025 reference excerpts, while its reflow ranges conflict with the supplied
+2021 catalogue. Preserve exact source/approval distinctions and all current
+footprint/BOM/qualification holds until the underlying Murata diagram/revision
+is verified; no geometry or order-code selection follows from the screenshot.
+
+
+**2026-11-04 remaining Murata land feasibility:** [ADR 0083](decisions/0083-remaining-murata-land-feasibility.md) permits ignored exact-part pad-only trials for all eight GRM187 and two GRM219 instances, using the supplied June 10, 2026 reference sheets and their verified ±0.20 mm reflow branches. Preserve every other item/pose/field/net/setting and report all old-group losses after native fills. Dedicated candidate lands are 0.75 × 0.90 mm at ±0.775 mm and 0.70 × 1.30 mm at ±0.950 mm respectively. Keep source MPN packaging choices, canonical geometry, approval/assembly/electrical and Gate A holds open; no failed retention result may be promoted.
+
+ADR 0083's exact C49 continuation permits only the documented 0.475 mm
+ordinary-width B.Cu VLED contact extension in the ignored cleaned-52 trial.
+Preserve every source item and old group; require 52 native/physical opens
+and unchanged full 104 findings before calling the reconnection successful.
+
+The supplied June 2026 sheets resolve the previously missing body-tolerance
+and reflow-row evidence. ADR 0083's successful ignored trials preserve 58/58
+opens without added copper on the accepted source, and 52/52 with only the
+exact C49 lead on the cleaned candidate. Both retain all prior groups and
+exact full 104 intrinsic findings; stable replays and ten rejection cases pass.
+No canonical migration, packaging selection, separate approval or assembly/
+electrical qualification is inferred from these native geometry results.
+
+
+**2026-11-05 remaining Murata source migration:** [ADR 0084](decisions/0084-remaining-murata-source-migration.md) adopts dedicated corrected GRM187/GRM219 lands for exactly C40/C41/C42/C43/C46/C47/C48/C49/C56/C61 after the complete source/native gate. Freeze the preceding 58-edge plan/contract and preserve every copper item, pose, field, numbered net, zone and electrical setting. Require all 246 physical groups, 58 native/physical opens, exact 104 intrinsic findings, stable fills/replay, native XML/ERC/rendering, fault/source checks and original-orphan restoration. The separate ignored converter/C49 rework is not selected. Packaging/approval/assembly/electrical and independent Gate A holds remain open.
+
+ADR 0084's exact ten-capacitor pad-only migration passes the complete acceptance
+gate and is selected for canonical source. Preserve the frozen 58-edge plan,
+all source copper/groups/poses, prior exceptions and original-orphan waiver.
+The source retains 58 native/physical opens and exactly 104 intrinsic findings;
+no converter placement/rework or lower routing count is selected. Packaging/
+approval/assembly/electrical and independent Gate A holds remain open.
+
+
+**2026-11-05 checked converter checkpoint:** [ADR 0085](decisions/0085-selected-converter-routing-checkpoint.md) permits a separately validated child of the immutable corrected 58-edge parent. Enforce exactly thirteen VLED poses, 54 catalogued retirements, 102 additions including the C49 lead, all 246 parent groups and new named converter joins. Require 52 native/physical opens, exact 104 findings, stable fills/replay, origin/structure/profile/source/fault/orphan evidence before selection. Parent retention checks stay unchanged; current settings, part/pad geometry, protection/enable/firmware and all qualification/fabrication holds remain fixed.
+
+
+**2026-11-05 whole-coupon L1/U36 feasibility:** [ADR 0086](decisions/0086-global-u36-l1-pair-feasibility.md) permits an ignored whole-coupon 0.25 mm/cardinal pair screen on the exact corrected child trial, using existing numbered-pin short-node templates and unchanged native clearance/width/edge rules. Keep all other geometry/settings fixed. Report finite results and every filled group loss; no placement may be selected without complete restoration and the full adoption gate.
+
+
+**2026-11-05 U36 pair restoration:** [ADR 0087](decisions/0087-u36-pair-restoration-feasibility.md) permits ignored bounded ordinary-width SYS/+3V3_APP restoration for the exact new pair, followed only by native-dangling, source-present supply copper cleanup within the vacated U36 window. Preserve every old/current group and all other geometry/settings; require 50 native/physical opens and exact intrinsic DRC before proposing exact source adoption.
+
+ADR 0087's bounded cleanup stops at an active SYS shared leaf. Permit only
+its documented exact tail replacement, retaining the new route's two current
+interfaces and the original bottom bus. Do not delete the active branch or
+count retained original tail geometry as a new supply excursion. Require
+full origin/contact/inventory, 50-open and exact-DRC evidence before selection.
+
+
+**2026-11-05 exact dual-converter routing adoption:** [ADR 0088](decisions/0088-dual-converter-routing-selection.md) permits the final cumulative child ledger only: 15 poses, 65 retirements (20 originals/45 accepted), 134 additions, all 246 parent groups and named dual-converter joins. Preserve the frozen 52-edge plan and unchanged 58-edge parent gate. Select only after 50 native/physical opens, exact 104 findings, stable replay/fills, path-length, source/fault/orphan and exact shared-tail-interface evidence. Remaining circuit opens and all electrical/part/process/fit/Gate A/fabrication holds remain open.
+
+ADR 0088's cumulative dual-converter checkpoint passes the complete parent/child
+acceptance gate and is selected at 50 native/physical opens / exact 104 intrinsic
+findings. Both numbered switching-node pairs are local and below 5 mm; all 246
+parent groups, exact ledger/poses/pads/profiles and original-orphan proof pass.
+The local-converter goal and 50-edge planning target are achieved. Remaining
+circuit opens and all electrical/part/process/fit and independent Gate A holds
+remain open; no fabrication release follows.
+
+**2026-11-05 complete-stage planning (ADR 0089):** Before continuing arbitrary open-count closure, deliver a complete-stage correction plan covering U36 physical feedback/default pull-down and local input/output bypass; U37 control/power returns, exposed-pad heat spreading and power-save/window compatibility; combined effective capacitance and L(I,T); full source/load and finished-copper/HDI process budgets. Retain the 50/104 checkpoint unchanged during this review. Inventory every intrinsic physical pad pair; no global clearance reduction or fabrication acceptance is implied. Subsequent geometry, part, mode, threshold or rule changes require their own bounded design disposition and validation. See the [review and acceptance queue](development/converter-power-layout-review-2026-11-05.md).
+
+**2026-11-06 bounded corrections (ADR 0090):** Use a connector-driven 0.80 mm target and explicitly provisional 2+2+2 geometry while obtaining a controlled finished build; do not adopt the inconsistent 1.6 mm owner proposal or silently reclassify inner microvias. Enforce exact allowed via spans, pad/hole and nominal aspect policies in a fail-closed check, with supplier/release status distinct from geometric eligibility. Screen the complete nine-part U36 stage and retain all prior pad groups/interfaces before canonical selection. Preserve current/protection limits, exact parts, global clearances and independent Gate A. See [ADR 0090](decisions/0090-bounded-stack-and-complete-stage-corrections.md).
+
+**2026-11-06 selected local-stage correction (ADR 0090):** The separate 47-edge routing successor passes exact 9-pose/14-retirement/47-addition, all-238-parent-group, named local-pin, native/physical count, unchanged-104-DRC, replay/fill, source/fault/orphan and visual gates. Enforce primary C40 input and C43 output locality and bounded conductor paths, retaining all exact parts/current/protection settings, B.Cu feedback/default pull-down and the open switch/interlock boundaries. Preserve the 50-edge parent unchanged. Manufacturing eligibility remains fail-closed for the 557 legacy centre microvias, missing controlled stack and supplier/process/fit/Gate A evidence. The 0.80 mm stack is planning intent, not adoption of a fabrication build. See the [implementation evidence](development/bounded-corrections-2026-11-06.md).
+
+**2026-11-06 routing closure goal (ADR 0091):** Continue from the immutable
+47-open study to zero native and physical pad-cluster opens, preserving exact
+circuit boundaries, all live groups and accepted converter geometry. No added
+DRC findings, general width waiver, new unsupported central microvia or
+fabrication permission is allowed. Record and validate each selected successor.
+
+**2026-11-06 full-span feasibility (ADR 0092):** Existing 0.50/0.30 mm plated
+through-via geometry may be explored for direct plane joins under all-layer
+clearance, drilled-hole, live-group and exact-DRC guards. Keep trials ignored
+until their exact successor validation passes; supplier/assembly and Gate A
+holds remain unchanged.
+
+ADR 0092's exact 43-open switch-routing successor may be selected only after
+retaining all 232 immutable 44-open parent groups, exact unchanged intrinsic
+DRC, deterministic replay and fault/source/orphan checks. Its two full-span
+vias use 0.50/0.30 mm; the new supply bridges require separate current/voltage-
+drop/thermal and return-path qualification. No fabrication or electrical
+validation is inferred from CAD continuity.
+
+ADR 0091's remaining-routing successor must retain all 231 groups and every
+copper item of the immutable ADR 0092 43-open source. Each accepted open-count
+reduction requires an exact current ledger, native/physical agreement, no new
+DRC finding, stable replay/fills and source/orphan/fault validation. USB signal
+quality and added supply-path ampacity remain separate qualification holds.
+
+ADR 0093 keeps the strict three-via retirement proof on the immutable 43-open
+parent. A remaining-routing successor with no new retirements must retain all
+parent and previously selected pad groups/copper, recheck copper/net identity
+after refill, and pass the exact actual-source DRC and all other native gates.
+The current-board retired-via restoration experiment is separately reported,
+including net reassignment or extra opens; its output is never selected.
+
+ADR 0094 permits only a bounded R90 locality study with unchanged
+ERJ2RKF1402X / 14 kΩ programming and fixed U39 thermal position. A selected
+pose requires local SETB/ground geometry, ordinary B.Cu routing, complete
+41-open group/copper retention, exact unchanged native DRC and all normal
+successor validation. Temperature thresholds and protection are not retuned.
+
+ADR 0094 additionally permits exactly one full-width B.Cu GND return replacement
+at (59.865,16.000)–(58.365,16.000) mm to open the local cold-pin exit. Its exact
+replacement must retain both endpoints and every direct original-layer contact,
+stay inside the recorded local bounds, preserve all other accepted copper and
+all live groups, and pass the same complete successor checks before selection.
+
+ADR 0095 permits a bounded anchored R8 pull-up rotation with fixed VLED-pad
+centre, exact ERJ2RKF1001X / 1 kΩ value and existing source nets. Any selected
+local row-gate join must retain all previous groups/copper, introduce no new
+retirement/via, and pass exact DRC, replay/source and fault validation. The
+paired-device trial marker and fabrication hold remain unchanged.
+
+ADR 0096 permits only the exact five-track TMP390-area ground-plane substitution
+recorded there. A selected TEMP_OK join requires the retained boundary contacts
+and both endpoints to touch one actual filled B.Cu ground component, with all
+previous live groups/copper otherwise retained and no zone/profile/part/net/
+current change. Exact native DRC and all successor gates remain mandatory.

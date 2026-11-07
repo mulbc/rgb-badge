@@ -1,0 +1,819 @@
+{
+  "2021_catalogue_reflow_ranges_confirmed": true,
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "actual_board_land_evaluation_required": true,
+  "adr": "0083",
+  "canonical_geometry_changed": false,
+  "date": "2026-11-04",
+  "dimension_definitions": {
+    "a": "inner copper gap",
+    "b": "one land length",
+    "c": "transverse land width"
+  },
+  "fabrication_release_allowed": false,
+  "native_faults": [
+    {
+      "case": "missing-c49-lead",
+      "expected_rejection": "Prior UUID pad group split",
+      "passed": true
+    },
+    {
+      "case": "legacy-pad-size",
+      "expected_rejection": "AssertionError",
+      "passed": true
+    }
+  ],
+  "negative_pad_only_cleaned52": {
+    "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+    "added_c49_contact": [],
+    "all_poses_fields_numbered_nets_and_other_pad_data_retained": true,
+    "all_prior_groups_preserved": false,
+    "all_source_copper_retained": true,
+    "basis": "cleaned52",
+    "candidate_drawings": {
+      "GRM187R61A226ME15": {
+        "dimensions_mm": {
+          "a": "0.800",
+          "b": "0.75",
+          "c": "0.9"
+        },
+        "footprint_sha256": "2566d56cb2c65866dc9bc9c5ee361fd503bdbe3e96fc62e7b44881ad3a357a4c"
+      },
+      "GRM219R60J476ME44": {
+        "dimensions_mm": {
+          "a": "1.20",
+          "b": "0.7",
+          "c": "1.3"
+        },
+        "footprint_sha256": "376eb1a9dcd11672d369874ff94259ce7533eb17d653264c83b62f12147aed31"
+      }
+    },
+    "candidate_sha256": "67ed0d308726ee405b67eb7abdb40bc97aeac0f1d7770608d261dd520a34de1d",
+    "canonical_geometry_changed": false,
+    "changed_references": [
+      "C40",
+      "C41",
+      "C42",
+      "C43",
+      "C46",
+      "C47",
+      "C48",
+      "C49",
+      "C56",
+      "C61"
+    ],
+    "drc_sha256": "cad7db4dc5cab02940692b57ade98147e2a74b8bb8647b1edbb62b02cfbbde3a",
+    "exact_104_intrinsic_findings": false,
+    "fabrication_release_allowed": false,
+    "full_drc_types": {
+      "clearance": 104,
+      "track_dangling": 1
+    },
+    "kicad_version": "10.0.6",
+    "opens": {
+      "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+      "board": "hardware/coupon/rev-a/build/remaining-murata-lands-2026-11-04/cleaned52-b/trial.kicad_pcb",
+      "board_sha256": "67ed0d308726ee405b67eb7abdb40bc97aeac0f1d7770608d261dd520a34de1d",
+      "by_net": {
+        "+3V3_APP": 1,
+        "+3V3_USB": 1,
+        "+BAT_GAUGE_SW": 2,
+        "APP_3V3_FB": 1,
+        "APP_ON_SW_DRAFT": 2,
+        "CHARGER_EN2": 1,
+        "CHARGER_TS": 1,
+        "DISPLAY_CLEAR_3": 1,
+        "DISPLAY_CLEAR_OK": 2,
+        "DISPLAY_ENABLE": 1,
+        "DISPLAY_HEARTBEAT": 1,
+        "E1_ILM": 1,
+        "ESP_EN": 1,
+        "GND": 3,
+        "HEARTBEAT_FALL_CLK": 1,
+        "HEARTBEAT_SEEN": 1,
+        "LED_GCLK": 1,
+        "LED_IREF": 1,
+        "LED_LAT": 1,
+        "LED_SCLK": 1,
+        "Net-(U36-LX1)": 1,
+        "Net-(U36-LX2)": 1,
+        "ROW_ENABLE_N_CANDIDATE": 1,
+        "ROW_GATE_00": 1,
+        "ROW_GATE_02": 1,
+        "ROW_GATE_03": 1,
+        "ROW_GATE_04": 1,
+        "ROW_GATE_06": 1,
+        "ROW_GATE_07": 1,
+        "TEMP_OK": 1,
+        "TMP_COLD_SET": 1,
+        "USB_CC1": 1,
+        "USB_D+": 1,
+        "USB_D-": 1,
+        "USB_DN_MCU": 1,
+        "USB_DP_MCU": 1,
+        "USB_EN1_RAW_N": 1,
+        "USB_LOGIC_CT": 1,
+        "VBUS_CONNECTOR": 1,
+        "VLED": 8,
+        "VLED_ENABLE_CANDIDATE": 1
+      },
+      "interpretation": "Unconnected pad clusters minus one per net; no electrical or manufacturability qualification",
+      "native_open_edges": 53,
+      "pad_cluster_open_edges": 53
+    },
+    "prior_group_count": 240,
+    "source_sha256": "7c5196b19decc3a4fbaf5724a24aae479a0fdb9c2679706f3cc5f86253992e11",
+    "stable_fills": [
+      {
+        "fill": 1,
+        "lost_groups": [
+          {
+            "anchor": [
+              "R14",
+              "1",
+              -500000,
+              0
+            ],
+            "missing_pad_identities": [
+              [
+                "C48",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C49",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "R84",
+                "1",
+                -500000,
+                0
+              ]
+            ],
+            "net": "VLED",
+            "old_group_size": 35
+          }
+        ],
+        "native_opens": 53,
+        "sha256": "67ed0d308726ee405b67eb7abdb40bc97aeac0f1d7770608d261dd520a34de1d"
+      },
+      {
+        "fill": 2,
+        "lost_groups": [
+          {
+            "anchor": [
+              "R14",
+              "1",
+              -500000,
+              0
+            ],
+            "missing_pad_identities": [
+              [
+                "C48",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C49",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "R84",
+                "1",
+                -500000,
+                0
+              ]
+            ],
+            "net": "VLED",
+            "old_group_size": 35
+          }
+        ],
+        "native_opens": 53,
+        "sha256": "67ed0d308726ee405b67eb7abdb40bc97aeac0f1d7770608d261dd520a34de1d"
+      },
+      {
+        "fill": 3,
+        "lost_groups": [
+          {
+            "anchor": [
+              "R14",
+              "1",
+              -500000,
+              0
+            ],
+            "missing_pad_identities": [
+              [
+                "C48",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C49",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "R84",
+                "1",
+                -500000,
+                0
+              ]
+            ],
+            "net": "VLED",
+            "old_group_size": 35
+          }
+        ],
+        "native_opens": 53,
+        "sha256": "67ed0d308726ee405b67eb7abdb40bc97aeac0f1d7770608d261dd520a34de1d"
+      }
+    ],
+    "status": "UNSELECTED_TEN_CAPACITOR_PAD_ONLY_FEASIBILITY",
+    "tool_sha256": "011cb1fb8bae4dee93c468d51eba5da80a4edfedc16c68b7710af38b32cc521f"
+  },
+  "packaging_options": {
+    "D": {
+      "paper_tape": "W8P4",
+      "pieces": 4000,
+      "reel_diameter_mm": 180
+    },
+    "J": {
+      "paper_tape": "W8P4",
+      "pieces": 10000,
+      "reel_diameter_mm": 330
+    }
+  },
+  "parts": {
+    "GRM187R61A226ME15": {
+      "body_gap_g_min_mm": 0.6,
+      "body_nominal_mm": [
+        1.6,
+        0.8,
+        0.7
+      ],
+      "body_tolerances_mm": [
+        0.2,
+        0.2,
+        0.1
+      ],
+      "bytes": 1988872,
+      "candidate_mm": {
+        "a": 0.8,
+        "b": 0.75,
+        "c": 0.9,
+        "pad_centre_offset": 0.775
+      },
+      "document_kind": "Manufacturer reference sheet, not a separate approval sheet",
+      "file": "GRM187R61A226ME15-01A-EN.pdf",
+      "pages": 33,
+      "references": [
+        "C40",
+        "C41",
+        "C46",
+        "C47",
+        "C48",
+        "C49",
+        "C56",
+        "C61"
+      ],
+      "reflow_ranges_mm": {
+        "a": [
+          0.7,
+          0.9
+        ],
+        "b": [
+          0.7,
+          0.8
+        ],
+        "c": [
+          0.8,
+          1.0
+        ]
+      },
+      "sha256": "8fc5a9d8e4f05c979eeca00354c982335d2b15552eb7ba5516924e3a9395acbb",
+      "source_part_packaging_selection_changed": false,
+      "specification_date": "2026-06-10",
+      "termination_e_mm": [
+        0.2,
+        0.5
+      ],
+      "visually_checked_pages": [
+        1,
+        2,
+        27
+      ]
+    },
+    "GRM219R60J476ME44": {
+      "body_gap_g_min_mm": 0.7,
+      "body_nominal_mm": [
+        2.0,
+        1.25,
+        0.85
+      ],
+      "body_tolerances_mm": [
+        0.2,
+        0.2,
+        0.1
+      ],
+      "bytes": 1991873,
+      "candidate_mm": {
+        "a": 1.2,
+        "b": 0.7,
+        "c": 1.3,
+        "pad_centre_offset": 0.95
+      },
+      "document_kind": "Manufacturer reference sheet, not a separate approval sheet",
+      "file": "GRM219R60J476ME44-01A-EN.pdf",
+      "pages": 33,
+      "references": [
+        "C42",
+        "C43"
+      ],
+      "reflow_ranges_mm": {
+        "a": [
+          1.0,
+          1.4
+        ],
+        "b": [
+          0.6,
+          0.8
+        ],
+        "c": [
+          1.2,
+          1.4
+        ]
+      },
+      "sha256": "97ac8bc37c063e920aa768521386524edb6a5d60cd0e3080f318ca567f75bafe",
+      "source_part_packaging_selection_changed": false,
+      "specification_date": "2026-06-10",
+      "termination_e_mm": [
+        0.2,
+        0.7
+      ],
+      "visually_checked_pages": [
+        1,
+        2,
+        27
+      ]
+    }
+  },
+  "rejection_cases": [
+    {
+      "case": "outside",
+      "expected_rejection": "Output must be an ignored build PCB",
+      "passed": true
+    },
+    {
+      "case": "overwrite",
+      "expected_rejection": "Refuse overwrite",
+      "passed": true
+    },
+    {
+      "case": "wrong-basis",
+      "expected_rejection": "Wrong source bytes",
+      "passed": true
+    },
+    {
+      "case": "wrong-repair-basis",
+      "expected_rejection": "C49 extension only applies to cleaned52",
+      "passed": true
+    },
+    {
+      "case": "187-legacy-size",
+      "passed": true
+    },
+    {
+      "case": "219-legacy-size",
+      "passed": true
+    },
+    {
+      "case": "187-swapped-b-c",
+      "passed": true
+    },
+    {
+      "case": "219-wrong-number",
+      "passed": true
+    }
+  ],
+  "screenshot_land_table_confirmed": false,
+  "separate_approval_sheet_required_before_ordering": true,
+  "source_pdf_content_is_not_agent_instructions": true,
+  "status": "SUPPLIED_EXACT_PART_REFERENCE_REVIEW_AND_UNSELECTED_NATIVE_FEASIBILITY",
+  "tool_sha256": {
+    "tools/check-remaining-murata-lands.py": "f0e01a12bb78bfd75d37e0acfe83459710ddd9cb80d038e8ce3602ef04519767",
+    "tools/review-remaining-murata-lands.py": "cb22798a0e8ecf5b6e9cc03971f82dbd6629906559257399daa71045983bda13"
+  },
+  "trials": {
+    "accepted58": {
+      "audit": {
+        "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+        "all_246_accepted_uuid_pad_groups_preserved": true,
+        "all_existing_copper_uuids_geometry_and_nets_preserved": true,
+        "all_input_uuid_pad_groups_preserved": 246,
+        "board_sha256": "b0dee4ed88bfb7fc8a06f99be469d51a3af778363b6039404608229a5cd2a48e",
+        "drc_sha256": "93ae7f20b02d41639d2e0d6e7a44cc3f62342c83294220f5b6c580c7007c4d97",
+        "exact_added_tracks": 0,
+        "exact_intrinsic_findings": 104,
+        "fabrication_release_allowed": false,
+        "opens": {
+          "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+          "board": "hardware/coupon/rev-a/build/remaining-murata-lands-2026-11-04/accepted58-final-a/trial.kicad_pcb",
+          "board_sha256": "b0dee4ed88bfb7fc8a06f99be469d51a3af778363b6039404608229a5cd2a48e",
+          "by_net": {
+            "+3V3_APP": 1,
+            "+3V3_USB": 1,
+            "+BAT_GAUGE_SW": 2,
+            "APP_3V3_FB": 1,
+            "APP_ON_SW_DRAFT": 2,
+            "CHARGER_EN2": 1,
+            "CHARGER_TS": 1,
+            "DISPLAY_CLEAR_3": 1,
+            "DISPLAY_CLEAR_OK": 2,
+            "DISPLAY_ENABLE": 1,
+            "DISPLAY_HEARTBEAT": 1,
+            "E1_ILM": 1,
+            "ESP_EN": 1,
+            "GND": 3,
+            "HEARTBEAT_FALL_CLK": 1,
+            "HEARTBEAT_SEEN": 1,
+            "LED_GCLK": 1,
+            "LED_IREF": 1,
+            "LED_LAT": 1,
+            "LED_SCLK": 1,
+            "Net-(L2-~-Pad1)": 1,
+            "Net-(L2-~-Pad2)": 1,
+            "Net-(U36-LX1)": 1,
+            "Net-(U36-LX2)": 1,
+            "ROW_ENABLE_N_CANDIDATE": 1,
+            "ROW_GATE_00": 1,
+            "ROW_GATE_02": 1,
+            "ROW_GATE_03": 1,
+            "ROW_GATE_04": 1,
+            "ROW_GATE_06": 1,
+            "ROW_GATE_07": 1,
+            "TEMP_OK": 1,
+            "TMP_COLD_SET": 1,
+            "USB_CC1": 1,
+            "USB_D+": 1,
+            "USB_D-": 1,
+            "USB_DN_MCU": 1,
+            "USB_DP_MCU": 1,
+            "USB_EN1_RAW_N": 1,
+            "USB_LOGIC_CT": 1,
+            "VBUS_CONNECTOR": 1,
+            "VLED": 8,
+            "VLED_ENABLE_CANDIDATE": 1,
+            "VLED_ENABLE_DRAFT": 1,
+            "VLED_FB": 2
+          },
+          "interpretation": "Unconnected pad clusters minus one per net; no electrical or manufacturability qualification",
+          "native_open_edges": 58,
+          "pad_cluster_open_edges": 58
+        },
+        "source_sha256": "3451177253a021d8706ff818696212afabf539a108f15ef9e5d6921e46435acc",
+        "status": "PASS_UNSELECTED_GEOMETRY_ONLY",
+        "tool_sha256": "f0e01a12bb78bfd75d37e0acfe83459710ddd9cb80d038e8ce3602ef04519767"
+      },
+      "byte_identical_replays": 2,
+      "generation": {
+        "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+        "added_c49_contact": [],
+        "all_poses_fields_numbered_nets_and_other_pad_data_retained": true,
+        "all_prior_groups_preserved": true,
+        "all_source_copper_retained": true,
+        "basis": "accepted58",
+        "candidate_drawings": {
+          "GRM187R61A226ME15": {
+            "dimensions_mm": {
+              "a": "0.800",
+              "b": "0.75",
+              "c": "0.9"
+            },
+            "footprint_sha256": "2566d56cb2c65866dc9bc9c5ee361fd503bdbe3e96fc62e7b44881ad3a357a4c"
+          },
+          "GRM219R60J476ME44": {
+            "dimensions_mm": {
+              "a": "1.20",
+              "b": "0.7",
+              "c": "1.3"
+            },
+            "footprint_sha256": "376eb1a9dcd11672d369874ff94259ce7533eb17d653264c83b62f12147aed31"
+          }
+        },
+        "candidate_sha256": "b0dee4ed88bfb7fc8a06f99be469d51a3af778363b6039404608229a5cd2a48e",
+        "canonical_geometry_changed": false,
+        "changed_references": [
+          "C40",
+          "C41",
+          "C42",
+          "C43",
+          "C46",
+          "C47",
+          "C48",
+          "C49",
+          "C56",
+          "C61"
+        ],
+        "drc_sha256": "93ae7f20b02d41639d2e0d6e7a44cc3f62342c83294220f5b6c580c7007c4d97",
+        "exact_104_intrinsic_findings": true,
+        "fabrication_release_allowed": false,
+        "full_drc_types": {
+          "clearance": 104
+        },
+        "kicad_version": "10.0.6",
+        "opens": {
+          "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+          "board": "hardware/coupon/rev-a/build/remaining-murata-lands-2026-11-04/accepted58-final-a/trial.kicad_pcb",
+          "board_sha256": "b0dee4ed88bfb7fc8a06f99be469d51a3af778363b6039404608229a5cd2a48e",
+          "by_net": {
+            "+3V3_APP": 1,
+            "+3V3_USB": 1,
+            "+BAT_GAUGE_SW": 2,
+            "APP_3V3_FB": 1,
+            "APP_ON_SW_DRAFT": 2,
+            "CHARGER_EN2": 1,
+            "CHARGER_TS": 1,
+            "DISPLAY_CLEAR_3": 1,
+            "DISPLAY_CLEAR_OK": 2,
+            "DISPLAY_ENABLE": 1,
+            "DISPLAY_HEARTBEAT": 1,
+            "E1_ILM": 1,
+            "ESP_EN": 1,
+            "GND": 3,
+            "HEARTBEAT_FALL_CLK": 1,
+            "HEARTBEAT_SEEN": 1,
+            "LED_GCLK": 1,
+            "LED_IREF": 1,
+            "LED_LAT": 1,
+            "LED_SCLK": 1,
+            "Net-(L2-~-Pad1)": 1,
+            "Net-(L2-~-Pad2)": 1,
+            "Net-(U36-LX1)": 1,
+            "Net-(U36-LX2)": 1,
+            "ROW_ENABLE_N_CANDIDATE": 1,
+            "ROW_GATE_00": 1,
+            "ROW_GATE_02": 1,
+            "ROW_GATE_03": 1,
+            "ROW_GATE_04": 1,
+            "ROW_GATE_06": 1,
+            "ROW_GATE_07": 1,
+            "TEMP_OK": 1,
+            "TMP_COLD_SET": 1,
+            "USB_CC1": 1,
+            "USB_D+": 1,
+            "USB_D-": 1,
+            "USB_DN_MCU": 1,
+            "USB_DP_MCU": 1,
+            "USB_EN1_RAW_N": 1,
+            "USB_LOGIC_CT": 1,
+            "VBUS_CONNECTOR": 1,
+            "VLED": 8,
+            "VLED_ENABLE_CANDIDATE": 1,
+            "VLED_ENABLE_DRAFT": 1,
+            "VLED_FB": 2
+          },
+          "interpretation": "Unconnected pad clusters minus one per net; no electrical or manufacturability qualification",
+          "native_open_edges": 58,
+          "pad_cluster_open_edges": 58
+        },
+        "prior_group_count": 246,
+        "source_sha256": "3451177253a021d8706ff818696212afabf539a108f15ef9e5d6921e46435acc",
+        "stable_fills": [
+          {
+            "fill": 1,
+            "lost_groups": [],
+            "native_opens": 58,
+            "sha256": "b0dee4ed88bfb7fc8a06f99be469d51a3af778363b6039404608229a5cd2a48e"
+          },
+          {
+            "fill": 2,
+            "lost_groups": [],
+            "native_opens": 58,
+            "sha256": "b0dee4ed88bfb7fc8a06f99be469d51a3af778363b6039404608229a5cd2a48e"
+          },
+          {
+            "fill": 3,
+            "lost_groups": [],
+            "native_opens": 58,
+            "sha256": "b0dee4ed88bfb7fc8a06f99be469d51a3af778363b6039404608229a5cd2a48e"
+          }
+        ],
+        "status": "UNSELECTED_TEN_CAPACITOR_PAD_ONLY_FEASIBILITY",
+        "tool_sha256": "cb22798a0e8ecf5b6e9cc03971f82dbd6629906559257399daa71045983bda13"
+      },
+      "raw_evidence": "hardware/coupon/rev-a/build/remaining-murata-lands-2026-11-04/accepted58-final-a",
+      "replay_raw_evidence": "hardware/coupon/rev-a/build/remaining-murata-lands-2026-11-04/accepted58-final-b"
+    },
+    "cleaned52": {
+      "audit": {
+        "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+        "all_246_accepted_uuid_pad_groups_preserved": true,
+        "all_existing_copper_uuids_geometry_and_nets_preserved": true,
+        "all_input_uuid_pad_groups_preserved": 240,
+        "board_sha256": "80a83cc6b1553fd66e2aeda833b5f3492550004d2e8e3d5ec2401f74302a9cd4",
+        "drc_sha256": "c0a636ecb4f6f97d8620e42034947550424d4f30a1cff47c15cdea55005a109d",
+        "exact_added_tracks": 1,
+        "exact_intrinsic_findings": 104,
+        "fabrication_release_allowed": false,
+        "opens": {
+          "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+          "board": "hardware/coupon/rev-a/build/remaining-murata-lands-2026-11-04/cleaned52-final-a/trial.kicad_pcb",
+          "board_sha256": "80a83cc6b1553fd66e2aeda833b5f3492550004d2e8e3d5ec2401f74302a9cd4",
+          "by_net": {
+            "+3V3_APP": 1,
+            "+3V3_USB": 1,
+            "+BAT_GAUGE_SW": 2,
+            "APP_3V3_FB": 1,
+            "APP_ON_SW_DRAFT": 2,
+            "CHARGER_EN2": 1,
+            "CHARGER_TS": 1,
+            "DISPLAY_CLEAR_3": 1,
+            "DISPLAY_CLEAR_OK": 2,
+            "DISPLAY_ENABLE": 1,
+            "DISPLAY_HEARTBEAT": 1,
+            "E1_ILM": 1,
+            "ESP_EN": 1,
+            "GND": 3,
+            "HEARTBEAT_FALL_CLK": 1,
+            "HEARTBEAT_SEEN": 1,
+            "LED_GCLK": 1,
+            "LED_IREF": 1,
+            "LED_LAT": 1,
+            "LED_SCLK": 1,
+            "Net-(U36-LX1)": 1,
+            "Net-(U36-LX2)": 1,
+            "ROW_ENABLE_N_CANDIDATE": 1,
+            "ROW_GATE_00": 1,
+            "ROW_GATE_02": 1,
+            "ROW_GATE_03": 1,
+            "ROW_GATE_04": 1,
+            "ROW_GATE_06": 1,
+            "ROW_GATE_07": 1,
+            "TEMP_OK": 1,
+            "TMP_COLD_SET": 1,
+            "USB_CC1": 1,
+            "USB_D+": 1,
+            "USB_D-": 1,
+            "USB_DN_MCU": 1,
+            "USB_DP_MCU": 1,
+            "USB_EN1_RAW_N": 1,
+            "USB_LOGIC_CT": 1,
+            "VBUS_CONNECTOR": 1,
+            "VLED": 7,
+            "VLED_ENABLE_CANDIDATE": 1
+          },
+          "interpretation": "Unconnected pad clusters minus one per net; no electrical or manufacturability qualification",
+          "native_open_edges": 52,
+          "pad_cluster_open_edges": 52
+        },
+        "source_sha256": "7c5196b19decc3a4fbaf5724a24aae479a0fdb9c2679706f3cc5f86253992e11",
+        "status": "PASS_UNSELECTED_GEOMETRY_ONLY",
+        "tool_sha256": "f0e01a12bb78bfd75d37e0acfe83459710ddd9cb80d038e8ce3602ef04519767"
+      },
+      "byte_identical_replays": 2,
+      "generation": {
+        "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+        "added_c49_contact": [
+          [
+            "track",
+            "VLED",
+            51300000,
+            18900001,
+            51775000,
+            18900001,
+            "B.Cu",
+            200000
+          ]
+        ],
+        "all_poses_fields_numbered_nets_and_other_pad_data_retained": true,
+        "all_prior_groups_preserved": true,
+        "all_source_copper_retained": true,
+        "basis": "cleaned52",
+        "candidate_drawings": {
+          "GRM187R61A226ME15": {
+            "dimensions_mm": {
+              "a": "0.800",
+              "b": "0.75",
+              "c": "0.9"
+            },
+            "footprint_sha256": "2566d56cb2c65866dc9bc9c5ee361fd503bdbe3e96fc62e7b44881ad3a357a4c"
+          },
+          "GRM219R60J476ME44": {
+            "dimensions_mm": {
+              "a": "1.20",
+              "b": "0.7",
+              "c": "1.3"
+            },
+            "footprint_sha256": "376eb1a9dcd11672d369874ff94259ce7533eb17d653264c83b62f12147aed31"
+          }
+        },
+        "candidate_sha256": "80a83cc6b1553fd66e2aeda833b5f3492550004d2e8e3d5ec2401f74302a9cd4",
+        "canonical_geometry_changed": false,
+        "changed_references": [
+          "C40",
+          "C41",
+          "C42",
+          "C43",
+          "C46",
+          "C47",
+          "C48",
+          "C49",
+          "C56",
+          "C61"
+        ],
+        "drc_sha256": "c0a636ecb4f6f97d8620e42034947550424d4f30a1cff47c15cdea55005a109d",
+        "exact_104_intrinsic_findings": true,
+        "fabrication_release_allowed": false,
+        "full_drc_types": {
+          "clearance": 104
+        },
+        "kicad_version": "10.0.6",
+        "opens": {
+          "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+          "board": "hardware/coupon/rev-a/build/remaining-murata-lands-2026-11-04/cleaned52-final-a/trial.kicad_pcb",
+          "board_sha256": "80a83cc6b1553fd66e2aeda833b5f3492550004d2e8e3d5ec2401f74302a9cd4",
+          "by_net": {
+            "+3V3_APP": 1,
+            "+3V3_USB": 1,
+            "+BAT_GAUGE_SW": 2,
+            "APP_3V3_FB": 1,
+            "APP_ON_SW_DRAFT": 2,
+            "CHARGER_EN2": 1,
+            "CHARGER_TS": 1,
+            "DISPLAY_CLEAR_3": 1,
+            "DISPLAY_CLEAR_OK": 2,
+            "DISPLAY_ENABLE": 1,
+            "DISPLAY_HEARTBEAT": 1,
+            "E1_ILM": 1,
+            "ESP_EN": 1,
+            "GND": 3,
+            "HEARTBEAT_FALL_CLK": 1,
+            "HEARTBEAT_SEEN": 1,
+            "LED_GCLK": 1,
+            "LED_IREF": 1,
+            "LED_LAT": 1,
+            "LED_SCLK": 1,
+            "Net-(U36-LX1)": 1,
+            "Net-(U36-LX2)": 1,
+            "ROW_ENABLE_N_CANDIDATE": 1,
+            "ROW_GATE_00": 1,
+            "ROW_GATE_02": 1,
+            "ROW_GATE_03": 1,
+            "ROW_GATE_04": 1,
+            "ROW_GATE_06": 1,
+            "ROW_GATE_07": 1,
+            "TEMP_OK": 1,
+            "TMP_COLD_SET": 1,
+            "USB_CC1": 1,
+            "USB_D+": 1,
+            "USB_D-": 1,
+            "USB_DN_MCU": 1,
+            "USB_DP_MCU": 1,
+            "USB_EN1_RAW_N": 1,
+            "USB_LOGIC_CT": 1,
+            "VBUS_CONNECTOR": 1,
+            "VLED": 7,
+            "VLED_ENABLE_CANDIDATE": 1
+          },
+          "interpretation": "Unconnected pad clusters minus one per net; no electrical or manufacturability qualification",
+          "native_open_edges": 52,
+          "pad_cluster_open_edges": 52
+        },
+        "prior_group_count": 240,
+        "source_sha256": "7c5196b19decc3a4fbaf5724a24aae479a0fdb9c2679706f3cc5f86253992e11",
+        "stable_fills": [
+          {
+            "fill": 1,
+            "lost_groups": [],
+            "native_opens": 52,
+            "sha256": "80a83cc6b1553fd66e2aeda833b5f3492550004d2e8e3d5ec2401f74302a9cd4"
+          },
+          {
+            "fill": 2,
+            "lost_groups": [],
+            "native_opens": 52,
+            "sha256": "80a83cc6b1553fd66e2aeda833b5f3492550004d2e8e3d5ec2401f74302a9cd4"
+          },
+          {
+            "fill": 3,
+            "lost_groups": [],
+            "native_opens": 52,
+            "sha256": "80a83cc6b1553fd66e2aeda833b5f3492550004d2e8e3d5ec2401f74302a9cd4"
+          }
+        ],
+        "status": "UNSELECTED_TEN_CAPACITOR_PAD_ONLY_FEASIBILITY",
+        "tool_sha256": "cb22798a0e8ecf5b6e9cc03971f82dbd6629906559257399daa71045983bda13"
+      },
+      "raw_evidence": "hardware/coupon/rev-a/build/remaining-murata-lands-2026-11-04/cleaned52-final-a",
+      "replay_raw_evidence": "hardware/coupon/rev-a/build/remaining-murata-lands-2026-11-04/cleaned52-final-b"
+    }
+  }
+}

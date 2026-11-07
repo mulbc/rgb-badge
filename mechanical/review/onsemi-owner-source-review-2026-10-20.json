@@ -1,0 +1,47 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "byte_identical_to_previous": false,
+  "candidate_footprint": "hardware/coupon/rev-a/footprints/rgb-badge-coupon.pretty/WDFN6_2x2_onsemi_NTLJD3119C.kicad_mod",
+  "date": "2026-10-20",
+  "document": "NTLJD3119C/D",
+  "eight_recorded_lands_checked": true,
+  "exact_orderable_part": "NTLJD3119CTBG",
+  "footprint_sha256": "8f7160234c453c58e638b7fbe6c225cb0681ede38e7e4992574fabb2cc18e6a2",
+  "library_or_circuit_changes": false,
+  "limitations": [
+    "No full binary/content comparison to the earlier PDF",
+    "Mask/paste still does not implement the solder-mask-defined recommendation",
+    "Fine-pitch process, compact-board electrical/thermal qualification, package adoption and independent Gate A remain open"
+  ],
+  "package_drawing": {
+    "body_mm": [
+      2,
+      2
+    ],
+    "case": "506AN",
+    "date": "2022-01-25",
+    "document": "98AON20861D",
+    "issue": "H",
+    "max_height_mm": 0.8,
+    "mounting_footprint": "solder_mask_defined"
+  },
+  "pages": 11,
+  "previous_audit_sha256": "12862a6e03c7ae750dd75e9f860c79ef859582fd147b97bdb973c5144990e997",
+  "publication_date": "April 2024",
+  "revision": "6",
+  "source_filename": "NTLJD3119C-D.PDF",
+  "source_sha256": "202122bd220e16138c458ac93bb737ab4fdb8a60d3a3722059636636f47d7aed",
+  "status": "FIRST_AUTHOR_SOURCE_REVIEW_NOT_PACKAGE_ADOPTION",
+  "top_view_pin_map": {
+    "1": "S1_N_source",
+    "2": "G1_N_gate",
+    "3": "D2_P_drain",
+    "4": "S2_P_source",
+    "5": "G2_P_gate",
+    "6": "D1_N_drain"
+  },
+  "visually_inspected_pages": [
+    1,
+    10
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_tracks_and_vias": 0,
+  "allowed_nets": [
+    "DISPLAY_CLEAR_3",
+    "DISPLAY_ENABLE"
+  ],
+  "board_sha256": "3a6729a5b95b41d31d816b942dcc0be76830e7de36b0291eaa91c4d18157d21b",
+  "clearance_mm": 0.2,
+  "connected_copper_endpoints": true,
+  "exact_native_grid_fallback": true,
+  "fabrication_release_allowed": false,
+  "grid_mm": 0.05,
+  "heuristic": "exact_empty_grid_layer_costs",
+  "heuristic_sha256": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4",
+  "heuristic_storage_bytes": 0,
+  "kicad_version": "10.0.6",
+  "max_nodes": 10000,
+  "microvia_diameter_drill_mm": [
+    0.3,
+    0.1
+  ],
+  "native_grid_statistics": {
+    "native_clear_masked_edges": 0,
+    "native_clear_masked_points": 0,
+    "native_edge_queries": 0,
+    "native_point_queries": 0
+  },
+  "open_edges": 2,
+  "preserve_clusters_after_each_join": true,
+  "reverse_search": false,
+  "routes": [
+    {
+      "expanded_nodes": 0,
+      "net": "DISPLAY_CLEAR_3",
+      "routed": false,
+      "search_outcome": "no_usable_grid_endpoint",
+      "source": [
+        "P2",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 0,
+      "net": "DISPLAY_ENABLE",
+      "routed": false,
+      "search_outcome": "no_usable_grid_endpoint",
+      "source": [
+        "P4",
+        "1"
+      ]
+    }
+  ],
+  "search_tool_sha256": "227eace7248e050ac45d6ed04a36d43a022a14e50f559b55154f74f95927190d",
+  "source_sha256": "bdcf0bc6336fe364e49e2dd0b21fe62f1fa81695b3b5585044a80035f478023c",
+  "status": "UNQUALIFIED_LOCAL_CONTROL_STUDY",
+  "tool_source_sha256": {
+    "hardware/coupon/rev-a/build/native-control-search/edge-endpoint-regression/before-search.py": "227eace7248e050ac45d6ed04a36d43a022a14e50f559b55154f74f95927190d",
+    "tools/generate-colour-fanout-grid-trial.py": "62fbbc1ce6c0e8cb0a276dd15900885562a8e69c69557949eb6f689945ea1224",
+    "tools/generate-paired-charger-114mm-routing.py": "807eaba5aea8e92ecbf514ca16ab767c30d006703c6697a9fec10cf2e46e1441",
+    "tools/routing_clearance.py": "d1797c13ac7f5df4d066fc5e245fb143a67f002ad6bf7c0a67b96ff456d7db91",
+    "tools/routing_goal_distance.py": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4"
+  },
+  "tracks_and_vias": 1,
+  "width_mm": 0.2
+}

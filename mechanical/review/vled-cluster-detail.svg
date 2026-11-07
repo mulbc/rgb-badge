@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -36 620.0 542.0">
+<title>Magnified, unconnected VLED converter placement trial</title>
+<style>text{font:13px sans-serif;fill:#21313c}.small{font:11px sans-serif}</style>
+<rect x="-10" y="-36" width="620.0" height="542.0" fill="white"/>
+<text x="0" y="-15">VLED bay · courtyards only</text>
+<defs><clipPath id="boardclip"><rect x="0" y="0" width="600.0" height="410.0"/></clipPath></defs>
+<rect x="0" y="0" width="600.0" height="410.0" fill="#f1f4f6" stroke="#21313c"/>
+<g clip-path="url(#boardclip)">
+<rect x="-338.00" y="32.00" width="356.00" height="356.00" fill="#aaa5d7" stroke="#33424b" stroke-width="1"/>
+<rect x="316.00" y="-496.00" width="334.00" height="512.00" fill="#f5aaac" stroke="#33424b" stroke-width="1"/>
+<text class="small" x="483.0" y="-236.0" text-anchor="middle">J1</text>
+<rect x="20.00" y="130.00" width="196.00" height="156.00" fill="#d1d5d8" stroke="#33424b" stroke-width="1"/>
+<text class="small" x="118.0" y="212.0" text-anchor="middle">VLED</text>
+<rect x="226.00" y="142.00" width="108.00" height="132.00" fill="#7792bb" stroke="#33424b" stroke-width="1"/>
+<text class="small" x="280.0" y="212.0" text-anchor="middle">L2</text>
+<rect x="24.00" y="296.00" width="120.00" height="52.00" fill="#7792bb" stroke="#33424b" stroke-width="1"/>
+<text class="small" x="84.0" y="326.0" text-anchor="middle">C44</text>
+<rect x="150.00" y="296.00" width="120.00" height="52.00" fill="#7792bb" stroke="#33424b" stroke-width="1"/>
+<text class="small" x="210.0" y="326.0" text-anchor="middle">C45</text>
+<rect x="24.00" y="68.00" width="120.00" height="52.00" fill="#7792bb" stroke="#33424b" stroke-width="1"/>
+<text class="small" x="84.0" y="98.0" text-anchor="middle">C46</text>
+<rect x="150.00" y="68.00" width="120.00" height="52.00" fill="#7792bb" stroke="#33424b" stroke-width="1"/>
+<text class="small" x="210.0" y="98.0" text-anchor="middle">C47</text>
+<rect x="338.00" y="68.00" width="120.00" height="52.00" fill="#7792bb" stroke="#33424b" stroke-width="1"/>
+<text class="small" x="398.0" y="98.0" text-anchor="middle">C48</text>
+<rect x="340.00" y="126.00" width="120.00" height="52.00" fill="#7792bb" stroke="#33424b" stroke-width="1"/>
+<text class="small" x="400.0" y="156.0" text-anchor="middle">C49</text>
+<rect x="24.00" y="22.00" width="80.00" height="40.00" fill="#7792bb" stroke="#33424b" stroke-width="1"/>
+<text class="small" x="64.0" y="46.0" text-anchor="middle">C50</text>
+<rect x="110.00" y="22.00" width="80.00" height="40.00" fill="#7792bb" stroke="#33424b" stroke-width="1"/>
+<text class="small" x="150.0" y="46.0" text-anchor="middle">R86</text>
+<rect x="196.00" y="22.00" width="80.00" height="40.00" fill="#7792bb" stroke="#33424b" stroke-width="1"/>
+<text class="small" x="236.0" y="46.0" text-anchor="middle">R85</text>
+<rect x="282.00" y="22.00" width="80.00" height="40.00" fill="#7792bb" stroke="#33424b" stroke-width="1"/>
+<text class="small" x="322.0" y="46.0" text-anchor="middle">R84</text>
+<rect x="24.00" y="354.00" width="80.00" height="40.00" fill="#7792bb" stroke="#33424b" stroke-width="1"/>
+<text class="small" x="64.0" y="378.0" text-anchor="middle">R87</text>
+<rect x="270.00" y="290.00" width="116.00" height="116.00" fill="#d1d5d8" stroke="#33424b" stroke-width="1"/>
+<text class="small" x="328.0" y="352.0" text-anchor="middle">E0</text>
+<rect x="390.00" y="290.00" width="116.00" height="116.00" fill="#d1d5d8" stroke="#33424b" stroke-width="1"/>
+<text class="small" x="448.0" y="352.0" text-anchor="middle">E1</text>
+<rect x="20.00" y="-130.00" width="172.00" height="144.00" fill="#88bbc2" stroke="#33424b" stroke-width="1"/>
+<text class="small" x="106.0" y="-54.0" text-anchor="middle">U23</text>
+<rect x="510.00" y="290.00" width="84.00" height="112.00" fill="#88bbc2" stroke="#33424b" stroke-width="1"/>
+<text class="small" x="552.0" y="350.0" text-anchor="middle">U33</text>
+<rect x="460.00" y="170.00" width="120.00" height="120.00" fill="#5079b6" stroke="#33424b" stroke-width="1"/>
+<text class="small" x="520.0" y="234.0" text-anchor="middle">PAIR01</text>
+<rect x="460.00" y="50.00" width="120.00" height="120.00" fill="#5079b6" stroke="#33424b" stroke-width="1"/>
+<text class="small" x="520.0" y="114.0" text-anchor="middle">PAIR02</text>
+</g>
+<text x="0" y="432.0">First input/output capacitor centres: 2.974 mm from IC centre</text>
+<text x="0" y="454.0">Inductor centre: 4.050 mm; farthest passive: 7.558 mm</text>
+<text x="0" y="476.0">No tracks, ground planes, vias, thermal copper or route-clearance check.</text>
+</svg>

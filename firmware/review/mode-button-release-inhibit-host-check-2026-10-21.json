@@ -1,0 +1,45 @@
+{
+  "SPDX-License-Identifier": "Apache-2.0",
+  "base_revision": "50fc021e1e34b78937021a2b367bea1abae1a627",
+  "button_object_bytes_host": 48,
+  "command": "./tools/check-mode-button.sh",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+  "esp_idf_target_build": "NOT_RUN",
+  "executed_at_utc": "2026-10-21T19:46:01.648322+00:00",
+  "exhaustive_waveforms": 4096,
+  "firmware_revision": "Base revision plus exact source_sha256 entries below; host core only",
+  "focused_regression": "Sub-debounce raw press latches inhibit until release qualifies",
+  "hardware_measurements": "NONE",
+  "hardware_revision": "NONE: host software simulation, no board attached",
+  "host_architecture": "arm64",
+  "independent_inhibit_oracle": "Consecutive released sample count, independent of qualified press state",
+  "native_check_count": 200763,
+  "original_revision_regression": {
+    "assertion": "sub-debounce press latches inhibit through raw release",
+    "raw_log": "/private/tmp/rgb-session-before-fix.log",
+    "raw_log_sha256": "b68485db6cb44d80b2606d7a0f9bb512eaefbb8d15cec7e367571b7a4a87867a",
+    "result": "EXPECTED_FAILURE",
+    "revision": "50fc021e1e34b78937021a2b367bea1abae1a627",
+    "setup": "Original committed mode_button.cpp/header compiled with current focused regression under sanitizers"
+  },
+  "physical_ble_display_blanking_arming": "NOT_IMPLEMENTED_OR_QUALIFIED by the host core",
+  "raw_evidence": {
+    "/private/tmp/rgb-session-mode-regression.log": "3abf50c99d4649a5bcde0a282231acf7ef720a136ea82e3ff726c640ba198282"
+  },
+  "samples_per_waveform": 12,
+  "sanitizer_recovery": false,
+  "sanitizers": [
+    "address",
+    "undefined"
+  ],
+  "source_sha256": {
+    ".github/workflows/host-software.yml": "b5dd362959ad51d1c80861b668f608cc2d55c0e2e86b4d759860461a78c465a0",
+    "docs/decisions/0039-host-content-session.md": "dce2b58ae3e56edf5ad5d0e2652f92b33d0581be9e2abe7e99bb3e6346891056",
+    "firmware/core/include/rgb_badge/mode_button.h": "f676ebc8e2a465f5a55ad6412970aac6fd65baa086c4a5bdf215fce1dcb4ddae",
+    "firmware/core/mode_button.cpp": "7fcc36891c827a0dc228820d39a1c8ec27a8db2c63f754b733329bfb36f1b4b0",
+    "firmware/mode-button.md": "1cbd9c22f324a49fe9f4785e917177aea2fa1362ee9893df9180c80b31df8196",
+    "firmware/tests/mode_button_test.cpp": "026f7df8fb71c8b12657d7d73518c56bfdf9b81a03034d58f2359da25f343276",
+    "tools/check-mode-button.sh": "e84dd6a2d350a424f01f8cf4deca648f1566139650ed62d8dd33366f9931b6cf"
+  },
+  "target_timing_object_stack_placement": "NOT_QUALIFIED"
+}

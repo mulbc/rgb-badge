@@ -1,0 +1,409 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_copper_items": 219,
+  "all_231_parent_groups_preserved": true,
+  "board": "hardware/coupon/rev-a/staging/led-remaining-routing-trial-114mm.kicad_pcb",
+  "board_sha256": "aab8f44a9ec3ae65aed4ee2500d52d57d4d3872c8428b8f50c765bfedd205a1e",
+  "by_net": {
+    "+3V3_USB": 1,
+    "+BAT_GAUGE_SW": 2,
+    "CHARGER_EN2": 1,
+    "CHARGER_TS": 1,
+    "DISPLAY_CLEAR_3": 1,
+    "DISPLAY_CLEAR_OK": 2,
+    "DISPLAY_ENABLE": 1,
+    "DISPLAY_HEARTBEAT": 1,
+    "ESP_EN": 1,
+    "GND": 3,
+    "HEARTBEAT_FALL_CLK": 1,
+    "HEARTBEAT_SEEN": 1,
+    "LED_GCLK": 1,
+    "LED_LAT": 1,
+    "LED_SCLK": 1,
+    "ROW_ENABLE_N_CANDIDATE": 1,
+    "ROW_GATE_00": 1,
+    "ROW_GATE_02": 1,
+    "ROW_GATE_03": 1,
+    "ROW_GATE_04": 1,
+    "ROW_GATE_06": 1,
+    "ROW_GATE_07": 1,
+    "USB_CC1": 1,
+    "USB_D+": 1,
+    "USB_D-": 1,
+    "USB_EN1_RAW_N": 1,
+    "VBUS_CONNECTOR": 1,
+    "VLED": 7,
+    "VLED_ENABLE_CANDIDATE": 1
+  },
+  "checker_sha256": "d2f81b3e0040192cf24df018c6a3cecb292105d837d8f497f6303a8578ec8fb3",
+  "date": "2026-11-07",
+  "drc_sha256": "d51d5c875066eebde5fb1b4b2cc2010dfa648b88e5da3a2e7f6eceedc7f5017a",
+  "fabrication_release_allowed": false,
+  "goal_status": "IN_PROGRESS_ZERO_OPEN_GOAL",
+  "ground_plane_replacement_witness": {
+    "both_endpoint_disks_touch": true,
+    "boundary_contact_count": 5,
+    "filled_component_index": 24,
+    "single_individual_bcu_ground_component": true,
+    "zone_uuid": "81b0abb6-bbba-5f7c-9599-18e6b0c72e0e"
+  },
+  "ground_return_replacement": {
+    "all_original_layer_contacts_retained": true,
+    "both_original_endpoints_retained": true,
+    "contact_count": 5,
+    "original": [
+      "track",
+      "GND",
+      59865000,
+      16000000,
+      58365000,
+      16000000,
+      "B.Cu",
+      200000
+    ],
+    "replacement_length_mm": 5.77
+  },
+  "inherited_original_orphan_restoration": {
+    "all_live_pad_groups_identical": true,
+    "basis": "IMMUTABLE_43_OPEN_PARENT",
+    "board_sha256": "b847f59f8a13a63d8db7a3c2ed2e7efc37239edc03c16fe12adc8b5758b4d524",
+    "native_opens": 43,
+    "only_three_exact_original_orphan_warnings": true
+  },
+  "interpretation": "Unconnected pad clusters minus one per net; no electrical or manufacturability qualification",
+  "intrinsic_findings": 104,
+  "isolated_fault_guards": [
+    {
+      "case": "temperature-output-open",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "cold-programming-open",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "usb-dp-open",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "usb-dn-open",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "usb-supply-open",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "app-supply-open",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "unsupported-full-span-microvia",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "outer-microvia-shrunk",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "ordinary-track-narrowed",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "converter-default-changed",
+      "reason": "Local pad/net geometry changed: U36",
+      "rejected": true
+    },
+    {
+      "case": "previous-switch-copper-removed",
+      "reason": "Exact copper retirement differs",
+      "rejected": true
+    },
+    {
+      "case": "retired-via-reintroduced",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "cold-resistor-remote",
+      "reason": "Exact copper retirement differs",
+      "rejected": true
+    },
+    {
+      "case": "cold-resistor-retuned",
+      "reason": "Part fields changed",
+      "rejected": true
+    },
+    {
+      "case": "obsolete-return-reintroduced",
+      "reason": "Exact copper retirement differs",
+      "rejected": true
+    },
+    {
+      "case": "return-endpoint-lost-with-matching-ledger",
+      "reason": "Original return endpoint lost",
+      "rejected": true
+    },
+    {
+      "case": "obsolete-body-ground-strap-reintroduced",
+      "reason": "Exact copper retirement differs",
+      "rejected": true
+    },
+    {
+      "case": "plane-boundary-omitted-with-matching-copper",
+      "reason": "Plane replacement boundary inventory differs",
+      "rejected": true
+    }
+  ],
+  "legacy_centre_microvias_unresolved": 557,
+  "local_source_workflow_checks": [
+    {
+      "command": "python3 tools/check-coupon-study-contract.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb --legacy-land-study --legacy-switch-study",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-routing-progress-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-converter-checkpoint-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-u36-stage-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-routing-closure-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-switch-routing-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-remaining-routing-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-remaining-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-switch-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-routing-closure-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-u36-stage-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/test-converter-review-calculations.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/test-hdi-stack-policy.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-converter-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-c32-land-candidate.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_c32_land_candidate.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_murata_catalogue_lands.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_convex_geometry.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_supply_join.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_slide_switch_library.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_progress_plan.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_coupon_study_contract.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_goal_distance.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_native_route_paths.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_clearance.py -v",
+      "exit_code": 0
+    }
+  ],
+  "native_actual_copper_endpoint_fixture_passed": true,
+  "native_open_edges": 39,
+  "native_opens": 39,
+  "pad_cluster_open_edges": 39,
+  "parent_sha256": "b847f59f8a13a63d8db7a3c2ed2e7efc37239edc03c16fe12adc8b5758b4d524",
+  "physical_opens": 39,
+  "plan_sha256": "8af2b94ea99373c492fd9c96eb6733a2560dc856bbc457c6bdcbf00df64ae2b7",
+  "policy_sha256": "c804ce8b2706f3b4ac9ec65e8f5807609dc8f8c2b9c14cdbb169f2edbf38d88c",
+  "poses": {
+    "R90": {
+      "angle_deg": 0,
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        34750000,
+        11750000
+      ],
+      "position_iu": [
+        60000000,
+        16750000
+      ]
+    }
+  },
+  "previous_checkpoint_preserved": {
+    "added_copper_items": 216,
+    "all_groups_and_added_copper_preserved": true,
+    "commit": "fb5744c",
+    "group_count": 228,
+    "source_sha256": "7a36c24652fa22d18f583b729a0e79b6641e72686cb0f42299452f30f7304bee"
+  },
+  "project_sha256": "1141b004ecffd1e7e8e0c30cf21aeae7ce6381093df674998133d226ab9c27fb",
+  "removed_copper_items": 6,
+  "rules_sha256": "80c92b0cdef868dd0ef0037aa2f63d1266f709a2dd0326094735c75ffbd31a2e",
+  "selected_retirement_probe": {
+    "all_live_pad_groups_identical": true,
+    "drc_sha256": "93c8757957a5d0639676516548e8a6e5f1c17b3da21412d91ff9314c1f905127",
+    "drc_types": {
+      "clearance": 104,
+      "via_dangling": 3
+    },
+    "injected_via_identity": [
+      {
+        "expected": [
+          "via",
+          "+3V3_APP",
+          40250000,
+          8750000,
+          "In4.Cu",
+          "B.Cu",
+          300000,
+          100000
+        ],
+        "observed": [
+          "via",
+          "+3V3_APP",
+          40250000,
+          8750000,
+          "In4.Cu",
+          "B.Cu",
+          300000,
+          100000
+        ]
+      },
+      {
+        "expected": [
+          "via",
+          "+3V3_APP",
+          45250000,
+          8750000,
+          "In4.Cu",
+          "B.Cu",
+          300000,
+          100000
+        ],
+        "observed": [
+          "via",
+          "USB_DN_MCU",
+          45250000,
+          8750000,
+          "In4.Cu",
+          "B.Cu",
+          300000,
+          100000
+        ]
+      },
+      {
+        "expected": [
+          "via",
+          "+3V3_APP",
+          62750000,
+          4250000,
+          "In4.Cu",
+          "B.Cu",
+          300000,
+          100000
+        ],
+        "observed": [
+          "via",
+          "+3V3_APP",
+          62750000,
+          4250000,
+          "In4.Cu",
+          "B.Cu",
+          300000,
+          100000
+        ]
+      }
+    ],
+    "native_opens": 39,
+    "raw_report": "hardware/coupon/rev-a/build/remaining-routing/selected-retirement-probe.drc.json",
+    "source_unchanged": true,
+    "status": "REJECTED_COUNTERFACTUAL_NOT_SELECTED_SOURCE"
+  },
+  "stable_fill_and_replay_identical": true,
+  "status": "PASS_GEOMETRIC_ROUTING_STUDY_ONLY",
+  "tmp390_locality": {
+    "cold_pad_distance_mm": 1.6884090144274877,
+    "ground_pad_distance_mm": 2.2629018980061866,
+    "same_local_bcu_ground_polygon": true
+  },
+  "tool_sha256": {
+    "tools/check-remaining-routing-plan.py": "05969579fa13b1b1c346c661f68c3509b32a2d65df93440949a02230a4fb6679",
+    "tools/check-remaining-routing.py": "d2f81b3e0040192cf24df018c6a3cecb292105d837d8f497f6303a8578ec8fb3",
+    "tools/generate-remaining-routing.py": "32bd3d77c1a135b43b242a6afa005efd4b74961f501f3fcbb0db3ca03dd13b18",
+    "tools/localize-tmp390-resistor.py": "7ea5b644f591f37db48a673093aa535f076fbbca6d9f5398fb237e0a5f2703de",
+    "tools/routing_ground_plane.py": "b37af5b2659bc01127d8e8fa1cf400a79d62ca4f9172bc5c73f4238216310f32",
+    "tools/routing_remaining.py": "c804ce8b2706f3b4ac9ec65e8f5807609dc8f8c2b9c14cdbb169f2edbf38d88c",
+    "tools/search-routing-closure.py": "6c6b7fb3be76d03a65c35ddc78de9e0e2b33442042ba5a8aba17523a2de291b5",
+    "tools/test-native-copper-endpoint.py": "338a517961c1828aed919bfcd4e67121471e9745e01483157087c9f6121e233e",
+    "tools/test-remaining-routing-guards.py": "384937eec804f4b070b6488bbaea52599baaee308540a4225a5f40db6c89b8dc"
+  },
+  "visual_review": "Native B.Cu TMP390 output exit and retained ground contacts inspected: ignored build/remaining-routing/39-tmp390.png"
+}

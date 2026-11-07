@@ -1,0 +1,608 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "canonical_58_edge_board_sha256": "3451177253a021d8706ff818696212afabf539a108f15ef9e5d6921e46435acc",
+  "cleanup_summary": {
+    "accepted_additions": 36,
+    "exact_leaf_removals": 3,
+    "local_removals": 49,
+    "original_source_items": 16
+  },
+  "cli_faults": [
+    {
+      "case": "overwrite",
+      "no_forbidden_output": true,
+      "phase": "local",
+      "protected_source_unchanged": true,
+      "reason": "Output must not overwrite input",
+      "status": "EXPECTED_REJECTION"
+    },
+    {
+      "case": "outside-build",
+      "no_forbidden_output": true,
+      "phase": "local",
+      "protected_source_unchanged": true,
+      "reason": "Output must be an ignored build PCB",
+      "status": "EXPECTED_REJECTION"
+    },
+    {
+      "case": "wrong-input",
+      "no_forbidden_output": true,
+      "phase": "local",
+      "protected_source_unchanged": true,
+      "reason": "Exact stage probe required",
+      "status": "EXPECTED_REJECTION"
+    },
+    {
+      "case": "overwrite",
+      "no_forbidden_output": true,
+      "phase": "restored",
+      "protected_source_unchanged": true,
+      "reason": "Output must not overwrite input",
+      "status": "EXPECTED_REJECTION"
+    },
+    {
+      "case": "outside-build",
+      "no_forbidden_output": true,
+      "phase": "restored",
+      "protected_source_unchanged": true,
+      "reason": "Output must be an ignored build PCB",
+      "status": "EXPECTED_REJECTION"
+    },
+    {
+      "case": "wrong-input",
+      "no_forbidden_output": true,
+      "phase": "restored",
+      "protected_source_unchanged": true,
+      "reason": "Exact stage probe required",
+      "status": "EXPECTED_REJECTION"
+    },
+    {
+      "case": "overwrite",
+      "no_forbidden_output": true,
+      "phase": "cleaned",
+      "protected_source_unchanged": true,
+      "reason": "Output must not overwrite input",
+      "status": "EXPECTED_REJECTION"
+    },
+    {
+      "case": "outside-build",
+      "no_forbidden_output": true,
+      "phase": "cleaned",
+      "protected_source_unchanged": true,
+      "reason": "Output must be an ignored build PCB",
+      "status": "EXPECTED_REJECTION"
+    },
+    {
+      "case": "wrong-input",
+      "no_forbidden_output": true,
+      "phase": "cleaned",
+      "protected_source_unchanged": true,
+      "reason": "Exact stage probe required",
+      "status": "EXPECTED_REJECTION"
+    }
+  ],
+  "earlier_local_phase_byte_identical": true,
+  "earlier_restored_phase_byte_identical": true,
+  "fabrication_release_allowed": false,
+  "independent_native_audit": {
+    "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+    "all_246_accepted_groups_preserved": true,
+    "all_483_parts_fields_local_pads_and_exact_poses_checked": true,
+    "board_sha256": "7c5196b19decc3a4fbaf5724a24aae479a0fdb9c2679706f3cc5f86253992e11",
+    "cleanup_original_source_items": 16,
+    "drc_sha256": "1149a83b76b52aa498f0b77f2872410c28bf3306d2845a9549bdb5dcead12c54",
+    "exact_added_items_from_58_edge_source": 101,
+    "exact_retired_items": 54,
+    "fabrication_release_allowed": false,
+    "full_drc_types": {
+      "clearance": 104
+    },
+    "independent_converter_pad_witnesses": {
+      "C47_control_ground": [
+        [
+          "C47",
+          "2"
+        ],
+        [
+          "U37",
+          "2"
+        ]
+      ],
+      "U37_L1_node": [
+        [
+          "L2",
+          "1"
+        ],
+        [
+          "U37",
+          "8"
+        ],
+        [
+          "U37",
+          "9"
+        ]
+      ],
+      "U37_L2_node": [
+        [
+          "L2",
+          "2"
+        ],
+        [
+          "U37",
+          "6"
+        ],
+        [
+          "U37",
+          "7"
+        ]
+      ],
+      "enable_pulldown": [
+        [
+          "U37",
+          "12"
+        ],
+        [
+          "R87",
+          "1"
+        ]
+      ],
+      "feedback": [
+        [
+          "U37",
+          "3"
+        ],
+        [
+          "R85",
+          "2"
+        ],
+        [
+          "R86",
+          "1"
+        ]
+      ],
+      "feedback_midpoint": [
+        [
+          "R84",
+          "2"
+        ],
+        [
+          "R85",
+          "1"
+        ]
+      ],
+      "input_and_VINA": [
+        [
+          "U37",
+          "1"
+        ],
+        [
+          "U37",
+          "10"
+        ],
+        [
+          "U37",
+          "11"
+        ],
+        [
+          "C44",
+          "1"
+        ],
+        [
+          "C45",
+          "1"
+        ],
+        [
+          "C63",
+          "1"
+        ]
+      ],
+      "local_output": [
+        [
+          "U37",
+          "4"
+        ],
+        [
+          "U37",
+          "5"
+        ],
+        [
+          "C46",
+          "1"
+        ],
+        [
+          "C47",
+          "1"
+        ],
+        [
+          "C48",
+          "1"
+        ],
+        [
+          "C49",
+          "1"
+        ],
+        [
+          "R84",
+          "1"
+        ]
+      ]
+    },
+    "open_edges": {
+      "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+      "board": "hardware/coupon/rev-a/build/vled-cleaned-stage-2026-11-01/a/trial.kicad_pcb",
+      "board_sha256": "7c5196b19decc3a4fbaf5724a24aae479a0fdb9c2679706f3cc5f86253992e11",
+      "by_net": {
+        "+3V3_APP": 1,
+        "+3V3_USB": 1,
+        "+BAT_GAUGE_SW": 2,
+        "APP_3V3_FB": 1,
+        "APP_ON_SW_DRAFT": 2,
+        "CHARGER_EN2": 1,
+        "CHARGER_TS": 1,
+        "DISPLAY_CLEAR_3": 1,
+        "DISPLAY_CLEAR_OK": 2,
+        "DISPLAY_ENABLE": 1,
+        "DISPLAY_HEARTBEAT": 1,
+        "E1_ILM": 1,
+        "ESP_EN": 1,
+        "GND": 3,
+        "HEARTBEAT_FALL_CLK": 1,
+        "HEARTBEAT_SEEN": 1,
+        "LED_GCLK": 1,
+        "LED_IREF": 1,
+        "LED_LAT": 1,
+        "LED_SCLK": 1,
+        "Net-(U36-LX1)": 1,
+        "Net-(U36-LX2)": 1,
+        "ROW_ENABLE_N_CANDIDATE": 1,
+        "ROW_GATE_00": 1,
+        "ROW_GATE_02": 1,
+        "ROW_GATE_03": 1,
+        "ROW_GATE_04": 1,
+        "ROW_GATE_06": 1,
+        "ROW_GATE_07": 1,
+        "TEMP_OK": 1,
+        "TMP_COLD_SET": 1,
+        "USB_CC1": 1,
+        "USB_D+": 1,
+        "USB_D-": 1,
+        "USB_DN_MCU": 1,
+        "USB_DP_MCU": 1,
+        "USB_EN1_RAW_N": 1,
+        "USB_LOGIC_CT": 1,
+        "VBUS_CONNECTOR": 1,
+        "VLED": 7,
+        "VLED_ENABLE_CANDIDATE": 1
+      },
+      "interpretation": "Unconnected pad clusters minus one per net; no electrical or manufacturability qualification",
+      "native_open_edges": 52,
+      "pad_cluster_open_edges": 52
+    },
+    "plan_sha256": "22429a26d1c86f87a003423160e3e49b895aeeb4cbda98e0d463559e6a32007e",
+    "status": "PASS_UNSELECTED_CLEANED_STAGE_GEOMETRY_NOT_FABRICATION_APPROVAL",
+    "structure_profiles_and_rules_fixed": true,
+    "tool_sha256": "e1aaf2d329ffc20977084bcfa2e694b734b6ba65515e1125f4facb90c26c81fe"
+  },
+  "native_faults": [
+    {
+      "case": "missing_C47_return",
+      "reason": "Exact added copper differs",
+      "status": "EXPECTED_REJECTION"
+    },
+    {
+      "case": "restored_original_VLED_via",
+      "reason": "Exact retirement cohort differs",
+      "status": "EXPECTED_REJECTION"
+    },
+    {
+      "case": "unapproved_U36_move",
+      "reason": "Unapproved pose: U36",
+      "status": "EXPECTED_REJECTION"
+    },
+    {
+      "case": "altered_U37_pad",
+      "reason": "Local pad geometry changed: U37",
+      "status": "EXPECTED_REJECTION"
+    },
+    {
+      "case": "duplicate_footprint",
+      "reason": "Footprint count or duplicate reference changed",
+      "status": "EXPECTED_REJECTION"
+    }
+  ],
+  "original_orphan_restoration": {
+    "all_246_accepted_groups_preserved": true,
+    "board_sha256": "533aceab3543d8318531adb3227e7e88c721b5fbc8259361c7c5395c58a20af9",
+    "fabrication_release_allowed": false,
+    "full_drc_types": {
+      "clearance": 104,
+      "via_dangling": 3
+    },
+    "input_sha256": "7c5196b19decc3a4fbaf5724a24aae479a0fdb9c2679706f3cc5f86253992e11",
+    "open_edges": {
+      "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+      "board": "hardware/coupon/rev-a/build/vled-stage-cleanup-2026-11-01/original-orphan-restoration/trial.kicad_pcb",
+      "board_sha256": "533aceab3543d8318531adb3227e7e88c721b5fbc8259361c7c5395c58a20af9",
+      "by_net": {
+        "+3V3_APP": 1,
+        "+3V3_USB": 1,
+        "+BAT_GAUGE_SW": 2,
+        "APP_3V3_FB": 1,
+        "APP_ON_SW_DRAFT": 2,
+        "CHARGER_EN2": 1,
+        "CHARGER_TS": 1,
+        "DISPLAY_CLEAR_3": 1,
+        "DISPLAY_CLEAR_OK": 2,
+        "DISPLAY_ENABLE": 1,
+        "DISPLAY_HEARTBEAT": 1,
+        "E1_ILM": 1,
+        "ESP_EN": 1,
+        "GND": 3,
+        "HEARTBEAT_FALL_CLK": 1,
+        "HEARTBEAT_SEEN": 1,
+        "LED_GCLK": 1,
+        "LED_IREF": 1,
+        "LED_LAT": 1,
+        "LED_SCLK": 1,
+        "Net-(U36-LX1)": 1,
+        "Net-(U36-LX2)": 1,
+        "ROW_ENABLE_N_CANDIDATE": 1,
+        "ROW_GATE_00": 1,
+        "ROW_GATE_02": 1,
+        "ROW_GATE_03": 1,
+        "ROW_GATE_04": 1,
+        "ROW_GATE_06": 1,
+        "ROW_GATE_07": 1,
+        "TEMP_OK": 1,
+        "TMP_COLD_SET": 1,
+        "USB_CC1": 1,
+        "USB_D+": 1,
+        "USB_D-": 1,
+        "USB_DN_MCU": 1,
+        "USB_DP_MCU": 1,
+        "USB_EN1_RAW_N": 1,
+        "USB_LOGIC_CT": 1,
+        "VBUS_CONNECTOR": 1,
+        "VLED": 7,
+        "VLED_ENABLE_CANDIDATE": 1
+      },
+      "interpretation": "Unconnected pad clusters minus one per net; no electrical or manufacturability qualification",
+      "native_open_edges": 52,
+      "pad_cluster_open_edges": 52
+    },
+    "restored_original_vias": [
+      [
+        "via",
+        "+3V3_APP",
+        40250000,
+        8750000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      [
+        "via",
+        "+3V3_APP",
+        45250000,
+        8750000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      [
+        "via",
+        "+3V3_APP",
+        62750000,
+        4250000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ]
+    ],
+    "restored_via_findings": [
+      {
+        "description": "Via is not connected or connected on only one layer",
+        "items": [
+          {
+            "description": "Micro via [+3V3_APP] on In4.Cu - B.Cu",
+            "pos": {
+              "x": 40.25,
+              "y": 8.75
+            },
+            "uuid": "27d0bb5b-191b-5dba-86a4-a5a12dc49392"
+          }
+        ],
+        "severity": "warning",
+        "type": "via_dangling"
+      },
+      {
+        "description": "Via is not connected or connected on only one layer",
+        "items": [
+          {
+            "description": "Micro via [+3V3_APP] on In4.Cu - B.Cu",
+            "pos": {
+              "x": 45.25,
+              "y": 8.75
+            },
+            "uuid": "626f46a5-d9b7-55ed-af91-42b3df045c05"
+          }
+        ],
+        "severity": "warning",
+        "type": "via_dangling"
+      },
+      {
+        "description": "Via is not connected or connected on only one layer",
+        "items": [
+          {
+            "description": "Micro via [+3V3_APP] on In4.Cu - B.Cu",
+            "pos": {
+              "x": 62.75,
+              "y": 4.25
+            },
+            "uuid": "f64931ba-439c-5364-955b-de09bd5085b8"
+          }
+        ],
+        "severity": "warning",
+        "type": "via_dangling"
+      }
+    ],
+    "status": "PASS_ONLY_THREE_KNOWN_ORIGINAL_DANGLING_VIAS_ADDED"
+  },
+  "plan_sha256": "22429a26d1c86f87a003423160e3e49b895aeeb4cbda98e0d463559e6a32007e",
+  "raw_evidence": [
+    "hardware/coupon/rev-a/build/vled-stage-cleanup-2026-11-01",
+    "hardware/coupon/rev-a/build/vled-cleaned-stage-2026-11-01"
+  ],
+  "raw_final_connectivity": {
+    "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+    "board": "hardware/coupon/rev-a/build/vled-stage-cleanup-2026-11-01/tail-round-1/trial.kicad_pcb",
+    "board_sha256": "3705c151504a258dbd71a69ce5ba5f0050aacde4380cf512cf718ea582b91bc6",
+    "by_net": {
+      "+3V3_APP": 1,
+      "+3V3_USB": 1,
+      "+BAT_GAUGE_SW": 2,
+      "APP_3V3_FB": 1,
+      "APP_ON_SW_DRAFT": 2,
+      "CHARGER_EN2": 1,
+      "CHARGER_TS": 1,
+      "DISPLAY_CLEAR_3": 1,
+      "DISPLAY_CLEAR_OK": 2,
+      "DISPLAY_ENABLE": 1,
+      "DISPLAY_HEARTBEAT": 1,
+      "E1_ILM": 1,
+      "ESP_EN": 1,
+      "GND": 3,
+      "HEARTBEAT_FALL_CLK": 1,
+      "HEARTBEAT_SEEN": 1,
+      "LED_GCLK": 1,
+      "LED_IREF": 1,
+      "LED_LAT": 1,
+      "LED_SCLK": 1,
+      "Net-(U36-LX1)": 1,
+      "Net-(U36-LX2)": 1,
+      "ROW_ENABLE_N_CANDIDATE": 1,
+      "ROW_GATE_00": 1,
+      "ROW_GATE_02": 1,
+      "ROW_GATE_03": 1,
+      "ROW_GATE_04": 1,
+      "ROW_GATE_06": 1,
+      "ROW_GATE_07": 1,
+      "TEMP_OK": 1,
+      "TMP_COLD_SET": 1,
+      "USB_CC1": 1,
+      "USB_D+": 1,
+      "USB_D-": 1,
+      "USB_DN_MCU": 1,
+      "USB_DP_MCU": 1,
+      "USB_EN1_RAW_N": 1,
+      "USB_LOGIC_CT": 1,
+      "VBUS_CONNECTOR": 1,
+      "VLED": 7,
+      "VLED_ENABLE_CANDIDATE": 1
+    },
+    "interpretation": "Unconnected pad clusters minus one per net; no electrical or manufacturability qualification",
+    "native_open_edges": 52,
+    "pad_cluster_open_edges": 52
+  },
+  "replay": {
+    "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+    "accepted_prior_group_losses": [],
+    "added_items": 95,
+    "all_other_source_copper_and_483_poses_parts_pads_fields_fixed": true,
+    "board_sha256": "7c5196b19decc3a4fbaf5724a24aae479a0fdb9c2679706f3cc5f86253992e11",
+    "fabrication_release_allowed": false,
+    "fills": [
+      {
+        "all_257_input_stage_groups_preserved": true,
+        "board_sha256": "7c5196b19decc3a4fbaf5724a24aae479a0fdb9c2679706f3cc5f86253992e11",
+        "fill": 1,
+        "native_opens": 52
+      },
+      {
+        "all_257_input_stage_groups_preserved": true,
+        "board_sha256": "7c5196b19decc3a4fbaf5724a24aae479a0fdb9c2679706f3cc5f86253992e11",
+        "fill": 2,
+        "native_opens": 52
+      },
+      {
+        "all_257_input_stage_groups_preserved": true,
+        "board_sha256": "7c5196b19decc3a4fbaf5724a24aae479a0fdb9c2679706f3cc5f86253992e11",
+        "fill": 3,
+        "native_opens": 52
+      }
+    ],
+    "open_edges": {
+      "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+      "board": "hardware/coupon/rev-a/build/vled-cleaned-stage-2026-11-01/a/trial.kicad_pcb",
+      "board_sha256": "7c5196b19decc3a4fbaf5724a24aae479a0fdb9c2679706f3cc5f86253992e11",
+      "by_net": {
+        "+3V3_APP": 1,
+        "+3V3_USB": 1,
+        "+BAT_GAUGE_SW": 2,
+        "APP_3V3_FB": 1,
+        "APP_ON_SW_DRAFT": 2,
+        "CHARGER_EN2": 1,
+        "CHARGER_TS": 1,
+        "DISPLAY_CLEAR_3": 1,
+        "DISPLAY_CLEAR_OK": 2,
+        "DISPLAY_ENABLE": 1,
+        "DISPLAY_HEARTBEAT": 1,
+        "E1_ILM": 1,
+        "ESP_EN": 1,
+        "GND": 3,
+        "HEARTBEAT_FALL_CLK": 1,
+        "HEARTBEAT_SEEN": 1,
+        "LED_GCLK": 1,
+        "LED_IREF": 1,
+        "LED_LAT": 1,
+        "LED_SCLK": 1,
+        "Net-(U36-LX1)": 1,
+        "Net-(U36-LX2)": 1,
+        "ROW_ENABLE_N_CANDIDATE": 1,
+        "ROW_GATE_00": 1,
+        "ROW_GATE_02": 1,
+        "ROW_GATE_03": 1,
+        "ROW_GATE_04": 1,
+        "ROW_GATE_06": 1,
+        "ROW_GATE_07": 1,
+        "TEMP_OK": 1,
+        "TMP_COLD_SET": 1,
+        "USB_CC1": 1,
+        "USB_D+": 1,
+        "USB_D-": 1,
+        "USB_DN_MCU": 1,
+        "USB_DP_MCU": 1,
+        "USB_EN1_RAW_N": 1,
+        "USB_LOGIC_CT": 1,
+        "VBUS_CONNECTOR": 1,
+        "VLED": 7,
+        "VLED_ENABLE_CANDIDATE": 1
+      },
+      "interpretation": "Unconnected pad clusters minus one per net; no electrical or manufacturability qualification",
+      "native_open_edges": 52,
+      "pad_cluster_open_edges": 52
+    },
+    "phase": "cleaned",
+    "plan_sha256": "22429a26d1c86f87a003423160e3e49b895aeeb4cbda98e0d463559e6a32007e",
+    "retired_accepted_UART_items": 2,
+    "retired_cleanup_items": 52,
+    "source_sha256": "1b50456d58c23e7582a043dc59185ee79a1699c44f7b7693eb3f1b0c58beb49e",
+    "status": "UNSELECTED_CLEANED_FULL_STAGE_REQUIRES_CANONICAL_ADOPTION_POLICY",
+    "structure_and_profiles_fixed": true,
+    "tool_sha256": "8c76a5e24302ef73b2096c642844c9b350a15b66b19d89caab9639d502682fd7",
+    "track_length_mm_by_net": {
+      "+SYS_APP_IN_DRAFT": 20.489058062145194,
+      "GND": 0.2,
+      "UART0_TX": 16.650000000000002,
+      "VLED": 20.728809356860612,
+      "VLED_ENABLE_DRAFT": 3.1,
+      "VLED_FB": 5.714213562373095,
+      "VLED_FB_TOP_MID": 1.15
+    }
+  },
+  "replay_A_B_byte_identical": true,
+  "status": "PASS_UNSELECTED_CLEANED_STAGE_GEOMETRY_NOT_CANONICAL_ADOPTION"
+}

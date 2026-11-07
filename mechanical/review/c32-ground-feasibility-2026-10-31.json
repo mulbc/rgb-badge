@@ -1,0 +1,690 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "accepted_full_drc_findings": 104,
+  "accepted_native_and_physical_opens": 58,
+  "accepted_source_unchanged": true,
+  "all_three_scoped_tracks_independently_found_once_in_frozen_source": true,
+  "directions": 8,
+  "fabrication_release_allowed": false,
+  "first_via_single_obstruction_sites": {
+    "COL_03_B": 14,
+    "COL_04_R": 12
+  },
+  "frozen_215_edge_source_sha256": "da3c3e093acef457ce2d0ebe73b57fd5006b9139a57b7fe8acfcd77e612dc246",
+  "grid_step_iu": 25000,
+  "initial_backside_reachable_cells": 7797,
+  "limitations": [
+    "Finite sampled geometry/greedy route orders; no impossibility proof",
+    "Individual paths include straight reinstatement of vacated originals; none is a selected net improvement",
+    "No complete colour-restored transaction reached native refill/DRC acceptance",
+    "Raw search scripts and rejected PCB outputs remain in ignored build storage",
+    "No hardware, current, return, timing, EMI, thermal or manufacturing qualification"
+  ],
+  "local_raw_sha256": {
+    "hardware/coupon/rev-a/build/ground-vled-58/BOTH/next-layer-blockers.json": "c77fa95b6370be8578e19af74bce63d415e7f7de8da07d118b69d8f1bdc68e59",
+    "hardware/coupon/rev-a/build/ground-vled-58/COL_03_B/next-layer-blockers.json": "c17bca99f661621817eaf79125a8bf26042ba29163c8bde509313d5e56fe9997",
+    "hardware/coupon/rev-a/build/ground-vled-58/COL_04_R-GREEN/r58-local-ground-C32.kicad_dru": "80c92b0cdef868dd0ef0037aa2f63d1266f709a2dd0326094735c75ffbd31a2e",
+    "hardware/coupon/rev-a/build/ground-vled-58/COL_04_R-GREEN/r58-local-ground-C32.kicad_pcb": "58fe13e0d132ddd14c1ae31f4066855d9eeacf61129356d1ac7e77f1db68464e",
+    "hardware/coupon/rev-a/build/ground-vled-58/COL_04_R-GREEN/r58-local-ground-C32.kicad_pro": "1141b004ecffd1e7e8e0c30cf21aeae7ce6381093df674998133d226ab9c27fb",
+    "hardware/coupon/rev-a/build/ground-vled-58/COL_04_R/next-layer-blockers.json": "2b0eb3f8a58c2a8ec90acae389937b81570c59e18dd6481822241729aae3e15f",
+    "hardware/coupon/rev-a/build/ground-vled-58/audit-partial.log": "12cd13f41d27b6faddadad36fe7c065e84665b2a80b0ab2ec6fd30adab535eeb",
+    "hardware/coupon/rev-a/build/ground-vled-58/audit-partial.py": "3f18c12e4b61f52bb52aa49b726cb1d277784b417199eec5d76294b83df2ad2d",
+    "hardware/coupon/rev-a/build/ground-vled-58/c32-blocker-search.log": "bcda407c052337da622ef56db699d8bbcd294827457fc7538cf29c78e9dbd53c",
+    "hardware/coupon/rev-a/build/ground-vled-58/c32-blocker-search.py": "373cfda6946cd1582dc1094cb0089d906acb86c00b6e87ce907e487ec248e371",
+    "hardware/coupon/rev-a/build/ground-vled-58/c32-first-via-search.log": "d29c1bba16732a7082a4d2f3d626aef352a45f38963c8ac9a636537a3f00e0c4",
+    "hardware/coupon/rev-a/build/ground-vled-58/c32-first-via-search.py": "8eda1cbc4f6fc286226d78ef2c701cde725e0f951f783478e3f9f6d4b20c5c2e",
+    "hardware/coupon/rev-a/build/ground-vled-58/c32-next-layer-BOTH.log": "e329582ac96f9781ef40157fe48f88d580a468a7a9e7ff4fe4741a0dafae091f",
+    "hardware/coupon/rev-a/build/ground-vled-58/c32-next-layer-COL_03_B.log": "33c16319843dc4055a70ddf05a8581771759bd35d93bbcdd38b79b1d259c3942",
+    "hardware/coupon/rev-a/build/ground-vled-58/c32-next-layer-COL_04_R.log": "538a65fdb79642f4846a8d2f66af928117a344782865f7e1ee61253075c5b53a",
+    "hardware/coupon/rev-a/build/ground-vled-58/c32-next-layer-audit.py": "a0fb0aa8a2277a5ab07616ef253a77842c11cb6af08035d8ea5c5dd6bde8c07c",
+    "hardware/coupon/rev-a/build/ground-vled-58/c32-two-colour-ground-search.log": "da26eb3fd724db9517d6cc1906e34257588171858f994ff6dc2c255a986465af",
+    "hardware/coupon/rev-a/build/ground-vled-58/c32-two-colour-ground-search.py": "baf6bfe3ac02c644d5f168bd55c312200b9f33fc4abf28c06b751139627fedae",
+    "hardware/coupon/rev-a/build/ground-vled-58/c32-two-unlocked-ground-search.py": "9935aad5e6a345937eea7e6bb1c3f557a2c40e06c0de4ec9aff14b9e78fa0bbe",
+    "hardware/coupon/rev-a/build/ground-vled-58/c32-unlocked-COL_03_B.log": "6ad4b3f422f6996b3ea40578c5dddc48e3ec1e2c77ea30672f95e57b00572984",
+    "hardware/coupon/rev-a/build/ground-vled-58/c32-unlocked-COL_04_R.log": "d71c9664073be03c298afc98f9e7578ca625dd8bf4d210596d5e33f978ddaf8a",
+    "hardware/coupon/rev-a/build/ground-vled-58/c32-unlocked-ground-search.py": "e87a327f25be07c0b668b90cdc02274645e3bd0c5cc68960defccba9d49b5492",
+    "hardware/coupon/rev-a/build/ground-vled-58/groups.json": "534e14dc62141b0113f169d49e0ef285f345c81763fd34981de20a691b4a6c8b",
+    "hardware/coupon/rev-a/build/ground-vled-58/groups.log": "e449c861c8906dbc6b0b33ad781c671da535cddf443f121c78cb5269f0b4d0f1",
+    "hardware/coupon/rev-a/build/ground-vled-58/inventory.py": "03ab8348ef0a839d6b5be48e88bee79d06bfcc8457d6387c01bab6082f5e76aa",
+    "hardware/coupon/rev-a/build/ground-vled-58/make-prefixes.log": "3e2e8edaa2f91128f6399308b99d826cac10f35fdb724017ad829189bc54645f",
+    "hardware/coupon/rev-a/build/ground-vled-58/make-prefixes.py": "e3f975c6ea190e6daeaf095fcd2a849e464303a6561abc0137b8fa5daca5366c",
+    "hardware/coupon/rev-a/build/ground-vled-58/make-staggered-prefixes.log": "fdf844567603a50903f7d6e401f4c4f535f92ae48008aca05ce51284fef5d904",
+    "hardware/coupon/rev-a/build/ground-vled-58/make-staggered-prefixes.py": "03caaf94fabba8390963c69cca844bd809a8bcfc9662534c7d8af56adf301c2d",
+    "hardware/coupon/rev-a/build/ground-vled-58/partial-ground-audit.json": "ea734e80fcb2bf65a83550041092d5ea958ee331d9ea49931538b457c4620fd0",
+    "hardware/coupon/rev-a/build/ground-vled-58/prefix-0.kicad_pcb": "4727578362a9fffc788ec900c66cc464c1f2117e68eaed81eb2a70b9a1d978d0",
+    "hardware/coupon/rev-a/build/ground-vled-58/prefix-1.kicad_pcb": "4219b9c70d049d8e07b8bc6550ed819eb4a295fa749be703a7852f6dc1befec7",
+    "hardware/coupon/rev-a/build/ground-vled-58/prefix-10.kicad_pcb": "992fae28fc2f0b79816f58eb7aa2c265aeaa7788eb349bd01a670589b487bd81",
+    "hardware/coupon/rev-a/build/ground-vled-58/prefix-11.kicad_pcb": "69cf30383484ce31217ed1731b8f19a5095c370108f83539d11d20b9de38e98f",
+    "hardware/coupon/rev-a/build/ground-vled-58/prefix-2.kicad_pcb": "3a002478bf3cd3eac4818995dbdf07dd8e1dbbf388070a99e4378e456a7088a3",
+    "hardware/coupon/rev-a/build/ground-vled-58/prefix-3.kicad_pcb": "5b6903513de60b3540a9600cf42c923465fd7e8eae11e999371f42a9206167b0",
+    "hardware/coupon/rev-a/build/ground-vled-58/prefix-4.kicad_pcb": "df27b9637d5d652557939846c842bbbd4c0445e1e0fe1f6c10e03323eceed5d3",
+    "hardware/coupon/rev-a/build/ground-vled-58/prefix-5.kicad_pcb": "905b13bda0ca7f62dadd4cab5d10011e9beba2b3e39dc92093194b3ce1531029",
+    "hardware/coupon/rev-a/build/ground-vled-58/prefix-6.kicad_pcb": "693dec92e0ce0b776b1a6913def9d36dc089d99c0a11830c527fd479e989d364",
+    "hardware/coupon/rev-a/build/ground-vled-58/prefix-7.kicad_pcb": "b3f5da90152c523de0f84e7b75f76018c43c1274c8773a20790deb04810955d7",
+    "hardware/coupon/rev-a/build/ground-vled-58/prefix-8.kicad_pcb": "57a4af04917406a5c5ae60a078c9ec59bc1e269b48cfbb8afacbf66bbbe7b5ff",
+    "hardware/coupon/rev-a/build/ground-vled-58/prefix-9.kicad_pcb": "de558849af3a67f0c4bc5b3353802e8c1f2638f875a8de70f9f57639ec3b2354",
+    "hardware/coupon/rev-a/build/ground-vled-58/prefix-staggered-0-83650000.kicad_pcb": "ad3364360f899d6a85ca13e86e8a7003d78839a665ac0f9226f4253110479192",
+    "hardware/coupon/rev-a/build/ground-vled-58/prefix-staggered-0-83650000.kicad_pro": "90916cdbc5b8fd0ab601b329c5e6e67607f925a8dd71fe648c59e35f424cad91",
+    "hardware/coupon/rev-a/build/ground-vled-58/prefix-staggered-0-83850000.kicad_pcb": "74f21dd708cfda98a8af4579e4e9ef222cdc948fabe76108f12d1b5f2d4b5134",
+    "hardware/coupon/rev-a/build/ground-vled-58/prefix-staggered-0-83850000.kicad_pro": "db33f0e206b898edf502a6e3f5cd35c6704663d5b33a5d39b1cb53ea4c8209b9",
+    "hardware/coupon/rev-a/build/ground-vled-58/prefix-staggered-0-84050000.kicad_pcb": "97839028ef53a9e332615b2b75b87ca47cefa1b18a519f6b8d414e4b2b06e9d3",
+    "hardware/coupon/rev-a/build/ground-vled-58/prefix-staggered-0-84050000.kicad_pro": "e1cda05c65750e3d198ccf4579d71bcf9a4e1c808e4031df64ca0db4c90c769d",
+    "hardware/coupon/rev-a/build/ground-vled-58/prefix-staggered-11-83650000.kicad_pcb": "4c9d97fe4d198abd05e5e6d19c881b767cce7ba94a9d264f7768500258cf5ccb",
+    "hardware/coupon/rev-a/build/ground-vled-58/prefix-staggered-11-83650000.kicad_pro": "dcbcf7fd0a3f7bab7bf974be7327f636cc9a32c7c109958cae7eafe3568abf33",
+    "hardware/coupon/rev-a/build/ground-vled-58/prefix-staggered-11-83850000.kicad_pcb": "ebb7c544325049123a80c021e1b5c069befd3c528dc81147227d3d0fce8350e5",
+    "hardware/coupon/rev-a/build/ground-vled-58/prefix-staggered-11-83850000.kicad_pro": "6bf58ea22f3a12927546f5d97fdedf57a614d53009eef8c590a3cfe74e0e66cf",
+    "hardware/coupon/rev-a/build/ground-vled-58/prefix-staggered-11-84050000.kicad_pcb": "e70e1ec24e3f8b01675d6c49537a950aaab283a8ad70ef8b76f40625aeedfab8",
+    "hardware/coupon/rev-a/build/ground-vled-58/prefix-staggered-11-84050000.kicad_pro": "d185884038202f29ed595b91467dde700b88fa00e0be5948ac99313b217e1d60",
+    "hardware/coupon/rev-a/build/ground-vled-58/prefix-staggered-7-83650000.kicad_pcb": "a0834e45eed9413fef96b1e8a1b06d9787c78807cc67a3ad28cba6262f170a3a",
+    "hardware/coupon/rev-a/build/ground-vled-58/prefix-staggered-7-83650000.kicad_pro": "51244caadaa487a0d3028fe8f43d17348d49f6189d55407a5222cc4f7ee3b2aa",
+    "hardware/coupon/rev-a/build/ground-vled-58/prefix-staggered-7-83850000.kicad_pcb": "9f3b4dc6e827c6a4c094251f7a2a0d1d19ae01f0a624a7dac15de328b00c458c",
+    "hardware/coupon/rev-a/build/ground-vled-58/prefix-staggered-7-83850000.kicad_pro": "826e730182f1dad7eff6af7b8975b5a0e270b9220fe4fd2e1748d3e57c461521",
+    "hardware/coupon/rev-a/build/ground-vled-58/prefix-staggered-7-84050000.kicad_pcb": "f660932a7aa441bfb18799df38baf270135add6094a65d1fcb9189dc9de3eb56",
+    "hardware/coupon/rev-a/build/ground-vled-58/prefix-staggered-7-84050000.kicad_pro": "11f58160b88035f31645afbb0b7fdd6daa3aa0fe1e67d3ae21194fea3a9b352f",
+    "hardware/coupon/rev-a/build/ground-vled-58/r58-first-via-blockers-C32.json": "88f97c7dc853351559a9baaa7f384adfacbdba284e4e235adfd50caf827e6b0c",
+    "hardware/coupon/rev-a/build/ground-vled-58/r58-ground-blockers-C32.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-COL_01_G-COL_04_R.log": "3cc0fc2010900d0cad70ebd86fedc62a73c0e888e44e6963dff3e13e21797007",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-COL_04_R-COL_01_G.log": "a34613845f45e1f3a0ea8c4a159b7281a5fc816927ff8b6255caab4fa9f2e332",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-colours.py": "00bbd4e4d70ecac1fbf22395062bdbc8184859cc59e521f1f8b312ad1d6ca879",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-prefix-0-COL_01_G-COL_04_R.log": "fd9e41ece3e9ef8294c894eee9d7d5168288b8e5c5ddc4a1c058a262b71274f3",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-prefix-0-COL_04_R-COL_01_G.log": "e1b06cc1ceb853ab2d785e8dfd32759a1a99e106186e594688b413f401327a96",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-prefix-11-COL_01_G-COL_04_R.log": "e7c5caa4e9900d3015608f5096f95ac1a2e574282926d5e71fe0e95dfd7ddd69",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-prefix-11-COL_04_R-COL_01_G.log": "54de3596918e8e6068cea8742df5986e8a81a1b6dbbcaaa214f21ac4e2c5fd29",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-prefix-3-COL_01_G-COL_04_R.log": "1eecef4b31ad586532d4f4cbd8e1e8bede14680725af414ca709c0c3af4065e8",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-prefix-3-COL_04_R-COL_01_G.log": "c9c0332c6d0d19043b87f2a701d217ce854de5769dd3df1c5bf402c092104358",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-prefix-7-COL_01_G-COL_04_R.log": "680cad0b5361f9ba73a19886102490014b4e70e51ad88e8ba20fa720b77ffb7d",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-prefix-7-COL_04_R-COL_01_G.log": "1367a4c3f91cc18d23f3eddb6d3f9d448ce4b3f2135cee614d41a37703f75060",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-prefix-colours.py": "ba3dc371b869f15d398d725099ebc79403962bbf67efdfea98c12d01d2e77539",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-0-83650000-COL_01_G-COL_04_R-COL_03_B.log": "5b51acb3c4f1672caa213dc16005201915e425e3df6d8c3c595bdeeb96797f01",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-0-83650000-COL_04_R-COL_01_G-COL_03_B.log": "a1dcfa5084b09641a55908d59bf7e7d2d087db67baf3f77de80f22e0ef557bcc",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-0-83650000-COL_04_R-COL_03_B-COL_01_G.log": "a1dcfa5084b09641a55908d59bf7e7d2d087db67baf3f77de80f22e0ef557bcc",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-0-83850000-COL_01_G-COL_04_R-COL_03_B.log": "670849daeabd8b291e3833eefd8585d744592ee1dafa74756331dc114dc9fc5a",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-0-83850000-COL_04_R-COL_01_G-COL_03_B.log": "7f62956761b3ce89d859257bb972c3001c8041db12215363c7912c9d6976c6dd",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-0-83850000-COL_04_R-COL_03_B-COL_01_G.log": "7f62956761b3ce89d859257bb972c3001c8041db12215363c7912c9d6976c6dd",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-0-84050000-COL_01_G-COL_04_R-COL_03_B.log": "a49a4e21c6afa8b71e19bb4a30aa736a568f39351aefdaa3dd30b41321c799fe",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-0-84050000-COL_04_R-COL_01_G-COL_03_B.log": "57d4a6e5f4a9bdbd27c3c19d9e30215652fdba497c2f764116a97b2bb3bb2cec",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-0-84050000-COL_04_R-COL_03_B-COL_01_G.log": "57d4a6e5f4a9bdbd27c3c19d9e30215652fdba497c2f764116a97b2bb3bb2cec",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-11-83650000-COL_01_G-COL_04_R-COL_03_B.log": "dd0895ebec321665b807d4835831e224ff9cf8e9ad3df13870798bce411567e8",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-11-83650000-COL_04_R-COL_01_G-COL_03_B.log": "7317bf078730982c5ce31a36dc5e7453dc00c4111c45e0e92f775fed3cb32fdb",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-11-83650000-COL_04_R-COL_03_B-COL_01_G.log": "891a13239a5b8c2411fa1e22e4cbb3c2854612b5d6c7ec4a9a480ec61c7430ce",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-11-83850000-COL_01_G-COL_04_R-COL_03_B.log": "86d1c01df161a86d248273c12a7c961026c401c6c8ff56ebed68267096471d0e",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-11-83850000-COL_04_R-COL_01_G-COL_03_B.log": "5a7475103bdb27fb817dbbc572d3b01e129a155a6565a84d6f0dd5d19eba8e68",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-11-83850000-COL_04_R-COL_03_B-COL_01_G.log": "9048c37bc0372a5f0d7371d1aa670726d7b0afcb3c6060e0454154f9e3616789",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-11-84050000-COL_01_G-COL_04_R-COL_03_B.log": "edc2d1b25f6ea40f107757984033c452340bb1ce822ba20e4af49dd3071b0e07",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-11-84050000-COL_04_R-COL_01_G-COL_03_B.log": "16dbea2ed83034032311402b57ee9f23dd29429a50b3d55637c106cb9c4e1b53",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-11-84050000-COL_04_R-COL_03_B-COL_01_G.log": "e566702b1e6d66317c5864232484c4bdcfb2f3e8e40c05e03c9eb6d11b866ab5",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-7-83650000-COL_01_G-COL_04_R-COL_03_B.log": "70cc9e8cd7ecc15464800ad9ed85fb7ccadf06b02eeafe7228253d2446d7f88a",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-7-83650000-COL_04_R-COL_01_G-COL_03_B.log": "5a0c8316bae2302517cf96f351ff8ccd47854c4eeaf4afb36c32d874bff19e41",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-7-83650000-COL_04_R-COL_03_B-COL_01_G.log": "5a0c8316bae2302517cf96f351ff8ccd47854c4eeaf4afb36c32d874bff19e41",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-7-83850000-COL_01_G-COL_04_R-COL_03_B.log": "1fa51cda27eb3a365d604f72d499976f24b6720ca125ed3e0af87c31f147febb",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-7-83850000-COL_04_R-COL_01_G-COL_03_B.log": "4637f0c0029a945f42cc52df269aef90bfc5e3f992eca20c579b6c047be71d26",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-7-83850000-COL_04_R-COL_03_B-COL_01_G.log": "5fb8a90bc68d96a5a4def0f47ff277af0824dad81c5ec34f39a857b91357276b",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-7-84050000-COL_01_G-COL_04_R-COL_03_B.log": "c248bb455c841ceffe154f643b6b78aa05ed1618c9aef514cbb3bbe1d2d1c1c4",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-7-84050000-COL_04_R-COL_01_G-COL_03_B.log": "7de6794a2b17d65b478380b382ab0c6cbfc21262841f36417ce8f8dcd817d569",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-7-84050000-COL_04_R-COL_03_B-COL_01_G.log": "607837fd2cc148cb84be0874914225901af840a7e7f4aebbdd8a373e6b88b14a",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-colours.py": "a74937740f30a7493b6683c60000f03fc6d7ec890575caf5bdcf9898cc30082c",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-0-COL_03_B-COL_04_R-COL_01_G.log": "a0f7312e96e901de57e63a81a16db832743942d792ae249ce3e5e77067ed1c91",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-0-COL_04_R-COL_03_B-COL_01_G.log": "465c8c611e64a1e213141132a60cd09b59b4ee5453fde0512a87bc70832e8677",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-11-COL_01_G-COL_03_B-COL_04_R.log": "1224c662f334570e48bee036afda99b135933aefd09c6aff5ef45e046abc97d2",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-11-COL_01_G-COL_04_R-COL_03_B.log": "9c86ddbd31886c08fdf819046af7d01fce48f1edf80fc841b8ef6632b48a9d46",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-11-COL_03_B-COL_01_G-COL_04_R.log": "03d4d4220980be15a4e4f3dfd28b07e5185409d8ff93829c60def532336fd701",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-11-COL_03_B-COL_04_R-COL_01_G.log": "e8cab7b78790882945aebbe4f16766f17fcd0dc37acd5a978bbaafdb4f9b6f9f",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-11-COL_04_R-COL_01_G-COL_03_B.log": "86e27af8d2effd58106088bc64b33d9da5f590ca7ed3a9c5331987eab00c730e",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-11-COL_04_R-COL_03_B-COL_01_G.log": "e98ce355462dad698048f412f82668184fbf39fdeaa6c540d6ece65b09f3e023",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-3-COL_03_B-COL_04_R-COL_01_G.log": "e4615307937ca18f91a59129c69bb7a915537ef92a4fa7cba9f39b983b9f0b3b",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-3-COL_04_R-COL_03_B-COL_01_G.log": "fffd44e1acf1d7d7932ef11b8e5fd33e248327a10b83797ae1a443568c41d84e",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-7-COL_01_G-COL_03_B-COL_04_R.log": "900547f32d087a08268ea082a77eae317be52afdb56215d392f129187da234b8",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-7-COL_01_G-COL_04_R-COL_03_B.log": "d5b07e848705771d098126bf06848ec4611f4f4108e69bdc271c2f440193a19a",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-7-COL_03_B-COL_01_G-COL_04_R.log": "670280d145ae5791da05bd0a6bc175a657c64f23d4e0e1c72f44f3290a791ef6",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-7-COL_03_B-COL_04_R-COL_01_G.log": "b500ea0e9f50dc7b87425cbef7667ef4263e3864f017eaf6c81e0399f7a07b23",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-7-COL_04_R-COL_01_G-COL_03_B.log": "e2d940acac9b8fe622b696371ea8796b09b5138a15c7b6f8b62d2251bdf28c2b",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-7-COL_04_R-COL_03_B-COL_01_G.log": "87a44ee5877a7fc0063ff9c3e00840cc0303e705d9e649067e9164b014bfd1f3",
+    "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-colours.py": "e8aa0a53a6716de8afac00ede6137de7f2312c7e7d7552819f39e93e470ae5cd"
+  },
+  "native_shape_screen_clearance_iu": 199990,
+  "numeric_screen_tolerance_is_not_clearance_permission": true,
+  "required_full_drc_clearance_iu": 200000,
+  "restoration_cases": {
+    "three_colour_prefix": [
+      {
+        "case": "restore-three-prefix-0-COL_03_B-COL_04_R-COL_01_G",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-0-COL_03_B-COL_04_R-COL_01_G.log",
+        "log_sha256": "a0f7312e96e901de57e63a81a16db832743942d792ae249ce3e5e77067ed1c91",
+        "partial_colour_paths": [
+          {
+            "expanded_nodes": 89,
+            "items": 1,
+            "net": "COL_03_B",
+            "track_length_mm": 2.2
+          }
+        ]
+      },
+      {
+        "case": "restore-three-prefix-0-COL_04_R-COL_03_B-COL_01_G",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-0-COL_04_R-COL_03_B-COL_01_G.log",
+        "log_sha256": "465c8c611e64a1e213141132a60cd09b59b4ee5453fde0512a87bc70832e8677",
+        "partial_colour_paths": []
+      },
+      {
+        "case": "restore-three-prefix-11-COL_01_G-COL_03_B-COL_04_R",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-11-COL_01_G-COL_03_B-COL_04_R.log",
+        "log_sha256": "1224c662f334570e48bee036afda99b135933aefd09c6aff5ef45e046abc97d2",
+        "partial_colour_paths": [
+          {
+            "expanded_nodes": 2771,
+            "items": 14,
+            "net": "COL_01_G",
+            "track_length_mm": 5.532842712474619
+          }
+        ]
+      },
+      {
+        "case": "restore-three-prefix-11-COL_01_G-COL_04_R-COL_03_B",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-11-COL_01_G-COL_04_R-COL_03_B.log",
+        "log_sha256": "9c86ddbd31886c08fdf819046af7d01fce48f1edf80fc841b8ef6632b48a9d46",
+        "partial_colour_paths": [
+          {
+            "expanded_nodes": 2771,
+            "items": 14,
+            "net": "COL_01_G",
+            "track_length_mm": 5.532842712474619
+          }
+        ]
+      },
+      {
+        "case": "restore-three-prefix-11-COL_03_B-COL_01_G-COL_04_R",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-11-COL_03_B-COL_01_G-COL_04_R.log",
+        "log_sha256": "03d4d4220980be15a4e4f3dfd28b07e5185409d8ff93829c60def532336fd701",
+        "partial_colour_paths": [
+          {
+            "expanded_nodes": 89,
+            "items": 1,
+            "net": "COL_03_B",
+            "track_length_mm": 2.2
+          }
+        ]
+      },
+      {
+        "case": "restore-three-prefix-11-COL_03_B-COL_04_R-COL_01_G",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-11-COL_03_B-COL_04_R-COL_01_G.log",
+        "log_sha256": "e8cab7b78790882945aebbe4f16766f17fcd0dc37acd5a978bbaafdb4f9b6f9f",
+        "partial_colour_paths": [
+          {
+            "expanded_nodes": 89,
+            "items": 1,
+            "net": "COL_03_B",
+            "track_length_mm": 2.2
+          }
+        ]
+      },
+      {
+        "case": "restore-three-prefix-11-COL_04_R-COL_01_G-COL_03_B",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-11-COL_04_R-COL_01_G-COL_03_B.log",
+        "log_sha256": "86e27af8d2effd58106088bc64b33d9da5f590ca7ed3a9c5331987eab00c730e",
+        "partial_colour_paths": [
+          {
+            "expanded_nodes": 1537,
+            "items": 22,
+            "net": "COL_04_R",
+            "track_length_mm": 2.772792206135785
+          }
+        ]
+      },
+      {
+        "case": "restore-three-prefix-11-COL_04_R-COL_03_B-COL_01_G",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-11-COL_04_R-COL_03_B-COL_01_G.log",
+        "log_sha256": "e98ce355462dad698048f412f82668184fbf39fdeaa6c540d6ece65b09f3e023",
+        "partial_colour_paths": [
+          {
+            "expanded_nodes": 1537,
+            "items": 22,
+            "net": "COL_04_R",
+            "track_length_mm": 2.772792206135785
+          }
+        ]
+      },
+      {
+        "case": "restore-three-prefix-3-COL_03_B-COL_04_R-COL_01_G",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-3-COL_03_B-COL_04_R-COL_01_G.log",
+        "log_sha256": "e4615307937ca18f91a59129c69bb7a915537ef92a4fa7cba9f39b983b9f0b3b",
+        "partial_colour_paths": [
+          {
+            "expanded_nodes": 89,
+            "items": 1,
+            "net": "COL_03_B",
+            "track_length_mm": 2.2
+          }
+        ]
+      },
+      {
+        "case": "restore-three-prefix-3-COL_04_R-COL_03_B-COL_01_G",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-3-COL_04_R-COL_03_B-COL_01_G.log",
+        "log_sha256": "fffd44e1acf1d7d7932ef11b8e5fd33e248327a10b83797ae1a443568c41d84e",
+        "partial_colour_paths": []
+      },
+      {
+        "case": "restore-three-prefix-7-COL_01_G-COL_03_B-COL_04_R",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-7-COL_01_G-COL_03_B-COL_04_R.log",
+        "log_sha256": "900547f32d087a08268ea082a77eae317be52afdb56215d392f129187da234b8",
+        "partial_colour_paths": [
+          {
+            "expanded_nodes": 2592,
+            "items": 13,
+            "net": "COL_01_G",
+            "track_length_mm": 5.532842712474619
+          }
+        ]
+      },
+      {
+        "case": "restore-three-prefix-7-COL_01_G-COL_04_R-COL_03_B",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-7-COL_01_G-COL_04_R-COL_03_B.log",
+        "log_sha256": "d5b07e848705771d098126bf06848ec4611f4f4108e69bdc271c2f440193a19a",
+        "partial_colour_paths": [
+          {
+            "expanded_nodes": 2592,
+            "items": 13,
+            "net": "COL_01_G",
+            "track_length_mm": 5.532842712474619
+          }
+        ]
+      },
+      {
+        "case": "restore-three-prefix-7-COL_03_B-COL_01_G-COL_04_R",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-7-COL_03_B-COL_01_G-COL_04_R.log",
+        "log_sha256": "670280d145ae5791da05bd0a6bc175a657c64f23d4e0e1c72f44f3290a791ef6",
+        "partial_colour_paths": [
+          {
+            "expanded_nodes": 89,
+            "items": 1,
+            "net": "COL_03_B",
+            "track_length_mm": 2.2
+          }
+        ]
+      },
+      {
+        "case": "restore-three-prefix-7-COL_03_B-COL_04_R-COL_01_G",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-7-COL_03_B-COL_04_R-COL_01_G.log",
+        "log_sha256": "b500ea0e9f50dc7b87425cbef7667ef4263e3864f017eaf6c81e0399f7a07b23",
+        "partial_colour_paths": [
+          {
+            "expanded_nodes": 89,
+            "items": 1,
+            "net": "COL_03_B",
+            "track_length_mm": 2.2
+          }
+        ]
+      },
+      {
+        "case": "restore-three-prefix-7-COL_04_R-COL_01_G-COL_03_B",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-7-COL_04_R-COL_01_G-COL_03_B.log",
+        "log_sha256": "e2d940acac9b8fe622b696371ea8796b09b5138a15c7b6f8b62d2251bdf28c2b",
+        "partial_colour_paths": [
+          {
+            "expanded_nodes": 1450,
+            "items": 22,
+            "net": "COL_04_R",
+            "track_length_mm": 2.7727922061357853
+          }
+        ]
+      },
+      {
+        "case": "restore-three-prefix-7-COL_04_R-COL_03_B-COL_01_G",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-three-prefix-7-COL_04_R-COL_03_B-COL_01_G.log",
+        "log_sha256": "87a44ee5877a7fc0063ff9c3e00840cc0303e705d9e649067e9164b014bfd1f3",
+        "partial_colour_paths": [
+          {
+            "expanded_nodes": 1450,
+            "items": 22,
+            "net": "COL_04_R",
+            "track_length_mm": 2.7727922061357853
+          }
+        ]
+      }
+    ],
+    "three_colour_staggered_prefix": [
+      {
+        "case": "restore-staggered-0-83650000-COL_01_G-COL_04_R-COL_03_B",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-0-83650000-COL_01_G-COL_04_R-COL_03_B.log",
+        "log_sha256": "5b51acb3c4f1672caa213dc16005201915e425e3df6d8c3c595bdeeb96797f01",
+        "partial_colour_paths": []
+      },
+      {
+        "case": "restore-staggered-0-83650000-COL_04_R-COL_01_G-COL_03_B",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-0-83650000-COL_04_R-COL_01_G-COL_03_B.log",
+        "log_sha256": "a1dcfa5084b09641a55908d59bf7e7d2d087db67baf3f77de80f22e0ef557bcc",
+        "partial_colour_paths": []
+      },
+      {
+        "case": "restore-staggered-0-83650000-COL_04_R-COL_03_B-COL_01_G",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-0-83650000-COL_04_R-COL_03_B-COL_01_G.log",
+        "log_sha256": "a1dcfa5084b09641a55908d59bf7e7d2d087db67baf3f77de80f22e0ef557bcc",
+        "partial_colour_paths": []
+      },
+      {
+        "case": "restore-staggered-0-83850000-COL_01_G-COL_04_R-COL_03_B",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-0-83850000-COL_01_G-COL_04_R-COL_03_B.log",
+        "log_sha256": "670849daeabd8b291e3833eefd8585d744592ee1dafa74756331dc114dc9fc5a",
+        "partial_colour_paths": []
+      },
+      {
+        "case": "restore-staggered-0-83850000-COL_04_R-COL_01_G-COL_03_B",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-0-83850000-COL_04_R-COL_01_G-COL_03_B.log",
+        "log_sha256": "7f62956761b3ce89d859257bb972c3001c8041db12215363c7912c9d6976c6dd",
+        "partial_colour_paths": []
+      },
+      {
+        "case": "restore-staggered-0-83850000-COL_04_R-COL_03_B-COL_01_G",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-0-83850000-COL_04_R-COL_03_B-COL_01_G.log",
+        "log_sha256": "7f62956761b3ce89d859257bb972c3001c8041db12215363c7912c9d6976c6dd",
+        "partial_colour_paths": []
+      },
+      {
+        "case": "restore-staggered-0-84050000-COL_01_G-COL_04_R-COL_03_B",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-0-84050000-COL_01_G-COL_04_R-COL_03_B.log",
+        "log_sha256": "a49a4e21c6afa8b71e19bb4a30aa736a568f39351aefdaa3dd30b41321c799fe",
+        "partial_colour_paths": []
+      },
+      {
+        "case": "restore-staggered-0-84050000-COL_04_R-COL_01_G-COL_03_B",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-0-84050000-COL_04_R-COL_01_G-COL_03_B.log",
+        "log_sha256": "57d4a6e5f4a9bdbd27c3c19d9e30215652fdba497c2f764116a97b2bb3bb2cec",
+        "partial_colour_paths": []
+      },
+      {
+        "case": "restore-staggered-0-84050000-COL_04_R-COL_03_B-COL_01_G",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-0-84050000-COL_04_R-COL_03_B-COL_01_G.log",
+        "log_sha256": "57d4a6e5f4a9bdbd27c3c19d9e30215652fdba497c2f764116a97b2bb3bb2cec",
+        "partial_colour_paths": []
+      },
+      {
+        "case": "restore-staggered-11-83650000-COL_01_G-COL_04_R-COL_03_B",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-11-83650000-COL_01_G-COL_04_R-COL_03_B.log",
+        "log_sha256": "dd0895ebec321665b807d4835831e224ff9cf8e9ad3df13870798bce411567e8",
+        "partial_colour_paths": []
+      },
+      {
+        "case": "restore-staggered-11-83650000-COL_04_R-COL_01_G-COL_03_B",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-11-83650000-COL_04_R-COL_01_G-COL_03_B.log",
+        "log_sha256": "7317bf078730982c5ce31a36dc5e7453dc00c4111c45e0e92f775fed3cb32fdb",
+        "partial_colour_paths": []
+      },
+      {
+        "case": "restore-staggered-11-83650000-COL_04_R-COL_03_B-COL_01_G",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-11-83650000-COL_04_R-COL_03_B-COL_01_G.log",
+        "log_sha256": "891a13239a5b8c2411fa1e22e4cbb3c2854612b5d6c7ec4a9a480ec61c7430ce",
+        "partial_colour_paths": []
+      },
+      {
+        "case": "restore-staggered-11-83850000-COL_01_G-COL_04_R-COL_03_B",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-11-83850000-COL_01_G-COL_04_R-COL_03_B.log",
+        "log_sha256": "86d1c01df161a86d248273c12a7c961026c401c6c8ff56ebed68267096471d0e",
+        "partial_colour_paths": []
+      },
+      {
+        "case": "restore-staggered-11-83850000-COL_04_R-COL_01_G-COL_03_B",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-11-83850000-COL_04_R-COL_01_G-COL_03_B.log",
+        "log_sha256": "5a7475103bdb27fb817dbbc572d3b01e129a155a6565a84d6f0dd5d19eba8e68",
+        "partial_colour_paths": [
+          {
+            "expanded_nodes": 3246,
+            "items": 38,
+            "net": "COL_04_R",
+            "track_length_mm": 2.772792206135784
+          }
+        ]
+      },
+      {
+        "case": "restore-staggered-11-83850000-COL_04_R-COL_03_B-COL_01_G",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-11-83850000-COL_04_R-COL_03_B-COL_01_G.log",
+        "log_sha256": "9048c37bc0372a5f0d7371d1aa670726d7b0afcb3c6060e0454154f9e3616789",
+        "partial_colour_paths": [
+          {
+            "expanded_nodes": 3246,
+            "items": 38,
+            "net": "COL_04_R",
+            "track_length_mm": 2.772792206135784
+          }
+        ]
+      },
+      {
+        "case": "restore-staggered-11-84050000-COL_01_G-COL_04_R-COL_03_B",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-11-84050000-COL_01_G-COL_04_R-COL_03_B.log",
+        "log_sha256": "edc2d1b25f6ea40f107757984033c452340bb1ce822ba20e4af49dd3071b0e07",
+        "partial_colour_paths": []
+      },
+      {
+        "case": "restore-staggered-11-84050000-COL_04_R-COL_01_G-COL_03_B",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-11-84050000-COL_04_R-COL_01_G-COL_03_B.log",
+        "log_sha256": "16dbea2ed83034032311402b57ee9f23dd29429a50b3d55637c106cb9c4e1b53",
+        "partial_colour_paths": [
+          {
+            "expanded_nodes": 3087,
+            "items": 39,
+            "net": "COL_04_R",
+            "track_length_mm": 2.772792206135784
+          }
+        ]
+      },
+      {
+        "case": "restore-staggered-11-84050000-COL_04_R-COL_03_B-COL_01_G",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-11-84050000-COL_04_R-COL_03_B-COL_01_G.log",
+        "log_sha256": "e566702b1e6d66317c5864232484c4bdcfb2f3e8e40c05e03c9eb6d11b866ab5",
+        "partial_colour_paths": [
+          {
+            "expanded_nodes": 3087,
+            "items": 39,
+            "net": "COL_04_R",
+            "track_length_mm": 2.772792206135784
+          }
+        ]
+      },
+      {
+        "case": "restore-staggered-7-83650000-COL_01_G-COL_04_R-COL_03_B",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-7-83650000-COL_01_G-COL_04_R-COL_03_B.log",
+        "log_sha256": "70cc9e8cd7ecc15464800ad9ed85fb7ccadf06b02eeafe7228253d2446d7f88a",
+        "partial_colour_paths": []
+      },
+      {
+        "case": "restore-staggered-7-83650000-COL_04_R-COL_01_G-COL_03_B",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-7-83650000-COL_04_R-COL_01_G-COL_03_B.log",
+        "log_sha256": "5a0c8316bae2302517cf96f351ff8ccd47854c4eeaf4afb36c32d874bff19e41",
+        "partial_colour_paths": []
+      },
+      {
+        "case": "restore-staggered-7-83650000-COL_04_R-COL_03_B-COL_01_G",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-7-83650000-COL_04_R-COL_03_B-COL_01_G.log",
+        "log_sha256": "5a0c8316bae2302517cf96f351ff8ccd47854c4eeaf4afb36c32d874bff19e41",
+        "partial_colour_paths": []
+      },
+      {
+        "case": "restore-staggered-7-83850000-COL_01_G-COL_04_R-COL_03_B",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-7-83850000-COL_01_G-COL_04_R-COL_03_B.log",
+        "log_sha256": "1fa51cda27eb3a365d604f72d499976f24b6720ca125ed3e0af87c31f147febb",
+        "partial_colour_paths": []
+      },
+      {
+        "case": "restore-staggered-7-83850000-COL_04_R-COL_01_G-COL_03_B",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-7-83850000-COL_04_R-COL_01_G-COL_03_B.log",
+        "log_sha256": "4637f0c0029a945f42cc52df269aef90bfc5e3f992eca20c579b6c047be71d26",
+        "partial_colour_paths": [
+          {
+            "expanded_nodes": 3150,
+            "items": 38,
+            "net": "COL_04_R",
+            "track_length_mm": 2.7727922061357844
+          }
+        ]
+      },
+      {
+        "case": "restore-staggered-7-83850000-COL_04_R-COL_03_B-COL_01_G",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-7-83850000-COL_04_R-COL_03_B-COL_01_G.log",
+        "log_sha256": "5fb8a90bc68d96a5a4def0f47ff277af0824dad81c5ec34f39a857b91357276b",
+        "partial_colour_paths": [
+          {
+            "expanded_nodes": 3150,
+            "items": 38,
+            "net": "COL_04_R",
+            "track_length_mm": 2.7727922061357844
+          }
+        ]
+      },
+      {
+        "case": "restore-staggered-7-84050000-COL_01_G-COL_04_R-COL_03_B",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-7-84050000-COL_01_G-COL_04_R-COL_03_B.log",
+        "log_sha256": "c248bb455c841ceffe154f643b6b78aa05ed1618c9aef514cbb3bbe1d2d1c1c4",
+        "partial_colour_paths": []
+      },
+      {
+        "case": "restore-staggered-7-84050000-COL_04_R-COL_01_G-COL_03_B",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-7-84050000-COL_04_R-COL_01_G-COL_03_B.log",
+        "log_sha256": "7de6794a2b17d65b478380b382ab0c6cbfc21262841f36417ce8f8dcd817d569",
+        "partial_colour_paths": [
+          {
+            "expanded_nodes": 2991,
+            "items": 39,
+            "net": "COL_04_R",
+            "track_length_mm": 2.7727922061357844
+          }
+        ]
+      },
+      {
+        "case": "restore-staggered-7-84050000-COL_04_R-COL_03_B-COL_01_G",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-staggered-7-84050000-COL_04_R-COL_03_B-COL_01_G.log",
+        "log_sha256": "607837fd2cc148cb84be0874914225901af840a7e7f4aebbdd8a373e6b88b14a",
+        "partial_colour_paths": [
+          {
+            "expanded_nodes": 2991,
+            "items": 39,
+            "net": "COL_04_R",
+            "track_length_mm": 2.7727922061357844
+          }
+        ]
+      }
+    ],
+    "two_colour_prefix": [
+      {
+        "case": "restore-prefix-0-COL_01_G-COL_04_R",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-prefix-0-COL_01_G-COL_04_R.log",
+        "log_sha256": "fd9e41ece3e9ef8294c894eee9d7d5168288b8e5c5ddc4a1c058a262b71274f3",
+        "partial_colour_paths": []
+      },
+      {
+        "case": "restore-prefix-0-COL_04_R-COL_01_G",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-prefix-0-COL_04_R-COL_01_G.log",
+        "log_sha256": "e1b06cc1ceb853ab2d785e8dfd32759a1a99e106186e594688b413f401327a96",
+        "partial_colour_paths": []
+      },
+      {
+        "case": "restore-prefix-11-COL_01_G-COL_04_R",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-prefix-11-COL_01_G-COL_04_R.log",
+        "log_sha256": "e7c5caa4e9900d3015608f5096f95ac1a2e574282926d5e71fe0e95dfd7ddd69",
+        "partial_colour_paths": []
+      },
+      {
+        "case": "restore-prefix-11-COL_04_R-COL_01_G",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-prefix-11-COL_04_R-COL_01_G.log",
+        "log_sha256": "54de3596918e8e6068cea8742df5986e8a81a1b6dbbcaaa214f21ac4e2c5fd29",
+        "partial_colour_paths": []
+      },
+      {
+        "case": "restore-prefix-3-COL_01_G-COL_04_R",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-prefix-3-COL_01_G-COL_04_R.log",
+        "log_sha256": "1eecef4b31ad586532d4f4cbd8e1e8bede14680725af414ca709c0c3af4065e8",
+        "partial_colour_paths": []
+      },
+      {
+        "case": "restore-prefix-3-COL_04_R-COL_01_G",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-prefix-3-COL_04_R-COL_01_G.log",
+        "log_sha256": "c9c0332c6d0d19043b87f2a701d217ce854de5769dd3df1c5bf402c092104358",
+        "partial_colour_paths": []
+      },
+      {
+        "case": "restore-prefix-7-COL_01_G-COL_04_R",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-prefix-7-COL_01_G-COL_04_R.log",
+        "log_sha256": "680cad0b5361f9ba73a19886102490014b4e70e51ad88e8ba20fa720b77ffb7d",
+        "partial_colour_paths": []
+      },
+      {
+        "case": "restore-prefix-7-COL_04_R-COL_01_G",
+        "complete_transaction_saved": false,
+        "log": "hardware/coupon/rev-a/build/ground-vled-58/restore-prefix-7-COL_04_R-COL_01_G.log",
+        "log_sha256": "1367a4c3f91cc18d23f3eddb6d3f9d448ce4b3f2135cee614d41a37703f75060",
+        "partial_colour_paths": []
+      }
+    ]
+  },
+  "review_date": "2026-10-31",
+  "single_unlocked_layer_counts": {
+    "COL_03_B": {
+      "B.Cu": 9964,
+      "In4.Cu": 285
+    },
+    "COL_04_R": {
+      "B.Cu": 9964,
+      "In4.Cu": 325
+    }
+  },
+  "source_sha256": "3451177253a021d8706ff818696212afabf539a108f15ef9e5d6921e46435acc",
+  "status": "FINITE_C32_GROUND_COLOUR_REWORK_FEASIBILITY_NO_TRANSACTION_SELECTED",
+  "two_track_removed_partial": {
+    "full_restored_transaction_drc_not_reached": true,
+    "ground_track_length_mm": 7.614823227814087,
+    "lost_original_colour_groups": 2,
+    "native_and_pad_cluster_opens": 59,
+    "new_main_ground_pads": 194,
+    "old_main_ground_pads": 193
+  },
+  "vendor_reference_sha256": {
+    "hardware/coupon/rev-a/reference/vendor-datasheets/tlc59581.pdf": "c7a736e612dc1ff55057c1c4aa0409e26d401881e6ddb1c65f57fe4b8bfe2cfc"
+  }
+}

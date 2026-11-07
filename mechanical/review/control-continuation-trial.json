@@ -1,0 +1,814 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_tracks_and_vias": 288,
+  "allowed_nets": [
+    "APP_SUPERVISOR_OK",
+    "ARM_LATCH",
+    "CHARGER_EN2",
+    "CHARGER_GATE_EN",
+    "DISPLAY_ARM_CLK",
+    "DISPLAY_CLEAR_3",
+    "DISPLAY_CLEAR_OK",
+    "DISPLAY_ENABLE",
+    "DISPLAY_HEARTBEAT",
+    "ESP_EN",
+    "GAUGE_I2C_SCL",
+    "GAUGE_I2C_SDA",
+    "HEARTBEAT_FALL_CLK",
+    "HEARTBEAT_SEEN",
+    "MODE_BOOT_N",
+    "ROW_A0",
+    "ROW_A1",
+    "ROW_A2",
+    "ROW_A3",
+    "ROW_ARM",
+    "ROW_ENABLE_N",
+    "ROW_ENABLE_N_CANDIDATE",
+    "ROW_ENABLE_REQ_N",
+    "ROW_REQUEST",
+    "SYS_I2C_SCL",
+    "SYS_I2C_SDA",
+    "TEMP_OK",
+    "USB_CC_HIGH",
+    "USB_CHARGE_REQ",
+    "USB_EN1_RAW_N",
+    "USB_LOGIC_READY",
+    "USB_LOGIC_SENSE",
+    "USB_OUT1",
+    "USB_OUT2",
+    "USB_RAW_LOGIC_READY",
+    "USB_RAW_OUT1",
+    "USB_RAW_OUT2",
+    "USB_RAW_VBUS_VALID",
+    "USB_VBUS_VALID",
+    "VLED_ENABLE_CANDIDATE",
+    "VLED_WINDOW_OK"
+  ],
+  "board_sha256": "f945becb2b685e14bc08a3402e07bf1c2fc56af6b940e12b3470f6fad3e16851",
+  "clearance_mm": 0.2,
+  "connected_copper_endpoints": true,
+  "grid_mm": 0.05,
+  "kicad_version": "10.0.6",
+  "max_nodes": 200000,
+  "microvia_diameter_drill_mm": [
+    0.3,
+    0.1
+  ],
+  "open_edges": 236,
+  "preserve_clusters_after_each_join": true,
+  "routes": [
+    {
+      "expanded_nodes": 17318,
+      "net": "USB_CC_HIGH",
+      "routed": true,
+      "source": [
+        "U17",
+        "6"
+      ]
+    },
+    {
+      "expanded_nodes": 688,
+      "net": "USB_LOGIC_SENSE",
+      "routed": true,
+      "source": [
+        "R76",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 13828,
+      "net": "USB_LOGIC_SENSE",
+      "routed": true,
+      "source": [
+        "U34",
+        "5"
+      ]
+    },
+    {
+      "expanded_nodes": 0,
+      "net": "DISPLAY_CLEAR_3",
+      "routed": false,
+      "source": [
+        "U52",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 23,
+      "net": "TEMP_OK",
+      "routed": false,
+      "source": [
+        "U39",
+        "4"
+      ]
+    },
+    {
+      "expanded_nodes": 813,
+      "net": "TEMP_OK",
+      "routed": false,
+      "source": [
+        "U39",
+        "6"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "USB_RAW_VBUS_VALID",
+      "routed": false,
+      "source": [
+        "TP22",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "USB_RAW_VBUS_VALID",
+      "routed": false,
+      "source": [
+        "U25",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "SYS_I2C_SCL",
+      "routed": false,
+      "source": [
+        "TP12",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "SYS_I2C_SCL",
+      "routed": false,
+      "source": [
+        "U3",
+        "11"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "SYS_I2C_SCL",
+      "routed": false,
+      "source": [
+        "U46",
+        "7"
+      ]
+    },
+    {
+      "expanded_nodes": 707,
+      "net": "CHARGER_EN2",
+      "routed": false,
+      "source": [
+        "U38",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "CHARGER_EN2",
+      "routed": false,
+      "source": [
+        "U41",
+        "5"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "VLED_WINDOW_OK",
+      "routed": false,
+      "source": [
+        "U55",
+        "6"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "DISPLAY_HEARTBEAT",
+      "routed": false,
+      "source": [
+        "U3",
+        "8"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "DISPLAY_HEARTBEAT",
+      "routed": false,
+      "source": [
+        "U47",
+        "4"
+      ]
+    },
+    {
+      "expanded_nodes": 0,
+      "net": "DISPLAY_HEARTBEAT",
+      "routed": false,
+      "source": [
+        "U48",
+        "2"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "ROW_ARM",
+      "routed": false,
+      "source": [
+        "U55",
+        "3"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "VLED_ENABLE_CANDIDATE",
+      "routed": false,
+      "source": [
+        "U55",
+        "7"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "USB_RAW_OUT2",
+      "routed": false,
+      "source": [
+        "U24",
+        "3"
+      ]
+    },
+    {
+      "expanded_nodes": 0,
+      "net": "USB_RAW_OUT2",
+      "routed": false,
+      "source": [
+        "U31",
+        "8"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "HEARTBEAT_FALL_CLK",
+      "routed": false,
+      "source": [
+        "U49",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "DISPLAY_ARM_CLK",
+      "routed": false,
+      "source": [
+        "U3",
+        "9"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "DISPLAY_ARM_CLK",
+      "routed": false,
+      "source": [
+        "U50",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "ROW_ENABLE_N",
+      "routed": false,
+      "source": [
+        "U2",
+        "23"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "ROW_ENABLE_N_CANDIDATE",
+      "routed": false,
+      "source": [
+        "U54",
+        "3"
+      ]
+    },
+    {
+      "expanded_nodes": 1732,
+      "net": "SYS_I2C_SDA",
+      "routed": false,
+      "source": [
+        "TP11",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 78462,
+      "net": "SYS_I2C_SDA",
+      "routed": true,
+      "source": [
+        "U3",
+        "10"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "SYS_I2C_SDA",
+      "routed": false,
+      "source": [
+        "U46",
+        "6"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "APP_SUPERVISOR_OK",
+      "routed": false,
+      "source": [
+        "U51",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "ESP_EN",
+      "routed": false,
+      "source": [
+        "R43",
+        "2"
+      ]
+    },
+    {
+      "expanded_nodes": 893,
+      "net": "ESP_EN",
+      "routed": false,
+      "source": [
+        "TP2",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "ESP_EN",
+      "routed": false,
+      "source": [
+        "U3",
+        "3"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "ESP_EN",
+      "routed": false,
+      "source": [
+        "U51",
+        "3"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "USB_RAW_LOGIC_READY",
+      "routed": false,
+      "source": [
+        "R78",
+        "2"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "USB_RAW_LOGIC_READY",
+      "routed": false,
+      "source": [
+        "TP23",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "USB_RAW_LOGIC_READY",
+      "routed": false,
+      "source": [
+        "U25",
+        "3"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "USB_RAW_LOGIC_READY",
+      "routed": false,
+      "source": [
+        "U34",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "USB_RAW_LOGIC_READY",
+      "routed": false,
+      "source": [
+        "U43",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 644,
+      "net": "CHARGER_GATE_EN",
+      "routed": true,
+      "source": [
+        "R95",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "CHARGER_GATE_EN",
+      "routed": false,
+      "source": [
+        "TP35",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 14454,
+      "net": "CHARGER_GATE_EN",
+      "routed": true,
+      "source": [
+        "U40",
+        "4"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "CHARGER_GATE_EN",
+      "routed": false,
+      "source": [
+        "U42",
+        "4"
+      ]
+    },
+    {
+      "expanded_nodes": 3840,
+      "net": "CHARGER_GATE_EN",
+      "routed": true,
+      "source": [
+        "U43",
+        "4"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "CHARGER_GATE_EN",
+      "routed": false,
+      "source": [
+        "U44",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "CHARGER_GATE_EN",
+      "routed": false,
+      "source": [
+        "U44",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "USB_OUT1",
+      "routed": false,
+      "source": [
+        "U24",
+        "6"
+      ]
+    },
+    {
+      "expanded_nodes": 893,
+      "net": "USB_RAW_OUT1",
+      "routed": false,
+      "source": [
+        "TP20",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "USB_RAW_OUT1",
+      "routed": false,
+      "source": [
+        "U24",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 0,
+      "net": "USB_RAW_OUT1",
+      "routed": false,
+      "source": [
+        "U31",
+        "7"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "ROW_ENABLE_REQ_N",
+      "routed": false,
+      "source": [
+        "TP7",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "ROW_ENABLE_REQ_N",
+      "routed": false,
+      "source": [
+        "U3",
+        "12"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "ROW_ENABLE_REQ_N",
+      "routed": false,
+      "source": [
+        "U54",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "ROW_ENABLE_REQ_N",
+      "routed": false,
+      "source": [
+        "U54",
+        "2"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "GAUGE_I2C_SDA",
+      "routed": false,
+      "source": [
+        "U35",
+        "8"
+      ]
+    },
+    {
+      "expanded_nodes": 67662,
+      "net": "GAUGE_I2C_SDA",
+      "rejected_reason": "existing_pad_cluster_split_after_zone_refill",
+      "routed": false,
+      "source": [
+        "U46",
+        "3"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "GAUGE_I2C_SCL",
+      "routed": false,
+      "source": [
+        "U35",
+        "7"
+      ]
+    },
+    {
+      "expanded_nodes": 54815,
+      "net": "GAUGE_I2C_SCL",
+      "rejected_reason": "existing_pad_cluster_split_after_zone_refill",
+      "routed": false,
+      "source": [
+        "U46",
+        "2"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "ROW_A2",
+      "routed": false,
+      "source": [
+        "U2",
+        "21"
+      ]
+    },
+    {
+      "expanded_nodes": 60735,
+      "net": "ROW_A2",
+      "routed": true,
+      "source": [
+        "U3",
+        "6"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "ROW_A3",
+      "routed": false,
+      "source": [
+        "U2",
+        "22"
+      ]
+    },
+    {
+      "expanded_nodes": 84996,
+      "net": "ROW_A3",
+      "routed": true,
+      "source": [
+        "U3",
+        "7"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "ROW_A0",
+      "routed": false,
+      "source": [
+        "U2",
+        "2"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "ROW_A0",
+      "routed": false,
+      "source": [
+        "U3",
+        "4"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "ROW_A1",
+      "routed": false,
+      "source": [
+        "U2",
+        "3"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "ROW_A1",
+      "routed": false,
+      "source": [
+        "U3",
+        "5"
+      ]
+    },
+    {
+      "expanded_nodes": 10566,
+      "net": "USB_CHARGE_REQ",
+      "routed": true,
+      "source": [
+        "U17",
+        "4"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "USB_CHARGE_REQ",
+      "routed": false,
+      "source": [
+        "U23",
+        "2"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "DISPLAY_ENABLE",
+      "routed": false,
+      "source": [
+        "TP10",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "DISPLAY_ENABLE",
+      "routed": false,
+      "source": [
+        "U3",
+        "17"
+      ]
+    },
+    {
+      "expanded_nodes": 0,
+      "net": "DISPLAY_ENABLE",
+      "routed": false,
+      "source": [
+        "U52",
+        "2"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "DISPLAY_ENABLE",
+      "routed": false,
+      "source": [
+        "U55",
+        "2"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "USB_EN1_RAW_N",
+      "routed": false,
+      "source": [
+        "TP31",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "USB_EN1_RAW_N",
+      "routed": false,
+      "source": [
+        "U23",
+        "4"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "HEARTBEAT_SEEN",
+      "routed": false,
+      "source": [
+        "U50",
+        "2"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "DISPLAY_CLEAR_OK",
+      "routed": false,
+      "source": [
+        "U49",
+        "6"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "DISPLAY_CLEAR_OK",
+      "routed": false,
+      "source": [
+        "U50",
+        "6"
+      ]
+    },
+    {
+      "expanded_nodes": 0,
+      "net": "DISPLAY_CLEAR_OK",
+      "routed": false,
+      "source": [
+        "U52",
+        "4"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "MODE_BOOT_N",
+      "routed": false,
+      "source": [
+        "SW1",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "MODE_BOOT_N",
+      "routed": false,
+      "source": [
+        "SW1",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "MODE_BOOT_N",
+      "routed": false,
+      "source": [
+        "TP3",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "MODE_BOOT_N",
+      "routed": false,
+      "source": [
+        "U3",
+        "27"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "MODE_BOOT_N",
+      "routed": false,
+      "source": [
+        "U51",
+        "6"
+      ]
+    }
+  ],
+  "source_sha256": "c668d3e58ba2f66549c0378ee541acb6622769c686b04d2d9bb9b030dab12efe",
+  "status": "UNQUALIFIED_LOCAL_CONTROL_STUDY",
+  "tracks_and_vias": 14483,
+  "width_mm": 0.2
+}

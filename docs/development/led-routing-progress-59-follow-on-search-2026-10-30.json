@@ -1,0 +1,454 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_tracks_and_vias": 0,
+  "allowed_nets": [
+    "CHARGER_EN2",
+    "DISPLAY_CLEAR_OK",
+    "DISPLAY_ENABLE",
+    "DISPLAY_HEARTBEAT",
+    "ESP_EN",
+    "LED_GCLK",
+    "LED_LAT",
+    "LED_SCLK",
+    "ROW_GATE_00",
+    "ROW_GATE_02",
+    "ROW_GATE_03",
+    "ROW_GATE_04",
+    "ROW_GATE_06",
+    "ROW_GATE_07",
+    "USB_EN1_RAW_N"
+  ],
+  "board_sha256": "8f8b5ef2c3395a7ebd3b28fdfb2a6ff50c8d6e30b0df71d609408c034f992071",
+  "clearance_mm": 0.2,
+  "connected_copper_endpoints": true,
+  "digital_width_policy": {
+    "clearance_mm": 0.2,
+    "focus": [
+      "CHARGER_EN2",
+      "DISPLAY_CLEAR_3",
+      "DISPLAY_CLEAR_OK",
+      "DISPLAY_ENABLE",
+      "DISPLAY_HEARTBEAT",
+      "ESP_EN",
+      "HEARTBEAT_FALL_CLK",
+      "HEARTBEAT_SEEN",
+      "LED_GCLK",
+      "LED_LAT",
+      "LED_SCLK",
+      "LED_SOUT",
+      "ROW_ENABLE_N_CANDIDATE",
+      "ROW_GATE_00",
+      "ROW_GATE_02",
+      "ROW_GATE_03",
+      "ROW_GATE_04",
+      "ROW_GATE_06",
+      "ROW_GATE_07",
+      "TEMP_OK",
+      "UART0_TX",
+      "USB_EN1_RAW_N",
+      "USB_RAW_OUT2",
+      "VLED_ENABLE_CANDIDATE"
+    ],
+    "maximum_narrow_track_length_per_net_mm": 120,
+    "unchanged_exact_supply_necks": 2,
+    "width_mm": 0.12
+  },
+  "exact_native_grid_fallback": true,
+  "fabrication_release_allowed": false,
+  "grid_mm": 0.05,
+  "heuristic": "eight_neighbour_biased_bidirectional_feasibility_forward_empty-grid_reverse_manhattan_not_optimal",
+  "heuristic_sha256": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4",
+  "heuristic_storage_bytes": 33963336,
+  "kicad_version": "10.0.6",
+  "max_nodes": 700000,
+  "microvia_diameter_drill_mm": [
+    0.3,
+    0.1
+  ],
+  "native_grid_statistics": {
+    "native_clear_masked_edges": 13373,
+    "native_clear_masked_points": 5645,
+    "native_edge_queries": 13373,
+    "native_point_queries": 304922
+  },
+  "native_rules_sha256": "80c92b0cdef868dd0ef0037aa2f63d1266f709a2dd0326094735c75ffbd31a2e",
+  "open_edges": 59,
+  "preserve_clusters_after_each_join": true,
+  "profile_sha256": "1141b004ecffd1e7e8e0c30cf21aeae7ce6381093df674998133d226ab9c27fb",
+  "reverse_search": false,
+  "routes": [
+    {
+      "expanded_nodes": 1653,
+      "net": "ROW_GATE_02",
+      "routed": false,
+      "search_outcome": "exhausted_grid",
+      "source": [
+        "R8",
+        "2"
+      ],
+      "usable_anchor_cells": 476,
+      "usable_source_cells": 436
+    },
+    {
+      "expanded_nodes": 952,
+      "net": "ROW_GATE_00",
+      "routed": false,
+      "search_outcome": "exhausted_grid",
+      "source": [
+        "R6",
+        "2"
+      ],
+      "usable_anchor_cells": 476,
+      "usable_source_cells": 218
+    },
+    {
+      "expanded_nodes": 1014,
+      "net": "ROW_GATE_04",
+      "routed": false,
+      "search_outcome": "exhausted_grid",
+      "source": [
+        "R10",
+        "2"
+      ],
+      "usable_anchor_cells": 507,
+      "usable_source_cells": 736
+    },
+    {
+      "expanded_nodes": 17272,
+      "net": "ROW_GATE_06",
+      "routed": false,
+      "search_outcome": "exhausted_grid",
+      "source": [
+        "R12",
+        "2"
+      ],
+      "usable_anchor_cells": 963,
+      "usable_source_cells": 782
+    },
+    {
+      "expanded_nodes": 62390,
+      "net": "ROW_GATE_07",
+      "routed": false,
+      "search_outcome": "exhausted_grid",
+      "source": [
+        "R13",
+        "2"
+      ],
+      "usable_anchor_cells": 926,
+      "usable_source_cells": 793
+    },
+    {
+      "expanded_nodes": 1678,
+      "net": "CHARGER_EN2",
+      "routed": false,
+      "search_outcome": "exhausted_grid",
+      "source": [
+        "U38",
+        "1"
+      ],
+      "usable_anchor_cells": 3231,
+      "usable_source_cells": 419
+    },
+    {
+      "expanded_nodes": 5462,
+      "net": "ROW_GATE_03",
+      "routed": false,
+      "search_outcome": "exhausted_grid",
+      "source": [
+        "R9",
+        "2"
+      ],
+      "usable_anchor_cells": 929,
+      "usable_source_cells": 132
+    },
+    {
+      "expanded_nodes": 19,
+      "net": "DISPLAY_HEARTBEAT",
+      "routed": false,
+      "search_outcome": "exhausted_grid",
+      "source": [
+        "U48",
+        "2"
+      ],
+      "usable_anchor_cells": 7593,
+      "usable_source_cells": 10
+    },
+    {
+      "expanded_nodes": 131,
+      "net": "LED_LAT",
+      "routed": false,
+      "search_outcome": "exhausted_grid",
+      "source": [
+        "U1",
+        "27"
+      ],
+      "usable_anchor_cells": 12208,
+      "usable_source_cells": 66
+    },
+    {
+      "expanded_nodes": 700001,
+      "net": "ESP_EN",
+      "routed": false,
+      "search_outcome": "node_bound",
+      "source": [
+        "U51",
+        "3"
+      ],
+      "usable_anchor_cells": 16265,
+      "usable_source_cells": 74
+    },
+    {
+      "expanded_nodes": 695,
+      "net": "LED_GCLK",
+      "routed": false,
+      "search_outcome": "exhausted_grid",
+      "source": [
+        "U1",
+        "29"
+      ],
+      "usable_anchor_cells": 13121,
+      "usable_source_cells": 241
+    },
+    {
+      "expanded_nodes": 779,
+      "net": "LED_SCLK",
+      "routed": false,
+      "search_outcome": "exhausted_grid",
+      "source": [
+        "U1",
+        "28"
+      ],
+      "usable_anchor_cells": 1768,
+      "usable_source_cells": 191
+    },
+    {
+      "expanded_nodes": 23,
+      "net": "DISPLAY_ENABLE",
+      "routed": false,
+      "search_outcome": "exhausted_grid",
+      "source": [
+        "U52",
+        "2"
+      ],
+      "usable_anchor_cells": 28974,
+      "usable_source_cells": 12
+    },
+    {
+      "expanded_nodes": 284573,
+      "net": "USB_EN1_RAW_N",
+      "rejected_reason": "existing_pad_cluster_split_after_zone_refill",
+      "rejected_snapshot": {
+        "board_sha256": "fd8869bd89894531a54ae56db7e9dd869744564563561a1e89ebe2e764c6d011",
+        "path": "hardware/coupon/rev-a/build/native-control-search/r59-next-digital-rejected/USB_EN1_RAW_N-U23-4.kicad_pcb",
+        "physical_pad_groups": [
+          {
+            "anchor": [
+              "J1",
+              "A1_B12"
+            ],
+            "lost": [
+              [
+                "C5",
+                "2",
+                41350000,
+                13045000
+              ],
+              [
+                "C50",
+                "2",
+                56485000,
+                19295000
+              ],
+              [
+                "C51",
+                "2",
+                55285000,
+                17750000
+              ],
+              [
+                "R103",
+                "2",
+                31195000,
+                18325000
+              ]
+            ],
+            "net": "GND"
+          },
+          {
+            "anchor": [
+              "U55",
+              "8"
+            ],
+            "lost": [
+              [
+                "C4",
+                "1",
+                98170000,
+                17875000
+              ],
+              [
+                "C42",
+                "1",
+                94075000,
+                22750000
+              ],
+              [
+                "C67",
+                "1",
+                67150000,
+                750000
+              ],
+              [
+                "C68",
+                "1",
+                112150000,
+                26500000
+              ],
+              [
+                "C70",
+                "1",
+                98150000,
+                3250000
+              ],
+              [
+                "C73",
+                "1",
+                90150000,
+                21500000
+              ],
+              [
+                "R106",
+                "1",
+                94453742,
+                26250001
+              ],
+              [
+                "R42",
+                "1",
+                108987500,
+                9345000
+              ],
+              [
+                "U1",
+                "43",
+                83250000,
+                1100000
+              ],
+              [
+                "U2",
+                "1",
+                111712500,
+                1075000
+              ],
+              [
+                "U2",
+                "24",
+                105987500,
+                1075000
+              ],
+              [
+                "U32",
+                "8",
+                104000000,
+                20600000
+              ],
+              [
+                "U36",
+                "1",
+                103865000,
+                4750000
+              ],
+              [
+                "U48",
+                "6",
+                63850000,
+                650000
+              ],
+              [
+                "U49",
+                "2",
+                112675000,
+                24250000
+              ],
+              [
+                "U49",
+                "7",
+                111325000,
+                23750000
+              ],
+              [
+                "U49",
+                "8",
+                112000000,
+                23600000
+              ],
+              [
+                "U51",
+                "5",
+                97325000,
+                1250000
+              ],
+              [
+                "U52",
+                "6",
+                68850000,
+                650000
+              ],
+              [
+                "U54",
+                "8",
+                92000000,
+                18625000
+              ]
+            ],
+            "net": "+3V3_APP"
+          }
+        ]
+      },
+      "routed": false,
+      "search_outcome": "existing_pad_cluster_split_after_zone_refill",
+      "source": [
+        "U23",
+        "4"
+      ],
+      "usable_anchor_cells": 1868,
+      "usable_source_cells": 1116
+    },
+    {
+      "expanded_nodes": 700001,
+      "net": "DISPLAY_CLEAR_OK",
+      "routed": false,
+      "search_outcome": "node_bound",
+      "source": [
+        "U50",
+        "6"
+      ],
+      "usable_anchor_cells": 1684,
+      "usable_source_cells": 290
+    },
+    {
+      "expanded_nodes": 19,
+      "net": "DISPLAY_CLEAR_OK",
+      "routed": false,
+      "search_outcome": "exhausted_grid",
+      "source": [
+        "U52",
+        "4"
+      ],
+      "usable_anchor_cells": 1684,
+      "usable_source_cells": 10
+    }
+  ],
+  "search_tool_sha256": "f947fc470887a93055ec8f87522e9b85a36442258ad9772ee9d1dd969680277c",
+  "source_sha256": "a28258edac032d3dd047f2d7404c0752b25c472af4236b4618b3854717ddfc62",
+  "status": "UNQUALIFIED_LOCAL_CONTROL_STUDY",
+  "tool_source_sha256": {
+    "hardware/coupon/rev-a/build/native-control-search/r60-diagonal-digital-controls.py": "f947fc470887a93055ec8f87522e9b85a36442258ad9772ee9d1dd969680277c",
+    "tools/generate-colour-fanout-grid-trial.py": "8bca8c0edd3d981dadb5f3fca8b34689bc3280a1e7e3fdbcb3780b59f1aa76f2",
+    "tools/generate-paired-charger-114mm-routing.py": "807eaba5aea8e92ecbf514ca16ab767c30d006703c6697a9fec10cf2e46e1441",
+    "tools/routing_clearance.py": "d1797c13ac7f5df4d066fc5e245fb143a67f002ad6bf7c0a67b96ff456d7db91",
+    "tools/routing_goal_distance.py": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4"
+  },
+  "tracks_and_vias": 18324,
+  "width_mm": 0.12
+}
