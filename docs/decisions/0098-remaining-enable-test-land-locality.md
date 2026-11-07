@@ -3,7 +3,7 @@
 # ADR 0098: Remaining isolated enable test lands
 
 Date: 2026-11-07
-Status: Accepted for ignored bounded feasibility; no successor selected.
+Status: TP14 selected with ADR 0099 in the 38-open successor; TP13 remains fixed.
 
 Extend ADR 0055's feasibility scope only for the still-isolated TP13
 (VLED_ENABLE_CANDIDATE) and TP14 (ROW_ENABLE_N_CANDIDATE) in the validated
@@ -34,3 +34,10 @@ pad-copper rejections, with 496 obstructed lead paths; TP13 counts are 7,013,
 763 and 92 respectively. Lead counts are paths, not additional poses. No
 test land is selected or moved in the accepted source. These finite shapes
 do not rule out a wider coordinated contact-preserving rework.
+
+ADR 0099 subsequently selects TP14 at (93.500,22.000) mm with an exact
+3.125 mm ordinary B.Cu lead, after a bounded permission-lead replacement.
+This is a coordinated change beyond the preceding fixed-copper screen.
+TP14 prior isolation/no-contact, all earlier groups/copper outside the exact
+replacement, full native/source/replay and 25 fault checks pass. TP13 and all
+other historical test-land poses remain unchanged.

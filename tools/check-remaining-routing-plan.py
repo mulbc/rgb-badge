@@ -14,11 +14,15 @@ def main():
  assert m['native_actual_copper_endpoint_fixture_passed']
  assert m['ground_plane_replacement_witness']['single_individual_bcu_ground_component']
  assert m['ground_plane_replacement_witness']['boundary_contact_count']==5 and m['ground_plane_replacement_witness']['both_endpoint_disks_touch']
+ assert m['permission_lead_replacement_witness']['boundary_contact_count']==4
+ assert m['permission_lead_replacement_witness']['both_outer_endpoints_retained'] and m['permission_lead_replacement_witness']['all_original_bcu_contacts_retained']
+ assert m['permission_lead_replacement_witness']['tp14_previous_isolation_and_no_copper_contact']
+ assert m['permission_lead_replacement_witness']['tp14_joined_pad']==['U54','3'] and m['permission_lead_replacement_witness']['tp14_lead_length_mm']<=5
  assert m['inherited_original_orphan_restoration']['only_three_exact_original_orphan_warnings']
  assert m['inherited_original_orphan_restoration']['basis']=='IMMUTABLE_43_OPEN_PARENT'
  assert m['inherited_original_orphan_restoration']['board_sha256']==policy.PARENT_SHA
  assert m['selected_retirement_probe']['source_unchanged'] and m['selected_retirement_probe']['status']=='REJECTED_COUNTERFACTUAL_NOT_SELECTED_SOURCE'
- assert len(m['isolated_fault_guards'])==18 and all(row['rejected'] for row in m['isolated_fault_guards'])
+ assert len(m['isolated_fault_guards'])==25 and all(row['rejected'] for row in m['isolated_fault_guards'])
  for path,digest in m['tool_sha256'].items():assert policy.sha(policy.ROOT/path)==digest,path
  for ext,key in [('.kicad_pro','project_sha256'),('.kicad_dru','rules_sha256')]:
   assert policy.sha(policy.OUTPUT.with_suffix(ext))==m[key]

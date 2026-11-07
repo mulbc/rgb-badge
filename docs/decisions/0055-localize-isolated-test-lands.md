@@ -28,3 +28,8 @@ Panasonic's exact-part page, ERJ datasheet and recommended lands were rechecked:
 Any selection still requires exact poses/leads, prior test-land isolation, stable lower independent counts, unchanged full DRC, replay and fault evidence; the canonical selection above remains four lands until that gate passes. UART loading/return/timing and probe/fixture/mechanical access remain engineering holds, and independent Gate A precedes fabrication.
 
 The joint screen found 584 geometrically valid trial poses and no complete input/output reconnection. A diagonal six-layer follow-up found 62 valid trial poses and no completed reconnection. No R47/TP4 move is selected; all four accepted test-land poses remain unchanged. These finite screens do not prove that placement is impossible.
+
+The 2026-11-07 ADR 0098/0099 successor separately selects TP14 after an exact
+permission-lead replacement. The original four-land catalog and historical
+65-edge source stay immutable; TP13 remains fixed. See the later decisions
+for the explicit 5 mm bound and complete new successor validation.

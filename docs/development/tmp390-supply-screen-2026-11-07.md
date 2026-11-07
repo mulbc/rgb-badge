@@ -2,9 +2,12 @@
 
 # TMP390 supply escape: bounded screen, no placement selected
 
-The selected source remains the **39-open** checkpoint in commit `772c83a`,
+This historical screen uses the **39-open** checkpoint in commit `772c83a`,
 SHA `aab8f44a9ec3ae65aed4ee2500d52d57d4d3872c8428b8f50c765bfedd205a1e`.
-U39.5 remains disconnected. This is a finite CAD screen, with no built board,
+U39.5 remains disconnected. The later [selected successor](remaining-routing-2026-11-07.md)
+retains the sensor geometry. Reproducing this screen requires the recorded
+39-open bytes through its `--source` option; its hash guard rejects later
+boards. This is a finite CAD screen, with no built board,
 powered hardware, firmware revision or bench measurement.
 
 [ADR 0097](../decisions/0097-bounded-temperature-cluster-supply-study.md)

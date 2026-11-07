@@ -475,3 +475,15 @@ ADR 0098 permits only ignored TP13/TP14 locality trials with their existing
 no-contact proof, all existing copper/groups/other poses, numbered-pad joins
 and full successor validation precede selection. Hardware permissions and
 current/protection limits do not change; probe/loading/fit remain unqualified.
+
+ADR 0099 permits only the exact three-track USB_RAW_LOGIC_READY replacement
+beside U54 to enable an actual TP14 join under ADR 0098. Both outer endpoints,
+every original external B.Cu contact and all prior groups/other copper must
+survive; complete successor checks precede selection. Permission logic,
+current limits, defaults and protection are unchanged.
+
+ADR 0099 selects the 38-open successor: TP14 joins U54.3 with a 3.125 mm
+ordinary B.Cu lead, and the exact permission-lead replacement retains both
+outer endpoints and all four external contacts. All 227 prior groups and
+219 additions, unchanged full DRC, replay/fills, 25 fault guards and 27 source
+checks pass. TP13 stays fixed; all qualification/fabrication holds remain.

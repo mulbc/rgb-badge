@@ -69,7 +69,28 @@ def main():
  assert results[-1]['reason']=='Plane replacement boundary inventory differs'
 
 
- assert policy.sha(source)==before and len(results)==18
+ case('row-enable-probe-open',disconnect('ROW_ENABLE_N_CANDIDATE',[('TP14','1'),('U54','3')]))
+ case('permission-lead-open',disconnect('USB_RAW_LOGIC_READY',[('U43','1'),('U25','3')]))
+ def restore_permission(b):
+  row=plan['permission_lead_replacement']['original_copper'][0];_,net,x,y,a,z,layer,width=row
+  t=p.PCB_TRACK(b);t.SetStart(p.VECTOR2I(x,y));t.SetEnd(p.VECTOR2I(a,z));t.SetLayer(b.GetLayerID(layer));t.SetWidth(width);t.SetNetCode(b.FindNet(net).GetNetCode());b.Add(t)
+ case('obsolete-permission-lead-reintroduced',restore_permission)
+ def lose_permission_endpoint(b):
+  row=plan['permission_lead_replacement']['replacement'][0]
+  t=next(t for t in b.GetTracks() if list(policy.signature(b,t))==row);t.SetStart(p.VECTOR2I(92900000,18650000));changed=list(policy.signature(b,t));other=json.loads(json.dumps(plan));other['added_copper'].remove(row);other['added_copper'].append(changed);other['permission_lead_replacement']['replacement'][0]=changed;return other
+ case('permission-endpoint-lost-with-matching-ledger',lose_permission_endpoint)
+ assert results[-1]['reason']=='Permission outer endpoint lost'
+ case('tp14-remote-again',lambda b:b.FindFootprintByReference('TP14').SetPosition(p.VECTOR2I(*plan['poses']['TP14']['old_position_iu'])))
+ def omit_permission_contact(b):
+  other=json.loads(json.dumps(plan));other['permission_lead_replacement']['boundary_contacts'].pop();return other
+ case('permission-boundary-omitted-with-matching-copper',omit_permission_contact)
+ assert results[-1]['reason']=='Permission boundary inventory differs'
+ def contact_old_probe(b):
+  x,y=plan['poses']['TP14']['old_position_iu'];t=p.PCB_TRACK(b);t.SetStart(p.VECTOR2I(x,y));t.SetEnd(p.VECTOR2I(x+100000,y));t.SetLayer(p.B_Cu);t.SetWidth(200000);t.SetNetCode(b.FindNet('ROW_ENABLE_N_CANDIDATE').GetNetCode());b.Add(t);other=json.loads(json.dumps(plan));other['added_copper'].append(list(policy.signature(b,t)));return other
+ case('tp14-prior-contact-with-matching-ledger',contact_old_probe)
+ assert results[-1]['reason']=='TP14 prior copper-contact proof failed'
+
+ assert policy.sha(source)==before and len(results)==25
  (BUILD/'results.json').write_text(json.dumps({'SPDX-License-Identifier':'CERN-OHL-S-2.0','source_sha256':before,'cases':results,'fabrication_release_allowed':False},indent=2,sort_keys=True)+'\n')
- print('PASS eighteen remaining-routing faults, including real USB/supply disconnections')
+ print('PASS twenty-five remaining-routing faults, including real USB/supply disconnections')
 if __name__=='__main__':main()

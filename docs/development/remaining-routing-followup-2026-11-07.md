@@ -1,11 +1,12 @@
 <!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
 
-# Follow-up routing screens: no new checkpoint
+# Historical 39-open follow-up routing screens
 
-The accepted board remains commit `772c83a`, SHA
+These experiments use the historical accepted source in commit `772c83a`, SHA
 `aab8f44a9ec3ae65aed4ee2500d52d57d4d3872c8428b8f50c765bfedd205a1e`,
 with **39 native/physical opens and exactly 104 intrinsic findings**. No trial
-below is adopted. The board is unbuilt; there is no hardware measurement or
+below is adopted. The later [38-open successor](remaining-routing-2026-11-07.md)
+selects a different coordinated permission-lead replacement under ADR 0099. The board is unbuilt; there is no hardware measurement or
 firmware revision associated with these CAD screens. The zero-open goal and
 all electrical/process/thermal/stack/fit/Gate A holds remain open.
 
@@ -76,7 +77,7 @@ selection still requires an exact complete ledger, native/physical agreement,
 unchanged full DRC, source checks, replay/fills, faults and visual review.
 
 The [current open-group inventory](../../mechanical/review/remaining-open-pad-groups.json)
-is generated from actual native connectivity by
+is updated for the latest selected source from actual native connectivity by
 [the read-only reporter](../../tools/report-open-pad-groups.py). It lists
 numbered pads in every open net group and nearest pad-centre pairs, avoiding
 assumptions that two adjacent same-net pins must still be disconnected.

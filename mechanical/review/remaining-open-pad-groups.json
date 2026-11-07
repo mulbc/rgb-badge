@@ -1,10 +1,10 @@
 {
   "SPDX-License-Identifier": "CERN-OHL-S-2.0",
-  "all_named_pad_group_count": 227,
+  "all_named_pad_group_count": 226,
   "fabrication_release_allowed": false,
   "interpretation": "Actual native pad groups; distances are pad-centre geometry, not routes or electrical qualification",
   "named_net_count": 188,
-  "native_opens": 39,
+  "native_opens": 38,
   "nets": [
     {
       "groups": [
@@ -3108,53 +3108,6 @@
       "groups": [
         [
           {
-            "pin": "1",
-            "position_iu": [
-              34001262,
-              1000001
-            ],
-            "reference": "TP14",
-            "uuid": "41b79175-69fb-5adf-bfdf-d00daca5fcee"
-          }
-        ],
-        [
-          {
-            "pin": "3",
-            "position_iu": [
-              94250000,
-              19625000
-            ],
-            "reference": "U54",
-            "uuid": "6bd92d31-eaa0-55fe-8245-04550f9c4d83"
-          }
-        ]
-      ],
-      "nearest_pad_pairs": [
-        {
-          "groups": [
-            0,
-            1
-          ],
-          "pad_centre_distance_mm": 63.0618824516256,
-          "pads": [
-            [
-              "TP14",
-              "1"
-            ],
-            [
-              "U54",
-              "3"
-            ]
-          ]
-        }
-      ],
-      "net": "ROW_ENABLE_N_CANDIDATE",
-      "open_edges": 1
-    },
-    {
-      "groups": [
-        [
-          {
             "pin": "5",
             "position_iu": [
               74825000,
@@ -4774,8 +4727,8 @@
       "open_edges": 1
     }
   ],
-  "physical_opens": 39,
-  "source_sha256": "aab8f44a9ec3ae65aed4ee2500d52d57d4d3872c8428b8f50c765bfedd205a1e",
+  "physical_opens": 38,
+  "source_sha256": "01fb2e8a1ac781172797d369df99ff3c834016453ffeaa3d76c224b525355031",
   "source_unchanged": true,
   "tool_sha256": "fd6ad99c999b44d7c8c879e8203c078e077cd6995333aed000ab8bbbd2624662"
 }
