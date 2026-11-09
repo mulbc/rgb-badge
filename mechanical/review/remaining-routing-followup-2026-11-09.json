@@ -1,8 +1,9 @@
 {
   "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "basis_is_historical_checkpoint": true,
   "date": "2026-11-09",
   "fabrication_release_allowed": false,
-  "interpretation": "CAD calculations and finite shape/graph screens only; ignored raw scripts/reports are local evidence, not release artifacts or global impossibility proofs.",
+  "interpretation": "Historical 37-open basis, unchanged by the 17 listed unselected studies. ADR0105 separately selects the later 36-open C32 source. Finite CAD screens and local raw evidence are not global impossibility proofs or release artifacts.",
   "local_raw_scripts": {
     "hardware/coupon/rev-a/build/zero-open-routing/exact-centre-screen.py": "fc615cbb3e9f0150ead89495818ae8ed9228e7e75eebc9d5659ef51113239ec7",
     "hardware/coupon/rev-a/build/zero-open-routing/ground-In3-shortcut.py": "adedd1c5f337cbdb4749e2e6e1c9930916db525c32593e046802e852ba9de7c6",
@@ -857,6 +858,8 @@
       "source_sha256": "f209c0ca8bcfcbd44a3eae51c6d291164131c5069eefa75d10a034c9b0643622"
     }
   ],
+  "subsequent_selected_opens": 36,
+  "subsequent_selected_source_sha256": "a24e9220226b77411ae8e8baea5cd629ce0fea8a97c377a708510d6791c2e439",
   "visual_review": {
     "crops": [
       "hardware/coupon/rev-a/build/zero-open-routing/plane-cut-views/top-B.png",

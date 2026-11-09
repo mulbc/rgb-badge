@@ -2,10 +2,12 @@
 
 # Remaining-routing follow-up at the 37-open source
 
-The selected source remains commit `e17fa35`, PCB SHA
+This historical record uses the preceding source at commit `e17fa35`, PCB SHA
 `ed6d3ff570f2481b47423d8375d9d4a40d756145cdd49e2c222bacc36edbfa57`,
 with **37 native/physical opens and the unchanged 104 intrinsic findings**.
-None of the following ignored trials is selected. These are finite CAD
+None of the following ignored trials is selected. The later
+[C32 successor](c32-microplacement-2026-11-09.md) separately reaches 36 opens.
+These are finite CAD
 calculations and native shape/connectivity screens, with no hardware or
 firmware measurement. The zero-open goal remains in progress; all existing
 qualification and independent Gate A holds still prohibit fabrication.

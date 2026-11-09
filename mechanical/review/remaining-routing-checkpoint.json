@@ -3,7 +3,7 @@
   "added_copper_items": 226,
   "all_231_parent_groups_preserved": true,
   "board": "hardware/coupon/rev-a/staging/led-remaining-routing-trial-114mm.kicad_pcb",
-  "board_sha256": "ed6d3ff570f2481b47423d8375d9d4a40d756145cdd49e2c222bacc36edbfa57",
+  "board_sha256": "a24e9220226b77411ae8e8baea5cd629ce0fea8a97c377a708510d6791c2e439",
   "by_net": {
     "+3V3_USB": 1,
     "+BAT_GAUGE_SW": 2,
@@ -14,7 +14,7 @@
     "DISPLAY_ENABLE": 1,
     "DISPLAY_HEARTBEAT": 1,
     "ESP_EN": 1,
-    "GND": 3,
+    "GND": 2,
     "HEARTBEAT_FALL_CLK": 1,
     "HEARTBEAT_SEEN": 1,
     "LED_GCLK": 1,
@@ -33,9 +33,60 @@
     "VBUS_CONNECTOR": 1,
     "VLED": 7
   },
+  "capacitor_ground_neck_calculation": {
+    "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+    "disk_centre_iu": [
+      90000000,
+      10925000
+    ],
+    "fabrication_release_allowed": false,
+    "filled_component_index": 33,
+    "filled_intervals_y_iu": [
+      [
+        10801000,
+        11049000
+      ]
+    ],
+    "firmware_revision": "Not applicable",
+    "hardware_revision": "Unbuilt Coupon Rev A CAD",
+    "interpretation": "CAD polygon calculation, not a hardware measurement or current/return qualification",
+    "local_0p20mm_disk_verified_by_erosion": true,
+    "sample_step_iu": 1000,
+    "setup": {
+      "kicad_version": "10.0.6",
+      "method": "Native filled-component vertical Contains sampling at 1 um; polygon erosion by 0.100 mm; unchanged board/profile."
+    },
+    "source_sha256": "a24e9220226b77411ae8e8baea5cd629ce0fea8a97c377a708510d6791c2e439",
+    "x_iu": 90000000,
+    "zone_minimum_thickness_iu": 250000,
+    "zone_uuid": "81b0abb6-bbba-5f7c-9599-18e6b0c72e0e"
+  },
+  "capacitor_microplacement_witness": {
+    "contact_count": 1,
+    "displacement_iu": [
+      0,
+      -250000
+    ],
+    "filled_component_index": 33,
+    "historical_ground_isolated": true,
+    "historical_source_copper_retained": true,
+    "joined_pad": [
+      "U35",
+      "9"
+    ],
+    "original_direct_land_contacts_retained": true,
+    "reference": "C32",
+    "retained_main_ground_copper_uuid": "07b3115d-2653-5240-a616-04176b0f73fb",
+    "single_individual_bcu_ground_component": true,
+    "source_commit": "e17fa35733158734a4276d1731dc6819258ba8ac",
+    "source_sha256": "ed6d3ff570f2481b47423d8375d9d4a40d756145cdd49e2c222bacc36edbfa57",
+    "zone_uuid": "81b0abb6-bbba-5f7c-9599-18e6b0c72e0e"
+  },
   "checker_sha256": "d2f81b3e0040192cf24df018c6a3cecb292105d837d8f497f6303a8578ec8fb3",
-  "date": "2026-11-07",
-  "drc_sha256": "4b7a37bdbffb8e794f1b1df3ab0c0c3312ec6434569f69a873e4134e6ce639f4",
+  "copper_items_added_since_previous": 0,
+  "copper_items_removed_since_previous": 0,
+  "date": "2026-11-09",
+  "drc_sha256": "00f2f7ac2932491089d4e5c9495e8ee1c6823cd9149662f321023447bfd29446",
   "fabrication_release_allowed": false,
   "goal_status": "IN_PROGRESS_ZERO_OPEN_GOAL",
   "ground_plane_replacement_witness": {
@@ -68,7 +119,7 @@
     "native_opens": 43,
     "only_three_exact_original_orphan_warnings": true
   },
-  "interpretation": "Unconnected pad clusters minus one per net; no electrical or manufacturability qualification",
+  "interpretation": "Unbuilt Coupon Rev A CAD continuity only. C32 translation joins main ground through one filled B.Cu component with all preceding contacts/groups/copper retained; zero-open and electrical/process/stack/fit/Gate A work remain ongoing.",
   "intrinsic_findings": 104,
   "isolated_fault_guards": [
     {
@@ -220,6 +271,36 @@
       "case": "tp13-forged-historical-isolation",
       "reason": "Test-land historical isolation group differs",
       "rejected": true
+    },
+    {
+      "case": "c32-actual-ground-open-with-matching-ledger",
+      "reason": "Actual C32 ground join missing",
+      "rejected": true
+    },
+    {
+      "case": "c32-contact-omitted-with-matching-copper",
+      "reason": "Original C32 contact inventory differs",
+      "rejected": true
+    },
+    {
+      "case": "c32-outside-bound-with-matching-ledger",
+      "reason": "C32 translation exceeds 0.25 mm",
+      "rejected": true
+    },
+    {
+      "case": "c32-forged-historical-source",
+      "reason": "C32 historical source differs",
+      "rejected": true
+    },
+    {
+      "case": "c32-contact-guard-omitted",
+      "reason": "C32 contact guard missing",
+      "rejected": true
+    },
+    {
+      "case": "c32-silent-packaging-substitution",
+      "reason": "Part fields changed",
+      "rejected": true
     }
   ],
   "legacy_centre_microvias_unresolved": 557,
@@ -334,8 +415,8 @@
     }
   ],
   "native_actual_copper_endpoint_fixture_passed": true,
-  "native_open_edges": 37,
-  "native_opens": 37,
+  "native_open_edges": 36,
+  "native_opens": 36,
   "native_testpad_escape_witness": {
     "historical_isolation_source_sha256": "01fb2e8a1ac781172797d369df99ff3c834016453ffeaa3d76c224b525355031",
     "joined_pad": [
@@ -355,7 +436,7 @@
     ],
     "trace_length_mm": 3.857541315397672
   },
-  "pad_cluster_open_edges": 37,
+  "pad_cluster_open_edges": 36,
   "parent_sha256": "b847f59f8a13a63d8db7a3c2ed2e7efc37239edc03c16fe12adc8b5758b4d524",
   "permission_lead_replacement_witness": {
     "all_original_bcu_contacts_retained": true,
@@ -369,10 +450,22 @@
     "tp14_lead_length_mm": 3.125,
     "tp14_previous_isolation_and_no_copper_contact": true
   },
-  "physical_opens": 37,
-  "plan_sha256": "3c67da39c2f1fff08e627908974e231056bc2f07e5982786e71795d131b7b724",
-  "policy_sha256": "2b24e790aac446f4b3683cc6db21af7a89e266863550d714dc49acbe005f80d5",
+  "physical_opens": 36,
+  "plan_sha256": "c95a12b4ccc1d5b3ce0522149a3e8c3a33a85206a2be708b45f99ad181c9c125",
+  "policy_sha256": "85a7c614111c5ee2e0761dc9af6218698d8d3da85ca4087ca767505303ad7cb3",
   "poses": {
+    "C32": {
+      "angle_deg": 180,
+      "old_angle_deg": 180,
+      "old_position_iu": [
+        89250000,
+        10500000
+      ],
+      "position_iu": [
+        89250000,
+        10250000
+      ]
+    },
     "R90": {
       "angle_deg": 0,
       "old_angle_deg": 180.0,
@@ -411,18 +504,18 @@
     }
   },
   "previous_checkpoint_preserved": {
-    "added_copper_items": 223,
+    "added_copper_items": 226,
     "all_groups_and_added_copper_preserved": true,
-    "commit": "d6a36e8",
-    "group_count": 226,
-    "source_sha256": "01fb2e8a1ac781172797d369df99ff3c834016453ffeaa3d76c224b525355031"
+    "commit": "e17fa35733158734a4276d1731dc6819258ba8ac",
+    "group_count": 225,
+    "source_sha256": "ed6d3ff570f2481b47423d8375d9d4a40d756145cdd49e2c222bacc36edbfa57"
   },
   "project_sha256": "1141b004ecffd1e7e8e0c30cf21aeae7ce6381093df674998133d226ab9c27fb",
   "removed_copper_items": 9,
   "rules_sha256": "80c92b0cdef868dd0ef0037aa2f63d1266f709a2dd0326094735c75ffbd31a2e",
   "selected_retirement_probe": {
     "all_live_pad_groups_identical": true,
-    "drc_sha256": "d4480824c92e0b664b8d4b8991c22f72c517f0d05fc65e99c79355794a711b33",
+    "drc_sha256": "7ee0d2582d22deca808e15fa58ecb5d8049956759fa9d2939311f87fa12b3f9a",
     "drc_types": {
       "clearance": 104,
       "via_dangling": 3
@@ -495,7 +588,7 @@
         ]
       }
     ],
-    "native_opens": 37,
+    "native_opens": 36,
     "raw_report": "hardware/coupon/rev-a/build/remaining-routing/selected-retirement-probe.drc.json",
     "source_unchanged": true,
     "status": "REJECTED_COUNTERFACTUAL_NOT_SELECTED_SOURCE"
@@ -508,18 +601,19 @@
     "same_local_bcu_ground_polygon": true
   },
   "tool_sha256": {
-    "tools/check-remaining-routing-plan.py": "eaafc710b5ff8df6ba58b2a31724e825f407ad9c1ebb63e348ec1fb86d907395",
+    "tools/check-remaining-routing-plan.py": "0d982f71993168996bcf7addab6238a1d96624da76a3126d637148da1ef80d7d",
     "tools/check-remaining-routing.py": "d2f81b3e0040192cf24df018c6a3cecb292105d837d8f497f6303a8578ec8fb3",
     "tools/generate-remaining-routing.py": "32bd3d77c1a135b43b242a6afa005efd4b74961f501f3fcbb0db3ca03dd13b18",
     "tools/localize-tmp390-resistor.py": "7ea5b644f591f37db48a673093aa535f076fbbca6d9f5398fb237e0a5f2703de",
     "tools/report-open-pad-groups.py": "fd6ad99c999b44d7c8c879e8203c078e077cd6995333aed000ab8bbbd2624662",
+    "tools/routing_cap_microplacement.py": "0f683873fcee5344002b9106cd0866a72f160b83fd89d11dfc56728f588a32d9",
     "tools/routing_ground_plane.py": "b37af5b2659bc01127d8e8fa1cf400a79d62ca4f9172bc5c73f4238216310f32",
     "tools/routing_native_testpad.py": "c35548b5597362a41c9a92b790393f59b8423b3b38eeffb18d764e29b7285a73",
     "tools/routing_permission_lead.py": "384dd4db00c0cc327a9d618efa7890d26a8c742062dfbf787510beb442183e10",
-    "tools/routing_remaining.py": "2b24e790aac446f4b3683cc6db21af7a89e266863550d714dc49acbe005f80d5",
+    "tools/routing_remaining.py": "85a7c614111c5ee2e0761dc9af6218698d8d3da85ca4087ca767505303ad7cb3",
     "tools/search-routing-closure.py": "6c6b7fb3be76d03a65c35ddc78de9e0e2b33442042ba5a8aba17523a2de291b5",
     "tools/test-native-copper-endpoint.py": "338a517961c1828aed919bfcd4e67121471e9745e01483157087c9f6121e233e",
-    "tools/test-remaining-routing-guards.py": "a80667f85ae9870332656033c3caf6524f10f21a3608cb92880ff1631f325764"
+    "tools/test-remaining-routing-guards.py": "70711cd7be16f7f6f9a3aeae92351da6109625d70d4907168177d71a41e0614c"
   },
-  "visual_review": "Separate native B.Cu and In4.Cu views of exact U55.7 capture, unchanged window lead and TP13 diagonal connection inspected: ignored build/remaining-routing/37-tp13-{B_Cu,In4_Cu}.png"
+  "visual_review": "Native B.Cu before/after C32 views inspected: ignored build/remaining-routing/36-c32-views/c32-{old,new}-ground.png. The shifted supply land opens a filled ground corridor; no added track or via."
 }

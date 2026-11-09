@@ -2289,6 +2289,35 @@
       1
     ]
   ],
+  "capacitor_microplacement": {
+    "copper": [],
+    "joined_pad": [
+      "U35",
+      "9"
+    ],
+    "land_contacts": {
+      "9a46330f-5de7-5be4-be9d-61af98018036": [
+        {
+          "key": [
+            "copper",
+            "track",
+            "+3V3_USB",
+            90050000,
+            10500000,
+            93200000,
+            10500000,
+            "B.Cu",
+            200000
+          ],
+          "uuid": "e037136c-5457-59d0-8b7e-a2c3d68f7014"
+        }
+      ],
+      "ba72ae9f-535b-5177-9bc9-5b05cb9d46ec": []
+    },
+    "reference": "C32",
+    "source_commit": "e17fa35733158734a4276d1731dc6819258ba8ac",
+    "source_sha256": "ed6d3ff570f2481b47423d8375d9d4a40d756145cdd49e2c222bacc36edbfa57"
+  },
   "fabrication_release_allowed": false,
   "ground_plane_replacement": {
     "boundary_contacts": [
@@ -2601,9 +2630,19 @@
         "U55",
         "7"
       ]
+    ],
+    [
+      [
+        "C32",
+        "2"
+      ],
+      [
+        "U35",
+        "9"
+      ]
     ]
   ],
-  "native_opens": 37,
+  "native_opens": 36,
   "native_testpad_escape": {
     "copper": [
       [
@@ -2798,8 +2837,20 @@
       "reference": "TP14"
     }
   },
-  "physical_opens": 37,
+  "physical_opens": 36,
   "poses": {
+    "C32": {
+      "angle_deg": 180,
+      "old_angle_deg": 180,
+      "old_position_iu": [
+        89250000,
+        10500000
+      ],
+      "position_iu": [
+        89250000,
+        10250000
+      ]
+    },
     "R90": {
       "angle_deg": 0,
       "old_angle_deg": 180.0,
@@ -4820,6 +4871,16 @@
         200000
       ],
       [
+        "track",
+        "VLED_ENABLE_CANDIDATE",
+        26250000,
+        20875000,
+        23250000,
+        23300000,
+        "In4.Cu",
+        200000
+      ],
+      [
         "via",
         "+3V3_APP",
         13250000,
@@ -5093,10 +5154,32 @@
         300000,
         100000,
         1
+      ],
+      [
+        "via",
+        "VLED_ENABLE_CANDIDATE",
+        23250000,
+        23300000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000,
+        1
+      ],
+      [
+        "via",
+        "VLED_ENABLE_CANDIDATE",
+        26250000,
+        20875000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000,
+        1
       ]
     ],
-    "commit": "d6a36e8",
-    "native_opens": 38,
+    "commit": "e17fa35733158734a4276d1731dc6819258ba8ac",
+    "native_opens": 37,
     "pad_groups": [
       [
         "005d75a0-9491-5e66-96bc-7b12912c12d2",
@@ -6918,7 +7001,8 @@
         "e18e414c-22fc-578d-8dd2-502f3f385276"
       ],
       [
-        "2d0e0f1f-6b4c-58f2-a0b8-cb005e3ee52a"
+        "2d0e0f1f-6b4c-58f2-a0b8-cb005e3ee52a",
+        "f04cf68b-13eb-5671-bbbb-1aff43bce663"
       ],
       [
         "2de12132-f267-5d93-89c5-21c28eb0a775",
@@ -7364,17 +7448,14 @@
         "eb64ea84-3772-58e3-8b0a-d6acc7c49f03"
       ],
       [
-        "f04cf68b-13eb-5671-bbbb-1aff43bce663"
-      ],
-      [
         "f4080c82-b338-59ac-9640-d0b5cf65e411"
       ],
       [
         "fd81f748-60eb-5d66-8677-45190c27c41a"
       ]
     ],
-    "physical_opens": 38,
-    "source_sha256": "01fb2e8a1ac781172797d369df99ff3c834016453ffeaa3d76c224b525355031"
+    "physical_opens": 37,
+    "source_sha256": "ed6d3ff570f2481b47423d8375d9d4a40d756145cdd49e2c222bacc36edbfa57"
   },
   "removed_copper": [
     [

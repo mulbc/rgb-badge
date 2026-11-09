@@ -1,10 +1,10 @@
 {
   "SPDX-License-Identifier": "CERN-OHL-S-2.0",
-  "all_named_pad_group_count": 225,
+  "all_named_pad_group_count": 224,
   "fabrication_release_allowed": false,
   "interpretation": "Actual native pad groups; distances are pad-centre geometry, not routes or electrical qualification",
   "named_net_count": 188,
-  "native_opens": 37,
+  "native_opens": 36,
   "nets": [
     {
       "groups": [
@@ -58,7 +58,7 @@
             "pin": "1",
             "position_iu": [
               89925000,
-              10500000
+              10250000
             ],
             "reference": "C32",
             "uuid": "9a46330f-5de7-5be4-be9d-61af98018036"
@@ -1034,6 +1034,15 @@
             ],
             "reference": "C31",
             "uuid": "625939ac-431a-5810-9a71-4c7a58d740fc"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              88575000,
+              10250000
+            ],
+            "reference": "C32",
+            "uuid": "ba72ae9f-535b-5177-9bc9-5b05cb9d46ec"
           },
           {
             "pin": "2",
@@ -2705,17 +2714,6 @@
         ],
         [
           {
-            "pin": "2",
-            "position_iu": [
-              88575000,
-              10500000
-            ],
-            "reference": "C32",
-            "uuid": "ba72ae9f-535b-5177-9bc9-5b05cb9d46ec"
-          }
-        ],
-        [
-          {
             "pin": "1",
             "position_iu": [
               76675000,
@@ -2747,7 +2745,7 @@
         {
           "groups": [
             0,
-            3
+            2
           ],
           "pad_centre_distance_mm": 2.3814386408219717,
           "pads": [
@@ -2764,7 +2762,7 @@
         {
           "groups": [
             1,
-            3
+            2
           ],
           "pad_centre_distance_mm": 3.8420372200175263,
           "pads": [
@@ -2777,61 +2775,10 @@
               "1"
             ]
           ]
-        },
-        {
-          "groups": [
-            0,
-            2
-          ],
-          "pad_centre_distance_mm": 5.8784032695962605,
-          "pads": [
-            [
-              "U1",
-              "57"
-            ],
-            [
-              "C32",
-              "2"
-            ]
-          ]
-        },
-        {
-          "groups": [
-            1,
-            2
-          ],
-          "pad_centre_distance_mm": 12.668316778483241,
-          "pads": [
-            [
-              "U38",
-              "3"
-            ],
-            [
-              "C32",
-              "2"
-            ]
-          ]
-        },
-        {
-          "groups": [
-            2,
-            3
-          ],
-          "pad_centre_distance_mm": 14.013208055259865,
-          "pads": [
-            [
-              "C32",
-              "2"
-            ],
-            [
-              "PAIR01",
-              "1"
-            ]
-          ]
         }
       ],
       "net": "GND",
-      "open_edges": 3
+      "open_edges": 2
     },
     {
       "groups": [
@@ -4680,8 +4627,8 @@
       "open_edges": 7
     }
   ],
-  "physical_opens": 37,
-  "source_sha256": "ed6d3ff570f2481b47423d8375d9d4a40d756145cdd49e2c222bacc36edbfa57",
+  "physical_opens": 36,
+  "source_sha256": "a24e9220226b77411ae8e8baea5cd629ce0fea8a97c377a708510d6791c2e439",
   "source_unchanged": true,
   "tool_sha256": "fd6ad99c999b44d7c8c879e8203c078e077cd6995333aed000ab8bbbd2624662"
 }

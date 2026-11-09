@@ -537,3 +537,25 @@ ADR 0103's single-track replacement may also test B.Cu/In4.Cu routing with
 at most two additional adjacent microvias, retaining the same bounds, 12 mm
 combined length and all six original direct B.Cu contacts. Clearance between
 both proposed signal paths is mandatory; every other successor gate remains.
+
+ADR 0104 permits an ignored PAIR01-only translation of at most 0.25 mm,
+with fixed orientation and exact trial identity/local geometry. Every original
+same-net direct external land contact, all previous pad groups and every
+accepted copper item must survive. Ordinary routing and the existing adjacent/
+provisional buried-via geometry remain mandatory; no new central microvia,
+narrowing or retirement is permitted. Complete successor validation precedes
+selection; all electrical/process/fit/fabrication holds remain.
+
+ADR 0105 permits an ignored C32-only translation of at most 0.25 mm with
+fixed orientation and exact GRM188R60J106ME47D identity/local geometry.
+Every original external land contact, old pad group and accepted copper/net
+identity must survive. No colour retirement, narrowing, current-limit or
+profile change is permitted; ordinary routing and complete successor checks
+remain required before selection. All qualification/fabrication holds remain.
+
+ADR 0105 selects the 36-open successor at C32 centre (89.250,10.250) mm,
+with its exact original supply contact, all 225 prior groups and 226 additions
+retained. No copper is added or retired by this step. Actual main-ground
+component contact, exact unchanged DRC, stable replay/fills, 36 fault guards,
+27 source checks and native visual review pass; all qualification and
+fabrication holds remain.

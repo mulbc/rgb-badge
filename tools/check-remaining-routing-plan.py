@@ -26,7 +26,13 @@ def main():
  assert m['inherited_original_orphan_restoration']['basis']=='IMMUTABLE_43_OPEN_PARENT'
  assert m['inherited_original_orphan_restoration']['board_sha256']==policy.PARENT_SHA
  assert m['selected_retirement_probe']['source_unchanged'] and m['selected_retirement_probe']['status']=='REJECTED_COUNTERFACTUAL_NOT_SELECTED_SOURCE'
- assert len(m['isolated_fault_guards'])==30 and all(row['rejected'] for row in m['isolated_fault_guards'])
+ assert m['capacitor_microplacement_witness']['original_direct_land_contacts_retained']
+ assert m['capacitor_microplacement_witness']['contact_count']==1
+ assert m['capacitor_microplacement_witness']['historical_ground_isolated'] and m['capacitor_microplacement_witness']['historical_source_copper_retained']
+ assert m['capacitor_microplacement_witness']['single_individual_bcu_ground_component']
+ assert m['capacitor_microplacement_witness']['displacement_iu']==[0,-250000]
+ assert m['capacitor_microplacement_witness']['source_sha256']=='ed6d3ff570f2481b47423d8375d9d4a40d756145cdd49e2c222bacc36edbfa57'
+ assert len(m['isolated_fault_guards'])==36 and all(row['rejected'] for row in m['isolated_fault_guards'])
  for path,digest in m['tool_sha256'].items():assert policy.sha(policy.ROOT/path)==digest,path
  for ext,key in [('.kicad_pro','project_sha256'),('.kicad_dru','rules_sha256')]:
   assert policy.sha(policy.OUTPUT.with_suffix(ext))==m[key]

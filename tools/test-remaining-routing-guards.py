@@ -13,7 +13,7 @@ def main():
   b=p.LoadBoard(str(source));override=mutate(b);out=BUILD/(name+'.kicad_pcb');p.SaveBoard(str(out),b)
   for ext in ('.kicad_pro','.kicad_dru'):shutil.copyfile(source.with_suffix(ext),out.with_suffix(ext))
   try:policy.audit(out,override if isinstance(override,dict) else plan)
-  except AssertionError as e:results.append({'case':name,'rejected':True,'reason':str(e)})
+  except AssertionError as e:results.append({'case':name,'rejected':True,'reason':str(e)});print('REJECT',name,str(e),flush=True)
   else:raise AssertionError('Fault accepted: '+name)
  def selected(b,net,via=False):return [t for t in b.GetTracks() if t.GetNetname()==net and isinstance(t,p.PCB_VIA)==via and list(policy.signature(b,t)) in plan['added_copper']]
  def disconnect(net,refs):
@@ -105,7 +105,36 @@ def main():
  case('tp13-forged-historical-isolation',forge_isolation)
  assert results[-1]['reason']=='Test-land historical isolation group differs'
 
- assert policy.sha(source)==before and len(results)==30
+ def original_c32_pose(b):
+  other=json.loads(json.dumps(plan));position=plan['poses']['C32']['old_position_iu'];b.FindFootprintByReference('C32').SetPosition(p.VECTOR2I(*position));other['poses']['C32']['position_iu']=position
+  p.ZONE_FILLER(b).Fill(b.Zones());b.BuildConnectivity()
+  pad=lambda ref,n:next(q for q in b.FindFootprintByReference(ref).Pads() if q.GetNumber()==n)
+  group=lambda q:frozenset(x.m_Uuid.AsString() for x in b.GetConnectivity().GetConnectedItems(q) if isinstance(x,p.PAD))
+  assert group(pad('C32','2'))!=group(pad('U35','9')), 'Ground-disconnection fixture did not disconnect'
+  return other
+ case('c32-actual-ground-open-with-matching-ledger',original_c32_pose)
+ assert results[-1]['reason']=='Actual C32 ground join missing'
+ def omit_c32_contact(b):
+  other=json.loads(json.dumps(plan));contacts=other['capacitor_microplacement']['land_contacts'];next(rows for rows in contacts.values() if rows).pop();return other
+ case('c32-contact-omitted-with-matching-copper',omit_c32_contact)
+ assert results[-1]['reason']=='Original C32 contact inventory differs'
+ def c32_remote(b):
+  other=json.loads(json.dumps(plan));position=[89250000,10200000];b.FindFootprintByReference('C32').SetPosition(p.VECTOR2I(*position));other['poses']['C32']['position_iu']=position;return other
+ case('c32-outside-bound-with-matching-ledger',c32_remote)
+ assert results[-1]['reason']=='C32 translation exceeds 0.25 mm'
+ def forge_c32_source(b):
+  other=json.loads(json.dumps(plan));other['capacitor_microplacement']['source_sha256']='0'*64;return other
+ case('c32-forged-historical-source',forge_c32_source)
+ assert results[-1]['reason']=='C32 historical source differs'
+ def remove_c32_guard(b):
+  other=json.loads(json.dumps(plan));other.pop('capacitor_microplacement');return other
+ case('c32-contact-guard-omitted',remove_c32_guard)
+ assert results[-1]['reason']=='C32 contact guard missing'
+ def c32_substitution(b):next(q for q in b.FindFootprintByReference('C32').GetFields() if q.GetName()=='MPN').SetText('GRM188R60J106ME47J')
+ case('c32-silent-packaging-substitution',c32_substitution)
+ assert results[-1]['reason']=='Part fields changed'
+
+ assert policy.sha(source)==before and len(results)==36
  (BUILD/'results.json').write_text(json.dumps({'SPDX-License-Identifier':'CERN-OHL-S-2.0','source_sha256':before,'cases':results,'fabrication_release_allowed':False},indent=2,sort_keys=True)+'\n')
- print('PASS thirty remaining-routing faults, including real USB/supply disconnections')
+ print('PASS thirty-six remaining-routing faults, including actual C32 ground disconnection')
 if __name__=='__main__':main()

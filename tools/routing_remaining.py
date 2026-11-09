@@ -8,7 +8,7 @@ PARENT=ROOT/'hardware/coupon/rev-a/staging/led-switch-routing-trial-114mm.kicad_
 PARENT_SHA='b847f59f8a13a63d8db7a3c2ed2e7efc37239edc03c16fe12adc8b5758b4d524'
 OUTPUT=ROOT/'hardware/coupon/rev-a/staging/led-remaining-routing-trial-114mm.kicad_pcb'
 PLAN=ROOT/'mechanical/review/remaining-routing-plan.json'
-PLAN_SHA='3c67da39c2f1fff08e627908974e231056bc2f07e5982786e71795d131b7b724'
+PLAN_SHA='c95a12b4ccc1d5b3ce0522149a3e8c3a33a85206a2be708b45f99ad181c9c125'
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def load_plan():
  assert sha(PARENT)==PARENT_SHA and sha(PLAN)==PLAN_SHA,'Frozen routing source/plan changed'
@@ -27,6 +27,8 @@ def audit(path,plan=None,fill=True):
  plan=plan or load_plan();old,new=[p.LoadBoard(str(x)) for x in (PARENT,path)]
  inventory=lambda b:Counter(signature(b,t) for t in b.GetTracks())
  a,b=inventory(old),inventory(new)
+ from routing_cap_microplacement import validate_plan as cap_plan,verify_native as cap_verify
+ cap_plan(plan)
  assert a-b==Counter(map(tuple,plan['removed_copper'])),'Exact copper retirement differs'
  assert b-a==Counter(map(tuple,plan['added_copper'])),'Exact added copper differs'
  allowed=('track','GND',59865000,16000000,58365000,16000000,'B.Cu',200000)
@@ -85,6 +87,7 @@ def audit(path,plan=None,fill=True):
   permission_witness=permission_verify(old,new,plan,signature,helpers['physical_identity'])
   from routing_native_testpad import verify_native as native_testpad_verify
   native_testpad_witness=native_testpad_verify(old,new,plan,signature)
+  cap_witness=cap_verify(new,plan,signature,helpers['physical_identity'])
   assert all(group<=cluster(new,pb[key]) for group,key in groups.items()),'Parent pad group split'
   assert new.GetConnectivity().GetUnconnectedCount(False)==plan['native_opens'],'Native open count differs'
   previous=plan.get('previous_checkpoint')
@@ -119,6 +122,7 @@ def audit(path,plan=None,fill=True):
   assert local_ground,'TMP390 local ground polygon lost'
  result=runpy.run_path(str(ROOT/'tools/report-coupon-board-connectivity.py'))['open_edges_by_net'](path)
  assert result['native_open_edges']==result['pad_cluster_open_edges']==plan['native_opens']
+ if cap_witness is not None:result['capacitor_microplacement_witness']=cap_witness
  if plane_witness is not None:result['ground_plane_replacement_witness']=plane_witness
  if permission_witness is not None:result['permission_lead_replacement_witness']=permission_witness
  if native_testpad_witness is not None:result['native_testpad_escape_witness']=native_testpad_witness
