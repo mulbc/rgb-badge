@@ -93,3 +93,15 @@ Effective capacitance, bypass/return behavior, copper current/thermal limits,
 controlled stack, 557 historical centre vias, assembly/process/fit and
 independent Gate A qualification remain open. The zero-open goal is ongoing;
 fabrication remains prohibited.
+
+## Post-checkpoint diagnostic
+
+Repeating the ordinary full-layer ground search on the selected 36-open
+source finds no additional join. ADR 0106 then checks the two PAIR01-blocking
+colour conductors in memory: each is essential, and removing either splits
+a 17-pad group into components of one and sixteen. Removing both loses both
+groups. Before/after refill counts agree, and no source bytes are changed.
+The [diagnostic record](../../mechanical/review/colour-criticality-2026-11-09.json)
+preserves the exact signatures and source fingerprints. Further local work
+needs a coordinated contact-preserving reroute; deleting these conductors
+would undo accepted circuit connections. No retirement is selected.
