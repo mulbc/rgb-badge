@@ -512,3 +512,28 @@ two adjacent microvias and a calculated 3.857541315 mm ordinary In4.Cu lead.
 All 226 preceding groups and 223 additions survive, with no new retirement;
 exact unchanged DRC, stable replay/fills, 30 fault guards, 27 source checks
 and native visual review pass. All qualification/fabrication holds remain.
+
+ADR 0102 permits only an ignored 5° anchored-R8 orientation screen with fixed
+VLED pad-1 centre, exact part/local geometry, all original direct supply
+contacts and every other pose/copper item retained. Ordinary B.Cu gate routing
+is limited to 5 mm with at most 3 mm pad-centre separation; no retirement or
+new via is permitted. Full successor validation precedes any selection.
+
+After ADR 0102's B.Cu-only screen rejects all 72 orientations, its five
+pad/courtyard-clear poses may additionally test a combined lead of at most
+5 mm on B.Cu/In4.Cu with at most two adjacent 0.30/0.10 mm microvias. All
+original direct supply contacts, other copper/groups/poses and full successor
+gates remain mandatory; no central via, retirement or selection is implied.
+
+ADR 0103 permits an ignored local replacement of only the exact ROW_SEL_15
+B.Cu segment (68.900,7.850)–(73.350,7.850) mm to support the anchored +90°
+R8 flip. The ordinary-width replacement stays inside the recorded bounds,
+retains both endpoints and every original contact, and totals at most 12 mm.
+A completed gate connection may use at most 5 mm of ordinary B.Cu/In4.Cu
+lead and two adjacent microvias. All other copper, poses, source groups,
+settings and full successor gates remain mandatory before selection.
+
+ADR 0103's single-track replacement may also test B.Cu/In4.Cu routing with
+at most two additional adjacent microvias, retaining the same bounds, 12 mm
+combined length and all six original direct B.Cu contacts. Clearance between
+both proposed signal paths is mandatory; every other successor gate remains.

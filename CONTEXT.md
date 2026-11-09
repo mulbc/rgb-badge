@@ -1,5 +1,8 @@
 <!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
 
+**2026-11-09 zero-open follow-up — 37 opens unchanged:** The [bounded screens](docs/development/remaining-routing-followup-2026-11-09.md) reject incomplete ground, anchored-R8 and control-route trials. A partial bridge restores 24 of 32 USB-supply pads in an ignored candidate, but remaining USB/battery splits and native/physical disagreement prevent adoption. The validated 37-open source, exact 104 findings and all qualification/fabrication holds remain unchanged.
+
+
 
 **2026-11-07 switch routing selected — 43 opens:** The [validated successor](docs/development/switch-routing-2026-11-07.md) joins SW2.3–R83.1–U36.5, retains all 232 immutable 44-open parent groups and every prior copper item, and passes exact unchanged 104-finding DRC, stable replay/fills, source/orphan/fault and visual checks. The zero-open goal remains in progress. Added supply bridges, controlled stack, 557 historical centre microvias, electrical/process/fit qualification and independent Gate A remain open; fabrication is prohibited.
 

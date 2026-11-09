@@ -118,3 +118,7 @@ ADR 0099 change is the later selected result. Raw views, searches, replays,
 fault logs and rejected boards remain ignored under the build directories.
 Supplier/stack, 557 historical centre-via, electrical/thermal/process/fit,
 probe access and independent Gate A holds remain open.
+
+The [2026-11-09 bounded follow-up](remaining-routing-followup-2026-11-09.md)
+records exact-capture, ground, anchored-R8 and coordinated supply-restoration
+trials. None is selected; the 37-open source and all qualification holds remain.
