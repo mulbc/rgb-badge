@@ -559,3 +559,42 @@ retained. No copper is added or retired by this step. Actual main-ground
 component contact, exact unchanged DRC, stable replay/fills, 36 fault guards,
 27 source checks and native visual review pass; all qualification and
 fabrication holds remain.
+
+ADR 0107 permits an ignored U38-only translation of at most 0.25 mm with
+unchanged exact LM4040A25IDBZT identity, setting, orientation and local lands.
+Every original land contact, accepted copper/net identity and live group
+must survive. A completed U38.3/U52.3 main-ground join and all full successor
+checks precede selection. No current/protection/profile or other pose change,
+retirement or narrowing is permitted; all qualification/fabrication holds remain.
+
+ADR 0108 permits GND-only ordinary routing on the existing In2.Cu ground
+layer during ignored exploration; the search restriction remains for all
+other nets. Widths, clearances, profiles, zone definitions, source copper,
+poses and all prior live groups remain protected. Actual ground continuity
+and complete successor checks are required before selection; no electrical
+or fabrication qualification is implied.
+
+ADR 0109 permits ignored coordinated ROW_SEL_01/03 B.Cu exploration within
+its frozen shunt interface, preserving outside copper, all original contacts
+and previous groups. Only full native/physical reduction with unchanged exact
+DRC and replay/contact/fault/source/visual evidence permits selection; no
+fabrication or electrical qualification follows from routing closure.
+ADR 0109's second ignored variant may retain ROW_SEL_01 and use at most two
+ordinary 0.50/0.30 mm through vias for a bounded ROW_SEL_03 front-layer transfer,
+with every-layer clearance checks and all existing acceptance gates.
+
+ADR 0110 permits ignored coordinated ROW_SEL_00/01/03 back-layer rerouting
+within its frozen local interface, using only ordinary-width tracks and no
+new vias or poses. Every external contact, outside fragment and prior group
+must survive; complete successor checks precede any selection.
+ADR 0110 may combine its ignored three-row reroute with U38's exact
+(+0.250,0) mm translation under ADR 0107, retaining original anode contacts
+and all prior groups. No other pose, part or rule change is permitted.
+ADR 0110 may also test a bounded ROW_SEL_01 adjacent In4.Cu/B.Cu transfer
+with at most two 0.30/0.10 mm microvias, restoring every previous ground group
+and keeping ordinary track width and clearance. No central via is permitted.
+ADR 0110 additionally permits ignored ordinary-width additive ROW_SEL_01
+restoration on B.Cu/In4.Cu/In3.Cu to actual retained copper, protecting the
+restored 196-pad ground group and all prior groups. Retirement remains local;
+any dangling fragment and the full successor gates must be resolved before
+selection.
