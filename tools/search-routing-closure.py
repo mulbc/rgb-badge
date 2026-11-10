@@ -20,6 +20,7 @@ from urllib.parse import quote
 import uuid
 from routing_contact_endpoints import end_cap_points
 from routing_zone_targets import connected_polygons
+from routing_group_targets import other_group_representatives
 
 ROOT = Path(__file__).resolve().parents[1]
 STAGING = ROOT / 'hardware/coupon/rev-a/staging'
@@ -74,6 +75,8 @@ def main():
     global p
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--max-nodes', type=int, default=120000)
+    parser.add_argument('--all-group-targets',action='store_true',help='Target any different live same-net group; attempt each distinct source group once')
+    parser.add_argument('--source-reference',help='Restrict source pads to this actual reference on each selected net')
     parser.add_argument('--source-copper-uuid',default=None,help='Route from this actual retained copper item instead of pad representatives; does not invent or delete pads')
     parser.add_argument('--through-vias',action='store_true',help='ADR0092 full-span 0.50/0.30 mm vias, screened on every layer')
     parser.add_argument('--zone-targets',action='store_true',help='Target individually copper-witnessed filled-plane components')
@@ -92,6 +95,8 @@ def main():
     parser.add_argument('--native-grid', action='store_true',
                         help='Screen masked grid points and steps against exact native track/pad shapes')
     args = parser.parse_args()
+    if args.source_reference and args.source_copper_uuid:
+        parser.error('Choose a pad reference or a copper source, not both')
     try:
         source, output, report_path = review_paths(args.source, args.output, args.report)
     except ValueError as error:
@@ -105,7 +110,7 @@ def main():
     tool_paths = [Path(__file__), ROOT/'tools/routing_goal_distance.py',
                   ROOT/'tools/generate-colour-fanout-grid-trial.py',
                   ROOT/'tools/generate-paired-charger-114mm-routing.py',
-                  ROOT/'tools/routing_clearance.py',ROOT/'tools/routing_contact_endpoints.py',ROOT/'tools/routing_zone_targets.py']
+                  ROOT/'tools/routing_clearance.py',ROOT/'tools/routing_contact_endpoints.py',ROOT/'tools/routing_zone_targets.py',ROOT/'tools/routing_group_targets.py']
     tool_hashes = {str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
                    for path in tool_paths}
     import pcbnew as p
@@ -424,7 +429,11 @@ def main():
     for name in names:
         pads = sorted(pads_by_net[name], key=lambda q: (q.GetParentFootprint().GetReference(), q.GetNumber()))
         anchor = max(pads,key=lambda q:len(identities(board,q)))
-        sources=pads
+        sources=sorted(pads,key=lambda q:(len(identities(board,q)),q.GetParentFootprint().GetReference(),q.GetNumber())) if args.all_group_targets else pads
+        if args.source_reference:
+            sources=[q for q in sources if q.GetParentFootprint().GetReference()==args.source_reference]
+            if not sources:parser.error('Source reference has no pad on a selected net')
+        attempted_groups=set()
         if args.source_copper_uuid:
             sources=[t for t in board.GetTracks() if t.m_Uuid.AsString()==args.source_copper_uuid and t.GetNetname()==name]
             if len(sources)!=1:parser.error('Source copper UUID absent or on another selected net')
@@ -432,8 +441,15 @@ def main():
         # multiple groups en route, so rebuild native connectivity each time.
         for pad in sources:
             board.BuildConnectivity()
-            if identities(board, pad) == identities(board, anchor):
-                continue
+            source_group=identities(board,pad)
+            if args.all_group_targets:
+                if source_group in attempted_groups:continue
+                attempted_groups.add(source_group)
+                target_pads=other_group_representatives(pad,pads,lambda q:identities(board,q))
+                if not target_pads:continue
+            else:
+                if source_group==identities(board,anchor):continue
+                target_pads=[anchor]
             net = pad.GetNetCode()
             # Geometry caches are scoped to this immutable transaction only.
             source_label=[pad.GetParentFootprint().GetReference(),pad.GetNumber()] if isinstance(pad,p.PAD) else ['COPPER',pad.m_Uuid.AsString()]
@@ -442,7 +458,9 @@ def main():
             screen = new_screen(net)
             endpoint_centre=r.xy(pad.GetPosition())
             starts = group_endpoints(pad)
-            targets = group_endpoints(anchor)
+            targets = {}
+            for target in target_pads:
+                targets.update(group_endpoints(target))
             goals = set(targets)
             if args.reverse:
                 path, expanded = search(targets, set(starts), net)
@@ -467,7 +485,7 @@ def main():
                 board.BuildConnectivity()
                 if any(not group <= identities(board, q) for q, group in groups_before):
                     rejection = 'existing_pad_cluster_split_after_zone_refill'
-                elif identities(board, pad) != identities(board, anchor):
+                elif not any(identities(board,pad)==identities(board,q) for q in target_pads):
                     rejection = 'native_endpoint_join_not_established'
                 if rejection:
                     split=[]
@@ -532,6 +550,7 @@ def main():
                              else 'weighted_nearest_goal_manhattan'),
                   heuristic_storage_bytes=heuristic_storage_bytes,
                   reverse_search=args.reverse,
+                  all_group_targets=args.all_group_targets,source_reference=args.source_reference,
                   exact_native_grid_fallback=args.native_grid,
                   native_grid_statistics={key: sum(s[key] for s in screen_statistics)
                                           for key in ('native_point_queries', 'native_clear_masked_points',

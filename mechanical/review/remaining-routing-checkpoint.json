@@ -358,6 +358,10 @@
       "exit_code": 0
     },
     {
+      "command": "python3 tools/test-routing-group-targets.py",
+      "exit_code": 0
+    },
+    {
       "command": "python3 tools/test-converter-review-calculations.py",
       "exit_code": 0
     },
@@ -512,6 +516,26 @@
   },
   "project_sha256": "1141b004ecffd1e7e8e0c30cf21aeae7ce6381093df674998133d226ab9c27fb",
   "removed_copper_items": 9,
+  "routing_search_extension": {
+    "board_unchanged": true,
+    "date": "2026-11-10",
+    "default_anchor_mode_preserved": true,
+    "native_regression": {
+      "all_group_opens": 1,
+      "all_previous_groups_preserved": true,
+      "all_source_copper_retained": true,
+      "anchor_opens": 2,
+      "ordinary_width_bcu_additions_only": true,
+      "raw_evidence": {
+        "hardware/coupon/rev-a/build/group-target-regression/all.json": "e0d5c5dc3edacef9527d39e35756a03d53d7a662554e173ddc5abafc3856fa32",
+        "hardware/coupon/rev-a/build/group-target-regression/anchor.json": "669c54e2675fbd9d6d5c2183b5bdbae5866efe8be47529cb9ff3e68f36646bde"
+      }
+    },
+    "native_regression_passed": true,
+    "opt_in_all_group_targets": true,
+    "previous_search_tool_sha256": "6c6b7fb3be76d03a65c35ddc78de9e0e2b33442042ba5a8aba17523a2de291b5",
+    "qualification": "Search-only change; prior board validation remains on unchanged source, profiles and acceptance policy."
+  },
   "rules_sha256": "80c92b0cdef868dd0ef0037aa2f63d1266f709a2dd0326094735c75ffbd31a2e",
   "selected_retirement_probe": {
     "all_live_pad_groups_identical": true,
@@ -608,12 +632,14 @@
     "tools/report-open-pad-groups.py": "fd6ad99c999b44d7c8c879e8203c078e077cd6995333aed000ab8bbbd2624662",
     "tools/routing_cap_microplacement.py": "0f683873fcee5344002b9106cd0866a72f160b83fd89d11dfc56728f588a32d9",
     "tools/routing_ground_plane.py": "b37af5b2659bc01127d8e8fa1cf400a79d62ca4f9172bc5c73f4238216310f32",
+    "tools/routing_group_targets.py": "ce0385afd0fd66baeb3731883677ea71c5175c61d2afba24a400f1d80cfba9bc",
     "tools/routing_native_testpad.py": "c35548b5597362a41c9a92b790393f59b8423b3b38eeffb18d764e29b7285a73",
     "tools/routing_permission_lead.py": "384dd4db00c0cc327a9d618efa7890d26a8c742062dfbf787510beb442183e10",
     "tools/routing_remaining.py": "85a7c614111c5ee2e0761dc9af6218698d8d3da85ca4087ca767505303ad7cb3",
-    "tools/search-routing-closure.py": "6c6b7fb3be76d03a65c35ddc78de9e0e2b33442042ba5a8aba17523a2de291b5",
+    "tools/search-routing-closure.py": "b3b54c79fbcb1f7ed9e0f95e5e75288d86f53fc94dddab4d14701984df6eb4b7",
     "tools/test-native-copper-endpoint.py": "338a517961c1828aed919bfcd4e67121471e9745e01483157087c9f6121e233e",
-    "tools/test-remaining-routing-guards.py": "70711cd7be16f7f6f9a3aeae92351da6109625d70d4907168177d71a41e0614c"
+    "tools/test-remaining-routing-guards.py": "70711cd7be16f7f6f9a3aeae92351da6109625d70d4907168177d71a41e0614c",
+    "tools/test-routing-group-targets.py": "0c066d28cf7e2ba258675ccacaf9a954f2dab0c6192c87e5d5ab592916f4ebe9"
   },
   "visual_review": "Native B.Cu before/after C32 views inspected: ignored build/remaining-routing/36-c32-views/c32-{old,new}-ground.png. The shifted supply land opens a filled ground corridor; no added track or via."
 }

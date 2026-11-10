@@ -1,0 +1,888 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "all_group_search": {
+    "added_tracks_and_vias": 0,
+    "open_edges": 36,
+    "routes": [
+      {
+        "expanded_nodes": 1161,
+        "net": "VLED",
+        "routed": false,
+        "search_outcome": "exhausted_grid",
+        "source": [
+          "PAIR01",
+          "4"
+        ]
+      },
+      {
+        "expanded_nodes": 41,
+        "net": "VLED",
+        "routed": false,
+        "search_outcome": "exhausted_grid",
+        "source": [
+          "PAIR03",
+          "4"
+        ]
+      },
+      {
+        "expanded_nodes": 48,
+        "net": "VLED",
+        "routed": false,
+        "search_outcome": "exhausted_grid",
+        "source": [
+          "PAIR05",
+          "4"
+        ]
+      },
+      {
+        "expanded_nodes": 4857,
+        "net": "VLED",
+        "routed": false,
+        "search_outcome": "exhausted_grid",
+        "source": [
+          "PAIR07",
+          "4"
+        ]
+      },
+      {
+        "expanded_nodes": 41,
+        "net": "VLED",
+        "routed": false,
+        "search_outcome": "exhausted_grid",
+        "source": [
+          "PAIR09",
+          "4"
+        ]
+      },
+      {
+        "expanded_nodes": 5365,
+        "net": "VLED",
+        "routed": false,
+        "search_outcome": "exhausted_grid",
+        "source": [
+          "R11",
+          "1"
+        ]
+      },
+      {
+        "expanded_nodes": 268,
+        "net": "VLED",
+        "routed": false,
+        "search_outcome": "exhausted_grid",
+        "source": [
+          "R21",
+          "1"
+        ]
+      },
+      {
+        "expanded_nodes": 200001,
+        "net": "VLED",
+        "routed": false,
+        "search_outcome": "node_bound",
+        "source": [
+          "C46",
+          "1"
+        ]
+      },
+      {
+        "expanded_nodes": 200001,
+        "net": "+BAT_GAUGE_SW",
+        "routed": false,
+        "search_outcome": "node_bound",
+        "source": [
+          "U35",
+          "2"
+        ]
+      },
+      {
+        "expanded_nodes": 200001,
+        "net": "+BAT_GAUGE_SW",
+        "routed": false,
+        "search_outcome": "node_bound",
+        "source": [
+          "C39",
+          "1"
+        ]
+      },
+      {
+        "expanded_nodes": 21087,
+        "net": "+BAT_GAUGE_SW",
+        "routed": false,
+        "search_outcome": "exhausted_grid",
+        "source": [
+          "C64",
+          "1"
+        ]
+      },
+      {
+        "expanded_nodes": 200001,
+        "net": "DISPLAY_CLEAR_OK",
+        "routed": false,
+        "search_outcome": "node_bound",
+        "source": [
+          "U50",
+          "6"
+        ]
+      },
+      {
+        "expanded_nodes": 0,
+        "net": "DISPLAY_CLEAR_OK",
+        "routed": false,
+        "search_outcome": "no_usable_grid_endpoint",
+        "source": [
+          "U52",
+          "4"
+        ]
+      },
+      {
+        "expanded_nodes": 200001,
+        "net": "DISPLAY_CLEAR_OK",
+        "routed": false,
+        "search_outcome": "node_bound",
+        "source": [
+          "R108",
+          "1"
+        ]
+      }
+    ],
+    "search_tool_sha256": "f1df4763702d87a9a24ab28efd4a16f39a2fbfa713bc3a0194f5aa01cfb2efbb",
+    "source_sha256": "a24e9220226b77411ae8e8baea5cd629ce0fea8a97c377a708510d6791c2e439"
+  },
+  "anchored_placements": {
+    "R11": {
+      "anchor_iu": [
+        71750000,
+        4250000
+      ],
+      "anchor_pin": "2",
+      "exact_mpn": "ERJ2RKF1001X",
+      "original_direct_gate_contacts": [
+        "19e3ee8e-4132-50aa-8a90-15070af51afc"
+      ],
+      "outcomes": {
+        "all_sampled_leads_blocked": 4,
+        "courtyard": 27,
+        "pad_copper": 41
+      },
+      "retained_geometry_poses": [
+        {
+          "angle_deg": -180,
+          "native_opens": 36,
+          "position_iu": [
+            72250000,
+            4250000
+          ]
+        },
+        {
+          "angle_deg": -175,
+          "native_opens": 36,
+          "position_iu": [
+            72248097,
+            4206422
+          ]
+        },
+        {
+          "angle_deg": -95,
+          "native_opens": 36,
+          "position_iu": [
+            71793578,
+            3751904
+          ]
+        },
+        {
+          "angle_deg": -90,
+          "native_opens": 36,
+          "position_iu": [
+            71750000,
+            3750001
+          ]
+        }
+      ],
+      "selected_pose": null,
+      "trials": 72
+    },
+    "R21": {
+      "anchor_iu": [
+        66750000,
+        5750000
+      ],
+      "anchor_pin": "2",
+      "exact_mpn": "ERJ2RKF1001X",
+      "original_direct_gate_contacts": [
+        "e10a833e-5a12-5e19-b8b4-85f4670985f6"
+      ],
+      "outcomes": {
+        "all_sampled_leads_blocked": 9,
+        "courtyard": 27,
+        "pad_copper": 36
+      },
+      "retained_geometry_poses": [
+        {
+          "angle_deg": -180,
+          "native_opens": 36,
+          "position_iu": [
+            67250000,
+            5750000
+          ]
+        },
+        {
+          "angle_deg": -5,
+          "native_opens": 36,
+          "position_iu": [
+            66251904,
+            5706423
+          ]
+        },
+        {
+          "angle_deg": 0,
+          "native_opens": 36,
+          "position_iu": [
+            66250001,
+            5750001
+          ]
+        },
+        {
+          "angle_deg": 5,
+          "native_opens": 36,
+          "position_iu": [
+            66251904,
+            5793579
+          ]
+        },
+        {
+          "angle_deg": 10,
+          "native_opens": 36,
+          "position_iu": [
+            66257597,
+            5836825
+          ]
+        },
+        {
+          "angle_deg": 15,
+          "native_opens": 36,
+          "position_iu": [
+            66267038,
+            5879410
+          ]
+        },
+        {
+          "angle_deg": 165,
+          "native_opens": 36,
+          "position_iu": [
+            67232964,
+            5879408
+          ]
+        },
+        {
+          "angle_deg": 170,
+          "native_opens": 36,
+          "position_iu": [
+            67242405,
+            5836822
+          ]
+        },
+        {
+          "angle_deg": 175,
+          "native_opens": 36,
+          "position_iu": [
+            67248099,
+            5793576
+          ]
+        }
+      ],
+      "selected_pose": null,
+      "trials": 72
+    }
+  },
+  "date": "2026-11-10",
+  "diagonal_search": {
+    "added_tracks_and_vias": 0,
+    "heuristic": "zero_euclidean_step_dijkstra_eight_neighbours",
+    "open_edges": 36,
+    "routes": [
+      {
+        "expanded_nodes": 1161,
+        "net": "VLED",
+        "routed": false,
+        "search_outcome": "exhausted_grid",
+        "source": [
+          "PAIR01",
+          "4"
+        ]
+      },
+      {
+        "expanded_nodes": 41,
+        "net": "VLED",
+        "routed": false,
+        "search_outcome": "exhausted_grid",
+        "source": [
+          "PAIR03",
+          "4"
+        ]
+      },
+      {
+        "expanded_nodes": 48,
+        "net": "VLED",
+        "routed": false,
+        "search_outcome": "exhausted_grid",
+        "source": [
+          "PAIR05",
+          "4"
+        ]
+      },
+      {
+        "expanded_nodes": 1217,
+        "net": "VLED",
+        "routed": false,
+        "search_outcome": "exhausted_grid",
+        "source": [
+          "PAIR07",
+          "4"
+        ]
+      },
+      {
+        "expanded_nodes": 41,
+        "net": "VLED",
+        "routed": false,
+        "search_outcome": "exhausted_grid",
+        "source": [
+          "PAIR09",
+          "4"
+        ]
+      },
+      {
+        "expanded_nodes": 5365,
+        "net": "VLED",
+        "routed": false,
+        "search_outcome": "exhausted_grid",
+        "source": [
+          "R11",
+          "1"
+        ]
+      },
+      {
+        "expanded_nodes": 268,
+        "net": "VLED",
+        "routed": false,
+        "search_outcome": "exhausted_grid",
+        "source": [
+          "R21",
+          "1"
+        ]
+      },
+      {
+        "expanded_nodes": 150001,
+        "net": "VLED",
+        "routed": false,
+        "search_outcome": "node_bound",
+        "source": [
+          "C46",
+          "1"
+        ]
+      },
+      {
+        "expanded_nodes": 150001,
+        "net": "+BAT_GAUGE_SW",
+        "routed": false,
+        "search_outcome": "node_bound",
+        "source": [
+          "U35",
+          "2"
+        ]
+      },
+      {
+        "expanded_nodes": 150001,
+        "net": "+BAT_GAUGE_SW",
+        "routed": false,
+        "search_outcome": "node_bound",
+        "source": [
+          "C39",
+          "1"
+        ]
+      },
+      {
+        "expanded_nodes": 16222,
+        "net": "+BAT_GAUGE_SW",
+        "routed": false,
+        "search_outcome": "exhausted_grid",
+        "source": [
+          "C64",
+          "1"
+        ]
+      },
+      {
+        "expanded_nodes": 150001,
+        "net": "DISPLAY_CLEAR_OK",
+        "routed": false,
+        "search_outcome": "node_bound",
+        "source": [
+          "U50",
+          "6"
+        ]
+      },
+      {
+        "expanded_nodes": 0,
+        "net": "DISPLAY_CLEAR_OK",
+        "routed": false,
+        "search_outcome": "no_usable_grid_endpoint",
+        "source": [
+          "U52",
+          "4"
+        ]
+      },
+      {
+        "expanded_nodes": 150001,
+        "net": "DISPLAY_CLEAR_OK",
+        "routed": false,
+        "search_outcome": "node_bound",
+        "source": [
+          "R108",
+          "1"
+        ]
+      },
+      {
+        "expanded_nodes": 269,
+        "net": "GND",
+        "routed": false,
+        "search_outcome": "exhausted_grid",
+        "source": [
+          "PAIR01",
+          "1"
+        ]
+      },
+      {
+        "expanded_nodes": 7029,
+        "net": "GND",
+        "routed": false,
+        "search_outcome": "exhausted_grid",
+        "source": [
+          "U38",
+          "3"
+        ]
+      },
+      {
+        "expanded_nodes": 150001,
+        "net": "GND",
+        "routed": false,
+        "search_outcome": "node_bound",
+        "source": [
+          "C1",
+          "2"
+        ]
+      }
+    ],
+    "search_tool_sha256": "a16aefa899e902bdd5f356ff2f6e04523ea29f4604095e017c9f56d952b05492",
+    "source_sha256": "a24e9220226b77411ae8e8baea5cd629ce0fea8a97c377a708510d6791c2e439"
+  },
+  "direct_bridge_screen": {
+    "fabrication_release_allowed": false,
+    "pad_pairs": 46,
+    "refilled_trials": [],
+    "selected_trial": null,
+    "source_sha256": "a24e9220226b77411ae8e8baea5cd629ce0fea8a97c377a708510d6791c2e439"
+  },
+  "fabrication_release_allowed": false,
+  "limitations": [
+    "Unbuilt CAD calculations, no hardware measurement.",
+    "Finite graph bounds and sampled poses do not prove global impossibility.",
+    "Raw exploratory scripts and candidate boards remain ignored.",
+    "No new full board replay/fault/visual acceptance is claimed because no board change is selected."
+  ],
+  "native_opens": 36,
+  "native_regression": {
+    "all_group_opens": 1,
+    "all_original_groups_retained": true,
+    "all_source_copper_retained": true,
+    "anchor_opens": 2,
+    "ordinary_width_bcu_additions_only": true,
+    "production_tool_sha256": "b3b54c79fbcb1f7ed9e0f95e5e75288d86f53fc94dddab4d14701984df6eb4b7",
+    "raw_evidence": {
+      "hardware/coupon/rev-a/build/group-target-regression/all.json": "e0d5c5dc3edacef9527d39e35756a03d53d7a662554e173ddc5abafc3856fa32",
+      "hardware/coupon/rev-a/build/group-target-regression/anchor.json": "669c54e2675fbd9d6d5c2183b5bdbae5866efe8be47529cb9ff3e68f36646bde"
+    }
+  },
+  "physical_opens": 36,
+  "pose_searches": [
+    {
+      "angle_deg": -180,
+      "open_edges": 36,
+      "pose_source_sha256": "ee4a2778e62fd9e943caaf9f1d1e00b28522e2f8c1aa0496ae2b9ce946305bca",
+      "reference": "R11",
+      "report_sha256": "9d481d836fbcafe26ece25f3d2309bc017df8a0b689d829a5140955255a9a66a",
+      "routes": [
+        {
+          "expanded_nodes": 5365,
+          "net": "VLED",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "R11",
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "angle_deg": -175,
+      "open_edges": 36,
+      "pose_source_sha256": "3963a9e8dc767888ff72ef51be00ccf63de38873f528bdd004f72e7b6bd70e0c",
+      "reference": "R11",
+      "report_sha256": "3d41bb17b007ef2830df13be2d7c4da5aa23bc4713c6537e3053c22834bc03b7",
+      "routes": [
+        {
+          "expanded_nodes": 5358,
+          "net": "VLED",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "R11",
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "angle_deg": -95,
+      "open_edges": 36,
+      "pose_source_sha256": "d5fd8f2f6c51755f8499b6638c14351fa19e3bd9b0e3542534ea99b9baab5647",
+      "reference": "R11",
+      "report_sha256": "ec06586844cb7e55d0b3f9306aef23b394ef76d113f13972e471f528b32a2535",
+      "routes": [
+        {
+          "expanded_nodes": 5361,
+          "net": "VLED",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "R11",
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "angle_deg": -90,
+      "open_edges": 36,
+      "pose_source_sha256": "33ee111d7d18e4dd5b196adc8122e3b309a81964235b7c720cb4b87906c9f79a",
+      "reference": "R11",
+      "report_sha256": "5bdda437d299ef414ec2da92f276ae030899f40631e0453b4b02625566c58d55",
+      "routes": [
+        {
+          "expanded_nodes": 5365,
+          "net": "VLED",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "R11",
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "angle_deg": -180,
+      "open_edges": 36,
+      "pose_source_sha256": "ee4a2778e62fd9e943caaf9f1d1e00b28522e2f8c1aa0496ae2b9ce946305bca",
+      "reference": "R21",
+      "report_sha256": "4c49783b4349d1ffe1a654e16be4d14788f814f410d1ecb811604a6fc2e01b3e",
+      "routes": [
+        {
+          "expanded_nodes": 268,
+          "net": "VLED",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "R21",
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "angle_deg": -5,
+      "open_edges": 36,
+      "pose_source_sha256": "6acaf83e61670e70d60673949603ff0a8d7613609fa9ebb7114ea4af51d240f1",
+      "reference": "R21",
+      "report_sha256": "bf6152ccd872b643b26ae9f96f527248b106b68bc9be6dad57a9d61b49c3006d",
+      "routes": [
+        {
+          "expanded_nodes": 1494,
+          "net": "VLED",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "R21",
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "angle_deg": 0,
+      "open_edges": 36,
+      "pose_source_sha256": "133c8b438278eb6fde519a038d0af44b4cd6602dff122544e6f7366f9d21be74",
+      "reference": "R21",
+      "report_sha256": "dbe0ad5556c0c2a493f7f35f7cd8b7a7281b557227ac751f73fea6e76534171f",
+      "routes": [
+        {
+          "expanded_nodes": 1500,
+          "net": "VLED",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "R21",
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "angle_deg": 5,
+      "open_edges": 36,
+      "pose_source_sha256": "ced465326718ca2f727fc3a9b7ea48a8a63bc73e86bbfdb502c31c5a9ec3d8ec",
+      "reference": "R21",
+      "report_sha256": "35387420c72de35cf8dd8dc7a2012456b4a5ae66352963c937593fde49133f51",
+      "routes": [
+        {
+          "expanded_nodes": 1494,
+          "net": "VLED",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "R21",
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "angle_deg": 10,
+      "open_edges": 36,
+      "pose_source_sha256": "307b5b8cbad3d5b9febd2948a66a6077adb37df67e3491ff57f22f540d220c5b",
+      "reference": "R21",
+      "report_sha256": "78904c36c539ef2e71555fdc89a6f6a1c0d0bc4c2ed91cb2581884e72d83750c",
+      "routes": [
+        {
+          "expanded_nodes": 1494,
+          "net": "VLED",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "R21",
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "angle_deg": 15,
+      "open_edges": 36,
+      "pose_source_sha256": "cad5930162b4eb03ca1175ca5bb7d32503adaae48bd0e73bfa53bec2225c2656",
+      "reference": "R21",
+      "report_sha256": "c8deaef861a8727238c5578cb8b3e92a4e3ada9c5a7ed541b49dce219e080069",
+      "routes": [
+        {
+          "expanded_nodes": 1493,
+          "net": "VLED",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "R21",
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "angle_deg": 165,
+      "open_edges": 36,
+      "pose_source_sha256": "2de94866301a2c42c594f6aa1907e8c8963c39cadae08555527d55c27c9ae134",
+      "reference": "R21",
+      "report_sha256": "1d8d09e09164fae2af29176732a270c34e318cd1429fe4ad61abddac60472f5b",
+      "routes": [
+        {
+          "expanded_nodes": 264,
+          "net": "VLED",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "R21",
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "angle_deg": 170,
+      "open_edges": 36,
+      "pose_source_sha256": "a5bfc3cc79a1b8d1f2db982b4130c34425273894df2b4b16c5a6e600a67088b8",
+      "reference": "R21",
+      "report_sha256": "bdc54512c6cd72047eefbc6b786d22ba79f74bbffc30f602c73272b81004852f",
+      "routes": [
+        {
+          "expanded_nodes": 265,
+          "net": "VLED",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "R21",
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "angle_deg": 175,
+      "open_edges": 36,
+      "pose_source_sha256": "65e709662702e46fdcc724c0588db331a51fad3ca925eba07040a1aafb3bc416",
+      "reference": "R21",
+      "report_sha256": "d630d3212b0f28771e17a7b881fa907c4fd51d8cf8aba79ce3ee2db70559d2f7",
+      "routes": [
+        {
+          "expanded_nodes": 264,
+          "net": "VLED",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "R21",
+            "1"
+          ]
+        }
+      ]
+    }
+  ],
+  "raw_evidence": {
+    "hardware/coupon/rev-a/build/zero-open-routing/R11-anchored-vled.json": "e9b935d41c1a26045c04be4caef6c3daeb32c4ad7e7065b5a0c3d03ea5c0459f",
+    "hardware/coupon/rev-a/build/zero-open-routing/R21-anchored-vled.json": "f04c04d2ce1b7509187f41912a97a67c0a0dc2c347ea4cb4f96a2798dc0e6778",
+    "hardware/coupon/rev-a/build/zero-open-routing/all-group-bridges.json": "3f4ea3f54037c1714c555662e0471e083e8a1beed49bbb39deeb4126718901ad",
+    "hardware/coupon/rev-a/build/zero-open-routing/anchored-vled-poses.py": "f7e1f69da3fde08760a18a829801ed04f621a2d899854f1de12c98b0b0c920b1",
+    "hardware/coupon/rev-a/build/zero-open-routing/anchored-vled.py": "37c650525aa8cd9e4c6ff9d65e0fd2688de4da80ead21c65a16ca14bc1e27f4b",
+    "hardware/coupon/rev-a/build/zero-open-routing/diagonal-group-bridges.json": "b29f81e4c01b9cf309378fb5a553ae9c1076fa68d672f2fed4fcb69d08a90641",
+    "hardware/coupon/rev-a/build/zero-open-routing/island-bridges.json": "c74a962f2ffc0cde113e09b6df357943af65f66091d803f8eb88d9015f4c12ea",
+    "hardware/coupon/rev-a/build/zero-open-routing/island-bridges.py": "8e36c050aa85f556a182d20508216aa4ff62a186ee05dc4bc8a35ffebb72013d",
+    "hardware/coupon/rev-a/build/zero-open-routing/production-all-group-r11.json": "a5e00a8431cfbee2a1ba91a39a3d2e45ac1d51fe2618ef7481cfeb49475e969f",
+    "hardware/coupon/rev-a/build/zero-open-routing/run-vled-pose-searches.py": "1e5489b07a05c70fb66e62c4d4e79a5154f9008802552aa5b145133b6d3e6ac9",
+    "hardware/coupon/rev-a/build/zero-open-routing/search-all-groups-initial.py": "f1df4763702d87a9a24ab28efd4a16f39a2fbfa713bc3a0194f5aa01cfb2efbb",
+    "hardware/coupon/rev-a/build/zero-open-routing/search-all-groups.py": "e6784039851c15a9ba0d942b5f74fcf8636fbb3c5a756fbd649ed73e458237f1",
+    "hardware/coupon/rev-a/build/zero-open-routing/search-diagonal-groups.py": "a16aefa899e902bdd5f356ff2f6e04523ea29f4604095e017c9f56d952b05492",
+    "hardware/coupon/rev-a/build/zero-open-routing/vled-pose-searches.json": "df156f1f08f03fa0e887c7fc46dd0bcc8dd7a83d4f61d8cdba6dbcb360296d02"
+  },
+  "raw_evidence_interpretation": "Anchored prototype legacy supply_anchor_iu is fixed gate pad 2; gate_position_iu is moving VLED pad 1. Public anchored_placements names identify the actual pins.",
+  "source_board_unchanged": true,
+  "source_checks": [
+    {
+      "command": "python3 tools/check-coupon-study-contract.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb --legacy-land-study --legacy-switch-study",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-routing-progress-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-converter-checkpoint-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-u36-stage-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-routing-closure-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-switch-routing-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-remaining-routing-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-remaining-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-switch-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-routing-closure-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-u36-stage-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/test-routing-group-targets.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/test-converter-review-calculations.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/test-hdi-stack-policy.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-converter-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-c32-land-candidate.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_c32_land_candidate.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_murata_catalogue_lands.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_convex_geometry.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_supply_join.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_slide_switch_library.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_progress_plan.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_coupon_study_contract.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_goal_distance.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_native_route_paths.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_clearance.py -v",
+      "exit_code": 0
+    }
+  ],
+  "source_sha256": "a24e9220226b77411ae8e8baea5cd629ce0fea8a97c377a708510d6791c2e439",
+  "status": "SEARCH_EXTENSION_VALIDATED_NO_BOARD_SUCCESSOR"
+}

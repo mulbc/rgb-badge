@@ -598,3 +598,14 @@ restoration on B.Cu/In4.Cu/In3.Cu to actual retained copper, protecting the
 restored 196-pad ground group and all prior groups. Retirement remains local;
 any dangling fragment and the full successor gates must be resolved before
 selection.
+
+ADR 0111 permits ignored additive bridges between any actual disconnected
+same-net groups, preserving every previous group and source copper with
+ordinary geometry. Native target-group continuity, full source preservation
+and all successor gates precede selection; an isolated VLED join is not
+proof of a powered or electrically qualified row.
+
+ADR 0112 permits ignored R11/R21 angular screening about unchanged pad-2
+centres, preserving exact ERJ2RKF1001X identities and all original contacts,
+copper and groups. Only ordinary-width additive leads and full successor
+gates can select a pose; all other settings and qualification holds remain.

@@ -1,5 +1,7 @@
 <!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
 
+**2026-11-10 search extension — source remains 36 opens:** [All-group targeting](docs/development/vled-search-continuation-2026-11-10.md) now permits additive bridges between smaller disconnected groups. A native blocked-anchor regression and all 28 source checks pass. The real-board group searches and thirteen retained resistor poses select no join; PCB, profiles and acceptance policy remain unchanged. Zero opens and qualification/Gate A remain unresolved.
+
 **2026-11-09 shunt/row continuation — source remains 36 opens:** The [bounded study](docs/development/shunt-ground-study-2026-11-09.md) finds a coupled ground join with exact unchanged 104 findings, but rejects its two-pad ground-group loss. Explicit return reservation and alternative layer searches remain incomplete. No board, profile or production routing tool changes; zero opens and all qualification/Gate A holds remain unresolved.
 
 **2026-11-09 historical 37-open follow-up:** The [bounded screens](docs/development/remaining-routing-followup-2026-11-09.md) reject incomplete ground, anchored-R8 and control-route trials. A partial bridge restores 24 of 32 USB-supply pads in an ignored candidate, but remaining USB/battery splits and native/physical disagreement prevent adoption. Those trials preserve their 37-open basis. ADR 0105 later selects the separate C32 change below; all qualification/fabrication holds remain.

@@ -1,5 +1,7 @@
 <!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
 
+The [November 10 continuation](../../../docs/development/vled-search-continuation-2026-11-10.md) adds opt-in all-group routing targets with a native regression and 28 passing source checks. No board successor is selected; the validated source remains 36 opens and all qualification/Gate A holds remain.
+
 The [2026-11-09 shunt/row continuation](../../../docs/development/shunt-ground-study-2026-11-09.md) selects no successor: the validated source remains 36 native/physical opens. A 104-finding candidate loses an existing ground group and is rejected. All electrical/stack/process/fit and independent Gate A holds remain.
 
 
