@@ -28,11 +28,18 @@ def main():
  assert m['selected_retirement_probe']['source_unchanged'] and m['selected_retirement_probe']['status']=='REJECTED_COUNTERFACTUAL_NOT_SELECTED_SOURCE'
  assert m['capacitor_microplacement_witness']['original_direct_land_contacts_retained']
  assert m['capacitor_microplacement_witness']['contact_count']==1
- assert m['capacitor_microplacement_witness']['historical_ground_isolated'] and m['capacitor_microplacement_witness']['historical_source_copper_retained']
+ assert m['capacitor_microplacement_witness']['historical_ground_isolated']
+ assert not m['capacitor_microplacement_witness']['historical_source_copper_retained']
+ assert m['capacitor_microplacement_witness']['historical_source_copper_retained_except_reviewed_leaf']
+ assert m['capacitor_microplacement_witness']['historical_approved_retired_copper']==[plan['r11_ground_replacement']['original_copper']]
+ assert m['r11_ground_replacement_witness']['exact_original_leaf_retired'] and m['r11_ground_replacement_witness']['all_original_land_contacts_accounted_for']
+ assert m['r11_ground_replacement_witness']['retained_ground_via_centres_reached']
+ assert m['r11_ground_replacement_witness']['far_end_contacts_retained'] and m['r11_ground_replacement_witness']['actual_old_ground_endpoints_retained']
+ assert m['r11_ground_replacement_witness']['shunt_ground_joined'] and m['r11_ground_replacement_witness']['main_ground_pad_count']>=196
  assert m['capacitor_microplacement_witness']['single_individual_bcu_ground_component']
  assert m['capacitor_microplacement_witness']['displacement_iu']==[0,-250000]
  assert m['capacitor_microplacement_witness']['source_sha256']=='ed6d3ff570f2481b47423d8375d9d4a40d756145cdd49e2c222bacc36edbfa57'
- assert len(m['isolated_fault_guards'])==36 and all(row['rejected'] for row in m['isolated_fault_guards'])
+ assert len(m['isolated_fault_guards'])==44 and all(row['rejected'] for row in m['isolated_fault_guards'])
  for path,digest in m['tool_sha256'].items():assert policy.sha(policy.ROOT/path)==digest,path
  for ext,key in [('.kicad_pro','project_sha256'),('.kicad_dru','rules_sha256')]:
   assert policy.sha(policy.OUTPUT.with_suffix(ext))==m[key]

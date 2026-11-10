@@ -1,10 +1,10 @@
 {
   "SPDX-License-Identifier": "CERN-OHL-S-2.0",
-  "all_named_pad_group_count": 224,
+  "all_named_pad_group_count": 223,
   "fabrication_release_allowed": false,
   "interpretation": "Actual native pad groups; distances are pad-centre geometry, not routes or electrical qualification",
   "named_net_count": 188,
-  "native_opens": 36,
+  "native_opens": 35,
   "nets": [
     {
       "groups": [
@@ -2487,6 +2487,15 @@
           {
             "pin": "3",
             "position_iu": [
+              80000000,
+              1175000
+            ],
+            "reference": "U38",
+            "uuid": "54d0e230-8e05-52c8-8a48-3d22a430d097"
+          },
+          {
+            "pin": "3",
+            "position_iu": [
               58365000,
               16000000
             ],
@@ -2665,6 +2674,15 @@
             "uuid": "c418628f-767f-5058-8dbc-b96bd8467c00"
           },
           {
+            "pin": "3",
+            "position_iu": [
+              69650000,
+              1350000
+            ],
+            "reference": "U52",
+            "uuid": "1cfc3ec5-6e26-5c17-9dac-6a9abd67775f"
+          },
+          {
             "pin": "5",
             "position_iu": [
               11150000,
@@ -2694,26 +2712,6 @@
         ],
         [
           {
-            "pin": "3",
-            "position_iu": [
-              80000000,
-              1175000
-            ],
-            "reference": "U38",
-            "uuid": "54d0e230-8e05-52c8-8a48-3d22a430d097"
-          },
-          {
-            "pin": "3",
-            "position_iu": [
-              69650000,
-              1350000
-            ],
-            "reference": "U52",
-            "uuid": "1cfc3ec5-6e26-5c17-9dac-6a9abd67775f"
-          }
-        ],
-        [
-          {
             "pin": "1",
             "position_iu": [
               76675000,
@@ -2730,23 +2728,6 @@
             0,
             1
           ],
-          "pad_centre_distance_mm": 2.188498343613721,
-          "pads": [
-            [
-              "C71",
-              "2"
-            ],
-            [
-              "U52",
-              "3"
-            ]
-          ]
-        },
-        {
-          "groups": [
-            0,
-            2
-          ],
           "pad_centre_distance_mm": 2.3814386408219717,
           "pads": [
             [
@@ -2758,27 +2739,10 @@
               "1"
             ]
           ]
-        },
-        {
-          "groups": [
-            1,
-            2
-          ],
-          "pad_centre_distance_mm": 3.8420372200175263,
-          "pads": [
-            [
-              "U38",
-              "3"
-            ],
-            [
-              "PAIR01",
-              "1"
-            ]
-          ]
         }
       ],
       "net": "GND",
-      "open_edges": 2
+      "open_edges": 1
     },
     {
       "groups": [
@@ -4126,7 +4090,7 @@
           {
             "pin": "1",
             "position_iu": [
-              72750000,
+              73250000,
               4250000
             ],
             "reference": "R11",
@@ -4151,7 +4115,7 @@
             1,
             6
           ],
-          "pad_centre_distance_mm": 2.080414622136655,
+          "pad_centre_distance_mm": 1.582126733229674,
           "pads": [
             [
               "PAIR01",
@@ -4301,14 +4265,14 @@
         },
         {
           "groups": [
-            0,
+            2,
             6
           ],
-          "pad_centre_distance_mm": 4.253601415271534,
+          "pad_centre_distance_mm": 4.206022467842986,
           "pads": [
             [
-              "R8",
-              "1"
+              "PAIR03",
+              "4"
             ],
             [
               "R11",
@@ -4335,14 +4299,14 @@
         },
         {
           "groups": [
-            2,
+            0,
             6
           ],
-          "pad_centre_distance_mm": 4.417649261768073,
+          "pad_centre_distance_mm": 4.303269106156388,
           "pads": [
             [
-              "PAIR03",
-              "4"
+              "R8",
+              "1"
             ],
             [
               "R11",
@@ -4372,7 +4336,7 @@
             6,
             7
           ],
-          "pad_centre_distance_mm": 5.220153254455275,
+          "pad_centre_distance_mm": 5.700877125495689,
           "pads": [
             [
               "R11",
@@ -4474,7 +4438,7 @@
             3,
             6
           ],
-          "pad_centre_distance_mm": 7.926419431243846,
+          "pad_centre_distance_mm": 7.810449730969401,
           "pads": [
             [
               "PAIR05",
@@ -4542,7 +4506,7 @@
             4,
             6
           ],
-          "pad_centre_distance_mm": 11.587304475157284,
+          "pad_centre_distance_mm": 11.508285059034641,
           "pads": [
             [
               "PAIR07",
@@ -4593,7 +4557,7 @@
             5,
             6
           ],
-          "pad_centre_distance_mm": 15.291439598677425,
+          "pad_centre_distance_mm": 15.231648794533047,
           "pads": [
             [
               "PAIR09",
@@ -4627,8 +4591,8 @@
       "open_edges": 7
     }
   ],
-  "physical_opens": 36,
-  "source_sha256": "a24e9220226b77411ae8e8baea5cd629ce0fea8a97c377a708510d6791c2e439",
+  "physical_opens": 35,
+  "source_sha256": "da3764ddf5c8c615529340c33c92974cff3fd036b937b5e4a53c408e0b141637",
   "source_unchanged": true,
   "tool_sha256": "fd6ad99c999b44d7c8c879e8203c078e077cd6995333aed000ab8bbbd2624662"
 }

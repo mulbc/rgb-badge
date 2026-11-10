@@ -609,3 +609,32 @@ ADR 0112 permits ignored R11/R21 angular screening about unchanged pad-2
 centres, preserving exact ERJ2RKF1001X identities and all original contacts,
 copper and groups. Only ordinary-width additive leads and full successor
 gates can select a pose; all other settings and qualification holds remain.
+
+ADR 0113 permits an ignored R11/R21 relocation by at most 2 mm while replacing
+only its exact original gate leaf, retaining every far-end contact, exact
+part/local geometry, prior group and accepted addition. Gate and VLED leads
+must each be ordinary-width B.Cu and at most 5 mm; no new vias or other
+retirement is allowed. Complete successor validation precedes selection.
+
+ADR 0114 permits ignored localization of R11 beside PAIR06 or R21 beside
+PAIR16, retaining its exact 1 kΩ identity and transistor association. Retire
+only the frozen obsolete gate-net cohort while keeping both local package
+straps; new gate/VLED leads must be ordinary-width B.Cu, each at most 3 mm,
+with no new vias. Every old pad group and accepted addition and the complete
+source/contact/replay/DRC/fault/visual gate must pass before selection.
+ADR 0114 may test ordinary-width additive ground restoration after localization,
+using the existing adjacent/buried-via policy. Both displaced ground pads must
+rejoin the original main group and every other connection must survive; no
+new unsupported central microvia or additional retirement is allowed.
+
+ADR 0115 permits an ignored R11 (+0.500,0) mm shift with its sole exact gate
+leaf replaced and all other copper retained, to clear the recorded ordinary-
+width ground route and one adjacent microvia. Every old group and accepted
+addition must survive and complete successor validation precedes selection;
+the still-isolated VLED pad is preserved without claiming supply continuity.
+
+ADR 0115 selects the 35-open successor with exact R11 relocation/leaf scope
+and strengthened ordinary-width ground landings. All previous groups and
+accepted additions, unchanged exact DRC, stable replay/fills, 44 native faults,
+28 source checks and visual review pass. No electrical, process or fabrication
+qualification is implied; zero-open and independent Gate A work remain open.

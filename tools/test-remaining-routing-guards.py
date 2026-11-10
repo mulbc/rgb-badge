@@ -134,7 +134,52 @@ def main():
  case('c32-silent-packaging-substitution',c32_substitution)
  assert results[-1]['reason']=='Part fields changed'
 
- assert policy.sha(source)==before and len(results)==36
+ def shunt_ground_open(b):
+  other=json.loads(json.dumps(plan));rows=other['r11_ground_replacement']['ground_copper'][:]
+  for t in list(b.GetTracks()):
+   if list(policy.signature(b,t)) in rows:b.Remove(t);held.append(t)
+  p.ZONE_FILLER(b).Fill(b.Zones());b.BuildConnectivity()
+  pad=lambda ref,n:next(q for q in b.FindFootprintByReference(ref).Pads() if q.GetNumber()==n)
+  group=lambda q:frozenset(x.m_Uuid.AsString() for x in b.GetConnectivity().GetConnectedItems(q) if isinstance(x,p.PAD))
+  assert group(pad('U38','3'))!=group(pad('U35','9')),'Shunt fixture did not disconnect'
+  other['r11_ground_replacement']['ground_copper']=[]
+  other['added_copper']=[row for row in other['added_copper'] if row not in rows]
+  return other
+ case('shunt-actual-ground-open-with-matching-ledger',shunt_ground_open)
+ assert results[-1]['reason']=='Ground-route adjacent capture missing'
+ def r11_far_end(b):
+  other=json.loads(json.dumps(plan));row=other['r11_ground_replacement']['gate_replacement'][0];t=next(t for t in b.GetTracks() if list(policy.signature(b,t))==row);t.SetStart(p.VECTOR2I(72450000,4250000));t.SetEnd(p.VECTOR2I(72550000,4250000));changed=list(policy.signature(b,t));other['added_copper'].remove(row);other['added_copper'].append(changed);other['r11_ground_replacement']['gate_replacement'][0]=changed;return other
+ case('r11-far-end-lost-with-matching-ledger',r11_far_end)
+ assert results[-1]['reason']=='R11 retained far-end contact lost'
+ def r11_contacts(b):
+  other=json.loads(json.dumps(plan));other['r11_ground_replacement']['original_junction_contacts'].pop();return other
+ case('r11-original-contact-omitted',r11_contacts)
+ assert results[-1]['reason']=='R11 original leaf contacts differ'
+ def ground_contact(b):
+  other=json.loads(json.dumps(plan));other['r11_ground_replacement']['ground_endpoint_contacts'][0]['contacts'].pop();return other
+ case('ground-original-endpoint-witness-omitted',ground_contact)
+ assert results[-1]['reason']=='Ground source endpoint contact inventory differs'
+ def r11_remote(b):
+  other=json.loads(json.dumps(plan));position=[72800000,4250000];b.FindFootprintByReference('R11').SetPosition(p.VECTOR2I(*position));other['poses']['R11']['position_iu']=position;return other
+ case('r11-outside-exact-pose-with-matching-ledger',r11_remote)
+ assert results[-1]['reason']=='R11 relocation pose differs'
+ def extra_retirement(b):
+  other=json.loads(json.dumps(plan));t=next(t for t in b.GetTracks() if t.GetNetname()=='ROW_GATE_05' and not isinstance(t,p.PCB_VIA) and list(policy.signature(b,t)) not in plan['added_copper']);other['removed_copper'].append(list(policy.signature(b,t)));b.Remove(t);held.append(t);return other
+ case('unreviewed-second-r11-retirement-with-matching-ledger',extra_retirement)
+ assert results[-1]['reason']=='Unreviewed retirement scope'
+ def r11_guard(b):
+  other=json.loads(json.dumps(plan));other.pop('r11_ground_replacement');return other
+ case('r11-retirement-guard-omitted',r11_guard)
+ assert results[-1]['reason']=='R11 relocation guard missing'
+
+ def lose_via_centre(b):
+  other=json.loads(json.dumps(plan));row=['track','GND',70800000,1150000,70995000,1150000,'B.Cu',200000];t=next(t for t in b.GetTracks() if list(policy.signature(b,t))==row);b.Remove(t);held.append(t);other['added_copper'].remove(row);other['r11_ground_replacement']['ground_copper'].remove(row)
+  p.ZONE_FILLER(b).Fill(b.Zones());b.BuildConnectivity();assert b.GetConnectivity().GetUnconnectedCount(False)==35,'Cap-overlap fixture should retain native continuity'
+  return other
+ case('ground-via-centre-landing-omitted-with-continuity',lose_via_centre)
+ assert results[-1]['reason']=='Ground retained via centre not reached'
+
+ assert policy.sha(source)==before and len(results)==44
  (BUILD/'results.json').write_text(json.dumps({'SPDX-License-Identifier':'CERN-OHL-S-2.0','source_sha256':before,'cases':results,'fabrication_release_allowed':False},indent=2,sort_keys=True)+'\n')
- print('PASS thirty-six remaining-routing faults, including actual C32 ground disconnection')
+ print('PASS forty-four remaining-routing faults, including actual C32 and shunt ground disconnections')
 if __name__=='__main__':main()

@@ -1,5 +1,7 @@
 <!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
 
+**2026-11-10 selected — 35 opens:** The [R11 clearance/ground join](docs/development/r11-ground-join-2026-11-10.md) shifts exact R11 right by 0.500 mm and replaces only its original gate leaf. Ordinary ground routing joins U38/U52 to main ground (194→196 pads), preserving all 224 preceding groups and 226 additions and all 231 immutable parent groups. Exact unchanged 104 findings, stable replay/fills, 44 native faults, 28 source checks and visual review pass. Zero opens, qualification and independent Gate A remain unresolved; fabrication is prohibited.
+
 **2026-11-10 search extension — source remains 36 opens:** [All-group targeting](docs/development/vled-search-continuation-2026-11-10.md) now permits additive bridges between smaller disconnected groups. A native blocked-anchor regression and all 28 source checks pass. The real-board group searches and thirteen retained resistor poses select no join; PCB, profiles and acceptance policy remain unchanged. Zero opens and qualification/Gate A remain unresolved.
 
 **2026-11-09 shunt/row continuation — source remains 36 opens:** The [bounded study](docs/development/shunt-ground-study-2026-11-09.md) finds a coupled ground join with exact unchanged 104 findings, but rejects its two-pad ground-group loss. Explicit return reservation and alternative layer searches remain incomplete. No board, profile or production routing tool changes; zero opens and all qualification/Gate A holds remain unresolved.

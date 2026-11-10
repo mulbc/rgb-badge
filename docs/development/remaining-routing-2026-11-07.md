@@ -1,5 +1,7 @@
 <!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
 
+**Current checkpoint, 2026-11-10: 35 opens.** The [R11 ground-join record](r11-ground-join-2026-11-10.md) supersedes the earlier counts below, with all old groups and accepted additions retained. Zero-open and qualification work remain ongoing.
+
 # Remaining routing: 36-open checkpoint
 
 The zero-open goal remains **in progress**. The selected

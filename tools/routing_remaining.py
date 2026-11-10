@@ -8,7 +8,7 @@ PARENT=ROOT/'hardware/coupon/rev-a/staging/led-switch-routing-trial-114mm.kicad_
 PARENT_SHA='b847f59f8a13a63d8db7a3c2ed2e7efc37239edc03c16fe12adc8b5758b4d524'
 OUTPUT=ROOT/'hardware/coupon/rev-a/staging/led-remaining-routing-trial-114mm.kicad_pcb'
 PLAN=ROOT/'mechanical/review/remaining-routing-plan.json'
-PLAN_SHA='c95a12b4ccc1d5b3ce0522149a3e8c3a33a85206a2be708b45f99ad181c9c125'
+PLAN_SHA='d3337ea9a71a1b646e2329d8271144d42a6a568e6eee3bd7ca3ee08e3c3433c3'
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def load_plan():
  assert sha(PARENT)==PARENT_SHA and sha(PLAN)==PLAN_SHA,'Frozen routing source/plan changed'
@@ -36,9 +36,11 @@ def audit(path,plan=None,fill=True):
  plane_retired=plane_plan(plan)
  from routing_permission_lead import validate_plan as permission_plan,verify_native as permission_verify
  permission_retired=permission_plan(plan)
+ from routing_r11_ground import validate_plan as r11_plan,verify_native as r11_verify
+ r11_retired=r11_plan(plan)
  entry=plan.get('ground_return_replacement')
  if entry:
-  assert Counter(map(tuple,plan['removed_copper']))==Counter([allowed])+plane_retired+permission_retired and entry['original']==list(allowed),'Unreviewed retirement scope'
+  assert Counter(map(tuple,plan['removed_copper']))==Counter([allowed])+plane_retired+permission_retired+r11_retired and entry['original']==list(allowed),'Unreviewed retirement scope'
   originals=[t for t in old.GetTracks() if signature(old,t)==allowed];assert len(originals)==1
   h=runpy.run_path(str(ROOT/'tools/check-routing-progress-trial.py'))
   witnesses=runpy.run_path(str(ROOT/'tools/routing_track_replacements.py'))['contacts'](old,originals[0],signature,h['physical_identity'])
@@ -55,7 +57,7 @@ def audit(path,plan=None,fill=True):
   for point in [originals[0].GetStart(),originals[0].GetEnd()]:
    assert any(t.GetEffectiveShape(p.B_Cu).Collide(p.SHAPE_CIRCLE(point,1),0) for t in replacement),'Original return endpoint lost'
   assert all(any(t.GetEffectiveShape(p.B_Cu).Collide(o.GetEffectiveShape(p.B_Cu),0) for t in replacement) for _,o in witnesses),'Original return junction lost'
- else:assert Counter(map(tuple,plan['removed_copper']))==plane_retired+permission_retired,'Unreviewed original copper retirement'
+ else:assert Counter(map(tuple,plan['removed_copper']))==plane_retired+permission_retired+r11_retired,'Unreviewed original copper retirement'
 
  layers=['F.Cu','In1.Cu','In2.Cu','In3.Cu','In4.Cu','B.Cu']
  for row in plan['added_copper']:
@@ -87,6 +89,7 @@ def audit(path,plan=None,fill=True):
   permission_witness=permission_verify(old,new,plan,signature,helpers['physical_identity'])
   from routing_native_testpad import verify_native as native_testpad_verify
   native_testpad_witness=native_testpad_verify(old,new,plan,signature)
+  r11_witness=r11_verify(old,new,plan,signature,helpers['physical_identity'])
   cap_witness=cap_verify(new,plan,signature,helpers['physical_identity'])
   assert all(group<=cluster(new,pb[key]) for group,key in groups.items()),'Parent pad group split'
   assert new.GetConnectivity().GetUnconnectedCount(False)==plan['native_opens'],'Native open count differs'
@@ -122,6 +125,7 @@ def audit(path,plan=None,fill=True):
   assert local_ground,'TMP390 local ground polygon lost'
  result=runpy.run_path(str(ROOT/'tools/report-coupon-board-connectivity.py'))['open_edges_by_net'](path)
  assert result['native_open_edges']==result['pad_cluster_open_edges']==plan['native_opens']
+ if r11_witness is not None:result['r11_ground_replacement_witness']=r11_witness
  if cap_witness is not None:result['capacitor_microplacement_witness']=cap_witness
  if plane_witness is not None:result['ground_plane_replacement_witness']=plane_witness
  if permission_witness is not None:result['permission_lead_replacement_witness']=permission_witness

@@ -15,7 +15,9 @@ _SOURCE=None
 
 def validate_plan(plan):
  entry=plan.get('capacitor_microplacement')
- assert set(plan['poses']) <= {'R90','TP14','TP13','C32'}, 'Unreviewed placement scope'
+ from routing_r11_ground import validate_plan as r11_plan
+ r11_plan(plan)
+ assert set(plan['poses']) <= {'R90','TP14','TP13','C32','R11'}, 'Unreviewed placement scope'
  assert ('C32' in plan['poses']) == (entry is not None), 'C32 contact guard missing'
  if entry is None:return
  assert entry['reference']=='C32' and entry['source_sha256']==SOURCE_SHA and entry['source_commit']==SOURCE_COMMIT, 'C32 historical source differs'
@@ -81,7 +83,9 @@ def verify_native(new,plan,signature,physical_identity):
    assert key==row['key'] and actual.IsOnLayer(p.B_Cu), 'C32 original contact identity/layer differs'
    assert pad.GetEffectiveShape(p.B_Cu).Collide(actual.GetEffectiveShape(p.B_Cu),0), 'C32 original land contact lost'
  inventory=lambda board:Counter(signature(board,t) for t in board.GetTracks())
- assert not inventory(source)-inventory(new), 'C32 historical source copper retired'
+ from routing_r11_ground import validate_plan as r11_plan
+ approved=r11_plan(plan);retired=inventory(source)-inventory(new)
+ assert not retired-approved, 'C32 historical source copper retired'
  pin=lambda board,ref,n:next(q for q in board.FindFootprintByReference(ref).Pads() if q.GetNumber()==n)
  cluster=lambda board,q:frozenset(t.m_Uuid.AsString() for t in board.GetConnectivity().GetConnectedItems(q) if isinstance(t,p.PAD))|{q.m_Uuid.AsString()}
  old_ground=pin(source,'C32','2');ground=pin(new,'C32','2');anchor=pin(new,*entry['joined_pad'])
@@ -107,6 +111,6 @@ def verify_native(new,plan,signature,physical_identity):
  assert witness is not None, 'C32 lacks individual B.Cu main-ground component contact'
  return {'reference':'C32','source_sha256':SOURCE_SHA,'source_commit':SOURCE_COMMIT,
   'original_direct_land_contacts_retained':True,'contact_count':sum(map(len,expected.values())),
-  'historical_ground_isolated':True,'historical_source_copper_retained':True,
+  'historical_ground_isolated':True,'historical_source_copper_retained':not bool(retired),'historical_source_copper_retained_except_reviewed_leaf':True,'historical_approved_retired_copper':[list(row) for row in retired.elements()],
   'displacement_iu':[after.GetPosition().x-OLD_POSITION[0],after.GetPosition().y-OLD_POSITION[1]],
   'joined_pad':entry['joined_pad'],'single_individual_bcu_ground_component':True,**witness}
