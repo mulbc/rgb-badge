@@ -1,5 +1,10 @@
 <!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
 
+ADR 0118 permits a read-only finite placement screen of corrected U49 near
+U48. No pose or copper change may be selected from that preliminary screen;
+any later migration needs an exact support/contact/replacement ledger and all
+functional-group, DRC, replay, fault and qualification boundaries retained.
+
 **2026-11-12 DSP-006/PWR-004 correction (ADR 0117):** Exact
 SN74LVC1G74RSER at U49/U50 shall use the RSE-specific PRE-bar/CLR-bar/Q/GND/
 Q-bar/D/CLK/VCC assignment on pins 1/2/3/4/5/6/7/8. Preserve the functional
