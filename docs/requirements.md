@@ -1,5 +1,10 @@
 <!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
 
+ADR 0120 permits a read-only coordinated PAIR01/R6 screen with original
+parts, gate association, ordinary widths and a ≤6 mm row-current lead bound.
+No PCB migration follows from a clear sample without exact source contacts,
+replacement ledger and complete functional-group/DRC/replay/fault validation.
+
 ADR 0119 permits ignored localization of exact R6 near PAIR01 with a gate
 lead ≤3 mm, retirement of only the six recorded obsolete supply-leaf items,
 retention of the shortened original shared stem and an explicit supported-size

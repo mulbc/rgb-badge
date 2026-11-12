@@ -1,0 +1,41 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "clearance_iu": 200000,
+  "conclusion": "No rigid sampled template fits all fixed source courtyards within the drain bound; no PCB saved",
+  "copper_edge_iu": 500000,
+  "counts": {
+    "drain_distance_over_6mm": 56417,
+    "fixed_courtyard": 7855,
+    "sampled": 64272
+  },
+  "date": "2026-11-12",
+  "drain_lower_bound_limit_mm": 6,
+  "fabrication_release_allowed": false,
+  "fixed_courtyard_observations": {
+    "BOARD_EDGE": 404,
+    "PAIR02": 5279,
+    "PAIR03": 165,
+    "PAIR04": 2385,
+    "PAIR06": 237,
+    "PROJ_U1_2": 51,
+    "U1": 7614,
+    "U38": 4461
+  },
+  "ignored_evidence_sha256": {
+    "hardware/coupon/rev-a/build/r6-locality/coordinated.json": "527a64c353381217de7c2f9131133a8e78ea21802ff848526fe995872e384660",
+    "hardware/coupon/rev-a/build/r6-locality/coordinated.log": "3706969e55946d8eff75e3e8afb785ad3b35c3725081e1207a4845f90edf5dc6"
+  },
+  "limitations": [
+    "Finite rigid template only; no proof against other arrangements",
+    "Filled zones, drill clearance and actual source-contact restoration not screened",
+    "No routing, refills, connectivity, DRC or process acceptance",
+    "No PCB saved"
+  ],
+  "local_capture_clear_samples": [],
+  "local_circuit_clear_samples": [],
+  "source_sha256": "3967bb66e89e0005f6859ce78a766b4536d06883b76fce130e75a6fdeefaf96e",
+  "source_unchanged": true,
+  "status": "UNSELECTED_READ_ONLY_COORDINATED_SCREEN",
+  "step_iu": 100000,
+  "tool_sha256": "ad0a65d17652ce31e809bd6812baee6491addc32dee50366ff8d26ad52cda113"
+}
