@@ -726,3 +726,8 @@ replays, counterfactual geometry/group/DRC restoration, eleven native faults,
 32 source checks and visual review pass. U35 supply, current/return/bus,
 controlled-stack/process/fit and independent Gate A remain unresolved; the
 zero-open goal remains active and fabrication prohibited.
+
+**2026-11-12 remaining gauge capture:** ADR 0125 bounds an ignored native
+non-grid capture at U35.2 and supported additive continuation from the immutable
+33-open source. All parts/pads/nets, prior groups, exact DRC and safety/current
+boundaries remain required; a via alone is not a gauge power connection.

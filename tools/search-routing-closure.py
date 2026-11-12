@@ -511,6 +511,9 @@ def main():
                     assert all(group <= identities(board, q) for q, group in groups_before)
                     path = None
             entry = dict(net=name, source=source_label,
+                         source_endpoint_count=len(starts), target_endpoint_count=len(targets),
+                         endpoint_radius_mm=args.endpoint_radius,
+                         empty_endpoint_sides=[side for side,points in [('source',starts),('target',targets)] if not points],
                          routed=bool(path), expanded_nodes=expanded,
                          search_outcome=('accepted_join' if path else rejection or
                              ('node_bound' if expanded > args.max_nodes else
