@@ -829,6 +829,147 @@
       }
     ]
   },
+  "endpoint_fingerprint_followup": {
+    "board_and_circuit_checks_passed": true,
+    "failed_commit": "e5ff23dcc2d2a7cdbb6ad9cd1567044897054b94",
+    "failure": "Historical remaining-routing-checkpoint tool fingerprint did not yet include the report-only search change",
+    "fix": "Retain old digest and source revision, record exact three-line report-only compatibility proof, enforce the new digest",
+    "raw_sha256": {
+      "hardware/coupon/rev-a/build/gauge-supply-routing/ci-43287794249-failed.log": "5b33ff8e0196994010a6980d84e658f761744f420a072b6a23790be161760666",
+      "hardware/coupon/rev-a/build/gauge-supply-routing/ci-43287815511-failed.log": "e2f7c5fc26f80d44afc2ae50557e947e9df92ed6b206f561c6810b2b22d46701",
+      "hardware/coupon/rev-a/build/gauge-supply-routing/endpoint-ci-fix/source-checks.json": "0d6fec06c280c5026ec7178780290497ff9b88e3cfd3d62847146a0a6d519199"
+    },
+    "source_workflow_checks_after_fix": [
+      {
+        "command": "python3 tools/check-coupon-study-contract.py",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 tools/check-rse-pin-migration-plan.py",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 tools/check-usb-en1-routing-plan.py",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 tools/check-gauge-supply-routing-plan.py",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb --legacy-land-study --legacy-switch-study",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 tools/check-routing-progress-plan.py",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 tools/check-converter-checkpoint-plan.py",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 tools/check-u36-stage-plan.py",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 tools/check-routing-closure-plan.py",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 tools/check-switch-routing-plan.py",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 tools/check-remaining-routing-plan.py",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-remaining-routing-trial-114mm.kicad_pcb",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-switch-routing-trial-114mm.kicad_pcb",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-routing-closure-trial-114mm.kicad_pcb",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-u36-stage-routing-trial-114mm.kicad_pcb",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 -m unittest discover -s tools/tests -p test_rse_pin_contract.py -v",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 tools/test-routing-group-targets.py",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 tools/test-converter-review-calculations.py",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 tools/test-hdi-stack-policy.py",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-converter-routing-trial-114mm.kicad_pcb",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 tools/check-c32-land-candidate.py",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 -m unittest discover -s tools/tests -p test_c32_land_candidate.py -v",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 -m unittest discover -s tools/tests -p test_murata_catalogue_lands.py -v",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 -m unittest discover -s tools/tests -p test_convex_geometry.py -v",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 -m unittest discover -s tools/tests -p test_routing_supply_join.py -v",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 -m unittest discover -s tools/tests -p test_slide_switch_library.py -v",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 -m unittest discover -s tools/tests -p test_routing_progress_plan.py -v",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 -m unittest discover -s tools/tests -p test_coupon_study_contract.py -v",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 -m unittest discover -s tools/tests -p test_routing_goal_distance.py -v",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 -m unittest discover -s tools/tests -p test_native_route_paths.py -v",
+        "exit_code": 0
+      },
+      {
+        "command": "python3 -m unittest discover -s tools/tests -p test_routing_clearance.py -v",
+        "exit_code": 0
+      }
+    ]
+  },
   "endpoint_radius_diagnosis": {
     "45_mm": {
       "empty_endpoint_sides": [

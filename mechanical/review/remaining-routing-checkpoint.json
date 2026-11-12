@@ -126,6 +126,9 @@
     "replacement_length_mm": 5.77
   },
   "historical_c32_neck_calculation_basis_sha256": "a24e9220226b77411ae8e8baea5cd629ce0fea8a97c377a708510d6791c2e439",
+  "historical_tool_sha256": {
+    "tools/search-routing-closure.py": "b3b54c79fbcb1f7ed9e0f95e5e75288d86f53fc94dddab4d14701984df6eb4b7"
+  },
   "inherited_original_orphan_restoration": {
     "all_live_pad_groups_identical": true,
     "basis": "IMMUTABLE_43_OPEN_PARENT",
@@ -706,6 +709,19 @@
     "ground_pad_distance_mm": 2.2629018980061866,
     "same_local_bcu_ground_polygon": true
   },
+  "tool_fingerprint_updates": [
+    {
+      "board_plan_and_native_evidence_unchanged": true,
+      "current_sha256": "9a55de7373b5ee633b64d5012649e4bb7038b9c8a51328b06df7adaf9bf46ed0",
+      "date": "2026-11-12",
+      "exact_compatibility_proof": "Removing the exact three added report lines reproduces historical source bytes; routing/search/geometry behaviour is unchanged",
+      "historical_source_revision": "0e4b154b5f9f9d577e133b1aa434c4fe8c4d6761",
+      "path": "tools/search-routing-closure.py",
+      "previous_sha256": "b3b54c79fbcb1f7ed9e0f95e5e75288d86f53fc94dddab4d14701984df6eb4b7",
+      "reason": "Add source/target endpoint counts, radius and empty-side report fields only",
+      "validation": "Six existing source/path tests and native two-boundary join/source-ground/exact-replay fixture pass; full source workflow rechecked separately"
+    }
+  ],
   "tool_sha256": {
     "tools/check-remaining-routing-plan.py": "da715444e0759a694bc4cdf2a1932a7b2f275e65a2a3256c3e352a8df6d9bfb1",
     "tools/check-remaining-routing.py": "d2f81b3e0040192cf24df018c6a3cecb292105d837d8f497f6303a8578ec8fb3",
@@ -719,7 +735,7 @@
     "tools/routing_permission_lead.py": "384dd4db00c0cc327a9d618efa7890d26a8c742062dfbf787510beb442183e10",
     "tools/routing_r11_ground.py": "9d5a3e80b1d9ce1344d82dfb4f161ae7729e9e1f59af9a517ff38f3d65d0d698",
     "tools/routing_remaining.py": "cd3589939ed67faaa464dd3d4bdcac453992e32fb82c3ebe51e8cfa6f33a6e3f",
-    "tools/search-routing-closure.py": "b3b54c79fbcb1f7ed9e0f95e5e75288d86f53fc94dddab4d14701984df6eb4b7",
+    "tools/search-routing-closure.py": "9a55de7373b5ee633b64d5012649e4bb7038b9c8a51328b06df7adaf9bf46ed0",
     "tools/test-native-copper-endpoint.py": "338a517961c1828aed919bfcd4e67121471e9745e01483157087c9f6121e233e",
     "tools/test-remaining-routing-guards.py": "2f5cd4fabdab579c429d02353546100e1a5143b82e0404f44a55b408613f276b",
     "tools/test-routing-group-targets.py": "0c066d28cf7e2ba258675ccacaf9a954f2dab0c6192c87e5d5ab592916f4ebe9"

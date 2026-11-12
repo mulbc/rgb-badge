@@ -69,3 +69,14 @@ variants remain ignored. Gauge bypass/current/return/bus behaviour, rail
 transitions, controlled stack, 557 historical centre vias, electrical/process/
 fit and independent Gate A remain open. No hardware measurement or fabrication
 release is implied; the zero-open goal remains in progress.
+
+
+## Reporting fingerprint follow-up
+
+Remote checks for the reporting-only commit `e5ff23d` reject the stale search
+tool digest in the historical remaining-routing manifest; current board,
+canonical circuit and gauge checkpoint checks pass. The fix retains the
+historical digest and its source revision, records an exact byte proof that
+removing only the three added report lines reproduces that source, and enforces
+the new digest. All 32 source-workflow commands pass after the update. No board,
+plan, native acceptance rule or historical geometry evidence changes.
