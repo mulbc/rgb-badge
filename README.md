@@ -1,5 +1,7 @@
 <!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
 
+**2026-11-12 selected — 34 opens:** The [USB EN1 join](docs/development/usb-en1-routing-2026-11-12.md) localizes exact R70/TP31 and joins U23.4, preserving every prior group and all other copper with no new vias. Exact unchanged 104 findings, stable independent replays, 12 native faults, 31 source checks and visual review pass. Use `led-usb-en1-routing-trial-114mm`; the corrected RSE parent stays immutable. Zero opens and electrical/process/fit/stack/Gate A acceptance remain open; fabrication is prohibited.
+
 **2026-11-12 corrected routing source — 35 opens:** The [RSE pin correction](docs/development/rse-pin-correction-2026-11-12.md) fixes U49/U50 physical pin assignments, restores all 223 prior functional groups and preserves all previous accepted additions. Exact unchanged 104 findings, independent stable replays, native/source/fault and visual checks pass. Continue from `led-rse-corrected-routing-trial-114mm`; preceding boards retain the historical wrong map. Zero opens, electrical/process/fit/stack qualification and independent Gate A remain open; fabrication is prohibited.
 
 

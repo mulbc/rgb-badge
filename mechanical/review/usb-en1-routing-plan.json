@@ -1,0 +1,406 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_copper": [
+    {
+      "signature": [
+        "track",
+        "+3V3_USB",
+        10550000,
+        6000000,
+        10450000,
+        6000000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "18f51b5f-1509-5794-bee2-376e7ffdb0d8"
+    },
+    {
+      "signature": [
+        "track",
+        "+3V3_USB",
+        1200000,
+        5000000,
+        1200000,
+        6175000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "26e33de0-2ace-5da9-8541-e08908d10b6b"
+    },
+    {
+      "signature": [
+        "track",
+        "+3V3_USB",
+        10450000,
+        5000000,
+        1200000,
+        5000000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "45812da3-c642-5f31-83b6-852970338fdf"
+    },
+    {
+      "signature": [
+        "track",
+        "+3V3_USB",
+        10450000,
+        6000000,
+        10450000,
+        5000000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "6037f2ba-a6a1-591a-9805-7eb8ac7f9d77"
+    },
+    {
+      "signature": [
+        "track",
+        "USB_EN1_RAW_N",
+        11900000,
+        7000000,
+        11900000,
+        7750000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "753531e4-a0e9-5000-bac4-da9201476abd"
+    },
+    {
+      "signature": [
+        "track",
+        "USB_EN1_RAW_N",
+        2250000,
+        8075000,
+        1200000,
+        8075000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "ae2c070c-a71a-51c4-93ea-b82c8079ab8e"
+    },
+    {
+      "signature": [
+        "track",
+        "USB_EN1_RAW_N",
+        2250000,
+        5450000,
+        2250000,
+        8075000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "b25b578e-260b-5ff0-814f-a91b6dc9fba4"
+    },
+    {
+      "signature": [
+        "track",
+        "USB_EN1_RAW_N",
+        10550000,
+        7000000,
+        11900000,
+        7000000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "c1735d94-e1c3-5e93-a4d5-0595a89e8339"
+    },
+    {
+      "signature": [
+        "track",
+        "USB_EN1_RAW_N",
+        10550000,
+        7000000,
+        9900000,
+        7000000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "e2a1bb2e-ded9-5eac-8954-c64fa7932dbc"
+    },
+    {
+      "signature": [
+        "track",
+        "USB_EN1_RAW_N",
+        9900000,
+        5450000,
+        2250000,
+        5450000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "e41453c4-19cd-522d-99f7-6061a8331ecf"
+    },
+    {
+      "signature": [
+        "track",
+        "USB_EN1_RAW_N",
+        9900000,
+        7000000,
+        9900000,
+        5450000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "ea119565-8ab1-5b09-b1cd-4cd848098322"
+    }
+  ],
+  "branches": [
+    {
+      "end": [
+        "U23",
+        "5"
+      ],
+      "net": "+3V3_USB",
+      "points_iu": [
+        [
+          10550000,
+          6000000
+        ],
+        [
+          10450000,
+          6000000
+        ],
+        [
+          10450000,
+          5000000
+        ],
+        [
+          1200000,
+          5000000
+        ],
+        [
+          1200000,
+          6175000
+        ]
+      ],
+      "role": "supply",
+      "start": [
+        "R70",
+        "1"
+      ]
+    },
+    {
+      "end": [
+        "U23",
+        "4"
+      ],
+      "net": "USB_EN1_RAW_N",
+      "points_iu": [
+        [
+          10550000,
+          7000000
+        ],
+        [
+          9900000,
+          7000000
+        ],
+        [
+          9900000,
+          5450000
+        ],
+        [
+          2250000,
+          5450000
+        ],
+        [
+          2250000,
+          8075000
+        ],
+        [
+          1200000,
+          8075000
+        ]
+      ],
+      "role": "output",
+      "start": [
+        "R70",
+        "2"
+      ]
+    },
+    {
+      "end": [
+        "TP31",
+        "1"
+      ],
+      "net": "USB_EN1_RAW_N",
+      "points_iu": [
+        [
+          10550000,
+          7000000
+        ],
+        [
+          11900000,
+          7000000
+        ],
+        [
+          11900000,
+          7750000
+        ]
+      ],
+      "role": "test",
+      "start": [
+        "R70",
+        "2"
+      ]
+    }
+  ],
+  "fabrication_release_allowed": false,
+  "native_opens": 34,
+  "original_contacts": {
+    "4e80acb9-3235-5100-af33-030e33569108": {
+      "In3.Cu": {
+        "copper_and_pads": [],
+        "filled_polygons": [
+          {
+            "polygon": 1,
+            "uuid": "52361cb6-e447-5a7a-8fab-433f1b57c9c9"
+          }
+        ]
+      },
+      "In4.Cu": {
+        "copper_and_pads": [
+          {
+            "signature": [
+              "via",
+              "+3V3_USB",
+              95751262,
+              21750001,
+              "In4.Cu",
+              "B.Cu",
+              300000,
+              100000
+            ],
+            "uuid": "9ced2287-042b-5ca1-9293-c90554a352a8"
+          }
+        ],
+        "filled_polygons": []
+      }
+    },
+    "8c491cd1-dd01-5b1a-9d4e-340b2b65fe19": {
+      "B.Cu": {
+        "copper_and_pads": [
+          {
+            "pad": [
+              "TP31",
+              "1"
+            ],
+            "uuid": "57f402cb-83c9-54d6-bfa3-fb2924c9ee3d"
+          },
+          {
+            "pad": [
+              "R70",
+              "2"
+            ],
+            "uuid": "b8053b77-dbc7-5ee9-974c-336e17d7ccca"
+          }
+        ],
+        "filled_polygons": []
+      }
+    },
+    "9ced2287-042b-5ca1-9293-c90554a352a8": {
+      "B.Cu": {
+        "copper_and_pads": [
+          {
+            "pad": [
+              "R70",
+              "1"
+            ],
+            "uuid": "d863825d-2659-53af-ad34-b39109e1e1e0"
+          }
+        ],
+        "filled_polygons": []
+      },
+      "In4.Cu": {
+        "copper_and_pads": [
+          {
+            "signature": [
+              "via",
+              "+3V3_USB",
+              95751262,
+              21750001,
+              "In3.Cu",
+              "In4.Cu",
+              300000,
+              100000
+            ],
+            "uuid": "4e80acb9-3235-5100-af33-030e33569108"
+          }
+        ],
+        "filled_polygons": []
+      }
+    }
+  },
+  "physical_opens": 34,
+  "poses": {
+    "R70": {
+      "angle_deg": -90.0,
+      "old_angle_deg": -90.0,
+      "old_position_iu": [
+        95751262,
+        22250001
+      ],
+      "position_iu": [
+        10550000,
+        6500000
+      ],
+      "requested_angle_deg": 270
+    },
+    "TP31": {
+      "angle_deg": 180.0,
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        96251262,
+        24250001
+      ],
+      "position_iu": [
+        11900000,
+        7750000
+      ],
+      "requested_angle_deg": 180
+    }
+  },
+  "retired_copper": [
+    {
+      "signature": [
+        "via",
+        "+3V3_USB",
+        95751262,
+        21750001,
+        "In3.Cu",
+        "In4.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "4e80acb9-3235-5100-af33-030e33569108"
+    },
+    {
+      "signature": [
+        "track",
+        "USB_EN1_RAW_N",
+        95751262,
+        22750001,
+        96251262,
+        24250001,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "8c491cd1-dd01-5b1a-9d4e-340b2b65fe19"
+    },
+    {
+      "signature": [
+        "via",
+        "+3V3_USB",
+        95751262,
+        21750001,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "9ced2287-042b-5ca1-9293-c90554a352a8"
+    }
+  ],
+  "schema_version": 1,
+  "source_sha256": "3967bb66e89e0005f6859ce78a766b4536d06883b76fce130e75a6fdeefaf96e"
+}

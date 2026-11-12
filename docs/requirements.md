@@ -1,5 +1,11 @@
 <!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
 
+ADR 0121 permits ignored localization of exact R70 and TP31 beside the
+existing USB-control logic, replacing only three recorded obsolete leaves
+with ordinary B.Cu branches ≤16 mm. Preserve the complete supply group,
+all other live groups and hardware current-limit boundaries. No new via or
+selection is allowed without the complete source/contact/DRC/replay/fault gate.
+
 ADR 0120 permits a read-only coordinated PAIR01/R6 screen with original
 parts, gate association, ordinary widths and a ≤6 mm row-current lead bound.
 No PCB migration follows from a clear sample without exact source contacts,
@@ -682,3 +688,10 @@ ADR 0117 selects a separate corrected-RSE 35-open successor after exact
 refills/replays and native/source/fault/visual checks. Continue zero-open work
 from this corrected source; keep the preceding wrong-map board immutable and
 explicitly historical. No electrical/process/Gate A acceptance is implied.
+
+
+ADR 0121 selects the 34-open USB EN1 successor after exact two-pose,
+3-retirement/11-addition validation, all-223-prior-group preservation,
+unchanged 104-finding DRC, stable independent replays, source/fault and visual
+checks. Continue zero-open work from this corrected child; retain the 35-open
+RSE parent unchanged. All electrical/process/Gate A holds remain.

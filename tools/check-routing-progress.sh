@@ -58,3 +58,6 @@ python3 "$repo_root/tools/check-coupon-study-contract.py" --legacy-rse-study --b
 # successor must pass current canonical pins and functional terminal retention.
 python3 "$repo_root/tools/check-rse-pin-migration-plan.py"
 "$repo_root/tools/check-rse-pin-migration.sh"
+
+# ADR 0121: retain the corrected RSE parent and validate the 34-open child.
+"$repo_root/tools/check-usb-en1-routing.sh"
