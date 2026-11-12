@@ -68,7 +68,9 @@ def main():
 
     def rotate(pos, angle):
         x,y = pos
-        return {0:(x,y),90:(-y,x),180:(-x,-y),270:(y,-x)}[angle]
+        # KiCad's positive orientation rotates counter-clockwise on a Y-down
+        # board, so its coordinate transform has the opposite sine sign.
+        return {0:(x,y),90:(y,-x),180:(-x,-y),270:(-y,x)}[angle]
 
     template = {'PAIR01':((0,0),180),'R6':((-2750000,0),0)}
     net_gate = b.FindNet('ROW_GATE_00').GetNetCode()
@@ -94,6 +96,12 @@ def main():
             assert len(poly)==1
             offsets[ref] = poly[0]
         assert not g.intersects(offsets['PAIR01'],offsets['R6'])
+        # Check manual path/centre transforms against actual native pad poses.
+        # This fails for a screen-coordinate rotation with the wrong sign.
+        for ref,number,relative in [('R6','2',(-2250000,0)),('R6','1',(-3250000,0)),
+                                    ('PAIR01','5',(-925000,0)),('PAIR01','4',(-925000,650000))]:
+            pad=next(q for q in parts[ref].Pads() if q.GetNumber()==number)
+            assert tuple(pad.GetPosition())==rotate(relative,rotation), 'Template/native pad transform differs'
         for x in range(80500000,96000001,100000):
             for y in range(1750000,12000001,100000):
                 counts['sampled']+=1

@@ -50,3 +50,10 @@ the most frequently observed fixed blockers. No pad/capture-clear candidate,
 PCB migration, copper retirement or count reduction is selected. Source bytes
 remain unchanged at 35 opens. The result covers only this finite rigid template;
 it does not prove that another coordinated floorplan is impossible.
+
+
+The first screen's 90°/270° coordinate sine sign was corrected to KiCad's
+Y-down orientation convention. All four manual template transforms are now
+asserted against actual native terminal positions before sampling. The
+corrected native replay gives the same courtyard/distance counts and no-fit
+conclusion. No source PCB was changed by either read-only run.
