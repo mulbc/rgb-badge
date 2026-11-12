@@ -2,6 +2,8 @@
 
 # Display-interlock package library audit
 
+**2026-11-12 correction:** [ADR 0117](../../../docs/decisions/0117-rse-flip-flop-package-pin-correction.md) supersedes the DFF pin-map acceptance below. The earlier audit copied the general package table: Q 5 / inverted Q 3 is wrong for exact RSER. Canonical source now uses RSE Q 3 / inverted Q 5, CLK 7, D 6, CLR 2 and PRE 1. Historical boards retain the old map pending explicit copper migration; their CAD counts do not establish circuit correctness.
+
 Date: 2026-10-12. The exact compact IC set is selected for provisional library/source capture by [ADR 0032](../../../docs/decisions/0032-two-event-display-interlock-proposal.md). This record covers **four new land patterns, eight exact IC symbols and four exact resistor symbols**. No new interlock part is placed or connected in the canonical schematic. No PCB or assembly has been tested.
 
 | Project-local footprint | Exact selected devices | TI manufacturer land/stencil source |

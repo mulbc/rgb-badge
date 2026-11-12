@@ -1,5 +1,15 @@
 <!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
 
+**2026-11-12 DSP-006/PWR-004 correction (ADR 0117):** Exact
+SN74LVC1G74RSER at U49/U50 shall use the RSE-specific PRE-bar/CLR-bar/Q/GND/
+Q-bar/D/CLK/VCC assignment on pins 1/2/3/4/5/6/7/8. Preserve the functional
+heartbeat-then-arm logic, clear pull-down, defined preset and dark candidate
+output isolation. Historical boards must explicitly report the superseded
+generic pin map. A corrected routing successor must restore every functional
+connection under the recorded terminal permutation, without extra DRC
+findings or changes to current/protection limits. The preceding 35-open count
+is historical CAD evidence, not acceptance of the flip-flop wiring.
+
 # Product requirements
 
 Status: Baseline accepted; measurements pending
@@ -638,3 +648,21 @@ and strengthened ordinary-width ground landings. All previous groups and
 accepted additions, unchanged exact DRC, stable replay/fills, 44 native faults,
 28 source checks and visual review pass. No electrical, process or fabrication
 qualification is implied; zero-open and independent Gate A work remain open.
+
+ADR 0116 permits ignored PAIR01 (+0,+0.150) mm corridor exploration with
+its exact internal drain strap and four selector U-loop tracks replaced,
+retaining every external contact and prior group/addition. Standard-width
+local ground and adjacent-layer selector restoration and all full successor
+gates are mandatory; no new central microvia, limit or protection change.
+ADR 0116 may test one exact COL_09_B adjacent-via relocation and equal-length
+layer redistribution, retaining every original colour pad/contact and all
+source groups/additions. No width, current, assignment or central-via change
+is allowed, and full successor validation remains mandatory.
+
+
+ADR 0117 selects a separate corrected-RSE 35-open successor after exact
+8-retirement/73-addition replay, preservation of all 223 functional groups and
+244 accepted additions, exact unchanged 104 findings, stable independent
+refills/replays and native/source/fault/visual checks. Continue zero-open work
+from this corrected source; keep the preceding wrong-map board immutable and
+explicitly historical. No electrical/process/Gate A acceptance is implied.

@@ -1,5 +1,7 @@
 <!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
 
+**2026-11-12 corrected routing source — 35 opens:** The [RSE pin correction](docs/development/rse-pin-correction-2026-11-12.md) fixes U49/U50 physical pin assignments, restores all 223 prior functional groups and preserves all previous accepted additions. Exact unchanged 104 findings, independent stable replays, native/source/fault and visual checks pass. Continue from `led-rse-corrected-routing-trial-114mm`; preceding boards retain the historical wrong map. Zero opens, electrical/process/fit/stack qualification and independent Gate A remain open; fabrication is prohibited.
+
 
 **2026-11-07 switch routing selected — 43 opens:** The [validated successor](docs/development/switch-routing-2026-11-07.md) joins SW2.3–R83.1–U36.5, retains all 232 immutable 44-open parent groups and every prior copper item, and passes exact unchanged 104-finding DRC, stable replay/fills, source/orphan/fault and visual checks. The zero-open goal remains in progress. Added supply bridges, controlled stack, 557 historical centre microvias, electrical/process/fit qualification and independent Gate A remain open; fabrication is prohibited.
 

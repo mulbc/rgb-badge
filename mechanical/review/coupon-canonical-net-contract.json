@@ -10983,31 +10983,31 @@
       "mpn": "SN74LVC1G74RSER",
       "pins": {
         "1": {
-          "native_net": "HEARTBEAT_FALL_CLK",
-          "no_connect": false
-        },
-        "2": {
           "native_net": "+3V3_APP",
           "no_connect": false
         },
+        "2": {
+          "native_net": "DISPLAY_CLEAR_OK",
+          "no_connect": false
+        },
         "3": {
-          "native_net": "unconnected-(U49-Q-Pad3)",
-          "no_connect": true
+          "native_net": "HEARTBEAT_SEEN",
+          "no_connect": false
         },
         "4": {
           "native_net": "GND",
           "no_connect": false
         },
         "5": {
-          "native_net": "HEARTBEAT_SEEN",
-          "no_connect": false
+          "native_net": "unconnected-(U49-Q-Pad5)",
+          "no_connect": true
         },
         "6": {
-          "native_net": "DISPLAY_CLEAR_OK",
+          "native_net": "+3V3_APP",
           "no_connect": false
         },
         "7": {
-          "native_net": "+3V3_APP",
+          "native_net": "HEARTBEAT_FALL_CLK",
           "no_connect": false
         },
         "8": {
@@ -11023,31 +11023,31 @@
       "mpn": "SN74LVC1G74RSER",
       "pins": {
         "1": {
-          "native_net": "DISPLAY_ARM_CLK",
+          "native_net": "+3V3_APP",
           "no_connect": false
         },
         "2": {
-          "native_net": "HEARTBEAT_SEEN",
+          "native_net": "DISPLAY_CLEAR_OK",
           "no_connect": false
         },
         "3": {
-          "native_net": "unconnected-(U50-Q-Pad3)",
-          "no_connect": true
+          "native_net": "ARM_LATCH",
+          "no_connect": false
         },
         "4": {
           "native_net": "GND",
           "no_connect": false
         },
         "5": {
-          "native_net": "ARM_LATCH",
-          "no_connect": false
+          "native_net": "unconnected-(U50-Q-Pad5)",
+          "no_connect": true
         },
         "6": {
-          "native_net": "DISPLAY_CLEAR_OK",
+          "native_net": "HEARTBEAT_SEEN",
           "no_connect": false
         },
         "7": {
-          "native_net": "+3V3_APP",
+          "native_net": "DISPLAY_ARM_CLK",
           "no_connect": false
         },
         "8": {
@@ -11243,7 +11243,7 @@
     "hardware/coupon/rev-a/charger-gate.kicad_sch": "3e5f35ac2b04ef8539d79ee13cc7997294d4121d985a372e7afb702852465700",
     "hardware/coupon/rev-a/charger-temperature.kicad_sch": "0fcd6c67d76ecb6b936ee36b338664467a4a6e9c9ba666ef6bb52c8e99fcd02a",
     "hardware/coupon/rev-a/controller.kicad_sch": "684a027a8f37cc194069372cf1f45feeffbd62313daa803008c286b92a33b205",
-    "hardware/coupon/rev-a/display-interlock.kicad_sch": "a145659b8012d56511e586a26e32061f653394668beccaab327cb92d9b0e46bc",
+    "hardware/coupon/rev-a/display-interlock.kicad_sch": "ea62a05baeab9e01f84b3fbf04f81c860899d3d5e10db9faac0e89afc0708508",
     "hardware/coupon/rev-a/driver.kicad_sch": "9a5c96492befd6427f655cf31fa8767469e32a3af60044ee90bd6cb7b8443d43",
     "hardware/coupon/rev-a/footprints/rgb-badge-coupon.pretty/C_Murata_GRM15_0402.kicad_mod": "f802c2c53ca832a6b7b8cdda0ff00b940f4ff138dc81ddf21248d6a07fec11ca",
     "hardware/coupon/rev-a/footprints/rgb-badge-coupon.pretty/C_Murata_GRM187R61A226ME15_0603.kicad_mod": "ecb110da38c93f4732c6604cf5b5b79f8c12c49e8f0c55911cea9825a3d557e8",
@@ -11299,7 +11299,7 @@
     "hardware/coupon/rev-a/matrix-r08-c08.kicad_sch": "493f8f8a7bb20e39421dd644c0e9368a49cb80c44bf4e78f17b2ab142d988a46",
     "hardware/coupon/rev-a/rgb-badge-coupon.kicad_sch": "d01d130b7c2f46a725792bd83dd9cc56cc3eba5a1f855d686f271c2ed0dbf7a5",
     "hardware/coupon/rev-a/rows.kicad_sch": "e332b3a7d50a1e66fba1797a9481fff820d7df3dd5a5181797295764b742aa28",
-    "hardware/coupon/rev-a/symbols/rgb-badge-coupon.kicad_sym": "49b3316f5aa2c6d4ec84d6cc5d32762a5b7f5a61d366ac67a954df7e893423cc",
+    "hardware/coupon/rev-a/symbols/rgb-badge-coupon.kicad_sym": "c1d6fbff07dea05d10e20bbce1ec9ed256a6447857026efa0a907ad319c9d60a",
     "hardware/coupon/rev-a/usb-conditioning.kicad_sch": "695a40b382ccf8584f6181b1df84ecef1d2bdf12f0cfe47c5be60ce07cd87b5c",
     "hardware/coupon/rev-a/usb-interface.kicad_sch": "d27b929bcecb9e7618f9d4eb5ecb5c671ad512835f97b28c131fd3f70e143aad",
     "hardware/coupon/rev-a/usb-permission.kicad_sch": "b03f537846d1bb3da56ee5b0448464f0a3d5ce2d6814356a4767c494fde70204",

@@ -20,11 +20,12 @@ EXPECTED = {
         3: ("MR", "input", "inverted"), 4: ("WDI", "input", "line"),
         5: ("VDD", "power_in", "line"),
     }),
+    # TI SCES794F p3 RSE column / SCES794G Figure 5-2, not the general table.
     "SN74LVC1G74RSER": ("UQFN_TI_RSE0008A_1.5x1.5mm_P0.5mm", "sn74lvc1g74", {
-        1: ("CLK", "input", "clock"), 2: ("D", "input", "line"),
-        3: ("Q", "output", "inverted"), 4: ("GND", "power_in", "line"),
-        5: ("Q", "output", "line"), 6: ("CLR", "input", "inverted"),
-        7: ("PRE", "input", "inverted"), 8: ("VCC", "power_in", "line"),
+        1: ("PRE", "input", "inverted"), 2: ("CLR", "input", "inverted"),
+        3: ("Q", "output", "line"), 4: ("GND", "power_in", "line"),
+        5: ("Q", "output", "inverted"), 6: ("D", "input", "line"),
+        7: ("CLK", "input", "clock"), 8: ("VCC", "power_in", "line"),
     }),
     "SN74LVC1G04DSFR": ("X2SON_TI_DSF0006A_1x1mm_P0.35mm", "sn74lvc1g04", {
         1: ("NC", "no_connect", "line"), 2: ("A", "input", "line"),

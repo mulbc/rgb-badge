@@ -48,10 +48,10 @@ def check_netlist(path):
         ("U3", "8"): "DISPLAY_HEARTBEAT", ("U3", "9"): "DISPLAY_ARM_CLK",
         ("U47", "4"): "DISPLAY_HEARTBEAT", ("U47", "1"): "APP_SUPERVISOR_OK",
         ("U48", "2"): "DISPLAY_HEARTBEAT", ("U48", "4"): "HEARTBEAT_FALL_CLK",
-        ("U49", "1"): "HEARTBEAT_FALL_CLK", ("U49", "5"): "HEARTBEAT_SEEN",
-        ("U49", "6"): "DISPLAY_CLEAR_OK", ("U50", "1"): "DISPLAY_ARM_CLK",
-        ("U50", "2"): "HEARTBEAT_SEEN", ("U50", "5"): "ARM_LATCH",
-        ("U50", "6"): "DISPLAY_CLEAR_OK", ("U51", "1"): "APP_SUPERVISOR_OK",
+        ("U49", "7"): "HEARTBEAT_FALL_CLK", ("U49", "3"): "HEARTBEAT_SEEN",
+        ("U49", "2"): "DISPLAY_CLEAR_OK", ("U50", "7"): "DISPLAY_ARM_CLK",
+        ("U50", "6"): "HEARTBEAT_SEEN", ("U50", "3"): "ARM_LATCH",
+        ("U50", "2"): "DISPLAY_CLEAR_OK", ("U51", "1"): "APP_SUPERVISOR_OK",
         ("U51", "3"): "ESP_EN", ("U51", "6"): "MODE_BOOT_N",
         ("U52", "2"): "DISPLAY_ENABLE", ("U52", "4"): "DISPLAY_CLEAR_OK",
         ("U53", "1"): "VLED_WINDOW_OK", ("U53", "6"): "VLED_WINDOW_OK",
@@ -65,6 +65,13 @@ def check_netlist(path):
         ("U37", "12"): "VLED_ENABLE_DRAFT", ("U2", "23"): "ROW_ENABLE_N",
         ("R87", "1"): "VLED_ENABLE_DRAFT", ("R42", "2"): "ROW_ENABLE_N",
     }
+    for ref in ('U49', 'U50'):
+        critical.update({(ref, '1'): '+3V3_APP', (ref, '4'): 'GND', (ref, '8'): '+3V3_APP'})
+        require(nets.get((ref, '5'), '').startswith('unconnected-('),
+                ref + ': RSE inverted output 5 must remain no-connect')
+    critical[('U49', '6')] = '+3V3_APP'
+    critical[('R108', '1')] = 'DISPLAY_CLEAR_OK'
+    critical[('R108', '2')] = 'GND'
     for key, expected in critical.items():
         require(nets.get(key) == expected,
                 f"{key}: expected {expected!r}, got {nets.get(key)!r}")

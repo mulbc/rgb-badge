@@ -17,10 +17,12 @@ import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 PROJECT = ROOT / 'hardware/coupon/rev-a'
-BOARD = PROJECT / 'staging/led-routing-progress-trial-114mm.kicad_pcb'
+BOARD = PROJECT / 'staging/led-rse-corrected-routing-trial-114mm.kicad_pcb'
+HISTORICAL_RSE_BOARD = PROJECT / 'staging/led-routing-progress-trial-114mm.kicad_pcb'
 MURATA = runpy.run_path(str(ROOT/'tools/murata_land_migration.py'))
 REMAINING = runpy.run_path(str(ROOT/'tools/remaining_murata_migration.py'))
 SWITCH = runpy.run_path(str(ROOT/'tools/switch_pin_migration.py'))
+RSE = runpy.run_path(str(ROOT/'tools/rse_pin_migration.py'))
 CONTRACT = ROOT / 'mechanical/review/coupon-canonical-net-contract.json'
 CHECK = runpy.run_path(str(ROOT / 'tools/check-coupon-controller.py'))
 A = CHECK['A']
@@ -138,7 +140,8 @@ def read_board(path):
     return result
 
 
-def compare(data, board, require_metadata=True, legacy_land_study=False, legacy_switch_study=False):
+def compare(data, board, require_metadata=True, legacy_land_study=False, legacy_switch_study=False,
+            legacy_rse_study=False):
     canonical = data['components']
     rows = {f'Q{i}' for i in range(1,33)}
     pairs = {f'PAIR{i:02d}' for i in range(1,17)}
@@ -149,8 +152,12 @@ def compare(data, board, require_metadata=True, legacy_land_study=False, legacy_
     missing_mpn = []
     legacy_lands = []
     legacy_switch = []
+    legacy_rse = []
     for ref in sorted(set(canonical) & set(board)):
         expected, actual = canonical[ref], board[ref]
+        old_rse = legacy_rse_study and RSE['is_exact_legacy'](ref, actual)
+        if old_rse:
+            legacy_rse.append(ref)
         legacy=(legacy_land_study and ref in MURATA['REFS'] and
                 expected['mpn']==MURATA['MPN'] and expected['footprint']==MURATA['NEW'] and
                 actual['footprint']==MURATA['OLD'])
@@ -215,6 +222,8 @@ def compare(data, board, require_metadata=True, legacy_land_study=False, legacy_
             if old_switch:
                 require(number in SWITCH['FORWARD'], 'Unexpected legacy switch pad')
                 number=SWITCH['FORWARD'][number]
+            if old_rse:
+                number=RSE['FORWARD'][number]
             if number in expected['pins']:
                 entry = expected['pins'][number]
                 require(pad['copper'], 'Electrical pin lost its copper: '+ref+'.'+number)
@@ -252,13 +261,15 @@ def compare(data, board, require_metadata=True, legacy_land_study=False, legacy_
                 not part['mpn'] and
                 all(not q['net'] for q in part['pads']), 'Projected geometry became a circuit item: '+ref)
     return {'SPDX-License-Identifier':'CERN-OHL-S-2.0',
-            'status':'CHECKED_WITH_DOCUMENTED_STUDY_EXCEPTIONS', 'fabrication_release_allowed':False,
+            'status':('HISTORICAL_STUDY_WITH_INCORRECT_RSE_WIRING' if legacy_rse else
+                      'CHECKED_WITH_DOCUMENTED_STUDY_EXCEPTIONS'), 'fabrication_release_allowed':False,
             'canonical_components':len(canonical), 'study_footprints':len(board), **dict(counts),
             'trial_pairs_with_checked_logical_pin_maps':16, 'netless_projected_drivers':2,
             'absent_canonical_row_devices':sorted(rows), 'pcb_references_with_blank_mpn_values':missing_mpn,
             'shared_metadata_required':require_metadata,
             'historical_legacy_murata_assignments':legacy_lands,
             'historical_legacy_switch_assignments':legacy_switch,
+            'historical_legacy_rse_assignments':legacy_rse,
             'canonical_references_without_mpn':sorted(ref for ref in set(canonical) & set(board)
                                                        if not canonical[ref]['mpn']),
             'canonical_references_without_manufacturer':sorted(ref for ref in set(canonical) & set(board)
@@ -277,6 +288,8 @@ def main():
     ap.add_argument('--board', type=Path, default=BOARD)
     ap.add_argument('--report', type=Path)
     ap.add_argument('--legacy-switch-study',action='store_true',help='Report historical switch pad labels; never current pin-map acceptance')
+    ap.add_argument('--legacy-rse-study', action='store_true',
+                    help='Report the exact superseded RSE flip-flop map; never current wiring acceptance')
     ap.add_argument('--legacy-land-study', action='store_true',
                     help='Explicitly report historical, uncorrected Murata assignments; never final package acceptance')
     ap.add_argument('--historical-generator-input', action='store_true',
@@ -295,7 +308,8 @@ def main():
                 require(refresh(args.netlist) == data, 'Fresh native XML differs from the source-pinned snapshot')
         result = compare(data, read_board(args.board), require_metadata=not args.historical_generator_input,
                          legacy_land_study=args.legacy_land_study or args.historical_generator_input,
-                         legacy_switch_study=args.legacy_switch_study or args.historical_generator_input)
+                         legacy_switch_study=args.legacy_switch_study or args.historical_generator_input,
+                         legacy_rse_study=args.legacy_rse_study or args.historical_generator_input)
         if result['historical_legacy_murata_assignments']:
             print('Historical uncorrected Murata lands: '+', '.join(result['historical_legacy_murata_assignments']))
             result['status']='HISTORICAL_STUDY_WITH_UNCORRECTED_MURATA_LANDS'
@@ -304,6 +318,9 @@ def main():
             result['status']='HISTORICAL_STUDY_WITH_UNCORRECTED_SWITCH_LABELS'
         if args.historical_generator_input:
             result['status'] = 'HISTORICAL_INPUT_BEFORE_METADATA_PROJECTION'
+        if result['historical_legacy_rse_assignments']:
+            print('Historical incorrect RSE flip-flop wiring: '+', '.join(result['historical_legacy_rse_assignments']))
+            result['status']='HISTORICAL_STUDY_WITH_INCORRECT_RSE_WIRING'
         result.update(board_sha256=sha(args.board), canonical_contract_sha256=sha(args.contract),
                       checker_sha256=sha(__file__), native_xml_verified_this_run=args.netlist is not None)
         if args.report:

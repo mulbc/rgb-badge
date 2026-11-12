@@ -1,0 +1,635 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "board_sha256": "3967bb66e89e0005f6859ce78a766b4536d06883b76fce130e75a6fdeefaf96e",
+  "candidate_groups": 223,
+  "canonical_source_change_references": [
+    "U49",
+    "U50"
+  ],
+  "date": "2026-11-12",
+  "drc_normalization": "Only unordered implicated-item order; all IDs/descriptions/coordinates/severities/check lists exact",
+  "exact_additions": 73,
+  "exact_full_finding_identities_retained": true,
+  "exact_retirements": 8,
+  "fabrication_release_allowed": false,
+  "firmware_revision": "not involved; no bench measurements",
+  "hardware": "Coupon Rev A, unbuilt",
+  "ignored_evidence_sha256": {
+    "hardware/coupon/rev-a/build/rse-pin-correction/corrected-contract.json": "90732a2fc66f54d61e57fa34778b155b50b46b04638595ef409e238392146130",
+    "hardware/coupon/rev-a/build/rse-pin-correction/coupon.xml": "f0f514ea79499574a8c8c2c57cf6f3a3f236c161bb67f7478f45b6613f89ac9b",
+    "hardware/coupon/rev-a/build/rse-pin-correction/current-audit.json": "ab38631f1bde058ecfecf745cb610b9c786d351a2f3022ff2c82422173bee6f1",
+    "hardware/coupon/rev-a/build/rse-pin-correction/current-drc.json": "f85276e29008925beae5ffd1175b0eb32b76d29d15ee54406d02ebc0021af238",
+    "hardware/coupon/rev-a/build/rse-pin-correction/erc.json": "bac0b32b94a322575f569004906ce314acbf05c3368b8e99aeebeb5994c28d2b",
+    "hardware/coupon/rev-a/build/rse-pin-correction/faults/results.json": "60cad4c5bb05f57055fe17be9d0043af035d537b6c5425a4531cac65d2cf1740",
+    "hardware/coupon/rev-a/build/rse-pin-correction/full-check.log": "04971e419172e3f4c79a5d7fbcefbc32704a00bf5c669cbce0c942b1734dd0df",
+    "hardware/coupon/rev-a/build/rse-pin-correction/replay-a.kicad_pcb": "3967bb66e89e0005f6859ce78a766b4536d06883b76fce130e75a6fdeefaf96e",
+    "hardware/coupon/rev-a/build/rse-pin-correction/replay-b.kicad_pcb": "3967bb66e89e0005f6859ce78a766b4536d06883b76fce130e75a6fdeefaf96e",
+    "hardware/coupon/rev-a/build/rse-pin-correction/restored-obsolete-drc.json": "ef33d3fbecb1730f1c15e0c7182e159de6ca220e9689b063d4e3b453241c1cf0",
+    "hardware/coupon/rev-a/build/rse-pin-correction/restored-obsolete.kicad_pcb": "69101407f86ba721a5a025fe46408e5bec3f0db1699b62f92beb2e49917f8fe8",
+    "hardware/coupon/rev-a/build/rse-pin-correction/source-checks.json": "86f8a7ed24701d665730d0386694ce29d0c9f51c7c7b5e9bdeeb68df7c655ecb",
+    "hardware/coupon/rev-a/build/rse-pin-correction/validation-replay-a.kicad_pcb": "3967bb66e89e0005f6859ce78a766b4536d06883b76fce130e75a6fdeefaf96e",
+    "hardware/coupon/rev-a/build/rse-pin-correction/validation-replay-b.kicad_pcb": "3967bb66e89e0005f6859ce78a766b4536d06883b76fce130e75a6fdeefaf96e"
+  },
+  "independent_byte_identical_replays": 4,
+  "intrinsic_findings": 104,
+  "limitations": [
+    "35 opens remain",
+    "Power/return/timing and effective-capacitance qualification unresolved",
+    "Controlled fabricator stack absent; 557 historical centre microvias retained",
+    "Received-part orientation, assembly/process, enclosure and independent Gate A remain open"
+  ],
+  "local_source_workflow_checks": [
+    {
+      "command": "python3 tools/check-coupon-study-contract.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-rse-pin-migration-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb --legacy-land-study --legacy-switch-study",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-routing-progress-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-converter-checkpoint-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-u36-stage-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-routing-closure-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-switch-routing-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-remaining-routing-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-remaining-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-switch-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-routing-closure-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-u36-stage-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_rse_pin_contract.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/test-routing-group-targets.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/test-converter-review-calculations.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/test-hdi-stack-policy.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-converter-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-c32-land-candidate.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_c32_land_candidate.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_murata_catalogue_lands.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_convex_geometry.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_supply_join.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_slide_switch_library.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_progress_plan.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_coupon_study_contract.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_goal_distance.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_native_route_paths.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_clearance.py -v",
+      "exit_code": 0
+    }
+  ],
+  "native_erc_violations": 0,
+  "native_fault_rejections": [
+    {
+      "exit_code": 0,
+      "fault": "old-pin-map"
+    },
+    {
+      "exit_code": 0,
+      "fault": "swap-q-outputs"
+    },
+    {
+      "exit_code": 0,
+      "fault": "preset-low"
+    },
+    {
+      "exit_code": 0,
+      "fault": "move-u50"
+    },
+    {
+      "exit_code": 0,
+      "fault": "retire-accepted-copper"
+    },
+    {
+      "exit_code": 0,
+      "fault": "touch-inverse-output"
+    },
+    {
+      "exit_code": 0,
+      "fault": "narrow-new-track"
+    },
+    {
+      "exit_code": 0,
+      "fault": "new-centre-microvia"
+    },
+    {
+      "exit_code": 0,
+      "fault": "disconnect-clock"
+    }
+  ],
+  "native_opens": 35,
+  "native_tool": "Eeschema 10.0.6",
+  "nets": 188,
+  "new_unsupported_central_microvias": 0,
+  "obsolete_copper_restoration": {
+    "drc_findings": 128,
+    "native_opens": 35,
+    "status": "REJECTED",
+    "types": {
+      "clearance": 106,
+      "hole_clearance": 3,
+      "shorting_items": 10,
+      "solder_mask_bridge": 7,
+      "tracks_crossing": 2
+    }
+  },
+  "physical_opens": 35,
+  "plan_sha256": "ca2a86c6678f237fdfbfc29c7c9bbf9426083f1d25fde777268564ecb5777157",
+  "prior_accepted_additions_preserved": 244,
+  "prior_functional_groups_preserved": 223,
+  "source_contact_catalog": {
+    "U49": {
+      "1": {
+        "contacts": [],
+        "net": "HEARTBEAT_FALL_CLK",
+        "pin_function": "",
+        "position": [
+          112675000,
+          23750000
+        ],
+        "source_pad_group_size": 1,
+        "uuid": "405ce28e-c3f5-5a04-911f-0cdebb7710ce"
+      },
+      "2": {
+        "contacts": [
+          {
+            "row": [
+              "via",
+              "+3V3_APP",
+              112675000,
+              24250000,
+              "In4.Cu",
+              "B.Cu",
+              300000,
+              100000,
+              1
+            ],
+            "uuid": "a19a5928-5dec-5a62-a738-6b2f7769e217"
+          }
+        ],
+        "net": "+3V3_APP",
+        "pin_function": "",
+        "position": [
+          112675000,
+          24250000
+        ],
+        "source_pad_group_size": 47,
+        "uuid": "3a49544b-42fe-5c27-b940-885cf3561e52"
+      },
+      "3": {
+        "contacts": [],
+        "net": "",
+        "pin_function": "",
+        "position": [
+          112675000,
+          24750000
+        ],
+        "source_pad_group_size": 0,
+        "uuid": "069bdac9-248a-5563-aecb-a18dfe8e4a93"
+      },
+      "4": {
+        "contacts": [
+          {
+            "row": [
+              "via",
+              "GND",
+              112000000,
+              24900000,
+              "In4.Cu",
+              "B.Cu",
+              300000,
+              100000,
+              1
+            ],
+            "uuid": "881997b6-f9c2-5d39-9047-99ab03f2b60c"
+          }
+        ],
+        "net": "GND",
+        "pin_function": "",
+        "position": [
+          112000000,
+          24900000
+        ],
+        "source_pad_group_size": 196,
+        "uuid": "bbd5510e-fa7c-5de7-acde-063be41c7bd0"
+      },
+      "5": {
+        "contacts": [],
+        "net": "HEARTBEAT_SEEN",
+        "pin_function": "",
+        "position": [
+          111325000,
+          24750000
+        ],
+        "source_pad_group_size": 1,
+        "uuid": "eb64ea84-3772-58e3-8b0a-d6acc7c49f03"
+      },
+      "6": {
+        "contacts": [
+          {
+            "row": [
+              "track",
+              "DISPLAY_CLEAR_OK",
+              110575000,
+              24250000,
+              111325000,
+              24250000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "e0ee2639-b200-5dbf-9c43-57813a69e234"
+          }
+        ],
+        "net": "DISPLAY_CLEAR_OK",
+        "pin_function": "",
+        "position": [
+          111325000,
+          24250000
+        ],
+        "source_pad_group_size": 2,
+        "uuid": "526a0ea5-ca42-5a07-8096-9118d9f7c11a"
+      },
+      "7": {
+        "contacts": [
+          {
+            "row": [
+              "via",
+              "+3V3_APP",
+              111325000,
+              23750000,
+              "In4.Cu",
+              "B.Cu",
+              300000,
+              100000,
+              1
+            ],
+            "uuid": "cff72e1e-b062-5a84-bfc3-b45fb76a7d69"
+          }
+        ],
+        "net": "+3V3_APP",
+        "pin_function": "",
+        "position": [
+          111325000,
+          23750000
+        ],
+        "source_pad_group_size": 47,
+        "uuid": "0cc46a77-9ca2-5a24-94ea-8b8deefa5442"
+      },
+      "8": {
+        "contacts": [
+          {
+            "row": [
+              "via",
+              "+3V3_APP",
+              112000000,
+              23600000,
+              "In4.Cu",
+              "B.Cu",
+              300000,
+              100000,
+              1
+            ],
+            "uuid": "c3b9a2ea-c5cb-5aca-85fe-7536eaedb7c6"
+          }
+        ],
+        "net": "+3V3_APP",
+        "pin_function": "",
+        "position": [
+          112000000,
+          23600000
+        ],
+        "source_pad_group_size": 47,
+        "uuid": "8a7144c4-8725-57f7-9601-1a962a4806fa"
+      }
+    },
+    "U50": {
+      "1": {
+        "contacts": [
+          {
+            "row": [
+              "track",
+              "DISPLAY_ARM_CLK",
+              12425000,
+              1000000,
+              13425000,
+              1000000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "2e514485-4464-59f2-a6ba-1397d4fad179"
+          }
+        ],
+        "net": "DISPLAY_ARM_CLK",
+        "pin_function": "",
+        "position": [
+          12425000,
+          1000000
+        ],
+        "source_pad_group_size": 3,
+        "uuid": "9478ce6c-1dbb-5f93-b924-922164f9d552"
+      },
+      "2": {
+        "contacts": [],
+        "net": "HEARTBEAT_SEEN",
+        "pin_function": "",
+        "position": [
+          12425000,
+          1500000
+        ],
+        "source_pad_group_size": 1,
+        "uuid": "4384170d-7ffe-5054-8d7a-176b029ba777"
+      },
+      "3": {
+        "contacts": [],
+        "net": "",
+        "pin_function": "",
+        "position": [
+          12425000,
+          2000000
+        ],
+        "source_pad_group_size": 0,
+        "uuid": "5c3a4740-1b39-548d-b410-3a757c44dc7f"
+      },
+      "4": {
+        "contacts": [
+          {
+            "row": [
+              "via",
+              "GND",
+              11750000,
+              2150000,
+              "In4.Cu",
+              "B.Cu",
+              300000,
+              100000,
+              1
+            ],
+            "uuid": "8c94089c-a744-522d-9d73-b9a7873dbdc9"
+          }
+        ],
+        "net": "GND",
+        "pin_function": "",
+        "position": [
+          11750000,
+          2150000
+        ],
+        "source_pad_group_size": 196,
+        "uuid": "4e441759-4524-5c26-acc8-c6b3c81504fe"
+      },
+      "5": {
+        "contacts": [
+          {
+            "row": [
+              "track",
+              "ARM_LATCH",
+              11100000,
+              2000000,
+              11075000,
+              2000000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "288b2d15-1433-5042-87a6-7f1436e992e4"
+          },
+          {
+            "row": [
+              "track",
+              "ARM_LATCH",
+              11250000,
+              2000000,
+              11100000,
+              2000000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "6be521a2-c717-5172-96b7-f2f9e6bc46f8"
+          },
+          {
+            "row": [
+              "track",
+              "ARM_LATCH",
+              11250000,
+              2550000,
+              11250000,
+              2000000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "6fced5d8-797a-56fa-a82b-87a9a87056ff"
+          }
+        ],
+        "net": "ARM_LATCH",
+        "pin_function": "",
+        "position": [
+          11075000,
+          2000000
+        ],
+        "source_pad_group_size": 3,
+        "uuid": "e81e4e56-1e92-54f4-8969-a3e2613377c6"
+      },
+      "6": {
+        "contacts": [],
+        "net": "DISPLAY_CLEAR_OK",
+        "pin_function": "",
+        "position": [
+          11075000,
+          1500000
+        ],
+        "source_pad_group_size": 1,
+        "uuid": "8d09d803-350e-5e1b-9ddf-aeb9aec95f94"
+      },
+      "7": {
+        "contacts": [
+          {
+            "row": [
+              "via",
+              "+3V3_APP",
+              11075000,
+              1000000,
+              "In4.Cu",
+              "B.Cu",
+              300000,
+              100000,
+              1
+            ],
+            "uuid": "d27e9101-48d6-553e-9b60-c2bb73866a79"
+          }
+        ],
+        "net": "+3V3_APP",
+        "pin_function": "",
+        "position": [
+          11075000,
+          1000000
+        ],
+        "source_pad_group_size": 47,
+        "uuid": "3bb3fcd1-0bf9-512b-815c-88fdb2ed49b2"
+      },
+      "8": {
+        "contacts": [
+          {
+            "row": [
+              "via",
+              "+3V3_APP",
+              11750000,
+              850000,
+              "In4.Cu",
+              "B.Cu",
+              300000,
+              100000,
+              1
+            ],
+            "uuid": "67e7ea27-db85-5cc9-b500-756d4baa9dc0"
+          }
+        ],
+        "net": "+3V3_APP",
+        "pin_function": "",
+        "position": [
+          11750000,
+          850000
+        ],
+        "source_pad_group_size": 47,
+        "uuid": "25d23158-02ae-5e3f-9fb9-0a505d139454"
+      }
+    }
+  },
+  "source_sha256": "da3764ddf5c8c615529340c33c92974cff3fd036b937b5e4a53c408e0b141637",
+  "stable_fills_per_replay": 3,
+  "status": "SELECTED_CORRECTED_SOURCE_GEOMETRY_ONLY",
+  "third_party_sources": [
+    {
+      "bytes": 1427201,
+      "local_ignored_path": "hardware/coupon/rev-a/reference/vendor-datasheets/sn74lvc1g74-2026-11-12.pdf",
+      "sha256": "e46a5a867fec742290000dca5ed3b291535f3c4418ef2ae267acc4ab51b26d8a",
+      "url": "https://www.ti.com/lit/ds/symlink/sn74lvc1g74.pdf"
+    },
+    {
+      "bytes": 1341035,
+      "local_ignored_path": "hardware/coupon/rev-a/reference/vendor-datasheets/sn74lvc1g74-rev-f.pdf",
+      "sha256": "cd71871573766851c81d3aa86190766cf31e8b3b728eb8b88ccaaa1b49f6bb97",
+      "url": "https://static.datasheets.com/doc/10821154-texas-instruments-sn74lvc1g74dcut-ds.pdf"
+    },
+    {
+      "bytes": 185828,
+      "local_ignored_path": "hardware/coupon/rev-a/reference/vendor-datasheets/ti-pcn-20200518000.pdf",
+      "sha256": "46579a0c6f2069b5e99d250ff06f35ca4d5edbbe14f2ae0cc8b780c6ffcbccd7",
+      "url": "https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/424/PCN20200518000.pdf"
+    },
+    {
+      "bytes": 53650,
+      "local_ignored_path": "hardware/coupon/rev-a/reference/vendor-datasheets/scem591-2026-11-12.zip",
+      "sha256": "ccb8846ceccf039f77ff0ee662cadbd36545ed4806761a1df8d7b9451d6fa0d2",
+      "url": "https://www.ti.com/lit/zip/SCEM591"
+    }
+  ],
+  "tracked_file_sha256": {
+    "hardware/coupon/rev-a/staging/led-remaining-routing-trial-114mm.kicad_pcb": "da3764ddf5c8c615529340c33c92974cff3fd036b937b5e4a53c408e0b141637",
+    "hardware/coupon/rev-a/staging/led-rse-corrected-routing-trial-114mm.kicad_pcb": "3967bb66e89e0005f6859ce78a766b4536d06883b76fce130e75a6fdeefaf96e",
+    "mechanical/review/coupon-canonical-net-contract-before-rse-correction.json": "17dbd2057a7a9fd7708a7e0118a709015f12732f3c450322a9332851ab7543d7",
+    "mechanical/review/coupon-canonical-net-contract.json": "e8ae61938a596d225c950fffff72601a0b7c4d5667982873590b8c59b33bff46",
+    "mechanical/review/rse-pin-migration-plan.json": "ca2a86c6678f237fdfbfc29c7c9bbf9426083f1d25fde777268564ecb5777157",
+    "tools/audit-rse-pin-migration.py": "fcae6fa2d77dc495c5e486578b3fed18e8123b61523eed4069ccf9f709692ac4",
+    "tools/check-coupon-display-interlock.py": "47de42caefc1b5d5060ba738e8d5d5fe36f83a0f5445f8c0d16a5de6f8698ef9",
+    "tools/check-coupon-study-contract.py": "06f824e130a815dc35bde561d95d43653b0a7c893bac5de2c14bc61ed70d7be8",
+    "tools/check-interlock-symbols.py": "ab0a815dfa8e0177d693673fb51156916cc233ee220391af5cc161a346ef5359",
+    "tools/check-rse-pin-migration-plan.py": "d3473160cfb3be601fd1165339f97b1bdeb45c06ab0d5ef951eeb1b42a34722f",
+    "tools/check-rse-pin-migration.sh": "b9c6494bdb4074c5848053fd7df66390e69b1e740c3620dc2cc3b2d46414673c",
+    "tools/generate-coupon-display-interlock.py": "0173d13a94f0e68dea8caf0e58bfffad53fbd605e336aa45cf7a4de156b2d276",
+    "tools/generate-rse-pin-migration.py": "92c2857b87e675cb0336fdba61bf3fa38f96b98d1697a509c4f5974f9fabbaf2",
+    "tools/rse_pin_migration.py": "54e023f988e9fa15d5b8949d350afef22711c34d7c6ef994d7a106aee4a635a1",
+    "tools/test-rse-pin-migration-guards.py": "ac3e60af148049542a052b8d484e18214f7026d63e04934f44a998348e109885",
+    "tools/tests/test_coupon_study_contract.py": "a89c812c1a50f75ae7e7ddf328f96f490f03e4e635eff5be6812250f85e3bcd3",
+    "tools/tests/test_rse_pin_contract.py": "b42335f1f794f9b165d6661bf45e041bba9e058d5896c0244f3283e99aed69c3"
+  },
+  "visually_inspected_ignored_views_sha256": {
+    "hardware/coupon/rev-a/build/rse-pin-correction/interlock.png": "77e9f922f3cb4c9e2781ebeb85079816c0afb5fef95c30178195f71ca170f4ff",
+    "hardware/coupon/rev-a/build/rse-pin-correction/views/new/U49-replay-a-B_Cu.png": "d6cdc2b1375119ee558cd298723036b1ec41c89e8a702a331e0a1e96994e8c68",
+    "hardware/coupon/rev-a/build/rse-pin-correction/views/new/U49-replay-a-In4_Cu.png": "d37c0ec3ba6473be3284211dbe0a1af2443f4c851d165e287afaca996e5bfa5d",
+    "hardware/coupon/rev-a/build/rse-pin-correction/views/new/U50-replay-a-B_Cu.png": "b8dd4b091bf5933e1fef0ae075a708ec594a9fdea4c5e207c489b59693abfdc6",
+    "hardware/coupon/rev-a/build/rse-pin-correction/views/new/U50-replay-a-In3_Cu.png": "e04da5dfb5ce807df6f86637a5201ea9c8e74e37263eed35acdc79d51b92d688",
+    "hardware/coupon/rev-a/build/rse-pin-correction/views/new/U50-replay-a-In4_Cu.png": "89fb4d1f5bb7696786710937083531fbdae7006f3b754c4f6987ecd6bfb63b5a",
+    "hardware/coupon/rev-a/build/rse-pin-correction/views/old/U49-led-remaining-routing-trial-114mm-B_Cu.png": "86f8e631cb4768da79b5d5910fdcbb657f7efa27f4320238af65bc6d9c37bc56",
+    "hardware/coupon/rev-a/build/rse-pin-correction/views/old/U50-led-remaining-routing-trial-114mm-B_Cu.png": "070eb8d6b2d8a7d017b77d7d4ef986eba5f50aabd8cfb0e725e65f302a50b6c6"
+  }
+}

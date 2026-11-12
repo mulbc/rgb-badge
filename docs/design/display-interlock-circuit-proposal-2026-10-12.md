@@ -60,13 +60,13 @@ As a first arithmetic corner, TI's 396–404 mV rising-threshold range over temp
 ## Pin audit for capture
 
 - `TPS3823A-33DBVR` DBV top view: RESET 1, GND 2, MR 3, WDI 4, VDD 5. RESET is push-pull; do not wire-OR it directly to another push-pull output.
-- `SN74LVC1G74RSER` RSE top view: CLK 1, D 2, inverted Q 3, GND 4, Q 5, CLR 6, PRE 7, VCC 8. PRE must have a defined high; CLR low dominates the intended arm state. Its local RSE0008A land has numbered pads 1–8, but verify orientation and tape pin 1 independently for this part.
+- `SN74LVC1G74RSER` RSE top view (corrected by ADR 0117): PRE 1, CLR 2, Q 3, GND 4, inverted Q 5, D 6, CLK 7, VCC 8. PRE must have a defined high; CLR low dominates the intended arm state. Its local RSE0008A land has numbered pads 1–8, but verify orientation and tape pin 1 independently for this part.
 - `TLV6700DSER` **DSE**, not DDC, top view: OUTB 1, VDD 2, INB− 3, INA+ 4, GND 5, OUTA 6. The package-dependent reversal makes a copied SOT-23 symbol unacceptable.
 - `SN74LVC2G00DCUR` DCU: 1A 1, 1B 2, 2Y 3, GND 4, 2A 5, 2B 6, 1Y 7, VCC 8. Check the AND part independently before capture.
 - `SN74LVC1G04DSFR` DSF: NC 1/5, A 2, GND 3, Y 4, VCC 6; do not copy the five-pad DRL supply pin.
 - `SN74LVC1G11DRYR` DRY: A 1, GND 2, B 3, Y 4, VCC 5, C 6. `SN74LVC1G08DSFR` DSF: A 1, B 2, GND 3, Y 4, NC 5, VCC 6. Check exact footprints against the package drawings before generating symbols.
 
-**Project-local land reuse:** the selected compact `SN74LVC1G74RSER` uses TI drawing RSE0008A and keeps the DFF's eight numbered pin functions. The coupon already has `UQFN_TI_RSE0008A_1.5x1.5mm_P0.5mm`, previously audited against TI's RSE0008A land drawing for `TS3USB31ERSER` in the [replacement-library audit](../../hardware/coupon/rev-a/power-replacement-library-audit.md). Reuse that land after a fresh DFF symbol-to-pad and package-revision check. The other compact packages still need their own project-local lands; identical body size alone never establishes pad compatibility. [TI DFF package and pin drawing](https://www.ti.com/lit/ds/symlink/sn74lvc1g74.pdf).
+**Project-local land reuse:** the selected compact `SN74LVC1G74RSER` uses TI drawing RSE0008A with its package-specific eight numbered pin functions. The coupon already has `UQFN_TI_RSE0008A_1.5x1.5mm_P0.5mm`, previously audited against TI's RSE0008A land drawing for `TS3USB31ERSER` in the [replacement-library audit](../../hardware/coupon/rev-a/power-replacement-library-audit.md). Reuse that land after a fresh DFF symbol-to-pad and package-revision check. The other compact packages still need their own project-local lands; identical body size alone never establishes pad compatibility. [TI DFF package and pin drawing](https://www.ti.com/lit/ds/symlink/sn74lvc1g74.pdf).
 
 ## Acceptance checks before connecting the dark stage
 

@@ -18,7 +18,13 @@ class StudyContract(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.canonical = json.loads(c.CONTRACT.read_text())
+        cls.historical_inventory = c.read_board(c.HISTORICAL_RSE_BOARD)
+        # Correct the in-memory net assignment for the current-contract fixtures;
+        # the actual historical PCB remains byte-identical and explicitly tested.
         cls.inventory = c.read_board(c.BOARD)
+        for ref, pins in c.RSE['CORRECTED'].items():
+            for pad in cls.inventory[ref]['pads']:
+                pad['net'] = pins[pad['number']]
 
     def setUp(self):
         self.data = copy.deepcopy(self.canonical)
@@ -40,6 +46,26 @@ class StudyContract(unittest.TestCase):
         self.assertEqual(len(r['canonical_references_without_manufacturer']), 5)
         self.assertTrue(r['shared_metadata_required'])
         self.assertFalse(r['fabrication_release_allowed'])
+
+    def test_actual_historical_rse_board_requires_explicit_reporting(self):
+        with self.assertRaisesRegex(ValueError, 'PCB pad net differs'):
+            c.compare(self.data, self.historical_inventory)
+        r = c.compare(self.data, self.historical_inventory, legacy_rse_study=True)
+        self.assertEqual(r['historical_legacy_rse_assignments'], ['U49', 'U50'])
+        self.assertEqual(r['status'], 'HISTORICAL_STUDY_WITH_INCORRECT_RSE_WIRING')
+
+    def test_historical_rse_mode_rejects_any_deviation_from_exact_old_map(self):
+        for ref in ('U49', 'U50'):
+            for number in map(str, range(1, 9)):
+                with self.subTest(ref=ref, number=number):
+                    board = copy.deepcopy(self.historical_inventory)
+                    next(p for p in board[ref]['pads'] if p['number']==number)['net'] = 'WRONG'
+                    with self.assertRaises(ValueError):
+                        c.compare(self.data, board, legacy_rse_study=True)
+
+    def test_current_rse_map_is_not_marked_historical(self):
+        r = c.compare(self.data, self.board, legacy_rse_study=True)
+        self.assertEqual(r['historical_legacy_rse_assignments'], [])
 
     def test_every_corrected_murata_land_is_enforced(self):
         for ref in c.MURATA['REFS']:

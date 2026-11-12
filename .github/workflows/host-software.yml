@@ -33,6 +33,7 @@ jobs:
             /hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb
             /mechanical/review/coupon-canonical-net-contract.json
             /mechanical/review/coupon-canonical-net-contract-before-remaining-murata.json
+            /mechanical/review/coupon-canonical-net-contract-before-rse-correction.json
             /hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb
             /hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pro
             /hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_dru
@@ -68,6 +69,10 @@ jobs:
             /mechanical/review/switch-routing-checkpoint.json
             /mechanical/review/remaining-routing-checkpoint.json
             /mechanical/review/remaining-routing-plan.json
+            /mechanical/review/rse-pin-migration-plan.json
+            /hardware/coupon/rev-a/staging/led-rse-corrected-routing-trial-114mm.kicad_pcb
+            /hardware/coupon/rev-a/staging/led-rse-corrected-routing-trial-114mm.kicad_pro
+            /hardware/coupon/rev-a/staging/led-rse-corrected-routing-trial-114mm.kicad_dru
             /docs/development/remaining-routing-drc-2026-11-07.json
             /hardware/coupon/rev-a/staging/led-remaining-routing-trial-114mm.kicad_pcb
             /hardware/coupon/rev-a/staging/led-remaining-routing-trial-114mm.kicad_pro
@@ -97,22 +102,24 @@ jobs:
       - name: Canonical source assignment and injected-fault checks
         run: |
           python3 tools/check-coupon-study-contract.py
-          python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb --legacy-land-study --legacy-switch-study
-          python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb
+          python3 tools/check-rse-pin-migration-plan.py
+          python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb --legacy-land-study --legacy-switch-study
+          python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb
           python3 tools/check-routing-progress-plan.py
           python3 tools/check-converter-checkpoint-plan.py
           python3 tools/check-u36-stage-plan.py
           python3 tools/check-routing-closure-plan.py
           python3 tools/check-switch-routing-plan.py
           python3 tools/check-remaining-routing-plan.py
-          python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-remaining-routing-trial-114mm.kicad_pcb
-          python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-switch-routing-trial-114mm.kicad_pcb
-          python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-routing-closure-trial-114mm.kicad_pcb
-          python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-u36-stage-routing-trial-114mm.kicad_pcb
+          python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-remaining-routing-trial-114mm.kicad_pcb
+          python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-switch-routing-trial-114mm.kicad_pcb
+          python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-routing-closure-trial-114mm.kicad_pcb
+          python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-u36-stage-routing-trial-114mm.kicad_pcb
+          python3 -m unittest discover -s tools/tests -p test_rse_pin_contract.py -v
           python3 tools/test-routing-group-targets.py
           python3 tools/test-converter-review-calculations.py
           python3 tools/test-hdi-stack-policy.py
-          python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-converter-routing-trial-114mm.kicad_pcb
+          python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-converter-routing-trial-114mm.kicad_pcb
           python3 tools/check-c32-land-candidate.py
           python3 -m unittest discover -s tools/tests -p test_c32_land_candidate.py -v
           python3 -m unittest discover -s tools/tests -p test_murata_catalogue_lands.py -v
