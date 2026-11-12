@@ -695,3 +695,14 @@ ADR 0121 selects the 34-open USB EN1 successor after exact two-pose,
 unchanged 104-finding DRC, stable independent replays, source/fault and visual
 checks. Continue zero-open work from this corrected child; retain the 35-open
 RSE parent unchanged. All electrical/process/Gate A holds remain.
+
+**2026-11-12 fixed thermistor continuation:** ADR 0122 permits an ignored,
+contact-preserving local COL_01_R layer-transfer feasibility study from the
+34-open source, with TH1 and all other parts fixed. A transfer alone is not a
+TS join or selected checkpoint. Complete physical-group, exact DRC, replay and
+qualification/Gate A requirements remain unchanged.
+
+**2026-11-12 CC1 continuation:** ADR 0123 permits ignored additive restoration
+of complete original APP/battery supply groups cut by a provisional CC1 path.
+The isolated CC1 route is rejected until every old group and the exact DRC
+baseline are restored and full successor checks pass. Source remains 34 opens.
