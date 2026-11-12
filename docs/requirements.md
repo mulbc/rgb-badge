@@ -731,3 +731,9 @@ zero-open goal remains active and fabrication prohibited.
 non-grid capture at U35.2 and supported additive continuation from the immutable
 33-open source. All parts/pads/nets, prior groups, exact DRC and safety/current
 boundaries remain required; a via alone is not a gauge power connection.
+
+**2026-11-12 complete gauge restoration:** ADR 0126 bounds ignored additive
+restoration of all original ground, USB input, APP and protected-battery groups
+split by the rejected U35 supply path. The eight-terminal gauge join and every
+preceding group must coexist with exact DRC/replay/source/fault/visual gates.
+No partial count reduction is selected; source remains at 33 opens.
