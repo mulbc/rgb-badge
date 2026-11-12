@@ -17,7 +17,7 @@ import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 PROJECT = ROOT / 'hardware/coupon/rev-a'
-BOARD = PROJECT / 'staging/led-usb-en1-routing-trial-114mm.kicad_pcb'
+BOARD = PROJECT / 'staging/led-gauge-routing-trial-114mm.kicad_pcb'
 HISTORICAL_RSE_BOARD = PROJECT / 'staging/led-routing-progress-trial-114mm.kicad_pcb'
 MURATA = runpy.run_path(str(ROOT/'tools/murata_land_migration.py'))
 REMAINING = runpy.run_path(str(ROOT/'tools/remaining_murata_migration.py'))

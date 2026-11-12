@@ -61,3 +61,6 @@ python3 "$repo_root/tools/check-rse-pin-migration-plan.py"
 
 # ADR 0121: retain the corrected RSE parent and validate the 34-open child.
 "$repo_root/tools/check-usb-en1-routing.sh"
+
+# Selected additive gauge-supply successor (ADR 0124).
+"$repo_root/tools/check-gauge-supply-routing.sh"

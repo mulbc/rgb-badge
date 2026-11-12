@@ -712,3 +712,17 @@ supported inner-layer bridging from the immutable 34-open source on VLED,
 switched gauge, USB supply and ground. All prior physical groups, exact DRC,
 parts, limits, protection and source retention remain required; no search hit
 alone is selected progress or power/return qualification.
+
+**2026-11-12 switched-gauge candidate:** ADR 0124 freezes an additive 114-item
+33-open candidate joining the switch/repeater supply to its A-side pull-up and
+decoupling group, with all 222 preceding groups and exact 104 findings retained.
+U35.2/3 remains open. Selection requires the remaining replay/counterfactual,
+fault, source and visual gates; no power or fabrication qualification is implied.
+
+**2026-11-12 selected gauge successor:** ADR 0124's exact 114 additive items
+reduce opens to 33 native/physical, preserving all 222 preceding groups and
+every original copper/part/pose/profile with exact 104 findings. Stable exact
+replays, counterfactual geometry/group/DRC restoration, eleven native faults,
+32 source checks and visual review pass. U35 supply, current/return/bus,
+controlled-stack/process/fit and independent Gate A remain unresolved; the
+zero-open goal remains active and fabrication prohibited.

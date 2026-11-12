@@ -70,6 +70,10 @@ jobs:
             /mechanical/review/remaining-routing-checkpoint.json
             /mechanical/review/remaining-routing-plan.json
             /mechanical/review/rse-pin-migration-plan.json
+            /mechanical/review/gauge-supply-routing-plan.json
+            /hardware/coupon/rev-a/staging/led-gauge-routing-trial-114mm.kicad_pcb
+            /hardware/coupon/rev-a/staging/led-gauge-routing-trial-114mm.kicad_pro
+            /hardware/coupon/rev-a/staging/led-gauge-routing-trial-114mm.kicad_dru
             /mechanical/review/usb-en1-routing-plan.json
             /hardware/coupon/rev-a/staging/led-usb-en1-routing-trial-114mm.kicad_pcb
             /hardware/coupon/rev-a/staging/led-usb-en1-routing-trial-114mm.kicad_pro
@@ -108,6 +112,7 @@ jobs:
           python3 tools/check-coupon-study-contract.py
           python3 tools/check-rse-pin-migration-plan.py
           python3 tools/check-usb-en1-routing-plan.py
+          python3 tools/check-gauge-supply-routing-plan.py
           python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb --legacy-land-study --legacy-switch-study
           python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb
           python3 tools/check-routing-progress-plan.py
