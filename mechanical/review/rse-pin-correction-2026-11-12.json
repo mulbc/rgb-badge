@@ -18,10 +18,10 @@
     "hardware/coupon/rev-a/build/rse-pin-correction/corrected-contract.json": "90732a2fc66f54d61e57fa34778b155b50b46b04638595ef409e238392146130",
     "hardware/coupon/rev-a/build/rse-pin-correction/coupon.xml": "f0f514ea79499574a8c8c2c57cf6f3a3f236c161bb67f7478f45b6613f89ac9b",
     "hardware/coupon/rev-a/build/rse-pin-correction/current-audit.json": "ab38631f1bde058ecfecf745cb610b9c786d351a2f3022ff2c82422173bee6f1",
-    "hardware/coupon/rev-a/build/rse-pin-correction/current-drc.json": "f85276e29008925beae5ffd1175b0eb32b76d29d15ee54406d02ebc0021af238",
+    "hardware/coupon/rev-a/build/rse-pin-correction/current-drc.json": "75e487e30d2eccef5b8166b98dc2f698cfc3c762cebc44ed94f6101dd5e8b418",
     "hardware/coupon/rev-a/build/rse-pin-correction/erc.json": "bac0b32b94a322575f569004906ce314acbf05c3368b8e99aeebeb5994c28d2b",
     "hardware/coupon/rev-a/build/rse-pin-correction/faults/results.json": "60cad4c5bb05f57055fe17be9d0043af035d537b6c5425a4531cac65d2cf1740",
-    "hardware/coupon/rev-a/build/rse-pin-correction/full-check.log": "04971e419172e3f4c79a5d7fbcefbc32704a00bf5c669cbce0c942b1734dd0df",
+    "hardware/coupon/rev-a/build/rse-pin-correction/full-check.log": "a7b816133cc6ef9c18a3b740ce6018d53d1108e79a22c8b574151cb5a43fc2d7",
     "hardware/coupon/rev-a/build/rse-pin-correction/replay-a.kicad_pcb": "3967bb66e89e0005f6859ce78a766b4536d06883b76fce130e75a6fdeefaf96e",
     "hardware/coupon/rev-a/build/rse-pin-correction/replay-b.kicad_pcb": "3967bb66e89e0005f6859ce78a766b4536d06883b76fce130e75a6fdeefaf96e",
     "hardware/coupon/rev-a/build/rse-pin-correction/restored-obsolete-drc.json": "ef33d3fbecb1730f1c15e0c7182e159de6ca220e9689b063d4e3b453241c1cf0",
@@ -216,6 +216,17 @@
     }
   },
   "physical_opens": 35,
+  "pin_inventory_followup": {
+    "changed_metadata_only": [
+      "display-interlock.kicad_sch",
+      "symbols/rgb-badge-coupon.kicad_sym"
+    ],
+    "controller_tests_passed": 9,
+    "full_checkpoint_script_now_checks_pin_inventory": true,
+    "initial_remote_failure": "Stale canonical source fingerprints; actual 41 module pin assignments unchanged",
+    "native_xml_checked": true,
+    "pin_inventory_tests_passed": 8
+  },
   "plan_sha256": "ca2a86c6678f237fdfbfc29c7c9bbf9426083f1d25fde777268564ecb5777157",
   "prior_accepted_additions_preserved": 244,
   "prior_functional_groups_preserved": 223,
@@ -604,6 +615,7 @@
     }
   ],
   "tracked_file_sha256": {
+    "firmware/boards/coupon-rev-a.json": "be029213a2d0c8116b12008a76d7e712af623b339c6b02c0cffbbeac1661544d",
     "hardware/coupon/rev-a/staging/led-remaining-routing-trial-114mm.kicad_pcb": "da3764ddf5c8c615529340c33c92974cff3fd036b937b5e4a53c408e0b141637",
     "hardware/coupon/rev-a/staging/led-rse-corrected-routing-trial-114mm.kicad_pcb": "3967bb66e89e0005f6859ce78a766b4536d06883b76fce130e75a6fdeefaf96e",
     "mechanical/review/coupon-canonical-net-contract-before-rse-correction.json": "17dbd2057a7a9fd7708a7e0118a709015f12732f3c450322a9332851ab7543d7",
@@ -614,7 +626,7 @@
     "tools/check-coupon-study-contract.py": "06f824e130a815dc35bde561d95d43653b0a7c893bac5de2c14bc61ed70d7be8",
     "tools/check-interlock-symbols.py": "ab0a815dfa8e0177d693673fb51156916cc233ee220391af5cc161a346ef5359",
     "tools/check-rse-pin-migration-plan.py": "d3473160cfb3be601fd1165339f97b1bdeb45c06ab0d5ef951eeb1b42a34722f",
-    "tools/check-rse-pin-migration.sh": "b9c6494bdb4074c5848053fd7df66390e69b1e740c3620dc2cc3b2d46414673c",
+    "tools/check-rse-pin-migration.sh": "97dc48585783a0fc2f6a0313c00454ac26374ea8b8964ce8a969897f7fb31158",
     "tools/generate-coupon-display-interlock.py": "0173d13a94f0e68dea8caf0e58bfffad53fbd605e336aa45cf7a4de156b2d276",
     "tools/generate-rse-pin-migration.py": "92c2857b87e675cb0336fdba61bf3fa38f96b98d1697a509c4f5974f9fabbaf2",
     "tools/rse_pin_migration.py": "54e023f988e9fa15d5b8949d350afef22711c34d7c6ef994d7a106aee4a635a1",

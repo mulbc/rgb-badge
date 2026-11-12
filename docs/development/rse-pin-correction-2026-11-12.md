@@ -104,3 +104,16 @@ The prior PAIR01 34-open corridor is rejected by seven additional findings;
 Further routing must begin with the corrected source. Remaining opens,
 controlled stack, 557 historical centre microvias, electrical/process/fit
 qualification and independent Gate A still prohibit fabrication.
+
+
+## Firmware inventory fingerprint follow-up
+
+The first remote run passes the schematic/routing contract and host firmware
+jobs but rejects stale fingerprints in the provisional U3 pin inventory. The
+local original checker and its committed-inventory test reproduce that failure.
+Derivation changes only the interlock-sheet and shared-library hashes; all
+41 U3 pin records, display boundaries and production-configuration prohibition
+remain identical. Regeneration against the checked native XML fixes the exact
+failure. All eight inventory tests and nine controller tests pass. The full
+corrected-checkpoint script now checks this inventory as well, so future source
+changes cannot omit that dependency from local checkpoint validation.
