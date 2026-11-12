@@ -1,5 +1,11 @@
 <!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
 
+ADR 0119 permits ignored localization of exact R6 near PAIR01 with a gate
+lead ≤3 mm, retirement of only the six recorded obsolete supply-leaf items,
+retention of the shortened original shared stem and an explicit supported-size
+capture to the connected VLED plane. Preserve every old group and all other
+copper/parts/settings; full successor validation is required before selection.
+
 ADR 0118 permits a read-only finite placement screen of corrected U49 near
 U48. No pose or copper change may be selected from that preliminary screen;
 any later migration needs an exact support/contact/replacement ledger and all
