@@ -35,3 +35,53 @@ review. Any remaining group loss rejects the candidate. The immutable source
 remains at 34 opens until every acceptance gate passes. All controlled-stack,
 557 centre-via, electrical/process/fit and independent Gate A holds remain;
 fabrication is prohibited.
+
+The provisional CC1 stack at (106.1,17.8) mm contains three newly added
+coincident In1/In2, In2/In3 and In3/In4 vias. Native DRC reports two
+`holes_co_located` warnings where their drill sizes differ. This trial is
+rejected independently of its supply splits. An ignored correction may
+replace only these three unselected CC1 vias with one 0.50/0.30 mm F/B
+through via at the same point, screened on all six copper layers and against
+all other holes. Source copper remains untouched. Exact unchanged DRC and all
+prior groups must still pass; a warning is not waived as a stackup assumption.
+
+The same-point through-via proxy conflicts with retained F.Cu copper and is
+rejected before saving a PCB. As a separate bounded ignored correction, the
+new 0.50/0.30 mm In2/In3 via may instead be offset 0.50–1.50 mm from the
+original point, with two 0.20 mm In2/In3 stubs back to the two original
+0.30/0.10 mm adjacent captures. Retire only the unselected central via;
+retain all accepted-source copper and the two adjacent captures. Screen
+actual copper on both layers and all hole clearances; require native fills,
+all prior groups and exact DRC before further use. No offset is selected by
+this permission or by a shape-only pass.
+
+The remaining battery split separates the original In4 filled region near
+x≤72.50 mm from the right region beginning near x=79.08 mm. Direct In3
+bridges and bottom-edge elbow templates are obstructed by retained ROW_14_A,
+ROW_15_A and return/supply copper. Broaden only the ignored additive search
+to ordinary In2.Cu tracks (normally disabled by the search heuristic), using
+supported 0.50/0.30 mm centre transitions and actual native-witnessed filled
+components within 45 mm of C53. Such a bridge remains CAD continuity only:
+all original ground, battery, USB and APP groups must survive refill; return
+and current-carrying qualification remains open. New mixed-drill captures
+must be spatially separated, rather than relying on coincident-hole warnings.
+This is no waiver of width, clearance, topology, DRC or source retention.
+
+The ignored supported In2 battery bridge restores the battery group but splits
+seven members of the original USB-supply group. It is rejected by the native
+transaction guard. Permit additive restoration of this exact original USB
+supply group as part of the coupled trial, using the same ordinary widths,
+supported spans, individually witnessed plane components and full-group/DRC
+checks. Preserve the previously isolated U39.5 as an independently counted
+open unless its actual circuit connection is also completed. A partial USB
+group restoration cannot satisfy acceptance, and the selected source stays
+at 34 opens throughout these experiments.
+
+## Recorded continuation
+
+The [coupled review](../development/cc1-coupled-continuation-2026-11-12.md)
+selects no successor. The offset trial retains exact 104 findings but loses
+the original battery group. Its battery-restored descendant loses seven USB
+members and has native/physical disagreement plus two dangling via findings.
+No existing source copper is deleted to conceal these losses. The selected
+34-open source remains immutable; complete coupled restoration remains open.

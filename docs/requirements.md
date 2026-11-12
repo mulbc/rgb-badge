@@ -706,3 +706,9 @@ qualification/Gate A requirements remain unchanged.
 of complete original APP/battery supply groups cut by a provisional CC1 path.
 The isolated CC1 route is rejected until every old group and the exact DRC
 baseline are restored and full successor checks pass. Source remains 34 opens.
+
+**2026-11-12 independent supply continuation:** ADR 0124 bounds ignored
+supported inner-layer bridging from the immutable 34-open source on VLED,
+switched gauge, USB supply and ground. All prior physical groups, exact DRC,
+parts, limits, protection and source retention remain required; no search hit
+alone is selected progress or power/return qualification.
