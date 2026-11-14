@@ -1,5 +1,7 @@
 <!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
 
+**2026-11-14 selected — 32 opens:** The [complete control cluster](../../../docs/development/control-cluster-routing-2026-11-14.md) joins U51.4–U52.1 with exact U52/C71 placement and bounded loop/row replacements. All 221 original groups survive, with 32 native/physical opens, the original 104 finding payloads under the exact U52 pose transform, stable byte-identical replays, inverse-source proof, 18 fault guards, 33 source checks and native visual review. Use `led-control-cluster-routing-trial-114mm`. Zero opens, electrical/part/process/fit/stack qualification and independent Gate A remain open; fabrication is prohibited.
+
 **2026-11-12 selected — 33 opens:** The [gauge-supply join](../../../docs/development/gauge-supply-routing-2026-11-12.md) adds exact ordinary-width copper, preserving every prior group and source item. Native/physical 33 opens, exact unchanged 104 findings, stable byte-identical replays, eleven native faults, 32 source checks and visual review pass. Use `led-gauge-routing-trial-114mm`. U35 supply, zero opens and electrical/process/fit/stack/Gate A acceptance remain open; fabrication is prohibited.
 
 
@@ -24,7 +26,7 @@ The [2026-11-09 shunt/row continuation](../../../docs/development/shunt-ground-s
 
 **2026-11-06 corrected local stage selected — 47 opens:** [ADR 0090](../../../docs/decisions/0090-bounded-stack-and-complete-stage-corrections.md) and the [implementation record](../../../docs/development/bounded-corrections-2026-11-06.md) select the nine-part U36 correction: 14 exact retirements / 47 additions, all 238 parent groups retained, 47 native/physical opens and the exact unchanged 104 intrinsic findings. R81 output feed, feedback and enable pull-down are joined; short local capacitor routes, stable replay/fills, native/fault/source/orphan and visual checks pass. The 50-edge parent stays immutable. The corrected 0.80 mm manufacturing target remains provisional; 557 centre-layer transitions, electrical/process/fit qualification and independent Gate A still prohibit fabrication.
 
-Open the selected corrected CAD routing study: [led-gauge-routing-trial-114mm.kicad_pro](staging/led-gauge-routing-trial-114mm.kicad_pro). The root schematic includes the corrected RSE symbols.
+Open the selected corrected CAD routing study: [led-control-cluster-routing-trial-114mm.kicad_pro](staging/led-control-cluster-routing-trial-114mm.kicad_pro). The root schematic includes the corrected RSE symbols.
 
 **2026-11-06 supplied GRM188/HDI inputs:** The [source/proposal review](../../../docs/development/grm188-and-hdi-input-review-2026-11-06.md) confirms the resupplied Murata PDF is byte-identical to the existing reference sheet; exact combined-bias/aging capacitance remains unresolved. The proposed stack totals 1.272 mm rather than 1.6 mm and omits spans used by 1,670 existing inner-layer microvias. Connector thickness, fabricator build and topology need disposition before adoption. The selected 50/104 board, limits and Gate A hold remain unchanged.
 

@@ -1,5 +1,7 @@
 <!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
 
+The later [complete cluster checkpoint](control-cluster-routing-2026-11-14.md) selects 32 opens. This earlier study records the immutable 33-open basis and rejected preliminary screens.
+
 # Native control escape continuation, 2026-11-14
 
 **No successor is selected.** The validated source remains 33 native/physical
@@ -61,11 +63,16 @@ continuation also finds none. These finite screens do not establish global
 infeasibility, do not adopt a U52 pose or finding-coordinate transform, and
 leave the selected source's exact DRC gate untouched.
 
-A larger gate/bypass cluster placement can be studied read-only next. C71 is
-exact GRM155R71C104KA88D; its referenced current manufacturer sheet returns
-HTTP 403 and no corresponding local PDF was found. Its current drawing is
-needed before implementing a new C71 placement. No capacitor footprint,
-substitution, source limit or protection/default-off setting has changed.
+A larger gate/bypass cluster placement can be studied next. The owner supplied
+an exact GRM155R71C104KA88D family reference after its current manufacturer
+link returned HTTP 403. Both pages were visually reviewed and exact bytes/SHA-256
+cached in the ignored reference directory. The sheet is dated November 11,
+2014; it confirms the exact D order code and nonpolar 0402 body information.
+It is not a current approval drawing and contains no recommended land pattern.
+Its curves are reference characteristics, not guaranteed combined-bias limits.
+No footprint, substitution, source limit or protection/default-off change is
+inferred from the supplied sheet. Current part approval/effective-capacitance
+and assembly qualification remain open.
 
 The original four owner ground-probe files, vendor PDFs and all trial boards
 remain excluded from this work's commits. Power/return/current, logic timing,

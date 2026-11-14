@@ -16,7 +16,7 @@ Permit exactly U52's translation from (69.25,1.0) to (68.75,1.0) mm, retaining
 180-degree orientation, board side, exact SN74LVC1G08DSFR, fields, pin numbers,
 local pads and NCs. TI SCES217AA page 3 and DSF0006A PDF page 35 retain the
 existing 0.6 × 0.17 mm lands, 0.35 mm pitch and 0.8 mm row spacing. Retire only
-its original 0.20 mm +3V3_APP B.Cu leaf
+its original 0.12 mm +3V3_APP B.Cu leaf
 `9bf66294-f9fb-5c34-b774-02b3000f6dfa` (68.85,0.65)–(68.2,0.65) mm.
 The moved VCC land must directly retain contact to original track
 `15254fa2-f738-593f-8c07-41f52b5e7bff`; no replacement supply limit or domain.

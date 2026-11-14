@@ -766,3 +766,33 @@ by an exact +0.500 mm U52 translation and its recorded two-leaf power/ground
 cohort, with direct original ground-capture retention and one explicit supply
 branch. Its sole expected intrinsic-finding coordinate transform is +0.500 mm
 in x for U52 items; all other fields and full successor requirements remain.
+
+**2026-11-14 local gate/bypass cluster screen:** ADR 0131 permits read-only
+native placement/capture proxies for exact U52 and C71 near U51. No relocated
+PCB, new footprint or copper retirement is authorized by that screen; an exact
+pose/contact ledger and all full successor gates are required before adoption.
+
+**2026-11-14 exact existing DSF escape:** ADR 0132 permits only the recorded
+0.450 mm, 0.12 mm B.Cu U52.1 signal neck under its unchanged existing package
+rule. All copper beyond that neck stays ordinary width. No pose, capacitor,
+rule, protection or new source-retirement change is authorized; actual join,
+all original groups, exact DRC and full successor gates remain mandatory.
+
+**2026-11-14 existing DSF neck screen:** ADR 0133 bounds 0.750 mm local escapes
+at the five explicitly listed U48/U52 signal pads under their unchanged existing
+0.12 mm package/net rules. No part, source copper, clearance or profile changes
+are authorized; all remaining copper and full successor gates stay unchanged.
+
+**2026-11-14 local ROW_SEL_14 transfer:** ADR 0134 permits replacement of one
+exact recorded track, with all seven native external contacts and its complete
+terminal group retained, to assess local cluster space. No part, net, row
+assignment, current/default-off setting or new rule changes are authorized.
+
+**2026-11-14 exact gate/bypass prototype:** ADR 0135 freezes two exact U52/C71
+poses and six private-leaf retirements following the contact-preserving row
+detour. Every original group, all other source items and unchanged rules/safety
+boundaries must survive; only predetermined U52 intrinsic-item positions may
+follow its frozen pose. No extra finding, substitution or qualification is waived.
+
+
+**2026-11-14 control checkpoint selected:** ADR 0136 adopts the complete exact U52/C71 migration, eleven-item retirement and 59-item addition ledger at 32 native/physical opens. Preserve all 221 predecessor groups, exact source contacts and full original finding payloads except independently validated U52 pose coordinates. All existing safety, qualification and fabrication holds remain; zero opens is still required.

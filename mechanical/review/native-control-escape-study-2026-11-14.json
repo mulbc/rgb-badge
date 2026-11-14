@@ -1477,9 +1477,18 @@
       "reviewed_pin_table_pdf_page": 3
     },
     {
+      "cached_pdf": "hardware/coupon/rev-a/reference/vendor-datasheets/0900766b813885a4.pdf",
+      "cached_pdf_sha256": "3174317e20e99e8568500d251f25a14163711b4c4ff40c5ee89fd20f1c57112c",
+      "current_approval_claimed": false,
+      "layout_recommendation_present": false,
       "mpn": "GRM155R71C104KA88D",
       "new_drawing_review_claimed": false,
-      "status": "HTTP_403_NO_CURRENT_LOCAL_PDF_FOUND",
+      "printed_creation_date": "2014-11-11",
+      "reviewed_pdf_pages": [
+        1,
+        2
+      ],
+      "status": "OWNER_SUPPLIED_2014_REFERENCE_REVIEWED",
       "url": "https://pim.murata.com/asset/pim4/ceramicCapacitorSMD/GRM155R71C104KA88-01A-EN_PDF_CERAMICCAPACITORSMD"
     }
   ]
