@@ -737,3 +737,32 @@ restoration of all original ground, USB input, APP and protected-battery groups
 split by the rejected U35 supply path. The eight-terminal gauge join and every
 preceding group must coexist with exact DRC/replay/source/fault/visual gates.
 No partial count reduction is selected; source remains at 33 opens.
+
+**2026-11-12 native board-edge routing study:** ADR 0127 permits an ignored
+ordinary-width search in a wider centre grid, with explicit native board/cutout
+edge screening. All original parts, copper, groups, rules, exact DRC and
+successor replay/fault/source/visual gates remain mandatory; no selected change
+or electrical/fabrication qualification is implied.
+
+**2026-11-14 U51 locality study:** ADR 0128 permits only ignored ±0.250 mm
+translations of exact U51, with every original copper item and live group
+retained, for a supported ordinary-width control escape. No other pose, pin,
+part, net, rule or safety boundary may change; full successor gates remain.
+
+**2026-11-14 U51 loop-transfer study:** ADR 0129 permits replacement of exactly
+three recorded MODE_BOOT_N B.Cu tracks with a bounded supported B/In4 route.
+All external contacts, including its interior branch, every source group and
+all other source copper/parts/rules/safety boundaries must survive. A temporary
+cut or restored loop alone is not a selected reduction in open connections.
+
+**2026-11-14 U52 local capture:** ADR 0130 bounds one exact −0.500 mm U52
+translation, one supply-leaf retirement, explicit ground restoration and a
+supported input capture. All original groups and other source items remain
+required. Only predetermined U52 coordinates translate in the 104-finding
+comparison; no finding or safety qualification is waived.
+
+ADR 0130's rejected leftward poses are superseded only for ignored feasibility
+by an exact +0.500 mm U52 translation and its recorded two-leaf power/ground
+cohort, with direct original ground-capture retention and one explicit supply
+branch. Its sole expected intrinsic-finding coordinate transform is +0.500 mm
+in x for U52 items; all other fields and full successor requirements remain.

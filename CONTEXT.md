@@ -1,5 +1,7 @@
 <!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
 
+**2026-11-14 control continuation — selected source remains 33 opens:** The [native escape study](docs/development/native-control-escape-study-2026-11-14.md) records bounded edge/capture/placement screens and a source-contact-preserving U51 loop prototype. All 221 prior groups survive in that prototype, but its unfinished output capture and remaining U52 escape prevent selection. No new source board or fabrication release is adopted; the zero-open goal remains unfinished.
+
 **2026-11-12 selected — 33 opens:** The [gauge-supply join](docs/development/gauge-supply-routing-2026-11-12.md) adds exact ordinary-width copper, preserving every prior group and source item. Native/physical 33 opens, exact unchanged 104 findings, stable byte-identical replays, eleven native faults, 32 source checks and visual review pass. Use `led-gauge-routing-trial-114mm`. U35 supply, zero opens and electrical/process/fit/stack/Gate A acceptance remain open; fabrication is prohibited.
 
 

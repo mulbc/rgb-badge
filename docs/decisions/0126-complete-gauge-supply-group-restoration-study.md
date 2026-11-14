@@ -97,3 +97,15 @@ relaxation. It does not retire any original or selected copper. Any resulting
 path still requires actual battery/gauge groups, all 221 selected-source
 groups, unchanged exact DRC and complete successor gates. Search exhaustion
 or a bounded result is not general infeasibility.
+
+The broad strip reservation exhausts its sampled graph in both directions.
+A read-only native inventory shows that the old USB connection passes through
+an In3 filled component ending at the retained In2/In3 capture
+(76.151904,30.849096) mm, then through retained In2 copper to the separate right
+component. The polygons' overlapping bounding boxes do not establish contact.
+Permit the more focused alternative: reserve an ordinary 0.20 mm corridor
+through the actual old filled component to that exact retained capture.
+Derive its centreline on a 0.05 mm grid within a native 0.101 mm inward offset.
+These proxy tracks exist only in search occupancy; never add them to the PCB
+or count them as a new connection. All actual copper and final gates remain
+unchanged.
