@@ -1,5 +1,7 @@
 <!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
 
+**2026-11-14 selected — 30 opens:** The [complete enable join](docs/development/enable-routing-2026-11-14.md) closes the five-terminal DISPLAY_ENABLE group with one exact C71 shift and two private-leaf replacements. All 219 prior groups survive. Native/physical 30 opens, exact original 104 findings under the unchanged prior pose transform, stable independent replays, inverse-source proof, 18 fault guards, 35 source checks and native visual review pass. Use `led-enable-routing-trial-114mm`. Zero opens and all electrical/part/process/fit/stack/Gate A holds remain; fabrication is prohibited.
+
 **2026-11-14 selected — 31 opens:** The [clear-output join](docs/development/clear-output-routing-2026-11-14.md) connects U52.4 to U49.2/R108.1 through ordinary-width copper. All 220 prior groups and 19,226 source copper items survive. Native/physical 31 opens, exact original 104 finding payloads under the existing frozen pose transform, independent stable replays, byte-identical source restoration, eleven native faults, 34 source checks and native visual review pass. Use `led-ordinary-routing-trial-114mm`. Zero opens and electrical/part/process/fit/stack/Gate A acceptance remain unresolved; fabrication is prohibited.
 
 **2026-11-14 selected — 32 opens:** The [complete control cluster](docs/development/control-cluster-routing-2026-11-14.md) joins U51.4–U52.1 with exact U52/C71 placement and bounded loop/row replacements. All 221 original groups survive, with 32 native/physical opens, the original 104 finding payloads under the exact U52 pose transform, stable byte-identical replays, inverse-source proof, 18 fault guards, 33 source checks and native visual review. Use `led-control-cluster-routing-trial-114mm`. Zero opens, electrical/part/process/fit/stack qualification and independent Gate A remain open; fabrication is prohibited.
@@ -21,7 +23,7 @@ An open-source, full-colour wearable LED badge inspired by the FOSSASIA Badge Ma
 
 The project is currently in **draft schematic development**. Several coupon circuits are captured, including a provisional charger core, but the complete power circuit and PCB are unfinished. No board in this repository has been independently reviewed, fabricated or tested. Do not treat current design material as production-ready.
 
-The current [31-open CAD study](docs/development/clear-output-routing-2026-11-14.md) retains 104 inventoried intrinsic findings. Circuit completion, electrical/process/fit/stack qualification and independent Gate A review remain open.
+The current [30-open CAD study](docs/development/enable-routing-2026-11-14.md) retains 104 inventoried intrinsic findings. Circuit completion, electrical/process/fit/stack qualification and independent Gate A review remain open.
 
 ## Product target
 

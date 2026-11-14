@@ -70,3 +70,5 @@ No PDFs, vendor renderings or unsigned manufacturing files are committed.
 Zero opens, part/electrical/timing/return/thermal/HDI/stack/process/fit qualification,
 557 historical centre microvias and independent Gate A remain unresolved.
 Fabrication remains prohibited.
+
+Contact-fixture follow-up: the original `omit-contacts` case inserted an empty wrong-name field. The [enable continuation](enable-routing-2026-11-14.md) corrects the fixture to omit the actual retirement contact catalog; its native predecessor rejection passes. The source PCB and historical evidence hashes remain unchanged.

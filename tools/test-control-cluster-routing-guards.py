@@ -29,7 +29,7 @@ def trial(source,name):
         micro=next(t for t in b.GetTracks() if t.m_Uuid.AsString() in added and isinstance(t,p.PCB_VIA) and t.GetViaType()==p.VIATYPE_MICROVIA);micro.SetLayerPair(p.In2_Cu,p.In3_Cu)
     elif name=='move-original-contact':
         t=next(t for t in b.GetTracks() if t.m_Uuid.AsString()=='75433db9-88f5-507c-8474-3d11561bd47f');t.SetStart(t.GetStart()+p.VECTOR2I(25000,0))
-    elif name=='omit-contacts':plan['original_contacts']=[]
+    elif name=='omit-contacts':plan['source_retirement_contacts']={}
     elif name in ['disconnect-longest-track','remove-whole-join','shift-gate','wrong-capture-span','move-original-contact']:
         signal=[t for t in b.GetTracks() if t.m_Uuid.AsString() in added and t.GetNetname()=='DISPLAY_CLEAR_3'];remove=[max([t for t in signal if not isinstance(t,p.PCB_VIA)],key=lambda t:t.GetLength())] if name=='disconnect-longest-track' else signal
         for t in remove:b.Remove(t);held.append(t)

@@ -809,3 +809,16 @@ exact-finding and full successor gates remain required; no safety or qualificati
 boundary changes, and no lower unvalidated count is selected.
 
 **2026-11-14 clear-output checkpoint selected:** ADR 0139 selects the ordinary-width U52.4–U49.2/R108.1 join at 31 native/physical opens, preserving all 220 predecessor groups and every source item. Exact original findings, source-byte restoration and full successor gates pass. Zero opens and all existing safety/qualification/fabrication holds remain.
+
+**2026-11-14 larger bounded continuation:** ADR 0140 permits a higher bounded
+weighted ordinary-width search on its ten explicit nets from the immutable
+31-open source. Every current group/source item and exact finding payload,
+full successor gate and safety/qualification/fabrication hold remain required.
+
+**2026-11-14 bypass/enable locality study:** ADR 0141 permits only read-only
+native proxies for one exact C71 translation, two inventoried private-leaf
+omissions and a bounded existing-rule enable neck/capture. No routed part move
+or source retirement is authorized without its subsequent frozen contact scope;
+all selected groups, safety and full successor gates remain mandatory.
+
+**2026-11-14 enable checkpoint selected:** ADR 0142 selects the complete five-terminal DISPLAY_ENABLE join at 30 native/physical opens, with one exact C71 translation, two private-leaf retirements and 88 additions. All 219 prior groups, source contacts and original finding payloads survive, with no rule or safety change. Full replay/inverse/fault/source/visual gates pass; zero opens and all qualification/fabrication holds remain.
