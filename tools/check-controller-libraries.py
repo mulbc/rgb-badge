@@ -35,11 +35,12 @@ MODULE_PINS = {
 
 PARTS = {
     "ESP32-S3-WROOM-1U-N16R8": ("ESP32-S3-WROOM-1U", MODULE_PINS),
-    "ERJ-2RKF1002X": ("R_Panasonic_ERJ2_0402", {1: "~", 2: "~"}),
-    "ERJ-2RKF22R0X": ("R_Panasonic_ERJ2_0402", {1: "~", 2: "~"}),
-    "ERJ-2RKF4990X": ("R_Panasonic_ERJ2_0402", {1: "~", 2: "~"}),
+    "ERJ2RKF1002X": ("R_Panasonic_ERJ2_0402", {1: "~", 2: "~"}),
+    "ERJ2RKF2201X": ("R_Panasonic_ERJ2_0402", {1: "~", 2: "~"}),
+    "ERJ2RKF22R0X": ("R_Panasonic_ERJ2_0402", {1: "~", 2: "~"}),
+    "ERJ2RKF4990X": ("R_Panasonic_ERJ2_0402", {1: "~", 2: "~"}),
     "GRM155C71A105KE11D": ("C_Murata_GRM15_0402", {1: "~", 2: "~"}),
-    "GRM188R60J106ME47D": ("C_Murata_GRM18_0603", {1: "~", 2: "~"}),
+    "GRM188R60J106ME47D": ("C_Murata_GRM188R60J106ME47_0603", {1: "~", 2: "~"}),
     "EVQP7J01P": ("SW_Panasonic_EVQP7J01P", {1: "1", 2: "2"}),
 }
 
@@ -104,11 +105,9 @@ def check_module_footprint(project):
 
 
 def check_small_footprints(project):
-    cap = children(footprint(project, "C_Murata_GRM18_0603"), "pad")
-    require([(p[1], pad_position(p), pad_size(p)) for p in cap] == [
-        ("1", (D("-0.8"), D("0")), (D("0.9"), D("0.9"))),
-        ("2", (D("0.8"), D("0")), (D("0.9"), D("0.9"))),
-    ], "GRM18 selected land geometry mismatch")
+    import runpy
+    exact=runpy.run_path(str(Path(__file__).with_name("check-c32-land-candidate.py")))
+    exact['validate'](footprint(project, "C_Murata_GRM188R60J106ME47_0603"))
     switch = children(footprint(project, "SW_Panasonic_EVQP7J01P"), "pad")
     require(Counter(p[1] for p in switch) == Counter({"1": 2, "2": 2}),
             "EVQP7J01P duplicate contact pads mismatch")

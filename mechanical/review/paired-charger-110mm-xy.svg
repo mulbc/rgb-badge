@@ -1,0 +1,271 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -25 1140 370">
+<!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
+<title>110 mm paired-row and grouped-charger XY screen; no routing or fit approval</title>
+<rect x="-10" y="-25" width="1140" height="370" fill="white"/>
+<text x="0" y="-8" font-family="sans-serif" font-size="14">110 mm XY screen · provisional paired rows · grouped charger</text>
+<rect x="0" y="0" width="1100.0" height="325.0" fill="#f4f7fa" stroke="#24364a"/>
+<rect x="310.00" y="20.00" width="470.00" height="285.00" fill="#e6a23c" fill-opacity="0.35" stroke="#344556" stroke-width="0.65"><title>provisional battery body</title></rect>
+<rect x="495.00" y="122.50" width="100.00" height="80.00" fill="#e6a23c" fill-opacity="0.28" stroke="#344556" stroke-width="0.65"><title>battery temperature-sensor reservation</title></rect>
+<rect x="310.00" y="20.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C1</title></rect>
+<rect x="335.00" y="20.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C11</title></rect>
+<rect x="360.00" y="20.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C17</title></rect>
+<rect x="385.00" y="20.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C2</title></rect>
+<rect x="410.00" y="20.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C23</title></rect>
+<rect x="435.00" y="20.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C24</title></rect>
+<rect x="460.00" y="20.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C25</title></rect>
+<rect x="295.00" y="0.00" width="35.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C3</title></rect>
+<rect x="485.00" y="20.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C30</title></rect>
+<rect x="510.00" y="20.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C31</title></rect>
+<rect x="330.00" y="0.00" width="35.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C32</title></rect>
+<rect x="535.00" y="20.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C36</title></rect>
+<rect x="560.00" y="20.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C37</title></rect>
+<rect x="585.00" y="20.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C38</title></rect>
+<rect x="610.00" y="20.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C39</title></rect>
+<rect x="635.00" y="20.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C4</title></rect>
+<rect x="365.00" y="0.00" width="35.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C40</title></rect>
+<rect x="400.00" y="0.00" width="35.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C41</title></rect>
+<rect x="985.00" y="295.00" width="42.50" height="25.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C42</title></rect>
+<rect x="0.00" y="297.50" width="42.50" height="25.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C43</title></rect>
+<rect x="435.00" y="0.00" width="35.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C44</title></rect>
+<rect x="470.00" y="0.00" width="35.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C45</title></rect>
+<rect x="505.00" y="0.00" width="35.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C46</title></rect>
+<rect x="540.00" y="0.00" width="35.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C47</title></rect>
+<rect x="575.00" y="0.00" width="35.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C48</title></rect>
+<rect x="610.00" y="0.00" width="35.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C49</title></rect>
+<rect x="660.00" y="20.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C5</title></rect>
+<rect x="685.00" y="20.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C50</title></rect>
+<rect x="710.00" y="20.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C51</title></rect>
+<rect x="990.00" y="182.50" width="25.00" height="15.00" fill="#178b72" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C52</title></rect>
+<text x="1002.50" y="192.00" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">C52</text>
+<rect x="980.00" y="240.00" width="35.00" height="15.00" fill="#178b72" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C53</title></rect>
+<text x="997.50" y="249.50" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">C53</text>
+<rect x="980.00" y="260.00" width="35.00" height="15.00" fill="#178b72" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C54</title></rect>
+<text x="997.50" y="269.50" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">C54</text>
+<rect x="735.00" y="20.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C55</title></rect>
+<rect x="1020.00" y="280.00" width="35.00" height="15.00" fill="#178b72" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C56</title></rect>
+<text x="1037.50" y="289.50" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">C56</text>
+<rect x="920.00" y="182.50" width="25.00" height="15.00" fill="#178b72" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C57</title></rect>
+<text x="932.50" y="192.00" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">C57</text>
+<rect x="310.00" y="35.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C58</title></rect>
+<rect x="335.00" y="35.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C59</title></rect>
+<rect x="990.00" y="132.50" width="30.00" height="15.00" fill="#178b72" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C60</title></rect>
+<text x="1005.00" y="142.00" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">C60</text>
+<rect x="987.50" y="152.50" width="35.00" height="15.00" fill="#178b72" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C61</title></rect>
+<text x="1005.00" y="162.00" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">C61</text>
+<rect x="920.00" y="152.50" width="25.00" height="15.00" fill="#178b72" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C62</title></rect>
+<text x="932.50" y="162.00" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">C62</text>
+<rect x="360.00" y="35.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C63</title></rect>
+<rect x="385.00" y="35.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C64</title></rect>
+<rect x="410.00" y="35.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C65</title></rect>
+<rect x="435.00" y="35.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C66</title></rect>
+<rect x="460.00" y="35.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C67</title></rect>
+<rect x="485.00" y="35.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C68</title></rect>
+<rect x="510.00" y="35.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C69</title></rect>
+<rect x="535.00" y="35.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C70</title></rect>
+<rect x="560.00" y="35.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C71</title></rect>
+<rect x="585.00" y="35.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C72</title></rect>
+<rect x="610.00" y="35.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C73</title></rect>
+<rect x="635.00" y="35.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>C74</title></rect>
+<rect x="1024.00" y="98.50" width="83.50" height="128.00" fill="#8f54b5" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>J1</title></rect>
+<text x="1065.75" y="164.50" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">J1</text>
+<rect x="202.50" y="2.50" width="92.00" height="102.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>J2</title></rect>
+<rect x="945.00" y="277.50" width="40.00" height="32.50" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>L1</title></rect>
+<rect x="780.00" y="287.50" width="40.00" height="32.50" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>L2</title></rect>
+<rect x="910.00" y="0.00" width="35.00" height="35.00" fill="#d64c4c" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>PAIR01</title></rect>
+<text x="927.50" y="19.50" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">PAIR01</text>
+<rect x="780.00" y="42.50" width="35.00" height="35.00" fill="#d64c4c" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>PAIR02</title></rect>
+<text x="797.50" y="62.00" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">PAIR02</text>
+<rect x="780.00" y="77.50" width="35.00" height="35.00" fill="#d64c4c" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>PAIR03</title></rect>
+<text x="797.50" y="97.00" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">PAIR03</text>
+<rect x="780.00" y="112.50" width="35.00" height="35.00" fill="#d64c4c" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>PAIR04</title></rect>
+<text x="797.50" y="132.00" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">PAIR04</text>
+<rect x="780.00" y="147.50" width="35.00" height="35.00" fill="#d64c4c" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>PAIR05</title></rect>
+<text x="797.50" y="167.00" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">PAIR05</text>
+<rect x="780.00" y="182.50" width="35.00" height="35.00" fill="#d64c4c" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>PAIR06</title></rect>
+<text x="797.50" y="202.00" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">PAIR06</text>
+<rect x="985.00" y="197.50" width="35.00" height="35.00" fill="#d64c4c" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>PAIR07</title></rect>
+<text x="1002.50" y="217.00" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">PAIR07</text>
+<rect x="945.00" y="207.50" width="35.00" height="35.00" fill="#d64c4c" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>PAIR08</title></rect>
+<text x="962.50" y="227.00" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">PAIR08</text>
+<rect x="780.00" y="217.50" width="35.00" height="35.00" fill="#d64c4c" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>PAIR09</title></rect>
+<text x="797.50" y="237.00" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">PAIR09</text>
+<rect x="1065.00" y="227.50" width="35.00" height="35.00" fill="#d64c4c" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>PAIR10</title></rect>
+<text x="1082.50" y="247.00" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">PAIR10</text>
+<rect x="910.00" y="232.50" width="35.00" height="35.00" fill="#d64c4c" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>PAIR11</title></rect>
+<text x="927.50" y="252.00" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">PAIR11</text>
+<rect x="945.00" y="242.50" width="35.00" height="35.00" fill="#d64c4c" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>PAIR12</title></rect>
+<text x="962.50" y="262.00" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">PAIR12</text>
+<rect x="780.00" y="252.50" width="35.00" height="35.00" fill="#d64c4c" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>PAIR13</title></rect>
+<text x="797.50" y="272.00" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">PAIR13</text>
+<rect x="910.00" y="267.50" width="35.00" height="35.00" fill="#d64c4c" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>PAIR14</title></rect>
+<text x="927.50" y="287.00" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">PAIR14</text>
+<rect x="202.50" y="275.00" width="35.00" height="35.00" fill="#d64c4c" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>PAIR15</title></rect>
+<text x="220.00" y="294.50" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">PAIR15</text>
+<rect x="237.50" y="275.00" width="35.00" height="35.00" fill="#d64c4c" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>PAIR16</title></rect>
+<text x="255.00" y="294.50" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">PAIR16</text>
+<rect x="660.00" y="35.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R1</title></rect>
+<rect x="685.00" y="35.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R10</title></rect>
+<rect x="920.00" y="132.50" width="25.00" height="15.00" fill="#178b72" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R100</title></rect>
+<text x="932.50" y="142.00" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">R100</text>
+<rect x="710.00" y="35.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R101</title></rect>
+<rect x="735.00" y="35.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R102</title></rect>
+<rect x="310.00" y="50.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R103</title></rect>
+<rect x="335.00" y="50.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R104</title></rect>
+<rect x="360.00" y="50.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R105</title></rect>
+<rect x="385.00" y="50.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R106</title></rect>
+<rect x="410.00" y="50.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R107</title></rect>
+<rect x="435.00" y="50.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R108</title></rect>
+<rect x="460.00" y="50.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R109</title></rect>
+<rect x="485.00" y="50.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R11</title></rect>
+<rect x="510.00" y="50.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R110</title></rect>
+<rect x="535.00" y="50.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R111</title></rect>
+<rect x="560.00" y="50.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R112</title></rect>
+<rect x="585.00" y="50.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R113</title></rect>
+<rect x="610.00" y="50.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R12</title></rect>
+<rect x="635.00" y="50.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R13</title></rect>
+<rect x="660.00" y="50.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R14</title></rect>
+<rect x="685.00" y="50.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R15</title></rect>
+<rect x="710.00" y="50.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R16</title></rect>
+<rect x="735.00" y="50.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R17</title></rect>
+<rect x="310.00" y="65.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R18</title></rect>
+<rect x="335.00" y="65.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R19</title></rect>
+<rect x="360.00" y="65.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R2</title></rect>
+<rect x="385.00" y="65.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R20</title></rect>
+<rect x="410.00" y="65.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R21</title></rect>
+<rect x="435.00" y="65.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R22</title></rect>
+<rect x="460.00" y="65.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R23</title></rect>
+<rect x="485.00" y="65.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R24</title></rect>
+<rect x="510.00" y="65.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R25</title></rect>
+<rect x="535.00" y="65.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R26</title></rect>
+<rect x="560.00" y="65.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R27</title></rect>
+<rect x="585.00" y="65.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R28</title></rect>
+<rect x="610.00" y="65.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R29</title></rect>
+<rect x="635.00" y="65.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R3</title></rect>
+<rect x="660.00" y="65.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R30</title></rect>
+<rect x="685.00" y="65.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R31</title></rect>
+<rect x="710.00" y="65.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R32</title></rect>
+<rect x="735.00" y="65.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R33</title></rect>
+<rect x="310.00" y="80.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R34</title></rect>
+<rect x="335.00" y="80.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R35</title></rect>
+<rect x="360.00" y="80.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R36</title></rect>
+<rect x="385.00" y="80.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R37</title></rect>
+<rect x="410.00" y="80.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R38</title></rect>
+<rect x="435.00" y="80.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R39</title></rect>
+<rect x="460.00" y="80.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R4</title></rect>
+<rect x="485.00" y="80.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R40</title></rect>
+<rect x="510.00" y="80.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R41</title></rect>
+<rect x="535.00" y="80.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R42</title></rect>
+<rect x="560.00" y="80.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R43</title></rect>
+<rect x="585.00" y="80.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R44</title></rect>
+<rect x="610.00" y="80.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R45</title></rect>
+<rect x="635.00" y="80.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R46</title></rect>
+<rect x="660.00" y="80.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R47</title></rect>
+<rect x="685.00" y="80.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R5</title></rect>
+<rect x="710.00" y="80.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R6</title></rect>
+<rect x="735.00" y="80.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R60</title></rect>
+<rect x="310.00" y="95.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R61</title></rect>
+<rect x="335.00" y="95.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R62</title></rect>
+<rect x="360.00" y="95.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R63</title></rect>
+<rect x="385.00" y="95.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R7</title></rect>
+<rect x="410.00" y="95.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R70</title></rect>
+<rect x="435.00" y="95.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R71</title></rect>
+<rect x="460.00" y="95.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R75</title></rect>
+<rect x="485.00" y="95.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R76</title></rect>
+<rect x="510.00" y="95.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R77</title></rect>
+<rect x="535.00" y="95.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R78</title></rect>
+<rect x="560.00" y="95.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R79</title></rect>
+<rect x="585.00" y="95.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R8</title></rect>
+<rect x="610.00" y="95.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R80</title></rect>
+<rect x="635.00" y="95.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R81</title></rect>
+<rect x="660.00" y="95.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R82</title></rect>
+<rect x="685.00" y="95.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R83</title></rect>
+<rect x="710.00" y="95.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R84</title></rect>
+<rect x="735.00" y="95.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R85</title></rect>
+<rect x="310.00" y="110.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R86</title></rect>
+<rect x="335.00" y="110.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R87</title></rect>
+<rect x="360.00" y="110.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R88</title></rect>
+<rect x="385.00" y="110.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R89</title></rect>
+<rect x="410.00" y="110.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R9</title></rect>
+<rect x="435.00" y="110.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R90</title></rect>
+<rect x="460.00" y="110.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R91</title></rect>
+<rect x="990.00" y="280.00" width="20.00" height="10.00" fill="#178b72" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R92</title></rect>
+<text x="1000.00" y="287.00" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">R92</text>
+<rect x="1067.50" y="277.50" width="20.00" height="10.00" fill="#178b72" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R93</title></rect>
+<text x="1077.50" y="284.50" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">R93</text>
+<rect x="595.00" y="110.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R94</title></rect>
+<rect x="620.00" y="110.00" width="25.00" height="15.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R95</title></rect>
+<rect x="920.00" y="217.50" width="25.00" height="15.00" fill="#178b72" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R96</title></rect>
+<text x="932.50" y="227.00" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">R96</text>
+<rect x="920.00" y="167.50" width="25.00" height="15.00" fill="#178b72" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R97</title></rect>
+<text x="932.50" y="177.00" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">R97</text>
+<rect x="920.00" y="200.00" width="25.00" height="15.00" fill="#178b72" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R98</title></rect>
+<text x="932.50" y="209.50" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">R98</text>
+<rect x="920.00" y="112.50" width="25.00" height="15.00" fill="#178b72" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>R99</title></rect>
+<text x="932.50" y="122.00" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">R99</text>
+<rect x="951.00" y="3.00" width="51.00" height="35.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>SW1</title></rect>
+<rect x="5.00" y="3.00" width="96.00" height="46.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>SW2</title></rect>
+<rect x="645.00" y="110.00" width="22.50" height="17.50" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>TH1</title></rect>
+<rect x="695.00" y="0.00" width="20.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>TP1</title></rect>
+<rect x="715.00" y="0.00" width="20.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>TP10</title></rect>
+<rect x="735.00" y="0.00" width="20.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>TP11</title></rect>
+<rect x="755.00" y="0.00" width="20.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>TP12</title></rect>
+<rect x="157.50" y="72.50" width="20.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>TP13</title></rect>
+<rect x="177.50" y="72.50" width="20.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>TP14</title></rect>
+<rect x="815.00" y="95.00" width="20.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>TP2</title></rect>
+<rect x="835.00" y="95.00" width="20.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>TP20</title></rect>
+<rect x="855.00" y="95.00" width="20.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>TP21</title></rect>
+<rect x="875.00" y="95.00" width="20.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>TP22</title></rect>
+<rect x="815.00" y="207.50" width="20.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>TP23</title></rect>
+<rect x="835.00" y="207.50" width="20.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>TP3</title></rect>
+<rect x="855.00" y="207.50" width="20.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>TP30</title></rect>
+<rect x="875.00" y="207.50" width="20.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>TP31</title></rect>
+<rect x="895.00" y="207.50" width="20.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>TP32</title></rect>
+<rect x="95.00" y="297.50" width="20.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>TP33</title></rect>
+<rect x="115.00" y="297.50" width="20.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>TP34</title></rect>
+<rect x="135.00" y="297.50" width="20.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>TP35</title></rect>
+<rect x="155.00" y="297.50" width="20.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>TP4</title></rect>
+<rect x="175.00" y="297.50" width="20.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>TP5</title></rect>
+<rect x="910.00" y="302.50" width="20.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>TP6</title></rect>
+<rect x="272.50" y="305.00" width="20.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>TP7</title></rect>
+<rect x="292.50" y="305.00" width="20.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>TP8</title></rect>
+<rect x="312.50" y="305.00" width="20.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>TP9</title></rect>
+<rect x="820.50" y="5.50" width="89.00" height="89.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U1-project-1</title></rect>
+<rect x="820.50" y="118.00" width="89.00" height="89.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U1-project-2</title></rect>
+<rect x="820.50" y="230.50" width="89.00" height="89.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U1-project-3</title></rect>
+<rect x="0.00" y="50.00" width="50.00" height="42.50" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U11</title></rect>
+<rect x="50.00" y="50.00" width="50.00" height="42.50" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U17</title></rect>
+<rect x="1010.00" y="5.00" width="77.00" height="83.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U2</title></rect>
+<rect x="945.00" y="82.50" width="50.00" height="42.50" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U23</title></rect>
+<rect x="202.50" y="105.00" width="50.00" height="42.50" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U24</title></rect>
+<rect x="252.50" y="105.00" width="50.00" height="42.50" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U25</title></rect>
+<rect x="202.50" y="147.50" width="50.00" height="42.50" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U29</title></rect>
+<rect x="5.00" y="92.50" width="196.00" height="205.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U3</title></rect>
+<rect x="1027.50" y="295.00" width="27.50" height="27.50" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U31</title></rect>
+<rect x="910.00" y="82.50" width="30.00" height="30.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U32</title></rect>
+<rect x="995.00" y="90.00" width="27.50" height="35.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U33</title></rect>
+<rect x="252.50" y="147.50" width="50.00" height="42.50" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U34</title></rect>
+<rect x="1055.00" y="287.50" width="40.00" height="32.50" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U35</title></rect>
+<rect x="165.00" y="0.00" width="32.50" height="30.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U36</title></rect>
+<rect x="102.50" y="30.00" width="55.00" height="45.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U37</title></rect>
+<rect x="780.00" y="0.00" width="40.00" height="42.50" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U38</title></rect>
+<rect x="102.50" y="0.00" width="32.50" height="30.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U39</title></rect>
+<rect x="202.50" y="190.00" width="50.00" height="42.50" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U40</title></rect>
+<rect x="1020.00" y="230.00" width="45.00" height="45.00" fill="#178b72" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U41</title></rect>
+<text x="1042.50" y="254.50" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">U41</text>
+<rect x="252.50" y="190.00" width="50.00" height="42.50" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U42</title></rect>
+<rect x="202.50" y="232.50" width="50.00" height="42.50" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U43</title></rect>
+<rect x="950.00" y="172.50" width="35.00" height="35.00" fill="#178b72" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U44</title></rect>
+<text x="967.50" y="192.00" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">U44</text>
+<rect x="950.00" y="132.50" width="35.00" height="35.00" fill="#178b72" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U45</title></rect>
+<text x="967.50" y="152.00" text-anchor="middle" font-family="sans-serif" font-size="6" fill="#182737" pointer-events="none">U45</text>
+<rect x="910.00" y="40.00" width="55.00" height="42.50" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U46</title></rect>
+<rect x="252.50" y="232.50" width="50.00" height="42.50" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U47</title></rect>
+<rect x="645.00" y="0.00" width="25.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U48</title></rect>
+<rect x="272.50" y="275.00" width="30.00" height="30.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U49</title></rect>
+<rect x="135.00" y="0.00" width="30.00" height="30.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U50</title></rect>
+<rect x="72.50" y="297.50" width="22.50" height="25.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U51</title></rect>
+<rect x="670.00" y="0.00" width="25.00" height="20.00" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U52</title></rect>
+<rect x="42.50" y="297.50" width="30.00" height="27.50" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U53</title></rect>
+<rect x="157.50" y="30.00" width="42.50" height="42.50" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U54</title></rect>
+<rect x="965.00" y="40.00" width="42.50" height="42.50" fill="#6b91b8" fill-opacity="0.65" stroke="#344556" stroke-width="0.65"><title>U55</title></rect>
+</svg>

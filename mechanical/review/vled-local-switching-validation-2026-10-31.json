@@ -1,0 +1,117 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "canonical_and_archive_source_unchanged": true,
+  "fabrication_release_allowed": false,
+  "local_raw_sha256": {
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/check-output-safety.py": "59f74df8bbd34e922009a95681c9055016ad8665088bf43eca70508a8714dfa7",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/independent-check.json": "e6e4209bf72b338bee33031ef23898508f37a779e7f9b89cfb78fb682df3946c",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/independent-check.log": "5c0e73466a6c3835d727311799063b87b2bd67e157df7df077389d1b0776d041",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/pair-deterministic.log": "fb309f69a5af45363c60906ff34768f147fe0b80d54f2af548f18c47cc9db5c2",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/pair-final.log": "387e3359c46ce2d3b2c2b6041af47f90df241ec2464602a794e511b9877738af",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/pair-replay.log": "0edcf5635d0889c27a5710ee4e0aa254efcd4c6e8e7846be0d6aaee1aea8aa1f",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/pair.json": "04fca899b0e205417c617d367b3450608cc32f1d51b24b1be601cda34af72afe",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/pair.kicad_dru": "80c92b0cdef868dd0ef0037aa2f63d1266f709a2dd0326094735c75ffbd31a2e",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/pair.kicad_pcb": "0655bb609e8650a6cfcef5f68ded14c86b84fad5650153960cf16432ab791079",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/pair.kicad_pro": "1141b004ecffd1e7e8e0c30cf21aeae7ce6381093df674998133d226ab9c27fb",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/pair.log": "4c8c84bff1a29956a1acf2ff1d349d2539b9622fd5d35454920af86ce07e917e",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/pair/before-replay.kicad_pcb": "9e244a34515d42cf3b5bdf7b1bba52c55fcdd4ce319c8fbeb86159c1f202828b",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/pair/drc.json": "a251398888f3390a663e293407139b4c35431038ecd8cdbf1a79d08ebe00158a",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/pair/trial.json": "191971e9f584e551d349fb8d05a5fee3af5f5a9182d23fc584b0215701795e81",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/pair/trial.kicad_dru": "80c92b0cdef868dd0ef0037aa2f63d1266f709a2dd0326094735c75ffbd31a2e",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/pair/trial.kicad_pcb": "9e244a34515d42cf3b5bdf7b1bba52c55fcdd4ce319c8fbeb86159c1f202828b",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/pair/trial.kicad_pro": "1141b004ecffd1e7e8e0c30cf21aeae7ce6381093df674998133d226ab9c27fb",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/safety/archive_overwrite.log": "8f68fd5c9c5a0758ad0fb593ca390d203cfe790e3329b48969eeff42a4ca7a48",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/safety/check.json": "6e5fcc733a17b169520ce9e13b354d1fa4aa506819e3154bb785bd58e55f2997",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/safety/invalid.kicad_pcb": "cae499a1333a522587dead95e680ae349da1d7e70cecc0e04645e0c57735ef59",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/safety/outside_build.log": "8f7b2d7c7b4d78be2bb9238a1d50de8c0b4ce7e735d3f0bcecaf92e0b6df4bbe",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/safety/source.kicad_pcb": "3451177253a021d8706ff818696212afabf539a108f15ef9e5d6921e46435acc",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/safety/wrong_source.log": "699acc584c830ae705c8e826b524ca08089048874b18203347807852c3fded91",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/stage-deterministic.log": "c4949045a031cc3882d9360e4fb5e0dd572a773bc95393d4c2d85b4ae2005bb4",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/stage-final.log": "8dec8047fa1e6692ad281a657c85adb57b4602815b4e22d0aa872736fd5f3682",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/stage-replay.log": "99b49b2266f0bd2dec3a58b6f7561031ba44b8d70fbb5658b1fc55f44e59e93c",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/stage.json": "941b15673408fca56c15f7677eea41f5915f4036c80dac5053238b90f0970c9b",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/stage.kicad_dru": "80c92b0cdef868dd0ef0037aa2f63d1266f709a2dd0326094735c75ffbd31a2e",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/stage.kicad_pcb": "381027739783604644aa6e4257ba9e48f217faa1db14b7419ecbafa3f6ad1b94",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/stage.kicad_pro": "1141b004ecffd1e7e8e0c30cf21aeae7ce6381093df674998133d226ab9c27fb",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/stage.log": "6258ad64ac46c44d8f5cdd2ac7473f59c90202c335e6412910a062532574ad66",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/stage/before-replay.kicad_pcb": "1b50456d58c23e7582a043dc59185ee79a1699c44f7b7693eb3f1b0c58beb49e",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/stage/drc.json": "409d6faf99752f07df77af0698c7c341228f70f88970c608a442e5d2b385276d",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/stage/trial.json": "bbd6452843502acdade03df176bd50f7fd0997078f650bfeb4bdeec9f8041f18",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/stage/trial.kicad_dru": "80c92b0cdef868dd0ef0037aa2f63d1266f709a2dd0326094735c75ffbd31a2e",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/stage/trial.kicad_pcb": "1b50456d58c23e7582a043dc59185ee79a1699c44f7b7693eb3f1b0c58beb49e",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/stage/trial.kicad_pro": "1141b004ecffd1e7e8e0c30cf21aeae7ce6381093df674998133d226ab9c27fb",
+    "hardware/coupon/rev-a/build/vled-switching-2026-10-31/verify-results.py": "74424a22cbfe66b312ce5f200768b65be5edccf6200cefe15330785fb97f3e81"
+  },
+  "public_evidence_sha256": {
+    "docs/development/vled-local-switching-pair-drc-2026-10-31.json": "a251398888f3390a663e293407139b4c35431038ecd8cdbf1a79d08ebe00158a",
+    "docs/development/vled-local-switching-stage-drc-2026-10-31.json": "409d6faf99752f07df77af0698c7c341228f70f88970c608a442e5d2b385276d",
+    "mechanical/review/vled-local-switching-pair-2026-10-31.json": "191971e9f584e551d349fb8d05a5fee3af5f5a9182d23fc584b0215701795e81",
+    "mechanical/review/vled-local-switching-stage-2026-10-31.json": "bbd6452843502acdade03df176bd50f7fd0997078f650bfeb4bdeec9f8041f18"
+  },
+  "public_tool_sha256": {
+    "tools/check-routing-progress-trial.py": "dbbb4b38f2f2e32134f7d7fe418cc188b6ad7ba9420cd3dc0538ca188cca7366",
+    "tools/generate-paired-charger-114mm-routing.py": "807eaba5aea8e92ecbf514ca16ab767c30d006703c6697a9fec10cf2e46e1441",
+    "tools/murata_land_migration.py": "9c6d9095f3bbd5623afad626610970bddb3353a90f5fa64af9d1c3afb7f215af",
+    "tools/probe-vled-local-switching.py": "3da0789aadf9af06cd40dbf7c4a195c5241346147cb5b51c73fc32f504b22293",
+    "tools/report-coupon-board-connectivity.py": "7fe71ad39aea85617a278919cf9a586b11a9c85b468ace6a54dacb9cbc8f4724",
+    "tools/switch_pin_migration.py": "88283229ea49c1845de1745f5a1ce4c8817cedbab9aa0f9dee7ac1399099ebfa"
+  },
+  "real_cli_source_output_fault_cases": 3,
+  "results": {
+    "pair": {
+      "added_switching_vias": 0,
+      "added_tracks": 6,
+      "exact_three_pad_switching_groups_confirmed": true,
+      "intrinsic_clearance_descriptions_and_pad_uuids_match": true,
+      "lost_prior_groups": 2,
+      "native_drc_types": {
+        "clearance": 104,
+        "track_dangling": 3,
+        "via_dangling": 3
+      },
+      "native_opens": 63,
+      "old_copper_profile_rules_retained": true,
+      "pad_cluster_opens": 61,
+      "pcb_byte_identical_replay": true,
+      "stable_fills": 3,
+      "track_lengths_mm": [
+        3.215685424949238,
+        3.215685424949238
+      ]
+    },
+    "stage": {
+      "added_switching_vias": 0,
+      "added_tracks": 6,
+      "exact_three_pad_switching_groups_confirmed": true,
+      "intrinsic_clearance_descriptions_and_pad_uuids_match": true,
+      "lost_prior_groups": 3,
+      "native_drc_types": {
+        "clearance": 104,
+        "track_dangling": 6,
+        "via_dangling": 8
+      },
+      "native_opens": 72,
+      "old_copper_profile_rules_retained": true,
+      "pad_cluster_opens": 69,
+      "pcb_byte_identical_replay": true,
+      "stable_fills": 3,
+      "track_lengths_mm": [
+        3.215685424949238,
+        3.215685424949238
+      ]
+    }
+  },
+  "source_sha256": "3451177253a021d8706ff818696212afabf539a108f15ef9e5d6921e46435acc",
+  "status": "NATIVE_LOCAL_SWITCHING_FEASIBILITY_NO_POWER_STAGE_SELECTED",
+  "unresolved": [
+    "Restore prior SYS and VLED groups in the pair case",
+    "Exact obsolete source-copper/contact and moved-intrinsic DRC policy before any selection",
+    "Capacitor/order-code and full power-path/return/feedback qualification",
+    "L1/U36 locality remains unresolved",
+    "Electrical/current/thermal/EMI, process/assembly/fit and independent Gate A"
+  ],
+  "vendor_reference_sha256": {
+    "hardware/coupon/rev-a/reference/vendor-datasheets/m_dfe252012p.pdf": "ce259ba611fb3ea196baf60e2c7080a21cd897cdb662bf77552cc842c2b91c3e",
+    "hardware/coupon/rev-a/reference/vendor-datasheets/tps63020.pdf": "d117773bb7370fd79377bc70ce987eec3469ea5979547a09df52fca5f95b2e69"
+  }
+}

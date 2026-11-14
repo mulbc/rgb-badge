@@ -1,0 +1,858 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "accepted_join": {
+    "anchor": [
+      "R25",
+      "2"
+    ],
+    "net": "GND",
+    "source": [
+      "R86",
+      "2"
+    ]
+  },
+  "all_colour_column_pad_groups_unchanged": true,
+  "all_old_physical_pad_groups_and_placements_preserved": true,
+  "base_board_sha256": "6a2f61c07b647e727e1ed08daf87b3964365da2dca73504078d763aed88b72fa",
+  "base_revision": "d139133cc46687156a2fb4eb15321bfe18206115",
+  "board_sha256": "da3c3e093acef457ce2d0ebe73b57fd5006b9139a57b7fe8acfcd77e612dc246",
+  "candidate_board_sha256": "f777e26b27332398f2cebd17528611f22a19be77018d0c8bda4ef8a0f6214a0c",
+  "candidate_drc_sha256": "c9e5990b9142b0042016e0a941c7018c6d9a539ac5b3b81900f6db74280b5523",
+  "compound_front_layer_detour": {
+    "accepted": true,
+    "expanded": 6197,
+    "new_F_tracks": 2,
+    "old_group_failures": [],
+    "open_edges": 215,
+    "path_found": true,
+    "points_iu": [
+      [
+        76600000,
+        10750000
+      ],
+      [
+        75500000,
+        23850000
+      ],
+      [
+        74950000,
+        24500000
+      ]
+    ],
+    "retired_new_F_In1_vias": 0,
+    "retired_new_In1_tracks": 41
+  },
+  "exact_unchanged_intrinsic_drc_findings": 104,
+  "fabrication_release_allowed": false,
+  "feedback_control_ground_membership": {
+    "board_sha256": "da3c3e093acef457ce2d0ebe73b57fd5006b9139a57b7fe8acfcd77e612dc246",
+    "interpretation": "Native physical pad-group membership only; not a quiet-return, impedance or converter-operation qualification",
+    "r86_ground_group_logical_ref_pad_pairs": 151,
+    "u37_control_ground_2_in_group": true,
+    "u37_power_ground_15_in_group": true
+  },
+  "feedback_divider_values_and_nominal_setting_unchanged": true,
+  "ground_escape": {
+    "adjacent_layers": [
+      "B.Cu",
+      "In4.Cu",
+      "In3.Cu",
+      "In2.Cu"
+    ],
+    "lead_length_mm": 0.15,
+    "pad_iu": [
+      64250000,
+      10250000
+    ],
+    "via_iu": [
+      64100000,
+      10250000
+    ]
+  },
+  "ground_open_edges_after": 22,
+  "ground_open_edges_before": 23,
+  "hardware_measurements": "NONE",
+  "increment_added_adjacent_layer_microvias": 11,
+  "increment_added_tracks": 9,
+  "increment_removed_original_tracks": 5,
+  "increment_removed_original_vias": 3,
+  "individual_green_retirement_restoration_subcases": 27,
+  "isolated_native_guard_methods_passed": 34,
+  "limitations": [
+    "215 opens including 22 GND, 14 VLED, TP11, transmit test-pad leg, six gate terminals and remaining power/control/USB",
+    "104 intrinsic findings unresolved",
+    "Longer colour replacement, front-layer return and two short In2 endpoint leads remain unqualified",
+    "Feedback/control-ground locality, quiet return, impedance and stable regulation remain unqualified",
+    "No electrical/current/process/fit qualification or independent Gate A"
+  ],
+  "manufacturer_reference": {
+    "reviewed": "FB pin 3/control GND pin 2 and section 10 local feedback/control-ground guidance; no footprint or setting change",
+    "revision": "SLVS916I, October 2019",
+    "url": "https://www.ti.com/lit/ds/symlink/tps63020.pdf"
+  },
+  "native_open_edges_after": 215,
+  "native_open_edges_before": 216,
+  "native_visibility_simplification": {
+    "new_colour_length_mm": 44.63556006559196,
+    "old_new_colour_length_mm": 44.63556006559196,
+    "open_edges": 215,
+    "original_new_colour_tracks": 8,
+    "paths": [
+      {
+        "layer": "F.Cu",
+        "new_points_iu": [
+          [
+            74950000,
+            24500000
+          ],
+          [
+            75500000,
+            23850000
+          ],
+          [
+            76600000,
+            10750000
+          ]
+        ],
+        "old_points_iu": [
+          [
+            74950000,
+            24500000
+          ],
+          [
+            75500000,
+            23850000
+          ],
+          [
+            76600000,
+            10750000
+          ]
+        ]
+      },
+      {
+        "layer": "In1.Cu",
+        "new_points_iu": [
+          [
+            74550000,
+            25000000
+          ],
+          [
+            74550000,
+            24500000
+          ],
+          [
+            74950000,
+            24500000
+          ]
+        ],
+        "old_points_iu": [
+          [
+            74550000,
+            25000000
+          ],
+          [
+            74550000,
+            24500000
+          ],
+          [
+            74950000,
+            24500000
+          ]
+        ]
+      },
+      {
+        "layer": "In2.Cu",
+        "new_points_iu": [
+          [
+            45300000,
+            24415000
+          ],
+          [
+            45900000,
+            25000000
+          ]
+        ],
+        "old_points_iu": [
+          [
+            45300000,
+            24415000
+          ],
+          [
+            45900000,
+            25000000
+          ]
+        ]
+      },
+      {
+        "layer": "In2.Cu",
+        "new_points_iu": [
+          [
+            76350000,
+            10750000
+          ],
+          [
+            76600000,
+            10750000
+          ]
+        ],
+        "old_points_iu": [
+          [
+            76350000,
+            10750000
+          ],
+          [
+            76600000,
+            10750000
+          ]
+        ]
+      },
+      {
+        "layer": "In3.Cu",
+        "new_points_iu": [
+          [
+            65100000,
+            25000000
+          ],
+          [
+            74550000,
+            25000000
+          ]
+        ],
+        "old_points_iu": [
+          [
+            65100000,
+            25000000
+          ],
+          [
+            74550000,
+            25000000
+          ]
+        ]
+      },
+      {
+        "layer": "In4.Cu",
+        "new_points_iu": [
+          [
+            45900000,
+            25000000
+          ],
+          [
+            65100000,
+            25000000
+          ]
+        ],
+        "old_points_iu": [
+          [
+            45900000,
+            25000000
+          ],
+          [
+            65100000,
+            25000000
+          ]
+        ]
+      }
+    ],
+    "simplified_new_colour_tracks": 8
+  },
+  "net_added_native_items": 12,
+  "new_fault_cases": [
+    "Withdraw R86 ground vias while proving all four earlier escapes remain joined",
+    "Detach COL_02_G without changing counts",
+    "Restore the exact rejected 41-track In1 route; prove colour joined, VLED split and explicit physical-group rejection",
+    "Extend individual green source-retirement restoration coverage to 27 items"
+  ],
+  "obsolete_branch_cleanup": {
+    "accepted": true,
+    "open_edges": 215,
+    "removed_obsolete_original_branch": [
+      {
+        "bottom": "In4.Cu",
+        "diameter_iu": 300000,
+        "drill_iu": 100000,
+        "net": "COL_02_G",
+        "position_iu": [
+          76350000,
+          10250000
+        ],
+        "signature": [
+          "via",
+          "COL_02_G",
+          300000,
+          76.35,
+          10.25,
+          8,
+          10,
+          100000
+        ],
+        "top": "In3.Cu"
+      },
+      {
+        "bottom": "In3.Cu",
+        "diameter_iu": 300000,
+        "drill_iu": 100000,
+        "net": "COL_02_G",
+        "position_iu": [
+          76350000,
+          10250000
+        ],
+        "signature": [
+          "via",
+          "COL_02_G",
+          300000,
+          76.35,
+          10.25,
+          6,
+          8,
+          100000
+        ],
+        "top": "In2.Cu"
+      },
+      {
+        "end_iu": [
+          76350000,
+          10250000
+        ],
+        "layer": "In2.Cu",
+        "net": "COL_02_G",
+        "signature": [
+          "track",
+          "COL_02_G",
+          200000,
+          76.35,
+          10.75,
+          76.35,
+          10.25,
+          6
+        ],
+        "start_iu": [
+          76350000,
+          10750000
+        ],
+        "width_iu": 200000
+      },
+      {
+        "end_iu": [
+          52700000,
+          10300000
+        ],
+        "layer": "In4.Cu",
+        "net": "COL_02_G",
+        "signature": [
+          "track",
+          "COL_02_G",
+          200000,
+          52.7,
+          10.25,
+          52.7,
+          10.3,
+          10
+        ],
+        "start_iu": [
+          52700000,
+          10250000
+        ],
+        "width_iu": 200000
+      },
+      {
+        "end_iu": [
+          47000000,
+          10300000
+        ],
+        "layer": "In4.Cu",
+        "net": "COL_02_G",
+        "signature": [
+          "track",
+          "COL_02_G",
+          200000,
+          52.7,
+          10.3,
+          47.0,
+          10.3,
+          10
+        ],
+        "start_iu": [
+          52700000,
+          10300000
+        ],
+        "width_iu": 200000
+      },
+      {
+        "bottom": "In4.Cu",
+        "diameter_iu": 300000,
+        "drill_iu": 100000,
+        "net": "COL_02_G",
+        "position_iu": [
+          47000000,
+          10300000
+        ],
+        "signature": [
+          "via",
+          "COL_02_G",
+          300000,
+          47.0,
+          10.3,
+          8,
+          10,
+          100000
+        ],
+        "top": "In3.Cu"
+      },
+      {
+        "end_iu": [
+          46150000,
+          10300000
+        ],
+        "layer": "In3.Cu",
+        "net": "COL_02_G",
+        "signature": [
+          "track",
+          "COL_02_G",
+          200000,
+          47.0,
+          10.3,
+          46.15,
+          10.3,
+          8
+        ],
+        "start_iu": [
+          47000000,
+          10300000
+        ],
+        "width_iu": 200000
+      }
+    ],
+    "stages": [
+      {
+        "drc_sha256": "f06bb4bb6ed9a57c3a781aaf85e22f01f028f1ee0916940bcd03c54de4e2e0f5",
+        "extra": [
+          {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+              {
+                "description": "Micro via [COL_02_G] on In3.Cu - In4.Cu",
+                "pos": {
+                  "x": 76.35,
+                  "y": 10.25
+                },
+                "uuid": "c59dee37-343f-5c16-9acd-5368024edf46"
+              }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+          },
+          {
+            "description": "Track has unconnected end",
+            "items": [
+              {
+                "description": "Track [COL_02_G] on In4.Cu, length 0.0500 mm",
+                "pos": {
+                  "x": 52.7,
+                  "y": 10.25
+                },
+                "uuid": "6b29f0d1-90f4-579f-ad53-fe92cb7e2d85"
+              }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+          }
+        ],
+        "findings": 106,
+        "iteration": 0
+      },
+      {
+        "drc_sha256": "b2020610c5c96825ef8e3f36f8cccf61108129c92085c6e9501805b9e6375967",
+        "extra": [
+          {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+              {
+                "description": "Micro via [COL_02_G] on In2.Cu - In3.Cu",
+                "pos": {
+                  "x": 76.35,
+                  "y": 10.25
+                },
+                "uuid": "5e76b6fc-8cb2-5a98-8b9d-6e899c572a59"
+              }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+          },
+          {
+            "description": "Track has unconnected end",
+            "items": [
+              {
+                "description": "Track [COL_02_G] on In4.Cu, length 0.0500 mm",
+                "pos": {
+                  "x": 52.7,
+                  "y": 10.25
+                },
+                "uuid": "6b29f0d1-90f4-579f-ad53-fe92cb7e2d85"
+              }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+          }
+        ],
+        "findings": 106,
+        "iteration": 1
+      },
+      {
+        "drc_sha256": "56765037c2a41001a4fe23f955c50386cf08762575b74802f1386813b39971b2",
+        "extra": [
+          {
+            "description": "Track has unconnected end",
+            "items": [
+              {
+                "description": "Track [COL_02_G] on In2.Cu, length 0.5000 mm",
+                "pos": {
+                  "x": 76.35,
+                  "y": 10.75
+                },
+                "uuid": "4e2e366b-59cc-56ca-a340-ce8533d00afa"
+              }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+          },
+          {
+            "description": "Track has unconnected end",
+            "items": [
+              {
+                "description": "Track [COL_02_G] on In4.Cu, length 0.0500 mm",
+                "pos": {
+                  "x": 52.7,
+                  "y": 10.25
+                },
+                "uuid": "6b29f0d1-90f4-579f-ad53-fe92cb7e2d85"
+              }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+          }
+        ],
+        "findings": 106,
+        "iteration": 2
+      },
+      {
+        "drc_sha256": "13233284162849e4e91498ba3016f817468115720c20bb822a6ab73d162da009",
+        "extra": [
+          {
+            "description": "Track has unconnected end",
+            "items": [
+              {
+                "description": "Track [COL_02_G] on In4.Cu, length 0.0500 mm",
+                "pos": {
+                  "x": 52.7,
+                  "y": 10.25
+                },
+                "uuid": "6b29f0d1-90f4-579f-ad53-fe92cb7e2d85"
+              }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+          }
+        ],
+        "findings": 105,
+        "iteration": 3
+      },
+      {
+        "drc_sha256": "6b1f15b6c06d07ab79d53470b893136ff0d5b5eea4a9586ef57972d1ad1b2fdf",
+        "extra": [
+          {
+            "description": "Track has unconnected end",
+            "items": [
+              {
+                "description": "Track [COL_02_G] on In4.Cu, length 5.7000 mm",
+                "pos": {
+                  "x": 52.7,
+                  "y": 10.3
+                },
+                "uuid": "d4533245-c2e6-5fcc-bf2d-21d634fda3a0"
+              }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+          }
+        ],
+        "findings": 105,
+        "iteration": 4
+      },
+      {
+        "drc_sha256": "4d16cead9069e5f5c3288beca4320a1d377695503be14775e9da3bc5c24a5a04",
+        "extra": [
+          {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+              {
+                "description": "Micro via [COL_02_G] on In3.Cu - In4.Cu",
+                "pos": {
+                  "x": 47.0,
+                  "y": 10.3
+                },
+                "uuid": "242a757a-acfa-50f6-9acd-ac2812bcf071"
+              }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+          }
+        ],
+        "findings": 105,
+        "iteration": 5
+      },
+      {
+        "drc_sha256": "f7a92dc4a5af0825411d3b31c123f0011a595cc8812c1a583b00d6e5b0458b5a",
+        "extra": [
+          {
+            "description": "Track has unconnected end",
+            "items": [
+              {
+                "description": "Track [COL_02_G] on In3.Cu, length 0.8500 mm",
+                "pos": {
+                  "x": 47.0,
+                  "y": 10.3
+                },
+                "uuid": "91dbe8ed-2c7d-5564-a193-a5b3bf27b324"
+              }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+          }
+        ],
+        "findings": 105,
+        "iteration": 6
+      },
+      {
+        "drc_sha256": "f145e2a1fa0a1e50e8430dbc0bdf635b4186a7cc0dfcee24d506ff09a7da4dc4",
+        "extra": [],
+        "findings": 104,
+        "iteration": 7
+      }
+    ]
+  },
+  "original_source_items_retained": 14465,
+  "previous_r28_r29_r2_r36_joins_preserved": true,
+  "raw_evidence_sha256": {
+    "/private/tmp/rgb-extract-r86-simplified.log": "44dfe9f3d572eda6b9e678ae0cf3ae213cd714ad4315c19cf3e178b54a75cb6d",
+    "/private/tmp/rgb-extract-r86-simplified.py": "6f2dc3b3ceb1a8bc612b9bbd600095b121a0098fc78dc8b60c3aae3af13b5453",
+    "/private/tmp/rgb-prepare-r86-global.log": "03bb1515086192d5ad306a2b6717fe5f24eafe22745f05a41587e73e63715a97",
+    "/private/tmp/rgb-prepare-r86-global.py": "ec1c3991f6f5597f83be593b25018ed1b8088628b9216429f500f70de61ca2ce",
+    "/private/tmp/rgb-prune-r86-isolated.log": "8819ea52d93db94501fb3f7a2dd6a2015379f8b3b07627216fef8762a4a5142a",
+    "/private/tmp/rgb-prune-r86-isolated.py": "13f36189f15c1c6790d3dd9381fe30a8c054dc42833efc48de40b42e0c4e5403",
+    "/private/tmp/rgb-prune-r86-worker.py": "bd14b0fdab585dd38c8dca8ff12e58b75d05b1e5a2c23d6adfab44b8d5d26436",
+    "/private/tmp/rgb-r86-compound-screen.log": "7155e4e135211103482873c52a4a687d71057ef5c0b5d8f230845757c0871419",
+    "/private/tmp/rgb-r86-compound-screen.py": "205b7345f2d44d9687bf02d3543ed920595c8db9ea21b0db9823a6df8d820807",
+    "/private/tmp/rgb-r86-global-search-reverse.log": "63d02cdec584bd82e3353f4703fb04573c7d23c24182f1508d81ce362a5df5f1",
+    "/private/tmp/rgb-r86-global-search.log": "5bbd1a59afc1587c5e6d76b1d2ae9d9e7a8aac036ef993cc5fe6e8ae98bec68a",
+    "/private/tmp/rgb-r86-ground-ci-layout.log": "1060326ebd03c2688992ebf7bb1f257441aacc012073b166e4d891d9b10d7d10",
+    "/private/tmp/rgb-r86-ground-generate.log": "12d7f1acf9d13ce4ef798eaa462d7781bfe6480c346d9efa0ee3598b7caafdc6",
+    "/private/tmp/rgb-r86-ground-native-check.log": "8115fba08bf6b2ced255837f9f70ea6bf82163e8d0b37996de7d00c02f8c605b",
+    "/private/tmp/rgb-r86-ground-native-contract.log": "539c3177e2c5804e40be3bed4a83ec9778afeb82eca3243404be75f89f13553c",
+    "/private/tmp/rgb-r86-ground-open-nets.json": "43ac12bb460df0ca5d5bf812b000b101f8c6f44aa1a59280e905fc1cdd2b59fb",
+    "/private/tmp/rgb-r86-ground-reproduce.log": "b3717435899da45b0342c37c58c23a99724fee09e45396955d8e3656f3ba1ff1",
+    "/private/tmp/rgb-r86-original-group-audit.json": "8a8a230717d8157655b33bde50e25bd38f8b0f55f30069a578f9cdf0467595f8",
+    "/private/tmp/rgb-r86-original-group-audit.py": "b34c85516d6f97a1dc38efc6a0dc7e086fe0d17a3e05eb56843d4b8a72db3a60",
+    "/private/tmp/rgb-r86-partial-vled-detour.log": "9c03d5ff7df971ddbafb131998da8caa79a932d55325ba7785b31832285bfe5c",
+    "/private/tmp/rgb-r86-partial-vled-detour.py": "8ee45d2f7f5c9d9ec46ae01c0ea8b9f2b62d72acd2ce4b336e7978c3c1ba9217",
+    "/private/tmp/rgb-r86-preserve-vled.log": "6a971920e64253fee7f4680d836edc88571bb62d97453f327f14c79cc8bb13a1",
+    "/private/tmp/rgb-r86-preserve-vled.py": "7a4c304379937fb4c2412518e2b893d27d93924b8f58ad7690575ab2081af185",
+    "/private/tmp/rgb-r86-reference-audit.json": "63f4211c0e02fed2765377f72b48382e23b3ed411c120ce3bbc7fab86978b515",
+    "/private/tmp/rgb-r86-reference-audit.py": "0789d7dcc784baf1616e63003ca400b872b087d685ec3eec1b8c5c06010ce72c",
+    "/private/tmp/rgb-r86-short-tail-vled-detour.log": "16d1eab4b3217ab054f98c18da4c2dd92833cf29cc01116b33b6c370a5864c98",
+    "/private/tmp/rgb-r86-short-tail-vled-detour.py": "5fb1165cf3a9f13df48792b56b0333adfa630d356090ccc6278e1130535dd38f",
+    "/private/tmp/rgb-r86-simplified-drc.log": "1edb1b0d3609d73653afdc4e5ddd6dc49ac37e8cf9df678fff0d3b14f59ba068",
+    "/private/tmp/rgb-record-r86-vled-witness.log": "efc4527a31e42c59af06b5655f19544848e852aeaa8817689c7f0490f42fb16f",
+    "/private/tmp/rgb-record-r86-vled-witness.py": "342545e0b021a46373e9c8b5d0489d8a9642c65db362483d1b1d89490b605e6b",
+    "/private/tmp/rgb-simplify-r86-route.log": "f6155a2a9104f78690ce9a7f483534221f36d5e066b57600b87e8943bd36d61b",
+    "/private/tmp/rgb-simplify-r86-route.py": "44f39b931436d082059692d39a741e79a6de27890f967d1986b77f1c4b9cc610"
+  },
+  "regression_witness": "mechanical/review/native-r86-vled-regression.json",
+  "regression_witness_sha256": "6dbe9790cfc0beaa1b9650fbcd1252b8fdbbbc0dc68804fa3527459bcd2a17ec",
+  "rejected_global_forward": {
+    "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+    "added_tracks_and_vias": 0,
+    "allowed_nets": [
+      "COL_02_G"
+    ],
+    "board_sha256": "108202eec28867fe6f3e449344b35f93da0a556e8953d865acd4135243f2160d",
+    "clearance_mm": 0.2,
+    "connected_copper_endpoints": true,
+    "exact_native_grid_fallback": true,
+    "fabrication_release_allowed": false,
+    "grid_mm": 0.05,
+    "heuristic": "exact_empty_grid_layer_costs",
+    "heuristic_sha256": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4",
+    "heuristic_storage_bytes": 33686856,
+    "kicad_version": "10.0.6",
+    "max_nodes": 600000,
+    "microvia_diameter_drill_mm": [
+      0.3,
+      0.1
+    ],
+    "native_grid_statistics": {
+      "native_clear_masked_edges": 20874,
+      "native_clear_masked_points": 15892,
+      "native_edge_queries": 20874,
+      "native_point_queries": 206058
+    },
+    "open_edges": 216,
+    "preserve_clusters_after_each_join": true,
+    "reverse_search": false,
+    "routes": [
+      {
+        "expanded_nodes": 313848,
+        "net": "COL_02_G",
+        "rejected_reason": "existing_pad_cluster_split_after_zone_refill",
+        "rejected_snapshot": {
+          "board_sha256": "354632204463e0e00f9813b2e911bde0e5cc056193510441ec9b63695a24561b",
+          "path": "hardware/coupon/rev-a/build/native-control-search/r86-column-restored-rejected/COL_02_G-U1-15.kicad_pcb",
+          "physical_pad_groups": [
+            {
+              "anchor": [
+                "R10",
+                "1"
+              ],
+              "lost": [
+                [
+                  "PAIR11",
+                  "4",
+                  74825000,
+                  23150000
+                ],
+                [
+                  "R7",
+                  "1",
+                  70250000,
+                  8750000
+                ]
+              ],
+              "net": "VLED"
+            }
+          ]
+        },
+        "routed": false,
+        "search_outcome": "existing_pad_cluster_split_after_zone_refill",
+        "source": [
+          "U1",
+          "15"
+        ]
+      }
+    ],
+    "search_tool_sha256": "6497047bb637aeed70a0d2ef5cf22458a4877bace4ee50f7d506f908768a6f13",
+    "source_sha256": "a415ee8101f31c84fc18c33f95f67762610be027a551f706f69641e5944baf54",
+    "status": "UNQUALIFIED_LOCAL_CONTROL_STUDY",
+    "tool_source_sha256": {
+      "hardware/coupon/rev-a/build/native-control-search/r86-column-search.py": "6497047bb637aeed70a0d2ef5cf22458a4877bace4ee50f7d506f908768a6f13",
+      "tools/generate-colour-fanout-grid-trial.py": "62fbbc1ce6c0e8cb0a276dd15900885562a8e69c69557949eb6f689945ea1224",
+      "tools/generate-paired-charger-114mm-routing.py": "807eaba5aea8e92ecbf514ca16ab767c30d006703c6697a9fec10cf2e46e1441",
+      "tools/routing_clearance.py": "d1797c13ac7f5df4d066fc5e245fb143a67f002ad6bf7c0a67b96ff456d7db91",
+      "tools/routing_goal_distance.py": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4"
+    },
+    "tracks_and_vias": 15508,
+    "width_mm": 0.2
+  },
+  "rejected_global_reverse": {
+    "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+    "added_tracks_and_vias": 0,
+    "allowed_nets": [
+      "COL_02_G"
+    ],
+    "board_sha256": "108202eec28867fe6f3e449344b35f93da0a556e8953d865acd4135243f2160d",
+    "clearance_mm": 0.2,
+    "connected_copper_endpoints": true,
+    "exact_native_grid_fallback": true,
+    "fabrication_release_allowed": false,
+    "grid_mm": 0.05,
+    "heuristic": "exact_empty_grid_layer_costs",
+    "heuristic_sha256": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4",
+    "heuristic_storage_bytes": 33686856,
+    "kicad_version": "10.0.6",
+    "max_nodes": 600000,
+    "microvia_diameter_drill_mm": [
+      0.3,
+      0.1
+    ],
+    "native_grid_statistics": {
+      "native_clear_masked_edges": 36906,
+      "native_clear_masked_points": 25441,
+      "native_edge_queries": 36906,
+      "native_point_queries": 311561
+    },
+    "open_edges": 216,
+    "preserve_clusters_after_each_join": true,
+    "reverse_search": true,
+    "routes": [
+      {
+        "expanded_nodes": 437919,
+        "net": "COL_02_G",
+        "rejected_reason": "existing_pad_cluster_split_after_zone_refill",
+        "rejected_snapshot": {
+          "board_sha256": "d8988c4a972d63242b0844f173908128860b36469bc0efec415758ef4f41a2d6",
+          "path": "hardware/coupon/rev-a/build/native-control-search/r86-column-restored-reverse-rejected/COL_02_G-U1-15.kicad_pcb",
+          "physical_pad_groups": [
+            {
+              "anchor": [
+                "R10",
+                "1"
+              ],
+              "lost": [
+                [
+                  "PAIR11",
+                  "4",
+                  74825000,
+                  23150000
+                ],
+                [
+                  "R7",
+                  "1",
+                  70250000,
+                  8750000
+                ]
+              ],
+              "net": "VLED"
+            }
+          ]
+        },
+        "routed": false,
+        "search_outcome": "existing_pad_cluster_split_after_zone_refill",
+        "source": [
+          "U1",
+          "15"
+        ]
+      }
+    ],
+    "search_tool_sha256": "6497047bb637aeed70a0d2ef5cf22458a4877bace4ee50f7d506f908768a6f13",
+    "source_sha256": "a415ee8101f31c84fc18c33f95f67762610be027a551f706f69641e5944baf54",
+    "status": "UNQUALIFIED_LOCAL_CONTROL_STUDY",
+    "tool_source_sha256": {
+      "hardware/coupon/rev-a/build/native-control-search/r86-column-search.py": "6497047bb637aeed70a0d2ef5cf22458a4877bace4ee50f7d506f908768a6f13",
+      "tools/generate-colour-fanout-grid-trial.py": "62fbbc1ce6c0e8cb0a276dd15900885562a8e69c69557949eb6f689945ea1224",
+      "tools/generate-paired-charger-114mm-routing.py": "807eaba5aea8e92ecbf514ca16ab767c30d006703c6697a9fec10cf2e46e1441",
+      "tools/routing_clearance.py": "d1797c13ac7f5df4d066fc5e245fb143a67f002ad6bf7c0a67b96ff456d7db91",
+      "tools/routing_goal_distance.py": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4"
+    },
+    "tracks_and_vias": 15508,
+    "width_mm": 0.2
+  },
+  "rejected_single_section_detours": 77,
+  "repeated_generation_byte_identical": true,
+  "replacement_colour_track_length_mm": 44.63556006559196,
+  "replacement_increases_length_over_retired_source_mm": 13.88556006559196,
+  "retired_colour_track_length_mm": 30.75,
+  "retired_obstructing_original_track": {
+    "end_iu": [
+      52700000,
+      10250000
+    ],
+    "layer": "In4.Cu",
+    "net": "COL_02_G",
+    "start_iu": [
+      76350000,
+      10250000
+    ],
+    "width_iu": 200000
+  },
+  "status": "CHECKED_R86_GROUND_WITH_VLED_PRESERVING_COLOUR_DETOUR_NOT_FABRICATION_SOURCE",
+  "total_reviewed_original_track_retirements": 25,
+  "total_reviewed_original_via_retirements": 4
+}

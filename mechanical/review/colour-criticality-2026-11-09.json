@@ -1,0 +1,220 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "cases": [
+    {
+      "case": "red",
+      "raw_report": "hardware/coupon/rev-a/build/zero-open-routing/colour-criticality-red.json",
+      "raw_sha256": "abdd833a3ced5c44c2db79279e2640f585c06a970637020f94b4c2eddb803277",
+      "temporarily_removed_copper": [
+        [
+          "track",
+          "COL_09_R",
+          60900000,
+          3250000,
+          78600000,
+          3250000,
+          "In4.Cu",
+          200000
+        ]
+      ],
+      "with_refill": {
+        "all_other_copper_net_identities_preserved": true,
+        "lost_source_groups": [
+          {
+            "component_sizes_after": [
+              1,
+              16
+            ],
+            "net": "COL_09_R",
+            "source_pad_count": 17
+          }
+        ],
+        "native_opens": 37,
+        "physical_opens": 37
+      },
+      "without_refill": {
+        "all_other_copper_net_identities_preserved": true,
+        "lost_source_groups": [
+          {
+            "component_sizes_after": [
+              1,
+              16
+            ],
+            "net": "COL_09_R",
+            "source_pad_count": 17
+          }
+        ],
+        "native_opens": 37,
+        "physical_opens": 37
+      }
+    },
+    {
+      "case": "green",
+      "raw_report": "hardware/coupon/rev-a/build/zero-open-routing/colour-criticality-green.json",
+      "raw_sha256": "a7b01e3addfd9b3cf0e66ace006613348974d730cacb41b7e6e7ae3a7e77010b",
+      "temporarily_removed_copper": [
+        [
+          "track",
+          "COL_09_G",
+          82600000,
+          2750000,
+          62100000,
+          2750000,
+          "In4.Cu",
+          200000
+        ]
+      ],
+      "with_refill": {
+        "all_other_copper_net_identities_preserved": true,
+        "lost_source_groups": [
+          {
+            "component_sizes_after": [
+              1,
+              16
+            ],
+            "net": "COL_09_G",
+            "source_pad_count": 17
+          }
+        ],
+        "native_opens": 37,
+        "physical_opens": 37
+      },
+      "without_refill": {
+        "all_other_copper_net_identities_preserved": true,
+        "lost_source_groups": [
+          {
+            "component_sizes_after": [
+              1,
+              16
+            ],
+            "net": "COL_09_G",
+            "source_pad_count": 17
+          }
+        ],
+        "native_opens": 37,
+        "physical_opens": 37
+      }
+    },
+    {
+      "case": "both",
+      "raw_report": "hardware/coupon/rev-a/build/zero-open-routing/colour-criticality-both.json",
+      "raw_sha256": "65a7a102008d24d290d355f850bd8d352f53427284f7bf53dfbe95229f68dfde",
+      "temporarily_removed_copper": [
+        [
+          "track",
+          "COL_09_R",
+          60900000,
+          3250000,
+          78600000,
+          3250000,
+          "In4.Cu",
+          200000
+        ],
+        [
+          "track",
+          "COL_09_G",
+          82600000,
+          2750000,
+          62100000,
+          2750000,
+          "In4.Cu",
+          200000
+        ]
+      ],
+      "with_refill": {
+        "all_other_copper_net_identities_preserved": true,
+        "lost_source_groups": [
+          {
+            "component_sizes_after": [
+              1,
+              16
+            ],
+            "net": "COL_09_G",
+            "source_pad_count": 17
+          },
+          {
+            "component_sizes_after": [
+              1,
+              16
+            ],
+            "net": "COL_09_R",
+            "source_pad_count": 17
+          }
+        ],
+        "native_opens": 38,
+        "physical_opens": 38
+      },
+      "without_refill": {
+        "all_other_copper_net_identities_preserved": true,
+        "lost_source_groups": [
+          {
+            "component_sizes_after": [
+              1,
+              16
+            ],
+            "net": "COL_09_G",
+            "source_pad_count": 17
+          },
+          {
+            "component_sizes_after": [
+              1,
+              16
+            ],
+            "net": "COL_09_R",
+            "source_pad_count": 17
+          }
+        ],
+        "native_opens": 38,
+        "physical_opens": 38
+      }
+    }
+  ],
+  "date": "2026-11-09",
+  "fabrication_release_allowed": false,
+  "interpretation": "In-memory source topology diagnostics only. Both exact colour segments are essential; no copper retirement or candidate adoption is authorized.",
+  "post_checkpoint_ground_search": {
+    "open_edges": 36,
+    "raw_report": "hardware/coupon/rev-a/build/zero-open-routing/36-ground-full-search.json",
+    "raw_sha256": "4c7d63142f9d6e13385baee37147b7a1e92d039b692aed57822bb89a7c8e86a9",
+    "routes": [
+      {
+        "expanded_nodes": 269,
+        "net": "GND",
+        "routed": false,
+        "search_outcome": "exhausted_grid",
+        "source": [
+          "PAIR01",
+          "1"
+        ]
+      },
+      {
+        "expanded_nodes": 7004,
+        "net": "GND",
+        "routed": false,
+        "search_outcome": "exhausted_grid",
+        "source": [
+          "U38",
+          "3"
+        ]
+      },
+      {
+        "expanded_nodes": 7277,
+        "net": "GND",
+        "routed": false,
+        "search_outcome": "exhausted_grid",
+        "source": [
+          "U52",
+          "3"
+        ]
+      }
+    ]
+  },
+  "raw_script": "hardware/coupon/rev-a/build/zero-open-routing/colour-criticality.py",
+  "script_sha256": "880ce6fea935586989e0720212068caea392c2c4f021337e4a1462c29098ea2b",
+  "source_commit": "c0e7d38",
+  "source_native_opens": 36,
+  "source_physical_opens": 36,
+  "source_sha256": "a24e9220226b77411ae8e8baea5cd629ce0fea8a97c377a708510d6791c2e439",
+  "source_unchanged": true,
+  "status": "READ_ONLY_DIAGNOSTICS_NOT_SELECTED"
+}

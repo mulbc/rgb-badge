@@ -1,10 +1,23 @@
 <!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
 
+**2026-11-12 selected — 33 opens:** The [gauge-supply join](docs/development/gauge-supply-routing-2026-11-12.md) adds exact ordinary-width copper, preserving every prior group and source item. Native/physical 33 opens, exact unchanged 104 findings, stable byte-identical replays, eleven native faults, 32 source checks and visual review pass. Use `led-gauge-routing-trial-114mm`. U35 supply, zero opens and electrical/process/fit/stack/Gate A acceptance remain open; fabrication is prohibited.
+
+
+**2026-11-12 selected — 34 opens:** The [USB EN1 join](docs/development/usb-en1-routing-2026-11-12.md) localizes exact R70/TP31 and joins U23.4, preserving every prior group and all other copper with no new vias. Exact unchanged 104 findings, stable independent replays, 12 native faults, 31 source checks and visual review pass. Use `led-usb-en1-routing-trial-114mm`; the corrected RSE parent stays immutable. Zero opens and electrical/process/fit/stack/Gate A acceptance remain open; fabrication is prohibited.
+
+**2026-11-12 corrected routing source — 35 opens:** The [RSE pin correction](docs/development/rse-pin-correction-2026-11-12.md) fixes U49/U50 physical pin assignments, restores all 223 prior functional groups and preserves all previous accepted additions. Exact unchanged 104 findings, independent stable replays, native/source/fault and visual checks pass. Continue from `led-rse-corrected-routing-trial-114mm`; preceding boards retain the historical wrong map. Zero opens, electrical/process/fit/stack qualification and independent Gate A remain open; fabrication is prohibited.
+
+
+**2026-11-07 switch routing selected — 43 opens:** The [validated successor](docs/development/switch-routing-2026-11-07.md) joins SW2.3–R83.1–U36.5, retains all 232 immutable 44-open parent groups and every prior copper item, and passes exact unchanged 104-finding DRC, stable replay/fills, source/orphan/fault and visual checks. The zero-open goal remains in progress. Added supply bridges, controlled stack, 557 historical centre microvias, electrical/process/fit qualification and independent Gate A remain open; fabrication is prohibited.
+
+**2026-11-09 remaining routing selected — 36 opens:** The [validated successor](docs/development/remaining-routing-2026-11-07.md) shifts exact C32 upward by 0.250 mm, retaining its supply contact and joining its ground island through one filled B.Cu component. No copper is added or retired by this step. All 225 preceding groups and 226 additions, plus all 231 immutable parent groups, survive. Exact unchanged 104-finding DRC, stable replay/fills, 36 fault guards, 27 source checks and native visual review pass. The zero-open goal, electrical/thermal/stack/process/fit qualification, 557 historical centre vias and independent Gate A remain open; fabrication is prohibited.
 # RGB Badge
 
 An open-source, full-colour wearable LED badge inspired by the FOSSASIA Badge Magic form factor.
 
-The project is currently in **pre-schematic development**. Requirements and the system architecture are agreed, but no PCB in this repository has yet been electrically reviewed, fabricated or tested. Do not treat any current design material as production-ready.
+The project is currently in **draft schematic development**. Several coupon circuits are captured, including a provisional charger core, but the complete power circuit and PCB are unfinished. No board in this repository has been independently reviewed, fabricated or tested. Do not treat current design material as production-ready.
+
+The current [58-edge study](docs/development/led-routing-progress-58-study-2026-10-30.md) adds a switched-gauge supply connection and corrects printed switch terminal labels while retaining every preceding connection. It has **58 unconnected edges and 104 existing DRC findings**. The [inductor-locality screen](docs/development/converter-inductor-locality-2026-10-30.md) finds no compliant sampled pose beside the fixed converters. The 50-edge target, power-stage floorplan, electrical qualification and independent review remain open.
 
 ## Product target
 
@@ -12,7 +25,7 @@ The project is currently in **pre-schematic development**. Requirements and the 
 |---|---:|
 | Display | 48 × 16 individually controlled RGB pixels |
 | Pixel pitch | 1.95 mm |
-| Finished envelope | ≤110 × 35 × 11 mm |
+| Finished envelope | ≤118 × 35 × 11 mm working limit; 114 × 32.5 mm PCB target |
 | Finished weight | ≤75 g target; 100 g absolute maximum |
 | Reference runtime | Approximately 6 h at the defined mixed-content workload and fixed indoor brightness |
 | Charging/data | USB-C, 5 V, A-to-C and C-to-C; native USB data |
@@ -25,6 +38,8 @@ Six hours is not a maximum-brightness guarantee. The initial model predicts abou
 ## Development strategy
 
 The first physical board is a production-intent 16 × 16 coupon. It compares Everlight `EAST10105RGBA0` 1010 and QT Brightek `QBLP1515A-RGB2A` 1515 common-anode RGB LEDs while exercising the intended controller, matrix driver, USB-C, charger, battery gauge, power converters, antenna and controls. The full 48 × 16 badge will not be ordered until the coupon passes its electrical, optical, thermal, runtime and RF acceptance tests.
+
+For coupon routing, [ADR 0034](docs/decisions/0034-uniform-qt-coupon-pitch-proposal.md) sets the 1515 half to 2.2 mm horizontal / 1.95 mm vertical pitch and uniform orientation; the 1010 half stays at 1.95 mm in both axes. The final badge still targets no more than 1.95 mm in either axis, so coupon optical comparisons must account for the different spacing.
 
 Start with:
 

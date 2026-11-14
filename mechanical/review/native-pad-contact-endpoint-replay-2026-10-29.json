@@ -1,0 +1,55 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_tracks_and_vias": 2,
+  "allowed_nets": [
+    "DISPLAY_CLEAR_3"
+  ],
+  "board_sha256": "747ce043a56530e26c69967a2e10ec493db1c1b2cb35976aa7b4bb838a587ab6",
+  "clearance_mm": 0.2,
+  "connected_copper_endpoints": true,
+  "exact_native_grid_fallback": true,
+  "fabrication_release_allowed": false,
+  "grid_mm": 0.05,
+  "heuristic": "exact_empty_grid_layer_costs",
+  "heuristic_sha256": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4",
+  "heuristic_storage_bytes": 33686856,
+  "kicad_version": "10.0.6",
+  "max_nodes": 10000,
+  "microvia_diameter_drill_mm": [
+    0.3,
+    0.1
+  ],
+  "native_grid_statistics": {
+    "native_clear_masked_edges": 0,
+    "native_clear_masked_points": 48,
+    "native_edge_queries": 0,
+    "native_point_queries": 481
+  },
+  "open_edges": 0,
+  "preserve_clusters_after_each_join": true,
+  "reverse_search": false,
+  "routes": [
+    {
+      "expanded_nodes": 0,
+      "net": "DISPLAY_CLEAR_3",
+      "routed": true,
+      "search_outcome": "accepted_join",
+      "source": [
+        "P2",
+        "1"
+      ]
+    }
+  ],
+  "search_tool_sha256": "6d7a2bc95b4d3a43443bcc53d6b6cdbcf74a23d54b4e976fe1d6783d362d28c0",
+  "source_sha256": "e803c1d3dd76e46c6b1a598394c77029cda46be2319103a7ce698f3c06653528",
+  "status": "UNQUALIFIED_LOCAL_CONTROL_STUDY",
+  "tool_source_sha256": {
+    "tools/generate-colour-fanout-grid-trial.py": "8bca8c0edd3d981dadb5f3fca8b34689bc3280a1e7e3fdbcb3780b59f1aa76f2",
+    "tools/generate-paired-charger-114mm-routing.py": "807eaba5aea8e92ecbf514ca16ab767c30d006703c6697a9fec10cf2e46e1441",
+    "tools/routing_clearance.py": "d1797c13ac7f5df4d066fc5e245fb143a67f002ad6bf7c0a67b96ff456d7db91",
+    "tools/routing_goal_distance.py": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4",
+    "tools/search-native-control-routes.py": "6d7a2bc95b4d3a43443bcc53d6b6cdbcf74a23d54b4e976fe1d6783d362d28c0"
+  },
+  "tracks_and_vias": 3,
+  "width_mm": 0.2
+}

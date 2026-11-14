@@ -1,0 +1,120 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "board_sha256": "5119c53b47f60bf81c87c39fe792d2cc197f85627856cc416917763a589ad698",
+  "candidate_microvia_diameter_drill_mm": [
+    0.3,
+    0.1
+  ],
+  "connected_pullups": 7,
+  "grid_mm": 0.05,
+  "layers": [
+    "B.Cu",
+    "In4.Cu",
+    "In3.Cu",
+    "In2.Cu",
+    "In1.Cu"
+  ],
+  "open_edges": 527,
+  "routes": [
+    {
+      "connected": false,
+      "expanded_nodes": 1000001,
+      "net": "ROW_GATE_00",
+      "resistor": "R6"
+    },
+    {
+      "connected": true,
+      "expanded_nodes": 503085,
+      "net": "ROW_GATE_01",
+      "resistor": "R7"
+    },
+    {
+      "connected": false,
+      "expanded_nodes": 1000001,
+      "net": "ROW_GATE_02",
+      "resistor": "R8"
+    },
+    {
+      "connected": false,
+      "expanded_nodes": 1000001,
+      "net": "ROW_GATE_03",
+      "resistor": "R9"
+    },
+    {
+      "connected": false,
+      "expanded_nodes": 1000001,
+      "net": "ROW_GATE_04",
+      "resistor": "R10"
+    },
+    {
+      "connected": false,
+      "expanded_nodes": 1000001,
+      "net": "ROW_GATE_05",
+      "resistor": "R11"
+    },
+    {
+      "connected": true,
+      "expanded_nodes": 469542,
+      "net": "ROW_GATE_15",
+      "resistor": "R21"
+    },
+    {
+      "connected": false,
+      "expanded_nodes": 1000001,
+      "net": "ROW_GATE_06",
+      "resistor": "R12"
+    },
+    {
+      "connected": false,
+      "expanded_nodes": 1000001,
+      "net": "ROW_GATE_07",
+      "resistor": "R13"
+    },
+    {
+      "connected": true,
+      "expanded_nodes": 693032,
+      "net": "ROW_GATE_08",
+      "resistor": "R14"
+    },
+    {
+      "connected": true,
+      "expanded_nodes": 498170,
+      "net": "ROW_GATE_09",
+      "resistor": "R15"
+    },
+    {
+      "connected": true,
+      "expanded_nodes": 289642,
+      "net": "ROW_GATE_10",
+      "resistor": "R16"
+    },
+    {
+      "connected": true,
+      "expanded_nodes": 635162,
+      "net": "ROW_GATE_11",
+      "resistor": "R17"
+    },
+    {
+      "connected": true,
+      "expanded_nodes": 197792,
+      "net": "ROW_GATE_12",
+      "resistor": "R18"
+    },
+    {
+      "connected": false,
+      "expanded_nodes": 440,
+      "net": "ROW_GATE_13",
+      "resistor": "R19"
+    },
+    {
+      "connected": false,
+      "expanded_nodes": 440,
+      "net": "ROW_GATE_14",
+      "resistor": "R20"
+    }
+  ],
+  "source_sha256": "330909098cacf16d71eb44a9361d863c145190b8ade2352576f730de68dbfe6f",
+  "status": "UNQUALIFIED_PARTIAL_COMBINED_ROUTING_STUDY",
+  "tracks_and_vias": 12362,
+  "width_mm": 0.2
+}

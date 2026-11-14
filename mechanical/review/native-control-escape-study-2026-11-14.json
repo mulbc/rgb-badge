@@ -1,0 +1,1486 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "actual_layer_cap_screen": {
+    "fabrication_release_allowed": false,
+    "rows": [
+      {
+        "actual_layer": "B.Cu",
+        "clear_stubs": 125,
+        "contacting_stubs_tested": 440,
+        "first_candidates": [
+          {
+            "end_iu": [
+              69404289,
+              404289
+            ],
+            "start_iu": [
+              69475000,
+              475000
+            ]
+          },
+          {
+            "end_iu": [
+              69434921,
+              399074
+            ],
+            "start_iu": [
+              69500000,
+              475000
+            ]
+          },
+          {
+            "end_iu": [
+              69429289,
+              429289
+            ],
+            "start_iu": [
+              69500000,
+              500000
+            ]
+          },
+          {
+            "end_iu": [
+              69423178,
+              460982
+            ],
+            "start_iu": [
+              69500000,
+              525000
+            ]
+          },
+          {
+            "end_iu": [
+              69466876,
+              393627
+            ],
+            "start_iu": [
+              69525000,
+              475000
+            ]
+          },
+          {
+            "end_iu": [
+              69460982,
+              423178
+            ],
+            "start_iu": [
+              69525000,
+              500000
+            ]
+          },
+          {
+            "end_iu": [
+              69454289,
+              454289
+            ],
+            "start_iu": [
+              69525000,
+              525000
+            ]
+          },
+          {
+            "end_iu": [
+              69446913,
+              487530
+            ],
+            "start_iu": [
+              69525000,
+              550000
+            ]
+          },
+          {
+            "end_iu": [
+              69439251,
+              523550
+            ],
+            "start_iu": [
+              69525000,
+              575000
+            ]
+          },
+          {
+            "end_iu": [
+              69500386,
+              388176
+            ],
+            "start_iu": [
+              69550000,
+              475000
+            ]
+          },
+          {
+            "end_iu": [
+              69494530,
+              416795
+            ],
+            "start_iu": [
+              69550000,
+              500000
+            ]
+          },
+          {
+            "end_iu": [
+              69487530,
+              446913
+            ],
+            "start_iu": [
+              69550000,
+              525000
+            ]
+          },
+          {
+            "end_iu": [
+              69479289,
+              479289
+            ],
+            "start_iu": [
+              69550000,
+              550000
+            ]
+          },
+          {
+            "end_iu": [
+              69470000,
+              515000
+            ],
+            "start_iu": [
+              69550000,
+              575000
+            ]
+          },
+          {
+            "end_iu": [
+              69460557,
+              555279
+            ],
+            "start_iu": [
+              69550000,
+              600000
+            ]
+          },
+          {
+            "end_iu": [
+              69535608,
+              383085
+            ],
+            "start_iu": [
+              69575000,
+              475000
+            ]
+          },
+          {
+            "end_iu": [
+              69530279,
+              410557
+            ],
+            "start_iu": [
+              69575000,
+              500000
+            ]
+          },
+          {
+            "end_iu": [
+              69523550,
+              439251
+            ],
+            "start_iu": [
+              69575000,
+              525000
+            ]
+          },
+          {
+            "end_iu": [
+              69515000,
+              470000
+            ],
+            "start_iu": [
+              69575000,
+              550000
+            ]
+          },
+          {
+            "end_iu": [
+              69504289,
+              504289
+            ],
+            "start_iu": [
+              69575000,
+              575000
+            ]
+          }
+        ],
+        "net": "DISPLAY_CLEAR_3",
+        "pad_position_iu": [
+          69650000,
+          650000
+        ],
+        "pad_size_iu": [
+          600000,
+          170000
+        ],
+        "pin": "1",
+        "reference": "U52"
+      },
+      {
+        "actual_layer": "B.Cu",
+        "clear_stubs": 0,
+        "contacting_stubs_tested": 440,
+        "first_candidates": [],
+        "net": "DISPLAY_ENABLE",
+        "pad_position_iu": [
+          69650000,
+          1000000
+        ],
+        "pad_size_iu": [
+          600000,
+          170000
+        ],
+        "pin": "2",
+        "reference": "U52"
+      },
+      {
+        "actual_layer": "B.Cu",
+        "clear_stubs": 0,
+        "contacting_stubs_tested": 440,
+        "first_candidates": [],
+        "net": "DISPLAY_CLEAR_OK",
+        "pad_position_iu": [
+          68850000,
+          1350000
+        ],
+        "pad_size_iu": [
+          600000,
+          170000
+        ],
+        "pin": "4",
+        "reference": "U52"
+      },
+      {
+        "actual_layer": "B.Cu",
+        "clear_stubs": 31,
+        "contacting_stubs_tested": 272,
+        "first_candidates": [
+          {
+            "end_iu": [
+              97775000,
+              1750000
+            ],
+            "start_iu": [
+              97875000,
+              1750000
+            ]
+          },
+          {
+            "end_iu": [
+              97800000,
+              1750000
+            ],
+            "start_iu": [
+              97900000,
+              1750000
+            ]
+          },
+          {
+            "end_iu": [
+              98050000,
+              1750000
+            ],
+            "start_iu": [
+              97950000,
+              1750000
+            ]
+          },
+          {
+            "end_iu": [
+              98064443,
+              1680279
+            ],
+            "start_iu": [
+              97975000,
+              1725000
+            ]
+          },
+          {
+            "end_iu": [
+              98075000,
+              1750000
+            ],
+            "start_iu": [
+              97975000,
+              1750000
+            ]
+          },
+          {
+            "end_iu": [
+              98094868,
+              1693377
+            ],
+            "start_iu": [
+              98000000,
+              1725000
+            ]
+          },
+          {
+            "end_iu": [
+              98100000,
+              1750000
+            ],
+            "start_iu": [
+              98000000,
+              1750000
+            ]
+          },
+          {
+            "end_iu": [
+              98114443,
+              1655279
+            ],
+            "start_iu": [
+              98025000,
+              1700000
+            ]
+          },
+          {
+            "end_iu": [
+              98122014,
+              1700746
+            ],
+            "start_iu": [
+              98025000,
+              1725000
+            ]
+          },
+          {
+            "end_iu": [
+              98125000,
+              1750000
+            ],
+            "start_iu": [
+              98025000,
+              1750000
+            ]
+          },
+          {
+            "end_iu": [
+              98142848,
+              1662861
+            ],
+            "start_iu": [
+              98050000,
+              1700000
+            ]
+          },
+          {
+            "end_iu": [
+              98148058,
+              1705388
+            ],
+            "start_iu": [
+              98050000,
+              1725000
+            ]
+          },
+          {
+            "end_iu": [
+              98150000,
+              1750000
+            ],
+            "start_iu": [
+              98050000,
+              1750000
+            ]
+          },
+          {
+            "end_iu": [
+              98164443,
+              1630279
+            ],
+            "start_iu": [
+              98075000,
+              1675000
+            ]
+          },
+          {
+            "end_iu": [
+              98169868,
+              1668377
+            ],
+            "start_iu": [
+              98075000,
+              1700000
+            ]
+          },
+          {
+            "end_iu": [
+              98173639,
+              1708560
+            ],
+            "start_iu": [
+              98075000,
+              1725000
+            ]
+          },
+          {
+            "end_iu": [
+              98175000,
+              1750000
+            ],
+            "start_iu": [
+              98075000,
+              1750000
+            ]
+          },
+          {
+            "end_iu": [
+              98191915,
+              1635608
+            ],
+            "start_iu": [
+              98100000,
+              1675000
+            ]
+          },
+          {
+            "end_iu": [
+              98196152,
+              1672528
+            ],
+            "start_iu": [
+              98100000,
+              1700000
+            ]
+          },
+          {
+            "end_iu": [
+              98198995,
+              1710858
+            ],
+            "start_iu": [
+              98100000,
+              1725000
+            ]
+          }
+        ],
+        "net": "ESP_EN",
+        "pad_position_iu": [
+          97925000,
+          1750000
+        ],
+        "pad_size_iu": [
+          300000,
+          200000
+        ],
+        "pin": "3",
+        "reference": "U51"
+      },
+      {
+        "actual_layer": "B.Cu",
+        "clear_stubs": 3,
+        "contacting_stubs_tested": 272,
+        "first_candidates": [
+          {
+            "end_iu": [
+              97450000,
+              1750000
+            ],
+            "start_iu": [
+              97350000,
+              1750000
+            ]
+          },
+          {
+            "end_iu": [
+              97464443,
+              1680279
+            ],
+            "start_iu": [
+              97375000,
+              1725000
+            ]
+          },
+          {
+            "end_iu": [
+              97475000,
+              1750000
+            ],
+            "start_iu": [
+              97375000,
+              1750000
+            ]
+          }
+        ],
+        "net": "DISPLAY_CLEAR_3",
+        "pad_position_iu": [
+          97325000,
+          1750000
+        ],
+        "pad_size_iu": [
+          300000,
+          200000
+        ],
+        "pin": "4",
+        "reference": "U51"
+      },
+      {
+        "actual_layer": "B.Cu",
+        "clear_stubs": 0,
+        "contacting_stubs_tested": 440,
+        "first_candidates": [],
+        "net": "DISPLAY_HEARTBEAT",
+        "pad_position_iu": [
+          64650000,
+          1000000
+        ],
+        "pad_size_iu": [
+          600000,
+          170000
+        ],
+        "pin": "2",
+        "reference": "U48"
+      },
+      {
+        "actual_layer": "B.Cu",
+        "clear_stubs": 0,
+        "contacting_stubs_tested": 440,
+        "first_candidates": [],
+        "net": "HEARTBEAT_FALL_CLK",
+        "pad_position_iu": [
+          63850000,
+          1350000
+        ],
+        "pad_size_iu": [
+          600000,
+          170000
+        ],
+        "pin": "4",
+        "reference": "U48"
+      }
+    ],
+    "selected": false,
+    "source_sha256": "14f0c49582063bab84ea685a8cec798011eb4cd66389b085a3a47777180a13ce",
+    "status": "UNSELECTED_NATIVE_PAD_CAP_SCREEN"
+  },
+  "fabrication_release_allowed": false,
+  "fixed_adjacent_capture_screen": {
+    "fabrication_release_allowed": false,
+    "rows": [
+      {
+        "blockers": {
+          "('copper', '22006f26-1d06-53a5-b382-9cc4e5f13233')": 4,
+          "('copper', '2f82fdbb-eae9-5498-a755-08b12a55a5df')": 94,
+          "('copper', '603b5899-dfa0-5fcc-a29d-866c989fe914')": 61,
+          "('copper', '68155fc0-096b-5c20-b119-ee07c66f0e7f')": 106,
+          "('copper', '9b8a2e6e-3dae-53ca-8d32-998c02d25f88')": 132
+        },
+        "clear_positions_iu": [],
+        "counts": {
+          "copper": 397,
+          "no_source_contact": 428,
+          "sampled": 825
+        },
+        "net": "DISPLAY_CLEAR_3",
+        "pin": "4",
+        "reference": "U51"
+      },
+      {
+        "blockers": {
+          "('copper', '0dcad158-411e-5ad4-a5d8-9035686bb84d')": 3,
+          "('copper', '441bab5e-8a8f-5c13-9066-e78bdb1c9d16')": 582,
+          "('copper', '9bf66294-f9fb-5c34-b774-02b3000f6dfa')": 7,
+          "('copper', 'a7fa0fdf-475d-5c35-a19a-130360cbc5dc')": 3
+        },
+        "clear_positions_iu": [],
+        "counts": {
+          "copper": 595,
+          "no_source_contact": 230,
+          "sampled": 825
+        },
+        "net": "DISPLAY_CLEAR_3",
+        "pin": "1",
+        "reference": "U52"
+      }
+    ],
+    "selected": false,
+    "source_sha256": "14f0c49582063bab84ea685a8cec798011eb4cd66389b085a3a47777180a13ce",
+    "status": "READ_ONLY_NATIVE_ADJACENT_CAPTURE_SCREEN"
+  },
+  "heartbeat_routes": [
+    {
+      "expanded_nodes": 0,
+      "net": "DISPLAY_HEARTBEAT",
+      "routed": false,
+      "search_outcome": "no_usable_grid_endpoint",
+      "source": [
+        "U48",
+        "2"
+      ]
+    },
+    {
+      "expanded_nodes": 0,
+      "net": "DISPLAY_HEARTBEAT",
+      "routed": false,
+      "search_outcome": "no_usable_grid_endpoint",
+      "source": [
+        "R103",
+        "1"
+      ]
+    }
+  ],
+  "invalid_nominal_pad_layer_screen_excluded": true,
+  "limitations": [
+    "No new actual circuit join selected",
+    "U51 output capture still dangling; prototype is not a successor",
+    "U52 placement/capture screens do not prove general infeasibility",
+    "All electrical/current/return/stack/process/fit and independent Gate A holds remain"
+  ],
+  "native_edge_routes": [
+    {
+      "expanded_nodes": 11,
+      "net": "DISPLAY_CLEAR_3",
+      "routed": false,
+      "search_outcome": "exhausted_grid",
+      "source": [
+        "U51",
+        "4"
+      ]
+    },
+    {
+      "expanded_nodes": 5884,
+      "net": "DISPLAY_CLEAR_3",
+      "routed": false,
+      "search_outcome": "exhausted_grid",
+      "source": [
+        "U52",
+        "1"
+      ]
+    }
+  ],
+  "ordinary_control_routes": [
+    {
+      "expanded_nodes": 0,
+      "net": "DISPLAY_CLEAR_3",
+      "routed": false,
+      "search_outcome": "no_usable_grid_endpoint",
+      "source": [
+        "U51",
+        "4"
+      ]
+    },
+    {
+      "expanded_nodes": 0,
+      "net": "DISPLAY_CLEAR_3",
+      "routed": false,
+      "search_outcome": "no_usable_grid_endpoint",
+      "source": [
+        "U52",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 806,
+      "net": "CHARGER_EN2",
+      "routed": false,
+      "search_outcome": "exhausted_grid",
+      "source": [
+        "U38",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 1800001,
+      "net": "CHARGER_EN2",
+      "routed": false,
+      "search_outcome": "node_bound",
+      "source": [
+        "R88",
+        "2"
+      ]
+    },
+    {
+      "expanded_nodes": 1690246,
+      "lost_net_names": [
+        "+3V3_APP",
+        "+3V3_USB",
+        "GND"
+      ],
+      "net": "ESP_EN",
+      "rejected_reason": "existing_pad_cluster_split_after_zone_refill",
+      "rejected_snapshot_sha256": "5812ecd7bf5ca1d2baa02c5de6b35eb4943f32c2bf39bdb746d791761f38a1c0",
+      "routed": false,
+      "search_outcome": "existing_pad_cluster_split_after_zone_refill",
+      "source": [
+        "U51",
+        "3"
+      ]
+    },
+    {
+      "expanded_nodes": 1800001,
+      "net": "ESP_EN",
+      "routed": false,
+      "search_outcome": "node_bound",
+      "source": [
+        "C5",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 1800001,
+      "net": "DISPLAY_CLEAR_OK",
+      "routed": false,
+      "search_outcome": "node_bound",
+      "source": [
+        "U50",
+        "2"
+      ]
+    },
+    {
+      "expanded_nodes": 0,
+      "net": "DISPLAY_CLEAR_OK",
+      "routed": false,
+      "search_outcome": "no_usable_grid_endpoint",
+      "source": [
+        "U52",
+        "4"
+      ]
+    },
+    {
+      "expanded_nodes": 1800001,
+      "net": "DISPLAY_CLEAR_OK",
+      "routed": false,
+      "search_outcome": "node_bound",
+      "source": [
+        "R108",
+        "1"
+      ]
+    }
+  ],
+  "raw_evidence_sha256": {
+    "hardware/coupon/rev-a/build/gauge-supply-routing/battery-usb-corridor.json": "bd0e84392d78fc75ac7dafbaf429a83879d7bc4e8ff092e19756e261e8a77e57",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/battery-usb-reserved.json": "72fd8cd9ac8d6cf8c87300e6fd09500f6a46df82ec46155904072a7fd5be9d81",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/control-capture-screen.json": "992cfb8f996cb142d1a4a4cfa5cac041cae31549a0522631d23ef8e401a6b0cf",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/controls-latest.json": "44b183f7d8561ce6ef21a83cf748b0c8800919e5630e331582a1cd71188d22e4",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/edge-clear-interface.json": "c5064bc85b01a3eceed8e9d3a77d0e63071a78bff055afb5ce3be6014bdc24db",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/edge-clear-study.json": "6c3287f6f3f3feb301474f262c523a54d0b0e3293fc1004e84adc5a9e2c6e5a6",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/heartbeat-latest.json": "11809a56c0cad7c7438b555713f60d31fd599d8a0ac8839f440b1efd8fc0e0b4",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/pad-cap-screen-actual-layer.json": "3dd32c8bd7c1118e4a9be8c2d6812c11a3f95e30e23f0f7eaca0b35e7571469d",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/u51-interface-original-audit.json": "254d3e51482fbaae0ae188012c52a7ed869a4eb9336a88c69075588aea8ac02e",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/u51-interface-restoration-drc.json": "df275e12c01b81334e6e99626bef3490232be960b11cb76eab8cabfcae214afd",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/u51-interface-restoration.json": "f5000cc8ce7458ef71aae92898a607fbc81c36945b6c331b6fbd3db3e9b0ca7c",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/u51-local-escape.json": "c1f33f8e59ad6f4528e8e4490236f8678dedc74b88cb81ac35b76bf075ecf6cc",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/u51-locality-poses.json": "a715023243ec65e25a6c66e37e67c115256edf5a1b85af27e7b6b4414e1e8ec3",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/u51-locality-screen.json": "e91e3035df43d30eaf00f1edefcfd809bd118795d205d42c71237fd82bf04414",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/u51-loop-contacts.json": "17970d7bb9ebdbd98cd6c76ba06d7b8a42d0e491a45a0487df223b0a03c48abe",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/u51-loop-cut.json": "87ca859720ff6bd9b8ea8221c74a03a78be67a428520cbe49320d4f0d78c5c9f",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/u52-fixed-local-escape.json": "f97db21b3091da10547fb64e596634d15f7bdcdae87084f0101e2487a0813f7b",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/u52-locality-fullcap.json": "02c5b5a5bb0833361cfdaf48506d0904a3f4e3c281fec8b7a718143eee8a9e93",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/u52-pose-local-escape.json": "25a65cb17a0104020245401704e1a5c430b09cb389be8b80c9b6eb6fd58056cd",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/u52-two-leaf-contacts.json": "1e4f523140f9db8eaf55537e133824016dc2903ea468e82b2ed0b402ec506727",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/usb-native-corridor-to-capture.json": "c8d5f0a2d5cad5f565d4abfeaa4b800d0f1a3e5fac651e964faa1d50f48e2bed",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/usb-native-corridor.json": "26ef3ff8a745fe0e36cb2410b49a72506cd14e59650dd21f116de14b0dbc2a90"
+  },
+  "selected": false,
+  "selected_native_physical_opens": 33,
+  "selected_source_unchanged": true,
+  "source": "hardware/coupon/rev-a/staging/led-gauge-routing-trial-114mm.kicad_pcb",
+  "source_sha256": "14f0c49582063bab84ea685a8cec798011eb4cd66389b085a3a47777180a13ce",
+  "status": "UNSELECTED_NATIVE_CONTROL_ESCAPE_CONTINUATION",
+  "temporary_tool_sha256": {
+    "hardware/coupon/rev-a/build/gauge-supply-routing/audit-u51-interface.py": "4ba99880093664b9363c6276b3417c940704eb974e169c65b1b8315c9ed6e7c3",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/control-capture-screen.py": "4723ba452e87f5ffc40fd22beddfea78be96d2bd737e29255ce40bbc7826d924",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/pad-cap-screen-actual-layer.py": "f8c937f9d13eb1deb11110fb4fd7923616c9e2b85fd9fa2dd110a29c406d3300",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/search-native-edge.py": "6f14d5ed5bc271d8f642c38e5573d537ddbab63083a2205af0479993b0bf74f0",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/search-u51-loop-local.py": "c372e2d91cdce376c0643aef71329261cd8a18d79fe6fd0a716dd074a487c893",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/search-usb-corridor-battery.py": "d0b9b84f1128adcf371093693d3e0de1ea8b79e31793543f7e664b1558c6822e",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/search-usb-reserved-battery.py": "355b150f70141587ac22e6ed41765055435996479db347904349d8a3c80e4c64",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/u51-local-escape.py": "5851253cca84f46505bd120693a36bb276d7d0e87feeed8ac56a8972da19fd65",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/u51-locality-screen.py": "b7b3c0c0873c63898efc121a891b9f6f08d9356c1269026da1c098e4fbbec907",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/u51-loop-contacts.py": "0ff39e7c56f6c1d7b0e0d8456426da5140f9aadb121c40c8e95f4e9528504ddf",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/u51-loop-cut.py": "cc634b4947f10b2570d633023466b31218a22ca2705e3fa0270406926069075c",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/u51-loop-interface-repair.py": "a880cf1ae8beb94e6e614bcadff3dbe60cac189850ca85a349115f0d1ee5cafd",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/u51-output-capture.py": "3bed3753ce7182b76488cbce3829c8ce770f45e6b48705a13035970d108f7593",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/u52-fixed-local-escape.py": "0d3bff50a8c4cd2898ea31e35135234b5474336c03ade7f9f900531ca4ca9192",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/u52-local-capture.py": "e3e11823c14008b00bb009654faa7e70e9954f14d895fdd015a882d5adca98e8",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/u52-locality-fullcap.py": "f7e9e3a6684c610b4940e47b7f66e13cf9d7502121c180742a7ae158c36af78b",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/u52-pose-local-escape.py": "741b7643117c857cadc39aed5fb9296921de9da228c5da35efa5c6bdd40b2098",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/u52-revised-capture.py": "6a29b56215c0a3e9f4edddb782e158a971a548b903150ed1dfa2eaa40c60cfd8",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/usb-native-corridor-to-capture.py": "a9efd9ccd892fa145262b34927286e00a7c39da1b99a8da6701128c079cbdfbd",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/usb-native-corridor.py": "d3659cc5b6b653f1b6cd4fc75a5799ace34b28956207a608cb27b4f19e0ecfa5"
+  },
+  "u51_local_escape": {
+    "fabrication_release_allowed": false,
+    "poses_sha256": "a715023243ec65e25a6c66e37e67c115256edf5a1b85af27e7b6b4414e1e8ec3",
+    "rows": [
+      {
+        "expanded": 36,
+        "found": false,
+        "path_iu": [],
+        "position_iu": [
+          97625000,
+          1250000
+        ],
+        "source_caps": 36,
+        "translation_iu": [
+          0,
+          0
+        ],
+        "via_queries": 36
+      },
+      {
+        "expanded": 32,
+        "found": false,
+        "path_iu": [],
+        "position_iu": [
+          97600000,
+          1250000
+        ],
+        "source_caps": 32,
+        "translation_iu": [
+          -25000,
+          0
+        ],
+        "via_queries": 32
+      },
+      {
+        "expanded": 40,
+        "found": false,
+        "path_iu": [],
+        "position_iu": [
+          97650000,
+          1250000
+        ],
+        "source_caps": 40,
+        "translation_iu": [
+          25000,
+          0
+        ],
+        "via_queries": 40
+      },
+      {
+        "expanded": 32,
+        "found": false,
+        "path_iu": [],
+        "position_iu": [
+          97600000,
+          1225000
+        ],
+        "source_caps": 32,
+        "translation_iu": [
+          -25000,
+          -25000
+        ],
+        "via_queries": 32
+      },
+      {
+        "expanded": 44,
+        "found": false,
+        "path_iu": [],
+        "position_iu": [
+          97675000,
+          1250000
+        ],
+        "source_caps": 44,
+        "translation_iu": [
+          50000,
+          0
+        ],
+        "via_queries": 44
+      },
+      {
+        "expanded": 29,
+        "found": false,
+        "path_iu": [],
+        "position_iu": [
+          97575000,
+          1225000
+        ],
+        "source_caps": 29,
+        "translation_iu": [
+          -50000,
+          -25000
+        ],
+        "via_queries": 29
+      },
+      {
+        "expanded": 26,
+        "found": false,
+        "path_iu": [],
+        "position_iu": [
+          97550000,
+          1200000
+        ],
+        "source_caps": 26,
+        "translation_iu": [
+          -75000,
+          -50000
+        ],
+        "via_queries": 26
+      }
+    ],
+    "selected": false,
+    "source_sha256": "14f0c49582063bab84ea685a8cec798011eb4cd66389b085a3a47777180a13ce",
+    "status": "UNSELECTED_U51_LOCAL_NATIVE_ESCAPE_SCREEN"
+  },
+  "u51_locality_counts": {
+    "clear_poses": 7,
+    "moved_pad": 434,
+    "poses": 441
+  },
+  "u51_source_interface_catalog": {
+    "contacts": {
+      "2f82fdbb-eae9-5498-a755-08b12a55a5df": {
+        "B.Cu": {
+          "copper_and_pads": [
+            {
+              "signature": [
+                "track",
+                "MODE_BOOT_N",
+                96800000,
+                1900000,
+                97050000,
+                2150000,
+                "B.Cu",
+                200000
+              ],
+              "uuid": "603b5899-dfa0-5fcc-a29d-866c989fe914"
+            },
+            {
+              "signature": [
+                "track",
+                "MODE_BOOT_N",
+                96925000,
+                2025000,
+                96300000,
+                2600000,
+                "B.Cu",
+                200000
+              ],
+              "uuid": "75433db9-88f5-507c-8474-3d11561bd47f"
+            },
+            {
+              "signature": [
+                "track",
+                "MODE_BOOT_N",
+                103250000,
+                2150000,
+                103550000,
+                1950000,
+                "B.Cu",
+                200000
+              ],
+              "uuid": "ddc59806-b696-5093-803b-32b831740b34"
+            }
+          ],
+          "filled_polygons": []
+        }
+      },
+      "603b5899-dfa0-5fcc-a29d-866c989fe914": {
+        "B.Cu": {
+          "copper_and_pads": [
+            {
+              "signature": [
+                "track",
+                "MODE_BOOT_N",
+                97050000,
+                2150000,
+                103250000,
+                2150000,
+                "B.Cu",
+                200000
+              ],
+              "uuid": "2f82fdbb-eae9-5498-a755-08b12a55a5df"
+            },
+            {
+              "signature": [
+                "track",
+                "MODE_BOOT_N",
+                96925000,
+                2025000,
+                96300000,
+                2600000,
+                "B.Cu",
+                200000
+              ],
+              "uuid": "75433db9-88f5-507c-8474-3d11561bd47f"
+            },
+            {
+              "signature": [
+                "track",
+                "MODE_BOOT_N",
+                96800000,
+                899999,
+                96800000,
+                1900000,
+                "B.Cu",
+                200000
+              ],
+              "uuid": "9b8a2e6e-3dae-53ca-8d32-998c02d25f88"
+            }
+          ],
+          "filled_polygons": []
+        }
+      },
+      "9b8a2e6e-3dae-53ca-8d32-998c02d25f88": {
+        "B.Cu": {
+          "copper_and_pads": [
+            {
+              "signature": [
+                "track",
+                "MODE_BOOT_N",
+                97325000,
+                750000,
+                96825000,
+                750000,
+                "B.Cu",
+                200000
+              ],
+              "uuid": "123fbb24-cb1e-54a7-b2af-1029faa60bd2"
+            },
+            {
+              "signature": [
+                "track",
+                "MODE_BOOT_N",
+                96800000,
+                1900000,
+                97050000,
+                2150000,
+                "B.Cu",
+                200000
+              ],
+              "uuid": "603b5899-dfa0-5fcc-a29d-866c989fe914"
+            },
+            {
+              "signature": [
+                "track",
+                "MODE_BOOT_N",
+                96925000,
+                2025000,
+                96300000,
+                2600000,
+                "B.Cu",
+                200000
+              ],
+              "uuid": "75433db9-88f5-507c-8474-3d11561bd47f"
+            },
+            {
+              "signature": [
+                "track",
+                "MODE_BOOT_N",
+                96825000,
+                750000,
+                96800000,
+                899999,
+                "B.Cu",
+                200000
+              ],
+              "uuid": "abb9155e-9c44-5bcc-840c-1cda4dca18c2"
+            }
+          ],
+          "filled_polygons": []
+        }
+      }
+    },
+    "fabrication_release_allowed": false,
+    "retired_scope": [
+      "2f82fdbb-eae9-5498-a755-08b12a55a5df",
+      "603b5899-dfa0-5fcc-a29d-866c989fe914",
+      "9b8a2e6e-3dae-53ca-8d32-998c02d25f88"
+    ],
+    "selected": false,
+    "source_sha256": "14f0c49582063bab84ea685a8cec798011eb4cd66389b085a3a47777180a13ce"
+  },
+  "u51_unselected_interface_audit": {
+    "source": "hardware/coupon/rev-a/staging/led-gauge-routing-trial-114mm.kicad_pcb",
+    "source_sha256": "14f0c49582063bab84ea685a8cec798011eb4cd66389b085a3a47777180a13ce",
+    "trials": [
+      {
+        "added_copper": [
+          {
+            "signature": [
+              "via",
+              "DISPLAY_CLEAR_3",
+              97325000,
+              1750000,
+              "In4.Cu",
+              "B.Cu",
+              300000,
+              100000
+            ],
+            "uuid": "1f649f6f-3da9-5a91-8dd8-431b40491311",
+            "via_type": 1
+          },
+          {
+            "signature": [
+              "track",
+              "MODE_BOOT_N",
+              97175000,
+              750000,
+              96600000,
+              1300000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "8aaf6211-b2e6-5921-8975-313d4bf42269",
+            "via_type": null
+          },
+          {
+            "signature": [
+              "track",
+              "MODE_BOOT_N",
+              96600000,
+              1300000,
+              96399999,
+              1300000,
+              "In4.Cu",
+              200000
+            ],
+            "uuid": "a0945287-2ea7-5b0f-87e0-cc5fc2794002",
+            "via_type": null
+          },
+          {
+            "signature": [
+              "track",
+              "MODE_BOOT_N",
+              96399999,
+              2500000,
+              96300000,
+              2600000,
+              "In4.Cu",
+              200000
+            ],
+            "uuid": "a4326b12-bccf-5afc-ac13-9ad32c5c5ac1",
+            "via_type": null
+          },
+          {
+            "signature": [
+              "track",
+              "MODE_BOOT_N",
+              96399999,
+              1300000,
+              96399999,
+              2500000,
+              "In4.Cu",
+              200000
+            ],
+            "uuid": "bc659e9d-28c6-5899-886d-2b8d911ecf7e",
+            "via_type": null
+          },
+          {
+            "signature": [
+              "track",
+              "MODE_BOOT_N",
+              103250000,
+              2150000,
+              102649999,
+              2700000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "bd3d17c5-9e9d-554d-8f8c-4d55020fd0b5",
+            "via_type": null
+          },
+          {
+            "signature": [
+              "via",
+              "MODE_BOOT_N",
+              96600000,
+              1300000,
+              "In4.Cu",
+              "B.Cu",
+              300000,
+              100000
+            ],
+            "uuid": "c400b453-dc9d-53de-bb4a-b47743585640",
+            "via_type": 1
+          },
+          {
+            "signature": [
+              "track",
+              "MODE_BOOT_N",
+              102649999,
+              2700000,
+              96500000,
+              2700000,
+              "In4.Cu",
+              200000
+            ],
+            "uuid": "c8101db1-6200-54b4-9dc8-a1b4e2ba7f1d",
+            "via_type": null
+          },
+          {
+            "signature": [
+              "track",
+              "MODE_BOOT_N",
+              96500000,
+              2700000,
+              96399999,
+              2695000,
+              "In4.Cu",
+              200000
+            ],
+            "uuid": "dc48d114-c8a1-5568-a271-843e5a2fa449",
+            "via_type": null
+          },
+          {
+            "signature": [
+              "track",
+              "MODE_BOOT_N",
+              96925000,
+              2025000,
+              96600000,
+              1300000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "e7142da0-7f7a-520a-8ebf-dbb8e52af6ad",
+            "via_type": null
+          },
+          {
+            "signature": [
+              "via",
+              "MODE_BOOT_N",
+              102649999,
+              2700000,
+              "In4.Cu",
+              "B.Cu",
+              300000,
+              100000
+            ],
+            "uuid": "eea83ee9-ec15-5623-84a8-8a97dfdde3ee",
+            "via_type": 1
+          }
+        ],
+        "added_lengths_mm": {
+          "MODE_BOOT_N": 10.19569228906207
+        },
+        "drc_types": {
+          "clearance": 104,
+          "via_dangling": 1
+        },
+        "exact_original104_plus_only_declared_unfinished_capture": true,
+        "exact_original_104_findings": false,
+        "fabrication_release_allowed": false,
+        "native_opens": 33,
+        "path": "hardware/coupon/rev-a/build/gauge-supply-routing/u51-interface-restoration.kicad_pcb",
+        "physical_opens": 33,
+        "retired_copper": [
+          {
+            "signature": [
+              "track",
+              "MODE_BOOT_N",
+              97050000,
+              2150000,
+              103250000,
+              2150000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "2f82fdbb-eae9-5498-a755-08b12a55a5df"
+          },
+          {
+            "signature": [
+              "track",
+              "MODE_BOOT_N",
+              96800000,
+              1900000,
+              97050000,
+              2150000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "603b5899-dfa0-5fcc-a29d-866c989fe914"
+          },
+          {
+            "signature": [
+              "track",
+              "MODE_BOOT_N",
+              96800000,
+              899999,
+              96800000,
+              1900000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "9b8a2e6e-3dae-53ca-8d32-998c02d25f88"
+          }
+        ],
+        "selected": false,
+        "sha256": "96042dca3dbb00b251f62ce34d038bbc353fc2a8e28b18fb8675ab61a093dcab",
+        "source_group_losses": [],
+        "source_groups": 221,
+        "unchanged_parts": 483,
+        "unchanged_profiles_and_structure": true,
+        "unchanged_source_copper_items": 19175
+      }
+    ]
+  },
+  "u52_fixed_fan": {
+    "fabrication_release_allowed": false,
+    "rows": [
+      {
+        "expanded": 1000,
+        "found": false,
+        "path_iu": [],
+        "position_iu": [
+          69250000,
+          1000000
+        ],
+        "source_caps": 140,
+        "translation_iu": [
+          0,
+          0
+        ],
+        "via_queries": 1000
+      }
+    ],
+    "selected": false,
+    "source_sha256": "96042dca3dbb00b251f62ce34d038bbc353fc2a8e28b18fb8675ab61a093dcab",
+    "status": "UNSELECTED_U52_FIXED_NATIVE_ESCAPE_SCREEN"
+  },
+  "u52_full_capture_counts": {
+    "clear_poses": 137,
+    "moved_pad": 1144,
+    "poses": 1281
+  },
+  "u52_pose_fan_count": 137,
+  "u52_pose_fan_paths_found": 0,
+  "u52_two_leaf_catalog": {
+    "contacts": {
+      "2f3709dd-8895-5e91-8827-796974de6d2d": {
+        "B.Cu": {
+          "copper_and_pads": [
+            {
+              "signature": [
+                "track",
+                "GND",
+                70350000,
+                1350000,
+                70350000,
+                1150000,
+                "B.Cu",
+                200000
+              ],
+              "uuid": "0bf9424c-5eb3-50cb-9684-ad2ff4cf02e1"
+            },
+            {
+              "pad": [
+                "U52",
+                "3"
+              ],
+              "uuid": "1cfc3ec5-6e26-5c17-9dac-6a9abd67775f"
+            }
+          ],
+          "filled_polygons": [
+            {
+              "polygon": 65,
+              "uuid": "81b0abb6-bbba-5f7c-9599-18e6b0c72e0e"
+            }
+          ]
+        }
+      },
+      "9bf66294-f9fb-5c34-b774-02b3000f6dfa": {
+        "B.Cu": {
+          "copper_and_pads": [
+            {
+              "signature": [
+                "track",
+                "+3V3_APP",
+                68200000,
+                650000,
+                67900000,
+                650000,
+                "B.Cu",
+                200000
+              ],
+              "uuid": "15254fa2-f738-593f-8c07-41f52b5e7bff"
+            },
+            {
+              "pad": [
+                "U52",
+                "6"
+              ],
+              "uuid": "a7fa0fdf-475d-5c35-a19a-130360cbc5dc"
+            }
+          ],
+          "filled_polygons": []
+        }
+      }
+    },
+    "fabrication_release_allowed": false,
+    "retired_scope": [
+      "2f3709dd-8895-5e91-8827-796974de6d2d",
+      "9bf66294-f9fb-5c34-b774-02b3000f6dfa"
+    ],
+    "selected": false,
+    "source_sha256": "14f0c49582063bab84ea685a8cec798011eb4cd66389b085a3a47777180a13ce"
+  },
+  "usb_plane_reservation_routes": {
+    "battery-usb-corridor.json": [
+      {
+        "expanded_nodes": 1936137,
+        "net": "+BAT_PROTECTED_DRAFT",
+        "routed": false,
+        "search_outcome": "exhausted_grid",
+        "source": [
+          "J2",
+          "1"
+        ]
+      },
+      {
+        "expanded_nodes": 944985,
+        "net": "+BAT_PROTECTED_DRAFT",
+        "routed": false,
+        "search_outcome": "exhausted_grid",
+        "source": [
+          "C53",
+          "1"
+        ]
+      }
+    ],
+    "battery-usb-reserved.json": [
+      {
+        "expanded_nodes": 1939995,
+        "net": "+BAT_PROTECTED_DRAFT",
+        "routed": false,
+        "search_outcome": "exhausted_grid",
+        "source": [
+          "J2",
+          "1"
+        ]
+      },
+      {
+        "expanded_nodes": 944718,
+        "net": "+BAT_PROTECTED_DRAFT",
+        "routed": false,
+        "search_outcome": "exhausted_grid",
+        "source": [
+          "C53",
+          "1"
+        ]
+      }
+    ]
+  },
+  "vendor_sources": [
+    {
+      "cached_pdf_sha256": "ffd953703273b43844eae23cfbf31cfc801a3b9443f2c863d49dde62f5a9232b",
+      "mpn": "SN74LVC1G11DRYR",
+      "reviewed_pdf_pages": [
+        3,
+        31,
+        32
+      ],
+      "url": "https://www.ti.com/lit/ds/symlink/sn74lvc1g11.pdf"
+    },
+    {
+      "cached_pdf_sha256": "30b963cc44233cf3ca35c891ff987c8323a2244ecc765e23296ec96ca4b42666",
+      "mpn": "SN74LVC1G08DSFR",
+      "reviewed_land_pdf_page": 35,
+      "reviewed_pin_table_pdf_page": 3
+    },
+    {
+      "mpn": "GRM155R71C104KA88D",
+      "new_drawing_review_claimed": false,
+      "status": "HTTP_403_NO_CURRENT_LOCAL_PDF_FOUND",
+      "url": "https://pim.murata.com/asset/pim4/ceramicCapacitorSMD/GRM155R71C104KA88-01A-EN_PDF_CERAMICCAPACITORSMD"
+    }
+  ]
+}

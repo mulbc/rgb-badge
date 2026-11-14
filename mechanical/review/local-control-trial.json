@@ -1,0 +1,449 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "allowed_nets": [
+    "APP_SUPERVISOR_OK",
+    "DISPLAY_CLEAR_3",
+    "HEARTBEAT_FALL_CLK",
+    "HEARTBEAT_SEEN",
+    "ROW_ARM",
+    "ROW_REQUEST",
+    "DISPLAY_ARM_CLK",
+    "ARM_LATCH",
+    "DISPLAY_ENABLE",
+    "DISPLAY_CLEAR_OK",
+    "VLED_WINDOW_OK",
+    "ROW_ENABLE_REQ_N",
+    "ROW_ENABLE_N_CANDIDATE",
+    "VLED_ENABLE_CANDIDATE",
+    "USB_LOGIC_READY",
+    "USB_CHARGE_REQ",
+    "USB_VBUS_VALID",
+    "USB_OUT1",
+    "USB_OUT2",
+    "USB_RAW_LOGIC_READY",
+    "USB_EN1_RAW_N",
+    "USB_RAW_VBUS_VALID",
+    "TEMP_OK"
+  ],
+  "board_sha256": "7def02820ad488304c6a83479d233b45d1fd738f6b0239af4bff524c76caf5c6",
+  "clearance_mm": 0.2,
+  "grid_mm": 0.05,
+  "kicad_version": "10.0.6",
+  "max_nodes": 200000,
+  "microvia_diameter_drill_mm": [
+    0.3,
+    0.1
+  ],
+  "open_edges": 354,
+  "routes": [
+    {
+      "expanded_nodes": 10,
+      "net": "ROW_REQUEST",
+      "routed": true,
+      "source": [
+        "U54",
+        "7"
+      ]
+    },
+    {
+      "expanded_nodes": 7999,
+      "net": "USB_LOGIC_READY",
+      "routed": true,
+      "source": [
+        "U25",
+        "4"
+      ]
+    },
+    {
+      "expanded_nodes": 22869,
+      "net": "USB_VBUS_VALID",
+      "routed": true,
+      "source": [
+        "U25",
+        "6"
+      ]
+    },
+    {
+      "expanded_nodes": 51562,
+      "net": "USB_OUT2",
+      "routed": true,
+      "source": [
+        "U24",
+        "4"
+      ]
+    },
+    {
+      "expanded_nodes": 0,
+      "net": "DISPLAY_CLEAR_3",
+      "routed": false,
+      "source": [
+        "U52",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 23,
+      "net": "TEMP_OK",
+      "routed": false,
+      "source": [
+        "U39",
+        "4"
+      ]
+    },
+    {
+      "expanded_nodes": 813,
+      "net": "TEMP_OK",
+      "routed": false,
+      "source": [
+        "U39",
+        "6"
+      ]
+    },
+    {
+      "expanded_nodes": 1554,
+      "net": "TEMP_OK",
+      "routed": true,
+      "source": [
+        "U40",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 39389,
+      "net": "ARM_LATCH",
+      "routed": true,
+      "source": [
+        "U55",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 3644,
+      "net": "ARM_LATCH",
+      "routed": true,
+      "source": [
+        "U55",
+        "5"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "USB_RAW_VBUS_VALID",
+      "routed": false,
+      "source": [
+        "TP22",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "USB_RAW_VBUS_VALID",
+      "routed": false,
+      "source": [
+        "U25",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 18495,
+      "net": "VLED_WINDOW_OK",
+      "routed": true,
+      "source": [
+        "U53",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 24,
+      "net": "VLED_WINDOW_OK",
+      "routed": true,
+      "source": [
+        "U53",
+        "6"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "VLED_WINDOW_OK",
+      "routed": false,
+      "source": [
+        "U55",
+        "6"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "ROW_ARM",
+      "routed": false,
+      "source": [
+        "U55",
+        "3"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "VLED_ENABLE_CANDIDATE",
+      "routed": false,
+      "source": [
+        "U55",
+        "7"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "HEARTBEAT_FALL_CLK",
+      "routed": false,
+      "source": [
+        "U49",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "DISPLAY_ARM_CLK",
+      "routed": false,
+      "source": [
+        "U3",
+        "9"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "DISPLAY_ARM_CLK",
+      "routed": false,
+      "source": [
+        "U50",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "ROW_ENABLE_N_CANDIDATE",
+      "routed": false,
+      "source": [
+        "U54",
+        "3"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "APP_SUPERVISOR_OK",
+      "routed": false,
+      "source": [
+        "U51",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "USB_RAW_LOGIC_READY",
+      "routed": false,
+      "source": [
+        "R78",
+        "2"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "USB_RAW_LOGIC_READY",
+      "routed": false,
+      "source": [
+        "TP23",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "USB_RAW_LOGIC_READY",
+      "routed": false,
+      "source": [
+        "U25",
+        "3"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "USB_RAW_LOGIC_READY",
+      "routed": false,
+      "source": [
+        "U34",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "USB_RAW_LOGIC_READY",
+      "routed": false,
+      "source": [
+        "U43",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "USB_OUT1",
+      "routed": false,
+      "source": [
+        "U24",
+        "6"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "ROW_ENABLE_REQ_N",
+      "routed": false,
+      "source": [
+        "TP7",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "ROW_ENABLE_REQ_N",
+      "routed": false,
+      "source": [
+        "U3",
+        "12"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "ROW_ENABLE_REQ_N",
+      "routed": false,
+      "source": [
+        "U54",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "ROW_ENABLE_REQ_N",
+      "routed": false,
+      "source": [
+        "U54",
+        "2"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "USB_CHARGE_REQ",
+      "routed": false,
+      "source": [
+        "U17",
+        "4"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "USB_CHARGE_REQ",
+      "routed": false,
+      "source": [
+        "U23",
+        "2"
+      ]
+    },
+    {
+      "expanded_nodes": 159679,
+      "net": "USB_CHARGE_REQ",
+      "routed": true,
+      "source": [
+        "U42",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "DISPLAY_ENABLE",
+      "routed": false,
+      "source": [
+        "TP10",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "DISPLAY_ENABLE",
+      "routed": false,
+      "source": [
+        "U3",
+        "17"
+      ]
+    },
+    {
+      "expanded_nodes": 0,
+      "net": "DISPLAY_ENABLE",
+      "routed": false,
+      "source": [
+        "U52",
+        "2"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "DISPLAY_ENABLE",
+      "routed": false,
+      "source": [
+        "U55",
+        "2"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "USB_EN1_RAW_N",
+      "routed": false,
+      "source": [
+        "TP31",
+        "1"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "USB_EN1_RAW_N",
+      "routed": false,
+      "source": [
+        "U23",
+        "4"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "HEARTBEAT_SEEN",
+      "routed": false,
+      "source": [
+        "U50",
+        "2"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "DISPLAY_CLEAR_OK",
+      "routed": false,
+      "source": [
+        "U49",
+        "6"
+      ]
+    },
+    {
+      "expanded_nodes": 200001,
+      "net": "DISPLAY_CLEAR_OK",
+      "routed": false,
+      "source": [
+        "U50",
+        "6"
+      ]
+    },
+    {
+      "expanded_nodes": 0,
+      "net": "DISPLAY_CLEAR_OK",
+      "routed": false,
+      "source": [
+        "U52",
+        "4"
+      ]
+    }
+  ],
+  "source_sha256": "5d4b9c9a67b9b78d221ac25f7be84ed8469d053a25aef0935e6895cfbe587a2a",
+  "status": "UNQUALIFIED_LOCAL_CONTROL_STUDY",
+  "tracks_and_vias": 13683,
+  "width_mm": 0.2
+}

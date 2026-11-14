@@ -1,0 +1,4598 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "all_named_pad_group_count": 223,
+  "fabrication_release_allowed": false,
+  "interpretation": "Actual native pad groups; distances are pad-centre geometry, not routes or electrical qualification",
+  "named_net_count": 188,
+  "native_opens": 35,
+  "nets": [
+    {
+      "groups": [
+        [
+          {
+            "pin": "1",
+            "position_iu": [
+              35150000,
+              2750000
+            ],
+            "reference": "C11",
+            "uuid": "f98c53a9-d832-556b-871f-8d5787bd586a"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              37650000,
+              2750000
+            ],
+            "reference": "C17",
+            "uuid": "e27140fa-2011-5357-a4a2-a19f0a1faf75"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              42650000,
+              2750000
+            ],
+            "reference": "C23",
+            "uuid": "c0647a26-8b69-58c9-93f5-b3a6578e91dd"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              45150000,
+              2750000
+            ],
+            "reference": "C24",
+            "uuid": "dbe4a4d8-2747-5b9f-b446-c97544676f43"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              47650000,
+              2750000
+            ],
+            "reference": "C25",
+            "uuid": "b9ab24b6-31c7-551b-91ed-de381e1b20a4"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              89925000,
+              10250000
+            ],
+            "reference": "C32",
+            "uuid": "9a46330f-5de7-5be4-be9d-61af98018036"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              52650000,
+              2750000
+            ],
+            "reference": "C36",
+            "uuid": "3c50db7a-630d-5e9d-b9f7-1bb9fb89dda1"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              57650000,
+              2750000
+            ],
+            "reference": "C38",
+            "uuid": "b1c35b5e-5733-50c6-a86f-e7777e914ebb"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              57285000,
+              19295000
+            ],
+            "reference": "C50",
+            "uuid": "c52299ee-1bd2-5c7b-99d7-71c760751470"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              54485000,
+              17750000
+            ],
+            "reference": "C51",
+            "uuid": "85a3a6bb-3a42-5831-a458-d19c7f6bfb8d"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              32650000,
+              4250000
+            ],
+            "reference": "C58",
+            "uuid": "e4dd6d43-8fd6-5ca3-9b20-4dd8cb721ae0"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              35150000,
+              4250000
+            ],
+            "reference": "C59",
+            "uuid": "8202f786-151a-5e71-839e-8219a8b9f7ad"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              25725000,
+              28270000
+            ],
+            "reference": "R60",
+            "uuid": "da59124d-9690-5c22-ae46-d020672ff21f"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              61750000,
+              8750000
+            ],
+            "reference": "R61",
+            "uuid": "62894436-69f6-5b86-b9a0-2a438fd06401"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              95751262,
+              21750001
+            ],
+            "reference": "R70",
+            "uuid": "d863825d-2659-53af-ad34-b39109e1e1e0"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              35250000,
+              10250000
+            ],
+            "reference": "R75",
+            "uuid": "75084507-6ed7-554c-838a-71865c3f2c9a"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              40250000,
+              10250000
+            ],
+            "reference": "R77",
+            "uuid": "5137226b-9448-5bd1-90a8-a2180f5cf8f8"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              88046259,
+              21500001
+            ],
+            "reference": "R78",
+            "uuid": "02940d58-5ee5-5fb1-bad9-c1555561722d"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              37750000,
+              11750000
+            ],
+            "reference": "R91",
+            "uuid": "6c068c6a-3e97-524b-bdab-d4d29906f571"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              40250000,
+              11750000
+            ],
+            "reference": "R94",
+            "uuid": "42a51f61-c715-525c-9a65-a2258fcd9498"
+          },
+          {
+            "pin": "5",
+            "position_iu": [
+              97700000,
+              5175000
+            ],
+            "reference": "U11",
+            "uuid": "88fbeaa2-be2d-5892-91b9-0b5aedbf3a38"
+          },
+          {
+            "pin": "5",
+            "position_iu": [
+              92200000,
+              6625000
+            ],
+            "reference": "U17",
+            "uuid": "e54aae68-1964-59ec-b4e1-5443f6ced283"
+          },
+          {
+            "pin": "5",
+            "position_iu": [
+              1200000,
+              6175000
+            ],
+            "reference": "U23",
+            "uuid": "48d5a902-655d-5f20-85a3-de59f26099ac"
+          },
+          {
+            "pin": "5",
+            "position_iu": [
+              6200000,
+              7125000
+            ],
+            "reference": "U24",
+            "uuid": "04c26194-ad17-567c-a5a7-09af2a71bf56"
+          },
+          {
+            "pin": "5",
+            "position_iu": [
+              99700000,
+              10375000
+            ],
+            "reference": "U25",
+            "uuid": "d2322b33-0a17-58be-a25a-de88cb2984ea"
+          },
+          {
+            "pin": "5",
+            "position_iu": [
+              92200000,
+              9925000
+            ],
+            "reference": "U29",
+            "uuid": "c408fef2-3362-5135-8710-8265b1a70b0a"
+          },
+          {
+            "pin": "12",
+            "position_iu": [
+              26475000,
+              23875000
+            ],
+            "reference": "U31",
+            "uuid": "c200d108-db55-52ab-8a4f-0e50d3abcd3d"
+          },
+          {
+            "pin": "3",
+            "position_iu": [
+              24050000,
+              13575000
+            ],
+            "reference": "U34",
+            "uuid": "bae461ba-c053-5b0d-bdeb-b125cf31e456"
+          },
+          {
+            "pin": "6",
+            "position_iu": [
+              21450000,
+              11675000
+            ],
+            "reference": "U34",
+            "uuid": "c09af875-5b89-5b18-97bf-d44d2d5d9b40"
+          },
+          {
+            "pin": "5",
+            "position_iu": [
+              26450000,
+              11675000
+            ],
+            "reference": "U40",
+            "uuid": "214b1903-10ad-5916-a3fb-02280cd5d572"
+          },
+          {
+            "pin": "5",
+            "position_iu": [
+              92200000,
+              14175000
+            ],
+            "reference": "U42",
+            "uuid": "30c320e3-82cb-5da7-b42f-bb4ff30718ec"
+          },
+          {
+            "pin": "5",
+            "position_iu": [
+              21450000,
+              15925000
+            ],
+            "reference": "U43",
+            "uuid": "507a7869-e6a6-5d57-afae-6b25f2f260a9"
+          }
+        ],
+        [
+          {
+            "pin": "5",
+            "position_iu": [
+              56885000,
+              15500000
+            ],
+            "reference": "U39",
+            "uuid": "1a962084-ebf2-5cfc-9ee7-0477e357aab3"
+          }
+        ]
+      ],
+      "nearest_pad_pairs": [
+        {
+          "groups": [
+            0,
+            1
+          ],
+          "pad_centre_distance_mm": 3.289756829919196,
+          "pads": [
+            [
+              "C51",
+              "1"
+            ],
+            [
+              "U39",
+              "5"
+            ]
+          ]
+        }
+      ],
+      "net": "+3V3_USB",
+      "open_edges": 1
+    },
+    {
+      "groups": [
+        [
+          {
+            "pin": "1",
+            "position_iu": [
+              19745000,
+              2250000
+            ],
+            "reference": "C39",
+            "uuid": "c1940853-262e-55b1-9655-8b1b514a87ef"
+          },
+          {
+            "pin": "7",
+            "position_iu": [
+              2800000,
+              3800000
+            ],
+            "reference": "SW2",
+            "uuid": "7565d92c-aaef-5a59-b145-9176efd0249d"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              17500000,
+              2650000
+            ],
+            "reference": "U46",
+            "uuid": "3e5c65aa-bd2b-518e-9212-0dc16c7c40d2"
+          }
+        ],
+        [
+          {
+            "pin": "1",
+            "position_iu": [
+              50250000,
+              3105000
+            ],
+            "reference": "C64",
+            "uuid": "1c2a5cc0-e446-500a-a47f-3c8bd717aa07"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              50250000,
+              4250000
+            ],
+            "reference": "R101",
+            "uuid": "d8f153f0-5559-5a1f-9244-a5380bab0ae6"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              52750000,
+              4250000
+            ],
+            "reference": "R102",
+            "uuid": "1aa83ced-7697-52dd-9344-62e5725fb194"
+          }
+        ],
+        [
+          {
+            "pin": "2",
+            "position_iu": [
+              101490000,
+              22125000
+            ],
+            "reference": "U35",
+            "uuid": "2bb4054c-7876-5f95-821c-0729069fe688"
+          },
+          {
+            "pin": "3",
+            "position_iu": [
+              101490000,
+              22625000
+            ],
+            "reference": "U35",
+            "uuid": "84d23e76-c136-56f6-9f43-bb332d11c92b"
+          }
+        ]
+      ],
+      "nearest_pad_pairs": [
+        {
+          "groups": [
+            0,
+            1
+          ],
+          "pad_centre_distance_mm": 30.51697969983268,
+          "pads": [
+            [
+              "C39",
+              "1"
+            ],
+            [
+              "C64",
+              "1"
+            ]
+          ]
+        },
+        {
+          "groups": [
+            1,
+            2
+          ],
+          "pad_centre_distance_mm": 51.914383604161195,
+          "pads": [
+            [
+              "R102",
+              "1"
+            ],
+            [
+              "U35",
+              "2"
+            ]
+          ]
+        },
+        {
+          "groups": [
+            0,
+            2
+          ],
+          "pad_centre_distance_mm": 84.12645630240227,
+          "pads": [
+            [
+              "C39",
+              "1"
+            ],
+            [
+              "U35",
+              "2"
+            ]
+          ]
+        }
+      ],
+      "net": "+BAT_GAUGE_SW",
+      "open_edges": 2
+    },
+    {
+      "groups": [
+        [
+          {
+            "pin": "2",
+            "position_iu": [
+              106650000,
+              18500000
+            ],
+            "reference": "R88",
+            "uuid": "314be673-11d1-5399-a415-3dfc13252033"
+          },
+          {
+            "pin": "5",
+            "position_iu": [
+              107500000,
+              23850000
+            ],
+            "reference": "U41",
+            "uuid": "9921f4dc-8b78-52a5-8e9d-992bd8ccf0aa"
+          }
+        ],
+        [
+          {
+            "pin": "1",
+            "position_iu": [
+              80950000,
+              3275000
+            ],
+            "reference": "U38",
+            "uuid": "b40c5739-9a27-57d2-abee-57d61aa4917b"
+          }
+        ]
+      ],
+      "nearest_pad_pairs": [
+        {
+          "groups": [
+            0,
+            1
+          ],
+          "pad_centre_distance_mm": 29.87123407226424,
+          "pads": [
+            [
+              "R88",
+              "2"
+            ],
+            [
+              "U38",
+              "1"
+            ]
+          ]
+        }
+      ],
+      "net": "CHARGER_EN2",
+      "open_edges": 1
+    },
+    {
+      "groups": [
+        [
+          {
+            "pin": "1",
+            "position_iu": [
+              98251262,
+              25000001
+            ],
+            "reference": "TP34",
+            "uuid": "df3b0647-ae3e-5203-a4c5-d86e11dbb562"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              106850000,
+              26000000
+            ],
+            "reference": "U41",
+            "uuid": "176d6cfe-7ae5-5801-9658-d79a9c9db9fd"
+          }
+        ],
+        [
+          {
+            "pin": "1",
+            "position_iu": [
+              54800000,
+              16125000
+            ],
+            "reference": "TH1",
+            "uuid": "50d5802e-022f-5b2a-80b1-17343463bf63"
+          }
+        ]
+      ],
+      "nearest_pad_pairs": [
+        {
+          "groups": [
+            0,
+            1
+          ],
+          "pad_centre_distance_mm": 44.34836876529559,
+          "pads": [
+            [
+              "TP34",
+              "1"
+            ],
+            [
+              "TH1",
+              "1"
+            ]
+          ]
+        }
+      ],
+      "net": "CHARGER_TS",
+      "open_edges": 1
+    },
+    {
+      "groups": [
+        [
+          {
+            "pin": "4",
+            "position_iu": [
+              97325000,
+              1750000
+            ],
+            "reference": "U51",
+            "uuid": "fd81f748-60eb-5d66-8677-45190c27c41a"
+          }
+        ],
+        [
+          {
+            "pin": "1",
+            "position_iu": [
+              69650000,
+              650000
+            ],
+            "reference": "U52",
+            "uuid": "16270d52-ec71-573c-9a87-e03403138935"
+          }
+        ]
+      ],
+      "nearest_pad_pairs": [
+        {
+          "groups": [
+            0,
+            1
+          ],
+          "pad_centre_distance_mm": 27.696852257973287,
+          "pads": [
+            [
+              "U51",
+              "4"
+            ],
+            [
+              "U52",
+              "1"
+            ]
+          ]
+        }
+      ],
+      "net": "DISPLAY_CLEAR_3",
+      "open_edges": 1
+    },
+    {
+      "groups": [
+        [
+          {
+            "pin": "1",
+            "position_iu": [
+              109825000,
+              21505000
+            ],
+            "reference": "R108",
+            "uuid": "4828b3cd-e252-527c-8015-16df3331d865"
+          },
+          {
+            "pin": "6",
+            "position_iu": [
+              111325000,
+              24250000
+            ],
+            "reference": "U49",
+            "uuid": "526a0ea5-ca42-5a07-8096-9118d9f7c11a"
+          }
+        ],
+        [
+          {
+            "pin": "6",
+            "position_iu": [
+              11075000,
+              1500000
+            ],
+            "reference": "U50",
+            "uuid": "8d09d803-350e-5e1b-9ddf-aeb9aec95f94"
+          }
+        ],
+        [
+          {
+            "pin": "4",
+            "position_iu": [
+              68850000,
+              1350000
+            ],
+            "reference": "U52",
+            "uuid": "36e2add3-0f3b-534f-8a19-502003e3b11c"
+          }
+        ]
+      ],
+      "nearest_pad_pairs": [
+        {
+          "groups": [
+            0,
+            2
+          ],
+          "pad_centre_distance_mm": 45.663712617350775,
+          "pads": [
+            [
+              "R108",
+              "1"
+            ],
+            [
+              "U52",
+              "4"
+            ]
+          ]
+        },
+        {
+          "groups": [
+            1,
+            2
+          ],
+          "pad_centre_distance_mm": 57.77519472057191,
+          "pads": [
+            [
+              "U50",
+              "6"
+            ],
+            [
+              "U52",
+              "4"
+            ]
+          ]
+        },
+        {
+          "groups": [
+            0,
+            1
+          ],
+          "pad_centre_distance_mm": 100.75595528305014,
+          "pads": [
+            [
+              "R108",
+              "1"
+            ],
+            [
+              "U50",
+              "6"
+            ]
+          ]
+        }
+      ],
+      "net": "DISPLAY_CLEAR_OK",
+      "open_edges": 2
+    },
+    {
+      "groups": [
+        [
+          {
+            "pin": "1",
+            "position_iu": [
+              21895000,
+              28700000
+            ],
+            "reference": "R105",
+            "uuid": "40f4e6cc-162f-5b6d-a70f-ec8ff7619454"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              93001262,
+              31000001
+            ],
+            "reference": "TP10",
+            "uuid": "d5e910de-2a4b-564c-afb8-f7de70d7887d"
+          },
+          {
+            "pin": "17",
+            "position_iu": [
+              14745000,
+              28700000
+            ],
+            "reference": "U3",
+            "uuid": "cf8cacd3-57d9-50b9-813e-f3cad9442162"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              28500000,
+              20875000
+            ],
+            "reference": "U55",
+            "uuid": "4eca63f8-2eb7-56bc-8a71-629832c1ca99"
+          }
+        ],
+        [
+          {
+            "pin": "2",
+            "position_iu": [
+              69650000,
+              1000000
+            ],
+            "reference": "U52",
+            "uuid": "0dcad158-411e-5ad4-a5d8-9035686bb84d"
+          }
+        ]
+      ],
+      "nearest_pad_pairs": [
+        {
+          "groups": [
+            0,
+            1
+          ],
+          "pad_centre_distance_mm": 38.01685806313621,
+          "pads": [
+            [
+              "TP10",
+              "1"
+            ],
+            [
+              "U52",
+              "2"
+            ]
+          ]
+        }
+      ],
+      "net": "DISPLAY_ENABLE",
+      "open_edges": 1
+    },
+    {
+      "groups": [
+        [
+          {
+            "pin": "1",
+            "position_iu": [
+              31195000,
+              17325000
+            ],
+            "reference": "R103",
+            "uuid": "b314d307-7bad-5556-93ec-8d4d6ffa4a96"
+          },
+          {
+            "pin": "8",
+            "position_iu": [
+              19050000,
+              19830000
+            ],
+            "reference": "U3",
+            "uuid": "fd1e12aa-5760-5371-85f9-2a15e7e9304e"
+          },
+          {
+            "pin": "4",
+            "position_iu": [
+              26450000,
+              17825000
+            ],
+            "reference": "U47",
+            "uuid": "86efc08c-02e2-5562-b1ce-6415f04fb94d"
+          }
+        ],
+        [
+          {
+            "pin": "2",
+            "position_iu": [
+              64650000,
+              1000000
+            ],
+            "reference": "U48",
+            "uuid": "b36af90f-81ac-5111-950c-5fdc3cb1d1fe"
+          }
+        ]
+      ],
+      "nearest_pad_pairs": [
+        {
+          "groups": [
+            0,
+            1
+          ],
+          "pad_centre_distance_mm": 37.22556446852082,
+          "pads": [
+            [
+              "R103",
+              "1"
+            ],
+            [
+              "U48",
+              "2"
+            ]
+          ]
+        }
+      ],
+      "net": "DISPLAY_HEARTBEAT",
+      "open_edges": 1
+    },
+    {
+      "groups": [
+        [
+          {
+            "pin": "1",
+            "position_iu": [
+              42150000,
+              13045000
+            ],
+            "reference": "C5",
+            "uuid": "d9b6fee6-bb2c-5334-b7a7-7ac1fe806fb4"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              41750000,
+              8750000
+            ],
+            "reference": "R43",
+            "uuid": "ef696263-c237-51a1-86c0-5b1f9285e387"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              42150000,
+              14590000
+            ],
+            "reference": "TP2",
+            "uuid": "1bb341af-e7da-5683-8423-09739bf23e12"
+          },
+          {
+            "pin": "3",
+            "position_iu": [
+              19050000,
+              13480000
+            ],
+            "reference": "U3",
+            "uuid": "7b61a831-a91f-5e19-aa5e-e724a41d077c"
+          }
+        ],
+        [
+          {
+            "pin": "3",
+            "position_iu": [
+              97925000,
+              1750000
+            ],
+            "reference": "U51",
+            "uuid": "22006f26-1d06-53a5-b382-9cc4e5f13233"
+          }
+        ]
+      ],
+      "nearest_pad_pairs": [
+        {
+          "groups": [
+            0,
+            1
+          ],
+          "pad_centre_distance_mm": 56.609457027956026,
+          "pads": [
+            [
+              "R43",
+              "2"
+            ],
+            [
+              "U51",
+              "3"
+            ]
+          ]
+        }
+      ],
+      "net": "ESP_EN",
+      "open_edges": 1
+    },
+    {
+      "groups": [
+        [
+          {
+            "pin": "2",
+            "position_iu": [
+              31850000,
+              2750000
+            ],
+            "reference": "C1",
+            "uuid": "19122a3b-6974-5ccf-87a7-3bf6203624ea"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              34350000,
+              2750000
+            ],
+            "reference": "C11",
+            "uuid": "b5c5d899-7d3d-5784-b979-523a7c07ffe9"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              36850000,
+              2750000
+            ],
+            "reference": "C17",
+            "uuid": "6b098ece-cdd8-56b2-96b4-51e43eea2e4f"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              39350000,
+              2750000
+            ],
+            "reference": "C2",
+            "uuid": "bcdb522f-3bf6-5255-a242-67edc4be7f4d"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              41850000,
+              2750000
+            ],
+            "reference": "C23",
+            "uuid": "22bc937b-cff2-51eb-87d7-4db4436589ec"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              44350000,
+              2750000
+            ],
+            "reference": "C24",
+            "uuid": "90eec542-a7cd-5dbd-9186-14ddf22ef884"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              46850000,
+              2750000
+            ],
+            "reference": "C25",
+            "uuid": "7ba7c0a9-4183-5c90-9c31-230a03727a67"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              30575000,
+              1000000
+            ],
+            "reference": "C3",
+            "uuid": "afe5abdb-99c7-547a-85e5-20357efe592f"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              106895000,
+              16000000
+            ],
+            "reference": "C30",
+            "uuid": "8bc9da42-a849-5bb2-a65a-36d775b5fa38"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              103095000,
+              17500000
+            ],
+            "reference": "C31",
+            "uuid": "625939ac-431a-5810-9a71-4c7a58d740fc"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              88575000,
+              10250000
+            ],
+            "reference": "C32",
+            "uuid": "ba72ae9f-535b-5177-9bc9-5b05cb9d46ec"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              51850000,
+              2750000
+            ],
+            "reference": "C36",
+            "uuid": "cc6ab8e0-95cc-506d-b9f7-8e201e1a4379"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              54350000,
+              2750000
+            ],
+            "reference": "C37",
+            "uuid": "350feee1-2099-5426-8a42-667fe9067bb0"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              56850000,
+              2750000
+            ],
+            "reference": "C38",
+            "uuid": "a9c25bc3-349b-5c46-b450-f245c746212d"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              19745000,
+              3050000
+            ],
+            "reference": "C39",
+            "uuid": "783ed551-dd75-5648-bd1f-46fe3c35331f"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              97370000,
+              17875000
+            ],
+            "reference": "C4",
+            "uuid": "74bd7af6-1464-5106-922b-7315652b838a"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              112750000,
+              18275000
+            ],
+            "reference": "C40",
+            "uuid": "c6cff98c-5955-5667-beac-182afc7c42b3"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              112750000,
+              13725000
+            ],
+            "reference": "C41",
+            "uuid": "66a67f9a-d608-51d8-abe8-a5474e4018c9"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              110050000,
+              12000000
+            ],
+            "reference": "C42",
+            "uuid": "c86eb687-3674-59d2-a9e6-3417a80e5f51"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              107800000,
+              20000000
+            ],
+            "reference": "C43",
+            "uuid": "a1c9323a-6378-5e35-881e-41d84ea1a69f"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              43975000,
+              14650001
+            ],
+            "reference": "C44",
+            "uuid": "a6b1cb37-646b-5ba4-83eb-83c477a105cf"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              48475000,
+              14650001
+            ],
+            "reference": "C45",
+            "uuid": "1c88113e-e01a-5c83-a8d0-a1589063fe15"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              43875000,
+              20350000
+            ],
+            "reference": "C46",
+            "uuid": "06d0eb3b-5f65-523c-9dd2-533f5d703ce8"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              48575000,
+              20350000
+            ],
+            "reference": "C47",
+            "uuid": "11190ce6-dd0e-5e5c-9a2d-49845bac91e9"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              53275000,
+              20350000
+            ],
+            "reference": "C48",
+            "uuid": "fff2f165-4007-5017-b0a6-cb667202f498"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              53325000,
+              18900001
+            ],
+            "reference": "C49",
+            "uuid": "58191314-fdc4-5417-ad1d-c9a79cf83913"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              41350000,
+              13045000
+            ],
+            "reference": "C5",
+            "uuid": "19e0b1d1-46d2-55a7-b956-a6c9e2935ff3"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              56485000,
+              19295000
+            ],
+            "reference": "C50",
+            "uuid": "cc0e33ba-5294-58cf-aef5-54a12c9e538c"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              55285000,
+              17750000
+            ],
+            "reference": "C51",
+            "uuid": "d0ec95c5-83c8-546b-9387-5da6d37386a1"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              103850000,
+              19000000
+            ],
+            "reference": "C52",
+            "uuid": "171e6615-30cb-51e9-87fc-6de678643038"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              103075000,
+              24750000
+            ],
+            "reference": "C53",
+            "uuid": "b22ed928-fcc7-5b08-add5-47c9275bb0e8"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              103075000,
+              26750000
+            ],
+            "reference": "C54",
+            "uuid": "509e736b-a813-5df8-bb56-624e20635cb2"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              100650000,
+              12755000
+            ],
+            "reference": "C55",
+            "uuid": "5512b57a-31e4-5193-8894-6693cf644779"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              106975000,
+              28750000
+            ],
+            "reference": "C56",
+            "uuid": "db29d3d5-4aac-5961-96be-09d8f8b2815c"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              96850000,
+              19000000
+            ],
+            "reference": "C57",
+            "uuid": "cb4f7e08-df57-59aa-a0a9-cee8f6bd798f"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              31850000,
+              4250000
+            ],
+            "reference": "C58",
+            "uuid": "6d6e381c-20f3-5a82-b293-31dcc4dbc48b"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              34350000,
+              4250000
+            ],
+            "reference": "C59",
+            "uuid": "d11f6268-3d4f-5540-b630-66a00063b211"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              103800000,
+              14000000
+            ],
+            "reference": "C60",
+            "uuid": "633679c0-2014-56f8-b011-58e9ab3092fe"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              103725000,
+              16000000
+            ],
+            "reference": "C61",
+            "uuid": "e360b4af-5bd4-5d43-b0d5-ba0ecf7d88b2"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              96850000,
+              16000000
+            ],
+            "reference": "C62",
+            "uuid": "4ecfc59c-81c3-5069-8b3b-34ddcf874667"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              44550000,
+              21650000
+            ],
+            "reference": "C63",
+            "uuid": "b75d3b6e-fad0-528e-a685-422b63b14afc"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              50250000,
+              2305000
+            ],
+            "reference": "C64",
+            "uuid": "8f81e491-906d-5abd-9e91-52eeabdca2b6"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              41850000,
+              4250000
+            ],
+            "reference": "C65",
+            "uuid": "b342623b-50e4-5f65-9fa9-78c3dd8314a0"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              23600000,
+              19750000
+            ],
+            "reference": "C66",
+            "uuid": "d11254b5-354d-5742-8ada-6da6393695ef"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              66350000,
+              750000
+            ],
+            "reference": "C67",
+            "uuid": "2f726794-319a-55ce-ba32-8625442ba48f"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              111350000,
+              26500000
+            ],
+            "reference": "C68",
+            "uuid": "e6243a40-fdcb-514e-ba56-ffcb6280b6b1"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              14100000,
+              750000
+            ],
+            "reference": "C69",
+            "uuid": "63bcaf38-9131-52fe-a794-aeea880ce9df"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              97350000,
+              3250000
+            ],
+            "reference": "C70",
+            "uuid": "b58c2dc7-6016-5c56-8475-8da3d3fe3571"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              68100000,
+              2895000
+            ],
+            "reference": "C71",
+            "uuid": "2cc0b690-4e17-53ab-9525-e453041a7a42"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              16600000,
+              750000
+            ],
+            "reference": "C72",
+            "uuid": "c8eb1457-e047-5269-8ddc-0c72706846bc"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              89350000,
+              21500000
+            ],
+            "reference": "C73",
+            "uuid": "503bacc2-be31-590c-b7dc-34895f0663c5"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              23600000,
+              21250000
+            ],
+            "reference": "C74",
+            "uuid": "1dfdf95a-153b-52e9-8b1a-2443d140a580"
+          },
+          {
+            "pin": "A1_B12",
+            "position_iu": [
+              107250000,
+              19450000
+            ],
+            "reference": "J1",
+            "uuid": "30946771-ca12-58cc-ad2f-022420eb57dd"
+          },
+          {
+            "pin": "B1_A12",
+            "position_iu": [
+              107250000,
+              13050000
+            ],
+            "reference": "J1",
+            "uuid": "d0067106-4ba6-52d8-b0e6-6fe4821e3d78"
+          },
+          {
+            "pin": "S1",
+            "position_iu": [
+              108400000,
+              10630000
+            ],
+            "reference": "J1",
+            "uuid": "2cd133c2-ff35-5f0c-92d3-a2ccf2aac91c"
+          },
+          {
+            "pin": "S1",
+            "position_iu": [
+              108400000,
+              21870000
+            ],
+            "reference": "J1",
+            "uuid": "8d52eabc-5d24-5df2-a530-240a7859e4a0"
+          },
+          {
+            "pin": "S1",
+            "position_iu": [
+              112400000,
+              10630000
+            ],
+            "reference": "J1",
+            "uuid": "8edaa0d3-bf20-563e-a97c-7c8c36adf57f"
+          },
+          {
+            "pin": "S1",
+            "position_iu": [
+              112400000,
+              21870000
+            ],
+            "reference": "J1",
+            "uuid": "a25c58ff-aba6-5923-8b60-51bd7ce27d70"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              23850000,
+              2500000
+            ],
+            "reference": "J2",
+            "uuid": "0954943d-45b0-5535-b93a-cd5cbd170140"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              80675000,
+              5350000
+            ],
+            "reference": "PAIR02",
+            "uuid": "22b150ab-f0a9-507e-943c-cb1e5fd74303"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              76675000,
+              6850000
+            ],
+            "reference": "PAIR03",
+            "uuid": "18c2957d-80b7-547e-887b-3948630ff2b4"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              80675000,
+              8850000
+            ],
+            "reference": "PAIR04",
+            "uuid": "72784215-f7a5-5c0d-87ff-af056c6bb0e6"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              76675000,
+              10600000
+            ],
+            "reference": "PAIR05",
+            "uuid": "d2764f79-ad35-5cdd-ba37-ec097abf225b"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              80675000,
+              12350000
+            ],
+            "reference": "PAIR06",
+            "uuid": "c6f093a7-ad96-5e03-bd4b-c0c5011ad64b"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              76675000,
+              14350000
+            ],
+            "reference": "PAIR07",
+            "uuid": "b9557aa9-fb7d-5ecc-9fd8-f33ab93e0db6"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              80675000,
+              15850000
+            ],
+            "reference": "PAIR08",
+            "uuid": "3b751da5-3336-52cc-8ab1-cf72c0444fe4"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              76675000,
+              18100000
+            ],
+            "reference": "PAIR09",
+            "uuid": "be05fac4-8a28-5be3-8398-2bcb14f71101"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              80675000,
+              19350000
+            ],
+            "reference": "PAIR10",
+            "uuid": "426f1317-08e4-5414-8336-acb0c98f3833"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              76675000,
+              21850000
+            ],
+            "reference": "PAIR11",
+            "uuid": "134b1f49-e8c6-5e97-b88a-8a770554158c"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              80675000,
+              22850000
+            ],
+            "reference": "PAIR12",
+            "uuid": "9d57a176-6e1a-5f40-85e2-5f6cd174e495"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              76675000,
+              25600000
+            ],
+            "reference": "PAIR13",
+            "uuid": "adf54e80-f735-5e6f-8382-84ec3eaa660b"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              80675000,
+              26350000
+            ],
+            "reference": "PAIR14",
+            "uuid": "93a8846a-fc20-56cc-9eaa-ddca64d8ee80"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              76675000,
+              29350000
+            ],
+            "reference": "PAIR15",
+            "uuid": "adc2bf2b-9282-504a-942b-257a21848b55"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              80675000,
+              29850000
+            ],
+            "reference": "PAIR16",
+            "uuid": "aa09e6fb-3fd1-5825-aa80-fa512fdcdd3a"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              91750000,
+              2750000
+            ],
+            "reference": "R1",
+            "uuid": "5bf962e8-fc98-52e1-88b9-7c2107bfa0fc"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              96750000,
+              14000000
+            ],
+            "reference": "R100",
+            "uuid": "321ca0be-86f9-550b-a443-b7be2d3e3fa1"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              31195000,
+              18325000
+            ],
+            "reference": "R103",
+            "uuid": "ce5c7f09-6df4-5d4a-bdef-39193a1a7807"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              20895000,
+              28700000
+            ],
+            "reference": "R105",
+            "uuid": "36135cc1-0225-537f-bfe2-58a04b356c55"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              21800000,
+              21350000
+            ],
+            "reference": "R107",
+            "uuid": "61fc70bf-c015-579c-944d-59992a96c588"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              109825000,
+              22505000
+            ],
+            "reference": "R108",
+            "uuid": "e674c82f-c617-5bf6-93bc-3cf5b770341d"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              31750000,
+              5750000
+            ],
+            "reference": "R110",
+            "uuid": "3b8f480a-92dc-597f-af9a-e42779ae81cd"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              36750000,
+              5750000
+            ],
+            "reference": "R112",
+            "uuid": "6593661d-1345-5ea6-bf92-807ba4c3e23d"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              39250000,
+              5750000
+            ],
+            "reference": "R113",
+            "uuid": "19b2e95d-a6d0-5c3d-bc74-88cafcd3b833"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              13205000,
+              30795000
+            ],
+            "reference": "R2",
+            "uuid": "353e69f5-93d5-58dc-93f1-cc671087bb61"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              69250000,
+              5750000
+            ],
+            "reference": "R22",
+            "uuid": "71b6ebea-86fb-5327-a8d5-f00eb386d754"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              71750000,
+              5750000
+            ],
+            "reference": "R23",
+            "uuid": "42d88656-d61f-5a9d-ac58-ab192af74cca"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              69000000,
+              13500000
+            ],
+            "reference": "R24",
+            "uuid": "4104d052-aecf-5547-a549-7917727d68ac"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              34250000,
+              7250000
+            ],
+            "reference": "R25",
+            "uuid": "97240229-ad55-5151-94bb-2e5f05108cae"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              36750000,
+              7250000
+            ],
+            "reference": "R26",
+            "uuid": "e48b9960-4587-5baa-8a29-c86ae0734f01"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              39250000,
+              7250000
+            ],
+            "reference": "R27",
+            "uuid": "4867458a-0a51-5d1e-9ef6-56564d59316f"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              41750000,
+              7250000
+            ],
+            "reference": "R28",
+            "uuid": "aab5059c-5204-56a2-96e5-71f219437284"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              44250000,
+              7250000
+            ],
+            "reference": "R29",
+            "uuid": "aa4e3202-0a6d-5b27-b065-5b16c78ef00b"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              11435000,
+              30700000
+            ],
+            "reference": "R3",
+            "uuid": "13589269-b391-5177-aae5-3bc5413a2b57"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              49250000,
+              7250000
+            ],
+            "reference": "R30",
+            "uuid": "876fc03a-36cc-5de1-9f9c-949250abe4f1"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              51750000,
+              7250000
+            ],
+            "reference": "R31",
+            "uuid": "50d4af0d-0757-546a-8e6a-dd02b7c38e13"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              54250000,
+              7250000
+            ],
+            "reference": "R32",
+            "uuid": "b9780298-40d7-5b99-8be0-e8f6188da129"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              56750000,
+              7250000
+            ],
+            "reference": "R33",
+            "uuid": "bec6e451-08b2-56c3-9a4a-aa3d8333c335"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              59250000,
+              7250000
+            ],
+            "reference": "R34",
+            "uuid": "1276e49d-2421-5797-a732-7e33b7da536d"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              61750000,
+              7250000
+            ],
+            "reference": "R35",
+            "uuid": "81f57661-cee3-54c7-be59-9d5c47612477"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              64250000,
+              7250000
+            ],
+            "reference": "R36",
+            "uuid": "d1737979-24d8-5d7c-917e-6afaf03e5ec3"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              66750000,
+              7250000
+            ],
+            "reference": "R37",
+            "uuid": "538a653d-a3cd-5ae6-a59e-572cc2f0c014"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              110212500,
+              10345000
+            ],
+            "reference": "R38",
+            "uuid": "606384a7-1e52-5274-a9e4-6767953c2717"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              111712500,
+              9345000
+            ],
+            "reference": "R39",
+            "uuid": "1205fef5-8c48-54ea-a94c-001b6b74d9cb"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              31750000,
+              8750000
+            ],
+            "reference": "R4",
+            "uuid": "a165124d-8706-5359-a644-3a2e9096550e"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              34250000,
+              8750000
+            ],
+            "reference": "R40",
+            "uuid": "5a1c784c-45b2-529c-bbc8-352237fbf48f"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              36750000,
+              8750000
+            ],
+            "reference": "R41",
+            "uuid": "362e1d96-9a01-5914-b2ad-d4b70ce79f46"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              27751262,
+              27750001
+            ],
+            "reference": "R5",
+            "uuid": "60b264a3-ba5d-596b-92b1-e60c1dbf3519"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              64250000,
+              8750000
+            ],
+            "reference": "R62",
+            "uuid": "6fbd5a32-e6dd-5bb2-a8bc-8da2c3971f32"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              104300000,
+              12825000
+            ],
+            "reference": "R63",
+            "uuid": "e8bc900d-51c0-5a0e-b1ae-4bb68f3aae65"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              36750000,
+              10250000
+            ],
+            "reference": "R76",
+            "uuid": "3893d3ad-e68f-50be-83e4-a701a2568119"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              111250000,
+              20250000
+            ],
+            "reference": "R82",
+            "uuid": "ebe9c9cb-faa6-5c38-aafe-848e7f6d3abe"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              113250000,
+              20000000
+            ],
+            "reference": "R83",
+            "uuid": "688d76d0-cfcc-5576-9659-0f85b0c93379"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              45800000,
+              21650000
+            ],
+            "reference": "R86",
+            "uuid": "b850d721-6fdf-57d4-98ca-96969c291a64"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              43650000,
+              13350000
+            ],
+            "reference": "R87",
+            "uuid": "b7894673-bde4-555d-8cb6-182b03be540a"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              59865000,
+              15500000
+            ],
+            "reference": "R89",
+            "uuid": "fe8c60ad-121e-5b69-90a2-8e5105139546"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              60500000,
+              16750000
+            ],
+            "reference": "R90",
+            "uuid": "0c2d6ff1-ebc0-5599-921f-739ac3291653"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              103500000,
+              28500000
+            ],
+            "reference": "R92",
+            "uuid": "b3f4c0b9-8549-5d98-9635-61f451161109"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              111250000,
+              28250000
+            ],
+            "reference": "R93",
+            "uuid": "9baf986e-8cd5-56d9-a18f-46fdec12820c"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              41750000,
+              11750000
+            ],
+            "reference": "R95",
+            "uuid": "38d4b4ad-61ac-53e2-9377-d08434b20328"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              96750000,
+              22500000
+            ],
+            "reference": "R96",
+            "uuid": "53f54327-14da-5d24-aa72-749bc8717e64"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              96750000,
+              20750000
+            ],
+            "reference": "R98",
+            "uuid": "7f522650-5630-5056-aae8-fd5f08e141c5"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              99600000,
+              799999
+            ],
+            "reference": "SW1",
+            "uuid": "01bd592d-de41-565b-af1e-c9883dac5649"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              99600000,
+              3299999
+            ],
+            "reference": "SW1",
+            "uuid": "c5cf2974-751b-5076-b9c0-3580a8347d36"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              53950000,
+              16125000
+            ],
+            "reference": "TH1",
+            "uuid": "f7a8a4c4-4899-56e6-b940-daa7924e4396"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              92001262,
+              27000001
+            ],
+            "reference": "TP9",
+            "uuid": "4854f567-77b2-50da-bc4e-a68380d667bc"
+          },
+          {
+            "pin": "56",
+            "position_iu": [
+              89750000,
+              1100000
+            ],
+            "reference": "U1",
+            "uuid": "f92f3f8a-a448-5ded-bba4-bbba5d2ecec6"
+          },
+          {
+            "pin": "57",
+            "position_iu": [
+              86500000,
+              5000000
+            ],
+            "reference": "U1",
+            "uuid": "b483b6ff-0776-5ba8-a6d6-f79923b32796"
+          },
+          {
+            "pin": "3",
+            "position_iu": [
+              100300000,
+              7075000
+            ],
+            "reference": "U11",
+            "uuid": "e90f9ed7-58ef-54aa-b279-4f1dbefd61a5"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              94800000,
+              6625000
+            ],
+            "reference": "U17",
+            "uuid": "3a9d35ad-6a43-56dd-8e98-cb8ccaa32c3d"
+          },
+          {
+            "pin": "12",
+            "position_iu": [
+              111712500,
+              8225000
+            ],
+            "reference": "U2",
+            "uuid": "e73a7795-c551-547b-8dc8-62724aaa6046"
+          },
+          {
+            "pin": "3",
+            "position_iu": [
+              3800000,
+              8075000
+            ],
+            "reference": "U23",
+            "uuid": "edac3df3-9dbf-5b18-ada6-61fdd9c2967b"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              8800000,
+              7125000
+            ],
+            "reference": "U24",
+            "uuid": "fd1beb6b-150d-5d1f-9052-c33984e596f2"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              102300000,
+              10375000
+            ],
+            "reference": "U25",
+            "uuid": "203730c7-fe82-56fb-93bb-6dca2e07791b"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              94800000,
+              10875000
+            ],
+            "reference": "U29",
+            "uuid": "5fc49b29-5959-5e8e-a2ea-916c701957f3"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              19050000,
+              10940000
+            ],
+            "reference": "U3",
+            "uuid": "215a1a7a-e5a7-5fef-ba6f-094b76452844"
+          },
+          {
+            "pin": "40",
+            "position_iu": [
+              1550000,
+              10940000
+            ],
+            "reference": "U3",
+            "uuid": "94e402e4-2858-5df3-b0f2-d71e45a42cd0"
+          },
+          {
+            "pin": "41",
+            "position_iu": [
+              13200000,
+              18660000
+            ],
+            "reference": "U3",
+            "uuid": "0ecbcfe7-a845-5edb-a245-2ca37b0857d3"
+          },
+          {
+            "pin": "41",
+            "position_iu": [
+              10400000,
+              20060000
+            ],
+            "reference": "U3",
+            "uuid": "83b76ec8-258f-5dae-97c2-bb49f4bb8f40"
+          },
+          {
+            "pin": "41",
+            "position_iu": [
+              13200000,
+              17260000
+            ],
+            "reference": "U3",
+            "uuid": "841b40a7-5ddb-5b9f-b3cd-1e89c6d1a9fc"
+          },
+          {
+            "pin": "41",
+            "position_iu": [
+              11800000,
+              18660000
+            ],
+            "reference": "U3",
+            "uuid": "892aa1bc-5fe3-5f83-81d3-93fb43fa21b7"
+          },
+          {
+            "pin": "41",
+            "position_iu": [
+              11800000,
+              17260000
+            ],
+            "reference": "U3",
+            "uuid": "c10a0202-b27a-5e2a-bab8-9832bb139721"
+          },
+          {
+            "pin": "41",
+            "position_iu": [
+              10400000,
+              17260000
+            ],
+            "reference": "U3",
+            "uuid": "dd7b34d9-fdfa-5403-8985-e219d7984949"
+          },
+          {
+            "pin": "41",
+            "position_iu": [
+              10400000,
+              18660000
+            ],
+            "reference": "U3",
+            "uuid": "dfb976a7-2cff-521b-b08f-76a162c0d9d5"
+          },
+          {
+            "pin": "41",
+            "position_iu": [
+              11800000,
+              20060000
+            ],
+            "reference": "U3",
+            "uuid": "e166bf7f-ff04-5ec0-a0e2-dc30267b4cfb"
+          },
+          {
+            "pin": "41",
+            "position_iu": [
+              13200000,
+              20060000
+            ],
+            "reference": "U3",
+            "uuid": "f1925a65-194b-5e25-bc1b-563c835e86ac"
+          },
+          {
+            "pin": "10",
+            "position_iu": [
+              25675000,
+              23875000
+            ],
+            "reference": "U31",
+            "uuid": "4d61fa61-bbe3-52c5-bc51-53afd1d73a14"
+          },
+          {
+            "pin": "11",
+            "position_iu": [
+              26075000,
+              23875000
+            ],
+            "reference": "U31",
+            "uuid": "6839d9b8-ff97-5106-8b97-93cd0d3f75e9"
+          },
+          {
+            "pin": "3",
+            "position_iu": [
+              26475000,
+              25375000
+            ],
+            "reference": "U31",
+            "uuid": "ae33fa22-45be-5146-8115-92a87131299b"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              104675000,
+              20750000
+            ],
+            "reference": "U32",
+            "uuid": "ed447927-b554-5f7f-87e1-1e92e06fe0c9"
+          },
+          {
+            "pin": "4",
+            "position_iu": [
+              104000000,
+              21900000
+            ],
+            "reference": "U32",
+            "uuid": "600bdcd0-2c8c-571d-a9f5-edc5dfca0093"
+          },
+          {
+            "pin": "3",
+            "position_iu": [
+              105292500,
+              10750000
+            ],
+            "reference": "U33",
+            "uuid": "8b460676-875f-578c-9eaf-252566739202"
+          },
+          {
+            "pin": "8",
+            "position_iu": [
+              104457500,
+              10750000
+            ],
+            "reference": "U33",
+            "uuid": "99a0bd0d-e465-560b-8be0-cbc9c972ef74"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              24050000,
+              12625000
+            ],
+            "reference": "U34",
+            "uuid": "62427aa3-f73b-5e5f-a27f-cab0584cc24e"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              101490000,
+              21625000
+            ],
+            "reference": "U35",
+            "uuid": "be7d1566-d59b-5901-8e98-d865976c2b0d"
+          },
+          {
+            "pin": "4",
+            "position_iu": [
+              101490000,
+              23125000
+            ],
+            "reference": "U35",
+            "uuid": "dd76c5a7-e175-57d2-b3a3-78157f4d8fe5"
+          },
+          {
+            "pin": "6",
+            "position_iu": [
+              99510000,
+              22625000
+            ],
+            "reference": "U35",
+            "uuid": "8ac010a8-68e7-51c2-af26-ddbea380287a"
+          },
+          {
+            "pin": "9",
+            "position_iu": [
+              100500000,
+              22375000
+            ],
+            "reference": "U35",
+            "uuid": "a9356a02-c00d-5fa5-bb21-bcfbd5c9e7b5"
+          },
+          {
+            "pin": "6",
+            "position_iu": [
+              110250000,
+              17990000
+            ],
+            "reference": "U36",
+            "uuid": "a0cfcfb9-0e8f-5eb7-89d3-1b43631e1ba4"
+          },
+          {
+            "pin": "7",
+            "position_iu": [
+              109750000,
+              17990000
+            ],
+            "reference": "U36",
+            "uuid": "9750cac1-6892-5b2d-9def-06f54ca9cdfb"
+          },
+          {
+            "pin": "13",
+            "position_iu": [
+              44500000,
+              16100000
+            ],
+            "reference": "U37",
+            "uuid": "13a11408-6de9-5c8e-a08a-b9a03c830a86"
+          },
+          {
+            "pin": "15",
+            "position_iu": [
+              45500000,
+              17500000
+            ],
+            "reference": "U37",
+            "uuid": "18d93458-8aa5-5818-bfe0-b7ace028e8eb"
+          },
+          {
+            "pin": "15",
+            "position_iu": [
+              47312500,
+              17270000
+            ],
+            "reference": "U37",
+            "uuid": "54028577-a1bf-5de4-aa26-d00e8e8b59a2"
+          },
+          {
+            "pin": "15",
+            "position_iu": [
+              43687500,
+              17270000
+            ],
+            "reference": "U37",
+            "uuid": "541a7a46-1f57-5c81-af50-eccbaee7f8e1"
+          },
+          {
+            "pin": "15",
+            "position_iu": [
+              47312500,
+              17730000
+            ],
+            "reference": "U37",
+            "uuid": "58df1c0d-def6-54ba-95ab-d5e3731ed27f"
+          },
+          {
+            "pin": "15",
+            "position_iu": [
+              43687500,
+              17730000
+            ],
+            "reference": "U37",
+            "uuid": "7f6fb223-8e4a-5708-a87d-395bb5453e7f"
+          },
+          {
+            "pin": "15",
+            "position_iu": [
+              43687500,
+              16810000
+            ],
+            "reference": "U37",
+            "uuid": "a76a8eda-bd69-54a7-91f5-90fca39181f0"
+          },
+          {
+            "pin": "15",
+            "position_iu": [
+              47312500,
+              18190000
+            ],
+            "reference": "U37",
+            "uuid": "b6722489-74e4-506f-a4f8-45e6a00d8e16"
+          },
+          {
+            "pin": "15",
+            "position_iu": [
+              43687500,
+              18190000
+            ],
+            "reference": "U37",
+            "uuid": "e3664a1f-eeda-56f8-8e2b-1510e3d63b50"
+          },
+          {
+            "pin": "15",
+            "position_iu": [
+              47312500,
+              16810000
+            ],
+            "reference": "U37",
+            "uuid": "e8878631-c616-5e31-aa37-c81cb750193c"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              44500000,
+              18900000
+            ],
+            "reference": "U37",
+            "uuid": "394f3596-7677-5b53-9218-381dbfbe2243"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              79050000,
+              3275000
+            ],
+            "reference": "U38",
+            "uuid": "e31cbe1d-5f20-5738-88bf-59b0ba46de86"
+          },
+          {
+            "pin": "3",
+            "position_iu": [
+              80000000,
+              1175000
+            ],
+            "reference": "U38",
+            "uuid": "54d0e230-8e05-52c8-8a48-3d22a430d097"
+          },
+          {
+            "pin": "3",
+            "position_iu": [
+              58365000,
+              16000000
+            ],
+            "reference": "U39",
+            "uuid": "c66ad8ef-da45-5bb8-92b8-c3741f60c7c7"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              29050000,
+              12625000
+            ],
+            "reference": "U40",
+            "uuid": "cdcdf25b-589c-5a0f-972c-11fd5808de45"
+          },
+          {
+            "pin": "3",
+            "position_iu": [
+              29050000,
+              13575000
+            ],
+            "reference": "U40",
+            "uuid": "07363dad-6d83-5111-9f4a-78bee4738786"
+          },
+          {
+            "pin": "17",
+            "position_iu": [
+              108250000,
+              25250000
+            ],
+            "reference": "U41",
+            "uuid": "6a6008aa-e92b-56b3-9d44-cd945e9c0471"
+          },
+          {
+            "pin": "4",
+            "position_iu": [
+              106850000,
+              24500000
+            ],
+            "reference": "U41",
+            "uuid": "a910ef2f-9d8e-5245-9fde-4d678bfcbb1a"
+          },
+          {
+            "pin": "6",
+            "position_iu": [
+              108000000,
+              23850000
+            ],
+            "reference": "U41",
+            "uuid": "bcd5241c-ab11-5c39-a6f0-c8a0b4dd2d43"
+          },
+          {
+            "pin": "8",
+            "position_iu": [
+              109000000,
+              23850000
+            ],
+            "reference": "U41",
+            "uuid": "c15350d7-36e1-5af4-8be0-39d1fcaa984c"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              94800000,
+              15125000
+            ],
+            "reference": "U42",
+            "uuid": "19167063-dadf-5cbb-beae-80d666e9b2da"
+          },
+          {
+            "pin": "3",
+            "position_iu": [
+              94800000,
+              16075000
+            ],
+            "reference": "U42",
+            "uuid": "94122fe4-eb15-54dc-b076-b0d123997602"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              24050000,
+              16875000
+            ],
+            "reference": "U43",
+            "uuid": "7c30fd7f-db5c-52cd-8955-5a336f29d448"
+          },
+          {
+            "pin": "3",
+            "position_iu": [
+              24050000,
+              17825000
+            ],
+            "reference": "U43",
+            "uuid": "fcec9980-8611-522c-bf68-ad2c3b8bd0fc"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              101650000,
+              18775000
+            ],
+            "reference": "U44",
+            "uuid": "dcfbb092-07e5-5907-b8fb-dff051ca5899"
+          },
+          {
+            "pin": "8",
+            "position_iu": [
+              99850000,
+              19225000
+            ],
+            "reference": "U44",
+            "uuid": "4af923be-20ec-5643-b3bf-474f05b78afa"
+          },
+          {
+            "pin": "8",
+            "position_iu": [
+              99850000,
+              15225000
+            ],
+            "reference": "U45",
+            "uuid": "af372714-62e8-5204-98ba-1345063218b9"
+          },
+          {
+            "pin": "4",
+            "position_iu": [
+              17500000,
+              4600000
+            ],
+            "reference": "U46",
+            "uuid": "9e2d2f90-3899-547b-9dc3-35c5d9601566"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              29050000,
+              16875000
+            ],
+            "reference": "U47",
+            "uuid": "91cf60c6-69c8-5c8a-a9ab-4e7738bc7b80"
+          },
+          {
+            "pin": "3",
+            "position_iu": [
+              64650000,
+              1350000
+            ],
+            "reference": "U48",
+            "uuid": "d1afe07f-44d3-5959-8e1c-83c47e92e4b4"
+          },
+          {
+            "pin": "4",
+            "position_iu": [
+              112000000,
+              24900000
+            ],
+            "reference": "U49",
+            "uuid": "bbd5510e-fa7c-5de7-acde-063be41c7bd0"
+          },
+          {
+            "pin": "4",
+            "position_iu": [
+              11750000,
+              2150000
+            ],
+            "reference": "U50",
+            "uuid": "4e441759-4524-5c26-acc8-c6b3c81504fe"
+          },
+          {
+            "pin": "2",
+            "position_iu": [
+              97925000,
+              1250000
+            ],
+            "reference": "U51",
+            "uuid": "c418628f-767f-5058-8dbc-b96bd8467c00"
+          },
+          {
+            "pin": "3",
+            "position_iu": [
+              69650000,
+              1350000
+            ],
+            "reference": "U52",
+            "uuid": "1cfc3ec5-6e26-5c17-9dac-6a9abd67775f"
+          },
+          {
+            "pin": "5",
+            "position_iu": [
+              11150000,
+              4375000
+            ],
+            "reference": "U53",
+            "uuid": "d3a303b6-6f80-5d17-b942-50eaa19115e6"
+          },
+          {
+            "pin": "4",
+            "position_iu": [
+              94250000,
+              20125000
+            ],
+            "reference": "U54",
+            "uuid": "88681582-928a-599c-a251-d4e6214b8489"
+          },
+          {
+            "pin": "4",
+            "position_iu": [
+              28500000,
+              21875000
+            ],
+            "reference": "U55",
+            "uuid": "1f30ce06-321d-594c-8a42-db6d22a337f7"
+          }
+        ],
+        [
+          {
+            "pin": "1",
+            "position_iu": [
+              76675000,
+              3100000
+            ],
+            "reference": "PAIR01",
+            "uuid": "9dfe972d-0415-5dfd-ae28-2a2085e4f430"
+          }
+        ]
+      ],
+      "nearest_pad_pairs": [
+        {
+          "groups": [
+            0,
+            1
+          ],
+          "pad_centre_distance_mm": 2.3814386408219717,
+          "pads": [
+            [
+              "U38",
+              "2"
+            ],
+            [
+              "PAIR01",
+              "1"
+            ]
+          ]
+        }
+      ],
+      "net": "GND",
+      "open_edges": 1
+    },
+    {
+      "groups": [
+        [
+          {
+            "pin": "4",
+            "position_iu": [
+              63850000,
+              1350000
+            ],
+            "reference": "U48",
+            "uuid": "6df1b7c7-d86b-54ef-9a74-06d0ba86fa29"
+          }
+        ],
+        [
+          {
+            "pin": "1",
+            "position_iu": [
+              112675000,
+              23750000
+            ],
+            "reference": "U49",
+            "uuid": "405ce28e-c3f5-5a04-911f-0cdebb7710ce"
+          }
+        ]
+      ],
+      "nearest_pad_pairs": [
+        {
+          "groups": [
+            0,
+            1
+          ],
+          "pad_centre_distance_mm": 53.7181591735979,
+          "pads": [
+            [
+              "U48",
+              "4"
+            ],
+            [
+              "U49",
+              "1"
+            ]
+          ]
+        }
+      ],
+      "net": "HEARTBEAT_FALL_CLK",
+      "open_edges": 1
+    },
+    {
+      "groups": [
+        [
+          {
+            "pin": "5",
+            "position_iu": [
+              111325000,
+              24750000
+            ],
+            "reference": "U49",
+            "uuid": "eb64ea84-3772-58e3-8b0a-d6acc7c49f03"
+          }
+        ],
+        [
+          {
+            "pin": "2",
+            "position_iu": [
+              12425000,
+              1500000
+            ],
+            "reference": "U50",
+            "uuid": "4384170d-7ffe-5054-8d7a-176b029ba777"
+          }
+        ]
+      ],
+      "nearest_pad_pairs": [
+        {
+          "groups": [
+            0,
+            1
+          ],
+          "pad_centre_distance_mm": 101.59612443395662,
+          "pads": [
+            [
+              "U49",
+              "5"
+            ],
+            [
+              "U50",
+              "2"
+            ]
+          ]
+        }
+      ],
+      "net": "HEARTBEAT_SEEN",
+      "open_edges": 1
+    },
+    {
+      "groups": [
+        [
+          {
+            "pin": "1",
+            "position_iu": [
+              28751262,
+              27750001
+            ],
+            "reference": "R5",
+            "uuid": "2efbad91-5211-5fb0-ae1e-0fd794c06b46"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              28251262,
+              26250001
+            ],
+            "reference": "TP6",
+            "uuid": "089bb60c-1768-592d-9791-f051693bcf5b"
+          },
+          {
+            "pin": "21",
+            "position_iu": [
+              9665000,
+              28700000
+            ],
+            "reference": "U3",
+            "uuid": "bb4746d9-f977-51a2-a6d0-3b9014665104"
+          }
+        ],
+        [
+          {
+            "pin": "29",
+            "position_iu": [
+              82600000,
+              8250000
+            ],
+            "reference": "U1",
+            "uuid": "017204bd-fb49-52c0-85bd-96f44a9cbd60"
+          }
+        ]
+      ],
+      "nearest_pad_pairs": [
+        {
+          "groups": [
+            0,
+            1
+          ],
+          "pad_centre_distance_mm": 57.25194632667648,
+          "pads": [
+            [
+              "TP6",
+              "1"
+            ],
+            [
+              "U1",
+              "29"
+            ]
+          ]
+        }
+      ],
+      "net": "LED_GCLK",
+      "open_edges": 1
+    },
+    {
+      "groups": [
+        [
+          {
+            "pin": "1",
+            "position_iu": [
+              32750000,
+              8750000
+            ],
+            "reference": "R4",
+            "uuid": "0cad16d8-49ea-5f69-aab3-ed7e62b7e63f"
+          },
+          {
+            "pin": "18",
+            "position_iu": [
+              13475000,
+              28700000
+            ],
+            "reference": "U3",
+            "uuid": "902a5b83-5a6c-55ca-a64f-4e295abc318d"
+          }
+        ],
+        [
+          {
+            "pin": "27",
+            "position_iu": [
+              83750000,
+              8900000
+            ],
+            "reference": "U1",
+            "uuid": "7f7f8f9b-5ab2-56b5-80a5-8f95674f1f6a"
+          }
+        ]
+      ],
+      "nearest_pad_pairs": [
+        {
+          "groups": [
+            0,
+            1
+          ],
+          "pad_centre_distance_mm": 51.00022058775824,
+          "pads": [
+            [
+              "R4",
+              "1"
+            ],
+            [
+              "U1",
+              "27"
+            ]
+          ]
+        }
+      ],
+      "net": "LED_LAT",
+      "open_edges": 1
+    },
+    {
+      "groups": [
+        [
+          {
+            "pin": "1",
+            "position_iu": [
+              10435000,
+              30700000
+            ],
+            "reference": "R3",
+            "uuid": "967fca4d-50e5-52a6-bfeb-4e50e47f563f"
+          },
+          {
+            "pin": "20",
+            "position_iu": [
+              10935000,
+              28700000
+            ],
+            "reference": "U3",
+            "uuid": "f2b1aa80-188a-59f2-b7e3-4736654ddf31"
+          }
+        ],
+        [
+          {
+            "pin": "28",
+            "position_iu": [
+              83250000,
+              8900000
+            ],
+            "reference": "U1",
+            "uuid": "b8bfafc1-60a9-53ab-a8e7-f3ebe99f7295"
+          }
+        ]
+      ],
+      "nearest_pad_pairs": [
+        {
+          "groups": [
+            0,
+            1
+          ],
+          "pad_centre_distance_mm": 74.97665786763237,
+          "pads": [
+            [
+              "U3",
+              "20"
+            ],
+            [
+              "U1",
+              "28"
+            ]
+          ]
+        }
+      ],
+      "net": "LED_SCLK",
+      "open_edges": 1
+    },
+    {
+      "groups": [
+        [
+          {
+            "pin": "5",
+            "position_iu": [
+              74825000,
+              3750000
+            ],
+            "reference": "PAIR01",
+            "uuid": "58ff0f01-08bf-5257-85fd-14cc4910ef86"
+          },
+          {
+            "pin": "6",
+            "position_iu": [
+              74825000,
+              3100000
+            ],
+            "reference": "PAIR01",
+            "uuid": "80c05497-a87f-5491-a17e-eb8d0dfc65a3"
+          },
+          {
+            "pin": "6",
+            "position_iu": [
+              75750000,
+              3250000
+            ],
+            "reference": "PAIR01",
+            "uuid": "d9c5fade-f5ad-5d3f-8316-5874304fc61b"
+          }
+        ],
+        [
+          {
+            "pin": "2",
+            "position_iu": [
+              56750000,
+              8750000
+            ],
+            "reference": "R6",
+            "uuid": "1cc203d3-863c-55df-bed2-82d3e0e9a928"
+          }
+        ]
+      ],
+      "nearest_pad_pairs": [
+        {
+          "groups": [
+            0,
+            1
+          ],
+          "pad_centre_distance_mm": 18.75381627829387,
+          "pads": [
+            [
+              "PAIR01",
+              "5"
+            ],
+            [
+              "R6",
+              "2"
+            ]
+          ]
+        }
+      ],
+      "net": "ROW_GATE_00",
+      "open_edges": 1
+    },
+    {
+      "groups": [
+        [
+          {
+            "pin": "5",
+            "position_iu": [
+              74825000,
+              7500000
+            ],
+            "reference": "PAIR03",
+            "uuid": "101bf463-70cf-58a0-b57a-be78979841cc"
+          },
+          {
+            "pin": "6",
+            "position_iu": [
+              75750000,
+              7000000
+            ],
+            "reference": "PAIR03",
+            "uuid": "0583a22b-f80c-59d1-a19a-f568fac5be55"
+          },
+          {
+            "pin": "6",
+            "position_iu": [
+              74825000,
+              6850000
+            ],
+            "reference": "PAIR03",
+            "uuid": "70cf5c00-4829-507e-9877-0ef28fb1bc9a"
+          }
+        ],
+        [
+          {
+            "pin": "2",
+            "position_iu": [
+              72575000,
+              9500000
+            ],
+            "reference": "R8",
+            "uuid": "d692776f-1b2b-5aa7-9abd-c1d918d38c45"
+          }
+        ]
+      ],
+      "nearest_pad_pairs": [
+        {
+          "groups": [
+            0,
+            1
+          ],
+          "pad_centre_distance_mm": 3.0103986446980735,
+          "pads": [
+            [
+              "PAIR03",
+              "5"
+            ],
+            [
+              "R8",
+              "2"
+            ]
+          ]
+        }
+      ],
+      "net": "ROW_GATE_02",
+      "open_edges": 1
+    },
+    {
+      "groups": [
+        [
+          {
+            "pin": "5",
+            "position_iu": [
+              78825000,
+              9500000
+            ],
+            "reference": "PAIR04",
+            "uuid": "5f8734f1-d459-57b5-afd9-85a9d034805c"
+          },
+          {
+            "pin": "6",
+            "position_iu": [
+              79750000,
+              9000000
+            ],
+            "reference": "PAIR04",
+            "uuid": "6424fff6-4eb8-5d40-aae4-2fb93b6ab4fd"
+          },
+          {
+            "pin": "6",
+            "position_iu": [
+              78825000,
+              8850000
+            ],
+            "reference": "PAIR04",
+            "uuid": "cbc2e65c-7b65-5b55-9dd1-ff10ba3fc893"
+          }
+        ],
+        [
+          {
+            "pin": "2",
+            "position_iu": [
+              31750000,
+              11750000
+            ],
+            "reference": "R9",
+            "uuid": "32c7d65f-e4b7-5e10-9750-bd6d3c85aae6"
+          }
+        ]
+      ],
+      "nearest_pad_pairs": [
+        {
+          "groups": [
+            0,
+            1
+          ],
+          "pad_centre_distance_mm": 47.12873990464841,
+          "pads": [
+            [
+              "PAIR04",
+              "5"
+            ],
+            [
+              "R9",
+              "2"
+            ]
+          ]
+        }
+      ],
+      "net": "ROW_GATE_03",
+      "open_edges": 1
+    },
+    {
+      "groups": [
+        [
+          {
+            "pin": "5",
+            "position_iu": [
+              74825000,
+              11250000
+            ],
+            "reference": "PAIR05",
+            "uuid": "6923fab3-3fa1-5a1f-a067-ecfcf260fefc"
+          },
+          {
+            "pin": "6",
+            "position_iu": [
+              75750000,
+              10750000
+            ],
+            "reference": "PAIR05",
+            "uuid": "956efc22-d22c-5f43-9dcf-5e9ab7df3fe5"
+          },
+          {
+            "pin": "6",
+            "position_iu": [
+              74825000,
+              10600000
+            ],
+            "reference": "PAIR05",
+            "uuid": "dcc7af0f-e9e7-5e01-a8c7-bf4917455245"
+          }
+        ],
+        [
+          {
+            "pin": "2",
+            "position_iu": [
+              46750000,
+              4250000
+            ],
+            "reference": "R10",
+            "uuid": "4797aad7-3c85-570a-8e83-de26ab9bff3c"
+          }
+        ]
+      ],
+      "nearest_pad_pairs": [
+        {
+          "groups": [
+            0,
+            1
+          ],
+          "pad_centre_distance_mm": 28.784164483271002,
+          "pads": [
+            [
+              "PAIR05",
+              "6"
+            ],
+            [
+              "R10",
+              "2"
+            ]
+          ]
+        }
+      ],
+      "net": "ROW_GATE_04",
+      "open_edges": 1
+    },
+    {
+      "groups": [
+        [
+          {
+            "pin": "5",
+            "position_iu": [
+              74825000,
+              15000000
+            ],
+            "reference": "PAIR07",
+            "uuid": "9f2d36e8-6278-58f2-8d25-a44e1c3e097c"
+          },
+          {
+            "pin": "6",
+            "position_iu": [
+              74825000,
+              14350000
+            ],
+            "reference": "PAIR07",
+            "uuid": "a0dc7477-e91e-518c-ab9f-de095904ac5d"
+          },
+          {
+            "pin": "6",
+            "position_iu": [
+              75750000,
+              14500000
+            ],
+            "reference": "PAIR07",
+            "uuid": "cb902f23-8c7e-5abb-90c0-b81128783b68"
+          }
+        ],
+        [
+          {
+            "pin": "2",
+            "position_iu": [
+              41750000,
+              5750000
+            ],
+            "reference": "R12",
+            "uuid": "3c321c2f-6bcd-5909-b88e-e1ce49f5c241"
+          }
+        ]
+      ],
+      "nearest_pad_pairs": [
+        {
+          "groups": [
+            0,
+            1
+          ],
+          "pad_centre_distance_mm": 34.17478054062674,
+          "pads": [
+            [
+              "PAIR07",
+              "6"
+            ],
+            [
+              "R12",
+              "2"
+            ]
+          ]
+        }
+      ],
+      "net": "ROW_GATE_06",
+      "open_edges": 1
+    },
+    {
+      "groups": [
+        [
+          {
+            "pin": "5",
+            "position_iu": [
+              78825000,
+              16500000
+            ],
+            "reference": "PAIR08",
+            "uuid": "ff95a288-61ae-56a8-b593-5729d4ccfafc"
+          },
+          {
+            "pin": "6",
+            "position_iu": [
+              78825000,
+              15850000
+            ],
+            "reference": "PAIR08",
+            "uuid": "20fd4890-2f22-57d0-9ec6-db01224621ab"
+          },
+          {
+            "pin": "6",
+            "position_iu": [
+              79750000,
+              16000000
+            ],
+            "reference": "PAIR08",
+            "uuid": "23b6db42-85ba-5341-8b7d-8d00def66198"
+          }
+        ],
+        [
+          {
+            "pin": "2",
+            "position_iu": [
+              44250000,
+              5750000
+            ],
+            "reference": "R13",
+            "uuid": "0ade97ba-7d77-5315-a69f-fc37d7a59d44"
+          }
+        ]
+      ],
+      "nearest_pad_pairs": [
+        {
+          "groups": [
+            0,
+            1
+          ],
+          "pad_centre_distance_mm": 36.02000312326472,
+          "pads": [
+            [
+              "PAIR08",
+              "6"
+            ],
+            [
+              "R13",
+              "2"
+            ]
+          ]
+        }
+      ],
+      "net": "ROW_GATE_07",
+      "open_edges": 1
+    },
+    {
+      "groups": [
+        [
+          {
+            "pin": "A5",
+            "position_iu": [
+              107250000,
+              17500000
+            ],
+            "reference": "J1",
+            "uuid": "dd3e9824-18e3-5c35-ab3e-d8963b318762"
+          },
+          {
+            "pin": "4",
+            "position_iu": [
+              105292500,
+              11250000
+            ],
+            "reference": "U33",
+            "uuid": "a3ba4afa-1b2a-54db-800a-83cff36d4af7"
+          }
+        ],
+        [
+          {
+            "pin": "1",
+            "position_iu": [
+              26525000,
+              24425000
+            ],
+            "reference": "U31",
+            "uuid": "17ac4981-96f8-5305-aa59-049f59882419"
+          }
+        ]
+      ],
+      "nearest_pad_pairs": [
+        {
+          "groups": [
+            0,
+            1
+          ],
+          "pad_centre_distance_mm": 79.8617535573193,
+          "pads": [
+            [
+              "U33",
+              "4"
+            ],
+            [
+              "U31",
+              "1"
+            ]
+          ]
+        }
+      ],
+      "net": "USB_CC1",
+      "open_edges": 1
+    },
+    {
+      "groups": [
+        [
+          {
+            "pin": "2",
+            "position_iu": [
+              49250000,
+              8750000
+            ],
+            "reference": "R46",
+            "uuid": "ccf9d165-b2c7-59f0-a032-32f6084bb592"
+          }
+        ],
+        [
+          {
+            "pin": "2",
+            "position_iu": [
+              104675000,
+              21250000
+            ],
+            "reference": "U32",
+            "uuid": "1ef8b565-9af4-5749-ab4f-86cba8edcac5"
+          }
+        ]
+      ],
+      "nearest_pad_pairs": [
+        {
+          "groups": [
+            0,
+            1
+          ],
+          "pad_centre_distance_mm": 56.817080398415406,
+          "pads": [
+            [
+              "R46",
+              "2"
+            ],
+            [
+              "U32",
+              "2"
+            ]
+          ]
+        }
+      ],
+      "net": "USB_D+",
+      "open_edges": 1
+    },
+    {
+      "groups": [
+        [
+          {
+            "pin": "2",
+            "position_iu": [
+              46750000,
+              8750000
+            ],
+            "reference": "R45",
+            "uuid": "159f5ba6-bfc3-5637-8690-169f74578c9f"
+          }
+        ],
+        [
+          {
+            "pin": "6",
+            "position_iu": [
+              103325000,
+              21250000
+            ],
+            "reference": "U32",
+            "uuid": "dee8ade7-39fb-53ab-bc8a-7eecf2953fc0"
+          }
+        ]
+      ],
+      "nearest_pad_pairs": [
+        {
+          "groups": [
+            0,
+            1
+          ],
+          "pad_centre_distance_mm": 57.93945654733051,
+          "pads": [
+            [
+              "R45",
+              "2"
+            ],
+            [
+              "U32",
+              "6"
+            ]
+          ]
+        }
+      ],
+      "net": "USB_D-",
+      "open_edges": 1
+    },
+    {
+      "groups": [
+        [
+          {
+            "pin": "2",
+            "position_iu": [
+              95751262,
+              22750001
+            ],
+            "reference": "R70",
+            "uuid": "b8053b77-dbc7-5ee9-974c-336e17d7ccca"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              96251262,
+              24250001
+            ],
+            "reference": "TP31",
+            "uuid": "57f402cb-83c9-54d6-bfa3-fb2924c9ee3d"
+          }
+        ],
+        [
+          {
+            "pin": "4",
+            "position_iu": [
+              1200000,
+              8075000
+            ],
+            "reference": "U23",
+            "uuid": "f4080c82-b338-59ac-9640-d0b5cf65e411"
+          }
+        ]
+      ],
+      "nearest_pad_pairs": [
+        {
+          "groups": [
+            0,
+            1
+          ],
+          "pad_centre_distance_mm": 95.68331516070418,
+          "pads": [
+            [
+              "R70",
+              "2"
+            ],
+            [
+              "U23",
+              "4"
+            ]
+          ]
+        }
+      ],
+      "net": "USB_EN1_RAW_N",
+      "open_edges": 1
+    },
+    {
+      "groups": [
+        [
+          {
+            "pin": "1",
+            "position_iu": [
+              105200000,
+              14000000
+            ],
+            "reference": "C60",
+            "uuid": "f708df96-ce6b-594a-b954-b498f6a8d91b"
+          },
+          {
+            "pin": "A4_B9",
+            "position_iu": [
+              107250000,
+              18650000
+            ],
+            "reference": "J1",
+            "uuid": "04cf06cd-f078-5d1e-a7c5-410f4e99bef0"
+          },
+          {
+            "pin": "B4_A9",
+            "position_iu": [
+              107250000,
+              13850000
+            ],
+            "reference": "J1",
+            "uuid": "e31ebe44-b99e-5cd3-9ad8-680636bbf3ab"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              106700000,
+              13500000
+            ],
+            "reference": "R97",
+            "uuid": "10a5237c-7bcf-5309-bc29-b7fba8c777bf"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              97750000,
+              12000000
+            ],
+            "reference": "R99",
+            "uuid": "08bcf25e-f0fd-5489-b650-72fd3cb20b64"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              92001262,
+              25000001
+            ],
+            "reference": "TP32",
+            "uuid": "fb2aa827-c311-5ad5-a688-c32ae87e08c3"
+          },
+          {
+            "pin": "5",
+            "position_iu": [
+              101000000,
+              15000000
+            ],
+            "reference": "U45",
+            "uuid": "f7f662ff-c1aa-546f-a520-c7af233ea59c"
+          }
+        ],
+        [
+          {
+            "pin": "1",
+            "position_iu": [
+              32750000,
+              10250000
+            ],
+            "reference": "R71",
+            "uuid": "35beb6b6-49df-5cd0-a4de-3e8ba7ae0cd3"
+          }
+        ]
+      ],
+      "nearest_pad_pairs": [
+        {
+          "groups": [
+            0,
+            1
+          ],
+          "pad_centre_distance_mm": 61.05959857461106,
+          "pads": [
+            [
+              "TP32",
+              "1"
+            ],
+            [
+              "R71",
+              "1"
+            ]
+          ]
+        }
+      ],
+      "net": "VBUS_CONNECTOR",
+      "open_edges": 1
+    },
+    {
+      "groups": [
+        [
+          {
+            "pin": "1",
+            "position_iu": [
+              45425000,
+              20350000
+            ],
+            "reference": "C46",
+            "uuid": "e046008a-b3f5-5261-9a1d-e7c84f1f4338"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              47025000,
+              20350000
+            ],
+            "reference": "C47",
+            "uuid": "fef8f9c5-82d0-5a3d-ac20-fff9516b1a79"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              51725000,
+              20350000
+            ],
+            "reference": "C48",
+            "uuid": "684c0a40-75b6-59be-92be-846e2de37cd8"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              51775000,
+              18900001
+            ],
+            "reference": "C49",
+            "uuid": "43b5c323-f14c-5ab4-8a0e-30fd373fddff"
+          },
+          {
+            "pin": "4",
+            "position_iu": [
+              78825000,
+              6650000
+            ],
+            "reference": "PAIR02",
+            "uuid": "75480661-8dea-5444-ac43-3481bde8d9b8"
+          },
+          {
+            "pin": "4",
+            "position_iu": [
+              78825000,
+              10150000
+            ],
+            "reference": "PAIR04",
+            "uuid": "48ae23bc-9b69-5764-bf2f-cb74368f5054"
+          },
+          {
+            "pin": "4",
+            "position_iu": [
+              78825000,
+              13650000
+            ],
+            "reference": "PAIR06",
+            "uuid": "2e9747a5-e8ac-525f-8bbd-240b5e10f2a7"
+          },
+          {
+            "pin": "4",
+            "position_iu": [
+              78825000,
+              17150000
+            ],
+            "reference": "PAIR08",
+            "uuid": "3f0bbc04-3408-5738-8b6c-11dc23e7a0f9"
+          },
+          {
+            "pin": "4",
+            "position_iu": [
+              78825000,
+              20650000
+            ],
+            "reference": "PAIR10",
+            "uuid": "00b5d77d-37f4-5657-b10c-75e075218808"
+          },
+          {
+            "pin": "4",
+            "position_iu": [
+              74825000,
+              23150000
+            ],
+            "reference": "PAIR11",
+            "uuid": "7d184ad5-ce90-5b7e-a602-dff91c3e93c4"
+          },
+          {
+            "pin": "4",
+            "position_iu": [
+              78825000,
+              24150000
+            ],
+            "reference": "PAIR12",
+            "uuid": "216e0c45-3c09-57d2-aaec-09ebf8194847"
+          },
+          {
+            "pin": "4",
+            "position_iu": [
+              74825000,
+              26900000
+            ],
+            "reference": "PAIR13",
+            "uuid": "06eb6970-6910-55c0-9820-766a0266a2f1"
+          },
+          {
+            "pin": "4",
+            "position_iu": [
+              78825000,
+              27650000
+            ],
+            "reference": "PAIR14",
+            "uuid": "094c56af-6dce-5e6d-a24e-ae3ca7c23c20"
+          },
+          {
+            "pin": "4",
+            "position_iu": [
+              74825000,
+              30650000
+            ],
+            "reference": "PAIR15",
+            "uuid": "6d8cb1b1-e96e-51a7-8eb5-1c6e61694d56"
+          },
+          {
+            "pin": "4",
+            "position_iu": [
+              78825000,
+              31150000
+            ],
+            "reference": "PAIR16",
+            "uuid": "c73be171-85bd-5cc9-b8e5-df9cbe2c70f4"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              47750000,
+              4250000
+            ],
+            "reference": "R10",
+            "uuid": "6bdb6961-0f03-5d2a-93b0-b609a937f5de"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              33250000,
+              6750000
+            ],
+            "reference": "R109",
+            "uuid": "528477da-764e-50a0-98b9-b1860d9024cf"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              35250000,
+              5750000
+            ],
+            "reference": "R111",
+            "uuid": "60aac293-9976-5eb9-aaef-4235b116b348"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              40250000,
+              5750000
+            ],
+            "reference": "R113",
+            "uuid": "ffc9657e-091c-593e-98fa-f43a1747a1a2"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              42750000,
+              5750000
+            ],
+            "reference": "R12",
+            "uuid": "fae45b9f-d5ca-522b-9fb0-6239d86bac46"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              45250000,
+              5750000
+            ],
+            "reference": "R13",
+            "uuid": "f1b83aad-c02a-5d80-a9be-c27f55e9a4e4"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              47750000,
+              5750000
+            ],
+            "reference": "R14",
+            "uuid": "fd481403-d4d5-5467-8b47-50a9d6a00759"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              50250000,
+              5750000
+            ],
+            "reference": "R15",
+            "uuid": "76c10a6c-25cb-5980-840b-071c31d2f5c8"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              52750000,
+              5750000
+            ],
+            "reference": "R16",
+            "uuid": "c909cd38-7d85-5b53-979c-f2ae76bae3e7"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              55250000,
+              5750000
+            ],
+            "reference": "R17",
+            "uuid": "d9cb2585-b59f-5376-bedb-e8a887d54749"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              57750000,
+              5750000
+            ],
+            "reference": "R18",
+            "uuid": "b481b73c-85b2-5cb6-91ae-5aceddf2b1c5"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              72450000,
+              27450000
+            ],
+            "reference": "R19",
+            "uuid": "cd4498ba-0dcc-5142-9ede-91a4725ecfde"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              73500000,
+              30500000
+            ],
+            "reference": "R20",
+            "uuid": "425f403c-5755-5fa1-bc31-58e756aee7b6"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              57750000,
+              8750000
+            ],
+            "reference": "R6",
+            "uuid": "5801a35b-d078-57b5-bd53-fbb6288dbdec"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              70250000,
+              8750000
+            ],
+            "reference": "R7",
+            "uuid": "01ed51aa-c346-5774-8ae4-3c81cd564fa2"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              72575000,
+              8500000
+            ],
+            "reference": "R8",
+            "uuid": "91443d96-4c58-549a-8129-8d4685b7f8b1"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              51100000,
+              21650000
+            ],
+            "reference": "R84",
+            "uuid": "3a46e308-16d0-55f4-8de7-84fca2ef4d14"
+          },
+          {
+            "pin": "1",
+            "position_iu": [
+              32750000,
+              11750000
+            ],
+            "reference": "R9",
+            "uuid": "61a76e15-bd69-56c2-9081-84139629b10a"
+          },
+          {
+            "pin": "4",
+            "position_iu": [
+              45500000,
+              18900000
+            ],
+            "reference": "U37",
+            "uuid": "f8b03e11-5a30-55f0-9df1-145ea24b50df"
+          },
+          {
+            "pin": "5",
+            "position_iu": [
+              46000000,
+              18900000
+            ],
+            "reference": "U37",
+            "uuid": "b06cbca9-d3c0-52a0-85e6-9fbcf3f2ca3c"
+          }
+        ],
+        [
+          {
+            "pin": "4",
+            "position_iu": [
+              74825000,
+              4400000
+            ],
+            "reference": "PAIR01",
+            "uuid": "e7ac5a42-e8b9-58c3-8b49-fc7eaf43c8e5"
+          }
+        ],
+        [
+          {
+            "pin": "4",
+            "position_iu": [
+              74825000,
+              8150000
+            ],
+            "reference": "PAIR03",
+            "uuid": "2607f574-5636-5e7c-9d82-58041b990583"
+          }
+        ],
+        [
+          {
+            "pin": "4",
+            "position_iu": [
+              74825000,
+              11900000
+            ],
+            "reference": "PAIR05",
+            "uuid": "9731f59e-69d7-50dc-962b-1c72e51bc0d8"
+          }
+        ],
+        [
+          {
+            "pin": "4",
+            "position_iu": [
+              74825000,
+              15650000
+            ],
+            "reference": "PAIR07",
+            "uuid": "8db33706-dfe1-58d6-b9a3-41f7a0041eb5"
+          }
+        ],
+        [
+          {
+            "pin": "4",
+            "position_iu": [
+              74825000,
+              19400000
+            ],
+            "reference": "PAIR09",
+            "uuid": "e0be1d17-b986-509d-9a99-f36239fc9d82"
+          }
+        ],
+        [
+          {
+            "pin": "1",
+            "position_iu": [
+              73250000,
+              4250000
+            ],
+            "reference": "R11",
+            "uuid": "46353801-5652-5038-a65f-e02cedf3fd6f"
+          }
+        ],
+        [
+          {
+            "pin": "1",
+            "position_iu": [
+              67750000,
+              5750000
+            ],
+            "reference": "R21",
+            "uuid": "6ebe7906-cf8a-50e7-986f-39e53741bd42"
+          }
+        ]
+      ],
+      "nearest_pad_pairs": [
+        {
+          "groups": [
+            1,
+            6
+          ],
+          "pad_centre_distance_mm": 1.582126733229674,
+          "pads": [
+            [
+              "PAIR01",
+              "4"
+            ],
+            [
+              "R11",
+              "1"
+            ]
+          ]
+        },
+        {
+          "groups": [
+            0,
+            2
+          ],
+          "pad_centre_distance_mm": 2.27705950734714,
+          "pads": [
+            [
+              "R8",
+              "1"
+            ],
+            [
+              "PAIR03",
+              "4"
+            ]
+          ]
+        },
+        {
+          "groups": [
+            0,
+            5
+          ],
+          "pad_centre_distance_mm": 3.75,
+          "pads": [
+            [
+              "PAIR11",
+              "4"
+            ],
+            [
+              "PAIR09",
+              "4"
+            ]
+          ]
+        },
+        {
+          "groups": [
+            1,
+            2
+          ],
+          "pad_centre_distance_mm": 3.75,
+          "pads": [
+            [
+              "PAIR01",
+              "4"
+            ],
+            [
+              "PAIR03",
+              "4"
+            ]
+          ]
+        },
+        {
+          "groups": [
+            2,
+            3
+          ],
+          "pad_centre_distance_mm": 3.75,
+          "pads": [
+            [
+              "PAIR03",
+              "4"
+            ],
+            [
+              "PAIR05",
+              "4"
+            ]
+          ]
+        },
+        {
+          "groups": [
+            3,
+            4
+          ],
+          "pad_centre_distance_mm": 3.75,
+          "pads": [
+            [
+              "PAIR05",
+              "4"
+            ],
+            [
+              "PAIR07",
+              "4"
+            ]
+          ]
+        },
+        {
+          "groups": [
+            4,
+            5
+          ],
+          "pad_centre_distance_mm": 3.75,
+          "pads": [
+            [
+              "PAIR07",
+              "4"
+            ],
+            [
+              "PAIR09",
+              "4"
+            ]
+          ]
+        },
+        {
+          "groups": [
+            0,
+            7
+          ],
+          "pad_centre_distance_mm": 3.905124837953328,
+          "pads": [
+            [
+              "R7",
+              "1"
+            ],
+            [
+              "R21",
+              "1"
+            ]
+          ]
+        },
+        {
+          "groups": [
+            0,
+            3
+          ],
+          "pad_centre_distance_mm": 4.077070026379237,
+          "pads": [
+            [
+              "R8",
+              "1"
+            ],
+            [
+              "PAIR05",
+              "4"
+            ]
+          ]
+        },
+        {
+          "groups": [
+            2,
+            6
+          ],
+          "pad_centre_distance_mm": 4.206022467842986,
+          "pads": [
+            [
+              "PAIR03",
+              "4"
+            ],
+            [
+              "R11",
+              "1"
+            ]
+          ]
+        },
+        {
+          "groups": [
+            0,
+            4
+          ],
+          "pad_centre_distance_mm": 4.272001872658765,
+          "pads": [
+            [
+              "PAIR08",
+              "4"
+            ],
+            [
+              "PAIR07",
+              "4"
+            ]
+          ]
+        },
+        {
+          "groups": [
+            0,
+            6
+          ],
+          "pad_centre_distance_mm": 4.303269106156388,
+          "pads": [
+            [
+              "R8",
+              "1"
+            ],
+            [
+              "R11",
+              "1"
+            ]
+          ]
+        },
+        {
+          "groups": [
+            0,
+            1
+          ],
+          "pad_centre_distance_mm": 4.589389937671455,
+          "pads": [
+            [
+              "PAIR02",
+              "4"
+            ],
+            [
+              "PAIR01",
+              "4"
+            ]
+          ]
+        },
+        {
+          "groups": [
+            6,
+            7
+          ],
+          "pad_centre_distance_mm": 5.700877125495689,
+          "pads": [
+            [
+              "R11",
+              "1"
+            ],
+            [
+              "R21",
+              "1"
+            ]
+          ]
+        },
+        {
+          "groups": [
+            1,
+            7
+          ],
+          "pad_centre_distance_mm": 7.202647082843918,
+          "pads": [
+            [
+              "PAIR01",
+              "4"
+            ],
+            [
+              "R21",
+              "1"
+            ]
+          ]
+        },
+        {
+          "groups": [
+            2,
+            7
+          ],
+          "pad_centre_distance_mm": 7.470985544089883,
+          "pads": [
+            [
+              "PAIR03",
+              "4"
+            ],
+            [
+              "R21",
+              "1"
+            ]
+          ]
+        },
+        {
+          "groups": [
+            1,
+            3
+          ],
+          "pad_centre_distance_mm": 7.5,
+          "pads": [
+            [
+              "PAIR01",
+              "4"
+            ],
+            [
+              "PAIR05",
+              "4"
+            ]
+          ]
+        },
+        {
+          "groups": [
+            2,
+            4
+          ],
+          "pad_centre_distance_mm": 7.5,
+          "pads": [
+            [
+              "PAIR03",
+              "4"
+            ],
+            [
+              "PAIR07",
+              "4"
+            ]
+          ]
+        },
+        {
+          "groups": [
+            3,
+            5
+          ],
+          "pad_centre_distance_mm": 7.5,
+          "pads": [
+            [
+              "PAIR05",
+              "4"
+            ],
+            [
+              "PAIR09",
+              "4"
+            ]
+          ]
+        },
+        {
+          "groups": [
+            3,
+            6
+          ],
+          "pad_centre_distance_mm": 7.810449730969401,
+          "pads": [
+            [
+              "PAIR05",
+              "4"
+            ],
+            [
+              "R11",
+              "1"
+            ]
+          ]
+        },
+        {
+          "groups": [
+            3,
+            7
+          ],
+          "pad_centre_distance_mm": 9.374333309627945,
+          "pads": [
+            [
+              "PAIR05",
+              "4"
+            ],
+            [
+              "R21",
+              "1"
+            ]
+          ]
+        },
+        {
+          "groups": [
+            1,
+            4
+          ],
+          "pad_centre_distance_mm": 11.25,
+          "pads": [
+            [
+              "PAIR01",
+              "4"
+            ],
+            [
+              "PAIR07",
+              "4"
+            ]
+          ]
+        },
+        {
+          "groups": [
+            2,
+            5
+          ],
+          "pad_centre_distance_mm": 11.25,
+          "pads": [
+            [
+              "PAIR03",
+              "4"
+            ],
+            [
+              "PAIR09",
+              "4"
+            ]
+          ]
+        },
+        {
+          "groups": [
+            4,
+            6
+          ],
+          "pad_centre_distance_mm": 11.508285059034641,
+          "pads": [
+            [
+              "PAIR07",
+              "4"
+            ],
+            [
+              "R11",
+              "1"
+            ]
+          ]
+        },
+        {
+          "groups": [
+            4,
+            7
+          ],
+          "pad_centre_distance_mm": 12.168221932558595,
+          "pads": [
+            [
+              "PAIR07",
+              "4"
+            ],
+            [
+              "R21",
+              "1"
+            ]
+          ]
+        },
+        {
+          "groups": [
+            1,
+            5
+          ],
+          "pad_centre_distance_mm": 15.0,
+          "pads": [
+            [
+              "PAIR01",
+              "4"
+            ],
+            [
+              "PAIR09",
+              "4"
+            ]
+          ]
+        },
+        {
+          "groups": [
+            5,
+            6
+          ],
+          "pad_centre_distance_mm": 15.231648794533047,
+          "pads": [
+            [
+              "PAIR09",
+              "4"
+            ],
+            [
+              "R11",
+              "1"
+            ]
+          ]
+        },
+        {
+          "groups": [
+            5,
+            7
+          ],
+          "pad_centre_distance_mm": 15.374593490560978,
+          "pads": [
+            [
+              "PAIR09",
+              "4"
+            ],
+            [
+              "R21",
+              "1"
+            ]
+          ]
+        }
+      ],
+      "net": "VLED",
+      "open_edges": 7
+    }
+  ],
+  "physical_opens": 35,
+  "source_sha256": "da3764ddf5c8c615529340c33c92974cff3fd036b937b5e4a53c408e0b141637",
+  "source_unchanged": true,
+  "tool_sha256": "fd6ad99c999b44d7c8c879e8203c078e077cd6995333aed000ab8bbbd2624662"
+}

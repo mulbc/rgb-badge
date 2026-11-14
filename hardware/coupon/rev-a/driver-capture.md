@@ -11,8 +11,8 @@ Status: native KiCad 10.0.6 ERC, complete exported connectivity and six-page dra
 | Reference | Exact MPN | Draft function |
 |---|---|---|
 | U1 | `TLC59581RTQT` | 48 sinks, one per colour/column; 3.3 V application supply |
-| R1 | `ERJ-2RKF3922X` (Panasonic web spelling `ERJ2RKF3922X`) | 39.2 kΩ, ±1%, ±100 ppm/K, 0402; IREF to IREFGND/GND |
-| R2–R5 | `ERJ-2RKF1003X` | 100 kΩ, ±1%, 0402; SIN/SCLK/LAT/GCLK pull-downs |
+| R1 | `ERJ2RKF3922X` | 39.2 kΩ, ±1%, ±100 ppm/K, 0402; IREF to IREFGND/GND |
+| R2–R5 | `ERJ2RKF1003X` | 100 kΩ, ±1%, 0402; SIN/SCLK/LAT/GCLK pull-downs |
 | C1 | `GRM155R71C104KA88D` | 100 nF, ±10%, 16 V, X7R, 0402; VCC decoupling |
 | TP1 | No MPN: PCB copper feature, excluded from BOM | 1 mm exposed copper probe pad on `LED_SOUT` |
 

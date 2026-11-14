@@ -1,0 +1,9 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "byte_identical": true,
+  "first_board_sha256": "f945becb2b685e14bc08a3402e07bf1c2fc56af6b940e12b3470f6fad3e16851",
+  "kicad_version": "10.0.6",
+  "legacy_default_board_sha256": "7def02820ad488304c6a83479d233b45d1fd738f6b0239af4bff524c76caf5c6",
+  "legacy_default_byte_identical": true,
+  "second_board_sha256": "f945becb2b685e14bc08a3402e07bf1c2fc56af6b940e12b3470f6fad3e16851"
+}

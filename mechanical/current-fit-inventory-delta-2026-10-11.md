@@ -1,0 +1,9 @@
+<!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
+
+# Current schematic versus saved final-board fit trial, 2026-10-11
+
+The [machine-readable comparison](review/current-fit-inventory-delta.json) uses the native KiCad 10.0.6 XML from the [row-request source review](../docs/development/row-request-split-review-2026-10-11.md), SHA-256 `d5e9040209f4a4719500a2c35e432013ace3f7b863a3630429d1d9051a1cb9c4`, against the historical [October 6 XY trial](review/fit-trial.json). The generator is [report-fit-inventory-delta.py](../tools/report-fit-inventory-delta.py); it accepts a native XML path and an output path.
+
+The current coupon netlist has **466 PCB items**: 256 trial LEDs and 210 other items. The historical fit trial covered 154 non-LED coupon references: 146 had an XY trial position (counting its three driver projections as one U1) and eight were explicitly unplaced. Since then, **56 additional non-LED parts** have entered the schematic, including J2, BQ24074, both TPS259474 input gates, the VLED converter and support, TMP390/NTC circuit, and the gauge buffer. Thus **64 current rear-side references have no historical XY trial position**, before adding the still-absent display interlock or final-product-specific parts. This is an inventory gap, **not a proof that 64 parts cannot fit**.
+
+The old XY drawing also uses the larger `LP503055` pack and an unrouted heuristic. The separate [LP452845 swap screen](lp452845-swap-screen-2026-10-09.md) checks some pack and sensor geometry but reuses that old 77-part under-pack set. Neither study is a present-day complete placement. The next mechanical step is a fresh LP452845-first placement with the 466-item schematic inventory, the exact J2 footprint, display-interlock reservation and actual KiCad courtyards, followed by routing/DRC and a case section. Until then, do not cite the old fit trial as evidence that the captured power design fits.

@@ -1,0 +1,651 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "accepted_join": {
+    "anchor": [
+      "R25",
+      "2"
+    ],
+    "net": "GND",
+    "source": [
+      "R28",
+      "2"
+    ]
+  },
+  "all_source_copper_preserved": false,
+  "all_unaffected_copper_placements_and_old_pad_groups_preserved": true,
+  "alternative_in3_detour": "Passes exact 104 findings/219 opens; not selected because it adds two more signal microvias",
+  "base_board_sha256": "b513c1522e56bbf791cb6e069ab2d6ef081802605327b7f4d50750fffddb98e1",
+  "base_revision": "7afca4924fc4452dbb91faf2c0f06fbf5f84eff3",
+  "board_sha256": "1ddc1f914b714c9ed37fa81e200254bef2dcd842f20794a145c362d508f8d83e",
+  "exact_unchanged_intrinsic_drc_findings": 104,
+  "fabrication_release_allowed": false,
+  "ground_escape": {
+    "ground_pad": [
+      "R28",
+      "2"
+    ],
+    "ground_via_position_iu": [
+      41850000,
+      7200000
+    ],
+    "open_edges": 219,
+    "removed_source_track_uuid": "ea19c07a-9179-5038-93e2-d2ff847fff80",
+    "row_detour_iu": [
+      [
+        40500000,
+        7250000
+      ],
+      [
+        40500000,
+        6250000
+      ],
+      [
+        42300000,
+        6250000
+      ],
+      [
+        42300000,
+        7250000
+      ]
+    ]
+  },
+  "ground_open_edges_after": 26,
+  "ground_open_edges_before": 27,
+  "hardware_measurements": "NONE",
+  "increment_added_adjacent_layer_microvias": 3,
+  "increment_added_tracks": 6,
+  "isolated_native_guard_cases_passed": 24,
+  "limitations": [
+    "219 opens including 26 GND, 14 VLED, TP11, transmit test-pad leg, six gate terminals and remaining power/control/USB",
+    "104 intrinsic findings unresolved",
+    "No electrical/return/current/process/fit qualification or independent Gate A",
+    "Bounded negative probes do not prove alternative routes/placements impossible; initial off-board ground bridges rejected and excluded"
+  ],
+  "native_grid_feature": {
+    "default_fixture_byte_identical_to_prior": true,
+    "enabled_only_with": "--native-grid",
+    "host_and_python39_new_test_methods_passed": 7,
+    "independent_directed_grid_edge_checks": 168,
+    "native_fixture_accepted_board_checkpoint_when_checked": "b513c1522e56bbf791cb6e069ab2d6ef081802605327b7f4d50750fffddb98e1",
+    "native_fixture_full_drc_findings": 104,
+    "native_fixture_prior_groups_and_copper_and_483_placements_preserved": true,
+    "native_fixture_repeat_byte_identical": true,
+    "native_fixture_tracks_microvias": [
+      59,
+      4
+    ],
+    "source_reports": {
+      "native-escape-controls-220": {
+        "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+        "added_tracks_and_vias": 0,
+        "allowed_nets": [
+          "ESP_EN",
+          "SYS_I2C_SDA"
+        ],
+        "board_sha256": "d08c8051cc5536458a775071e0af51062655ebc69b1b2e55d6d89e98b5128870",
+        "clearance_mm": 0.2,
+        "connected_copper_endpoints": true,
+        "exact_native_grid_fallback": true,
+        "fabrication_release_allowed": false,
+        "grid_mm": 0.05,
+        "heuristic": "exact_empty_grid_layer_costs",
+        "heuristic_sha256": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4",
+        "heuristic_storage_bytes": 33686856,
+        "kicad_version": "10.0.6",
+        "max_nodes": 300000,
+        "microvia_diameter_drill_mm": [
+          0.3,
+          0.1
+        ],
+        "native_grid_statistics": {
+          "native_clear_masked_edges": 26837,
+          "native_clear_masked_points": 17542,
+          "native_edge_queries": 26837,
+          "native_point_queries": 160956
+        },
+        "open_edges": 220,
+        "preserve_clusters_after_each_join": true,
+        "reverse_search": true,
+        "routes": [
+          {
+            "expanded_nodes": 300001,
+            "net": "SYS_I2C_SDA",
+            "routed": false,
+            "search_outcome": "node_bound",
+            "source": [
+              "TP11",
+              "1"
+            ]
+          },
+          {
+            "expanded_nodes": 90,
+            "net": "ESP_EN",
+            "routed": false,
+            "search_outcome": "exhausted_grid",
+            "source": [
+              "R43",
+              "2"
+            ]
+          },
+          {
+            "expanded_nodes": 90,
+            "net": "ESP_EN",
+            "routed": false,
+            "search_outcome": "exhausted_grid",
+            "source": [
+              "TP2",
+              "1"
+            ]
+          },
+          {
+            "expanded_nodes": 90,
+            "net": "ESP_EN",
+            "routed": false,
+            "search_outcome": "exhausted_grid",
+            "source": [
+              "U3",
+              "3"
+            ]
+          },
+          {
+            "expanded_nodes": 90,
+            "net": "ESP_EN",
+            "routed": false,
+            "search_outcome": "exhausted_grid",
+            "source": [
+              "U51",
+              "3"
+            ]
+          }
+        ],
+        "search_tool_sha256": "f06408318c4ffd48723199cbae3ec6f1773d4f9d89002cd08e310aed7d600692",
+        "source_sha256": "b513c1522e56bbf791cb6e069ab2d6ef081802605327b7f4d50750fffddb98e1",
+        "status": "UNQUALIFIED_LOCAL_CONTROL_STUDY",
+        "tool_source_sha256": {
+          "tools/generate-colour-fanout-grid-trial.py": "62fbbc1ce6c0e8cb0a276dd15900885562a8e69c69557949eb6f689945ea1224",
+          "tools/generate-paired-charger-114mm-routing.py": "807eaba5aea8e92ecbf514ca16ab767c30d006703c6697a9fec10cf2e46e1441",
+          "tools/routing_clearance.py": "d1797c13ac7f5df4d066fc5e245fb143a67f002ad6bf7c0a67b96ff456d7db91",
+          "tools/routing_goal_distance.py": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4",
+          "tools/search-native-control-routes.py": "f06408318c4ffd48723199cbae3ec6f1773d4f9d89002cd08e310aed7d600692"
+        },
+        "tracks_and_vias": 15478,
+        "width_mm": 0.2
+      },
+      "native-escape-default-regression": {
+        "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+        "added_tracks_and_vias": 69,
+        "allowed_nets": [
+          "SYS_I2C_SDA"
+        ],
+        "board_sha256": "9af23a0b6b710740d5efe24af0f28a0cc290fab389cbe42e1248c0307250cce9",
+        "clearance_mm": 0.2,
+        "connected_copper_endpoints": true,
+        "exact_native_grid_fallback": false,
+        "fabrication_release_allowed": false,
+        "grid_mm": 0.05,
+        "heuristic": "exact_nearest_goal_manhattan_with_minimum_layer_cost",
+        "heuristic_sha256": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4",
+        "heuristic_storage_bytes": 0,
+        "kicad_version": "10.0.6",
+        "max_nodes": 400000,
+        "microvia_diameter_drill_mm": [
+          0.3,
+          0.1
+        ],
+        "native_grid_statistics": {
+          "native_clear_masked_edges": 0,
+          "native_clear_masked_points": 0,
+          "native_edge_queries": 0,
+          "native_point_queries": 0
+        },
+        "open_edges": 224,
+        "preserve_clusters_after_each_join": true,
+        "reverse_search": false,
+        "routes": [
+          {
+            "expanded_nodes": 1732,
+            "net": "SYS_I2C_SDA",
+            "routed": false,
+            "search_outcome": "exhausted_grid",
+            "source": [
+              "TP11",
+              "1"
+            ]
+          },
+          {
+            "expanded_nodes": 66263,
+            "net": "SYS_I2C_SDA",
+            "routed": true,
+            "search_outcome": "accepted_join",
+            "source": [
+              "U46",
+              "6"
+            ]
+          }
+        ],
+        "search_tool_sha256": "f06408318c4ffd48723199cbae3ec6f1773d4f9d89002cd08e310aed7d600692",
+        "source_sha256": "20e56a776dc6e27a6bfab389753d8acba29998926dba10272f32f4e9034785c9",
+        "status": "UNQUALIFIED_LOCAL_CONTROL_STUDY",
+        "tool_source_sha256": {
+          "tools/generate-colour-fanout-grid-trial.py": "62fbbc1ce6c0e8cb0a276dd15900885562a8e69c69557949eb6f689945ea1224",
+          "tools/generate-paired-charger-114mm-routing.py": "807eaba5aea8e92ecbf514ca16ab767c30d006703c6697a9fec10cf2e46e1441",
+          "tools/routing_clearance.py": "d1797c13ac7f5df4d066fc5e245fb143a67f002ad6bf7c0a67b96ff456d7db91",
+          "tools/routing_goal_distance.py": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4",
+          "tools/search-native-control-routes.py": "f06408318c4ffd48723199cbae3ec6f1773d4f9d89002cd08e310aed7d600692"
+        },
+        "tracks_and_vias": 14875,
+        "width_mm": 0.2
+      },
+      "native-escape-esp-en": {
+        "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+        "added_tracks_and_vias": 0,
+        "allowed_nets": [
+          "ESP_EN"
+        ],
+        "board_sha256": "d08c8051cc5536458a775071e0af51062655ebc69b1b2e55d6d89e98b5128870",
+        "clearance_mm": 0.2,
+        "connected_copper_endpoints": true,
+        "exact_native_grid_fallback": true,
+        "fabrication_release_allowed": false,
+        "grid_mm": 0.05,
+        "heuristic": "exact_empty_grid_layer_costs",
+        "heuristic_sha256": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4",
+        "heuristic_storage_bytes": 33686856,
+        "kicad_version": "10.0.6",
+        "max_nodes": 20000,
+        "microvia_diameter_drill_mm": [
+          0.3,
+          0.1
+        ],
+        "native_grid_statistics": {
+          "native_clear_masked_edges": 240,
+          "native_clear_masked_points": 251,
+          "native_edge_queries": 240,
+          "native_point_queries": 3301
+        },
+        "open_edges": 220,
+        "preserve_clusters_after_each_join": true,
+        "reverse_search": true,
+        "routes": [
+          {
+            "expanded_nodes": 90,
+            "net": "ESP_EN",
+            "routed": false,
+            "search_outcome": "exhausted_grid",
+            "source": [
+              "R43",
+              "2"
+            ]
+          },
+          {
+            "expanded_nodes": 90,
+            "net": "ESP_EN",
+            "routed": false,
+            "search_outcome": "exhausted_grid",
+            "source": [
+              "TP2",
+              "1"
+            ]
+          },
+          {
+            "expanded_nodes": 90,
+            "net": "ESP_EN",
+            "routed": false,
+            "search_outcome": "exhausted_grid",
+            "source": [
+              "U3",
+              "3"
+            ]
+          },
+          {
+            "expanded_nodes": 90,
+            "net": "ESP_EN",
+            "routed": false,
+            "search_outcome": "exhausted_grid",
+            "source": [
+              "U51",
+              "3"
+            ]
+          }
+        ],
+        "search_tool_sha256": "f06408318c4ffd48723199cbae3ec6f1773d4f9d89002cd08e310aed7d600692",
+        "source_sha256": "b513c1522e56bbf791cb6e069ab2d6ef081802605327b7f4d50750fffddb98e1",
+        "status": "UNQUALIFIED_LOCAL_CONTROL_STUDY",
+        "tool_source_sha256": {
+          "tools/generate-colour-fanout-grid-trial.py": "62fbbc1ce6c0e8cb0a276dd15900885562a8e69c69557949eb6f689945ea1224",
+          "tools/generate-paired-charger-114mm-routing.py": "807eaba5aea8e92ecbf514ca16ab767c30d006703c6697a9fec10cf2e46e1441",
+          "tools/routing_clearance.py": "d1797c13ac7f5df4d066fc5e245fb143a67f002ad6bf7c0a67b96ff456d7db91",
+          "tools/routing_goal_distance.py": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4",
+          "tools/search-native-control-routes.py": "f06408318c4ffd48723199cbae3ec6f1773d4f9d89002cd08e310aed7d600692"
+        },
+        "tracks_and_vias": 15478,
+        "width_mm": 0.2
+      },
+      "native-escape-positive": {
+        "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+        "added_tracks_and_vias": 63,
+        "allowed_nets": [
+          "SYS_I2C_SDA"
+        ],
+        "board_sha256": "b6aa6efef3637cba6c2d7325eac2e1965b200cd45a7933b7ca0e96653b239d1f",
+        "clearance_mm": 0.2,
+        "connected_copper_endpoints": true,
+        "exact_native_grid_fallback": true,
+        "fabrication_release_allowed": false,
+        "grid_mm": 0.05,
+        "heuristic": "exact_empty_grid_layer_costs",
+        "heuristic_sha256": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4",
+        "heuristic_storage_bytes": 33686856,
+        "kicad_version": "10.0.6",
+        "max_nodes": 400000,
+        "microvia_diameter_drill_mm": [
+          0.3,
+          0.1
+        ],
+        "native_grid_statistics": {
+          "native_clear_masked_edges": 3260,
+          "native_clear_masked_points": 3807,
+          "native_edge_queries": 3260,
+          "native_point_queries": 37968
+        },
+        "open_edges": 224,
+        "preserve_clusters_after_each_join": true,
+        "reverse_search": false,
+        "routes": [
+          {
+            "expanded_nodes": 1892,
+            "net": "SYS_I2C_SDA",
+            "routed": false,
+            "search_outcome": "exhausted_grid",
+            "source": [
+              "TP11",
+              "1"
+            ]
+          },
+          {
+            "expanded_nodes": 52601,
+            "net": "SYS_I2C_SDA",
+            "routed": true,
+            "search_outcome": "accepted_join",
+            "source": [
+              "U46",
+              "6"
+            ]
+          }
+        ],
+        "search_tool_sha256": "f06408318c4ffd48723199cbae3ec6f1773d4f9d89002cd08e310aed7d600692",
+        "source_sha256": "20e56a776dc6e27a6bfab389753d8acba29998926dba10272f32f4e9034785c9",
+        "status": "UNQUALIFIED_LOCAL_CONTROL_STUDY",
+        "tool_source_sha256": {
+          "tools/generate-colour-fanout-grid-trial.py": "62fbbc1ce6c0e8cb0a276dd15900885562a8e69c69557949eb6f689945ea1224",
+          "tools/generate-paired-charger-114mm-routing.py": "807eaba5aea8e92ecbf514ca16ab767c30d006703c6697a9fec10cf2e46e1441",
+          "tools/routing_clearance.py": "d1797c13ac7f5df4d066fc5e245fb143a67f002ad6bf7c0a67b96ff456d7db91",
+          "tools/routing_goal_distance.py": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4",
+          "tools/search-native-control-routes.py": "f06408318c4ffd48723199cbae3ec6f1773d4f9d89002cd08e310aed7d600692"
+        },
+        "tracks_and_vias": 14869,
+        "width_mm": 0.2
+      },
+      "native-escape-positive-repeat": {
+        "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+        "added_tracks_and_vias": 63,
+        "allowed_nets": [
+          "SYS_I2C_SDA"
+        ],
+        "board_sha256": "b6aa6efef3637cba6c2d7325eac2e1965b200cd45a7933b7ca0e96653b239d1f",
+        "clearance_mm": 0.2,
+        "connected_copper_endpoints": true,
+        "exact_native_grid_fallback": true,
+        "fabrication_release_allowed": false,
+        "grid_mm": 0.05,
+        "heuristic": "exact_empty_grid_layer_costs",
+        "heuristic_sha256": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4",
+        "heuristic_storage_bytes": 33686856,
+        "kicad_version": "10.0.6",
+        "max_nodes": 400000,
+        "microvia_diameter_drill_mm": [
+          0.3,
+          0.1
+        ],
+        "native_grid_statistics": {
+          "native_clear_masked_edges": 3260,
+          "native_clear_masked_points": 3807,
+          "native_edge_queries": 3260,
+          "native_point_queries": 37968
+        },
+        "open_edges": 224,
+        "preserve_clusters_after_each_join": true,
+        "reverse_search": false,
+        "routes": [
+          {
+            "expanded_nodes": 1892,
+            "net": "SYS_I2C_SDA",
+            "routed": false,
+            "search_outcome": "exhausted_grid",
+            "source": [
+              "TP11",
+              "1"
+            ]
+          },
+          {
+            "expanded_nodes": 52601,
+            "net": "SYS_I2C_SDA",
+            "routed": true,
+            "search_outcome": "accepted_join",
+            "source": [
+              "U46",
+              "6"
+            ]
+          }
+        ],
+        "search_tool_sha256": "f06408318c4ffd48723199cbae3ec6f1773d4f9d89002cd08e310aed7d600692",
+        "source_sha256": "20e56a776dc6e27a6bfab389753d8acba29998926dba10272f32f4e9034785c9",
+        "status": "UNQUALIFIED_LOCAL_CONTROL_STUDY",
+        "tool_source_sha256": {
+          "tools/generate-colour-fanout-grid-trial.py": "62fbbc1ce6c0e8cb0a276dd15900885562a8e69c69557949eb6f689945ea1224",
+          "tools/generate-paired-charger-114mm-routing.py": "807eaba5aea8e92ecbf514ca16ab767c30d006703c6697a9fec10cf2e46e1441",
+          "tools/routing_clearance.py": "d1797c13ac7f5df4d066fc5e245fb143a67f002ad6bf7c0a67b96ff456d7db91",
+          "tools/routing_goal_distance.py": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4",
+          "tools/search-native-control-routes.py": "f06408318c4ffd48723199cbae3ec6f1773d4f9d89002cd08e310aed7d600692"
+        },
+        "tracks_and_vias": 14869,
+        "width_mm": 0.2
+      },
+      "native-escape-sda-forward": {
+        "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+        "added_tracks_and_vias": 0,
+        "allowed_nets": [
+          "SYS_I2C_SDA"
+        ],
+        "board_sha256": "d08c8051cc5536458a775071e0af51062655ebc69b1b2e55d6d89e98b5128870",
+        "clearance_mm": 0.2,
+        "connected_copper_endpoints": true,
+        "exact_native_grid_fallback": true,
+        "fabrication_release_allowed": false,
+        "grid_mm": 0.05,
+        "heuristic": "exact_empty_grid_layer_costs",
+        "heuristic_sha256": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4",
+        "heuristic_storage_bytes": 33686856,
+        "kicad_version": "10.0.6",
+        "max_nodes": 1200000,
+        "microvia_diameter_drill_mm": [
+          0.3,
+          0.1
+        ],
+        "native_grid_statistics": {
+          "native_clear_masked_edges": 308,
+          "native_clear_masked_points": 1330,
+          "native_edge_queries": 308,
+          "native_point_queries": 17249
+        },
+        "open_edges": 220,
+        "preserve_clusters_after_each_join": true,
+        "reverse_search": false,
+        "routes": [
+          {
+            "expanded_nodes": 1892,
+            "net": "SYS_I2C_SDA",
+            "routed": false,
+            "search_outcome": "exhausted_grid",
+            "source": [
+              "TP11",
+              "1"
+            ]
+          }
+        ],
+        "search_tool_sha256": "f06408318c4ffd48723199cbae3ec6f1773d4f9d89002cd08e310aed7d600692",
+        "source_sha256": "b513c1522e56bbf791cb6e069ab2d6ef081802605327b7f4d50750fffddb98e1",
+        "status": "UNQUALIFIED_LOCAL_CONTROL_STUDY",
+        "tool_source_sha256": {
+          "tools/generate-colour-fanout-grid-trial.py": "62fbbc1ce6c0e8cb0a276dd15900885562a8e69c69557949eb6f689945ea1224",
+          "tools/generate-paired-charger-114mm-routing.py": "807eaba5aea8e92ecbf514ca16ab767c30d006703c6697a9fec10cf2e46e1441",
+          "tools/routing_clearance.py": "d1797c13ac7f5df4d066fc5e245fb143a67f002ad6bf7c0a67b96ff456d7db91",
+          "tools/routing_goal_distance.py": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4",
+          "tools/search-native-control-routes.py": "f06408318c4ffd48723199cbae3ec6f1773d4f9d89002cd08e310aed7d600692"
+        },
+        "tracks_and_vias": 15478,
+        "width_mm": 0.2
+      },
+      "native-escape-small-controls-220": {
+        "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+        "added_tracks_and_vias": 0,
+        "allowed_nets": [
+          "DISPLAY_CLEAR_3",
+          "HEARTBEAT_FALL_CLK",
+          "USB_RAW_OUT2"
+        ],
+        "board_sha256": "d08c8051cc5536458a775071e0af51062655ebc69b1b2e55d6d89e98b5128870",
+        "clearance_mm": 0.2,
+        "connected_copper_endpoints": true,
+        "exact_native_grid_fallback": true,
+        "fabrication_release_allowed": false,
+        "grid_mm": 0.05,
+        "heuristic": "exact_empty_grid_layer_costs",
+        "heuristic_sha256": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4",
+        "heuristic_storage_bytes": 33686856,
+        "kicad_version": "10.0.6",
+        "max_nodes": 200000,
+        "microvia_diameter_drill_mm": [
+          0.3,
+          0.1
+        ],
+        "native_grid_statistics": {
+          "native_clear_masked_edges": 890,
+          "native_clear_masked_points": 669,
+          "native_edge_queries": 890,
+          "native_point_queries": 6345
+        },
+        "open_edges": 220,
+        "preserve_clusters_after_each_join": true,
+        "reverse_search": true,
+        "routes": [
+          {
+            "expanded_nodes": 0,
+            "net": "DISPLAY_CLEAR_3",
+            "routed": false,
+            "search_outcome": "no_usable_grid_endpoint",
+            "source": [
+              "U52",
+              "1"
+            ]
+          },
+          {
+            "expanded_nodes": 3215,
+            "net": "USB_RAW_OUT2",
+            "routed": false,
+            "search_outcome": "exhausted_grid",
+            "source": [
+              "U24",
+              "3"
+            ]
+          },
+          {
+            "expanded_nodes": 0,
+            "net": "USB_RAW_OUT2",
+            "routed": false,
+            "search_outcome": "no_usable_grid_endpoint",
+            "source": [
+              "U31",
+              "8"
+            ]
+          },
+          {
+            "expanded_nodes": 0,
+            "net": "HEARTBEAT_FALL_CLK",
+            "routed": false,
+            "search_outcome": "no_usable_grid_endpoint",
+            "source": [
+              "U49",
+              "1"
+            ]
+          }
+        ],
+        "search_tool_sha256": "f06408318c4ffd48723199cbae3ec6f1773d4f9d89002cd08e310aed7d600692",
+        "source_sha256": "b513c1522e56bbf791cb6e069ab2d6ef081802605327b7f4d50750fffddb98e1",
+        "status": "UNQUALIFIED_LOCAL_CONTROL_STUDY",
+        "tool_source_sha256": {
+          "tools/generate-colour-fanout-grid-trial.py": "62fbbc1ce6c0e8cb0a276dd15900885562a8e69c69557949eb6f689945ea1224",
+          "tools/generate-paired-charger-114mm-routing.py": "807eaba5aea8e92ecbf514ca16ab767c30d006703c6697a9fec10cf2e46e1441",
+          "tools/routing_clearance.py": "d1797c13ac7f5df4d066fc5e245fb143a67f002ad6bf7c0a67b96ff456d7db91",
+          "tools/routing_goal_distance.py": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4",
+          "tools/search-native-control-routes.py": "f06408318c4ffd48723199cbae3ec6f1773d4f9d89002cd08e310aed7d600692"
+        },
+        "tracks_and_vias": 15478,
+        "width_mm": 0.2
+      }
+    }
+  },
+  "native_open_edges_after": 219,
+  "native_open_edges_before": 220,
+  "raw_evidence_sha256": {
+    "/private/tmp/rgb-extract-ground-escape.log": "75ba405cdb3d2c714b17e18b9d9598a5798eca9cef3975adab44fb63d2e49355",
+    "/private/tmp/rgb-extract-ground-escape.py": "f94006303a0cd6d0b7a8a571445e13497ead4274b3a58c37848adabcd7811fe4",
+    "/private/tmp/rgb-ground-escape-blockers.log": "29aa2e8714201d4b985c679c325f8f238edafa08cb4cc4f4aaff2540105e236b",
+    "/private/tmp/rgb-ground-escape-blockers.py": "d4bdfe493d4eb21ae2b955986e59311ccf29083933ea5ffb4469541e9528305f",
+    "/private/tmp/rgb-ground-escape-ci-layout.log": "60c45e839e2e1748c4b1b86f566e18d509c5018f10ac9ea5a7da4750e52c6f9b",
+    "/private/tmp/rgb-ground-escape-generate.log": "3289ab8713e5d4e4a674ac16aeb541678fce6d84a584ad053a3bd3a9cdb4ab4e",
+    "/private/tmp/rgb-ground-escape-native-check.log": "8f815a371eece841e99710a2a650320611e6f3fc2a481fe1888efbe2b55a8fb0",
+    "/private/tmp/rgb-ground-escape-native-contract.log": "e11e82f92f46cdc3b466ab37bae0a328d588826517b6ef5f54494f56de4eb45d",
+    "/private/tmp/rgb-ground-escape-open-nets.json": "ded506d18235f26f325ffc985467fa96c5dcf92731c1d15ee361cb47d69916bc",
+    "/private/tmp/rgb-ground-escape-reproduce.log": "c3cc4b775f6a58c02c3df4957dda1bf009cea432ab6ab052c5f56c1a13d0dfd4",
+    "/private/tmp/rgb-ground-native-escapes.log": "b41249f0c72b7cd12f01c51c059c5006e75a68815bf17b85ac90ae308c64616b",
+    "/private/tmp/rgb-ground-native-escapes.py": "360e41235e5ef0a14897ee86663a18aca3871bd3ed7bab99f63bcce10908da83",
+    "/private/tmp/rgb-local-ground-bridges-bounded.log": "d85d75dee192f287b8a2e03d7a323211f0793d984b9929b076bc844483e89638",
+    "/private/tmp/rgb-local-ground-bridges-bounded.py": "78f8da822128c57a5f7b727baf3821228be443f713f95dcd02a6595a67b0208f",
+    "/private/tmp/rgb-local-ground-bridges.log": "ba25609bec1dcb7442da8022631b581649e775c924b3269144b39aa07c8e4b7b",
+    "/private/tmp/rgb-mode-in1-detour.log": "b6c41f385a19ccc2fecc874fec7c94abb8206e2c12378595db2c210823074503",
+    "/private/tmp/rgb-mode-in1-detour.py": "29966bb9711cffb0a00be761372d8976752741674d0b20e379f9fcd8149b4098",
+    "/private/tmp/rgb-native-clearance-ci-layout.log": "f7b5425cfb208c40dbcb81ddf9c565cf2d1186873f64cad73c1a494ef02cd405",
+    "/private/tmp/rgb-native-clearance-fixture-check.log": "03cdb1951d9966608a778fc2f1a154d5a66d4836c9de4c3354dbd5ad161bd5e8",
+    "/private/tmp/rgb-native-clearance-python39.log": "c588f7ac012f22fd8ded962f046a778bcf44851a01f3a0e693eb9d43c64837f6",
+    "/private/tmp/rgb-native-escape-default-regression.log": "a2b7f7837d9f6d0a563e6f6139da9c14ca622c01e0e1e1c8d58710dce005ec4f",
+    "/private/tmp/rgb-native-escape-positive-drc.log": "dec9f63090667bef02e0bbb90b308327143406b835cebc94ff3289439a6cb20f",
+    "/private/tmp/rgb-native-escape-positive-repeat.log": "7e7a536942193370e707f0d0c92d1553f7ba5358c54b1c3cd3dd691a4cb60644",
+    "/private/tmp/rgb-native-escape-positive.log": "b8c505f14946bf8868041bcc1b81c99ee61963d65b070d5b12502927ffc985d7",
+    "/private/tmp/rgb-native-escape-sda-forward.log": "7f1d70d152996abd277312e732388d53a368d2f80b88c2fa5a6abd395d4d16c4",
+    "/private/tmp/rgb-r28-reserved-ground-escape-drc.log": "91dd0c4f4d7cb7f289ed79df1364ef692ee92e905355bf22198c378d1e88d1f2",
+    "/private/tmp/rgb-r28-same-layer-ground-escape-drc.log": "dc7d757dcafe91c56b1742e267844af114a97ad09414bd79fb536fed659da743",
+    "/private/tmp/rgb-reserve-r28-ground-escape.log": "6bda116a522c1121fe6a2a1121ce11ad41d713dc3b359369f7214bff342230cd",
+    "/private/tmp/rgb-reserve-r28-ground-escape.py": "d07e9201db90374a107fc5eb4671cfde9102c366679a8091c54a22d96a05b28c",
+    "/private/tmp/rgb-reserve-r28-same-layer.log": "04628ac40b1a1901e1df79153390696a93bb04c884a58628107cd9baf97321eb",
+    "/private/tmp/rgb-reserve-r28-same-layer.py": "e453ff77a93d00c690f81de56cce97d0331e0f27fe947c9332b99427835c02d0"
+  },
+  "removed_source_track_count": 1,
+  "removed_source_tracks": [
+    {
+      "end_iu": [
+        54000000,
+        7250000
+      ],
+      "layer": "In4.Cu",
+      "net": "ROW_SEL_04",
+      "start_iu": [
+        38600000,
+        7250000
+      ],
+      "width_iu": 200000
+    }
+  ],
+  "repeated_generation_byte_identical": true,
+  "status": "CHECKED_RESERVED_GROUND_ESCAPE_NOT_FABRICATION_SOURCE"
+}

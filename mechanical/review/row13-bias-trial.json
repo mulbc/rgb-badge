@@ -1,0 +1,30 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_microvias": 2,
+  "added_tracks": 9,
+  "board_sha256": "7541a0f2eb8eabc383e89ae153131e0bc53d14a257033c8e79b72a7b9ead16f0",
+  "generator_sha256": "797e0ef7d46a0c05a95bd0b6dbf654b442b173ec6e205928d4b2d49322030eb1",
+  "kicad_version": "10.0.6",
+  "microvia_diameter_drill_mm": [
+    0.3,
+    0.1
+  ],
+  "moved_resistor": "R19",
+  "new_center_mm": [
+    72.95,
+    27.45
+  ],
+  "new_rotation_degrees": 0,
+  "old_center_mm": [
+    59.75,
+    5.75
+  ],
+  "old_rotation_degrees": 180,
+  "open_edges": 234,
+  "search_result_replayed_as_fixed_geometry": true,
+  "source_sha256": "f945becb2b685e14bc08a3402e07bf1c2fc56af6b940e12b3470f6fad3e16851",
+  "source_tracks_and_vias": 14483,
+  "status": "UNQUALIFIED_ROW13_BIAS_GEOMETRY_STUDY",
+  "track_width_mm": 0.2,
+  "tracks_and_vias": 14494
+}

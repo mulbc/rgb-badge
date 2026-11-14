@@ -1,0 +1,398 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "status": "INVENTORY_DELTA_ONLY_NO_CURRENT_PLACEMENT_OR_FIT_APPROVAL",
+  "historical_trial": "mechanical/review/fit-trial.json",
+  "current_native_xml_sha256": "d5e9040209f4a4719500a2c35e432013ace3f7b863a3630429d1d9051a1cb9c4",
+  "board_mm": [
+    106.0,
+    32.5
+  ],
+  "current_total_pcb_items": 466,
+  "front_led_count": 256,
+  "current_rear_items": 210,
+  "historical_rear_items": 154,
+  "historical_rear_refs_with_xy_trial": 146,
+  "historical_unplaced_refs": [
+    "U11",
+    "U17",
+    "U23",
+    "U24",
+    "U25",
+    "U29",
+    "U33",
+    "U34"
+  ],
+  "additional_current_rear_refs_without_xy_trial": 56,
+  "current_rear_refs_without_xy_trial": [
+    "C44",
+    "C45",
+    "C46",
+    "C47",
+    "C48",
+    "C49",
+    "C50",
+    "C51",
+    "C52",
+    "C53",
+    "C54",
+    "C55",
+    "C56",
+    "C57",
+    "C58",
+    "C59",
+    "C60",
+    "C61",
+    "C62",
+    "C63",
+    "C64",
+    "C65",
+    "J2",
+    "L2",
+    "R100",
+    "R101",
+    "R102",
+    "R84",
+    "R85",
+    "R86",
+    "R87",
+    "R88",
+    "R89",
+    "R90",
+    "R91",
+    "R92",
+    "R93",
+    "R94",
+    "R95",
+    "R96",
+    "R97",
+    "R98",
+    "R99",
+    "TH1",
+    "TP34",
+    "TP35",
+    "U11",
+    "U17",
+    "U23",
+    "U24",
+    "U25",
+    "U29",
+    "U33",
+    "U34",
+    "U37",
+    "U38",
+    "U39",
+    "U40",
+    "U41",
+    "U42",
+    "U43",
+    "U44",
+    "U45",
+    "U46"
+  ],
+  "additional_parts": [
+    {
+      "ref": "C44",
+      "value": "10u 6.3V X5R",
+      "footprint": "rgb-badge-coupon:C_Murata_GRM18_0603"
+    },
+    {
+      "ref": "C45",
+      "value": "10u 6.3V X5R",
+      "footprint": "rgb-badge-coupon:C_Murata_GRM18_0603"
+    },
+    {
+      "ref": "C46",
+      "value": "22u 10V X5R",
+      "footprint": "rgb-badge-coupon:C_Murata_GRM18_0603"
+    },
+    {
+      "ref": "C47",
+      "value": "22u 10V X5R",
+      "footprint": "rgb-badge-coupon:C_Murata_GRM18_0603"
+    },
+    {
+      "ref": "C48",
+      "value": "22u 10V X5R",
+      "footprint": "rgb-badge-coupon:C_Murata_GRM18_0603"
+    },
+    {
+      "ref": "C49",
+      "value": "22u 10V X5R",
+      "footprint": "rgb-badge-coupon:C_Murata_GRM18_0603"
+    },
+    {
+      "ref": "C50",
+      "value": "100n 16V X7R",
+      "footprint": "rgb-badge-coupon:C_Murata_GRM15_0402"
+    },
+    {
+      "ref": "C51",
+      "value": "100n 16V X7R",
+      "footprint": "rgb-badge-coupon:C_Murata_GRM15_0402"
+    },
+    {
+      "ref": "C52",
+      "value": "1u 10V X7S",
+      "footprint": "rgb-badge-coupon:C_Murata_GRM15_0402"
+    },
+    {
+      "ref": "C53",
+      "value": "10u 6.3V X5R",
+      "footprint": "rgb-badge-coupon:C_Murata_GRM18_0603"
+    },
+    {
+      "ref": "C54",
+      "value": "10u 6.3V X5R",
+      "footprint": "rgb-badge-coupon:C_Murata_GRM18_0603"
+    },
+    {
+      "ref": "C55",
+      "value": "100n 16V X7R",
+      "footprint": "rgb-badge-coupon:C_Murata_GRM15_0402"
+    },
+    {
+      "ref": "C56",
+      "value": "22u 10V X5R",
+      "footprint": "rgb-badge-coupon:C_Murata_GRM18_0603"
+    },
+    {
+      "ref": "C57",
+      "value": "2.2n 50V C0G",
+      "footprint": "rgb-badge-coupon:C_Murata_GRM15_0402"
+    },
+    {
+      "ref": "C58",
+      "value": "100n 16V X7R",
+      "footprint": "rgb-badge-coupon:C_Murata_GRM15_0402"
+    },
+    {
+      "ref": "C59",
+      "value": "100n 16V X7R",
+      "footprint": "rgb-badge-coupon:C_Murata_GRM15_0402"
+    },
+    {
+      "ref": "C60",
+      "value": "1u 50V X7R",
+      "footprint": "rgb-badge-coupon:C_TDK_C1608_0603"
+    },
+    {
+      "ref": "C61",
+      "value": "22u 10V X5R",
+      "footprint": "rgb-badge-coupon:C_Murata_GRM18_0603"
+    },
+    {
+      "ref": "C62",
+      "value": "2.2n 50V C0G",
+      "footprint": "rgb-badge-coupon:C_Murata_GRM15_0402"
+    },
+    {
+      "ref": "C63",
+      "value": "100n 16V X7R",
+      "footprint": "rgb-badge-coupon:C_Murata_GRM15_0402"
+    },
+    {
+      "ref": "C64",
+      "value": "100n 16V X7R",
+      "footprint": "rgb-badge-coupon:C_Murata_GRM15_0402"
+    },
+    {
+      "ref": "C65",
+      "value": "100n 16V X7R",
+      "footprint": "rgb-badge-coupon:C_Murata_GRM15_0402"
+    },
+    {
+      "ref": "J2",
+      "value": "S2B-PH-SM4-TB",
+      "footprint": "rgb-badge-coupon:JST_PH_S2B-PH-SM4-TB"
+    },
+    {
+      "ref": "L2",
+      "value": "1.5u 20%",
+      "footprint": "rgb-badge-coupon:L_Murata_DFE252012P"
+    },
+    {
+      "ref": "R100",
+      "value": "3.32k 1%",
+      "footprint": "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
+    },
+    {
+      "ref": "R101",
+      "value": "2.2k 1%",
+      "footprint": "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
+    },
+    {
+      "ref": "R102",
+      "value": "2.2k 1%",
+      "footprint": "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
+    },
+    {
+      "ref": "R84",
+      "value": "620k 1%",
+      "footprint": "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
+    },
+    {
+      "ref": "R85",
+      "value": "620k 1%",
+      "footprint": "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
+    },
+    {
+      "ref": "R86",
+      "value": "180k 1%",
+      "footprint": "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
+    },
+    {
+      "ref": "R87",
+      "value": "100k 1%",
+      "footprint": "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
+    },
+    {
+      "ref": "R88",
+      "value": "10k 1%",
+      "footprint": "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
+    },
+    {
+      "ref": "R89",
+      "value": "2.15k 1%",
+      "footprint": "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
+    },
+    {
+      "ref": "R90",
+      "value": "14k 1%",
+      "footprint": "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
+    },
+    {
+      "ref": "R91",
+      "value": "10k 1%",
+      "footprint": "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
+    },
+    {
+      "ref": "R92",
+      "value": "2.49k 0.1%",
+      "footprint": "rgb-badge-coupon:R_Panasonic_ERA2_0402"
+    },
+    {
+      "ref": "R93",
+      "value": "3.65k 0.1%",
+      "footprint": "rgb-badge-coupon:R_Panasonic_ERA2_0402"
+    },
+    {
+      "ref": "R94",
+      "value": "220k 1%",
+      "footprint": "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
+    },
+    {
+      "ref": "R95",
+      "value": "270k 1%",
+      "footprint": "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
+    },
+    {
+      "ref": "R96",
+      "value": "3.32k 1%",
+      "footprint": "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
+    },
+    {
+      "ref": "R97",
+      "value": "38.3k 1%",
+      "footprint": "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
+    },
+    {
+      "ref": "R98",
+      "value": "10k 1%",
+      "footprint": "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
+    },
+    {
+      "ref": "R99",
+      "value": "390k 1%",
+      "footprint": "rgb-badge-coupon:R_Panasonic_ERJ2_0402"
+    },
+    {
+      "ref": "TH1",
+      "value": "10k NTC",
+      "footprint": "rgb-badge-coupon:NTC_Murata_NCU15_0402"
+    },
+    {
+      "ref": "TP34",
+      "value": "TestPoint_Pad",
+      "footprint": "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
+    },
+    {
+      "ref": "TP35",
+      "value": "TestPoint_Pad",
+      "footprint": "rgb-badge-coupon:TestPoint_Pad_D1.0mm"
+    },
+    {
+      "ref": "U37",
+      "value": "TPS63020DSJT",
+      "footprint": "rgb-badge-coupon:VSON_TI_DSJ0014_4x3mm_P0.5mm_EP2.85x1.58mm"
+    },
+    {
+      "ref": "U38",
+      "value": "2.5V shunt",
+      "footprint": "rgb-badge-coupon:SOT23_TI_DBZ0003A"
+    },
+    {
+      "ref": "U39",
+      "value": "TMP390A2DRLR",
+      "footprint": "rgb-badge-coupon:SOT563_TI_DRL0006A"
+    },
+    {
+      "ref": "U40",
+      "value": "SN74AUP1G125DBVR",
+      "footprint": "rgb-badge-coupon:SOT23_TI_DBV0005A"
+    },
+    {
+      "ref": "U41",
+      "value": "BQ24074RGTR",
+      "footprint": "rgb-badge-coupon:VQFN_TI_RGT0016C_3x3mm_P0.5mm_EP1.68mm"
+    },
+    {
+      "ref": "U42",
+      "value": "SN74AUP1G125DBVR",
+      "footprint": "rgb-badge-coupon:SOT23_TI_DBV0005A"
+    },
+    {
+      "ref": "U43",
+      "value": "SN74AUP1G125DBVR",
+      "footprint": "rgb-badge-coupon:SOT23_TI_DBV0005A"
+    },
+    {
+      "ref": "U44",
+      "value": "TPS259474ARPWR",
+      "footprint": "rgb-badge-coupon:VQFN_TI_RPW0010A_2x2mm_HotRod"
+    },
+    {
+      "ref": "U45",
+      "value": "TPS259474ARPWR",
+      "footprint": "rgb-badge-coupon:VQFN_TI_RPW0010A_2x2mm_HotRod"
+    },
+    {
+      "ref": "U46",
+      "value": "TCA9517ADGKR",
+      "footprint": "rgb-badge-coupon:VSSOP_TI_DGK0008A"
+    }
+  ],
+  "additional_footprint_counts": {
+    "rgb-badge-coupon:C_Murata_GRM15_0402": 11,
+    "rgb-badge-coupon:C_Murata_GRM18_0603": 10,
+    "rgb-badge-coupon:C_TDK_C1608_0603": 1,
+    "rgb-badge-coupon:JST_PH_S2B-PH-SM4-TB": 1,
+    "rgb-badge-coupon:L_Murata_DFE252012P": 1,
+    "rgb-badge-coupon:NTC_Murata_NCU15_0402": 1,
+    "rgb-badge-coupon:R_Panasonic_ERA2_0402": 2,
+    "rgb-badge-coupon:R_Panasonic_ERJ2_0402": 17,
+    "rgb-badge-coupon:SOT23_TI_DBV0005A": 3,
+    "rgb-badge-coupon:SOT23_TI_DBZ0003A": 1,
+    "rgb-badge-coupon:SOT563_TI_DRL0006A": 1,
+    "rgb-badge-coupon:TestPoint_Pad_D1.0mm": 2,
+    "rgb-badge-coupon:VQFN_TI_RGT0016C_3x3mm_P0.5mm_EP1.68mm": 1,
+    "rgb-badge-coupon:VQFN_TI_RPW0010A_2x2mm_HotRod": 2,
+    "rgb-badge-coupon:VSON_TI_DSJ0014_4x3mm_P0.5mm_EP2.85x1.58mm": 1,
+    "rgb-badge-coupon:VSSOP_TI_DGK0008A": 1
+  },
+  "limitations": [
+    "Historical XY trial uses LP503055, while LP452845 is the current design target",
+    "Historical driver projections are not KiCad PCB placements",
+    "Hardware display interlock and final PCB routing are absent",
+    "A current part inventory does not prove that any component fits"
+  ]
+}

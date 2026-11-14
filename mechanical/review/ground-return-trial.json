@@ -1,0 +1,437 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "board_sha256": "874798c1eccab2e89e98d961236077a4f8f1148f4a9ff93ba7171992dcbdb8bc",
+  "clearance_mm": 0.2,
+  "grid_mm": 0.05,
+  "ground_open_edges": 27,
+  "kicad_version": "10.0.6",
+  "max_nodes": 300000,
+  "microvia_diameter_drill_mm": [
+    0.3,
+    0.1
+  ],
+  "open_edges": 366,
+  "routes": [
+    {
+      "end": [
+        3,
+        85.05000000000001,
+        5.25
+      ],
+      "expanded_nodes": 39486,
+      "pads": [
+        [
+          "PAIR02",
+          "1"
+        ],
+        [
+          "PAIR03",
+          "1"
+        ],
+        [
+          "PAIR04",
+          "1"
+        ]
+      ],
+      "routed": true,
+      "seed_cells": 1927,
+      "start": [
+        0,
+        80.75000000000001,
+        5.25
+      ]
+    },
+    {
+      "expanded_nodes": 4961,
+      "pads": [
+        [
+          "PAIR06",
+          "1"
+        ],
+        [
+          "PAIR07",
+          "1"
+        ],
+        [
+          "PAIR08",
+          "1"
+        ]
+      ],
+      "routed": false,
+      "seed_cells": 4961
+    },
+    {
+      "expanded_nodes": 1933,
+      "pads": [
+        [
+          "C55",
+          "2"
+        ],
+        [
+          "C71",
+          "2"
+        ]
+      ],
+      "routed": false,
+      "seed_cells": 1933
+    },
+    {
+      "expanded_nodes": 240,
+      "pads": [
+        [
+          "C67",
+          "2"
+        ],
+        [
+          "U48",
+          "3"
+        ]
+      ],
+      "routed": false,
+      "seed_cells": 240
+    },
+    {
+      "expanded_nodes": 741,
+      "pads": [
+        [
+          "C32",
+          "2"
+        ]
+      ],
+      "routed": false,
+      "seed_cells": 741
+    },
+    {
+      "expanded_nodes": 570,
+      "pads": [
+        [
+          "C51",
+          "2"
+        ]
+      ],
+      "routed": false,
+      "seed_cells": 570
+    },
+    {
+      "end": [
+        3,
+        107.25000000000001,
+        19.45
+      ],
+      "expanded_nodes": 2,
+      "pads": [
+        [
+          "J1",
+          "A1_B12"
+        ]
+      ],
+      "routed": true,
+      "seed_cells": 1,
+      "start": [
+        5,
+        107.25000000000001,
+        19.45
+      ]
+    },
+    {
+      "end": [
+        3,
+        107.25000000000001,
+        13.05
+      ],
+      "expanded_nodes": 2,
+      "pads": [
+        [
+          "J1",
+          "B1_A12"
+        ]
+      ],
+      "routed": true,
+      "seed_cells": 1,
+      "start": [
+        5,
+        107.25000000000001,
+        13.05
+      ]
+    },
+    {
+      "expanded_nodes": 201,
+      "pads": [
+        [
+          "PAIR01",
+          "1"
+        ]
+      ],
+      "routed": false,
+      "seed_cells": 201
+    },
+    {
+      "end": [
+        3,
+        76.15,
+        17.7
+      ],
+      "expanded_nodes": 32714,
+      "pads": [
+        [
+          "PAIR05",
+          "1"
+        ]
+      ],
+      "routed": true,
+      "seed_cells": 760,
+      "start": [
+        0,
+        74.2,
+        12.0
+      ]
+    },
+    {
+      "expanded_nodes": 42,
+      "pads": [
+        [
+          "PAIR10",
+          "1"
+        ]
+      ],
+      "routed": false,
+      "seed_cells": 42
+    },
+    {
+      "expanded_nodes": 440,
+      "pads": [
+        [
+          "R2",
+          "2"
+        ]
+      ],
+      "routed": false,
+      "seed_cells": 440
+    },
+    {
+      "expanded_nodes": 593,
+      "pads": [
+        [
+          "R23",
+          "2"
+        ]
+      ],
+      "routed": false,
+      "seed_cells": 593
+    },
+    {
+      "expanded_nodes": 86,
+      "pads": [
+        [
+          "R28",
+          "2"
+        ]
+      ],
+      "routed": false,
+      "seed_cells": 86
+    },
+    {
+      "expanded_nodes": 86,
+      "pads": [
+        [
+          "R29",
+          "2"
+        ]
+      ],
+      "routed": false,
+      "seed_cells": 86
+    },
+    {
+      "expanded_nodes": 86,
+      "pads": [
+        [
+          "R3",
+          "2"
+        ]
+      ],
+      "routed": false,
+      "seed_cells": 86
+    },
+    {
+      "expanded_nodes": 86,
+      "pads": [
+        [
+          "R31",
+          "2"
+        ]
+      ],
+      "routed": false,
+      "seed_cells": 86
+    },
+    {
+      "expanded_nodes": 86,
+      "pads": [
+        [
+          "R35",
+          "2"
+        ]
+      ],
+      "routed": false,
+      "seed_cells": 86
+    },
+    {
+      "expanded_nodes": 86,
+      "pads": [
+        [
+          "R36",
+          "2"
+        ]
+      ],
+      "routed": false,
+      "seed_cells": 86
+    },
+    {
+      "expanded_nodes": 86,
+      "pads": [
+        [
+          "R37",
+          "2"
+        ]
+      ],
+      "routed": false,
+      "seed_cells": 86
+    },
+    {
+      "expanded_nodes": 86,
+      "pads": [
+        [
+          "R38",
+          "2"
+        ]
+      ],
+      "routed": false,
+      "seed_cells": 86
+    },
+    {
+      "expanded_nodes": 189,
+      "pads": [
+        [
+          "R39",
+          "2"
+        ]
+      ],
+      "routed": false,
+      "seed_cells": 189
+    },
+    {
+      "expanded_nodes": 160,
+      "pads": [
+        [
+          "R5",
+          "2"
+        ]
+      ],
+      "routed": false,
+      "seed_cells": 160
+    },
+    {
+      "expanded_nodes": 160,
+      "pads": [
+        [
+          "R63",
+          "2"
+        ]
+      ],
+      "routed": false,
+      "seed_cells": 160
+    },
+    {
+      "expanded_nodes": 160,
+      "pads": [
+        [
+          "R86",
+          "2"
+        ]
+      ],
+      "routed": false,
+      "seed_cells": 160
+    },
+    {
+      "expanded_nodes": 160,
+      "pads": [
+        [
+          "R87",
+          "2"
+        ]
+      ],
+      "routed": false,
+      "seed_cells": 160
+    },
+    {
+      "expanded_nodes": 449,
+      "pads": [
+        [
+          "R89",
+          "2"
+        ]
+      ],
+      "routed": false,
+      "seed_cells": 449
+    },
+    {
+      "expanded_nodes": 2725,
+      "pads": [
+        [
+          "TH1",
+          "2"
+        ]
+      ],
+      "routed": false,
+      "seed_cells": 2725
+    },
+    {
+      "expanded_nodes": 773,
+      "pads": [
+        [
+          "U38",
+          "2"
+        ]
+      ],
+      "routed": false,
+      "seed_cells": 773
+    },
+    {
+      "expanded_nodes": 2384,
+      "pads": [
+        [
+          "U38",
+          "3"
+        ]
+      ],
+      "routed": false,
+      "seed_cells": 2384
+    },
+    {
+      "expanded_nodes": 0,
+      "pads": [
+        [
+          "U52",
+          "3"
+        ]
+      ],
+      "routed": false,
+      "seed_cells": 0
+    }
+  ],
+  "source_sha256": "7331ede6842cc438dc01e813948966b9a9e0ee0e414cfdc879fe7cfabbe48f30",
+  "status": "UNQUALIFIED_GROUND_RETURN_STUDY",
+  "trace_width_mm": 0.2,
+  "tracks_and_vias": 13284,
+  "zones": [
+    {
+      "area_mm2": 2394.471,
+      "layer": "B.Cu",
+      "polygons": 44
+    },
+    {
+      "area_mm2": 2886.218,
+      "layer": "In2.Cu",
+      "polygons": 6
+    }
+  ]
+}

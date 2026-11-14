@@ -1,0 +1,21 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_tracks": 2,
+  "board_sha256": "5d4b9c9a67b9b78d221ac25f7be84ed8469d053a25aef0935e6895cfbe587a2a",
+  "kicad_version": "10.0.6",
+  "moved_resistor": "R20",
+  "new_center_mm": [
+    73.5,
+    30
+  ],
+  "new_rotation_degrees": 90,
+  "old_center_mm": [
+    64.75,
+    5.75
+  ],
+  "open_edges": 364,
+  "source_sha256": "874798c1eccab2e89e98d961236077a4f8f1148f4a9ff93ba7171992dcbdb8bc",
+  "status": "UNQUALIFIED_LOCAL_ROW_BIAS_STUDY",
+  "tracks_and_vias": 13286,
+  "width_mm": 0.2
+}

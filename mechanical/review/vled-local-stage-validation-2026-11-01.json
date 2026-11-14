@@ -1,0 +1,5644 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "canonical_source_sha256": "3451177253a021d8706ff818696212afabf539a108f15ef9e5d6921e46435acc",
+  "cli_faults": [
+    {
+      "case": "overwrite",
+      "no_forbidden_output": true,
+      "reason": "Output must not overwrite input",
+      "source_unchanged": true,
+      "status": "EXPECTED_REJECTION",
+      "tool": "tools/probe-vled-local-stage.py"
+    },
+    {
+      "case": "outside-build",
+      "no_forbidden_output": true,
+      "reason": "Output must be an ignored build PCB",
+      "source_unchanged": true,
+      "status": "EXPECTED_REJECTION",
+      "tool": "tools/probe-vled-local-stage.py"
+    },
+    {
+      "case": "wrong-input",
+      "no_forbidden_output": true,
+      "reason": "AssertionError",
+      "source_unchanged": true,
+      "status": "EXPECTED_REJECTION",
+      "tool": "tools/probe-vled-local-stage.py"
+    },
+    {
+      "case": "overwrite",
+      "no_forbidden_output": true,
+      "reason": "Output must not overwrite input",
+      "source_unchanged": true,
+      "status": "EXPECTED_REJECTION",
+      "tool": "tools/replay-vled-local-stage.py"
+    },
+    {
+      "case": "outside-build",
+      "no_forbidden_output": true,
+      "reason": "Output must be an ignored build PCB",
+      "source_unchanged": true,
+      "status": "EXPECTED_REJECTION",
+      "tool": "tools/replay-vled-local-stage.py"
+    },
+    {
+      "case": "wrong-input",
+      "no_forbidden_output": true,
+      "reason": "AssertionError",
+      "source_unchanged": true,
+      "status": "EXPECTED_REJECTION",
+      "tool": "tools/replay-vled-local-stage.py"
+    }
+  ],
+  "deterministic_final_replay": {
+    "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+    "accepted_prior_group_losses": [
+      {
+        "anchor": [
+          "C63",
+          "1",
+          -400000,
+          0
+        ],
+        "missing": [
+          [
+            "C40",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C41",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C44",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C45",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C54",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "SW2",
+            "2",
+            0,
+            1200000
+          ],
+          [
+            "U36",
+            "4",
+            -740000,
+            -750000
+          ],
+          [
+            "U37",
+            "10",
+            500000,
+            -1400000
+          ],
+          [
+            "U37",
+            "11",
+            0,
+            -1400000
+          ],
+          [
+            "U41",
+            "10",
+            1400000,
+            -250000
+          ],
+          [
+            "U41",
+            "11",
+            1400000,
+            250000
+          ]
+        ]
+      },
+      {
+        "anchor": [
+          "R10",
+          "1",
+          -500000,
+          0
+        ],
+        "missing": [
+          [
+            "C46",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C47",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C48",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C49",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "U37",
+            "4",
+            0,
+            1400000
+          ],
+          [
+            "U37",
+            "5",
+            500000,
+            1400000
+          ]
+        ]
+      }
+    ],
+    "added_items": 23,
+    "all_other_source_copper_and_483_poses_parts_pads_fields_fixed": true,
+    "board_sha256": "5aa4dff127f623453b6a7c2d032ddc1062ef47f152ffffca476e3051ece85cf2",
+    "fabrication_release_allowed": false,
+    "fills": [
+      {
+        "all_257_input_stage_groups_preserved": true,
+        "board_sha256": "5aa4dff127f623453b6a7c2d032ddc1062ef47f152ffffca476e3051ece85cf2",
+        "fill": 1,
+        "native_opens": 60
+      },
+      {
+        "all_257_input_stage_groups_preserved": true,
+        "board_sha256": "5aa4dff127f623453b6a7c2d032ddc1062ef47f152ffffca476e3051ece85cf2",
+        "fill": 2,
+        "native_opens": 60
+      },
+      {
+        "all_257_input_stage_groups_preserved": true,
+        "board_sha256": "5aa4dff127f623453b6a7c2d032ddc1062ef47f152ffffca476e3051ece85cf2",
+        "fill": 3,
+        "native_opens": 60
+      }
+    ],
+    "open_edges": {
+      "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+      "board": "hardware/coupon/rev-a/build/vled-local-stage-2026-11-01/exact-replay/trial.kicad_pcb",
+      "board_sha256": "5aa4dff127f623453b6a7c2d032ddc1062ef47f152ffffca476e3051ece85cf2",
+      "by_net": {
+        "+3V3_APP": 1,
+        "+3V3_USB": 1,
+        "+BAT_GAUGE_SW": 2,
+        "+SYS_APP_IN_DRAFT": 2,
+        "APP_3V3_FB": 1,
+        "APP_ON_SW_DRAFT": 2,
+        "CHARGER_EN2": 1,
+        "CHARGER_TS": 1,
+        "DISPLAY_CLEAR_3": 1,
+        "DISPLAY_CLEAR_OK": 2,
+        "DISPLAY_ENABLE": 1,
+        "DISPLAY_HEARTBEAT": 1,
+        "E1_ILM": 1,
+        "ESP_EN": 1,
+        "GND": 3,
+        "HEARTBEAT_FALL_CLK": 1,
+        "HEARTBEAT_SEEN": 1,
+        "LED_GCLK": 1,
+        "LED_IREF": 1,
+        "LED_LAT": 1,
+        "LED_SCLK": 1,
+        "Net-(U36-LX1)": 1,
+        "Net-(U36-LX2)": 1,
+        "ROW_ENABLE_N_CANDIDATE": 1,
+        "ROW_GATE_00": 1,
+        "ROW_GATE_02": 1,
+        "ROW_GATE_03": 1,
+        "ROW_GATE_04": 1,
+        "ROW_GATE_06": 1,
+        "ROW_GATE_07": 1,
+        "TEMP_OK": 1,
+        "TMP_COLD_SET": 1,
+        "USB_CC1": 1,
+        "USB_D+": 1,
+        "USB_D-": 1,
+        "USB_DN_MCU": 1,
+        "USB_DP_MCU": 1,
+        "USB_EN1_RAW_N": 1,
+        "USB_LOGIC_CT": 1,
+        "VBUS_CONNECTOR": 1,
+        "VLED": 9,
+        "VLED_ENABLE_CANDIDATE": 1,
+        "VLED_FB": 1
+      },
+      "interpretation": "Unconnected pad clusters minus one per net; no electrical or manufacturability qualification",
+      "native_open_edges": 60,
+      "pad_cluster_open_edges": 57
+    },
+    "plan_sha256": "01b9c2eb539546dd35f529c2f5d628b777f2dc95d81eff7cf7854234f49dabb8",
+    "retired_accepted_UART_items": 2,
+    "source_sha256": "1b50456d58c23e7582a043dc59185ee79a1699c44f7b7693eb3f1b0c58beb49e",
+    "status": "UNSELECTED_LOCAL_STAGE_WITH_TWO_OLD_SUPPLY_GROUP_LOSSES",
+    "structure_and_profiles_fixed": true,
+    "tool_sha256": "76d17c98512eb06c61bf791d258aff7780e6d24907f2710d71b98223efc159ab",
+    "track_length_mm_by_net": {
+      "+SYS_APP_IN_DRAFT": 8.060521174102243,
+      "UART0_TX": 16.650000000000002,
+      "VLED": 6.383504732631018,
+      "VLED_ENABLE_DRAFT": 3.1,
+      "VLED_FB": 1.15,
+      "VLED_FB_TOP_MID": 1.15
+    }
+  },
+  "fabrication_release_allowed": false,
+  "independent_final_audit": {
+    "accepted_prior_group_losses": 2,
+    "all_257_input_stage_pad_groups_preserved": true,
+    "all_483_input_poses_parts_local_pads_fields_fixed": true,
+    "board_sha256": "5aa4dff127f623453b6a7c2d032ddc1062ef47f152ffffca476e3051ece85cf2",
+    "byte_identical_replay": true,
+    "canonical_58_edge_source_unchanged": true,
+    "fabrication_release_allowed": false,
+    "full_drc_inventory_unchanged": {
+      "clearance": 104,
+      "track_dangling": 6,
+      "via_dangling": 8
+    },
+    "independent_copper_matches_private_study": true,
+    "native_opens": 60,
+    "physical_opens": 57,
+    "status": "PASS_UNSELECTED_EXACT_LOCAL_STAGE_GEOMETRY_WITH_TWO_SUPPLY_GROUP_LOSSES",
+    "structure_profiles_and_rules_unchanged": true
+  },
+  "independent_initial_audit": {
+    "all_483_poses_parts_pads_fields_unchanged": true,
+    "all_initial_stage_groups_preserved": 257,
+    "board_sha256": "f8b103cea1733b59a240996cf33bdb875a5d342956e4370b13af3c8723d5c3c1",
+    "byte_identical_replay": true,
+    "exact_new_B_Cu_tracks": 16,
+    "exact_source_copper_retained": true,
+    "fabrication_release_allowed": false,
+    "full_DRC_inventory_unchanged": {
+      "clearance": 104,
+      "track_dangling": 6,
+      "via_dangling": 8
+    },
+    "source_sha256": "1b50456d58c23e7582a043dc59185ee79a1699c44f7b7693eb3f1b0c58beb49e",
+    "status": "PASS_UNSELECTED_LOCAL_STAGE_GEOMETRY",
+    "structure_profiles_and_rules_unchanged": true,
+    "three_stable_fill_hashes": [
+      {
+        "all_initial_stage_groups_preserved": true,
+        "board_sha256": "f8b103cea1733b59a240996cf33bdb875a5d342956e4370b13af3c8723d5c3c1",
+        "fill": 1,
+        "native_opens": 62
+      },
+      {
+        "all_initial_stage_groups_preserved": true,
+        "board_sha256": "f8b103cea1733b59a240996cf33bdb875a5d342956e4370b13af3c8723d5c3c1",
+        "fill": 2,
+        "native_opens": 62
+      },
+      {
+        "all_initial_stage_groups_preserved": true,
+        "board_sha256": "f8b103cea1733b59a240996cf33bdb875a5d342956e4370b13af3c8723d5c3c1",
+        "fill": 3,
+        "native_opens": 62
+      }
+    ]
+  },
+  "initial_local_screen": {
+    "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+    "added_copper": [
+      [
+        "track",
+        "+SYS_APP_IN_DRAFT",
+        45500000,
+        16100000,
+        45550000,
+        16100000,
+        "B.Cu",
+        200000
+      ],
+      [
+        "track",
+        "+SYS_APP_IN_DRAFT",
+        45550000,
+        16100000,
+        46000000,
+        16100000,
+        "B.Cu",
+        200000
+      ],
+      [
+        "track",
+        "+SYS_APP_IN_DRAFT",
+        45500000,
+        16100000,
+        45325000,
+        14650001,
+        "B.Cu",
+        200000
+      ],
+      [
+        "track",
+        "+SYS_APP_IN_DRAFT",
+        45325000,
+        14650001,
+        45350000,
+        14650001,
+        "B.Cu",
+        200000
+      ],
+      [
+        "track",
+        "+SYS_APP_IN_DRAFT",
+        45350000,
+        14650001,
+        47125000,
+        14650001,
+        "B.Cu",
+        200000
+      ],
+      [
+        "track",
+        "VLED",
+        45500000,
+        18900000,
+        45550000,
+        18900000,
+        "B.Cu",
+        200000
+      ],
+      [
+        "track",
+        "VLED",
+        45550000,
+        18900000,
+        46000000,
+        18900000,
+        "B.Cu",
+        200000
+      ],
+      [
+        "track",
+        "VLED",
+        45450000,
+        20350000,
+        45500000,
+        20350000,
+        "B.Cu",
+        200000
+      ],
+      [
+        "track",
+        "VLED",
+        45500000,
+        20350000,
+        47000000,
+        20350000,
+        "B.Cu",
+        200000
+      ],
+      [
+        "track",
+        "VLED",
+        51700000,
+        20350000,
+        51750000,
+        18900001,
+        "B.Cu",
+        200000
+      ],
+      [
+        "track",
+        "VLED",
+        51700000,
+        20350000,
+        51100000,
+        21650000,
+        "B.Cu",
+        200000
+      ],
+      [
+        "track",
+        "VLED_FB_TOP_MID",
+        50100000,
+        21650000,
+        48950000,
+        21650000,
+        "B.Cu",
+        200000
+      ],
+      [
+        "track",
+        "VLED_FB",
+        47950000,
+        21650000,
+        46800000,
+        21650000,
+        "B.Cu",
+        200000
+      ],
+      [
+        "track",
+        "VLED_ENABLE_DRAFT",
+        45000000,
+        16100000,
+        45000000,
+        15350000,
+        "B.Cu",
+        200000
+      ],
+      [
+        "track",
+        "VLED_ENABLE_DRAFT",
+        45000000,
+        15350000,
+        44650000,
+        15350000,
+        "B.Cu",
+        200000
+      ],
+      [
+        "track",
+        "VLED_ENABLE_DRAFT",
+        44650000,
+        15350000,
+        44650000,
+        13350000,
+        "B.Cu",
+        200000
+      ]
+    ],
+    "all_source_copper_retained": true,
+    "board_sha256": "f8b103cea1733b59a240996cf33bdb875a5d342956e4370b13af3c8723d5c3c1",
+    "fabrication_release_allowed": false,
+    "fills": [
+      {
+        "all_initial_stage_groups_preserved": true,
+        "board_sha256": "f8b103cea1733b59a240996cf33bdb875a5d342956e4370b13af3c8723d5c3c1",
+        "fill": 1,
+        "native_opens": 62
+      },
+      {
+        "all_initial_stage_groups_preserved": true,
+        "board_sha256": "f8b103cea1733b59a240996cf33bdb875a5d342956e4370b13af3c8723d5c3c1",
+        "fill": 2,
+        "native_opens": 62
+      },
+      {
+        "all_initial_stage_groups_preserved": true,
+        "board_sha256": "f8b103cea1733b59a240996cf33bdb875a5d342956e4370b13af3c8723d5c3c1",
+        "fill": 3,
+        "native_opens": 62
+      }
+    ],
+    "final_accepted_prior_group_losses": [
+      {
+        "anchor": [
+          "C63",
+          "1",
+          -400000,
+          0
+        ],
+        "missing": [
+          [
+            "C40",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C41",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C44",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C45",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C54",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "SW2",
+            "2",
+            0,
+            1200000
+          ],
+          [
+            "U36",
+            "4",
+            -740000,
+            -750000
+          ],
+          [
+            "U37",
+            "1",
+            -1500000,
+            1400000
+          ],
+          [
+            "U37",
+            "10",
+            500000,
+            -1400000
+          ],
+          [
+            "U37",
+            "11",
+            0,
+            -1400000
+          ],
+          [
+            "U41",
+            "10",
+            1400000,
+            -250000
+          ],
+          [
+            "U41",
+            "11",
+            1400000,
+            250000
+          ]
+        ]
+      },
+      {
+        "anchor": [
+          "R10",
+          "1",
+          -500000,
+          0
+        ],
+        "missing": [
+          [
+            "C46",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C47",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C48",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C49",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "U37",
+            "4",
+            0,
+            1400000
+          ],
+          [
+            "U37",
+            "5",
+            500000,
+            1400000
+          ]
+        ]
+      }
+    ],
+    "initial_accepted_prior_group_losses": [
+      {
+        "anchor": [
+          "C63",
+          "1",
+          -400000,
+          0
+        ],
+        "missing": [
+          [
+            "C40",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C41",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C44",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C45",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C54",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "SW2",
+            "2",
+            0,
+            1200000
+          ],
+          [
+            "U36",
+            "4",
+            -740000,
+            -750000
+          ],
+          [
+            "U37",
+            "1",
+            -1500000,
+            1400000
+          ],
+          [
+            "U37",
+            "10",
+            500000,
+            -1400000
+          ],
+          [
+            "U37",
+            "11",
+            0,
+            -1400000
+          ],
+          [
+            "U41",
+            "10",
+            1400000,
+            -250000
+          ],
+          [
+            "U41",
+            "11",
+            1400000,
+            250000
+          ]
+        ]
+      },
+      {
+        "anchor": [
+          "R10",
+          "1",
+          -500000,
+          0
+        ],
+        "missing": [
+          [
+            "C46",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C47",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C48",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C49",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "U37",
+            "4",
+            0,
+            1400000
+          ],
+          [
+            "U37",
+            "5",
+            500000,
+            1400000
+          ]
+        ]
+      },
+      {
+        "anchor": [
+          "R84",
+          "2",
+          500000,
+          0
+        ],
+        "missing": [
+          [
+            "R85",
+            "1",
+            -500000,
+            0
+          ]
+        ]
+      }
+    ],
+    "open_edges": {
+      "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+      "board": "hardware/coupon/rev-a/build/vled-local-stage-2026-11-01/replay/trial.kicad_pcb",
+      "board_sha256": "f8b103cea1733b59a240996cf33bdb875a5d342956e4370b13af3c8723d5c3c1",
+      "by_net": {
+        "+3V3_APP": 1,
+        "+3V3_USB": 1,
+        "+BAT_GAUGE_SW": 2,
+        "+SYS_APP_IN_DRAFT": 3,
+        "APP_3V3_FB": 1,
+        "APP_ON_SW_DRAFT": 2,
+        "CHARGER_EN2": 1,
+        "CHARGER_TS": 1,
+        "DISPLAY_CLEAR_3": 1,
+        "DISPLAY_CLEAR_OK": 2,
+        "DISPLAY_ENABLE": 1,
+        "DISPLAY_HEARTBEAT": 1,
+        "E1_ILM": 1,
+        "ESP_EN": 1,
+        "GND": 3,
+        "HEARTBEAT_FALL_CLK": 1,
+        "HEARTBEAT_SEEN": 1,
+        "LED_GCLK": 1,
+        "LED_IREF": 1,
+        "LED_LAT": 1,
+        "LED_SCLK": 1,
+        "Net-(U36-LX1)": 1,
+        "Net-(U36-LX2)": 1,
+        "ROW_ENABLE_N_CANDIDATE": 1,
+        "ROW_GATE_00": 1,
+        "ROW_GATE_02": 1,
+        "ROW_GATE_03": 1,
+        "ROW_GATE_04": 1,
+        "ROW_GATE_06": 1,
+        "ROW_GATE_07": 1,
+        "TEMP_OK": 1,
+        "TMP_COLD_SET": 1,
+        "USB_CC1": 1,
+        "USB_D+": 1,
+        "USB_D-": 1,
+        "USB_DN_MCU": 1,
+        "USB_DP_MCU": 1,
+        "USB_EN1_RAW_N": 1,
+        "USB_LOGIC_CT": 1,
+        "VBUS_CONNECTOR": 1,
+        "VLED": 10,
+        "VLED_ENABLE_CANDIDATE": 1,
+        "VLED_FB": 1
+      },
+      "interpretation": "Unconnected pad clusters minus one per net; no electrical or manufacturability qualification",
+      "native_open_edges": 62,
+      "pad_cluster_open_edges": 59
+    },
+    "records": [
+      {
+        "accepted_prior_group_losses": [
+          {
+            "anchor": [
+              "C63",
+              "1",
+              -400000,
+              0
+            ],
+            "missing": [
+              [
+                "C40",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C41",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C44",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C45",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C54",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "SW2",
+                "2",
+                0,
+                1200000
+              ],
+              [
+                "U36",
+                "4",
+                -740000,
+                -750000
+              ],
+              [
+                "U37",
+                "1",
+                -1500000,
+                1400000
+              ],
+              [
+                "U37",
+                "10",
+                500000,
+                -1400000
+              ],
+              [
+                "U37",
+                "11",
+                0,
+                -1400000
+              ],
+              [
+                "U41",
+                "10",
+                1400000,
+                -250000
+              ],
+              [
+                "U41",
+                "11",
+                1400000,
+                250000
+              ]
+            ]
+          },
+          {
+            "anchor": [
+              "R10",
+              "1",
+              -500000,
+              0
+            ],
+            "missing": [
+              [
+                "C46",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C47",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C48",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C49",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "U37",
+                "4",
+                0,
+                1400000
+              ],
+              [
+                "U37",
+                "5",
+                500000,
+                1400000
+              ]
+            ]
+          },
+          {
+            "anchor": [
+              "R84",
+              "2",
+              500000,
+              0
+            ],
+            "missing": [
+              [
+                "R85",
+                "1",
+                -500000,
+                0
+              ]
+            ]
+          }
+        ],
+        "attempt_outcomes": {
+          "ACCEPTED_PRIVATE_LOCAL_JOIN": 1
+        },
+        "attempted_paths": 1,
+        "first_two_attempts": [
+          {
+            "length_mm": 0.5,
+            "points_iu": [
+              [
+                45500000,
+                16100000
+              ],
+              [
+                45550000,
+                16100000
+              ],
+              [
+                46000000,
+                16100000
+              ]
+            ],
+            "status": "ACCEPTED_PRIVATE_LOCAL_JOIN"
+          }
+        ],
+        "native_opens": 71,
+        "net": "+SYS_APP_IN_DRAFT",
+        "obstruction_counts": [],
+        "pair": "input_pin_pair",
+        "status": "LOCAL_JOIN",
+        "tracks": [
+          [
+            "track",
+            "+SYS_APP_IN_DRAFT",
+            45500000,
+            16100000,
+            45550000,
+            16100000,
+            "B.Cu",
+            200000
+          ],
+          [
+            "track",
+            "+SYS_APP_IN_DRAFT",
+            45550000,
+            16100000,
+            46000000,
+            16100000,
+            "B.Cu",
+            200000
+          ]
+        ]
+      },
+      {
+        "accepted_prior_group_losses": [
+          {
+            "anchor": [
+              "C63",
+              "1",
+              -400000,
+              0
+            ],
+            "missing": [
+              [
+                "C40",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C41",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C44",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C45",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C54",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "SW2",
+                "2",
+                0,
+                1200000
+              ],
+              [
+                "U36",
+                "4",
+                -740000,
+                -750000
+              ],
+              [
+                "U37",
+                "1",
+                -1500000,
+                1400000
+              ],
+              [
+                "U37",
+                "10",
+                500000,
+                -1400000
+              ],
+              [
+                "U37",
+                "11",
+                0,
+                -1400000
+              ],
+              [
+                "U41",
+                "10",
+                1400000,
+                -250000
+              ],
+              [
+                "U41",
+                "11",
+                1400000,
+                250000
+              ]
+            ]
+          },
+          {
+            "anchor": [
+              "R10",
+              "1",
+              -500000,
+              0
+            ],
+            "missing": [
+              [
+                "C46",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C47",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C48",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C49",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "U37",
+                "4",
+                0,
+                1400000
+              ],
+              [
+                "U37",
+                "5",
+                500000,
+                1400000
+              ]
+            ]
+          },
+          {
+            "anchor": [
+              "R84",
+              "2",
+              500000,
+              0
+            ],
+            "missing": [
+              [
+                "R85",
+                "1",
+                -500000,
+                0
+              ]
+            ]
+          }
+        ],
+        "attempt_outcomes": {
+          "ACCEPTED_PRIVATE_LOCAL_JOIN": 1
+        },
+        "attempted_paths": 1,
+        "first_two_attempts": [
+          {
+            "length_mm": 1.4605211741022448,
+            "points_iu": [
+              [
+                45500000,
+                16100000
+              ],
+              [
+                45325000,
+                14650001
+              ]
+            ],
+            "status": "ACCEPTED_PRIVATE_LOCAL_JOIN"
+          }
+        ],
+        "native_opens": 70,
+        "net": "+SYS_APP_IN_DRAFT",
+        "obstruction_counts": [],
+        "pair": "input_C44",
+        "status": "LOCAL_JOIN",
+        "tracks": [
+          [
+            "track",
+            "+SYS_APP_IN_DRAFT",
+            45500000,
+            16100000,
+            45325000,
+            14650001,
+            "B.Cu",
+            200000
+          ]
+        ]
+      },
+      {
+        "accepted_prior_group_losses": [
+          {
+            "anchor": [
+              "C63",
+              "1",
+              -400000,
+              0
+            ],
+            "missing": [
+              [
+                "C40",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C41",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C44",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C45",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C54",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "SW2",
+                "2",
+                0,
+                1200000
+              ],
+              [
+                "U36",
+                "4",
+                -740000,
+                -750000
+              ],
+              [
+                "U37",
+                "1",
+                -1500000,
+                1400000
+              ],
+              [
+                "U37",
+                "10",
+                500000,
+                -1400000
+              ],
+              [
+                "U37",
+                "11",
+                0,
+                -1400000
+              ],
+              [
+                "U41",
+                "10",
+                1400000,
+                -250000
+              ],
+              [
+                "U41",
+                "11",
+                1400000,
+                250000
+              ]
+            ]
+          },
+          {
+            "anchor": [
+              "R10",
+              "1",
+              -500000,
+              0
+            ],
+            "missing": [
+              [
+                "C46",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C47",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C48",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C49",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "U37",
+                "4",
+                0,
+                1400000
+              ],
+              [
+                "U37",
+                "5",
+                500000,
+                1400000
+              ]
+            ]
+          },
+          {
+            "anchor": [
+              "R84",
+              "2",
+              500000,
+              0
+            ],
+            "missing": [
+              [
+                "R85",
+                "1",
+                -500000,
+                0
+              ]
+            ]
+          }
+        ],
+        "attempt_outcomes": {
+          "ACCEPTED_PRIVATE_LOCAL_JOIN": 1
+        },
+        "attempted_paths": 1,
+        "first_two_attempts": [
+          {
+            "length_mm": 1.8,
+            "points_iu": [
+              [
+                45325000,
+                14650001
+              ],
+              [
+                45350000,
+                14650001
+              ],
+              [
+                47125000,
+                14650001
+              ]
+            ],
+            "status": "ACCEPTED_PRIVATE_LOCAL_JOIN"
+          }
+        ],
+        "native_opens": 69,
+        "net": "+SYS_APP_IN_DRAFT",
+        "obstruction_counts": [],
+        "pair": "input_C45",
+        "status": "LOCAL_JOIN",
+        "tracks": [
+          [
+            "track",
+            "+SYS_APP_IN_DRAFT",
+            45325000,
+            14650001,
+            45350000,
+            14650001,
+            "B.Cu",
+            200000
+          ],
+          [
+            "track",
+            "+SYS_APP_IN_DRAFT",
+            45350000,
+            14650001,
+            47125000,
+            14650001,
+            "B.Cu",
+            200000
+          ]
+        ]
+      },
+      {
+        "accepted_prior_group_losses": [
+          {
+            "anchor": [
+              "C63",
+              "1",
+              -400000,
+              0
+            ],
+            "missing": [
+              [
+                "C40",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C41",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C44",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C45",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C54",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "SW2",
+                "2",
+                0,
+                1200000
+              ],
+              [
+                "U36",
+                "4",
+                -740000,
+                -750000
+              ],
+              [
+                "U37",
+                "1",
+                -1500000,
+                1400000
+              ],
+              [
+                "U37",
+                "10",
+                500000,
+                -1400000
+              ],
+              [
+                "U37",
+                "11",
+                0,
+                -1400000
+              ],
+              [
+                "U41",
+                "10",
+                1400000,
+                -250000
+              ],
+              [
+                "U41",
+                "11",
+                1400000,
+                250000
+              ]
+            ]
+          },
+          {
+            "anchor": [
+              "R10",
+              "1",
+              -500000,
+              0
+            ],
+            "missing": [
+              [
+                "C46",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C47",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C48",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C49",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "U37",
+                "4",
+                0,
+                1400000
+              ],
+              [
+                "U37",
+                "5",
+                500000,
+                1400000
+              ]
+            ]
+          },
+          {
+            "anchor": [
+              "R84",
+              "2",
+              500000,
+              0
+            ],
+            "missing": [
+              [
+                "R85",
+                "1",
+                -500000,
+                0
+              ]
+            ]
+          }
+        ],
+        "attempt_outcomes": {
+          "ACCEPTED_PRIVATE_LOCAL_JOIN": 1
+        },
+        "attempted_paths": 1,
+        "first_two_attempts": [
+          {
+            "length_mm": 0.5,
+            "points_iu": [
+              [
+                45500000,
+                18900000
+              ],
+              [
+                45550000,
+                18900000
+              ],
+              [
+                46000000,
+                18900000
+              ]
+            ],
+            "status": "ACCEPTED_PRIVATE_LOCAL_JOIN"
+          }
+        ],
+        "native_opens": 68,
+        "net": "VLED",
+        "obstruction_counts": [],
+        "pair": "output_pin_pair",
+        "status": "LOCAL_JOIN",
+        "tracks": [
+          [
+            "track",
+            "VLED",
+            45500000,
+            18900000,
+            45550000,
+            18900000,
+            "B.Cu",
+            200000
+          ],
+          [
+            "track",
+            "VLED",
+            45550000,
+            18900000,
+            46000000,
+            18900000,
+            "B.Cu",
+            200000
+          ]
+        ]
+      },
+      {
+        "accepted_prior_group_losses": [
+          {
+            "anchor": [
+              "C63",
+              "1",
+              -400000,
+              0
+            ],
+            "missing": [
+              [
+                "C40",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C41",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C44",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C45",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C54",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "SW2",
+                "2",
+                0,
+                1200000
+              ],
+              [
+                "U36",
+                "4",
+                -740000,
+                -750000
+              ],
+              [
+                "U37",
+                "1",
+                -1500000,
+                1400000
+              ],
+              [
+                "U37",
+                "10",
+                500000,
+                -1400000
+              ],
+              [
+                "U37",
+                "11",
+                0,
+                -1400000
+              ],
+              [
+                "U41",
+                "10",
+                1400000,
+                -250000
+              ],
+              [
+                "U41",
+                "11",
+                1400000,
+                250000
+              ]
+            ]
+          },
+          {
+            "anchor": [
+              "R10",
+              "1",
+              -500000,
+              0
+            ],
+            "missing": [
+              [
+                "C46",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C47",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C48",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C49",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "U37",
+                "4",
+                0,
+                1400000
+              ],
+              [
+                "U37",
+                "5",
+                500000,
+                1400000
+              ]
+            ]
+          },
+          {
+            "anchor": [
+              "R84",
+              "2",
+              500000,
+              0
+            ],
+            "missing": [
+              [
+                "R85",
+                "1",
+                -500000,
+                0
+              ]
+            ]
+          }
+        ],
+        "attempt_outcomes": {
+          "FOREIGN_NET_BLOCKED": 171,
+          "LENGTH_BOUND": 20
+        },
+        "attempted_paths": 191,
+        "first_two_attempts": [
+          {
+            "blockers": [
+              "[\"copper\", \"track\", \"UART0_TX\", 31050000, 19500000, 47700000, 19500000, \"B.Cu\", 120000]"
+            ],
+            "length_mm": 1.4508618128546908,
+            "points_iu": [
+              [
+                45500000,
+                18900000
+              ],
+              [
+                45450000,
+                20350000
+              ]
+            ],
+            "status": "FOREIGN_NET_BLOCKED"
+          },
+          {
+            "blockers": [
+              "[\"copper\", \"track\", \"UART0_TX\", 31050000, 19500000, 47700000, 19500000, \"B.Cu\", 120000]"
+            ],
+            "length_mm": 1.5,
+            "points_iu": [
+              [
+                45500000,
+                18900000
+              ],
+              [
+                45450000,
+                18900000
+              ],
+              [
+                45450000,
+                20350000
+              ]
+            ],
+            "status": "FOREIGN_NET_BLOCKED"
+          }
+        ],
+        "native_opens": 68,
+        "net": "VLED",
+        "obstruction_counts": [
+          {
+            "obstacle": [
+              "copper",
+              "track",
+              "UART0_TX",
+              31050000,
+              19500000,
+              47700000,
+              19500000,
+              "B.Cu",
+              120000
+            ],
+            "paths": 171
+          },
+          {
+            "obstacle": [
+              "pad",
+              "U37",
+              "3",
+              -500000,
+              1400000
+            ],
+            "paths": 35
+          },
+          {
+            "obstacle": [
+              "pad",
+              "U37",
+              "15",
+              0,
+              0
+            ],
+            "paths": 29
+          },
+          {
+            "obstacle": [
+              "pad",
+              "U37",
+              "2",
+              -1000000,
+              1400000
+            ],
+            "paths": 25
+          },
+          {
+            "obstacle": [
+              "pad",
+              "U37",
+              "6",
+              1000000,
+              1400000
+            ],
+            "paths": 24
+          },
+          {
+            "obstacle": [
+              "copper",
+              "track",
+              "Net-(L2-~-Pad2)",
+              46500000,
+              18900000,
+              47000000,
+              18900000,
+              "B.Cu",
+              200000
+            ],
+            "paths": 23
+          },
+          {
+            "obstacle": [
+              "pad",
+              "R86",
+              "2",
+              500000,
+              0
+            ],
+            "paths": 20
+          },
+          {
+            "obstacle": [
+              "pad",
+              "C46",
+              "2",
+              800000,
+              0
+            ],
+            "paths": 18
+          },
+          {
+            "obstacle": [
+              "pad",
+              "U37",
+              "1",
+              -1500000,
+              1400000
+            ],
+            "paths": 15
+          },
+          {
+            "obstacle": [
+              "pad",
+              "U37",
+              "7",
+              1500000,
+              1400000
+            ],
+            "paths": 14
+          },
+          {
+            "obstacle": [
+              "copper",
+              "track",
+              "Net-(L2-~-Pad2)",
+              47000000,
+              18900000,
+              49150000,
+              18900000,
+              "B.Cu",
+              200000
+            ],
+            "paths": 13
+          },
+          {
+            "obstacle": [
+              "copper",
+              "track",
+              "USB_RAW_OUT2",
+              36600000,
+              22400000,
+              62900000,
+              22400000,
+              "B.Cu",
+              200000
+            ],
+            "paths": 2
+          }
+        ],
+        "pair": "output_C46",
+        "status": "NO_PATH_IN_FINITE_SCREEN",
+        "tracks": []
+      },
+      {
+        "accepted_prior_group_losses": [
+          {
+            "anchor": [
+              "C63",
+              "1",
+              -400000,
+              0
+            ],
+            "missing": [
+              [
+                "C40",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C41",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C44",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C45",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C54",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "SW2",
+                "2",
+                0,
+                1200000
+              ],
+              [
+                "U36",
+                "4",
+                -740000,
+                -750000
+              ],
+              [
+                "U37",
+                "1",
+                -1500000,
+                1400000
+              ],
+              [
+                "U37",
+                "10",
+                500000,
+                -1400000
+              ],
+              [
+                "U37",
+                "11",
+                0,
+                -1400000
+              ],
+              [
+                "U41",
+                "10",
+                1400000,
+                -250000
+              ],
+              [
+                "U41",
+                "11",
+                1400000,
+                250000
+              ]
+            ]
+          },
+          {
+            "anchor": [
+              "R10",
+              "1",
+              -500000,
+              0
+            ],
+            "missing": [
+              [
+                "C46",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C47",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C48",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C49",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "U37",
+                "4",
+                0,
+                1400000
+              ],
+              [
+                "U37",
+                "5",
+                500000,
+                1400000
+              ]
+            ]
+          },
+          {
+            "anchor": [
+              "R84",
+              "2",
+              500000,
+              0
+            ],
+            "missing": [
+              [
+                "R85",
+                "1",
+                -500000,
+                0
+              ]
+            ]
+          }
+        ],
+        "attempt_outcomes": {
+          "ACCEPTED_PRIVATE_LOCAL_JOIN": 1
+        },
+        "attempted_paths": 1,
+        "first_two_attempts": [
+          {
+            "length_mm": 1.55,
+            "points_iu": [
+              [
+                45450000,
+                20350000
+              ],
+              [
+                45500000,
+                20350000
+              ],
+              [
+                47000000,
+                20350000
+              ]
+            ],
+            "status": "ACCEPTED_PRIVATE_LOCAL_JOIN"
+          }
+        ],
+        "native_opens": 67,
+        "net": "VLED",
+        "obstruction_counts": [],
+        "pair": "output_C47",
+        "status": "LOCAL_JOIN",
+        "tracks": [
+          [
+            "track",
+            "VLED",
+            45450000,
+            20350000,
+            45500000,
+            20350000,
+            "B.Cu",
+            200000
+          ],
+          [
+            "track",
+            "VLED",
+            45500000,
+            20350000,
+            47000000,
+            20350000,
+            "B.Cu",
+            200000
+          ]
+        ]
+      },
+      {
+        "accepted_prior_group_losses": [
+          {
+            "anchor": [
+              "C63",
+              "1",
+              -400000,
+              0
+            ],
+            "missing": [
+              [
+                "C40",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C41",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C44",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C45",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C54",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "SW2",
+                "2",
+                0,
+                1200000
+              ],
+              [
+                "U36",
+                "4",
+                -740000,
+                -750000
+              ],
+              [
+                "U37",
+                "1",
+                -1500000,
+                1400000
+              ],
+              [
+                "U37",
+                "10",
+                500000,
+                -1400000
+              ],
+              [
+                "U37",
+                "11",
+                0,
+                -1400000
+              ],
+              [
+                "U41",
+                "10",
+                1400000,
+                -250000
+              ],
+              [
+                "U41",
+                "11",
+                1400000,
+                250000
+              ]
+            ]
+          },
+          {
+            "anchor": [
+              "R10",
+              "1",
+              -500000,
+              0
+            ],
+            "missing": [
+              [
+                "C46",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C47",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C48",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C49",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "U37",
+                "4",
+                0,
+                1400000
+              ],
+              [
+                "U37",
+                "5",
+                500000,
+                1400000
+              ]
+            ]
+          },
+          {
+            "anchor": [
+              "R84",
+              "2",
+              500000,
+              0
+            ],
+            "missing": [
+              [
+                "R85",
+                "1",
+                -500000,
+                0
+              ]
+            ]
+          }
+        ],
+        "attempt_outcomes": {
+          "ACCEPTED_PRIVATE_LOCAL_JOIN": 1
+        },
+        "attempted_paths": 1,
+        "first_two_attempts": [
+          {
+            "length_mm": 1.450860813448692,
+            "points_iu": [
+              [
+                51700000,
+                20350000
+              ],
+              [
+                51750000,
+                18900001
+              ]
+            ],
+            "status": "ACCEPTED_PRIVATE_LOCAL_JOIN"
+          }
+        ],
+        "native_opens": 66,
+        "net": "VLED",
+        "obstruction_counts": [],
+        "pair": "output_C48_C49",
+        "status": "LOCAL_JOIN",
+        "tracks": [
+          [
+            "track",
+            "VLED",
+            51700000,
+            20350000,
+            51750000,
+            18900001,
+            "B.Cu",
+            200000
+          ]
+        ]
+      },
+      {
+        "accepted_prior_group_losses": [
+          {
+            "anchor": [
+              "C63",
+              "1",
+              -400000,
+              0
+            ],
+            "missing": [
+              [
+                "C40",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C41",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C44",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C45",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C54",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "SW2",
+                "2",
+                0,
+                1200000
+              ],
+              [
+                "U36",
+                "4",
+                -740000,
+                -750000
+              ],
+              [
+                "U37",
+                "1",
+                -1500000,
+                1400000
+              ],
+              [
+                "U37",
+                "10",
+                500000,
+                -1400000
+              ],
+              [
+                "U37",
+                "11",
+                0,
+                -1400000
+              ],
+              [
+                "U41",
+                "10",
+                1400000,
+                -250000
+              ],
+              [
+                "U41",
+                "11",
+                1400000,
+                250000
+              ]
+            ]
+          },
+          {
+            "anchor": [
+              "R10",
+              "1",
+              -500000,
+              0
+            ],
+            "missing": [
+              [
+                "C46",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C47",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C48",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C49",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "U37",
+                "4",
+                0,
+                1400000
+              ],
+              [
+                "U37",
+                "5",
+                500000,
+                1400000
+              ]
+            ]
+          },
+          {
+            "anchor": [
+              "R84",
+              "2",
+              500000,
+              0
+            ],
+            "missing": [
+              [
+                "R85",
+                "1",
+                -500000,
+                0
+              ]
+            ]
+          }
+        ],
+        "attempt_outcomes": {
+          "ACCEPTED_PRIVATE_LOCAL_JOIN": 1
+        },
+        "attempted_paths": 1,
+        "first_two_attempts": [
+          {
+            "length_mm": 1.4317821063276353,
+            "points_iu": [
+              [
+                51700000,
+                20350000
+              ],
+              [
+                51100000,
+                21650000
+              ]
+            ],
+            "status": "ACCEPTED_PRIVATE_LOCAL_JOIN"
+          }
+        ],
+        "native_opens": 65,
+        "net": "VLED",
+        "obstruction_counts": [],
+        "pair": "output_divider_top",
+        "status": "LOCAL_JOIN",
+        "tracks": [
+          [
+            "track",
+            "VLED",
+            51700000,
+            20350000,
+            51100000,
+            21650000,
+            "B.Cu",
+            200000
+          ]
+        ]
+      },
+      {
+        "accepted_prior_group_losses": [
+          {
+            "anchor": [
+              "C63",
+              "1",
+              -400000,
+              0
+            ],
+            "missing": [
+              [
+                "C40",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C41",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C44",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C45",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C54",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "SW2",
+                "2",
+                0,
+                1200000
+              ],
+              [
+                "U36",
+                "4",
+                -740000,
+                -750000
+              ],
+              [
+                "U37",
+                "1",
+                -1500000,
+                1400000
+              ],
+              [
+                "U37",
+                "10",
+                500000,
+                -1400000
+              ],
+              [
+                "U37",
+                "11",
+                0,
+                -1400000
+              ],
+              [
+                "U41",
+                "10",
+                1400000,
+                -250000
+              ],
+              [
+                "U41",
+                "11",
+                1400000,
+                250000
+              ]
+            ]
+          },
+          {
+            "anchor": [
+              "R10",
+              "1",
+              -500000,
+              0
+            ],
+            "missing": [
+              [
+                "C46",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C47",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C48",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C49",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "U37",
+                "4",
+                0,
+                1400000
+              ],
+              [
+                "U37",
+                "5",
+                500000,
+                1400000
+              ]
+            ]
+          },
+          {
+            "anchor": [
+              "R84",
+              "2",
+              500000,
+              0
+            ],
+            "missing": [
+              [
+                "R85",
+                "1",
+                -500000,
+                0
+              ]
+            ]
+          }
+        ],
+        "attempt_outcomes": {
+          "FOREIGN_NET_BLOCKED": 1,
+          "LENGTH_BOUND": 285
+        },
+        "attempted_paths": 286,
+        "first_two_attempts": [
+          {
+            "blockers": [
+              "[\"pad\", \"C47\", \"2\", 800000, 0]"
+            ],
+            "length_mm": 4.966386724772952,
+            "points_iu": [
+              [
+                47000000,
+                20350000
+              ],
+              [
+                51750000,
+                18900001
+              ]
+            ],
+            "status": "FOREIGN_NET_BLOCKED"
+          },
+          {
+            "length_mm": 6.199999,
+            "points_iu": [
+              [
+                47000000,
+                20350000
+              ],
+              [
+                47000000,
+                18900001
+              ],
+              [
+                51750000,
+                18900001
+              ]
+            ],
+            "status": "LENGTH_BOUND"
+          }
+        ],
+        "native_opens": 65,
+        "net": "VLED",
+        "obstruction_counts": [
+          {
+            "obstacle": [
+              "pad",
+              "C47",
+              "2",
+              800000,
+              0
+            ],
+            "paths": 1
+          }
+        ],
+        "pair": "output_cap_banks",
+        "status": "NO_PATH_IN_FINITE_SCREEN",
+        "tracks": []
+      },
+      {
+        "accepted_prior_group_losses": [
+          {
+            "anchor": [
+              "C63",
+              "1",
+              -400000,
+              0
+            ],
+            "missing": [
+              [
+                "C40",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C41",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C44",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C45",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C54",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "SW2",
+                "2",
+                0,
+                1200000
+              ],
+              [
+                "U36",
+                "4",
+                -740000,
+                -750000
+              ],
+              [
+                "U37",
+                "1",
+                -1500000,
+                1400000
+              ],
+              [
+                "U37",
+                "10",
+                500000,
+                -1400000
+              ],
+              [
+                "U37",
+                "11",
+                0,
+                -1400000
+              ],
+              [
+                "U41",
+                "10",
+                1400000,
+                -250000
+              ],
+              [
+                "U41",
+                "11",
+                1400000,
+                250000
+              ]
+            ]
+          },
+          {
+            "anchor": [
+              "R10",
+              "1",
+              -500000,
+              0
+            ],
+            "missing": [
+              [
+                "C46",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C47",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C48",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C49",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "U37",
+                "4",
+                0,
+                1400000
+              ],
+              [
+                "U37",
+                "5",
+                500000,
+                1400000
+              ]
+            ]
+          }
+        ],
+        "attempt_outcomes": {
+          "ACCEPTED_PRIVATE_LOCAL_JOIN": 1
+        },
+        "attempted_paths": 1,
+        "first_two_attempts": [
+          {
+            "length_mm": 1.15,
+            "points_iu": [
+              [
+                50100000,
+                21650000
+              ],
+              [
+                48950000,
+                21650000
+              ]
+            ],
+            "status": "ACCEPTED_PRIVATE_LOCAL_JOIN"
+          }
+        ],
+        "native_opens": 64,
+        "net": "VLED_FB_TOP_MID",
+        "obstruction_counts": [],
+        "pair": "feedback_midpoint",
+        "status": "LOCAL_JOIN",
+        "tracks": [
+          [
+            "track",
+            "VLED_FB_TOP_MID",
+            50100000,
+            21650000,
+            48950000,
+            21650000,
+            "B.Cu",
+            200000
+          ]
+        ]
+      },
+      {
+        "accepted_prior_group_losses": [
+          {
+            "anchor": [
+              "C63",
+              "1",
+              -400000,
+              0
+            ],
+            "missing": [
+              [
+                "C40",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C41",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C44",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C45",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C54",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "SW2",
+                "2",
+                0,
+                1200000
+              ],
+              [
+                "U36",
+                "4",
+                -740000,
+                -750000
+              ],
+              [
+                "U37",
+                "1",
+                -1500000,
+                1400000
+              ],
+              [
+                "U37",
+                "10",
+                500000,
+                -1400000
+              ],
+              [
+                "U37",
+                "11",
+                0,
+                -1400000
+              ],
+              [
+                "U41",
+                "10",
+                1400000,
+                -250000
+              ],
+              [
+                "U41",
+                "11",
+                1400000,
+                250000
+              ]
+            ]
+          },
+          {
+            "anchor": [
+              "R10",
+              "1",
+              -500000,
+              0
+            ],
+            "missing": [
+              [
+                "C46",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C47",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C48",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C49",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "U37",
+                "4",
+                0,
+                1400000
+              ],
+              [
+                "U37",
+                "5",
+                500000,
+                1400000
+              ]
+            ]
+          }
+        ],
+        "attempt_outcomes": {
+          "ACCEPTED_PRIVATE_LOCAL_JOIN": 1
+        },
+        "attempted_paths": 1,
+        "first_two_attempts": [
+          {
+            "length_mm": 1.15,
+            "points_iu": [
+              [
+                47950000,
+                21650000
+              ],
+              [
+                46800000,
+                21650000
+              ]
+            ],
+            "status": "ACCEPTED_PRIVATE_LOCAL_JOIN"
+          }
+        ],
+        "native_opens": 63,
+        "net": "VLED_FB",
+        "obstruction_counts": [],
+        "pair": "feedback_bottom",
+        "status": "LOCAL_JOIN",
+        "tracks": [
+          [
+            "track",
+            "VLED_FB",
+            47950000,
+            21650000,
+            46800000,
+            21650000,
+            "B.Cu",
+            200000
+          ]
+        ]
+      },
+      {
+        "accepted_prior_group_losses": [
+          {
+            "anchor": [
+              "C63",
+              "1",
+              -400000,
+              0
+            ],
+            "missing": [
+              [
+                "C40",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C41",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C44",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C45",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C54",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "SW2",
+                "2",
+                0,
+                1200000
+              ],
+              [
+                "U36",
+                "4",
+                -740000,
+                -750000
+              ],
+              [
+                "U37",
+                "1",
+                -1500000,
+                1400000
+              ],
+              [
+                "U37",
+                "10",
+                500000,
+                -1400000
+              ],
+              [
+                "U37",
+                "11",
+                0,
+                -1400000
+              ],
+              [
+                "U41",
+                "10",
+                1400000,
+                -250000
+              ],
+              [
+                "U41",
+                "11",
+                1400000,
+                250000
+              ]
+            ]
+          },
+          {
+            "anchor": [
+              "R10",
+              "1",
+              -500000,
+              0
+            ],
+            "missing": [
+              [
+                "C46",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C47",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C48",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C49",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "U37",
+                "4",
+                0,
+                1400000
+              ],
+              [
+                "U37",
+                "5",
+                500000,
+                1400000
+              ]
+            ]
+          }
+        ],
+        "attempt_outcomes": {
+          "FOREIGN_NET_BLOCKED": 108,
+          "LENGTH_BOUND": 144
+        },
+        "attempted_paths": 252,
+        "first_two_attempts": [
+          {
+            "blockers": [
+              "[\"copper\", \"track\", \"UART0_TX\", 31050000, 19500000, 47700000, 19500000, \"B.Cu\", 120000]",
+              "[\"copper\", \"track\", \"VLED\", 45450000, 20350000, 45500000, 20350000, \"B.Cu\", 200000]",
+              "[\"copper\", \"track\", \"VLED\", 45500000, 20350000, 47000000, 20350000, \"B.Cu\", 200000]",
+              "[\"pad\", \"C46\", \"1\", -800000, 0]",
+              "[\"pad\", \"C47\", \"1\", -800000, 0]",
+              "[\"pad\", \"U37\", \"4\", 0, 1400000]"
+            ],
+            "length_mm": 3.2867156859089595,
+            "points_iu": [
+              [
+                45000000,
+                18900000
+              ],
+              [
+                46800000,
+                21650000
+              ]
+            ],
+            "status": "FOREIGN_NET_BLOCKED"
+          },
+          {
+            "blockers": [
+              "[\"copper\", \"track\", \"Net-(L2-~-Pad2)\", 46500000, 18900000, 47000000, 18900000, \"B.Cu\", 200000]",
+              "[\"copper\", \"track\", \"Net-(L2-~-Pad2)\", 47000000, 18900000, 49150000, 18900000, \"B.Cu\", 200000]",
+              "[\"copper\", \"track\", \"UART0_TX\", 31050000, 19500000, 47700000, 19500000, \"B.Cu\", 120000]",
+              "[\"copper\", \"track\", \"VLED\", 45500000, 18900000, 45550000, 18900000, \"B.Cu\", 200000]",
+              "[\"copper\", \"track\", \"VLED\", 45500000, 20350000, 47000000, 20350000, \"B.Cu\", 200000]",
+              "[\"copper\", \"track\", \"VLED\", 45550000, 18900000, 46000000, 18900000, \"B.Cu\", 200000]",
+              "[\"pad\", \"C47\", \"1\", -800000, 0]",
+              "[\"pad\", \"U37\", \"4\", 0, 1400000]",
+              "[\"pad\", \"U37\", \"5\", 500000, 1400000]",
+              "[\"pad\", \"U37\", \"6\", 1000000, 1400000]",
+              "[\"pad\", \"U37\", \"7\", 1500000, 1400000]"
+            ],
+            "length_mm": 4.55,
+            "points_iu": [
+              [
+                45000000,
+                18900000
+              ],
+              [
+                45000000,
+                18950000
+              ],
+              [
+                46800000,
+                18950000
+              ],
+              [
+                46800000,
+                21650000
+              ]
+            ],
+            "status": "FOREIGN_NET_BLOCKED"
+          }
+        ],
+        "native_opens": 63,
+        "net": "VLED_FB",
+        "obstruction_counts": [
+          {
+            "obstacle": [
+              "copper",
+              "track",
+              "UART0_TX",
+              31050000,
+              19500000,
+              47700000,
+              19500000,
+              "B.Cu",
+              120000
+            ],
+            "paths": 108
+          },
+          {
+            "obstacle": [
+              "copper",
+              "track",
+              "VLED",
+              45500000,
+              20350000,
+              47000000,
+              20350000,
+              "B.Cu",
+              200000
+            ],
+            "paths": 79
+          },
+          {
+            "obstacle": [
+              "pad",
+              "C46",
+              "1",
+              -800000,
+              0
+            ],
+            "paths": 73
+          },
+          {
+            "obstacle": [
+              "pad",
+              "C47",
+              "1",
+              -800000,
+              0
+            ],
+            "paths": 63
+          },
+          {
+            "obstacle": [
+              "pad",
+              "U37",
+              "4",
+              0,
+              1400000
+            ],
+            "paths": 55
+          },
+          {
+            "obstacle": [
+              "copper",
+              "track",
+              "VLED",
+              45500000,
+              18900000,
+              45550000,
+              18900000,
+              "B.Cu",
+              200000
+            ],
+            "paths": 49
+          },
+          {
+            "obstacle": [
+              "copper",
+              "track",
+              "VLED",
+              45550000,
+              18900000,
+              46000000,
+              18900000,
+              "B.Cu",
+              200000
+            ],
+            "paths": 48
+          },
+          {
+            "obstacle": [
+              "pad",
+              "R86",
+              "2",
+              500000,
+              0
+            ],
+            "paths": 45
+          },
+          {
+            "obstacle": [
+              "pad",
+              "U37",
+              "5",
+              500000,
+              1400000
+            ],
+            "paths": 44
+          },
+          {
+            "obstacle": [
+              "pad",
+              "U37",
+              "6",
+              1000000,
+              1400000
+            ],
+            "paths": 34
+          },
+          {
+            "obstacle": [
+              "copper",
+              "track",
+              "VLED",
+              45450000,
+              20350000,
+              45500000,
+              20350000,
+              "B.Cu",
+              200000
+            ],
+            "paths": 32
+          },
+          {
+            "obstacle": [
+              "copper",
+              "track",
+              "Net-(L2-~-Pad2)",
+              46500000,
+              18900000,
+              47000000,
+              18900000,
+              "B.Cu",
+              200000
+            ],
+            "paths": 29
+          },
+          {
+            "obstacle": [
+              "pad",
+              "U37",
+              "7",
+              1500000,
+              1400000
+            ],
+            "paths": 23
+          },
+          {
+            "obstacle": [
+              "copper",
+              "track",
+              "Net-(L2-~-Pad2)",
+              47000000,
+              18900000,
+              49150000,
+              18900000,
+              "B.Cu",
+              200000
+            ],
+            "paths": 18
+          },
+          {
+            "obstacle": [
+              "pad",
+              "C63",
+              "2",
+              400000,
+              0
+            ],
+            "paths": 17
+          },
+          {
+            "obstacle": [
+              "pad",
+              "U37",
+              "2",
+              -1000000,
+              1400000
+            ],
+            "paths": 3
+          }
+        ],
+        "pair": "feedback_IC",
+        "status": "NO_PATH_IN_FINITE_SCREEN",
+        "tracks": []
+      },
+      {
+        "accepted_prior_group_losses": [
+          {
+            "anchor": [
+              "C63",
+              "1",
+              -400000,
+              0
+            ],
+            "missing": [
+              [
+                "C40",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C41",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C44",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C45",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C54",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "SW2",
+                "2",
+                0,
+                1200000
+              ],
+              [
+                "U36",
+                "4",
+                -740000,
+                -750000
+              ],
+              [
+                "U37",
+                "1",
+                -1500000,
+                1400000
+              ],
+              [
+                "U37",
+                "10",
+                500000,
+                -1400000
+              ],
+              [
+                "U37",
+                "11",
+                0,
+                -1400000
+              ],
+              [
+                "U41",
+                "10",
+                1400000,
+                -250000
+              ],
+              [
+                "U41",
+                "11",
+                1400000,
+                250000
+              ]
+            ]
+          },
+          {
+            "anchor": [
+              "R10",
+              "1",
+              -500000,
+              0
+            ],
+            "missing": [
+              [
+                "C46",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C47",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C48",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C49",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "U37",
+                "4",
+                0,
+                1400000
+              ],
+              [
+                "U37",
+                "5",
+                500000,
+                1400000
+              ]
+            ]
+          }
+        ],
+        "attempt_outcomes": {
+          "ACCEPTED_PRIVATE_LOCAL_JOIN": 1,
+          "FOREIGN_NET_BLOCKED": 48
+        },
+        "attempted_paths": 49,
+        "first_two_attempts": [
+          {
+            "blockers": [
+              "[\"pad\", \"C44\", \"1\", -800000, 0]"
+            ],
+            "length_mm": 2.7721832551258223,
+            "points_iu": [
+              [
+                45000000,
+                16100000
+              ],
+              [
+                44650000,
+                13350000
+              ]
+            ],
+            "status": "FOREIGN_NET_BLOCKED"
+          },
+          {
+            "blockers": [
+              "[\"pad\", \"U37\", \"13\", -1000000, -1400000]"
+            ],
+            "length_mm": 3.1,
+            "points_iu": [
+              [
+                45000000,
+                16100000
+              ],
+              [
+                44650000,
+                16100000
+              ],
+              [
+                44650000,
+                13350000
+              ]
+            ],
+            "status": "FOREIGN_NET_BLOCKED"
+          }
+        ],
+        "native_opens": 62,
+        "net": "VLED_ENABLE_DRAFT",
+        "obstruction_counts": [
+          {
+            "obstacle": [
+              "pad",
+              "C44",
+              "1",
+              -800000,
+              0
+            ],
+            "paths": 46
+          },
+          {
+            "obstacle": [
+              "copper",
+              "track",
+              "+SYS_APP_IN_DRAFT",
+              45500000,
+              16100000,
+              45325000,
+              14650001,
+              "B.Cu",
+              200000
+            ],
+            "paths": 40
+          },
+          {
+            "obstacle": [
+              "copper",
+              "track",
+              "+SYS_APP_IN_DRAFT",
+              45325000,
+              14650001,
+              45350000,
+              14650001,
+              "B.Cu",
+              200000
+            ],
+            "paths": 32
+          },
+          {
+            "obstacle": [
+              "copper",
+              "track",
+              "+SYS_APP_IN_DRAFT",
+              45350000,
+              14650001,
+              47125000,
+              14650001,
+              "B.Cu",
+              200000
+            ],
+            "paths": 30
+          },
+          {
+            "obstacle": [
+              "pad",
+              "U37",
+              "13",
+              -1000000,
+              -1400000
+            ],
+            "paths": 6
+          }
+        ],
+        "pair": "enable_pulldown",
+        "status": "LOCAL_JOIN",
+        "tracks": [
+          [
+            "track",
+            "VLED_ENABLE_DRAFT",
+            45000000,
+            16100000,
+            45000000,
+            15350000,
+            "B.Cu",
+            200000
+          ],
+          [
+            "track",
+            "VLED_ENABLE_DRAFT",
+            45000000,
+            15350000,
+            44650000,
+            15350000,
+            "B.Cu",
+            200000
+          ],
+          [
+            "track",
+            "VLED_ENABLE_DRAFT",
+            44650000,
+            15350000,
+            44650000,
+            13350000,
+            "B.Cu",
+            200000
+          ]
+        ]
+      },
+      {
+        "accepted_prior_group_losses": [
+          {
+            "anchor": [
+              "C63",
+              "1",
+              -400000,
+              0
+            ],
+            "missing": [
+              [
+                "C40",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C41",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C44",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C45",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C54",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "SW2",
+                "2",
+                0,
+                1200000
+              ],
+              [
+                "U36",
+                "4",
+                -740000,
+                -750000
+              ],
+              [
+                "U37",
+                "1",
+                -1500000,
+                1400000
+              ],
+              [
+                "U37",
+                "10",
+                500000,
+                -1400000
+              ],
+              [
+                "U37",
+                "11",
+                0,
+                -1400000
+              ],
+              [
+                "U41",
+                "10",
+                1400000,
+                -250000
+              ],
+              [
+                "U41",
+                "11",
+                1400000,
+                250000
+              ]
+            ]
+          },
+          {
+            "anchor": [
+              "R10",
+              "1",
+              -500000,
+              0
+            ],
+            "missing": [
+              [
+                "C46",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C47",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C48",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C49",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "U37",
+                "4",
+                0,
+                1400000
+              ],
+              [
+                "U37",
+                "5",
+                500000,
+                1400000
+              ]
+            ]
+          }
+        ],
+        "attempt_outcomes": {
+          "FOREIGN_NET_BLOCKED": 141,
+          "LENGTH_BOUND": 80
+        },
+        "attempted_paths": 221,
+        "first_two_attempts": [
+          {
+            "blockers": [
+              "[\"copper\", \"track\", \"UART0_TX\", 31050000, 19500000, 47700000, 19500000, \"B.Cu\", 120000]",
+              "[\"pad\", \"C46\", \"2\", 800000, 0]"
+            ],
+            "length_mm": 2.7613402542968153,
+            "points_iu": [
+              [
+                44000000,
+                18900000
+              ],
+              [
+                43750000,
+                21650000
+              ]
+            ],
+            "status": "FOREIGN_NET_BLOCKED"
+          },
+          {
+            "blockers": [
+              "[\"copper\", \"track\", \"UART0_TX\", 31050000, 19500000, 47700000, 19500000, \"B.Cu\", 120000]",
+              "[\"pad\", \"C46\", \"2\", 800000, 0]"
+            ],
+            "length_mm": 3.0,
+            "points_iu": [
+              [
+                44000000,
+                18900000
+              ],
+              [
+                43750000,
+                18900000
+              ],
+              [
+                43750000,
+                21650000
+              ]
+            ],
+            "status": "FOREIGN_NET_BLOCKED"
+          }
+        ],
+        "native_opens": 62,
+        "net": "+SYS_APP_IN_DRAFT",
+        "obstruction_counts": [
+          {
+            "obstacle": [
+              "copper",
+              "track",
+              "UART0_TX",
+              31050000,
+              19500000,
+              47700000,
+              19500000,
+              "B.Cu",
+              120000
+            ],
+            "paths": 141
+          },
+          {
+            "obstacle": [
+              "pad",
+              "C46",
+              "2",
+              800000,
+              0
+            ],
+            "paths": 124
+          },
+          {
+            "obstacle": [
+              "pad",
+              "C63",
+              "2",
+              400000,
+              0
+            ],
+            "paths": 19
+          },
+          {
+            "obstacle": [
+              "pad",
+              "U37",
+              "2",
+              -1000000,
+              1400000
+            ],
+            "paths": 19
+          },
+          {
+            "obstacle": [
+              "pad",
+              "U37",
+              "15",
+              -1812500,
+              690000
+            ],
+            "paths": 14
+          },
+          {
+            "obstacle": [
+              "pad",
+              "U37",
+              "15",
+              0,
+              0
+            ],
+            "paths": 14
+          },
+          {
+            "obstacle": [
+              "copper",
+              "track",
+              "USB_RAW_OUT2",
+              36600000,
+              22400000,
+              62900000,
+              22400000,
+              "B.Cu",
+              200000
+            ],
+            "paths": 13
+          },
+          {
+            "obstacle": [
+              "pad",
+              "U37",
+              "3",
+              -500000,
+              1400000
+            ],
+            "paths": 9
+          },
+          {
+            "obstacle": [
+              "pad",
+              "C46",
+              "1",
+              -800000,
+              0
+            ],
+            "paths": 6
+          },
+          {
+            "obstacle": [
+              "pad",
+              "U37",
+              "15",
+              -1812500,
+              230000
+            ],
+            "paths": 5
+          }
+        ],
+        "pair": "VINA_bypass",
+        "status": "NO_PATH_IN_FINITE_SCREEN",
+        "tracks": []
+      }
+    ],
+    "source_sha256": "1b50456d58c23e7582a043dc59185ee79a1699c44f7b7693eb3f1b0c58beb49e",
+    "status": "UNSELECTED_FINITE_LOCAL_STAGE_B_CU_SCREEN_NOT_OLD_GROUP_RESTORATION",
+    "tool_sha256": "bcc4c1611fc90a627b8e25623c3aae9a1ec73876ad22f38d5c2b3f2cad840100",
+    "track_length_mm_by_net": {
+      "+SYS_APP_IN_DRAFT": 3.760521174102245,
+      "VLED": 4.9326429197763275,
+      "VLED_ENABLE_DRAFT": 3.1,
+      "VLED_FB": 1.15,
+      "VLED_FB_TOP_MID": 1.15
+    }
+  },
+  "limitations": [
+    "Two earlier SYS/VLED physical groups remain split",
+    "Remaining local output-bank and IC feedback joins fail the finite B.Cu dogleg screen",
+    "No global reconnection or old power-copper cleanup in this candidate",
+    "Current capacitor order-code/land, suitable power widths, return/electrical/process/assembly qualification and independent Gate A remain open"
+  ],
+  "post_transfer_local_screen": {
+    "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+    "added_copper": [
+      [
+        "track",
+        "VLED",
+        45500000,
+        18900000,
+        45450000,
+        20350000,
+        "B.Cu",
+        200000
+      ],
+      [
+        "track",
+        "+SYS_APP_IN_DRAFT",
+        44000000,
+        18900000,
+        43100000,
+        18900000,
+        "B.Cu",
+        200000
+      ],
+      [
+        "track",
+        "+SYS_APP_IN_DRAFT",
+        43100000,
+        18900000,
+        43100000,
+        21650000,
+        "B.Cu",
+        200000
+      ],
+      [
+        "track",
+        "+SYS_APP_IN_DRAFT",
+        43100000,
+        21650000,
+        43750000,
+        21650000,
+        "B.Cu",
+        200000
+      ]
+    ],
+    "all_source_copper_retained": true,
+    "board_sha256": "9b79aace1654cfbac63405dc67c5574d60ba76ceb7eabfb607cc4ca4788b5e22",
+    "fabrication_release_allowed": false,
+    "fills": [
+      {
+        "all_initial_stage_groups_preserved": true,
+        "board_sha256": "9b79aace1654cfbac63405dc67c5574d60ba76ceb7eabfb607cc4ca4788b5e22",
+        "fill": 1,
+        "native_opens": 60
+      },
+      {
+        "all_initial_stage_groups_preserved": true,
+        "board_sha256": "9b79aace1654cfbac63405dc67c5574d60ba76ceb7eabfb607cc4ca4788b5e22",
+        "fill": 2,
+        "native_opens": 60
+      },
+      {
+        "all_initial_stage_groups_preserved": true,
+        "board_sha256": "9b79aace1654cfbac63405dc67c5574d60ba76ceb7eabfb607cc4ca4788b5e22",
+        "fill": 3,
+        "native_opens": 60
+      }
+    ],
+    "final_accepted_prior_group_losses": [
+      {
+        "anchor": [
+          "C63",
+          "1",
+          -400000,
+          0
+        ],
+        "missing": [
+          [
+            "C40",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C41",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C44",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C45",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C54",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "SW2",
+            "2",
+            0,
+            1200000
+          ],
+          [
+            "U36",
+            "4",
+            -740000,
+            -750000
+          ],
+          [
+            "U37",
+            "10",
+            500000,
+            -1400000
+          ],
+          [
+            "U37",
+            "11",
+            0,
+            -1400000
+          ],
+          [
+            "U41",
+            "10",
+            1400000,
+            -250000
+          ],
+          [
+            "U41",
+            "11",
+            1400000,
+            250000
+          ]
+        ]
+      },
+      {
+        "anchor": [
+          "R10",
+          "1",
+          -500000,
+          0
+        ],
+        "missing": [
+          [
+            "C46",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C47",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C48",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C49",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "U37",
+            "4",
+            0,
+            1400000
+          ],
+          [
+            "U37",
+            "5",
+            500000,
+            1400000
+          ]
+        ]
+      }
+    ],
+    "initial_accepted_prior_group_losses": [
+      {
+        "anchor": [
+          "C63",
+          "1",
+          -400000,
+          0
+        ],
+        "missing": [
+          [
+            "C40",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C41",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C44",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C45",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C54",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "SW2",
+            "2",
+            0,
+            1200000
+          ],
+          [
+            "U36",
+            "4",
+            -740000,
+            -750000
+          ],
+          [
+            "U37",
+            "1",
+            -1500000,
+            1400000
+          ],
+          [
+            "U37",
+            "10",
+            500000,
+            -1400000
+          ],
+          [
+            "U37",
+            "11",
+            0,
+            -1400000
+          ],
+          [
+            "U41",
+            "10",
+            1400000,
+            -250000
+          ],
+          [
+            "U41",
+            "11",
+            1400000,
+            250000
+          ]
+        ]
+      },
+      {
+        "anchor": [
+          "R10",
+          "1",
+          -500000,
+          0
+        ],
+        "missing": [
+          [
+            "C46",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C47",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C48",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "C49",
+            "1",
+            -800000,
+            0
+          ],
+          [
+            "U37",
+            "4",
+            0,
+            1400000
+          ],
+          [
+            "U37",
+            "5",
+            500000,
+            1400000
+          ]
+        ]
+      }
+    ],
+    "open_edges": {
+      "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+      "board": "hardware/coupon/rev-a/build/vled-uart-transfer-2026-11-01/local-followup/trial.kicad_pcb",
+      "board_sha256": "9b79aace1654cfbac63405dc67c5574d60ba76ceb7eabfb607cc4ca4788b5e22",
+      "by_net": {
+        "+3V3_APP": 1,
+        "+3V3_USB": 1,
+        "+BAT_GAUGE_SW": 2,
+        "+SYS_APP_IN_DRAFT": 2,
+        "APP_3V3_FB": 1,
+        "APP_ON_SW_DRAFT": 2,
+        "CHARGER_EN2": 1,
+        "CHARGER_TS": 1,
+        "DISPLAY_CLEAR_3": 1,
+        "DISPLAY_CLEAR_OK": 2,
+        "DISPLAY_ENABLE": 1,
+        "DISPLAY_HEARTBEAT": 1,
+        "E1_ILM": 1,
+        "ESP_EN": 1,
+        "GND": 3,
+        "HEARTBEAT_FALL_CLK": 1,
+        "HEARTBEAT_SEEN": 1,
+        "LED_GCLK": 1,
+        "LED_IREF": 1,
+        "LED_LAT": 1,
+        "LED_SCLK": 1,
+        "Net-(U36-LX1)": 1,
+        "Net-(U36-LX2)": 1,
+        "ROW_ENABLE_N_CANDIDATE": 1,
+        "ROW_GATE_00": 1,
+        "ROW_GATE_02": 1,
+        "ROW_GATE_03": 1,
+        "ROW_GATE_04": 1,
+        "ROW_GATE_06": 1,
+        "ROW_GATE_07": 1,
+        "TEMP_OK": 1,
+        "TMP_COLD_SET": 1,
+        "USB_CC1": 1,
+        "USB_D+": 1,
+        "USB_D-": 1,
+        "USB_DN_MCU": 1,
+        "USB_DP_MCU": 1,
+        "USB_EN1_RAW_N": 1,
+        "USB_LOGIC_CT": 1,
+        "VBUS_CONNECTOR": 1,
+        "VLED": 9,
+        "VLED_ENABLE_CANDIDATE": 1,
+        "VLED_FB": 1
+      },
+      "interpretation": "Unconnected pad clusters minus one per net; no electrical or manufacturability qualification",
+      "native_open_edges": 60,
+      "pad_cluster_open_edges": 57
+    },
+    "records": [
+      {
+        "attempt_outcomes": {},
+        "attempted_paths": 0,
+        "first_two_attempts": [],
+        "obstruction_counts": [],
+        "pair": "input_pin_pair",
+        "status": "ALREADY_CONNECTED"
+      },
+      {
+        "attempt_outcomes": {},
+        "attempted_paths": 0,
+        "first_two_attempts": [],
+        "obstruction_counts": [],
+        "pair": "input_C44",
+        "status": "ALREADY_CONNECTED"
+      },
+      {
+        "attempt_outcomes": {},
+        "attempted_paths": 0,
+        "first_two_attempts": [],
+        "obstruction_counts": [],
+        "pair": "input_C45",
+        "status": "ALREADY_CONNECTED"
+      },
+      {
+        "attempt_outcomes": {},
+        "attempted_paths": 0,
+        "first_two_attempts": [],
+        "obstruction_counts": [],
+        "pair": "output_pin_pair",
+        "status": "ALREADY_CONNECTED"
+      },
+      {
+        "accepted_prior_group_losses": [
+          {
+            "anchor": [
+              "C63",
+              "1",
+              -400000,
+              0
+            ],
+            "missing": [
+              [
+                "C40",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C41",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C44",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C45",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C54",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "SW2",
+                "2",
+                0,
+                1200000
+              ],
+              [
+                "U36",
+                "4",
+                -740000,
+                -750000
+              ],
+              [
+                "U37",
+                "1",
+                -1500000,
+                1400000
+              ],
+              [
+                "U37",
+                "10",
+                500000,
+                -1400000
+              ],
+              [
+                "U37",
+                "11",
+                0,
+                -1400000
+              ],
+              [
+                "U41",
+                "10",
+                1400000,
+                -250000
+              ],
+              [
+                "U41",
+                "11",
+                1400000,
+                250000
+              ]
+            ]
+          },
+          {
+            "anchor": [
+              "R10",
+              "1",
+              -500000,
+              0
+            ],
+            "missing": [
+              [
+                "C46",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C47",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C48",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C49",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "U37",
+                "4",
+                0,
+                1400000
+              ],
+              [
+                "U37",
+                "5",
+                500000,
+                1400000
+              ]
+            ]
+          }
+        ],
+        "attempt_outcomes": {
+          "ACCEPTED_PRIVATE_LOCAL_JOIN": 1
+        },
+        "attempted_paths": 1,
+        "first_two_attempts": [
+          {
+            "length_mm": 1.4508618128546908,
+            "points_iu": [
+              [
+                45500000,
+                18900000
+              ],
+              [
+                45450000,
+                20350000
+              ]
+            ],
+            "status": "ACCEPTED_PRIVATE_LOCAL_JOIN"
+          }
+        ],
+        "native_opens": 61,
+        "net": "VLED",
+        "obstruction_counts": [],
+        "pair": "output_C46",
+        "status": "LOCAL_JOIN",
+        "tracks": [
+          [
+            "track",
+            "VLED",
+            45500000,
+            18900000,
+            45450000,
+            20350000,
+            "B.Cu",
+            200000
+          ]
+        ]
+      },
+      {
+        "attempt_outcomes": {},
+        "attempted_paths": 0,
+        "first_two_attempts": [],
+        "obstruction_counts": [],
+        "pair": "output_C47",
+        "status": "ALREADY_CONNECTED"
+      },
+      {
+        "attempt_outcomes": {},
+        "attempted_paths": 0,
+        "first_two_attempts": [],
+        "obstruction_counts": [],
+        "pair": "output_C48_C49",
+        "status": "ALREADY_CONNECTED"
+      },
+      {
+        "attempt_outcomes": {},
+        "attempted_paths": 0,
+        "first_two_attempts": [],
+        "obstruction_counts": [],
+        "pair": "output_divider_top",
+        "status": "ALREADY_CONNECTED"
+      },
+      {
+        "accepted_prior_group_losses": [
+          {
+            "anchor": [
+              "C63",
+              "1",
+              -400000,
+              0
+            ],
+            "missing": [
+              [
+                "C40",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C41",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C44",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C45",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C54",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "SW2",
+                "2",
+                0,
+                1200000
+              ],
+              [
+                "U36",
+                "4",
+                -740000,
+                -750000
+              ],
+              [
+                "U37",
+                "1",
+                -1500000,
+                1400000
+              ],
+              [
+                "U37",
+                "10",
+                500000,
+                -1400000
+              ],
+              [
+                "U37",
+                "11",
+                0,
+                -1400000
+              ],
+              [
+                "U41",
+                "10",
+                1400000,
+                -250000
+              ],
+              [
+                "U41",
+                "11",
+                1400000,
+                250000
+              ]
+            ]
+          },
+          {
+            "anchor": [
+              "R10",
+              "1",
+              -500000,
+              0
+            ],
+            "missing": [
+              [
+                "C46",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C47",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C48",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C49",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "U37",
+                "4",
+                0,
+                1400000
+              ],
+              [
+                "U37",
+                "5",
+                500000,
+                1400000
+              ]
+            ]
+          }
+        ],
+        "attempt_outcomes": {
+          "FOREIGN_NET_BLOCKED": 1,
+          "LENGTH_BOUND": 285
+        },
+        "attempted_paths": 286,
+        "first_two_attempts": [
+          {
+            "blockers": [
+              "[\"pad\", \"C47\", \"2\", 800000, 0]"
+            ],
+            "length_mm": 4.966386724772952,
+            "points_iu": [
+              [
+                47000000,
+                20350000
+              ],
+              [
+                51750000,
+                18900001
+              ]
+            ],
+            "status": "FOREIGN_NET_BLOCKED"
+          },
+          {
+            "length_mm": 6.199999,
+            "points_iu": [
+              [
+                47000000,
+                20350000
+              ],
+              [
+                47000000,
+                18900001
+              ],
+              [
+                51750000,
+                18900001
+              ]
+            ],
+            "status": "LENGTH_BOUND"
+          }
+        ],
+        "native_opens": 61,
+        "net": "VLED",
+        "obstruction_counts": [
+          {
+            "obstacle": [
+              "pad",
+              "C47",
+              "2",
+              800000,
+              0
+            ],
+            "paths": 1
+          }
+        ],
+        "pair": "output_cap_banks",
+        "status": "NO_PATH_IN_FINITE_SCREEN",
+        "tracks": []
+      },
+      {
+        "attempt_outcomes": {},
+        "attempted_paths": 0,
+        "first_two_attempts": [],
+        "obstruction_counts": [],
+        "pair": "feedback_midpoint",
+        "status": "ALREADY_CONNECTED"
+      },
+      {
+        "attempt_outcomes": {},
+        "attempted_paths": 0,
+        "first_two_attempts": [],
+        "obstruction_counts": [],
+        "pair": "feedback_bottom",
+        "status": "ALREADY_CONNECTED"
+      },
+      {
+        "accepted_prior_group_losses": [
+          {
+            "anchor": [
+              "C63",
+              "1",
+              -400000,
+              0
+            ],
+            "missing": [
+              [
+                "C40",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C41",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C44",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C45",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C54",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "SW2",
+                "2",
+                0,
+                1200000
+              ],
+              [
+                "U36",
+                "4",
+                -740000,
+                -750000
+              ],
+              [
+                "U37",
+                "1",
+                -1500000,
+                1400000
+              ],
+              [
+                "U37",
+                "10",
+                500000,
+                -1400000
+              ],
+              [
+                "U37",
+                "11",
+                0,
+                -1400000
+              ],
+              [
+                "U41",
+                "10",
+                1400000,
+                -250000
+              ],
+              [
+                "U41",
+                "11",
+                1400000,
+                250000
+              ]
+            ]
+          },
+          {
+            "anchor": [
+              "R10",
+              "1",
+              -500000,
+              0
+            ],
+            "missing": [
+              [
+                "C46",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C47",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C48",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C49",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "U37",
+                "4",
+                0,
+                1400000
+              ],
+              [
+                "U37",
+                "5",
+                500000,
+                1400000
+              ]
+            ]
+          }
+        ],
+        "attempt_outcomes": {
+          "FOREIGN_NET_BLOCKED": 108,
+          "LENGTH_BOUND": 144
+        },
+        "attempted_paths": 252,
+        "first_two_attempts": [
+          {
+            "blockers": [
+              "[\"copper\", \"track\", \"VLED\", 45450000, 20350000, 45500000, 20350000, \"B.Cu\", 200000]",
+              "[\"copper\", \"track\", \"VLED\", 45500000, 18900000, 45450000, 20350000, \"B.Cu\", 200000]",
+              "[\"copper\", \"track\", \"VLED\", 45500000, 20350000, 47000000, 20350000, \"B.Cu\", 200000]",
+              "[\"pad\", \"C46\", \"1\", -800000, 0]",
+              "[\"pad\", \"C47\", \"1\", -800000, 0]",
+              "[\"pad\", \"U37\", \"4\", 0, 1400000]"
+            ],
+            "length_mm": 3.2867156859089595,
+            "points_iu": [
+              [
+                45000000,
+                18900000
+              ],
+              [
+                46800000,
+                21650000
+              ]
+            ],
+            "status": "FOREIGN_NET_BLOCKED"
+          },
+          {
+            "blockers": [
+              "[\"copper\", \"track\", \"Net-(L2-~-Pad2)\", 46500000, 18900000, 47000000, 18900000, \"B.Cu\", 200000]",
+              "[\"copper\", \"track\", \"Net-(L2-~-Pad2)\", 47000000, 18900000, 49150000, 18900000, \"B.Cu\", 200000]",
+              "[\"copper\", \"track\", \"VLED\", 45500000, 18900000, 45450000, 20350000, \"B.Cu\", 200000]",
+              "[\"copper\", \"track\", \"VLED\", 45500000, 18900000, 45550000, 18900000, \"B.Cu\", 200000]",
+              "[\"copper\", \"track\", \"VLED\", 45500000, 20350000, 47000000, 20350000, \"B.Cu\", 200000]",
+              "[\"copper\", \"track\", \"VLED\", 45550000, 18900000, 46000000, 18900000, \"B.Cu\", 200000]",
+              "[\"pad\", \"C47\", \"1\", -800000, 0]",
+              "[\"pad\", \"U37\", \"4\", 0, 1400000]",
+              "[\"pad\", \"U37\", \"5\", 500000, 1400000]",
+              "[\"pad\", \"U37\", \"6\", 1000000, 1400000]",
+              "[\"pad\", \"U37\", \"7\", 1500000, 1400000]"
+            ],
+            "length_mm": 4.55,
+            "points_iu": [
+              [
+                45000000,
+                18900000
+              ],
+              [
+                45000000,
+                18950000
+              ],
+              [
+                46800000,
+                18950000
+              ],
+              [
+                46800000,
+                21650000
+              ]
+            ],
+            "status": "FOREIGN_NET_BLOCKED"
+          }
+        ],
+        "native_opens": 61,
+        "net": "VLED_FB",
+        "obstruction_counts": [
+          {
+            "obstacle": [
+              "copper",
+              "track",
+              "VLED",
+              45500000,
+              18900000,
+              45450000,
+              20350000,
+              "B.Cu",
+              200000
+            ],
+            "paths": 80
+          },
+          {
+            "obstacle": [
+              "copper",
+              "track",
+              "VLED",
+              45500000,
+              20350000,
+              47000000,
+              20350000,
+              "B.Cu",
+              200000
+            ],
+            "paths": 79
+          },
+          {
+            "obstacle": [
+              "pad",
+              "C46",
+              "1",
+              -800000,
+              0
+            ],
+            "paths": 73
+          },
+          {
+            "obstacle": [
+              "pad",
+              "C47",
+              "1",
+              -800000,
+              0
+            ],
+            "paths": 63
+          },
+          {
+            "obstacle": [
+              "pad",
+              "U37",
+              "4",
+              0,
+              1400000
+            ],
+            "paths": 55
+          },
+          {
+            "obstacle": [
+              "copper",
+              "track",
+              "VLED",
+              45500000,
+              18900000,
+              45550000,
+              18900000,
+              "B.Cu",
+              200000
+            ],
+            "paths": 49
+          },
+          {
+            "obstacle": [
+              "copper",
+              "track",
+              "VLED",
+              45550000,
+              18900000,
+              46000000,
+              18900000,
+              "B.Cu",
+              200000
+            ],
+            "paths": 48
+          },
+          {
+            "obstacle": [
+              "pad",
+              "R86",
+              "2",
+              500000,
+              0
+            ],
+            "paths": 45
+          },
+          {
+            "obstacle": [
+              "pad",
+              "U37",
+              "5",
+              500000,
+              1400000
+            ],
+            "paths": 44
+          },
+          {
+            "obstacle": [
+              "pad",
+              "U37",
+              "6",
+              1000000,
+              1400000
+            ],
+            "paths": 34
+          },
+          {
+            "obstacle": [
+              "copper",
+              "track",
+              "VLED",
+              45450000,
+              20350000,
+              45500000,
+              20350000,
+              "B.Cu",
+              200000
+            ],
+            "paths": 32
+          },
+          {
+            "obstacle": [
+              "copper",
+              "track",
+              "Net-(L2-~-Pad2)",
+              46500000,
+              18900000,
+              47000000,
+              18900000,
+              "B.Cu",
+              200000
+            ],
+            "paths": 29
+          },
+          {
+            "obstacle": [
+              "pad",
+              "U37",
+              "7",
+              1500000,
+              1400000
+            ],
+            "paths": 23
+          },
+          {
+            "obstacle": [
+              "copper",
+              "track",
+              "Net-(L2-~-Pad2)",
+              47000000,
+              18900000,
+              49150000,
+              18900000,
+              "B.Cu",
+              200000
+            ],
+            "paths": 18
+          },
+          {
+            "obstacle": [
+              "pad",
+              "C63",
+              "2",
+              400000,
+              0
+            ],
+            "paths": 17
+          },
+          {
+            "obstacle": [
+              "pad",
+              "U37",
+              "2",
+              -1000000,
+              1400000
+            ],
+            "paths": 3
+          }
+        ],
+        "pair": "feedback_IC",
+        "status": "NO_PATH_IN_FINITE_SCREEN",
+        "tracks": []
+      },
+      {
+        "attempt_outcomes": {},
+        "attempted_paths": 0,
+        "first_two_attempts": [],
+        "obstruction_counts": [],
+        "pair": "enable_pulldown",
+        "status": "ALREADY_CONNECTED"
+      },
+      {
+        "accepted_prior_group_losses": [
+          {
+            "anchor": [
+              "C63",
+              "1",
+              -400000,
+              0
+            ],
+            "missing": [
+              [
+                "C40",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C41",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C44",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C45",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C54",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "SW2",
+                "2",
+                0,
+                1200000
+              ],
+              [
+                "U36",
+                "4",
+                -740000,
+                -750000
+              ],
+              [
+                "U37",
+                "10",
+                500000,
+                -1400000
+              ],
+              [
+                "U37",
+                "11",
+                0,
+                -1400000
+              ],
+              [
+                "U41",
+                "10",
+                1400000,
+                -250000
+              ],
+              [
+                "U41",
+                "11",
+                1400000,
+                250000
+              ]
+            ]
+          },
+          {
+            "anchor": [
+              "R10",
+              "1",
+              -500000,
+              0
+            ],
+            "missing": [
+              [
+                "C46",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C47",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C48",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "C49",
+                "1",
+                -800000,
+                0
+              ],
+              [
+                "U37",
+                "4",
+                0,
+                1400000
+              ],
+              [
+                "U37",
+                "5",
+                500000,
+                1400000
+              ]
+            ]
+          }
+        ],
+        "attempt_outcomes": {
+          "ACCEPTED_PRIVATE_LOCAL_JOIN": 1,
+          "FOREIGN_NET_BLOCKED": 109
+        },
+        "attempted_paths": 110,
+        "first_two_attempts": [
+          {
+            "blockers": [
+              "[\"pad\", \"C46\", \"2\", 800000, 0]"
+            ],
+            "length_mm": 2.7613402542968153,
+            "points_iu": [
+              [
+                44000000,
+                18900000
+              ],
+              [
+                43750000,
+                21650000
+              ]
+            ],
+            "status": "FOREIGN_NET_BLOCKED"
+          },
+          {
+            "blockers": [
+              "[\"pad\", \"C46\", \"2\", 800000, 0]"
+            ],
+            "length_mm": 3.0,
+            "points_iu": [
+              [
+                44000000,
+                18900000
+              ],
+              [
+                43750000,
+                18900000
+              ],
+              [
+                43750000,
+                21650000
+              ]
+            ],
+            "status": "FOREIGN_NET_BLOCKED"
+          }
+        ],
+        "native_opens": 60,
+        "net": "+SYS_APP_IN_DRAFT",
+        "obstruction_counts": [
+          {
+            "obstacle": [
+              "pad",
+              "C46",
+              "2",
+              800000,
+              0
+            ],
+            "paths": 108
+          },
+          {
+            "obstacle": [
+              "pad",
+              "C63",
+              "2",
+              400000,
+              0
+            ],
+            "paths": 11
+          },
+          {
+            "obstacle": [
+              "pad",
+              "U37",
+              "2",
+              -1000000,
+              1400000
+            ],
+            "paths": 11
+          },
+          {
+            "obstacle": [
+              "pad",
+              "U37",
+              "15",
+              -1812500,
+              690000
+            ],
+            "paths": 6
+          },
+          {
+            "obstacle": [
+              "pad",
+              "U37",
+              "15",
+              0,
+              0
+            ],
+            "paths": 6
+          },
+          {
+            "obstacle": [
+              "copper",
+              "track",
+              "USB_RAW_OUT2",
+              36600000,
+              22400000,
+              62900000,
+              22400000,
+              "B.Cu",
+              200000
+            ],
+            "paths": 5
+          },
+          {
+            "obstacle": [
+              "pad",
+              "U37",
+              "3",
+              -500000,
+              1400000
+            ],
+            "paths": 1
+          }
+        ],
+        "pair": "VINA_bypass",
+        "status": "LOCAL_JOIN",
+        "tracks": [
+          [
+            "track",
+            "+SYS_APP_IN_DRAFT",
+            44000000,
+            18900000,
+            43100000,
+            18900000,
+            "B.Cu",
+            200000
+          ],
+          [
+            "track",
+            "+SYS_APP_IN_DRAFT",
+            43100000,
+            18900000,
+            43100000,
+            21650000,
+            "B.Cu",
+            200000
+          ],
+          [
+            "track",
+            "+SYS_APP_IN_DRAFT",
+            43100000,
+            21650000,
+            43750000,
+            21650000,
+            "B.Cu",
+            200000
+          ]
+        ]
+      }
+    ],
+    "source_sha256": "7b57b76c9f687a606f57cf43bbef41236b5fb72083fa660c84841c3624a2ab6a",
+    "status": "UNSELECTED_FINITE_LOCAL_STAGE_B_CU_SCREEN_NOT_OLD_GROUP_RESTORATION",
+    "tool_sha256": "cee58b15d2bf38fba80d184130b24f0fdc61db6352f2be45ac63d176a5d1c2e4",
+    "track_length_mm_by_net": {
+      "+SYS_APP_IN_DRAFT": 4.3,
+      "VLED": 1.4508618128546908,
+      "VLED_FB": 0.0
+    }
+  },
+  "raw_evidence": [
+    "hardware/coupon/rev-a/build/vled-local-stage-2026-11-01",
+    "hardware/coupon/rev-a/build/vled-uart-transfer-2026-11-01"
+  ],
+  "uart_transfer": {
+    "added_copper": [
+      [
+        "via",
+        "UART0_TX",
+        31050000,
+        19500000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      [
+        "track",
+        "UART0_TX",
+        31050000,
+        19500000,
+        31100000,
+        19500000,
+        "In4.Cu",
+        200000
+      ],
+      [
+        "track",
+        "UART0_TX",
+        31100000,
+        19500000,
+        47700000,
+        19500000,
+        "In4.Cu",
+        200000
+      ]
+    ],
+    "all_current_groups_preserved": 247,
+    "attempts": [
+      {
+        "length_mm": 16.65,
+        "points": [
+          [
+            31050000,
+            19500000
+          ],
+          [
+            31100000,
+            19500000
+          ],
+          [
+            47700000,
+            19500000
+          ]
+        ],
+        "status": "RESTORED_ALL_CURRENT_GROUPS"
+      }
+    ],
+    "board_sha256": "7b57b76c9f687a606f57cf43bbef41236b5fb72083fa660c84841c3624a2ab6a",
+    "fabrication_release_allowed": false,
+    "fixed_left_via_blockers": [],
+    "input_sha256": "f8b103cea1733b59a240996cf33bdb875a5d342956e4370b13af3c8723d5c3c1",
+    "native_opens": 62,
+    "removed_copper": [
+      [
+        "track",
+        "UART0_TX",
+        31050000,
+        19500000,
+        47700000,
+        19500000,
+        "B.Cu",
+        120000
+      ],
+      [
+        "via",
+        "UART0_TX",
+        47700000,
+        19500000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ]
+    ],
+    "status": "IGNORED_EXACT_TRANSFER_FOUND"
+  }
+}

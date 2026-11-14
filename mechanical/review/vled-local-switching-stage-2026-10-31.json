@@ -1,0 +1,715 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_tracks": 6,
+  "all_source_copper_retained": true,
+  "board_sha256": "1b50456d58c23e7582a043dc59185ee79a1699c44f7b7693eb3f1b0c58beb49e",
+  "courtyard_blockers": [],
+  "direct_routes_clear": true,
+  "fabrication_release_allowed": false,
+  "fills": [
+    {
+      "fill": 1,
+      "lost_prior_groups": [
+        {
+          "missing_old_members": [
+            [
+              "C40",
+              "1",
+              -800000,
+              0
+            ],
+            [
+              "C41",
+              "1",
+              -800000,
+              0
+            ],
+            [
+              "C44",
+              "1",
+              -800000,
+              0
+            ],
+            [
+              "C45",
+              "1",
+              -800000,
+              0
+            ],
+            [
+              "C54",
+              "1",
+              -800000,
+              0
+            ],
+            [
+              "SW2",
+              "2",
+              0,
+              1200000
+            ],
+            [
+              "U36",
+              "4",
+              -740000,
+              -750000
+            ],
+            [
+              "U37",
+              "1",
+              -1500000,
+              1400000
+            ],
+            [
+              "U37",
+              "10",
+              500000,
+              -1400000
+            ],
+            [
+              "U37",
+              "11",
+              0,
+              -1400000
+            ],
+            [
+              "U41",
+              "10",
+              1400000,
+              -250000
+            ],
+            [
+              "U41",
+              "11",
+              1400000,
+              250000
+            ]
+          ],
+          "net": "+SYS_APP_IN_DRAFT",
+          "pad": [
+            "C63",
+            "1",
+            -400000,
+            0
+          ]
+        },
+        {
+          "missing_old_members": [
+            [
+              "C46",
+              "1",
+              -800000,
+              0
+            ],
+            [
+              "C47",
+              "1",
+              -800000,
+              0
+            ],
+            [
+              "C48",
+              "1",
+              -800000,
+              0
+            ],
+            [
+              "C49",
+              "1",
+              -800000,
+              0
+            ],
+            [
+              "U37",
+              "4",
+              0,
+              1400000
+            ],
+            [
+              "U37",
+              "5",
+              500000,
+              1400000
+            ]
+          ],
+          "net": "VLED",
+          "pad": [
+            "R10",
+            "1",
+            -500000,
+            0
+          ]
+        },
+        {
+          "missing_old_members": [
+            [
+              "R85",
+              "1",
+              -500000,
+              0
+            ]
+          ],
+          "net": "VLED_FB_TOP_MID",
+          "pad": [
+            "R84",
+            "2",
+            500000,
+            0
+          ]
+        }
+      ],
+      "native_opens": 72
+    },
+    {
+      "fill": 2,
+      "lost_prior_groups": [
+        {
+          "missing_old_members": [
+            [
+              "C40",
+              "1",
+              -800000,
+              0
+            ],
+            [
+              "C41",
+              "1",
+              -800000,
+              0
+            ],
+            [
+              "C44",
+              "1",
+              -800000,
+              0
+            ],
+            [
+              "C45",
+              "1",
+              -800000,
+              0
+            ],
+            [
+              "C54",
+              "1",
+              -800000,
+              0
+            ],
+            [
+              "SW2",
+              "2",
+              0,
+              1200000
+            ],
+            [
+              "U36",
+              "4",
+              -740000,
+              -750000
+            ],
+            [
+              "U37",
+              "1",
+              -1500000,
+              1400000
+            ],
+            [
+              "U37",
+              "10",
+              500000,
+              -1400000
+            ],
+            [
+              "U37",
+              "11",
+              0,
+              -1400000
+            ],
+            [
+              "U41",
+              "10",
+              1400000,
+              -250000
+            ],
+            [
+              "U41",
+              "11",
+              1400000,
+              250000
+            ]
+          ],
+          "net": "+SYS_APP_IN_DRAFT",
+          "pad": [
+            "C63",
+            "1",
+            -400000,
+            0
+          ]
+        },
+        {
+          "missing_old_members": [
+            [
+              "C46",
+              "1",
+              -800000,
+              0
+            ],
+            [
+              "C47",
+              "1",
+              -800000,
+              0
+            ],
+            [
+              "C48",
+              "1",
+              -800000,
+              0
+            ],
+            [
+              "C49",
+              "1",
+              -800000,
+              0
+            ],
+            [
+              "U37",
+              "4",
+              0,
+              1400000
+            ],
+            [
+              "U37",
+              "5",
+              500000,
+              1400000
+            ]
+          ],
+          "net": "VLED",
+          "pad": [
+            "R10",
+            "1",
+            -500000,
+            0
+          ]
+        },
+        {
+          "missing_old_members": [
+            [
+              "R85",
+              "1",
+              -500000,
+              0
+            ]
+          ],
+          "net": "VLED_FB_TOP_MID",
+          "pad": [
+            "R84",
+            "2",
+            500000,
+            0
+          ]
+        }
+      ],
+      "native_opens": 72
+    },
+    {
+      "fill": 3,
+      "lost_prior_groups": [
+        {
+          "missing_old_members": [
+            [
+              "C40",
+              "1",
+              -800000,
+              0
+            ],
+            [
+              "C41",
+              "1",
+              -800000,
+              0
+            ],
+            [
+              "C44",
+              "1",
+              -800000,
+              0
+            ],
+            [
+              "C45",
+              "1",
+              -800000,
+              0
+            ],
+            [
+              "C54",
+              "1",
+              -800000,
+              0
+            ],
+            [
+              "SW2",
+              "2",
+              0,
+              1200000
+            ],
+            [
+              "U36",
+              "4",
+              -740000,
+              -750000
+            ],
+            [
+              "U37",
+              "1",
+              -1500000,
+              1400000
+            ],
+            [
+              "U37",
+              "10",
+              500000,
+              -1400000
+            ],
+            [
+              "U37",
+              "11",
+              0,
+              -1400000
+            ],
+            [
+              "U41",
+              "10",
+              1400000,
+              -250000
+            ],
+            [
+              "U41",
+              "11",
+              1400000,
+              250000
+            ]
+          ],
+          "net": "+SYS_APP_IN_DRAFT",
+          "pad": [
+            "C63",
+            "1",
+            -400000,
+            0
+          ]
+        },
+        {
+          "missing_old_members": [
+            [
+              "C46",
+              "1",
+              -800000,
+              0
+            ],
+            [
+              "C47",
+              "1",
+              -800000,
+              0
+            ],
+            [
+              "C48",
+              "1",
+              -800000,
+              0
+            ],
+            [
+              "C49",
+              "1",
+              -800000,
+              0
+            ],
+            [
+              "U37",
+              "4",
+              0,
+              1400000
+            ],
+            [
+              "U37",
+              "5",
+              500000,
+              1400000
+            ]
+          ],
+          "net": "VLED",
+          "pad": [
+            "R10",
+            "1",
+            -500000,
+            0
+          ]
+        },
+        {
+          "missing_old_members": [
+            [
+              "R85",
+              "1",
+              -500000,
+              0
+            ]
+          ],
+          "net": "VLED_FB_TOP_MID",
+          "pad": [
+            "R84",
+            "2",
+            500000,
+            0
+          ]
+        }
+      ],
+      "native_opens": 72
+    }
+  ],
+  "kicad_version": "10.0.6",
+  "limitations": [
+    "No source retirement; vacated old copper may remain dangling",
+    "Earlier groups need restoration before any selection",
+    "0.20 mm geometry is not power-path current/thermal qualification",
+    "Capacitor, feedback, return and full-stage layout qualification remain open"
+  ],
+  "local_switching_pad_groups_connected": {
+    "1": true,
+    "2": true
+  },
+  "moved_pad_external_blockers": [],
+  "mutual_route_blockers": [],
+  "open_edges": {
+    "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+    "board": "hardware/coupon/rev-a/build/vled-switching-2026-10-31/stage/trial.kicad_pcb",
+    "board_sha256": "1b50456d58c23e7582a043dc59185ee79a1699c44f7b7693eb3f1b0c58beb49e",
+    "by_net": {
+      "+3V3_APP": 1,
+      "+3V3_USB": 1,
+      "+BAT_GAUGE_SW": 2,
+      "+SYS_APP_IN_DRAFT": 6,
+      "APP_3V3_FB": 1,
+      "APP_ON_SW_DRAFT": 2,
+      "CHARGER_EN2": 1,
+      "CHARGER_TS": 1,
+      "DISPLAY_CLEAR_3": 1,
+      "DISPLAY_CLEAR_OK": 2,
+      "DISPLAY_ENABLE": 1,
+      "DISPLAY_HEARTBEAT": 1,
+      "E1_ILM": 1,
+      "ESP_EN": 1,
+      "GND": 3,
+      "HEARTBEAT_FALL_CLK": 1,
+      "HEARTBEAT_SEEN": 1,
+      "LED_GCLK": 1,
+      "LED_IREF": 1,
+      "LED_LAT": 1,
+      "LED_SCLK": 1,
+      "Net-(U36-LX1)": 1,
+      "Net-(U36-LX2)": 1,
+      "ROW_ENABLE_N_CANDIDATE": 1,
+      "ROW_GATE_00": 1,
+      "ROW_GATE_02": 1,
+      "ROW_GATE_03": 1,
+      "ROW_GATE_04": 1,
+      "ROW_GATE_06": 1,
+      "ROW_GATE_07": 1,
+      "TEMP_OK": 1,
+      "TMP_COLD_SET": 1,
+      "USB_CC1": 1,
+      "USB_D+": 1,
+      "USB_D-": 1,
+      "USB_DN_MCU": 1,
+      "USB_DP_MCU": 1,
+      "USB_EN1_RAW_N": 1,
+      "USB_LOGIC_CT": 1,
+      "VBUS_CONNECTOR": 1,
+      "VLED": 14,
+      "VLED_ENABLE_CANDIDATE": 1,
+      "VLED_ENABLE_DRAFT": 1,
+      "VLED_FB": 2,
+      "VLED_FB_TOP_MID": 1
+    },
+    "interpretation": "Unconnected pad clusters minus one per net; no electrical or manufacturability qualification",
+    "native_open_edges": 72,
+    "pad_cluster_open_edges": 69
+  },
+  "poses": {
+    "C44": {
+      "angle_deg": 180.0,
+      "position_iu": [
+        44650000,
+        14650001
+      ]
+    },
+    "C45": {
+      "angle_deg": -0.0,
+      "position_iu": [
+        47800000,
+        14650001
+      ]
+    },
+    "C46": {
+      "angle_deg": 180.0,
+      "position_iu": [
+        44650000,
+        20350000
+      ]
+    },
+    "C47": {
+      "angle_deg": -0.0,
+      "position_iu": [
+        47800000,
+        20350000
+      ]
+    },
+    "C48": {
+      "angle_deg": -0.0,
+      "position_iu": [
+        52500000,
+        20350000
+      ]
+    },
+    "C49": {
+      "angle_deg": -0.0,
+      "position_iu": [
+        52550000,
+        18900001
+      ]
+    },
+    "C63": {
+      "angle_deg": -0.0,
+      "position_iu": [
+        44150000,
+        21650000
+      ]
+    },
+    "L2": {
+      "angle_deg": -90.0,
+      "position_iu": [
+        49550000,
+        17500000
+      ]
+    },
+    "R84": {
+      "angle_deg": 180.0,
+      "position_iu": [
+        50600000,
+        21650000
+      ]
+    },
+    "R85": {
+      "angle_deg": 180.0,
+      "position_iu": [
+        48450000,
+        21650000
+      ]
+    },
+    "R86": {
+      "angle_deg": 180.0,
+      "position_iu": [
+        46300000,
+        21650000
+      ]
+    },
+    "R87": {
+      "angle_deg": 180.0,
+      "position_iu": [
+        44150000,
+        13350000
+      ]
+    },
+    "U37": {
+      "angle_deg": -0.0,
+      "position_iu": [
+        45500000,
+        17500000
+      ]
+    }
+  },
+  "routes": [
+    {
+      "external_blockers": [],
+      "net": "Net-(L2-~-Pad1)",
+      "pad_terminal": "1",
+      "track_length_mm": 3.215685424949238,
+      "tracks": [
+        [
+          "track",
+          "Net-(L2-~-Pad1)",
+          46500000,
+          16100000,
+          47000000,
+          16100000,
+          "B.Cu",
+          200000
+        ],
+        [
+          "track",
+          "Net-(L2-~-Pad1)",
+          47000000,
+          16100000,
+          49150000,
+          16100000,
+          "B.Cu",
+          200000
+        ],
+        [
+          "track",
+          "Net-(L2-~-Pad1)",
+          49150000,
+          16100000,
+          49550000,
+          16500000,
+          "B.Cu",
+          200000
+        ]
+      ]
+    },
+    {
+      "external_blockers": [],
+      "net": "Net-(L2-~-Pad2)",
+      "pad_terminal": "2",
+      "track_length_mm": 3.215685424949238,
+      "tracks": [
+        [
+          "track",
+          "Net-(L2-~-Pad2)",
+          46500000,
+          18900000,
+          47000000,
+          18900000,
+          "B.Cu",
+          200000
+        ],
+        [
+          "track",
+          "Net-(L2-~-Pad2)",
+          47000000,
+          18900000,
+          49150000,
+          18900000,
+          "B.Cu",
+          200000
+        ],
+        [
+          "track",
+          "Net-(L2-~-Pad2)",
+          49150000,
+          18900000,
+          49550000,
+          18500000,
+          "B.Cu",
+          200000
+        ]
+      ]
+    }
+  ],
+  "scope": "stage",
+  "seed_sha256": "6b2e6d000ba8d6b47e9be789cd501bd474891ba230dfeec0b6a16b76745d9f7d",
+  "source_sha256": "3451177253a021d8706ff818696212afabf539a108f15ef9e5d6921e46435acc",
+  "source_unchanged": true,
+  "status": "UNSELECTED_LOCAL_VLED_SWITCHING_GEOMETRY_NOT_POWER_STAGE_ACCEPTANCE",
+  "tool_sha256": "3da0789aadf9af06cd40dbf7c4a195c5241346147cb5b51c73fc32f504b22293"
+}

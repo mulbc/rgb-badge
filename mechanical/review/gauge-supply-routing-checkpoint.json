@@ -1,0 +1,271 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_track_length_mm": 39.5609712500349,
+  "additions": 114,
+  "board_sha256": "14f0c49582063bab84ea685a8cec798011eb4cd66389b085a3a47777180a13ce",
+  "date": "2026-11-12",
+  "drc_sha256": "c78be68ac1e10ab01e65146106cfabfb99d31863f418d4bca037a26717368f43",
+  "fabrication_release_allowed": false,
+  "firmware_revision": "not involved; no bench measurements",
+  "gauge_device_supply_still_isolated": true,
+  "gauge_joined_pads": 6,
+  "hardware": "Coupon Rev A, unbuilt",
+  "ignored_evidence_sha256": {
+    "hardware/coupon/rev-a/build/gauge-supply-routing/current-audit.json": "a194e49daf52e34dc34ba564f2ccc917edaf5988424d4bfb443cb69834693342",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/current-drc.json": "c78be68ac1e10ab01e65146106cfabfb99d31863f418d4bca037a26717368f43",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/faults/results.json": "911dc533250e4ec6344abcf9939ff6cfc694dae9066ab11f8c7efeaa95a249f9",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/full-check.log": "a65bd608b423456443345ea7fd40242684b396f59859371a8a5f072370aa1dba",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/probe-fill-equality.py": "d4c209f2001bc3b1e88484516000b344c53e8544880b354f41da4d1700f118ce",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/removed-additions-drc.json": "38fecbaaafc53dde7a3a9a648c801d6ad49a374ef2ac1bcd5fffbe6ce266e1ef",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/replay-a.kicad_pcb": "14f0c49582063bab84ea685a8cec798011eb4cd66389b085a3a47777180a13ce",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/replay-b.kicad_pcb": "14f0c49582063bab84ea685a8cec798011eb4cd66389b085a3a47777180a13ce",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/source-checks.json": "0d6fec06c280c5026ec7178780290497ff9b88e3cfd3d62847146a0a6d519199"
+  },
+  "independent_byte_identical_replays": 2,
+  "intrinsic_findings": 104,
+  "limitations": [
+    "33 opens remain",
+    "U35.2/3 supply remains isolated",
+    "No current, protection, firmware or enable-boundary change",
+    "CAD continuity does not qualify current capacity, voltage drop, return or bus behaviour",
+    "Controlled stack, 557 historical centre microvias, electrical/thermal/process/fit and independent Gate A remain open"
+  ],
+  "local_source_workflow_checks": [
+    {
+      "command": "python3 tools/check-coupon-study-contract.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-rse-pin-migration-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-usb-en1-routing-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-gauge-supply-routing-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb --legacy-land-study --legacy-switch-study",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-routing-progress-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-converter-checkpoint-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-u36-stage-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-routing-closure-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-switch-routing-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-remaining-routing-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-remaining-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-switch-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-routing-closure-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-u36-stage-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_rse_pin_contract.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/test-routing-group-targets.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/test-converter-review-calculations.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/test-hdi-stack-policy.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-converter-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-c32-land-candidate.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_c32_land_candidate.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_murata_catalogue_lands.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_convex_geometry.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_supply_join.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_slide_switch_library.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_progress_plan.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_coupon_study_contract.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_goal_distance.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_native_route_paths.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_clearance.py -v",
+      "exit_code": 0
+    }
+  ],
+  "manufacturer_reference": {
+    "ignored_path": "hardware/coupon/rev-a/reference/vendor-datasheets/tca9517a.pdf",
+    "reviewed_page": 4,
+    "revision": "SCPS245E, October 2025",
+    "sha256": "ad2d7dc5994583006aa21b67ee9f18507a2698ad9366285dff56816f065790c6",
+    "url": "https://www.ti.com/lit/ds/symlink/tca9517a.pdf"
+  },
+  "native_fault_rejections": [
+    {
+      "exit_code": 0,
+      "fault": "wrong-part"
+    },
+    {
+      "exit_code": 0,
+      "fault": "wrong-net"
+    },
+    {
+      "exit_code": 0,
+      "fault": "move-part"
+    },
+    {
+      "exit_code": 0,
+      "fault": "retire-source"
+    },
+    {
+      "exit_code": 0,
+      "fault": "narrow-track"
+    },
+    {
+      "exit_code": 0,
+      "fault": "extra-track"
+    },
+    {
+      "exit_code": 0,
+      "fault": "wrong-via-type"
+    },
+    {
+      "exit_code": 0,
+      "fault": "wrong-via-drill"
+    },
+    {
+      "exit_code": 0,
+      "fault": "omit-contacts"
+    },
+    {
+      "exit_code": 0,
+      "fault": "disconnect-longest-track"
+    },
+    {
+      "exit_code": 0,
+      "fault": "remove-whole-join"
+    }
+  ],
+  "native_opens": 33,
+  "net_count": 188,
+  "new_vias": 9,
+  "physical_groups": 221,
+  "physical_opens": 33,
+  "plan_sha256": "4db2e9fffd9e4387d5149bb266a9cf507a115e06d0510b0f866e8c3128b33d44",
+  "prior_groups_preserved": 222,
+  "removal_probe_exact104": true,
+  "removal_probe_exact_integer_fill_xor_empty": [
+    "81b0abb6-bbba-5f7c-9599-18e6b0c72e0e",
+    "566adf1a-30fb-5b01-a217-ee87a01be9a9",
+    "5bba12ef-077c-5854-bc36-f3c0f0aec6c2",
+    "de293b84-4ac9-56e5-adda-363e58b4a9d2",
+    "52361cb6-e447-5a7a-8fab-433f1b57c9c9",
+    "c682ee16-0992-5842-bc59-f74f9def9083",
+    "3e9ab31e-6f61-56f6-bb4e-6d0f8c98c74a",
+    "626b02a6-8846-59f7-b7df-a75c78241fe0",
+    "d2173c7d-2262-5c12-89e8-acf8c24a80a7"
+  ],
+  "removal_probe_hashes": [
+    "475817a5227125d9c66787cb57aa14f2aaf1bacf7d7c46e8387e3d72caf53d2e",
+    "475817a5227125d9c66787cb57aa14f2aaf1bacf7d7c46e8387e3d72caf53d2e",
+    "475817a5227125d9c66787cb57aa14f2aaf1bacf7d7c46e8387e3d72caf53d2e"
+  ],
+  "removal_probe_parent_bytes_equal": false,
+  "removal_probe_parent_groups_equal": true,
+  "source_copper_items_preserved": 19064,
+  "source_sha256": "92f942e46281475cbdadf6e9a0ad7a0d531e38c3032f85a4206bbf9e9bc1fccd",
+  "stable_refills_per_replay": 3,
+  "status": "SELECTED_CAD_CONTINUITY_ONLY",
+  "tracked_file_sha256": {
+    ".github/workflows/host-software.yml": "b56ad756251023e47a205d03cd8aba3d15929799332182323821e69dc0b0f736",
+    "hardware/coupon/rev-a/staging/led-gauge-routing-trial-114mm.kicad_dru": "80c92b0cdef868dd0ef0037aa2f63d1266f709a2dd0326094735c75ffbd31a2e",
+    "hardware/coupon/rev-a/staging/led-gauge-routing-trial-114mm.kicad_pcb": "14f0c49582063bab84ea685a8cec798011eb4cd66389b085a3a47777180a13ce",
+    "hardware/coupon/rev-a/staging/led-gauge-routing-trial-114mm.kicad_pro": "1141b004ecffd1e7e8e0c30cf21aeae7ce6381093df674998133d226ab9c27fb",
+    "mechanical/review/gauge-supply-routing-plan.json": "4db2e9fffd9e4387d5149bb266a9cf507a115e06d0510b0f866e8c3128b33d44",
+    "tools/check-coupon-study-contract.py": "5caf15b53d9aeed256ca584bc67ee3c764fbc122d78e00caf06f7a80aed1d575",
+    "tools/check-gauge-supply-routing-plan.py": "f047c300933c87b76b3d8d05aa1c1db4bc78e991706e65579d84e6e4567faca3",
+    "tools/check-gauge-supply-routing.py": "8a59a61625fb832d798ffea4c284805b2f21e023218ead5e669b7c0914fa16af",
+    "tools/check-gauge-supply-routing.sh": "07a9ee056f25d427c4ceca69841f6c2f8b7138da36eeccc858c3176cb3252a4e",
+    "tools/check-routing-progress.sh": "54bcf76a6e3bbd2b9addb8d78ad211a656248c6f61a47546b3e4bf83db19f595",
+    "tools/generate-gauge-supply-routing.py": "9d06b6425c8534f20983d70f948b835391319e817d01c826d0774a0140f8aedb",
+    "tools/routing_gauge_supply.py": "2cd7444224009030b3344ddb8b4d557020d68e0b02ab1439392e98b855a5c8f3",
+    "tools/test-gauge-supply-routing-guards.py": "c8f8b3cd695de82311fcaf6c4707b487e0890cd496e598b0217462c5280868a8"
+  },
+  "visually_inspected_ignored_views_sha256": {
+    "hardware/coupon/rev-a/build/gauge-supply-routing/views/native-new/review-led-gauge-routing-trial-114mm-B_Cu.png": "e4e86c3c53535e614682e2c38df82e00a3c0cfba50ccc0d561e784aaa4b1b36d",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/views/native-new/review-led-gauge-routing-trial-114mm-In2_Cu.png": "e72b57e8444e158ea43dda8595afa6d27fcf64df5d87ef4fb6f97a63b8e96743",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/views/native-new/review-led-gauge-routing-trial-114mm-In3_Cu.png": "18fb98ef61078ac462733ae8e1a5f5df1774e235ab4314ad4b5edfbca6275aeb",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/views/native-new/review-led-gauge-routing-trial-114mm-In4_Cu.png": "1f7f069585c6e5dd0e11401f632d790414d3b6e86480a5eaa33fabde4a7996e3",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/views/native-old/review-led-usb-en1-routing-trial-114mm-B_Cu.png": "b22f987b47caa06ce9af04ae7848e4ff258600aed1489f2bc0dbc98926c165b5",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/views/native-old/review-led-usb-en1-routing-trial-114mm-In2_Cu.png": "dc99d4aa87e48e6f32cfe56a3a713141f87f6ca6ce168b61d0f9fbc92633544f",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/views/native-old/review-led-usb-en1-routing-trial-114mm-In3_Cu.png": "19348cc35463f65a5af645f618cf367833e57615d0625936b1ec2c075ed5a4e9",
+    "hardware/coupon/rev-a/build/gauge-supply-routing/views/native-old/review-led-usb-en1-routing-trial-114mm-In4_Cu.png": "97bb7852c6a4bd5e4e74356ab85be327b4583fabad2603be36b6e85b4bc92c99"
+  }
+}

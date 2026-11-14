@@ -1,0 +1,95 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "accepted_join": {
+    "anchor": [
+      "R80",
+      "2"
+    ],
+    "net": "SYS_I2C_SCL",
+    "source": [
+      "U3",
+      "11"
+    ]
+  },
+  "added_adjacent_layer_microvias": 3,
+  "added_tracks": 4,
+  "all_previous_physical_pad_groups_preserved": true,
+  "application_clock_open_edges": 0,
+  "gauge_followups": [
+    {
+      "candidate": "gauge-sda-in4",
+      "decision": "REJECTED",
+      "drc_sha256": "a5ba24a6ed448b14971a718cb009f8f5fc291bd390be0b1aa0b4eb29c110e4b4",
+      "extra_drc_findings": 18,
+      "native_drc_findings": 122,
+      "native_opens": 228,
+      "old_pad_groups_preserved": true
+    },
+    {
+      "candidate": "gauge-scl-in4",
+      "decision": "REJECTED",
+      "drc_sha256": "a398828361034846a2dcd7eb512a5a39986eeabc6a7c934d69188e8349ede2c1",
+      "extra_drc_findings": 6,
+      "native_drc_findings": 110,
+      "native_opens": 228,
+      "old_pad_groups_preserved": true
+    },
+    {
+      "candidate": "gauge-sda-in2",
+      "decision": "REJECTED",
+      "drc_sha256": "8ee02a035bcce6709e70484d1dd38311d7c0400f2e450c82dc85b22819b0a8fc",
+      "extra_drc_findings": 7,
+      "native_drc_findings": 111,
+      "native_opens": 228,
+      "old_pad_groups_preserved": true
+    },
+    {
+      "candidate": "gauge-scl-in2",
+      "decision": "REJECTED",
+      "drc_sha256": "73136baa9da88aadb395d0a89a85d2c879ae7f61d098407053a323ab9a816d6a",
+      "extra_drc_findings": 20,
+      "native_drc_findings": 124,
+      "native_opens": 229,
+      "old_pad_groups_preserved": false
+    }
+  ],
+  "gauge_plane_aware_search_adopted": false,
+  "increment_base_board_sha256": "7d439c8072e4c2943ce5960db80c21d706c713059a8e51c8e290e3bf831ff1ec",
+  "increment_base_revision": "030c7e523c15472fa5348e8a5b21a78f9580ddb7",
+  "native_measurements": "NONE: native connectivity/DRC source checks only",
+  "opens_after": 229,
+  "opens_before": 230,
+  "regression": "Clock remains connected while U3.2 supply group breaks; validate_geometry must reject the lost pre-existing physical group",
+  "rejected_clock_column_layer": "In4.Cu",
+  "rejected_clock_cuts_old_group": {
+    "anchor": [
+      "C74",
+      "1"
+    ],
+    "lost": [
+      "U3",
+      "2"
+    ],
+    "net": "+3V3_APP"
+  },
+  "rejected_clock_full_native_drc_findings": 104,
+  "rejected_clock_native_drc_sha256": "c33b6d7636fb056e67b30d7ecc50a6e6e3dc0af99ae1d01d5e84212a5628fff0",
+  "selected_board_sha256": "6d1b8e55356af88b86564c8981f96a79179067b45d26fa58f46b24154aaf3873",
+  "selected_clock_column_endpoints_mm": [
+    [
+      18.55,
+      23.2
+    ],
+    [
+      18.55,
+      8.25
+    ]
+  ],
+  "selected_clock_column_layer": "In3.Cu",
+  "status": "SELECTED_GEOMETRY_ONLY_NOT_HARDWARE_QUALIFICATION",
+  "via_diameter_drill_mm": [
+    0.3,
+    0.1
+  ],
+  "width_mm": 0.2
+}

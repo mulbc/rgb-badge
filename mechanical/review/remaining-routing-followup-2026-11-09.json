@@ -1,0 +1,871 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "basis_is_historical_checkpoint": true,
+  "date": "2026-11-09",
+  "fabrication_release_allowed": false,
+  "interpretation": "Historical 37-open basis, unchanged by the 17 listed unselected studies. ADR0105 separately selects the later 36-open C32 source. Finite CAD screens and local raw evidence are not global impossibility proofs or release artifacts.",
+  "local_raw_scripts": {
+    "hardware/coupon/rev-a/build/zero-open-routing/exact-centre-screen.py": "fc615cbb3e9f0150ead89495818ae8ed9228e7e75eebc9d5659ef51113239ec7",
+    "hardware/coupon/rev-a/build/zero-open-routing/ground-In3-shortcut.py": "adedd1c5f337cbdb4749e2e6e1c9930916db525c32593e046802e852ba9de7c6",
+    "hardware/coupon/rev-a/build/zero-open-routing/ground-plane-shortcuts.py": "36858ad3c9761af13ed5899f3a606395ae941b2b3b3c0cadf9d147dfe4103ad7",
+    "hardware/coupon/rev-a/build/zero-open-routing/r8-angular-inner-screen.py": "d899a483a1cb2e2ad3c7e5b4d0bbe16f32e28b7d0d5125a7889bd2bf5fdf22e3",
+    "hardware/coupon/rev-a/build/zero-open-routing/r8-angular-screen.py": "80f8aab276c01c009bb27991afb3c530b9ffe47b5d11ecbe57bbfdcfdc8e108b",
+    "hardware/coupon/rev-a/build/zero-open-routing/r8-row15-local-astar.py": "f078c4942d50b8c549515e52e62129d6194f556ef61cb07bf5c2bad22e95caca",
+    "hardware/coupon/rev-a/build/zero-open-routing/r8-row15-transfer.py": "506f8227ebf88ca91d4b7ce8ecda4d833ab329935eef041fe727642a8dd11b9e",
+    "hardware/coupon/rev-a/build/zero-open-routing/restore-plane-cuts-B.py": "097359cbee5aa607ca31c5572d428e7ed32dfc3763a4142fe3737703c65da5be",
+    "hardware/coupon/rev-a/build/zero-open-routing/restore-plane-cuts-broad-uniform.py": "39ab6aabac159295ce5bf9a7bb989319eadb718430fc0d0b305c596cd48dc630",
+    "hardware/coupon/rev-a/build/zero-open-routing/restore-plane-cuts-stats.py": "cd4cbacf22e3a6a4bf59b9e77d5921c4207995c5ec552b3bf94cb48ab8565ed4",
+    "hardware/coupon/rev-a/build/zero-open-routing/restore-plane-cuts-uniform.py": "056fbfac825985774f6c685eaa77ec2f67bbf5526389a2c5205cb228fda7d4af",
+    "hardware/coupon/rev-a/build/zero-open-routing/restore-plane-cuts-wide.py": "abe2ffb82c28a97e5636aa9978d64d8107f8920e00932c2d7d12a33d2a51d69c",
+    "hardware/coupon/rev-a/build/zero-open-routing/restore-plane-cuts.py": "4649a13ffe83847cf985e91609e54f6541f4a226a9fb611353811f00b7e8b44f"
+  },
+  "published_search_tools": {
+    "tools/routing_clearance.py": "d1797c13ac7f5df4d066fc5e245fb143a67f002ad6bf7c0a67b96ff456d7db91",
+    "tools/routing_goal_distance.py": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4",
+    "tools/routing_zone_targets.py": "11a75781e561cb9ef59098af2c208c3ebc294d73ef4100b95ad012f07d5e049e",
+    "tools/search-routing-closure.py": "6c6b7fb3be76d03a65c35ddc78de9e0e2b33442042ba5a8aba17523a2de291b5"
+  },
+  "rejected_in3_control_drc": {
+    "clearance_pairs_equal_selected_source": true,
+    "finding_types": {
+      "clearance": 104,
+      "via_dangling": 3
+    },
+    "report": "hardware/coupon/rev-a/build/zero-open-routing/37-In3-control-rejected-local-libs.drc.json",
+    "sha256": "c3833a271bc79bf1422f36f27058a503501364b706aa6bcb40dc3d67d3a1bf04",
+    "status": "REJECTED_NOT_SELECTED"
+  },
+  "selected_native_opens": 37,
+  "selected_physical_opens": 37,
+  "selected_source_sha256": "ed6d3ff570f2481b47423d8375d9d4a40d756145cdd49e2c222bacc36edbfa57",
+  "selected_source_unchanged": true,
+  "status": "UNSELECTED_BOUNDED_FOLLOWUP_STUDIES",
+  "studies": [
+    {
+      "direct_candidates": 0,
+      "name": "exact-centre-screen",
+      "open_nets": 27,
+      "raw_report": "hardware/coupon/rev-a/build/zero-open-routing/exact-centre-screen.json",
+      "raw_script": "hardware/coupon/rev-a/build/zero-open-routing/exact-centre-screen.py",
+      "raw_sha256": "58d33a8b4c867e188fa14c50a363d0681a0dcb914c38f022fe4708996e3af1c5",
+      "script_sha256": "fc615cbb3e9f0150ead89495818ae8ed9228e7e75eebc9d5659ef51113239ec7",
+      "source_sha256": "ed6d3ff570f2481b47423d8375d9d4a40d756145cdd49e2c222bacc36edbfa57"
+    },
+    {
+      "name": "37-control-trial",
+      "open_edges": 37,
+      "raw_report": "hardware/coupon/rev-a/build/zero-open-routing/37-control-trial.json",
+      "raw_sha256": "6c1d9a2dea4fc5b6c598c3ed094486168a695681287b5ab12ddae93aab7c85e1",
+      "routes": [
+        {
+          "expanded_nodes": 447092,
+          "net": "USB_EN1_RAW_N",
+          "rejected_reason": "existing_pad_cluster_split_after_zone_refill",
+          "rejected_snapshot": {
+            "board_sha256": "78303bc01035201b516e7db4189adc46f3f841af99dfde1f04c959ef219cf655",
+            "path": "hardware/coupon/rev-a/build/zero-open-routing/37-control-trial-rejected/USB_EN1_RAW_N-U23-4.kicad_pcb",
+            "physical_pad_groups": [
+              {
+                "anchor": [
+                  "J1",
+                  "A4_B9"
+                ],
+                "lost": [
+                  [
+                    "TP32",
+                    "1",
+                    92001262,
+                    25000001
+                  ]
+                ],
+                "net": "VBUS_CONNECTOR"
+              },
+              {
+                "anchor": [
+                  "U48",
+                  "6"
+                ],
+                "lost": [
+                  [
+                    "R106",
+                    "1",
+                    94453742,
+                    26250001
+                  ],
+                  [
+                    "R44",
+                    "1",
+                    2050000,
+                    30795000
+                  ]
+                ],
+                "net": "+3V3_APP"
+              },
+              {
+                "anchor": [
+                  "J2",
+                  "1"
+                ],
+                "lost": [
+                  [
+                    "C53",
+                    "1",
+                    104425000,
+                    24750000
+                  ],
+                  [
+                    "U41",
+                    "2",
+                    106850000,
+                    25500000
+                  ],
+                  [
+                    "U41",
+                    "3",
+                    106850000,
+                    25000000
+                  ]
+                ],
+                "net": "+BAT_PROTECTED_DRAFT"
+              }
+            ]
+          },
+          "routed": false,
+          "search_outcome": "existing_pad_cluster_split_after_zone_refill",
+          "source": [
+            "U23",
+            "4"
+          ]
+        },
+        {
+          "expanded_nodes": 8504,
+          "net": "+BAT_GAUGE_SW",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "C64",
+            "1"
+          ]
+        },
+        {
+          "expanded_nodes": 8504,
+          "net": "+BAT_GAUGE_SW",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "R101",
+            "1"
+          ]
+        },
+        {
+          "expanded_nodes": 8504,
+          "net": "+BAT_GAUGE_SW",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "R102",
+            "1"
+          ]
+        },
+        {
+          "expanded_nodes": 632225,
+          "net": "+BAT_GAUGE_SW",
+          "rejected_reason": "existing_pad_cluster_split_after_zone_refill",
+          "rejected_snapshot": {
+            "board_sha256": "4ce117b1ee2d548698edc70eeb8c5c146b067086ae8c4f78442f65797eb944a4",
+            "path": "hardware/coupon/rev-a/build/zero-open-routing/37-control-trial-rejected/%2BBAT_GAUGE_SW-U35-2.kicad_pcb",
+            "physical_pad_groups": [
+              {
+                "anchor": [
+                  "J1",
+                  "A4_B9"
+                ],
+                "lost": [
+                  [
+                    "TP32",
+                    "1",
+                    92001262,
+                    25000001
+                  ]
+                ],
+                "net": "VBUS_CONNECTOR"
+              },
+              {
+                "anchor": [
+                  "U48",
+                  "6"
+                ],
+                "lost": [
+                  [
+                    "R106",
+                    "1",
+                    94453742,
+                    26250001
+                  ],
+                  [
+                    "R44",
+                    "1",
+                    2050000,
+                    30795000
+                  ]
+                ],
+                "net": "+3V3_APP"
+              },
+              {
+                "anchor": [
+                  "J2",
+                  "1"
+                ],
+                "lost": [
+                  [
+                    "C53",
+                    "1",
+                    104425000,
+                    24750000
+                  ],
+                  [
+                    "U41",
+                    "2",
+                    106850000,
+                    25500000
+                  ],
+                  [
+                    "U41",
+                    "3",
+                    106850000,
+                    25000000
+                  ]
+                ],
+                "net": "+BAT_PROTECTED_DRAFT"
+              }
+            ]
+          },
+          "routed": false,
+          "search_outcome": "existing_pad_cluster_split_after_zone_refill",
+          "source": [
+            "U35",
+            "2"
+          ]
+        },
+        {
+          "expanded_nodes": 632225,
+          "net": "+BAT_GAUGE_SW",
+          "rejected_reason": "existing_pad_cluster_split_after_zone_refill",
+          "rejected_snapshot": {
+            "board_sha256": "e1ee69ba7b75ec2ba45ac4c0f05ca290b1aa9a1b90eb9ab994544b7e11f49a40",
+            "path": "hardware/coupon/rev-a/build/zero-open-routing/37-control-trial-rejected/%2BBAT_GAUGE_SW-U35-3.kicad_pcb",
+            "physical_pad_groups": [
+              {
+                "anchor": [
+                  "J1",
+                  "A4_B9"
+                ],
+                "lost": [
+                  [
+                    "TP32",
+                    "1",
+                    92001262,
+                    25000001
+                  ]
+                ],
+                "net": "VBUS_CONNECTOR"
+              },
+              {
+                "anchor": [
+                  "U48",
+                  "6"
+                ],
+                "lost": [
+                  [
+                    "R106",
+                    "1",
+                    94453742,
+                    26250001
+                  ],
+                  [
+                    "R44",
+                    "1",
+                    2050000,
+                    30795000
+                  ]
+                ],
+                "net": "+3V3_APP"
+              },
+              {
+                "anchor": [
+                  "J2",
+                  "1"
+                ],
+                "lost": [
+                  [
+                    "C53",
+                    "1",
+                    104425000,
+                    24750000
+                  ],
+                  [
+                    "U41",
+                    "2",
+                    106850000,
+                    25500000
+                  ],
+                  [
+                    "U41",
+                    "3",
+                    106850000,
+                    25000000
+                  ]
+                ],
+                "net": "+BAT_PROTECTED_DRAFT"
+              }
+            ]
+          },
+          "routed": false,
+          "search_outcome": "existing_pad_cluster_split_after_zone_refill",
+          "source": [
+            "U35",
+            "3"
+          ]
+        },
+        {
+          "expanded_nodes": 523703,
+          "net": "HEARTBEAT_SEEN",
+          "rejected_reason": "existing_pad_cluster_split_after_zone_refill",
+          "rejected_snapshot": {
+            "board_sha256": "7595b1fc27f3050b86399e3a0a992934965df72c12e010c3e175c1f76a006141",
+            "path": "hardware/coupon/rev-a/build/zero-open-routing/37-control-trial-rejected/HEARTBEAT_SEEN-U50-2.kicad_pcb",
+            "physical_pad_groups": [
+              {
+                "anchor": [
+                  "U48",
+                  "6"
+                ],
+                "lost": [
+                  [
+                    "R106",
+                    "1",
+                    94453742,
+                    26250001
+                  ]
+                ],
+                "net": "+3V3_APP"
+              },
+              {
+                "anchor": [
+                  "J2",
+                  "1"
+                ],
+                "lost": [
+                  [
+                    "C53",
+                    "1",
+                    104425000,
+                    24750000
+                  ],
+                  [
+                    "SW2",
+                    "6",
+                    5300000,
+                    3800000
+                  ],
+                  [
+                    "U41",
+                    "2",
+                    106850000,
+                    25500000
+                  ],
+                  [
+                    "U41",
+                    "3",
+                    106850000,
+                    25000000
+                  ]
+                ],
+                "net": "+BAT_PROTECTED_DRAFT"
+              }
+            ]
+          },
+          "routed": false,
+          "search_outcome": "existing_pad_cluster_split_after_zone_refill",
+          "source": [
+            "U50",
+            "2"
+          ]
+        }
+      ],
+      "source_sha256": "ed6d3ff570f2481b47423d8375d9d4a40d756145cdd49e2c222bacc36edbfa57"
+    },
+    {
+      "name": "37-prefer-B-trial",
+      "open_edges": 37,
+      "raw_report": "hardware/coupon/rev-a/build/zero-open-routing/37-prefer-B-trial.json",
+      "raw_sha256": "34d2dd0d5295183bb0ccc348f3b09563dfa9dc6e667ff2b28102b22306523c37",
+      "routes": [
+        {
+          "expanded_nodes": 1000001,
+          "net": "USB_EN1_RAW_N",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "U23",
+            "4"
+          ]
+        },
+        {
+          "expanded_nodes": 1000001,
+          "net": "HEARTBEAT_SEEN",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "U50",
+            "2"
+          ]
+        }
+      ],
+      "source_sha256": "ed6d3ff570f2481b47423d8375d9d4a40d756145cdd49e2c222bacc36edbfa57"
+    },
+    {
+      "name": "37-prefer-In3-trial",
+      "open_edges": 37,
+      "raw_report": "hardware/coupon/rev-a/build/zero-open-routing/37-prefer-In3-trial.json",
+      "raw_sha256": "d6e4596744f579e21da0edbde41c82674b10dc426106a08f60285eed82e179f4",
+      "routes": [
+        {
+          "expanded_nodes": 154394,
+          "net": "USB_EN1_RAW_N",
+          "rejected_reason": "existing_pad_cluster_split_after_zone_refill",
+          "rejected_snapshot": {
+            "board_sha256": "2d4d740f45e8a0dc20f3b0b0d053377041f726af44308c61257d7faf4bab2351",
+            "path": "hardware/coupon/rev-a/build/zero-open-routing/37-prefer-In3-trial-rejected/USB_EN1_RAW_N-U23-4.kicad_pcb",
+            "physical_pad_groups": [
+              {
+                "anchor": [
+                  "U31",
+                  "12"
+                ],
+                "lost": [
+                  [
+                    "C11",
+                    "1",
+                    35150000,
+                    2750000
+                  ],
+                  [
+                    "C17",
+                    "1",
+                    37650000,
+                    2750000
+                  ],
+                  [
+                    "C23",
+                    "1",
+                    42650000,
+                    2750000
+                  ],
+                  [
+                    "C24",
+                    "1",
+                    45150000,
+                    2750000
+                  ],
+                  [
+                    "C25",
+                    "1",
+                    47650000,
+                    2750000
+                  ],
+                  [
+                    "C32",
+                    "1",
+                    89925000,
+                    10500000
+                  ],
+                  [
+                    "C36",
+                    "1",
+                    52650000,
+                    2750000
+                  ],
+                  [
+                    "C38",
+                    "1",
+                    57650000,
+                    2750000
+                  ],
+                  [
+                    "C58",
+                    "1",
+                    32650000,
+                    4250000
+                  ],
+                  [
+                    "C59",
+                    "1",
+                    35150000,
+                    4250000
+                  ],
+                  [
+                    "R60",
+                    "2",
+                    25725000,
+                    28270000
+                  ],
+                  [
+                    "R70",
+                    "1",
+                    95751262,
+                    21750001
+                  ],
+                  [
+                    "R78",
+                    "1",
+                    88046259,
+                    21500001
+                  ],
+                  [
+                    "U11",
+                    "5",
+                    97700000,
+                    5175000
+                  ],
+                  [
+                    "U17",
+                    "5",
+                    92200000,
+                    6625000
+                  ],
+                  [
+                    "U23",
+                    "5",
+                    1200000,
+                    6175000
+                  ],
+                  [
+                    "U24",
+                    "5",
+                    6200000,
+                    7125000
+                  ],
+                  [
+                    "U25",
+                    "5",
+                    99700000,
+                    10375000
+                  ],
+                  [
+                    "U29",
+                    "5",
+                    92200000,
+                    9925000
+                  ],
+                  [
+                    "U42",
+                    "5",
+                    92200000,
+                    14175000
+                  ]
+                ],
+                "net": "+3V3_USB"
+              },
+              {
+                "anchor": [
+                  "J2",
+                  "1"
+                ],
+                "lost": [
+                  [
+                    "C53",
+                    "1",
+                    104425000,
+                    24750000
+                  ],
+                  [
+                    "U41",
+                    "2",
+                    106850000,
+                    25500000
+                  ],
+                  [
+                    "U41",
+                    "3",
+                    106850000,
+                    25000000
+                  ]
+                ],
+                "net": "+BAT_PROTECTED_DRAFT"
+              }
+            ]
+          },
+          "routed": false,
+          "search_outcome": "existing_pad_cluster_split_after_zone_refill",
+          "source": [
+            "U23",
+            "4"
+          ]
+        },
+        {
+          "expanded_nodes": 1000001,
+          "net": "HEARTBEAT_SEEN",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "U50",
+            "2"
+          ]
+        }
+      ],
+      "source_sha256": "ed6d3ff570f2481b47423d8375d9d4a40d756145cdd49e2c222bacc36edbfa57"
+    },
+    {
+      "name": "ground-plane-shortcuts",
+      "raw_report": "hardware/coupon/rev-a/build/zero-open-routing/ground-plane-shortcuts.json",
+      "raw_script": "hardware/coupon/rev-a/build/zero-open-routing/ground-plane-shortcuts.py",
+      "raw_sha256": "d8322bad5f6bc963af1ab1fd36c6f0f0944cb7f071ee51f47291c720658c0c73",
+      "script_sha256": "36858ad3c9761af13ed5899f3a606395ae941b2b3b3c0cadf9d147dfe4103ad7",
+      "source_sha256": "ed6d3ff570f2481b47423d8375d9d4a40d756145cdd49e2c222bacc36edbfa57"
+    },
+    {
+      "candidate_count": 0,
+      "name": "ground-In3-shortcut",
+      "raw_report": "hardware/coupon/rev-a/build/zero-open-routing/ground-In3-shortcut.json",
+      "raw_script": "hardware/coupon/rev-a/build/zero-open-routing/ground-In3-shortcut.py",
+      "raw_sha256": "7ee88d2fde054984d19967f49f9a43ddf19d94007dabd59f4793a4060cf315f2",
+      "script_sha256": "adedd1c5f337cbdb4749e2e6e1c9930916db525c32593e046802e852ba9de7c6",
+      "source_sha256": "ed6d3ff570f2481b47423d8375d9d4a40d756145cdd49e2c222bacc36edbfa57"
+    },
+    {
+      "name": "37-ground-In3-search",
+      "open_edges": 37,
+      "raw_report": "hardware/coupon/rev-a/build/zero-open-routing/37-ground-In3-search.json",
+      "raw_sha256": "c0aa5d08012017a403c77c21302a3a24b5f6827e61f5fa19a7b93a4784b98d09",
+      "routes": [
+        {
+          "expanded_nodes": 285,
+          "net": "GND",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "COPPER",
+            "97ccc3b4-b320-5590-a539-8e61e5b2d653"
+          ]
+        }
+      ],
+      "source_sha256": "ed6d3ff570f2481b47423d8375d9d4a40d756145cdd49e2c222bacc36edbfa57"
+    },
+    {
+      "name": "r8-angular-screen",
+      "pose_outcomes": {
+        "all_sampled_leads_blocked": 5,
+        "pad_copper": 40,
+        "pad_separation": 27
+      },
+      "raw_report": "hardware/coupon/rev-a/build/zero-open-routing/r8-angular-screen.json",
+      "raw_script": "hardware/coupon/rev-a/build/zero-open-routing/r8-angular-screen.py",
+      "raw_sha256": "8a121436e0a77cf9da8d6087fcea4ac28d4ca3802ab11d322cf605943e3d0b01",
+      "script_sha256": "80f8aab276c01c009bb27991afb3c530b9ffe47b5d11ecbe57bbfdcfdc8e108b",
+      "selected_trial": null,
+      "source_sha256": "ed6d3ff570f2481b47423d8375d9d4a40d756145cdd49e2c222bacc36edbfa57"
+    },
+    {
+      "name": "r8-angular-inner-screen",
+      "pose_outcomes": {
+        "all_sampled_leads_blocked": 5
+      },
+      "raw_report": "hardware/coupon/rev-a/build/zero-open-routing/r8-angular-inner-screen.json",
+      "raw_script": "hardware/coupon/rev-a/build/zero-open-routing/r8-angular-inner-screen.py",
+      "raw_sha256": "897ee8bc2330a30c8314ba1b146ab96b0e59a3a7cb81643f8b1d95f77babb930",
+      "script_sha256": "d899a483a1cb2e2ad3c7e5b4d0bbe16f32e28b7d0d5125a7889bd2bf5fdf22e3",
+      "selected_trial": null,
+      "source_sha256": "ed6d3ff570f2481b47423d8375d9d4a40d756145cdd49e2c222bacc36edbfa57"
+    },
+    {
+      "expanded_nodes": 851,
+      "name": "r8-row15-local-astar",
+      "points_iu": [],
+      "raw_report": "hardware/coupon/rev-a/build/zero-open-routing/r8-row15-local-astar.json",
+      "raw_script": "hardware/coupon/rev-a/build/zero-open-routing/r8-row15-local-astar.py",
+      "raw_sha256": "98910fa0c2ad42edb8aa27e6930b5828590eb62e2ffb423d2d85b6ebab97513e",
+      "script_sha256": "f078c4942d50b8c549515e52e62129d6194f556ef61cb07bf5c2bad22e95caca",
+      "source_sha256": "ed6d3ff570f2481b47423d8375d9d4a40d756145cdd49e2c222bacc36edbfa57"
+    },
+    {
+      "candidate_count": 0,
+      "capture_counts": [
+        0,
+        0
+      ],
+      "name": "r8-row15-transfer",
+      "raw_report": "hardware/coupon/rev-a/build/zero-open-routing/r8-row15-transfer.json",
+      "raw_script": "hardware/coupon/rev-a/build/zero-open-routing/r8-row15-transfer.py",
+      "raw_sha256": "e344c79e48cf54015e5115a7fa68a82baa2f42cebad1e80b42864d1b341ef7ba",
+      "script_sha256": "506f8227ebf88ca91d4b7ce8ecda4d833ab329935eef041fe727642a8dd11b9e",
+      "selected_trial": null,
+      "source_sha256": "ed6d3ff570f2481b47423d8375d9d4a40d756145cdd49e2c222bacc36edbfa57"
+    },
+    {
+      "added_restoration_copper_count": 0,
+      "canonical_sha256": "ed6d3ff570f2481b47423d8375d9d4a40d756145cdd49e2c222bacc36edbfa57",
+      "lost_original_group_nets": [
+        "+3V3_USB",
+        "+BAT_PROTECTED_DRAFT"
+      ],
+      "name": "In3-control-restored-trial",
+      "native_opens": 40,
+      "physical_opens": 39,
+      "raw_report": "hardware/coupon/rev-a/build/zero-open-routing/In3-control-restored-trial.json",
+      "raw_sha256": "a67495982bbfd1f29c3236928d9ebf48260cca5afb6cc301650bd969becae855",
+      "restoration_attempts": [],
+      "source_sha256": "2d4d740f45e8a0dc20f3b0b0d053377041f726af44308c61257d7faf4bab2351"
+    },
+    {
+      "added_restoration_copper_count": 0,
+      "canonical_sha256": "ed6d3ff570f2481b47423d8375d9d4a40d756145cdd49e2c222bacc36edbfa57",
+      "lost_original_group_nets": [
+        "+3V3_USB",
+        "+BAT_PROTECTED_DRAFT"
+      ],
+      "name": "In3-control-restored-wide-trial",
+      "native_opens": 40,
+      "physical_opens": 39,
+      "raw_report": "hardware/coupon/rev-a/build/zero-open-routing/In3-control-restored-wide-trial.json",
+      "raw_sha256": "a67495982bbfd1f29c3236928d9ebf48260cca5afb6cc301650bd969becae855",
+      "restoration_attempts": [],
+      "source_sha256": "2d4d740f45e8a0dc20f3b0b0d053377041f726af44308c61257d7faf4bab2351"
+    },
+    {
+      "added_restoration_copper_count": 5,
+      "canonical_sha256": "ed6d3ff570f2481b47423d8375d9d4a40d756145cdd49e2c222bacc36edbfa57",
+      "lost_original_group_nets": [
+        "+3V3_USB",
+        "+BAT_PROTECTED_DRAFT"
+      ],
+      "name": "In3-control-restored-B-trial",
+      "native_opens": 39,
+      "physical_opens": 38,
+      "raw_report": "hardware/coupon/rev-a/build/zero-open-routing/In3-control-restored-B-trial.json",
+      "raw_sha256": "b50e07ef3008c2920c50b7826fa1c870fc5b89c6bf82dcab304d482d2a9a0391",
+      "restoration_attempts": [
+        {
+          "copper": [
+            [
+              "via",
+              "+3V3_USB",
+              29553333,
+              26800000,
+              "In3.Cu",
+              "In4.Cu",
+              300000,
+              100000,
+              1
+            ],
+            [
+              "via",
+              "+3V3_USB",
+              29553333,
+              26800000,
+              "In4.Cu",
+              "B.Cu",
+              300000,
+              100000,
+              1
+            ],
+            [
+              "via",
+              "+3V3_USB",
+              29553333,
+              24800000,
+              "In3.Cu",
+              "In4.Cu",
+              300000,
+              100000,
+              1
+            ],
+            [
+              "via",
+              "+3V3_USB",
+              29553333,
+              24800000,
+              "In4.Cu",
+              "B.Cu",
+              300000,
+              100000,
+              1
+            ],
+            [
+              "track",
+              "+3V3_USB",
+              29553333,
+              26800000,
+              29553333,
+              24800000,
+              "B.Cu",
+              200000
+            ]
+          ],
+          "net": "+3V3_USB",
+          "previous_group_splits": 0,
+          "source_copper_unchanged": true,
+          "target_merged": true
+        }
+      ],
+      "source_sha256": "2d4d740f45e8a0dc20f3b0b0d053377041f726af44308c61257d7faf4bab2351"
+    },
+    {
+      "added_restoration_copper_count": 0,
+      "canonical_sha256": "ed6d3ff570f2481b47423d8375d9d4a40d756145cdd49e2c222bacc36edbfa57",
+      "lost_original_group_nets": [
+        "+3V3_USB",
+        "+BAT_PROTECTED_DRAFT"
+      ],
+      "name": "In3-control-restored-uniform-trial",
+      "native_opens": 39,
+      "physical_opens": 38,
+      "raw_report": "hardware/coupon/rev-a/build/zero-open-routing/In3-control-restored-uniform-trial.json",
+      "raw_sha256": "54b898b68ac61e340b5888780ecdcb4c61dd4ddedf0349b82974053abf271782",
+      "restoration_attempts": [],
+      "source_sha256": "f209c0ca8bcfcbd44a3eae51c6d291164131c5069eefa75d10a034c9b0643622"
+    },
+    {
+      "canonical_sha256": "ed6d3ff570f2481b47423d8375d9d4a40d756145cdd49e2c222bacc36edbfa57",
+      "lost_original_group_nets": [
+        "+3V3_USB",
+        "+BAT_PROTECTED_DRAFT"
+      ],
+      "name": "In3-control-restored-broad-uniform-trial",
+      "native_opens": 39,
+      "physical_opens": 38,
+      "raw_report": "hardware/coupon/rev-a/build/zero-open-routing/In3-control-restored-broad-uniform-trial.json",
+      "raw_sha256": "54b898b68ac61e340b5888780ecdcb4c61dd4ddedf0349b82974053abf271782",
+      "source_sha256": "f209c0ca8bcfcbd44a3eae51c6d291164131c5069eefa75d10a034c9b0643622"
+    },
+    {
+      "name": "In3-control-usb-detour-trial",
+      "open_edges": 39,
+      "raw_report": "hardware/coupon/rev-a/build/zero-open-routing/In3-control-usb-detour-trial.json",
+      "raw_sha256": "cb29d0e278f1790842007eefb31624947402577864e51060dfd6a519519863ef",
+      "routes": [
+        {
+          "expanded_nodes": 700001,
+          "net": "+3V3_USB",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "COPPER",
+            "6a7f2d9e-27b0-5d5c-8875-67df650467f8"
+          ]
+        }
+      ],
+      "source_sha256": "f209c0ca8bcfcbd44a3eae51c6d291164131c5069eefa75d10a034c9b0643622"
+    }
+  ],
+  "subsequent_selected_opens": 36,
+  "subsequent_selected_source_sha256": "a24e9220226b77411ae8e8baea5cd629ce0fea8a97c377a708510d6791c2e439",
+  "visual_review": {
+    "crops": [
+      "hardware/coupon/rev-a/build/zero-open-routing/plane-cut-views/top-B.png",
+      "hardware/coupon/rev-a/build/zero-open-routing/plane-cut-views/bottom-B.png",
+      "hardware/coupon/rev-a/build/zero-open-routing/plane-cut-views/span-In3.png"
+    ],
+    "scope": "Rejected partial-restoration trial only; not selected source validation"
+  }
+}

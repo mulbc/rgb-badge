@@ -1,0 +1,1346 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "accepted_join": {
+    "anchor": [
+      "R25",
+      "2"
+    ],
+    "net": "GND",
+    "source": [
+      "R36",
+      "2"
+    ]
+  },
+  "all_colour_column_pad_groups_unchanged": true,
+  "all_old_physical_pad_groups_and_placements_preserved": true,
+  "base_board_sha256": "a1f742cd395079eb8360483a912c69890bd4f5f2ebbf17201bbd5ddf74f23f98",
+  "base_revision": "7ddbd42f0069944ef62add939c98166e3add15de",
+  "board_sha256": "6a2f61c07b647e727e1ed08daf87b3964365da2dca73504078d763aed88b72fa",
+  "candidate_board_sha256": "65166e4a21b72c99fe969fb24f6a6b788e90652db0730d9e5d98dd50cbc19c31",
+  "candidate_drc_sha256": "94558355a8bd258fa5cccf8a091dc76d82c5941126ba7f60e94737227d91d9fc",
+  "exact_unchanged_intrinsic_drc_findings": 104,
+  "fabrication_release_allowed": false,
+  "ground_escape": {
+    "adjacent_layers": [
+      "B.Cu",
+      "In4.Cu",
+      "In3.Cu",
+      "In2.Cu"
+    ],
+    "lead_length_mm": 0.15,
+    "pad_iu": [
+      64250000,
+      7250000
+    ],
+    "via_iu": [
+      64100000,
+      7250000
+    ]
+  },
+  "ground_open_edges_after": 23,
+  "ground_open_edges_before": 24,
+  "hardware_measurements": "NONE",
+  "increment_added_adjacent_layer_microvias": 11,
+  "increment_added_tracks": 10,
+  "increment_removed_original_tracks": 18,
+  "increment_removed_original_vias": 1,
+  "individual_green_retirement_restoration_subcases": 19,
+  "isolated_native_guard_methods_passed": 31,
+  "limitations": [
+    "216 opens including 23 GND, 14 VLED, TP11, transmit test-pad leg, six gate terminals and remaining power/control/USB",
+    "104 intrinsic findings unresolved",
+    "Longer colour replacement and one 0.826 mm In2 endpoint lead have no electrical/return/timing qualification",
+    "No electrical/current/process/fit qualification or independent Gate A"
+  ],
+  "native_open_edges_after": 216,
+  "native_open_edges_before": 217,
+  "native_visibility_simplification": {
+    "new_colour_length_mm": 45.577324180141524,
+    "old_new_colour_length_mm": 47.27794669764584,
+    "open_edges": 216,
+    "original_new_colour_tracks": 72,
+    "paths": [
+      {
+        "layer": "F.Cu",
+        "new_points_iu": [
+          [
+            75050000,
+            23600000
+          ],
+          [
+            75150000,
+            22350000
+          ],
+          [
+            75150000,
+            9700000
+          ]
+        ],
+        "old_points_iu": [
+          [
+            75050000,
+            23600000
+          ],
+          [
+            75050000,
+            22400000
+          ],
+          [
+            75100000,
+            22400000
+          ],
+          [
+            75100000,
+            22350000
+          ],
+          [
+            75150000,
+            22350000
+          ],
+          [
+            75150000,
+            9700000
+          ]
+        ]
+      },
+      {
+        "layer": "In1.Cu",
+        "new_points_iu": [
+          [
+            75150000,
+            9700000
+          ],
+          [
+            75600000,
+            8000000
+          ]
+        ],
+        "old_points_iu": [
+          [
+            75150000,
+            9700000
+          ],
+          [
+            75150000,
+            8500000
+          ],
+          [
+            75350000,
+            8500000
+          ],
+          [
+            75350000,
+            8450000
+          ],
+          [
+            75400000,
+            8450000
+          ],
+          [
+            75400000,
+            8400000
+          ],
+          [
+            75450000,
+            8400000
+          ],
+          [
+            75450000,
+            8350000
+          ],
+          [
+            75500000,
+            8350000
+          ],
+          [
+            75500000,
+            8300000
+          ],
+          [
+            75550000,
+            8300000
+          ],
+          [
+            75550000,
+            8000000
+          ],
+          [
+            75600000,
+            8000000
+          ]
+        ]
+      },
+      {
+        "layer": "In2.Cu",
+        "new_points_iu": [
+          [
+            53100000,
+            21782500
+          ],
+          [
+            53700000,
+            22350000
+          ]
+        ],
+        "old_points_iu": [
+          [
+            53100000,
+            21782500
+          ],
+          [
+            53700000,
+            22350000
+          ]
+        ]
+      },
+      {
+        "layer": "In3.Cu",
+        "new_points_iu": [
+          [
+            53700000,
+            22350000
+          ],
+          [
+            73850000,
+            23600000
+          ],
+          [
+            75050000,
+            23600000
+          ]
+        ],
+        "old_points_iu": [
+          [
+            53700000,
+            22350000
+          ],
+          [
+            53700000,
+            22400000
+          ],
+          [
+            53750000,
+            22400000
+          ],
+          [
+            53750000,
+            22450000
+          ],
+          [
+            54650000,
+            22450000
+          ],
+          [
+            54650000,
+            22500000
+          ],
+          [
+            55500000,
+            22500000
+          ],
+          [
+            55500000,
+            22550000
+          ],
+          [
+            56350000,
+            22550000
+          ],
+          [
+            56350000,
+            22600000
+          ],
+          [
+            57250000,
+            22600000
+          ],
+          [
+            57250000,
+            22650000
+          ],
+          [
+            58100000,
+            22650000
+          ],
+          [
+            58100000,
+            22700000
+          ],
+          [
+            59000000,
+            22700000
+          ],
+          [
+            59000000,
+            22750000
+          ],
+          [
+            59850000,
+            22750000
+          ],
+          [
+            59850000,
+            22800000
+          ],
+          [
+            60750000,
+            22800000
+          ],
+          [
+            60750000,
+            22850000
+          ],
+          [
+            61600000,
+            22850000
+          ],
+          [
+            61600000,
+            22900000
+          ],
+          [
+            62500000,
+            22900000
+          ],
+          [
+            62500000,
+            22950000
+          ],
+          [
+            63350000,
+            22950000
+          ],
+          [
+            63350000,
+            23000000
+          ],
+          [
+            64250000,
+            23000000
+          ],
+          [
+            64250000,
+            23050000
+          ],
+          [
+            65100000,
+            23050000
+          ],
+          [
+            65100000,
+            23100000
+          ],
+          [
+            66000000,
+            23100000
+          ],
+          [
+            66000000,
+            23150000
+          ],
+          [
+            66850000,
+            23150000
+          ],
+          [
+            66850000,
+            23200000
+          ],
+          [
+            67750000,
+            23200000
+          ],
+          [
+            67750000,
+            23250000
+          ],
+          [
+            68600000,
+            23250000
+          ],
+          [
+            68600000,
+            23300000
+          ],
+          [
+            69500000,
+            23300000
+          ],
+          [
+            69500000,
+            23350000
+          ],
+          [
+            70350000,
+            23350000
+          ],
+          [
+            70350000,
+            23400000
+          ],
+          [
+            71250000,
+            23400000
+          ],
+          [
+            71250000,
+            23450000
+          ],
+          [
+            72100000,
+            23450000
+          ],
+          [
+            72100000,
+            23500000
+          ],
+          [
+            73000000,
+            23500000
+          ],
+          [
+            73000000,
+            23550000
+          ],
+          [
+            73850000,
+            23550000
+          ],
+          [
+            73850000,
+            23600000
+          ],
+          [
+            75050000,
+            23600000
+          ]
+        ]
+      },
+      {
+        "layer": "In3.Cu",
+        "new_points_iu": [
+          [
+            75600000,
+            7650000
+          ],
+          [
+            75600000,
+            8000000
+          ]
+        ],
+        "old_points_iu": [
+          [
+            75600000,
+            7650000
+          ],
+          [
+            75600000,
+            8000000
+          ]
+        ]
+      },
+      {
+        "layer": "In4.Cu",
+        "new_points_iu": [
+          [
+            75600000,
+            7650000
+          ],
+          [
+            75600000,
+            7300000
+          ],
+          [
+            82600000,
+            7250000
+          ]
+        ],
+        "old_points_iu": [
+          [
+            75600000,
+            7650000
+          ],
+          [
+            75600000,
+            7300000
+          ],
+          [
+            82000000,
+            7300000
+          ],
+          [
+            82600000,
+            7250000
+          ]
+        ]
+      }
+    ],
+    "simplified_new_colour_tracks": 9
+  },
+  "net_added_native_items": 2,
+  "new_fault_cases": [
+    "Withdraw R36 ground vias while proving R28/R29/R2 stay joined",
+    "Detach COL_06_G replacement without changing counts",
+    "Restore each of nineteen newly retired original items individually"
+  ],
+  "obsolete_branch_cleanup": {
+    "accepted": true,
+    "open_edges": 216,
+    "removed_obsolete_original_branch": [
+      {
+        "bottom": "In4.Cu",
+        "diameter_iu": 300000,
+        "drill_iu": 100000,
+        "net": "COL_06_G",
+        "position_iu": [
+          61900000,
+          7250000
+        ],
+        "signature": [
+          "via",
+          "COL_06_G",
+          300000,
+          61.9,
+          7.25,
+          8,
+          10,
+          100000
+        ],
+        "top": "In3.Cu"
+      },
+      {
+        "end_iu": [
+          60950000,
+          7250000
+        ],
+        "layer": "In3.Cu",
+        "net": "COL_06_G",
+        "signature": [
+          "track",
+          "COL_06_G",
+          200000,
+          61.9,
+          7.25,
+          60.95,
+          7.25,
+          8
+        ],
+        "start_iu": [
+          61900000,
+          7250000
+        ],
+        "width_iu": 200000
+      },
+      {
+        "end_iu": [
+          60950000,
+          7200000
+        ],
+        "layer": "In3.Cu",
+        "net": "COL_06_G",
+        "signature": [
+          "track",
+          "COL_06_G",
+          200000,
+          60.95,
+          7.25,
+          60.95,
+          7.2,
+          8
+        ],
+        "start_iu": [
+          60950000,
+          7250000
+        ],
+        "width_iu": 200000
+      },
+      {
+        "end_iu": [
+          60100000,
+          7200000
+        ],
+        "layer": "In3.Cu",
+        "net": "COL_06_G",
+        "signature": [
+          "track",
+          "COL_06_G",
+          200000,
+          60.95,
+          7.2,
+          60.1,
+          7.2,
+          8
+        ],
+        "start_iu": [
+          60950000,
+          7200000
+        ],
+        "width_iu": 200000
+      },
+      {
+        "end_iu": [
+          60100000,
+          7150000
+        ],
+        "layer": "In3.Cu",
+        "net": "COL_06_G",
+        "signature": [
+          "track",
+          "COL_06_G",
+          200000,
+          60.1,
+          7.2,
+          60.1,
+          7.15,
+          8
+        ],
+        "start_iu": [
+          60100000,
+          7200000
+        ],
+        "width_iu": 200000
+      },
+      {
+        "end_iu": [
+          59200000,
+          7150000
+        ],
+        "layer": "In3.Cu",
+        "net": "COL_06_G",
+        "signature": [
+          "track",
+          "COL_06_G",
+          200000,
+          60.1,
+          7.15,
+          59.2,
+          7.15,
+          8
+        ],
+        "start_iu": [
+          60100000,
+          7150000
+        ],
+        "width_iu": 200000
+      },
+      {
+        "end_iu": [
+          59200000,
+          7100000
+        ],
+        "layer": "In3.Cu",
+        "net": "COL_06_G",
+        "signature": [
+          "track",
+          "COL_06_G",
+          200000,
+          59.2,
+          7.15,
+          59.2,
+          7.1,
+          8
+        ],
+        "start_iu": [
+          59200000,
+          7150000
+        ],
+        "width_iu": 200000
+      },
+      {
+        "end_iu": [
+          58350000,
+          7100000
+        ],
+        "layer": "In3.Cu",
+        "net": "COL_06_G",
+        "signature": [
+          "track",
+          "COL_06_G",
+          200000,
+          59.2,
+          7.1,
+          58.35,
+          7.1,
+          8
+        ],
+        "start_iu": [
+          59200000,
+          7100000
+        ],
+        "width_iu": 200000
+      },
+      {
+        "end_iu": [
+          58350000,
+          7050000
+        ],
+        "layer": "In3.Cu",
+        "net": "COL_06_G",
+        "signature": [
+          "track",
+          "COL_06_G",
+          200000,
+          58.35,
+          7.1,
+          58.35,
+          7.05,
+          8
+        ],
+        "start_iu": [
+          58350000,
+          7100000
+        ],
+        "width_iu": 200000
+      },
+      {
+        "end_iu": [
+          57450000,
+          7050000
+        ],
+        "layer": "In3.Cu",
+        "net": "COL_06_G",
+        "signature": [
+          "track",
+          "COL_06_G",
+          200000,
+          58.35,
+          7.05,
+          57.45,
+          7.05,
+          8
+        ],
+        "start_iu": [
+          58350000,
+          7050000
+        ],
+        "width_iu": 200000
+      },
+      {
+        "end_iu": [
+          57450000,
+          7000000
+        ],
+        "layer": "In3.Cu",
+        "net": "COL_06_G",
+        "signature": [
+          "track",
+          "COL_06_G",
+          200000,
+          57.45,
+          7.05,
+          57.45,
+          7.0,
+          8
+        ],
+        "start_iu": [
+          57450000,
+          7050000
+        ],
+        "width_iu": 200000
+      },
+      {
+        "end_iu": [
+          56600000,
+          7000000
+        ],
+        "layer": "In3.Cu",
+        "net": "COL_06_G",
+        "signature": [
+          "track",
+          "COL_06_G",
+          200000,
+          57.45,
+          7.0,
+          56.6,
+          7.0,
+          8
+        ],
+        "start_iu": [
+          57450000,
+          7000000
+        ],
+        "width_iu": 200000
+      },
+      {
+        "end_iu": [
+          56600000,
+          6950000
+        ],
+        "layer": "In3.Cu",
+        "net": "COL_06_G",
+        "signature": [
+          "track",
+          "COL_06_G",
+          200000,
+          56.6,
+          7.0,
+          56.6,
+          6.95,
+          8
+        ],
+        "start_iu": [
+          56600000,
+          7000000
+        ],
+        "width_iu": 200000
+      },
+      {
+        "end_iu": [
+          55700000,
+          6950000
+        ],
+        "layer": "In3.Cu",
+        "net": "COL_06_G",
+        "signature": [
+          "track",
+          "COL_06_G",
+          200000,
+          56.6,
+          6.95,
+          55.7,
+          6.95,
+          8
+        ],
+        "start_iu": [
+          56600000,
+          6950000
+        ],
+        "width_iu": 200000
+      },
+      {
+        "end_iu": [
+          55700000,
+          6900000
+        ],
+        "layer": "In3.Cu",
+        "net": "COL_06_G",
+        "signature": [
+          "track",
+          "COL_06_G",
+          200000,
+          55.7,
+          6.95,
+          55.7,
+          6.9,
+          8
+        ],
+        "start_iu": [
+          55700000,
+          6950000
+        ],
+        "width_iu": 200000
+      },
+      {
+        "end_iu": [
+          54850000,
+          6900000
+        ],
+        "layer": "In3.Cu",
+        "net": "COL_06_G",
+        "signature": [
+          "track",
+          "COL_06_G",
+          200000,
+          55.7,
+          6.9,
+          54.85,
+          6.9,
+          8
+        ],
+        "start_iu": [
+          55700000,
+          6900000
+        ],
+        "width_iu": 200000
+      },
+      {
+        "end_iu": [
+          54850000,
+          6850000
+        ],
+        "layer": "In3.Cu",
+        "net": "COL_06_G",
+        "signature": [
+          "track",
+          "COL_06_G",
+          200000,
+          54.85,
+          6.9,
+          54.85,
+          6.85,
+          8
+        ],
+        "start_iu": [
+          54850000,
+          6900000
+        ],
+        "width_iu": 200000
+      },
+      {
+        "end_iu": [
+          54000000,
+          6850000
+        ],
+        "layer": "In3.Cu",
+        "net": "COL_06_G",
+        "signature": [
+          "track",
+          "COL_06_G",
+          200000,
+          54.85,
+          6.85,
+          54.0,
+          6.85,
+          8
+        ],
+        "start_iu": [
+          54850000,
+          6850000
+        ],
+        "width_iu": 200000
+      }
+    ],
+    "stages": [
+      {
+        "drc_sha256": "eaaad18f9a5326868e9284b6ad8bd1ed211ba285c89c96c7073802aefc6eac8c",
+        "extra": [
+          {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+              {
+                "description": "Micro via [COL_06_G] on In3.Cu - In4.Cu",
+                "pos": {
+                  "x": 61.9,
+                  "y": 7.25
+                },
+                "uuid": "c393b9d7-6bb7-5af9-8921-96a31f48f0c9"
+              }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+          }
+        ],
+        "findings": 105,
+        "iteration": 0
+      },
+      {
+        "drc_sha256": "d1d321553e1c9641bcad9cf4b89ee1b3e2f9dedfbd53268d1cfbb158a9b118cf",
+        "extra": [
+          {
+            "description": "Track has unconnected end",
+            "items": [
+              {
+                "description": "Track [COL_06_G] on In3.Cu, length 0.9500 mm",
+                "pos": {
+                  "x": 61.9,
+                  "y": 7.25
+                },
+                "uuid": "c9cfea0c-816a-59fe-a155-3ae1ffd108aa"
+              }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+          }
+        ],
+        "findings": 105,
+        "iteration": 1
+      },
+      {
+        "drc_sha256": "1fdd00c5f30064ba789c02e299826d8ad1dd5499924d4c500e2310591c0e7feb",
+        "extra": [
+          {
+            "description": "Track has unconnected end",
+            "items": [
+              {
+                "description": "Track [COL_06_G] on In3.Cu, length 0.0500 mm",
+                "pos": {
+                  "x": 60.95,
+                  "y": 7.25
+                },
+                "uuid": "c52848be-33fc-58ab-b66a-6ae21b5cd14d"
+              }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+          }
+        ],
+        "findings": 105,
+        "iteration": 2
+      },
+      {
+        "drc_sha256": "d456a675c3552383421722198fc08695de3c080ea886be22488d1ee34bea8cd2",
+        "extra": [
+          {
+            "description": "Track has unconnected end",
+            "items": [
+              {
+                "description": "Track [COL_06_G] on In3.Cu, length 0.8500 mm",
+                "pos": {
+                  "x": 60.95,
+                  "y": 7.2
+                },
+                "uuid": "2eaf79fe-53f4-5b6c-ba87-122de7ad8c2c"
+              }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+          }
+        ],
+        "findings": 105,
+        "iteration": 3
+      },
+      {
+        "drc_sha256": "dfb13ceb438914e3a40832ccd1be9ed8cb8dfd7f2f1d6a4029c607623a86635e",
+        "extra": [
+          {
+            "description": "Track has unconnected end",
+            "items": [
+              {
+                "description": "Track [COL_06_G] on In3.Cu, length 0.0500 mm",
+                "pos": {
+                  "x": 60.1,
+                  "y": 7.2
+                },
+                "uuid": "719f93a8-b71d-5582-bd80-731fad60692e"
+              }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+          }
+        ],
+        "findings": 105,
+        "iteration": 4
+      },
+      {
+        "drc_sha256": "7849a682559d870a7855adc29d24a00025fefbcea94d355769e5038afdf8c543",
+        "extra": [
+          {
+            "description": "Track has unconnected end",
+            "items": [
+              {
+                "description": "Track [COL_06_G] on In3.Cu, length 0.9000 mm",
+                "pos": {
+                  "x": 60.1,
+                  "y": 7.15
+                },
+                "uuid": "8f5e036f-53d6-527f-bc78-b6a5b5bf3eca"
+              }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+          }
+        ],
+        "findings": 105,
+        "iteration": 5
+      },
+      {
+        "drc_sha256": "b9d2453b9e1f38084190d7484b6b30245139e114e65499b7c06d72c5a054bb83",
+        "extra": [
+          {
+            "description": "Track has unconnected end",
+            "items": [
+              {
+                "description": "Track [COL_06_G] on In3.Cu, length 0.0500 mm",
+                "pos": {
+                  "x": 59.2,
+                  "y": 7.15
+                },
+                "uuid": "e5a432ed-3e42-51ab-914a-69a9b98d3efe"
+              }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+          }
+        ],
+        "findings": 105,
+        "iteration": 6
+      },
+      {
+        "drc_sha256": "dbb317b8906f3267381f2403e3eecfe91d9851f9ac7c8ce3539d3a84fb3584ca",
+        "extra": [
+          {
+            "description": "Track has unconnected end",
+            "items": [
+              {
+                "description": "Track [COL_06_G] on In3.Cu, length 0.8500 mm",
+                "pos": {
+                  "x": 59.2,
+                  "y": 7.1
+                },
+                "uuid": "2754a9c9-f2ec-50d3-9cdc-2d31836637ad"
+              }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+          }
+        ],
+        "findings": 105,
+        "iteration": 7
+      },
+      {
+        "drc_sha256": "1a40ee53ef77bee1346893a3f4c5498bd168bb459aa72d2dd1db84070d2e1e74",
+        "extra": [
+          {
+            "description": "Track has unconnected end",
+            "items": [
+              {
+                "description": "Track [COL_06_G] on In3.Cu, length 0.0500 mm",
+                "pos": {
+                  "x": 58.35,
+                  "y": 7.1
+                },
+                "uuid": "0b006e54-d6d2-55ca-9fc5-bcb910e28d79"
+              }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+          }
+        ],
+        "findings": 105,
+        "iteration": 8
+      },
+      {
+        "drc_sha256": "03bad2404f7b51e0a34181e8d417cd1fb89169f8613210db1b7fa7cff14e1997",
+        "extra": [
+          {
+            "description": "Track has unconnected end",
+            "items": [
+              {
+                "description": "Track [COL_06_G] on In3.Cu, length 0.9000 mm",
+                "pos": {
+                  "x": 58.35,
+                  "y": 7.05
+                },
+                "uuid": "2e041dc5-3b6c-58fb-8c55-9f03f350ceb0"
+              }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+          }
+        ],
+        "findings": 105,
+        "iteration": 9
+      },
+      {
+        "drc_sha256": "607aa5405b9978aa43de069c244eedbba941405660c37f215f52726a2fe76fcc",
+        "extra": [
+          {
+            "description": "Track has unconnected end",
+            "items": [
+              {
+                "description": "Track [COL_06_G] on In3.Cu, length 0.0500 mm",
+                "pos": {
+                  "x": 57.45,
+                  "y": 7.05
+                },
+                "uuid": "ea3115c7-4709-52b5-83cc-babf42e1db3f"
+              }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+          }
+        ],
+        "findings": 105,
+        "iteration": 10
+      },
+      {
+        "drc_sha256": "761dee9cf83999eb12b2dfa8e1cc5edbbf204576aa5c42975f086644db90ca3d",
+        "extra": [
+          {
+            "description": "Track has unconnected end",
+            "items": [
+              {
+                "description": "Track [COL_06_G] on In3.Cu, length 0.8500 mm",
+                "pos": {
+                  "x": 57.45,
+                  "y": 7.0
+                },
+                "uuid": "e10c302c-bd20-580f-8a75-5e35117fb3f7"
+              }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+          }
+        ],
+        "findings": 105,
+        "iteration": 11
+      },
+      {
+        "drc_sha256": "8de2da1cdf79b8d6eeb5a8c9e1f03cc75e5a268a2b9619bd3317c3268dc404d0",
+        "extra": [
+          {
+            "description": "Track has unconnected end",
+            "items": [
+              {
+                "description": "Track [COL_06_G] on In3.Cu, length 0.0500 mm",
+                "pos": {
+                  "x": 56.6,
+                  "y": 7.0
+                },
+                "uuid": "c31c2fa0-9169-57cf-8e31-34df81d40034"
+              }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+          }
+        ],
+        "findings": 105,
+        "iteration": 12
+      },
+      {
+        "drc_sha256": "12672e451fa9539988116721fb81bec3abce917badd1d0308ec9dd3102054284",
+        "extra": [
+          {
+            "description": "Track has unconnected end",
+            "items": [
+              {
+                "description": "Track [COL_06_G] on In3.Cu, length 0.9000 mm",
+                "pos": {
+                  "x": 56.6,
+                  "y": 6.95
+                },
+                "uuid": "d32e0937-91f2-51fd-a35c-d33f28ba4e9a"
+              }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+          }
+        ],
+        "findings": 105,
+        "iteration": 13
+      },
+      {
+        "drc_sha256": "817b40342797aee63f266d1aa692997465a862b0b7d24bc7ec91fb0afa2aa2e8",
+        "extra": [
+          {
+            "description": "Track has unconnected end",
+            "items": [
+              {
+                "description": "Track [COL_06_G] on In3.Cu, length 0.0500 mm",
+                "pos": {
+                  "x": 55.7,
+                  "y": 6.95
+                },
+                "uuid": "a98a1d50-d72e-5009-8ffe-670c912b9abc"
+              }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+          }
+        ],
+        "findings": 105,
+        "iteration": 14
+      },
+      {
+        "drc_sha256": "068ae3c7ae87f1d820dc185066d2be86694614d195c56e900442286202957208",
+        "extra": [
+          {
+            "description": "Track has unconnected end",
+            "items": [
+              {
+                "description": "Track [COL_06_G] on In3.Cu, length 0.8500 mm",
+                "pos": {
+                  "x": 55.7,
+                  "y": 6.9
+                },
+                "uuid": "09b37ee3-683f-5b47-940c-1970da69141c"
+              }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+          }
+        ],
+        "findings": 105,
+        "iteration": 15
+      },
+      {
+        "drc_sha256": "e78d515f5b23949ce830bb390876ebf78649fc94f5fb789c4d212a8d91d586a6",
+        "extra": [
+          {
+            "description": "Track has unconnected end",
+            "items": [
+              {
+                "description": "Track [COL_06_G] on In3.Cu, length 0.0500 mm",
+                "pos": {
+                  "x": 54.85,
+                  "y": 6.9
+                },
+                "uuid": "cb73c4ac-cef8-59f8-9227-da4af8d2be7d"
+              }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+          }
+        ],
+        "findings": 105,
+        "iteration": 16
+      },
+      {
+        "drc_sha256": "3df31bbd8057813e857eb9ae35ed0544cfd99c6ad970ff39836a3c1c1582584d",
+        "extra": [
+          {
+            "description": "Track has unconnected end",
+            "items": [
+              {
+                "description": "Track [COL_06_G] on In3.Cu, length 0.8500 mm",
+                "pos": {
+                  "x": 54.85,
+                  "y": 6.85
+                },
+                "uuid": "46aa491f-380a-592d-bc7e-ffdab2593d76"
+              }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+          }
+        ],
+        "findings": 105,
+        "iteration": 17
+      },
+      {
+        "drc_sha256": "4b3a6a47cccec8b03a9bb70ddbe7eaf98fa260e326eaa9bd292bb44378f1e6ca",
+        "extra": [],
+        "findings": 104,
+        "iteration": 18
+      }
+    ]
+  },
+  "original_source_items_retained": 14473,
+  "previous_r28_r29_r2_joins_preserved": true,
+  "raw_evidence_sha256": {
+    "/private/tmp/rgb-extract-r36-simplified.log": "b90549c7333196b4bee329492009f5178d5b1ac592060894d60ae7164f457c50",
+    "/private/tmp/rgb-extract-r36-simplified.py": "2a9432067c1eb62fd8411f8962dddc67d9767f84cbb02af0b219bd61c595a193",
+    "/private/tmp/rgb-prune-r36-isolated.log": "0146be306541f2eaaacc93e8eb0ce82acdda01663aba90c9eeb449a51d1966d3",
+    "/private/tmp/rgb-prune-r36-isolated.py": "e7bc99f2606841132649348da3e559d953b9ca758359f538aa78c8e1703c071e",
+    "/private/tmp/rgb-prune-r36-worker.py": "d3d808062d2399d2f0bac9e766887b16dc62132a9c8f198585151e19fcfe2560",
+    "/private/tmp/rgb-r36-ground-ci-layout.log": "69fae519815346f88b56d849112b6d630f2b2653936c28dc4d072a7cc846d2e3",
+    "/private/tmp/rgb-r36-ground-generate.log": "9a08b371ed08295e4ecfe96ef9ef64919b32e79dbc92960b506a065518fc105a",
+    "/private/tmp/rgb-r36-ground-native-check.log": "39a1663355992e3e1b984691e809f924d16afabebb06d9fb0a73b1516b58c49e",
+    "/private/tmp/rgb-r36-ground-native-contract.log": "33b75a03b27722236f6d8140e4be8d2347b643496b88d1745c77d46a1703c03c",
+    "/private/tmp/rgb-r36-ground-open-nets.json": "6a4a4c97c304a763a41c4fae89af6aae69ca50458d4d9418c4061b7e7a1e9892",
+    "/private/tmp/rgb-r36-ground-reproduce.log": "07ad4b46a27d0c2c1d19306b8dbf593790a535668473e98c2a74c55e550fae1b",
+    "/private/tmp/rgb-r36-simplified-drc.log": "bf30d0665db8fcbcf34add16832c5605ef14333d8983bf82bdd8b8dcbeaa1091",
+    "/private/tmp/rgb-simplify-r36-route.log": "5b25ca112484169ebe9ff0d83a99b5b82f26a0db6a8f68c0d31cabc575960a27",
+    "/private/tmp/rgb-simplify-r36-route.py": "704f5c0f33615cef78d70c58af1714abac0f8ab031f3fe15e75febd73eae1979"
+  },
+  "repeated_generation_byte_identical": true,
+  "replacement_colour_track_length_mm": 45.577324180141524,
+  "replacement_increases_length_over_retired_source_mm": 16.577324180141524,
+  "retired_colour_track_length_mm": 29.0,
+  "retired_obstructing_original_track": {
+    "end_iu": [
+      61900000,
+      7250000
+    ],
+    "layer": "In4.Cu",
+    "net": "COL_06_G",
+    "start_iu": [
+      82600000,
+      7250000
+    ],
+    "width_iu": 200000
+  },
+  "status": "CHECKED_R36_GROUND_ESCAPE_WITH_EXACT_OBSOLETE_BRANCH_RETIREMENT_NOT_FABRICATION_SOURCE",
+  "total_reviewed_original_track_retirements": 20,
+  "total_reviewed_original_via_retirements": 1
+}

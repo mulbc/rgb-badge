@@ -1,0 +1,22 @@
+<!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
+
+# ADR 0058: Scoped signal-spacing feasibility
+
+Date: 2026-10-28
+Status: Authorized for ignored feasibility only; canonical clearance remains 0.20 mm.
+
+Repeated original-clearance routes and local placements retain 64 accepted opens. Original display/control copper can enclose fine-pitch signal pins. Investigate a separately profiled, explicitly enumerated signal-only clearance study before deciding whether a different routing rule is useful. Do not alter the accepted board, profile, rules or source policy during the screen.
+
+For new ignored signal tracks/vias on a recorded focus-net list, allow 0.15 mm to explicitly enumerated signal peers when at least one object is a track, and 0.18 mm for via-to-pad/via pairs. Exclude all power, ground, analogue/reference/current/feedback/timing-setting and USB differential nets from both lists. PAD-to-PAD clearance remains 0.20 mm even for listed nets. Ordinary widths remain 0.20 mm; adjacent microvias remain 0.30/0.10 mm and the annular floor 0.10 mm. Retain the two exact existing DSF necks. No component, pin map, value, voltage/current limit, protection, interlock boundary, firmware, original copper, selected pose or zone changes are included.
+
+The WEdirekt Design Guide 03/25, page 2, distinguishes copper thickness and object types: at 35 µm finished copper it lists 100 µm track/track and pad/track spacing, and 170 µm pad/pad spacing. The 0.18 mm via/pad screen deliberately exceeds the latter; do not apply a 0.15 mm blanket via/pad rule. This is a manufacturing feasibility reference, not a selected fab/stack-up or confirmation that the complete board meets that process. At 70 µm the same table lists larger track requirements, so the screen cannot be generalized to thicker copper. Source: https://www.we-online.com/files/pdf1/basic_design-guide_110325_en_web.pdf . No manufacturer PDF is committed.
+
+KiCad 10 custom rules permit explicit object/net conditions and priority; see https://docs.kicad.org/10.0/en/pcbnew/pcbnew.html . Record the exact focus/peer lists, custom-rule bytes and per-pair native shape logic in the ignored experiment. Check the unchanged source under that profile first: its full 104 intrinsic findings must remain identical. PAD-to-PAD violations may not disappear through this screen. Power/ground/setting peers must still require 0.20 mm. A search score or a lower airwire count alone is insufficient.
+
+Any future canonical selection requires a separate exact spacing policy and independently checked actual added-copper pairs; default-0.20/native scoped-rule/replay fingerprints; negative cases for unlisted nets/types, pad pairs and insufficient gaps; lower native/physical-pad opens; every accepted 64-edge copper item, pose, original/selected zone, source contact and group; three stable fills; unchanged full 104 findings; unchanged orphan restoration; source/LED checks and recorded rule consequences. No spacing change is currently selected. Actual net voltage limits, crosstalk/noise/timing margins, contamination/assembly/process tolerances and board-specific copper/stack-up remain review items. No current rating or safety claim follows. The board is unbuilt, and independent Gate A remains mandatory before fabrication.
+
+The native rule engine labels fallback pad-pair constraints with `netclass 'Default'` when conditional clearance rules exist. The preflight therefore permits removal of only that exact diagnostic provenance label when comparing the original 104 pad-pair findings; item descriptions/positions, severity, configured clearance and measured gap must otherwise match exactly. Candidate full DRC must match the untouched raw experimental preflight findings, without normalizing new errors. No finding may be dropped.
+
+## Recorded feasibility result
+
+The isolated profile retains all 104 original pad-pair findings, and fifteen native rule fixtures cover allowed/insufficient track/via spacing plus forbidden power, ground, setting, pad-pair and peer-only cases. The finite 300,000-node-per-endpoint screen adds no copper and remains at 64 opens. No spacing rule is selected. Exact lists, raw native fixtures and failed searches stay in ignored `hardware/coupon/rev-a/build/native-control-search/spacing64/`; this negative result does not prove impossibility. The subsequent 63-edge USB status join uses the original 0.20 mm clearance.

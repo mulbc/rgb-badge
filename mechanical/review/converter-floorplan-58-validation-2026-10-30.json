@@ -1,0 +1,77 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "accepted_board_unchanged": true,
+  "accepted_drc_findings": 104,
+  "accepted_opens": 58,
+  "affected_prior_pad_groups": 5,
+  "candidate_drc_types": {
+    "clearance": 104,
+    "track_dangling": 6,
+    "via_dangling": 8
+  },
+  "candidate_pad_cluster_opens": 73,
+  "fabrication_release_allowed": false,
+  "intrinsic_clearance_description_pad_uuid_inventory_matches": true,
+  "inventory_byte_identical_replay": true,
+  "local_raw_sha256": {
+    "hardware/coupon/rev-a/build/converter-floorplan-58/contact-rework-scope.json": "a60a74af65b0895ee5e2fddd8c5d1864b40e6b7af46161c5e984e2c866f39dea",
+    "hardware/coupon/rev-a/build/converter-floorplan-58/contact-scope.log": "98223be94f18e5853b638ba4d5054c959e2a3d5020385c2edae3a68a160b1b58",
+    "hardware/coupon/rev-a/build/converter-floorplan-58/contact-scope.py": "a9ee787071c7fe5e3c533ac1fabd0242d8dcdd672af986bde259735a52692751",
+    "hardware/coupon/rev-a/build/converter-floorplan-58/fp-lib-table": "9f4cf26ff827f08ba7c71d3c6f7fe8fef3a8d3af0a971713557d8a2427d37c9c",
+    "hardware/coupon/rev-a/build/converter-floorplan-58/inventory-replay.log": "70d7445db3ad1ac7a3f0952fbd67ed9dba0739076a9bc0133cc6e45a3aeec110",
+    "hardware/coupon/rev-a/build/converter-floorplan-58/inventory.json": "fe602f6d39cb1501f7ca812efc1502461b8c94986ebef3abc06f782c5b1eefad",
+    "hardware/coupon/rev-a/build/converter-floorplan-58/inventory.log": "70d7445db3ad1ac7a3f0952fbd67ed9dba0739076a9bc0133cc6e45a3aeec110",
+    "hardware/coupon/rev-a/build/converter-floorplan-58/native-pose-oracle.json": "ca929227dbc03c8bef0cd09726bb1f6c5f97caa8c8796bdc339d5f099b7e3eaa",
+    "hardware/coupon/rev-a/build/converter-floorplan-58/native-pose-oracle.log": "040e6bc910ae9ad2e3fe893f65ada92bc974be772f5af7c3e651280d0a7b4814",
+    "hardware/coupon/rev-a/build/converter-floorplan-58/pose-oracle.py": "857c806272a0c36b785e708c28dbafa1468a41049881ac0594ec27138ae8f7c0",
+    "hardware/coupon/rev-a/build/converter-floorplan-58/vled-rigid-screen-replay.json": "6b2e6d000ba8d6b47e9be789cd501bd474891ba230dfeec0b6a16b76745d9f7d",
+    "hardware/coupon/rev-a/build/converter-floorplan-58/vled-rigid-screen-replay.log": "c14701a6c5b336617fe11c6ad69adc4ce848db6994e041e0e257ffc70675a147",
+    "hardware/coupon/rev-a/build/converter-floorplan-58/vled-rigid-screen.json": "6b2e6d000ba8d6b47e9be789cd501bd474891ba230dfeec0b6a16b76745d9f7d",
+    "hardware/coupon/rev-a/build/converter-floorplan-58/vled-rigid-screen.log": "3b238bed6b2bba4ceaf76f5f6565d3559420ce7f4fa12f19c3ca32a70c17474a",
+    "hardware/coupon/rev-a/build/converter-floorplan-58/vled-rigid-unrouted-drc-with-library.json": "b8c80836c17f6265abc97190f79f998e53dba8967e9e7da1e2e4a73ea02b9f87",
+    "hardware/coupon/rev-a/build/converter-floorplan-58/vled-rigid-unrouted-drc.json": "862205f736e50eb729950658b2a039744757605875e89636a745cca3bcbf49af",
+    "hardware/coupon/rev-a/build/converter-floorplan-58/vled-rigid-unrouted-witness.kicad_dru": "80c92b0cdef868dd0ef0037aa2f63d1266f709a2dd0326094735c75ffbd31a2e",
+    "hardware/coupon/rev-a/build/converter-floorplan-58/vled-rigid-unrouted-witness.kicad_pcb": "bb063a63f18e4137181918b15cb1f1653dd521503577b3e9c30698779dfc97ea",
+    "hardware/coupon/rev-a/build/converter-floorplan-58/vled-rigid-unrouted-witness.kicad_pro": "1141b004ecffd1e7e8e0c30cf21aeae7ce6381093df674998133d226ab9c27fb",
+    "hardware/coupon/rev-a/build/converter-floorplan-58/vled-rigid-witness.json": "437c328860d5d56ba6572c604ef62dc57a659df1130285aeed20b32c1f20f3e4",
+    "hardware/coupon/rev-a/build/converter-floorplan-58/vled-rigid-witness.log": "680bc6fb91149636494747b03c76aa9c9eab722ccf2313302be976d4f73c35fe",
+    "hardware/coupon/rev-a/build/converter-floorplan-58/witness.py": "ee25086e2c43f436c15e78f6c628d3fc4468f40c6f2e65b7bbf4f0cb9f97b86f"
+  },
+  "local_vendor_sha256": {
+    "hardware/coupon/rev-a/reference/vendor-datasheets/m_dfe252012p.pdf": "ce259ba611fb3ea196baf60e2c7080a21cd897cdb662bf77552cc842c2b91c3e",
+    "hardware/coupon/rev-a/reference/vendor-datasheets/tps63020.pdf": "d117773bb7370fd79377bc70ce987eec3469ea5979547a09df52fca5f95b2e69",
+    "hardware/coupon/rev-a/reference/vendor-datasheets/tps631000.pdf": "b52a4064a8c2cbb4c9dd97f366b398dedcb490ffc9d564245f297536a19b426b"
+  },
+  "native_courtyard_oracle_pairs": 2769,
+  "native_filled_candidate_opens": 76,
+  "native_other_net_copper_oracle_pairs": 211585,
+  "packing_byte_identical_replay": true,
+  "pad_cluster_open_increase_explained_by_splits": 15,
+  "preliminary_clear_poses": 1,
+  "public_evidence_sha256": {
+    "docs/development/vled-rigid-floorplan-drc-2026-10-30.json": "b8c80836c17f6265abc97190f79f998e53dba8967e9e7da1e2e4a73ea02b9f87",
+    "mechanical/review/converter-floorplan-58-inventory-2026-10-30.json": "fe602f6d39cb1501f7ca812efc1502461b8c94986ebef3abc06f782c5b1eefad",
+    "mechanical/review/vled-floorplan-contact-rework-scope-2026-10-30.json": "a60a74af65b0895ee5e2fddd8c5d1864b40e6b7af46161c5e984e2c866f39dea",
+    "mechanical/review/vled-rigid-floorplan-58-2026-10-30.json": "6b2e6d000ba8d6b47e9be789cd501bd474891ba230dfeec0b6a16b76745d9f7d",
+    "mechanical/review/vled-rigid-floorplan-oracle-2026-10-30.json": "ca929227dbc03c8bef0cd09726bb1f6c5f97caa8c8796bdc339d5f099b7e3eaa",
+    "mechanical/review/vled-rigid-floorplan-witness-2026-10-30.json": "437c328860d5d56ba6572c604ef62dc57a659df1130285aeed20b32c1f20f3e4"
+  },
+  "public_tool_sha256": {
+    "tools/audit-converter-floorplan.py": "d28bc1baa96da14bc4f2ad7b85753ad52d1cfe94b7d27fdbaccda46b339f3b52",
+    "tools/convex_geometry.py": "348be312df0198d253257cfb134959b432a6ade829207662d2c6d45d9d010962",
+    "tools/screen-converter-inductor-locality.py": "8f8bc79624f1501744ce9632269d32f695c28d42c713d467461bb0e83c6e3bfd",
+    "tools/screen-vled-cluster-floorplan.py": "49869b03645960f1ee4f09c46da506ed3c125a5a944b875718037b3ac0fa8701"
+  },
+  "sampled_rigid_poses": 60456,
+  "source_sha256": "3451177253a021d8706ff818696212afabf539a108f15ef9e5d6921e46435acc",
+  "split_pad_witnesses": 53,
+  "status": "FIRST_AUTHOR_NATIVE_READ_ONLY_FLOORPLAN_EXPERIMENT_NO_POSE_SELECTED",
+  "template_sha256": "8907f5d51f93211c5d67e74254ece1e54f7e37bc4bd41e7e03c4ecb85d956cec",
+  "unresolved": [
+    "Exact stage copper-contact/rework policy and all external group reconnections",
+    "Short/wide power and suitable ground/feedback layout",
+    "Electrical, current, thermal, EMI and effective-capacitance qualification",
+    "Mechanical, assembly and process qualification",
+    "Independent Gate A before fabrication"
+  ]
+}

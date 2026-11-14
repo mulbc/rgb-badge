@@ -57,6 +57,35 @@ class NumberedFootprintReviewTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     numbered_review(ET.tostring(root))
 
+    def test_compound_pad_profile_preserves_geometry_and_first_glyph(self):
+        source = fabrication_svg("rpw").encode()
+        original = ET.fromstring(source)
+        result = ET.fromstring(numbered_review(source, "rpw"))
+        overlay = result.findall("svg:g", NS)[-1]
+        self.assertEqual([g.get("data-pad") for g in overlay],
+                         [str(n) for n in range(1, 11)])
+        first = {}
+        for parent in original.findall("svg:g", NS):
+            for glyph in list(parent):
+                number = glyph.findtext("svg:desc", namespaces=NS)
+                if number and number.isdigit():
+                    first.setdefault(number, deepcopy(glyph))
+                    parent.remove(glyph)
+        self.assertEqual([ET.tostring(g) for g in original.findall("svg:g", NS)],
+                         [ET.tostring(g) for g in result.findall("svg:g", NS)[:-1]])
+        for group in overlay:
+            self.assertEqual(ET.tostring(group[-1]), ET.tostring(first[group.get("data-pad")]))
+        self.assertIn(hashlib.sha256(source).hexdigest(), result.findtext("svg:metadata", namespaces=NS))
+
+    def test_compound_pad_profile_rejects_wrong_multiplicity(self):
+        source = fabrication_svg("rpw")
+        for changed in (source.replace("<desc>10</desc>", "<desc>9</desc>", 1),
+                        fabrication_svg()):
+            with self.assertRaises(ValueError):
+                numbered_review(changed.encode(), "rpw")
+        with self.assertRaises(ValueError):
+            numbered_review(source.encode())
+
     def test_existing_evidence_is_never_overwritten(self):
         with tempfile.TemporaryDirectory() as directory:
             source = Path(directory) / "original.svg"

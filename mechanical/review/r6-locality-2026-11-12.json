@@ -1,0 +1,151 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "additional_capture_screen": {
+    "blocked_B.Cu": 7238,
+    "blocked_In4.Cu": 3318,
+    "sampled": 10556
+  },
+  "date": "2026-11-12",
+  "fabrication_release_allowed": false,
+  "full_capture_screen": {
+    "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+    "angles_deg": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "candidate_retired_uuids": [
+      "2538e05f-0e95-52a5-813a-3f61b41300a2",
+      "37dd7533-43cb-5304-82c1-189a29f31d7b",
+      "42fd1a41-569a-505d-a7f3-ff8a9a5bd1b8",
+      "430f9728-db9a-55c3-bc3a-c15f77000cfa",
+      "750bfacf-ba86-5c75-9580-95e8142b8407",
+      "b0d25ba3-c6d5-5224-8d60-741e3760ff1a"
+    ],
+    "capture_screen": "full",
+    "clear_poses": [],
+    "clearance_iu": 200000,
+    "copper_edge_iu": 500000,
+    "counts": {
+      "courtyard": 48286,
+      "pad_copper": 9262,
+      "sampled": 62468,
+      "via_copper": 4920
+    },
+    "fabrication_release_allowed": false,
+    "gate_path_limit_iu": 3000000,
+    "grid_step_iu": 50000,
+    "limitations": [
+      "Finite grid and direct/orthogonal gate templates only",
+      "Filled zones, hole clearance, refills, group retention and full DRC not screened",
+      "No PCB saved or source modified",
+      "Without-capture diagnostics do not constitute a supply proposal"
+    ],
+    "pose_bounds_iu": [
+      [
+        71000000,
+        800000
+      ],
+      [
+        79000000,
+        5600000
+      ]
+    ],
+    "source_sha256": "3967bb66e89e0005f6859ce78a766b4536d06883b76fce130e75a6fdeefaf96e",
+    "source_unchanged": true,
+    "status": "UNSELECTED_READ_ONLY_FINITE_SCREEN",
+    "tool_sha256": "7273c3075d5ef7948f269b0e654c38e9f2d9c5b8c2667b7a08f1035289d5d0a8"
+  },
+  "ignored_evidence_sha256": {
+    "hardware/coupon/rev-a/build/r6-locality/captures.json": "b935f338d2abd685f5d0b34bb4d7fff366f85479e0003a52b9430a43c88e5fdb",
+    "hardware/coupon/rev-a/build/r6-locality/controlled-full.json": "3e66db8d784114370d680518967f27ac2fe97065d55c600f46af8205cef6d374",
+    "hardware/coupon/rev-a/build/r6-locality/controlled-full.log": "cf6d51619de8c3634a78730d9fb5949942c6cd483953bf3f31afe45648afce11",
+    "hardware/coupon/rev-a/build/r6-locality/controlled-gate.json": "f3dcd040485e41069a888803c00f82b16cd95f01829d667670dbd2dcc8bdcfad",
+    "hardware/coupon/rev-a/build/r6-locality/controlled-gate.log": "400be3380ad8c122192e4d65591a41f4c40d7bb25bc66a84754d89700963adbd"
+  },
+  "native_physical_opens_unchanged": 35,
+  "native_qualified_new_routes": 0,
+  "selected_retirements": 0,
+  "source_retirement_path_diagnostic_sha256": "d27cf0cb7cb2d1f318abba7c720909943c8ab8379f941d4bdd980ccf89d085b2",
+  "source_sha256": "3967bb66e89e0005f6859ce78a766b4536d06883b76fce130e75a6fdeefaf96e",
+  "source_unchanged": true,
+  "specific_fixed_obstructions": [
+    {
+      "layer": "In4.Cu",
+      "net": "ROW_GATE_05",
+      "signature": [
+        "track",
+        "ROW_GATE_05",
+        72150000,
+        4250000,
+        76650000,
+        4250000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "6df0bbfc-ab37-5f5e-98d4-b7e151596a3d"
+    },
+    {
+      "layer": "B.Cu",
+      "net": "ROW_SEL_03",
+      "uuid": "37dfb88c-59c8-5935-b7ac-010f63e56299"
+    },
+    {
+      "layer": "B.Cu",
+      "net": "ROW_SEL_01",
+      "uuid": "5d62f9a1-9cfa-561e-83b1-c12fb49467ef"
+    }
+  ],
+  "status": "NO_SUCCESSOR_SELECTED_READ_ONLY_SCREEN",
+  "without_capture_diagnostic": {
+    "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+    "angles_deg": [
+      0,
+      90,
+      180,
+      270
+    ],
+    "candidate_retired_uuids": [
+      "2538e05f-0e95-52a5-813a-3f61b41300a2",
+      "37dd7533-43cb-5304-82c1-189a29f31d7b",
+      "42fd1a41-569a-505d-a7f3-ff8a9a5bd1b8",
+      "430f9728-db9a-55c3-bc3a-c15f77000cfa",
+      "750bfacf-ba86-5c75-9580-95e8142b8407",
+      "b0d25ba3-c6d5-5224-8d60-741e3760ff1a"
+    ],
+    "capture_screen": "none",
+    "clear_poses": [],
+    "clearance_iu": 200000,
+    "copper_edge_iu": 500000,
+    "counts": {
+      "courtyard": 48286,
+      "pad_clear_without_capture": 4920,
+      "pad_copper": 9262,
+      "sampled": 62468
+    },
+    "fabrication_release_allowed": false,
+    "gate_path_limit_iu": 3000000,
+    "grid_step_iu": 50000,
+    "limitations": [
+      "Finite grid and direct/orthogonal gate templates only",
+      "Filled zones, hole clearance, refills, group retention and full DRC not screened",
+      "No PCB saved or source modified",
+      "Without-capture diagnostics do not constitute a supply proposal"
+    ],
+    "pose_bounds_iu": [
+      [
+        71000000,
+        800000
+      ],
+      [
+        79000000,
+        5600000
+      ]
+    ],
+    "source_sha256": "3967bb66e89e0005f6859ce78a766b4536d06883b76fce130e75a6fdeefaf96e",
+    "source_unchanged": true,
+    "status": "UNSELECTED_READ_ONLY_FINITE_SCREEN",
+    "tool_sha256": "7273c3075d5ef7948f269b0e654c38e9f2d9c5b8c2667b7a08f1035289d5d0a8"
+  }
+}

@@ -1,0 +1,11 @@
+<!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
+
+# Switched-gauge and isolated I²C source review, 2026-10-11
+
+[ADR 0030](../decisions/0030-gauge-bus-buffer-selection.md) selects exact `TCA9517ADGKR`, with [audited project-local symbol and land](../../hardware/coupon/rev-a/gauge-buffer-library-audit.md). The root-linked SW2 second common pin 5 now joins protected BAT; its B2 contact pin 6 supplies `+BAT_GAUGE_SW`. On that switched net are MAX17048 VDD/CELL, TCA9517A VCCA, two 2.2 kΩ gauge-side SDA/SCL pull-ups and 100 nF local bypasses. Gauge SDA/SCL join only buffer A pins 3/2. Buffer B pins 6/7 join application SDA/SCL, with the existing separate 2.2 kΩ pull-ups to `+3V3_APP`; VCCB and EN join that application rail, with local bypass. The A-side ERC power flag models the conditional SW2 source; it is not a board component.
+
+KiCad CLI 10.0.6 reports **zero configured ERC violations** in the 19-page root schematic. Full native XML verifies **466 PCB items / 1,711 logical pins**; the gauge source checker validates ten symbols, 31 connected pins and one explicit ALRT no-connect. Full check output is `/private/tmp/rgb-gauge-link-full-check-20261011.log`; focused native ERC/XML are `/private/tmp/rgb-gauge-link-first.rpt` and `/private/tmp/rgb-gauge-link-first.xml`. The PDF at `/private/tmp/rgb-gauge-linked-review-20261011.pdf` was rendered, and the revised gauge and control pages 12–13 were visually inspected after moving the new pull-ups clear of the title block. These are source checks; no board or pack has been energized.
+
+The complete host suite passed **174 tests** on 2026-10-11, including a fault test that corrupts the buffer's gauge-side SCL pin in the exported netlist and requires rejection. The first suite run overlapped a generator rewrite and reported one transient source mismatch plus an outdated SVG count; the stable rerun passed after correcting the expected counts.
+
+**Open:** SW2 JCQN's actual fitted throw direction and contact timing; powered-off and intermediate-rail isolation/leakage; I²C LOW, rise and translation margins; buffer current; SOC recovery after OFF charging; USB-absent OFF drain; and independent Gate A review. The schematic is not a claim that these behaviors pass.

@@ -1,0 +1,112 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "schema_version": 1,
+  "status": "CORRECTED_PLANNING_TARGET_NOT_SUPPLIER_APPROVED",
+  "date": "2026-11-06",
+  "adr": "docs/decisions/0090-bounded-stack-and-complete-stage-corrections.md",
+  "build_up": "2+2+2",
+  "copper_layers": [
+    "F.Cu",
+    "In1.Cu",
+    "In2.Cu",
+    "In3.Cu",
+    "In4.Cu",
+    "B.Cu"
+  ],
+  "copper_um": [
+    35,
+    35,
+    35,
+    35,
+    35,
+    35
+  ],
+  "dielectric_um": [
+    76,
+    76,
+    286,
+    76,
+    76
+  ],
+  "dielectric_kinds": [
+    "build_up",
+    "build_up",
+    "core",
+    "build_up",
+    "build_up"
+  ],
+  "laminate_and_copper_sum_um": 800,
+  "finished_target_um": 800,
+  "finished_thickness_tolerance_um": null,
+  "mask_finish_allowance_um": null,
+  "note": "Bare geometry sums to 0.800 mm; supplier must reconcile finished thickness, mask/finish allowance and USB4505 fit. No layer is declared a dedicated plane by this file.",
+  "via_policies": [
+    {
+      "kind": "microvia",
+      "layers": [
+        "F.Cu",
+        "In1.Cu"
+      ],
+      "minimum_pad_um": 300,
+      "hole_um": 100,
+      "maximum_nominal_dielectric_hole_ratio": 0.8
+    },
+    {
+      "kind": "microvia",
+      "layers": [
+        "In1.Cu",
+        "In2.Cu"
+      ],
+      "minimum_pad_um": 300,
+      "hole_um": 100,
+      "maximum_nominal_dielectric_hole_ratio": 0.8
+    },
+    {
+      "kind": "microvia",
+      "layers": [
+        "In3.Cu",
+        "In4.Cu"
+      ],
+      "minimum_pad_um": 300,
+      "hole_um": 100,
+      "maximum_nominal_dielectric_hole_ratio": 0.8
+    },
+    {
+      "kind": "microvia",
+      "layers": [
+        "In4.Cu",
+        "B.Cu"
+      ],
+      "minimum_pad_um": 300,
+      "hole_um": 100,
+      "maximum_nominal_dielectric_hole_ratio": 0.8
+    },
+    {
+      "kind": "buried",
+      "layers": [
+        "In2.Cu",
+        "In3.Cu"
+      ],
+      "minimum_pad_um": 500,
+      "hole_um": 300,
+      "maximum_nominal_dielectric_hole_ratio": 8
+    },
+    {
+      "kind": "through",
+      "layers": [
+        "F.Cu",
+        "B.Cu"
+      ],
+      "minimum_pad_um": 500,
+      "hole_um": 300,
+      "maximum_nominal_dielectric_hole_ratio": 8
+    }
+  ],
+  "minimum_nominal_annular_ring_um": 100,
+  "supplier_controlled_build": false,
+  "material_and_impedance_qualified": false,
+  "via_fill_cap_and_interface_reliability_qualified": false,
+  "connector_and_case_fit_qualified": false,
+  "independent_gate_a_recorded": false,
+  "fabrication_release_allowed": false
+}
