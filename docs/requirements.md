@@ -796,3 +796,16 @@ follow its frozen pose. No extra finding, substitution or qualification is waive
 
 
 **2026-11-14 control checkpoint selected:** ADR 0136 adopts the complete exact U52/C71 migration, eleven-item retirement and 59-item addition ledger at 32 native/physical opens. Preserve all 221 predecessor groups, exact source contacts and full original finding payloads except independently validated U52 pose coordinates. All existing safety, qualification and fabrication holds remain; zero opens is still required.
+
+**2026-11-14 relocated control continuation:** ADR 0137 bounds existing-rule
+U52.2/U52.4 local capture screening and supported additive continuation from the
+immutable 32-open source. Every prior group/source item and full successor
+acceptance/safety boundary remain required; no extra finding or fabrication release.
+
+**2026-11-14 ordinary additive continuation:** ADR 0138 permits ignored
+ordinary-width searches on its explicitly listed remaining control/row/clock
+nets, preserving every selected source item/group and preliminary join. Native
+exact-finding and full successor gates remain required; no safety or qualification
+boundary changes, and no lower unvalidated count is selected.
+
+**2026-11-14 clear-output checkpoint selected:** ADR 0139 selects the ordinary-width U52.4–U49.2/R108.1 join at 31 native/physical opens, preserving all 220 predecessor groups and every source item. Exact original findings, source-byte restoration and full successor gates pass. Zero opens and all existing safety/qualification/fabrication holds remain.

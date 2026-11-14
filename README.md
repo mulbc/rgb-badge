@@ -1,5 +1,7 @@
 <!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
 
+**2026-11-14 selected — 31 opens:** The [clear-output join](docs/development/clear-output-routing-2026-11-14.md) connects U52.4 to U49.2/R108.1 through ordinary-width copper. All 220 prior groups and 19,226 source copper items survive. Native/physical 31 opens, exact original 104 finding payloads under the existing frozen pose transform, independent stable replays, byte-identical source restoration, eleven native faults, 34 source checks and native visual review pass. Use `led-ordinary-routing-trial-114mm`. Zero opens and electrical/part/process/fit/stack/Gate A acceptance remain unresolved; fabrication is prohibited.
+
 **2026-11-14 selected — 32 opens:** The [complete control cluster](docs/development/control-cluster-routing-2026-11-14.md) joins U51.4–U52.1 with exact U52/C71 placement and bounded loop/row replacements. All 221 original groups survive, with 32 native/physical opens, the original 104 finding payloads under the exact U52 pose transform, stable byte-identical replays, inverse-source proof, 18 fault guards, 33 source checks and native visual review. Use `led-control-cluster-routing-trial-114mm`. Zero opens, electrical/part/process/fit/stack qualification and independent Gate A remain open; fabrication is prohibited.
 
 **2026-11-12 selected — 33 opens:** The [gauge-supply join](docs/development/gauge-supply-routing-2026-11-12.md) adds exact ordinary-width copper, preserving every prior group and source item. Native/physical 33 opens, exact unchanged 104 findings, stable byte-identical replays, eleven native faults, 32 source checks and visual review pass. Use `led-gauge-routing-trial-114mm`. U35 supply, zero opens and electrical/process/fit/stack/Gate A acceptance remain open; fabrication is prohibited.
@@ -19,7 +21,7 @@ An open-source, full-colour wearable LED badge inspired by the FOSSASIA Badge Ma
 
 The project is currently in **draft schematic development**. Several coupon circuits are captured, including a provisional charger core, but the complete power circuit and PCB are unfinished. No board in this repository has been independently reviewed, fabricated or tested. Do not treat current design material as production-ready.
 
-The current [32-open CAD study](docs/development/control-cluster-routing-2026-11-14.md) retains 104 inventoried intrinsic findings. Circuit completion, electrical/process/fit/stack qualification and independent Gate A review remain open.
+The current [31-open CAD study](docs/development/clear-output-routing-2026-11-14.md) retains 104 inventoried intrinsic findings. Circuit completion, electrical/process/fit/stack qualification and independent Gate A review remain open.
 
 ## Product target
 
