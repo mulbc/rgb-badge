@@ -822,3 +822,48 @@ or source retirement is authorized without its subsequent frozen contact scope;
 all selected groups, safety and full successor gates remain mandatory.
 
 **2026-11-14 enable checkpoint selected:** ADR 0142 selects the complete five-terminal DISPLAY_ENABLE join at 30 native/physical opens, with one exact C71 translation, two private-leaf retirements and 88 additions. All 219 prior groups, source contacts and original finding payloads survive, with no rule or safety change. Full replay/inverse/fault/source/visual gates pass; zero opens and all qualification/fabrication holds remain.
+
+**2026-11-14 exact outer-capture discovery:** ADR 0143 permits only read-only
+native screening of supported adjacent transitions at actual retained non-grid
+capture positions on its explicitly listed remaining nets. No source item,
+part, rule, centre microvia or PCB change is authorized by the discovery screen;
+all 218 selected groups and full successor/safety/fabrication holds remain.
+
+**2026-11-14 complete pull-up locality discovery:** ADR 0144 permits only a
+read-only exact R8 pose/capture screen and inventory of its one prospective
+VLED-leaf cohort. No routed part move or retirement is authorized without its
+subsequent frozen scope; all 218 selected groups, complete original pull-up
+supply, numbered nets, safety and full successor/fabrication holds remain required.
+
+**2026-11-14 complete selector/pull-up feasibility:** ADR 0145 freezes one
+anchored exact R8 flip and one original ROW_SEL_15 retirement for ignored
+complete restoration. Every selector branch/interface, the complete original
+pull-up supply, all 218 selected groups and full successor/safety/qualification
+holds must survive with an actual gate join; no partial lower count is selected.
+
+**2026-11-14 selector capture screen:** ADR 0146 permits read-only anchored
+R37 orientation/capture screening with exact ERJ2RKF1003X / 100 kΩ identity,
+all original direct and filled-zone contacts and unchanged rules. No relocated
+PCB is authorized without a frozen exact follow-up scope; all 218 selected
+groups, safety and full successor/qualification/fabrication holds remain required.
+
+**2026-11-14 drill-span semantics fixtures:** ADR 0147 permits isolated ignored
+native fixtures with unchanged 0.25 mm hole rules to distinguish actual via
+layer spans. It authorizes no source PCB, rule, capture or search-policy change;
+all selected-group, full successor, safety and fabrication holds remain required.
+
+**2026-11-14 fixed inverter-neck discovery:** ADR 0148 permits read-only fixed
+U48 capture screening under its existing 0.12 mm courtyard rule, with actual
+neck length below 0.750 mm and unchanged source parts/copper/rules. No PCB is
+authorized without frozen follow-up geometry; all 218 groups and full successor,
+safety, qualification and fabrication holds remain required.
+
+ADR 0149 permits an ignored additive supply/return search from the exact selected
+30-open source using actual group/filled-zone witnesses and ADR 0147's bounded
+supported-span prefilter. Preserve all source groups/items/rules; complete native,
+independent, replay, inverse, fault and visual validation precedes selection.
+Connectivity evidence does not qualify current capacity or fabrication.
+
+ADR 0150 permits only a read-only exact U48 locality screen near fixed corrected
+U49. A later migration requires complete bypass/leaf/contact scope and full
+source-preserving successor validation; no source pose or copper is changed.
