@@ -1,5 +1,8 @@
 <!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
 
+**2026-11-15 selected — 28 opens:** The [complete row-two exchange](docs/development/row2-routing-2026-11-15.md) moves exact R8/R37, joins the full ROW_GATE_02 and restores all selector/ground contacts. All 217 prior groups survive, with matching native/physical counts and exact original 104 findings. Two byte-identical replays, byte-identical inverse, 21 fault guards, eight hole controls, 37 source checks and native visual review pass. Use `led-row2-routing-trial-114mm`. Zero opens and all electrical/part/process/fit/stack/Gate A holds remain; fabrication is prohibited.
+
+
 **2026-11-15 selected — 29 opens:** The [inverter clock join](docs/development/inverter-routing-2026-11-15.md) localizes exact U48/C67 and joins U48.4–U49.7. All 218 prior groups survive. Native/physical 29 opens, exact original 104 findings under independent U48/prior U52 transforms, two byte-identical replays, byte-identical inverse reconstruction, 18 fault guards, eight hole-policy controls, 36 source checks and visual review pass. Use `led-inverter-routing-trial-114mm`. Zero opens and all electrical/part/process/fit/stack/Gate A holds remain; fabrication is prohibited.
 
 **2026-11-14 continuation — selected source remains 30 opens:** The [bounded follow-up](docs/development/routing-continuation-30-open-2026-11-14.md) rejects an incomplete R8/selector exchange and records exact capture, resistor, U48 neck and drill-span fixture results. The qualified control batch joins no group. Source bytes/rules remain unchanged; supply/return and inverter locality studies continue under ADRs 0149/0150. Zero opens and all qualification/Gate A holds remain unresolved.

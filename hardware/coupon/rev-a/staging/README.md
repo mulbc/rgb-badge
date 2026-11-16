@@ -1,5 +1,8 @@
 <!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
 
+**2026-11-15 selected — 28 opens:** The [complete row-two exchange](../../../../docs/development/row2-routing-2026-11-15.md) moves exact R8/R37, joins the full ROW_GATE_02 and restores all selector/ground contacts. All 217 prior groups survive, with matching native/physical counts and exact original 104 findings. Two byte-identical replays, byte-identical inverse, 21 fault guards, eight hole controls, 37 source checks and native visual review pass. Use `led-row2-routing-trial-114mm`. Zero opens and all electrical/part/process/fit/stack/Gate A holds remain; fabrication is prohibited.
+
+
 Current routed derivative: [58-edge source with printed switch terminals](led-routing-progress-trial-114mm.kicad_pcb). The [source record](../../../../docs/development/led-routing-progress-58-study-2026-10-30.md) preserves all earlier physical groups/copper/poses and the 104 intrinsic findings, corrects the second-pole labels without moving contacts, and adds the exact gauge-switch supply join. Run `./tools/check-routing-progress.sh`. Inductor locality, electrical/assembly qualification and independent Gate A remain open; fabrication is prohibited.
 
 Historical routed derivative: [native-clearance gate/control continuation](../../../../docs/development/led-native-control-study-2026-10-21.md)

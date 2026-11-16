@@ -912,3 +912,51 @@ ADR 0159 requires public native routing probes to preserve exact source project
 and rule context with saved outputs, bind it to PCB/profile hashes and reject
 stale or changed manifested inputs before native loading. Historical evidence
 is not rewritten; no routing or electrical acceptance policy is relaxed.
+
+ADR 0160 permits only read-only discovery of short explicit +3V3_USB corridors
+wholly contained in original connected In3 plane copper, with exact source
+contact witnesses and polygon-subtraction proof. No PCB is changed without
+an exact later scope and all source-preserving successor gates.
+
+ADR 0161 permits only a read-only complete replacement screen for the exact
+three-item private USB bridge, omitting no other obstacle. Original plane
+interfaces, all source groups and full successor gates remain required before
+any implementation or selection; no part or current-limit change is authorized.
+
+ADR 0162 permits only the exact three-retirement/three-addition private USB
+bridge prototype and, after full prototype source/finding preservation, the
+previously scoped heartbeat continuation. Both original plane interfaces and
+all 217 source groups must survive; only a fully validated lower-open successor
+may be selected. No via-process qualification or safety-limit change is inferred.
+
+ADR 0163 permits only read-only exact front-access discovery for the heartbeat
+input and actual original source-group copper. No PCB or route is implemented
+without an exact later cohort, full group preservation and successor gates.
+
+ADR 0164 permits only the exact nine-item additive heartbeat front-access
+prototype from the selected 29-open source, followed by F/In1-only signal
+routing. Preserve all 217 source groups/items and exact findings; no deeper
+signal path or successor selection is allowed without complete recorded gates.
+
+ADR 0165 permits only a front-dominant heartbeat continuation with transit-only
+In1 and at most 24 mm new In2 copper in segments no longer than 4 mm. Retain all
+original groups/items, source edge/clearance/width rules and full successor gates;
+no deeper planar signal route or fabrication qualification is authorized.
+
+ADR 0166 permits only native-screened diagonal and grid-phase refinements on
+the exact heartbeat access prototype. Preserve all existing node/length/layer,
+source/group and strict-finding gates; graph exploration does not waive any rule.
+
+ADR 0167 permits only a read-only complete R8/R37 exchange screen with the
+exact catalogued nineteen-segment selector leaf prospectively omitted. Preserve
+all other source copper and interfaces; an exact later cohort and every full
+source-preserving successor gate precede implementation or selection.
+
+ADR 0168 permits only the exact R8/R37 poses, nineteen selector-leaf retirements
+and four replacements, retaining all old ground/supply/selector contacts and
+all 217 source groups. Matching lower counts and complete native/independent
+source/finding/replay/inverse/fault/visual gates precede selection.
+
+ADR 0169 qualifies only the exact ADR 0168 complete row-two exchange; selection requires all source/replay/inverse/contact/hole/fault/visual gates. Zero opens and all fabrication holds remain unresolved.
+
+Selected ADR 0169 successor has 28 matching native/physical opens, all 217 preceding groups and exact original 104 findings. Full source/replay/inverse/contact/hole/fault/visual checks pass as recorded in `docs/development/row2-routing-2026-11-15.md`; zero opens and fabrication holds remain.
