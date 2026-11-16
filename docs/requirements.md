@@ -994,3 +994,33 @@ ADR 0183 permits ignored dense 0.050 mm witnessed-plane endpoint discovery using
 ADR 0184 permits bounded local native eight-neighbour/fine-grid refinement of the same sensor prototype while preserving all geometric, original-group, length and final acceptance gates. A finite path or miss does not select a board or relax any fabrication/qualification hold.
 
 The ADR 0176–0184 results select no successor: source remains 28 native/physical opens. Exact GND plane-substitution continuity/inverse proof passes in an unselected basis, but complete sensor supply/output restoration and C51/U40 bypass locality remain unresolved. See `docs/development/sensor-routing-2026-11-16.md`; all electrical/qualification/fabrication holds remain.
+
+ADR 0185 permits only read-only coordinated sensor/programming/bypass discovery using the exact forty-item prospective cohort. Sensor discovery radius may reach 4 mm only inside the unchanged thermal reservation/error allowance; C50 must retain its U39 association and C51 must improve to ≤3 mm from fixed U40 VCC. No PCB, part substitution, threshold/current/protection or fabrication change is selected.
+
+ADR 0186 permits read-only exact local B gate-stair replacements and a four-part sensor core landing on the existing supply port, with C50's supply pad fixed and C51 correctly associated with U40. No original via/long bus or other source item may be omitted; no PCB or successor is selected, and all original contacts/groups and acceptance/fabrication holds remain mandatory.
+
+ADR 0187 permits read-only fixed-sensor supply escape by replacing only the one exact private ROW_SEL_08 B trace, retaining every part/capacitor/converter placement and every other source item. No PCB or source successor is selected; all original contacts/groups and acceptance/fabrication holds remain mandatory.
+
+ADR 0188 permits read-only fixed-pose lower-selector inner-bridge and mutually clear sensor-supply escape discovery, retaining every part/power-stage placement and only omitting the exact recorded lower ROW_SEL_08 cohort. No PCB or successor is selected; all original interfaces/groups and acceptance/fabrication holds remain.
+
+ADR 0189 permits read-only replacement-capture discovery for the exact private ROW_SEL_08 B branch from fixed R30.1 to its retained In3 interface. Preserve all parts, other source copper, original interfaces and unchanged copper/hole rules; no PCB, successor or qualification/fabrication change is selected.
+
+ADR 0190 permits read-only extended ordinary fixed-U39 supply escape screening mutually against the exact ADR0189 selector prefixes, without moving parts or changing the prospective cohort, copper/hole rules or complete successor gates. No PCB, successor or qualification/fabrication change is selected.
+
+ADR 0191 permits read-only supported In3 bridge discovery for the exact sole-blocking COL_00_B In4 track, with its original contacts preserved and mutually clear fixed-sensor supply copper. No other prospective retirement, part move, rule relaxation, PCB or successor is selected; all complete-circuit and fabrication holds remain.
+
+ADR 0192 separately permits read-only supported In3 hop discovery for the exact sole-blocking ROW_SEL_06 In4 track while retaining the original colour trace and all outside interfaces. No PCB, successor, rule relaxation or qualification/fabrication change is selected; all complete-circuit gates remain.
+
+ADR 0193 permits read-only ordinary three-segment fixed-sensor supply escapes around the original selector-six endpoint while retaining both ADR0191/0192 obstructing tracks. The exact selector-eight prospective cohort and all parts/rules/gates remain fixed; no PCB or successor is selected.
+
+ADR 0194 permits read-only ordinary fixed-sensor outer escape discovery through its exact bounded diagonal prefix, retaining all neighboring source tracks, parts, rules and complete successor gates. No PCB or successor is selected; all qualification/fabrication holds remain.
+
+ADR 0195 permits only the exact first complete fixed-sensor/selector ignored prototype with the frozen 80-item private selector cohort and supported native-screened prefixes. Complete original groups/interfaces, matching reduced counts, exact104 and every successor gate precede selection; no qualification/fabrication hold changes.
+
+ADR 0196 permits read-only supported layer-access discovery with only the exact additional 0.950 mm private selector In3 wire prospectively omitted, retaining its complete outside interfaces and all parts/other source items/rules. No PCB or successor is selected; all complete-circuit and fabrication gates remain.
+
+ADR 0197 permits only the exact complete selector-port/sensor ignored prototype using its frozen 81-item cohort and mutually native-screened supported captures. Restore every original group and outside contact with matching reduced counts, exact104 and all successor gates before selection; all qualification/fabrication holds remain.
+
+ADR 0198 permits only the exact combined 98-item fixed-sensor/selector/GND plane-substitution ignored prototype with supported full-stack routing and bounded mechanical centre transitions. Preserve all original interfaces/groups and source rules; matching reduced counts, exact104 and every successor gate precede selection. All electrical/qualification/fabrication holds remain.
+
+The ADR0185–0198 continuation selects no successor. Four complete ignored fixed-sensor/selector prototypes retain 215/216 original groups and 29 native/physical opens, with additional rejecting dangling findings. The selected source remains 28 opens; see `docs/development/fixed-sensor-selector-study-2026-11-16.md`. All qualification/fabrication holds remain.

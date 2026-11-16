@@ -1,0 +1,2156 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "additional_ground17": [
+    {
+      "signature": [
+        "track",
+        "GND",
+        57150000,
+        18100000,
+        57050000,
+        18100000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "1080ac68-5690-5e92-b8bf-92b2c1288fc3",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        57300000,
+        18000000,
+        57250000,
+        18000000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "1b4e5a21-2d10-5c3a-81f2-f3c18a0bdf08",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        57050000,
+        18100000,
+        57050000,
+        18150000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "211df3d9-65e2-5943-ab6e-3a61bd67f35c",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        57050000,
+        18150000,
+        57000000,
+        18150000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "3253ec4b-0c1a-58ae-a392-5a9c77c0b344",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        57450000,
+        17650000,
+        57400000,
+        17650000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "33ef5ad2-8223-52d5-bc10-c740177ec06e",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "GND",
+        57450000,
+        17650000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "359dde90-d39c-52d7-a479-82589b13f34d",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "via",
+        "GND",
+        57000000,
+        18200000,
+        "In3.Cu",
+        "In4.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "5fde5bfe-747a-557d-9395-2e53d1279873",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        57250000,
+        18000000,
+        57250000,
+        18050000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "676038dc-0052-5fc4-8a20-6a0c37d6e2ff",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        57300000,
+        17900000,
+        57300000,
+        18000000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "710117ff-9c96-57e8-ace3-149e22accc64",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        57150000,
+        18050000,
+        57150000,
+        18100000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "84b2c068-ec71-5ee2-b164-c79bf178063d",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        57400000,
+        17650000,
+        57400000,
+        17800000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "8dabe76c-b798-534f-8629-5fdb14dab36a",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        57350000,
+        17900000,
+        57300000,
+        17900000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "998776f4-c052-5e3b-b605-01dd4606423e",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        57400000,
+        17800000,
+        57350000,
+        17800000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "bbcce343-c6dd-56b0-8361-91e7210ebd0e",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        57350000,
+        17800000,
+        57350000,
+        17900000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "bef0c235-ceb2-5b97-ba01-e287f68af411",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        57250000,
+        18050000,
+        57150000,
+        18050000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "de1f7def-9d62-5732-ab5e-75d18ab761b8",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "GND",
+        57000000,
+        18200000,
+        "In2.Cu",
+        "In3.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "f2467c6f-3184-5d61-920d-2282e58200d3",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        57000000,
+        18150000,
+        57000000,
+        18200000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "fd081016-a26c-53f1-a9bd-86ddc78eb527",
+      "via_type": null
+    }
+  ],
+  "additional_selector_in3_wire": [
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        56900000,
+        17650000,
+        57850000,
+        17650000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "401b8b44-9f6a-5db2-9684-00f87af760dd",
+      "via_type": null
+    }
+  ],
+  "date": "2026-11-16",
+  "decision_range": [
+    185,
+    198
+  ],
+  "evidence": [
+    {
+      "bytes": 3583,
+      "path": "hardware/coupon/rev-a/build/row2-routing/audit-fixed-sensor-selector-inverse.py",
+      "sha256": "714dd81b08fa2ef8e852efa4d36c3d7c1b569b363eb1ae20c1548cc23b557afc"
+    },
+    {
+      "bytes": 4510,
+      "path": "hardware/coupon/rev-a/build/row2-routing/audit-fixed-sensor-selector-trials.py",
+      "sha256": "8a0ab553e9ca11ef0c893b9c717e8d2298c68e92d63fae779535887cd2ef7aa0"
+    },
+    {
+      "bytes": 4299,
+      "path": "hardware/coupon/rev-a/build/row2-routing/audit-fixed-sensor-selector.py",
+      "sha256": "7fe3374f2ae4a0ff5b7ba61f0a26252c68f2dbc3c12173cc253ce0d431edd909"
+    },
+    {
+      "bytes": 5865,
+      "path": "hardware/coupon/rev-a/build/row2-routing/build-fixed-sensor-selector-late-prepared.py",
+      "sha256": "9f1e6f6cfe8acf9b1f4565b4ee173b774945fc00a23a63ae342a53d6f5d0a149"
+    },
+    {
+      "bytes": 5739,
+      "path": "hardware/coupon/rev-a/build/row2-routing/build-fixed-sensor-selector-prepared.py",
+      "sha256": "ae3804b532f5742456bc827e41abd02fd28eb020ab636da67ab4a42d790eede5"
+    },
+    {
+      "bytes": 5887,
+      "path": "hardware/coupon/rev-a/build/row2-routing/build-selector-port-sensor-prepared.py",
+      "sha256": "fcee0b1e376b4a3fa57883594dce44b2c99b46ef507ca4ff4437bfb60703607a"
+    },
+    {
+      "bytes": 6046,
+      "path": "hardware/coupon/rev-a/build/row2-routing/build-sensor-selector-full-stack.py",
+      "sha256": "d5c38ad494fea5d3f9dfb32ba14d27b8ac015841b33532969bb3ea80f3e88337"
+    },
+    {
+      "bytes": 349,
+      "path": "hardware/coupon/rev-a/build/row2-routing/c51-buffer-locality-3mm-screen.json",
+      "sha256": "9dda03f50a2d88b377f44751f4cdee8af4232afb1cdd050984a7924a3005f6a2"
+    },
+    {
+      "bytes": 347,
+      "path": "hardware/coupon/rev-a/build/row2-routing/c51-buffer-locality-screen.json",
+      "sha256": "c21967663ed31f05b276f91dd5b493d65d76d49d4ca53fabf3b086cb5dcf6f6f"
+    },
+    {
+      "bytes": 380,
+      "path": "hardware/coupon/rev-a/build/row2-routing/colour-bridge-supply-screen.json",
+      "sha256": "87448a2c30f24e98f2dcf63bb0345cb6dfaf042f94272b515e7fe52a1589517c"
+    },
+    {
+      "bytes": 1343,
+      "path": "hardware/coupon/rev-a/build/row2-routing/compare-fixed-sensor-findings.py",
+      "sha256": "9922b2482470e7d0178154dc63c810606b3e3be96980e2ba920919e47814b5d6"
+    },
+    {
+      "bytes": 3828,
+      "path": "hardware/coupon/rev-a/build/row2-routing/diagnose-fixed-sensor-outer-prefix.py",
+      "sha256": "15da4b6f5200895e4fe9a290994d02202b34a2c449fb77b42fa72a2d51c3b60e"
+    },
+    {
+      "bytes": 4388,
+      "path": "hardware/coupon/rev-a/build/row2-routing/diagnose-fixed-sensor-power-captures.py",
+      "sha256": "69df0c71bd9f02a1880d87c8452baf5e129166ae6bee6a33fe4e056b3480a0e0"
+    },
+    {
+      "bytes": 3276,
+      "path": "hardware/coupon/rev-a/build/row2-routing/diagnose-selector-port-power-high.py",
+      "sha256": "d1126109aaf6e29269abdc78cd7794936a73c4f08617835dabee7480d662d0ce"
+    },
+    {
+      "bytes": 3327,
+      "path": "hardware/coupon/rev-a/build/row2-routing/discover-c51-buffer-locality-3mm.py",
+      "sha256": "a970e70f96dd52c0946cd44c6c3c04c378a3d64b0e7b550db4ffd90e0ba3e39a"
+    },
+    {
+      "bytes": 3323,
+      "path": "hardware/coupon/rev-a/build/row2-routing/discover-c51-buffer-locality.py",
+      "sha256": "6692a27c9183073f76311da4fa05697dde9ce5503217c43504a831791667d4dc"
+    },
+    {
+      "bytes": 3454,
+      "path": "hardware/coupon/rev-a/build/row2-routing/discover-c51-locality-blockers.py",
+      "sha256": "b30bac25953c4ee048ccc17218a102e1caeb03019a22bd0d0f61aae3e093d95b"
+    },
+    {
+      "bytes": 6724,
+      "path": "hardware/coupon/rev-a/build/row2-routing/discover-five-part-original-ports.py",
+      "sha256": "d0588a61f1d79b73c608adef02e5bcd8832a0bb30c0f6e7f3f8cb9fd52099999"
+    },
+    {
+      "bytes": 6717,
+      "path": "hardware/coupon/rev-a/build/row2-routing/discover-five-part-sensor-basis.py",
+      "sha256": "45f14bb9d7f496320b457a67d7b5462582858153faa840e09dea9412b42da85d"
+    },
+    {
+      "bytes": 10789,
+      "path": "hardware/coupon/rev-a/build/row2-routing/five-part-original-port-site-screen.json",
+      "sha256": "1b20ac4afc77d852cff0b6070b43bdbbbea8297bde17f8a0190b10d9c6154bc2"
+    },
+    {
+      "bytes": 10790,
+      "path": "hardware/coupon/rev-a/build/row2-routing/five-part-sensor-site-screen.json",
+      "sha256": "0f68da3c3dedbd9ac24a502e0fec6fa3012b2d13fd9427b2fe596021f202dddd"
+    },
+    {
+      "bytes": 3833,
+      "path": "hardware/coupon/rev-a/build/row2-routing/fixed-pose-inner-selector-screen.json",
+      "sha256": "08f34befa001fd39162e6e86c5ec7bc7a586cde6e6e9ecd62f87eda937467de9"
+    },
+    {
+      "bytes": 450,
+      "path": "hardware/coupon/rev-a/build/row2-routing/fixed-sensor-bent-power-screen.json",
+      "sha256": "927169947dd9f58e2cde61621709e2cf408cbe77428d9cc21a33fba109fa8402"
+    },
+    {
+      "bytes": 451,
+      "path": "hardware/coupon/rev-a/build/row2-routing/fixed-sensor-extended-power-screen.json",
+      "sha256": "5f4687b3f8c8e8818bb5e19a61e623d42aa0ba77c7fe060baa193c723b63dc8c"
+    },
+    {
+      "bytes": 5832,
+      "path": "hardware/coupon/rev-a/build/row2-routing/fixed-sensor-full-findings-comparison.json",
+      "sha256": "cf71e4a7ff8d28ca50c81b8ae9229293b5415d903d2570edce8c05e522f9e40e"
+    },
+    {
+      "bytes": 311180,
+      "path": "hardware/coupon/rev-a/build/row2-routing/fixed-sensor-native-b-escape-screen.json",
+      "sha256": "ce849957bd6685c4983ba45392349f4fc3fb9941036242d04ecbadb6c154b87b"
+    },
+    {
+      "bytes": 440,
+      "path": "hardware/coupon/rev-a/build/row2-routing/fixed-sensor-outer-power-screen.json",
+      "sha256": "0b7c7f79c89f58f56f91a10c1028aacff3dded29282efc11a711e43802a867cd"
+    },
+    {
+      "bytes": 1461,
+      "path": "hardware/coupon/rev-a/build/row2-routing/fixed-sensor-outer-prefix-blockers.json",
+      "sha256": "40a29cd9a33c2146040707ce99f1671e06c144dbcf7a3d92e976479450124032"
+    },
+    {
+      "bytes": 99883,
+      "path": "hardware/coupon/rev-a/build/row2-routing/fixed-sensor-power-capture-blockers.json",
+      "sha256": "038a85415efb5e1242a5bdd447bdddd2ec1e617f05c2e1b16b85a4db6fc8fdba"
+    },
+    {
+      "bytes": 9831,
+      "path": "hardware/coupon/rev-a/build/row2-routing/fixed-sensor-selector-comparison.json",
+      "sha256": "98543b98940ffeb18521de3c9cb635816304a7c421d873ea8084c99a5a3f0731"
+    },
+    {
+      "bytes": 20550,
+      "path": "hardware/coupon/rev-a/build/row2-routing/fixed-sensor-selector-detour-screen.json",
+      "sha256": "e1472186e71721b45a145194d43f23f3de26d86f19e1560870197ff92ad9072c"
+    },
+    {
+      "bytes": 3801,
+      "path": "hardware/coupon/rev-a/build/row2-routing/fixed-sensor-selector-inverse-findings-audit.json",
+      "sha256": "344f28d76f0759ca67ad2b67bf723b5409632ddaff64f291b83c0d77def3a189"
+    },
+    {
+      "bytes": 45881,
+      "path": "hardware/coupon/rev-a/build/row2-routing/fixed-sensor-selector-late-prepared.json",
+      "sha256": "2a1b1a4973474ea6e816653b1038dd235f5ddfb44fd053d92f1fc9dd3751c141"
+    },
+    {
+      "bytes": 4331,
+      "path": "hardware/coupon/rev-a/build/row2-routing/fixed-sensor-selector-late-search.json",
+      "sha256": "edc8329a2b4e3b7cb8ad96182016068a1979231099f3b72ef73a8134f20bcb4e"
+    },
+    {
+      "bytes": 110468,
+      "path": "hardware/coupon/rev-a/build/row2-routing/fixed-sensor-selector-late-trial-drc.json",
+      "sha256": "63ff5cec0da2a3220dad6a23dd8d04aabaaf40ad3f77223d9608835695229d58"
+    },
+    {
+      "bytes": 6726618,
+      "path": "hardware/coupon/rev-a/build/row2-routing/fixed-sensor-selector-late-trial.kicad_pcb",
+      "sha256": "5571647bf21192c093702187ea7373d39995b3d993a8de830ce21951c5cf57e4"
+    },
+    {
+      "bytes": 36647,
+      "path": "hardware/coupon/rev-a/build/row2-routing/fixed-sensor-selector-prepared.json",
+      "sha256": "40bafc36347263d4df0ea12a42a2e440d9d1869b68e6a6450076e1c72ab9f41b"
+    },
+    {
+      "bytes": 4541,
+      "path": "hardware/coupon/rev-a/build/row2-routing/fixed-sensor-selector-search.json",
+      "sha256": "28b9c68052885ffe9898ef6c8c71a1eb018ef36951485ad5354a61f47f10ef69"
+    },
+    {
+      "bytes": 110463,
+      "path": "hardware/coupon/rev-a/build/row2-routing/fixed-sensor-selector-trial-drc.json",
+      "sha256": "b6f9fa6ef3eb8b8115234866540227e24460b41824284577cdc55189767f76e9"
+    },
+    {
+      "bytes": 6722151,
+      "path": "hardware/coupon/rev-a/build/row2-routing/fixed-sensor-selector-trial.kicad_pcb",
+      "sha256": "b9b4a1ecb793254adbc1fd97e71c0fbb262c962174081ecda2e3344fce926190"
+    },
+    {
+      "bytes": 4801,
+      "path": "hardware/coupon/rev-a/build/row2-routing/fixed-sensor-source-checks.json",
+      "sha256": "2977bfa4287b006cc1a3621773c74ef82cd60af5d01151dfd1134d9bca20ddf8"
+    },
+    {
+      "bytes": 21258,
+      "path": "hardware/coupon/rev-a/build/row2-routing/full-private-selector-layer-screen.json",
+      "sha256": "292b5c46dbd16e449aa69da588728542acb723c9c4daa2ee4da49790431eb85b"
+    },
+    {
+      "bytes": 21267,
+      "path": "hardware/coupon/rev-a/build/row2-routing/full-private-selector-screen.json",
+      "sha256": "67aeeb730d01647192052acc8e9f8b8f0e339b55a11235822bcb42f6103ff59a"
+    },
+    {
+      "bytes": 194499,
+      "path": "hardware/coupon/rev-a/build/row2-routing/full-private-selector-source-contacts.json",
+      "sha256": "e4159c2830185ce501fcd6730d4135fbf4697b32e50c40387fe13784586d7593"
+    },
+    {
+      "bytes": 99941,
+      "path": "hardware/coupon/rev-a/build/row2-routing/private-selector-prefix-screen.json",
+      "sha256": "2cb154d684eee8a8f73febb5b9f910df1ecad1361d8d971bcc7597d5d32035b6"
+    },
+    {
+      "bytes": 19586,
+      "path": "hardware/coupon/rev-a/build/row2-routing/private-stair-sensor-core-screen.json",
+      "sha256": "dea671af4c6546e6f8a6407b1568f791e49ec2b6ea68be639630a37e0ee4cfc0"
+    },
+    {
+      "bytes": 5027,
+      "path": "hardware/coupon/rev-a/build/row2-routing/screen-colour-bridge-supply.py",
+      "sha256": "0120a2f2c4ccda8633a6041cd51643d2280e43120b766c11fe655d79161d12af"
+    },
+    {
+      "bytes": 4977,
+      "path": "hardware/coupon/rev-a/build/row2-routing/screen-fixed-sensor-bent-power.py",
+      "sha256": "967bc36b5ad333e3d285a9592e2e554b3e569248584fe9a30b9d7f5ec96028ee"
+    },
+    {
+      "bytes": 4944,
+      "path": "hardware/coupon/rev-a/build/row2-routing/screen-fixed-sensor-extended-power.py",
+      "sha256": "c5de33fa7f2da47dcc16b01ed3fabd0ce6f676aa766446d8840c962960355fc3"
+    },
+    {
+      "bytes": 5968,
+      "path": "hardware/coupon/rev-a/build/row2-routing/screen-fixed-sensor-native-b-escape.py",
+      "sha256": "c2d62ed1a064292b35651b4d3c33195cf022585fc8d59931bdcd914d29445f75"
+    },
+    {
+      "bytes": 5021,
+      "path": "hardware/coupon/rev-a/build/row2-routing/screen-fixed-sensor-outer-power.py",
+      "sha256": "bce01f8daa264836cb4ff89f5e35ac4cb5d6ad8fb0a1655dc8ed17c418e8ea8a"
+    },
+    {
+      "bytes": 4322,
+      "path": "hardware/coupon/rev-a/build/row2-routing/screen-fixed-sensor-selector-detour.py",
+      "sha256": "00603508c6ff9b30a6130143c96002fce6bf53cceed0d457d956e6e2ea5093df"
+    },
+    {
+      "bytes": 5443,
+      "path": "hardware/coupon/rev-a/build/row2-routing/screen-full-private-selector-layers.py",
+      "sha256": "a4878b262ee1061542262f245f68f1ade1a8c30c0b9ff24b6fa96ba112e96122"
+    },
+    {
+      "bytes": 5397,
+      "path": "hardware/coupon/rev-a/build/row2-routing/screen-full-private-selector.py",
+      "sha256": "89868bc92dee596b6d23850a260364811be2ca46567cd3d499425d247346335e"
+    },
+    {
+      "bytes": 6224,
+      "path": "hardware/coupon/rev-a/build/row2-routing/screen-private-selector-prefix.py",
+      "sha256": "05cc4d436dc43abeea3512d46065425bf3a996d12b9f9904541a8ef4b380c42a"
+    },
+    {
+      "bytes": 5321,
+      "path": "hardware/coupon/rev-a/build/row2-routing/screen-private-stair-sensor-core.py",
+      "sha256": "07e3d01867593bd83a8e1b3b401e65e6eee4b08911a8f9a2db2676a077c9bc40"
+    },
+    {
+      "bytes": 4275,
+      "path": "hardware/coupon/rev-a/build/row2-routing/screen-selector-port-layer-second.py",
+      "sha256": "d9d22b44e56079891a7eb457c5d53d463c3be8cdfcd89d2fa4cb092b82865655"
+    },
+    {
+      "bytes": 4268,
+      "path": "hardware/coupon/rev-a/build/row2-routing/screen-selector-port-layer.py",
+      "sha256": "28d4850e3463edb6aee6923502197cfeb2482ae5ae0d040ffa25caff3db06204"
+    },
+    {
+      "bytes": 4829,
+      "path": "hardware/coupon/rev-a/build/row2-routing/screen-selector-six-hop-supply.py",
+      "sha256": "6ee8a4a8522e073b414d6f28436c392f47e96eda8b3f6e39150c7d47e3468293"
+    },
+    {
+      "bytes": 39517,
+      "path": "hardware/coupon/rev-a/build/row2-routing/search-fixed-sensor-selector-late.py",
+      "sha256": "8989956bd2a4bbcb9dc4986e4819445e4416ac8b8f0be74e08a5554061ccbf91"
+    },
+    {
+      "bytes": 39502,
+      "path": "hardware/coupon/rev-a/build/row2-routing/search-fixed-sensor-selector.py",
+      "sha256": "d2379392ce6432c06d3b0d75c9b736b195c93ffba21e62a555bc0f3247b8bb96"
+    },
+    {
+      "bytes": 39517,
+      "path": "hardware/coupon/rev-a/build/row2-routing/search-selector-port-sensor.py",
+      "sha256": "1a711155e663ddd4dd84cdf6b03128cb0c03e09cec1310a9db80327ed4fd0dd4"
+    },
+    {
+      "bytes": 39853,
+      "path": "hardware/coupon/rev-a/build/row2-routing/search-sensor-selector-full-stack.py",
+      "sha256": "467c4813537d11d391ded1b3a791570d18f436da96f554289c76dcfbdeb3dea7"
+    },
+    {
+      "bytes": 403,
+      "path": "hardware/coupon/rev-a/build/row2-routing/selector-port-layer-screen.json",
+      "sha256": "8c5f2ebec218641afc4d2c5c3f4d211ac864f04f656d3dedce417dac470b0b93"
+    },
+    {
+      "bytes": 5457,
+      "path": "hardware/coupon/rev-a/build/row2-routing/selector-port-layer-second-screen.json",
+      "sha256": "89d8e90ce857cd176bcd80553208fc19666454b4c5678e54b00c8248b43244aa"
+    },
+    {
+      "bytes": 195505,
+      "path": "hardware/coupon/rev-a/build/row2-routing/selector-port-layer-source-contacts.json",
+      "sha256": "7ab94683812e1c0445cfd1dd20c31f5941242b68b2e10663f7b68b4bac73023d"
+    },
+    {
+      "bytes": 1641,
+      "path": "hardware/coupon/rev-a/build/row2-routing/selector-port-power-high-blockers.json",
+      "sha256": "d7f487f74cad7c48570fb03b243d0682a73f7fd41c7536feb3463364d9dc9d49"
+    },
+    {
+      "bytes": 47541,
+      "path": "hardware/coupon/rev-a/build/row2-routing/selector-port-sensor-prepared.json",
+      "sha256": "2673b76b2a95596cbd4bfb8d685d4b9551f29865a42619daa280c976dfc49d08"
+    },
+    {
+      "bytes": 4325,
+      "path": "hardware/coupon/rev-a/build/row2-routing/selector-port-sensor-search.json",
+      "sha256": "a8c2db6d3955a7ead0597ecc47007750e19f792ac9e2dd1c4056b4a988727fc9"
+    },
+    {
+      "bytes": 109950,
+      "path": "hardware/coupon/rev-a/build/row2-routing/selector-port-sensor-trial-drc.json",
+      "sha256": "82cb5b55e6b8ec1aa64f88fdd1e54b18bd3e7d62a47dc71093e9da3072469143"
+    },
+    {
+      "bytes": 6730273,
+      "path": "hardware/coupon/rev-a/build/row2-routing/selector-port-sensor-trial.kicad_pcb",
+      "sha256": "33c138858031e41dd2ba781d6650b6ed8f0530de8447271b3cef206f7a9fc0fb"
+    },
+    {
+      "bytes": 379,
+      "path": "hardware/coupon/rev-a/build/row2-routing/selector-six-hop-supply-screen.json",
+      "sha256": "fe1589b1503ad0ab086c88196040476daaf198221d3b7fabd9e025dd1f0f8378"
+    },
+    {
+      "bytes": 51887,
+      "path": "hardware/coupon/rev-a/build/row2-routing/sensor-selector-full-stack-prepared.json",
+      "sha256": "d5b5a8e072d84cbbf7194f23caf8c549ea7e79b5e8dbb7e7fbb4a9f5fa8ae626"
+    },
+    {
+      "bytes": 5982,
+      "path": "hardware/coupon/rev-a/build/row2-routing/sensor-selector-full-stack-search.json",
+      "sha256": "4cf101d08cf6c68b218856713a7656586dc1aa37fa1785b476dfd15a3b3144c2"
+    },
+    {
+      "bytes": 230678,
+      "path": "hardware/coupon/rev-a/build/row2-routing/sensor-selector-full-stack-source-contacts.json",
+      "sha256": "711569d4601f17aa69121c03814c36796af27394f1efc50ddbf87309923b407f"
+    },
+    {
+      "bytes": 109906,
+      "path": "hardware/coupon/rev-a/build/row2-routing/sensor-selector-full-stack-trial-drc.json",
+      "sha256": "7ce074d06d37567f70dcf7880634c27be4c98a2c7c65c9e06ac307ac64bd7411"
+    },
+    {
+      "bytes": 6727439,
+      "path": "hardware/coupon/rev-a/build/row2-routing/sensor-selector-full-stack-trial.kicad_pcb",
+      "sha256": "a8e7bf1638c8aa60a3e9daf5910a825ba2212aa699a81e22dcb3ea5e5dfd67dd"
+    }
+  ],
+  "fabrication_release_allowed": false,
+  "first_prepared_inverse": {
+    "inverse_all216_groups_and9_zone_fills_equal": true,
+    "inverse_hashes": [
+      "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34",
+      "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34",
+      "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34"
+    ],
+    "inverse_parent_bytes_equal": true
+  },
+  "original104_comparisons": [
+    {
+      "additional_rejecting_findings": 3,
+      "board": "fixed-sensor-selector-trial",
+      "full_drc_sha256": "b6f9fa6ef3eb8b8115234866540227e24460b41824284577cdc55189767f76e9",
+      "original104_payloads_equal": true
+    },
+    {
+      "additional_rejecting_findings": 3,
+      "board": "fixed-sensor-selector-late-trial",
+      "full_drc_sha256": "63ff5cec0da2a3220dad6a23dd8d04aabaaf40ad3f77223d9608835695229d58",
+      "original104_payloads_equal": true
+    },
+    {
+      "additional_rejecting_findings": 2,
+      "board": "selector-port-sensor-trial",
+      "full_drc_sha256": "82cb5b55e6b8ec1aa64f88fdd1e54b18bd3e7d62a47dc71093e9da3072469143",
+      "original104_payloads_equal": true
+    },
+    {
+      "additional_rejecting_findings": 2,
+      "board": "sensor-selector-full-stack-trial",
+      "full_drc_sha256": "7ce074d06d37567f70dcf7880634c27be4c98a2c7c65c9e06ac307ac64bd7411",
+      "original104_payloads_equal": true
+    }
+  ],
+  "private_selector80": [
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        53550000,
+        8199999,
+        53650000,
+        8199999,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "036cfc4e-65b0-5682-82e7-8acfbb310ab4",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        51600000,
+        8150000,
+        51600000,
+        8200000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "05efb7b2-7866-5507-b1cc-b60e66b480e1",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        51400000,
+        7800000,
+        51400000,
+        7850000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "061557d1-7d4e-504b-a4c9-e801e19fe389",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        51300000,
+        7750000,
+        51300000,
+        7800000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "06180130-885d-5eb6-942b-5893da6c26da",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        52100000,
+        8150000,
+        52150000,
+        8150000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "09a9d08b-bd88-5475-8ba3-82707f7eff30",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        51150000,
+        7250000,
+        51150000,
+        7600000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "1188367b-3441-51a8-90df-f95a6930de40",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        51200000,
+        7600000,
+        51200000,
+        7700000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "14838781-03e9-5b84-98cd-5b123c2f36a8",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        56450000,
+        16450000,
+        56450000,
+        16500000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "1591f71e-a1fd-508e-a592-41473cb1e074",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        52200000,
+        8050000,
+        52250000,
+        8050000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "1660e863-d4b2-5967-80d8-2652a981bf40",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        55950000,
+        9549999,
+        55950000,
+        9600000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "17719dc0-7679-539c-ba00-f0754bba5fd1",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        56300000,
+        16350000,
+        56300000,
+        16400000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "179d2bcd-c417-583f-a1a4-dc32f7c727e4",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        56350000,
+        16450000,
+        56450000,
+        16450000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "1959adbe-2843-5a01-9149-9725053cd003",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        52500000,
+        7850000,
+        53300000,
+        7850000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "20f44a10-d52e-5a44-ab14-71da4de96480",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        55800000,
+        9350000,
+        55800000,
+        9450000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "22ea6037-3176-5aec-a4fe-f5d67d9675f1",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        51300000,
+        7800000,
+        51400000,
+        7800000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "241a1383-c070-5256-9df2-e4363f3f38f7",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        56050000,
+        9650000,
+        56050000,
+        9700000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "2771e4a4-6e68-50b1-84ca-b3aee7d735af",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        52300000,
+        8000000,
+        52300000,
+        7850000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "299fed1a-6344-5fbd-b889-857d085fccca",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        51400000,
+        7850000,
+        51400000,
+        8000000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "2b5e2d42-5222-5a12-a695-e9959f02ee1c",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        53400000,
+        8050000,
+        53450000,
+        8050000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "3290bcad-fb6e-5cb8-8720-27aafa4a50e0",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        51150000,
+        7600000,
+        51200000,
+        7600000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "375a962a-c504-518b-9bd2-0277689ab66a",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        51600000,
+        8200000,
+        52100000,
+        8200000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "379bc43d-23bb-573b-afd2-e2d068b6cb13",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        56150000,
+        10600000,
+        56200000,
+        10600000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "3a27014f-b0ee-5c2b-9f34-f080d840c159",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        53650000,
+        9100000,
+        53700000,
+        9100000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "3b1fd371-cb24-50e5-a03f-32b39d5226ce",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        56050000,
+        9700000,
+        56150000,
+        9700000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "3de23a9c-e706-50ee-9e21-a2d9de6d7e15",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        53400000,
+        8000000,
+        53400000,
+        8050000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "43e2b4d3-ad1f-5a35-98c2-ba17c6ae4263",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        55900000,
+        9500000,
+        55900000,
+        9549999,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "44d34af7-d0bd-5935-ac7c-c691890dd3c3",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        51450000,
+        8050000,
+        51500000,
+        8050000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "44fa600c-c9a7-51ef-88ca-d89e07b161c3",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        53450000,
+        8050000,
+        53450000,
+        8100000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "457f33f4-1178-5149-a395-8290d74cbae1",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        52250000,
+        8000000,
+        52300000,
+        8000000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "4b26db79-7576-536c-9cd0-86a389189383",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "ROW_SEL_08",
+        56900000,
+        17650000,
+        "In3.Cu",
+        "In4.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "51a1212f-c8c1-52b5-9db6-d60ec6200e0e",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        56000000,
+        9650000,
+        56050000,
+        9650000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "57ccbecc-cd17-553f-aa1b-dbf8d5f4d4fe",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        53300000,
+        7950000,
+        53350000,
+        7950000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "581bea2b-6dde-58f8-a292-90685a9ba5f7",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        53650000,
+        8199999,
+        53650000,
+        9100000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "6018b118-53d9-5b97-9588-cb2bd269bfdb",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        56900000,
+        16500000,
+        56900000,
+        17650000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "6043350e-357c-559b-8c69-f8edc75462ac",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        56300000,
+        16400000,
+        56350000,
+        16400000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "6777d2c6-010e-5170-afb5-e688b40bc137",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        53450000,
+        8100000,
+        53500000,
+        8100000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "690d81e9-cb54-5553-ab73-5a2e3272c49b",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        56150000,
+        9700000,
+        56150000,
+        10600000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "6babbcfe-8587-59d0-89b3-0c055380e9b2",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        55850000,
+        9450000,
+        55850000,
+        9500000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "6e8f0547-4a76-5dee-954a-ed78ff62797f",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        52150000,
+        8150000,
+        52150000,
+        8100000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "6e96872b-fbf7-5d5a-91cf-428f04d9f0b4",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        56000000,
+        9600000,
+        56000000,
+        9650000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "6f5d91d7-e4a2-5977-80fd-259272000120",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        53500000,
+        8150000,
+        53550000,
+        8150000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "7280a372-1ef6-5b22-a431-d18d52821ebf",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        53750000,
+        9250000,
+        53800000,
+        9250000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "72d8e799-dad4-5428-a77d-bed8ac68d183",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        53900000,
+        9299999,
+        53900000,
+        9350000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "749f8cd8-c8ec-5f38-afad-789cf7c185cd",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        53700000,
+        9100000,
+        53700000,
+        9200000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "75ddfd76-5d84-5881-ad9e-cc5857e67236",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        56200000,
+        16250000,
+        56250000,
+        16250000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "788750d4-9eaf-589a-90cd-ab7a0b00b38a",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        55800000,
+        9450000,
+        55850000,
+        9450000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "78f59c49-e537-5894-a76a-2903d3f8208d",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        51250000,
+        7750000,
+        51300000,
+        7750000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "7bb4901e-1812-5f06-88e0-ff072795fe65",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        53750000,
+        9200000,
+        53750000,
+        9250000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "80d96a2c-c100-5267-9e35-5d002965dd32",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        55850000,
+        9500000,
+        55900000,
+        9500000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "8444452a-3e55-548c-be8f-335449a5742d",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        53550000,
+        8150000,
+        53550000,
+        8199999,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "896f4bd1-9f16-5be2-bff0-a71e87394bfb",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        52250000,
+        8050000,
+        52250000,
+        8000000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "8dd144ed-49bf-5ff1-b646-e3a63cd5fed3",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        53300000,
+        7850000,
+        53300000,
+        7950000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "96779f97-115e-5373-84fa-40e73488f294",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        51250000,
+        7700000,
+        51250000,
+        7750000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "9a049c13-a5d9-5eb1-8f98-b85173397418",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        55950000,
+        9600000,
+        56000000,
+        9600000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "a336eff9-41a8-5ccd-a3d7-7a4d48891866",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        53800000,
+        9250000,
+        53800000,
+        9299999,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "a5a4ab05-2153-5e6d-bb73-5ee4d648fabf",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        55900000,
+        9549999,
+        55950000,
+        9549999,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "a654d3c7-3090-526b-b647-9733e50073ad",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        52200000,
+        8100000,
+        52200000,
+        8050000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "b423a716-79d4-5639-b3b6-d9173ce22f52",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        56250000,
+        16250000,
+        56250000,
+        16350000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "b62a5db2-9e63-5ff9-9b08-4034fa9da26b",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        52150000,
+        8100000,
+        52200000,
+        8100000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "b6d33475-f5d5-51e4-9ce2-0154fadc1e70",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        53350000,
+        7950000,
+        53350000,
+        8000000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "b85597a4-fe3d-5bef-ae16-de1116a8f6f6",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        52100000,
+        8200000,
+        52100000,
+        8150000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "bb432e39-8ef0-54f0-8962-7ef65aa76500",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        56350000,
+        16400000,
+        56350000,
+        16450000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "bc911560-cc47-5f43-bb94-d0bdbf7148c5",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        52300000,
+        7850000,
+        52500000,
+        7850000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "c2478b1a-52fe-5969-846a-0844ef66cbf1",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        51500000,
+        8100000,
+        51550000,
+        8100000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "c71e8ff4-01ea-5c61-9e4f-5e4cbbdeb3ef",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        51400000,
+        8000000,
+        51450000,
+        8000000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "c85d8a29-f7fd-5177-8ff6-8b5964cf263c",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        51500000,
+        8050000,
+        51500000,
+        8100000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "ce276d1f-7572-5c9d-ad1c-73ff510cb59d",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        56450000,
+        16500000,
+        56900000,
+        16500000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "d06b594f-4f77-5e62-9674-0eb24ccd741b",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        51450000,
+        8000000,
+        51450000,
+        8050000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "d78f2c74-13e2-503b-80ef-fec3094c4233",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        56200000,
+        10600000,
+        56200000,
+        16250000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        53700000,
+        9200000,
+        53750000,
+        9200000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "dda53c73-634a-54d3-b3e8-561e329089cb",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        51550000,
+        8150000,
+        51600000,
+        8150000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "e085d18e-85a3-59a0-8a13-5a3bf06724d2",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        53900000,
+        9350000,
+        55800000,
+        9350000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "e0de8a7e-db75-5ffc-b6ec-8afd3a49e864",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        53800000,
+        9299999,
+        53900000,
+        9299999,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "e188ceb9-0c11-57d5-9422-d2342eccd995",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "ROW_SEL_08",
+        56900000,
+        17650000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "e71af429-046e-5f47-bee3-886a38e0c014",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        51550000,
+        8100000,
+        51550000,
+        8150000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "e79415a3-8794-5290-876c-1396f0a041c6",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        53500000,
+        8100000,
+        53500000,
+        8150000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "e7c150be-a37c-5509-8bcb-7a15f03d05b7",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        56250000,
+        16350000,
+        56300000,
+        16350000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "e96ed60d-857b-5a1f-8a2a-b98ebff6bbfb",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        53350000,
+        8000000,
+        53400000,
+        8000000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "fb6e7dae-3f85-5e05-9808-2b0711fdd88a",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        50250000,
+        7250000,
+        51150000,
+        7250000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "fcd3d69d-df6e-5b8a-9af1-2edf110f3eb5",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        51200000,
+        7700000,
+        51250000,
+        7700000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "fde608f1-0a45-5635-974c-d6ecff9e8eac",
+      "via_type": null
+    }
+  ],
+  "prototype_audits": [
+    {
+      "added_copper": 42,
+      "board": "hardware/coupon/rev-a/build/row2-routing/fixed-sensor-selector-trial.kicad_pcb",
+      "board_sha256": "b9b4a1ecb793254adbc1fd97e71c0fbb262c962174081ecda2e3344fce926190",
+      "complete_circuit": false,
+      "exact_483_parts_fields_local_pads_and_independent_global_transforms": true,
+      "fabrication_release_allowed": false,
+      "hole_audit": {
+        "aligned_adjacent_stacks": [
+          {
+            "first_position_iu": [
+              52350000,
+              7850000
+            ],
+            "first_span": [
+              "In3.Cu",
+              "In4.Cu"
+            ],
+            "first_uuid": "8bf74131-1790-5c74-8b25-463e75da95d2",
+            "second_position_iu": [
+              52350000,
+              7850000
+            ],
+            "second_span": [
+              "In4.Cu",
+              "B.Cu"
+            ],
+            "uuids": [
+              "8bf74131-1790-5c74-8b25-463e75da95d2",
+              "e1d47305-b402-5ee4-9569-449141e71c5d"
+            ]
+          }
+        ],
+        "disjoint_supported_close_pairs": [
+          {
+            "first_position_iu": [
+              52350000,
+              7850000
+            ],
+            "first_span": [
+              "In3.Cu",
+              "In4.Cu"
+            ],
+            "first_uuid": "8bf74131-1790-5c74-8b25-463e75da95d2",
+            "second_position_iu": [
+              52550000,
+              7900000
+            ],
+            "second_span": [
+              "F.Cu",
+              "In1.Cu"
+            ],
+            "uuids": [
+              "37bf00fb-e286-5854-91b0-a0306623472d",
+              "8bf74131-1790-5c74-8b25-463e75da95d2"
+            ]
+          },
+          {
+            "first_position_iu": [
+              52350000,
+              7850000
+            ],
+            "first_span": [
+              "In4.Cu",
+              "B.Cu"
+            ],
+            "first_uuid": "e1d47305-b402-5ee4-9569-449141e71c5d",
+            "second_position_iu": [
+              52550000,
+              7900000
+            ],
+            "second_span": [
+              "F.Cu",
+              "In1.Cu"
+            ],
+            "uuids": [
+              "37bf00fb-e286-5854-91b0-a0306623472d",
+              "e1d47305-b402-5ee4-9569-449141e71c5d"
+            ]
+          }
+        ],
+        "fabrication_qualified": false,
+        "minimum_unchanged_hole_clearance_mm": 0.25,
+        "other_close_pairs": 0
+      },
+      "native_opens": 29,
+      "new_track_lengths_mm": {
+        "+3V3_USB": 2.8870815280171307,
+        "ROW_SEL_08": 3.4
+      },
+      "original_group_losses": [
+        {
+          "missing": [
+            [
+              "R30",
+              "1"
+            ]
+          ],
+          "net": "ROW_SEL_08"
+        }
+      ],
+      "original_groups_preserved": 215,
+      "physical_opens": 29,
+      "profiles_rules_structure_unchanged": true,
+      "retired_source_copper": 80,
+      "selected": false,
+      "unchanged_retained_source_copper": 19301
+    },
+    {
+      "added_copper": 75,
+      "board": "hardware/coupon/rev-a/build/row2-routing/fixed-sensor-selector-late-trial.kicad_pcb",
+      "board_sha256": "5571647bf21192c093702187ea7373d39995b3d993a8de830ce21951c5cf57e4",
+      "complete_circuit": false,
+      "exact_483_parts_fields_local_pads_and_independent_global_transforms": true,
+      "fabrication_release_allowed": false,
+      "hole_audit": {
+        "aligned_adjacent_stacks": [
+          {
+            "first_position_iu": [
+              56150000,
+              10300000
+            ],
+            "first_span": [
+              "In3.Cu",
+              "In4.Cu"
+            ],
+            "first_uuid": "c029c9f5-e0c3-5d15-a127-f2bde1e1f0bd",
+            "second_position_iu": [
+              56150000,
+              10300000
+            ],
+            "second_span": [
+              "In4.Cu",
+              "B.Cu"
+            ],
+            "uuids": [
+              "c029c9f5-e0c3-5d15-a127-f2bde1e1f0bd",
+              "d6b08877-3a7b-5618-aa7e-9a88bdcc7ff6"
+            ]
+          }
+        ],
+        "disjoint_supported_close_pairs": [],
+        "fabrication_qualified": false,
+        "minimum_unchanged_hole_clearance_mm": 0.25,
+        "other_close_pairs": 0
+      },
+      "native_opens": 29,
+      "new_track_lengths_mm": {
+        "+3V3_USB": 3.5563203435596424,
+        "ROW_SEL_08": 9.649999999999997
+      },
+      "original_group_losses": [
+        {
+          "missing": [
+            [
+              "R30",
+              "1"
+            ]
+          ],
+          "net": "ROW_SEL_08"
+        }
+      ],
+      "original_groups_preserved": 215,
+      "physical_opens": 29,
+      "profiles_rules_structure_unchanged": true,
+      "retired_source_copper": 80,
+      "selected": false,
+      "unchanged_retained_source_copper": 19301
+    },
+    {
+      "added_copper": 78,
+      "board": "hardware/coupon/rev-a/build/row2-routing/selector-port-sensor-trial.kicad_pcb",
+      "board_sha256": "33c138858031e41dd2ba781d6650b6ed8f0530de8447271b3cef206f7a9fc0fb",
+      "complete_circuit": false,
+      "exact_483_parts_fields_local_pads_and_independent_global_transforms": true,
+      "fabrication_release_allowed": false,
+      "hole_audit": {
+        "aligned_adjacent_stacks": [
+          {
+            "first_position_iu": [
+              56900000,
+              17650000
+            ],
+            "first_span": [
+              "In3.Cu",
+              "In4.Cu"
+            ],
+            "first_uuid": "ae53ac03-6cac-51c6-b136-ec5225b73d64",
+            "second_position_iu": [
+              56900000,
+              17650000
+            ],
+            "second_span": [
+              "In4.Cu",
+              "B.Cu"
+            ],
+            "uuids": [
+              "1c03ae0f-32fc-5bd7-819b-5f55e791a86e",
+              "ae53ac03-6cac-51c6-b136-ec5225b73d64"
+            ]
+          },
+          {
+            "first_position_iu": [
+              57950000,
+              17700000
+            ],
+            "first_span": [
+              "In3.Cu",
+              "In4.Cu"
+            ],
+            "first_uuid": "266c453a-8c4d-5cac-9de4-105bad00f127",
+            "second_position_iu": [
+              57950000,
+              17700000
+            ],
+            "second_span": [
+              "In4.Cu",
+              "B.Cu"
+            ],
+            "uuids": [
+              "266c453a-8c4d-5cac-9de4-105bad00f127",
+              "ca762420-813e-5610-9b1e-e33d0a5ff65c"
+            ]
+          }
+        ],
+        "disjoint_supported_close_pairs": [],
+        "fabrication_qualified": false,
+        "minimum_unchanged_hole_clearance_mm": 0.25,
+        "other_close_pairs": 0
+      },
+      "native_opens": 29,
+      "new_track_lengths_mm": {
+        "+3V3_USB": 2.9370815280171305,
+        "ROW_SEL_08": 9.65
+      },
+      "original_group_losses": [
+        {
+          "missing": [
+            [
+              "R30",
+              "1"
+            ]
+          ],
+          "net": "ROW_SEL_08"
+        }
+      ],
+      "original_groups_preserved": 215,
+      "physical_opens": 29,
+      "profiles_rules_structure_unchanged": true,
+      "retired_source_copper": 81,
+      "selected": false,
+      "unchanged_retained_source_copper": 19300
+    },
+    {
+      "added_copper": 78,
+      "board": "hardware/coupon/rev-a/build/row2-routing/sensor-selector-full-stack-trial.kicad_pcb",
+      "board_sha256": "a8e7bf1638c8aa60a3e9daf5910a825ba2212aa699a81e22dcb3ea5e5dfd67dd",
+      "complete_circuit": false,
+      "exact_483_parts_fields_local_pads_and_independent_global_transforms": true,
+      "fabrication_release_allowed": false,
+      "hole_audit": {
+        "aligned_adjacent_stacks": [
+          {
+            "first_position_iu": [
+              56900000,
+              17650000
+            ],
+            "first_span": [
+              "In3.Cu",
+              "In4.Cu"
+            ],
+            "first_uuid": "6d6343ae-3588-5242-a05e-5d1d1dea2041",
+            "second_position_iu": [
+              56900000,
+              17650000
+            ],
+            "second_span": [
+              "In4.Cu",
+              "B.Cu"
+            ],
+            "uuids": [
+              "6d6343ae-3588-5242-a05e-5d1d1dea2041",
+              "df1f3285-9eb3-5ea3-a381-a801f524559d"
+            ]
+          },
+          {
+            "first_position_iu": [
+              57950000,
+              17700000
+            ],
+            "first_span": [
+              "In3.Cu",
+              "In4.Cu"
+            ],
+            "first_uuid": "f9fee063-826d-52be-a8b8-94d4c3c8c17f",
+            "second_position_iu": [
+              57950000,
+              17700000
+            ],
+            "second_span": [
+              "In4.Cu",
+              "B.Cu"
+            ],
+            "uuids": [
+              "8dadd42b-c384-5243-864f-2ea8ae33d00a",
+              "f9fee063-826d-52be-a8b8-94d4c3c8c17f"
+            ]
+          }
+        ],
+        "disjoint_supported_close_pairs": [],
+        "fabrication_qualified": false,
+        "minimum_unchanged_hole_clearance_mm": 0.25,
+        "other_close_pairs": 0
+      },
+      "native_opens": 29,
+      "new_track_lengths_mm": {
+        "+3V3_USB": 2.937081528017131,
+        "ROW_SEL_08": 9.650000000000004
+      },
+      "original_group_losses": [
+        {
+          "missing": [
+            [
+              "R30",
+              "1"
+            ]
+          ],
+          "net": "ROW_SEL_08"
+        }
+      ],
+      "original_groups_preserved": 215,
+      "physical_opens": 29,
+      "profiles_rules_structure_unchanged": true,
+      "retired_source_copper": 98,
+      "selected": false,
+      "unchanged_retained_source_copper": 19283
+    }
+  ],
+  "selected": false,
+  "selected_native_opens": 28,
+  "selected_original_groups": 216,
+  "selected_physical_opens": 28,
+  "selected_source": "hardware/coupon/rev-a/staging/led-row2-routing-trial-114mm.kicad_pcb",
+  "source_sha256": "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34",
+  "source_workflow_commands_passed": 37,
+  "status": "UNSELECTED_INCOMPLETE_CIRCUIT_STUDIES"
+}
