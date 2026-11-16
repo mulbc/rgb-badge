@@ -884,3 +884,31 @@ locality, two obsolete original APP leaf retirements and 29 additions at
 survive, with exact original 104 finding payloads under the two recorded rigid
 transforms. Independent replays/inverse/fault/hole/source/visual gates pass;
 zero opens and every qualification/fabrication hold remain unresolved.
+
+ADR 0154 permits only an ignored additive continuation of U48.2's remaining
+heartbeat input from the exact selected 29-open source, with its existing-rule
+0.500 mm neck and supported adjacent captures. Preserve all 217 source groups
+and exact original findings; complete successor gates precede selection.
+
+ADR 0155 permits only a read-only exact-pad capture screen on small disconnected
+native groups at the selected 29-open source. No track, via or placement is
+implemented without an exact later scope and all source-preserving successor gates.
+
+ADR 0156 permits only ignored additive restoration of GND, +3V3_USB and
++BAT_PROTECTED_DRAFT on the exact bounded reverse-heartbeat snapshot. Restore
+all 217 selected-source groups and every original branch, remove every new
+finding/native discrepancy, and pass complete successor gates before selection.
+
+ADR 0157 permits exactly two ignored supported adjacent VLED captures at
+PAIR07.4 and bounded additive continuation, preserving all 217 source groups
+and every source item. Actual plane/group witnesses and full successor gates
+precede selection; no VLED limit or current-capacity qualification changes.
+
+ADR 0158 permits only a read-only six-layer 0.50/0.30 mm full-span capture
+screen at fixed PAIR07.4 on the selected 29-open source. No PCB is written;
+actual filled-main-plane witnesses and later exact scope precede implementation.
+
+ADR 0159 requires public native routing probes to preserve exact source project
+and rule context with saved outputs, bind it to PCB/profile hashes and reject
+stale or changed manifested inputs before native loading. Historical evidence
+is not rewritten; no routing or electrical acceptance policy is relaxed.

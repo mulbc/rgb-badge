@@ -71,5 +71,81 @@ class NativeRoutePaths(unittest.TestCase):
                 self.assertNotIn('ModuleNotFoundError', result.stderr)
 
 
+class NativeProfileContext(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        spec = importlib.util.spec_from_file_location('profiles', ROOT/'tools/routing_snapshot_profiles.py')
+        cls.profiles = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(cls.profiles)
+
+    def fixture(self, folder, rules=True):
+        source, output = Path(folder)/'source.kicad_pcb', Path(folder)/'probe.kicad_pcb'
+        source.write_bytes(b'(kicad_pcb source)\n');output.write_bytes(b'(kicad_pcb probe)\n')
+        source.with_suffix('.kicad_pro').write_bytes(b'{"preserve": "\\u03bc"}\r\n')
+        if rules:source.with_suffix('.kicad_dru').write_bytes(b'(version 1)\r\n# exact spaces  \r\n')
+        return source, output
+
+    def test_saved_probe_preserves_bytes_and_reloads_its_manifest(self):
+        with tempfile.TemporaryDirectory() as folder:
+            source, output = self.fixture(folder);original=source.read_bytes();expected=self.profiles.read_profiles(source)
+            self.profiles.copy_profiles(source,output,expected)
+            self.assertEqual(self.profiles.read_profiles(output),expected)
+            for ext,data in expected.items():self.assertEqual(output.with_suffix(ext).read_bytes(),data)
+            self.assertEqual(source.read_bytes(),original)
+
+    def test_project_profile_is_required(self):
+        with tempfile.TemporaryDirectory() as folder:
+            source, _ = self.fixture(folder);source.with_suffix('.kicad_pro').unlink()
+            with self.assertRaisesRegex(ValueError,'project profile'):self.profiles.read_profiles(source)
+
+    def test_manifest_rejects_missing_rule_and_changed_profile_or_board(self):
+        for change in ['missing-rule','changed-project','changed-board']:
+            with self.subTest(change=change), tempfile.TemporaryDirectory() as folder:
+                source,output=self.fixture(folder);self.profiles.copy_profiles(source,output,self.profiles.read_profiles(source))
+                if change=='missing-rule':output.with_suffix('.kicad_dru').unlink()
+                elif change=='changed-project':output.with_suffix('.kicad_pro').write_text('{}')
+                else:output.write_text('(kicad_pcb changed)')
+                with self.assertRaisesRegex(ValueError,'context changed'):self.profiles.read_profiles(output)
+
+    def test_intentionally_absent_rules_remain_absent(self):
+        with tempfile.TemporaryDirectory() as folder:
+            source,output=self.fixture(folder,rules=False);expected=self.profiles.read_profiles(source)
+            self.assertIsNone(expected['.kicad_dru']);self.profiles.copy_profiles(source,output,expected)
+            self.assertFalse(output.with_suffix('.kicad_dru').exists());self.assertEqual(self.profiles.read_profiles(output),expected)
+
+    def test_stale_destination_rule_is_rejected_before_writing_project(self):
+        with tempfile.TemporaryDirectory() as folder:
+            source,output=self.fixture(folder,rules=False);rule=output.with_suffix('.kicad_dru');rule.write_text('(stale)')
+            with self.assertRaisesRegex(ValueError,'stale custom rules'):self.profiles.copy_profiles(source,output,self.profiles.read_profiles(source))
+            self.assertFalse(output.with_suffix('.kicad_pro').exists());self.assertEqual(rule.read_text(),'(stale)')
+
+    def test_source_change_during_search_is_rejected(self):
+        with tempfile.TemporaryDirectory() as folder:
+            source,output=self.fixture(folder);expected=self.profiles.read_profiles(source);source.with_suffix('.kicad_pro').write_text('{}')
+            with self.assertRaisesRegex(ValueError,'changed during search'):self.profiles.copy_profiles(source,output,expected)
+            self.assertFalse(output.with_suffix('.kicad_pro').exists())
+
+    def test_all_search_entry_points_reject_missing_or_changed_context_before_kicad(self):
+        entries=[('search-native-control-profiled.py','DISPLAY_HEARTBEAT'),('search-routing-closure-profiled.py','DISPLAY_HEARTBEAT'),('search-u36-stage-profiled.py','GND')]
+        for filename,net in entries:
+            for problem in ['missing-project','changed-rule']:
+                with self.subTest(tool=filename,problem=problem), tempfile.TemporaryDirectory() as folder:
+                    source,output=self.fixture(folder)
+                    if problem=='missing-project':source.with_suffix('.kicad_pro').unlink()
+                    else:
+                        self.profiles.copy_profiles(source,output,self.profiles.read_profiles(source));source=output
+                        source.with_suffix('.kicad_dru').write_text('(changed)')
+                    result=subprocess.run([sys.executable,str(ROOT/'tools'/filename),'--source',str(source),'--nets',net],capture_output=True,text=True)
+                    self.assertEqual(result.returncode,2,result.stderr)
+                    self.assertIn('project profile' if problem=='missing-project' else 'context changed',result.stderr)
+                    self.assertNotIn('ModuleNotFoundError',result.stderr)
+
+    def test_source_context_cannot_be_overwritten(self):
+        with tempfile.TemporaryDirectory() as folder:
+            source,_=self.fixture(folder);expected=self.profiles.read_profiles(source)
+            with self.assertRaisesRegex(ValueError,'overwrite'):self.profiles.copy_profiles(source,source,expected)
+            self.assertEqual(self.profiles.read_profiles(source),expected)
+
+
 if __name__ == '__main__':
     unittest.main()
