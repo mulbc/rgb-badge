@@ -1024,3 +1024,13 @@ ADR 0197 permits only the exact complete selector-port/sensor ignored prototype 
 ADR 0198 permits only the exact combined 98-item fixed-sensor/selector/GND plane-substitution ignored prototype with supported full-stack routing and bounded mechanical centre transitions. Preserve all original interfaces/groups and source rules; matching reduced counts, exact104 and every successor gate precede selection. All electrical/qualification/fabrication holds remain.
 
 The ADR0185–0198 continuation selects no successor. Four complete ignored fixed-sensor/selector prototypes retain 215/216 original groups and 29 native/physical opens, with additional rejecting dangling findings. The selected source remains 28 opens; see `docs/development/fixed-sensor-selector-study-2026-11-16.md`. All qualification/fabrication holds remain.
+
+ADR 0199 permits read-only cardinal rotation discovery for exact R71/R21/R11 about their fixed connected pad 2, retaining all source copper and every old layer-specific contact. No PCB, substitution, rule change or successor is selected; all complete successor and fabrication gates remain mandatory.
+
+ADR 0200 permits only the exact R21/R11 fixed-gate-pad ignored prototype and bounded ordinary VLED feed discovery, retaining every source copper item and original group/contact. Matching reduced counts, exact104 and all successor gates precede selection; no current or qualification/fabrication hold changes.
+
+ADR 0201 permits only read-only 15-degree fixed-pad R21/R11 discovery with native pad-centred supported capture checks, retaining every old contact and source rule. No PCB, new retirement, substitution, current change or successor is selected; all acceptance/fabrication gates remain.
+
+ADR 0202 permits only the exact R21 15/165-degree ignored prototypes and the unchanged ADR0200 bounded supported feed search, with R11 and every other part at selected poses. Preserve all original groups/copper/contacts and exact104; complete successor gates precede selection and no current/qualification/fabrication hold changes.
+
+The ADR0199–0202 continuation selects no successor: all three prepared pose prototypes retain 216 original groups/exact104 and 28 native/physical opens, while all four feed searches exhaust without joins. See `docs/development/fixed-contact-resistor-study-2026-11-16.md`; the selected PCB and every qualification/fabrication hold remain unchanged.
