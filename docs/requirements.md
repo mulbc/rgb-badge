@@ -974,3 +974,23 @@ ADR 0174 permits only read-only exact R90 relocation discovery within 2 mm and e
 ADR 0175 permits read-only supported-layer TEMP_OK output restoration and bounded local ground leads only at the recorded sensor/R90 poses. Every original interface, full supply continuity and all successor gates remain required; no source or fabrication release is adopted.
 
 The ADR 0170–0175 continuation selects no successor: source remains 28 native/physical opens with unchanged selected evidence. Three TMP390 off-pad supply escapes and twelve nearby cold-resistor poses remain incomplete. See `docs/development/row2-routing-continuation-2026-11-15.md`; zero opens and every fabrication/qualification hold remain unresolved.
+
+ADR 0176 permits read-only all-pin supported escape screening for one exact three-part sensor/programming cohort, retaining the original seventeen-item study scope, all external contacts and thermal/programming limits. No PCB or successor is selected; all complete-circuit and fabrication holds remain.
+
+ADR 0177 permits only ignored complete sensor-circuit routing feasibility at the exact recorded three-part poses and seventeen-track cohort, within a bounded local window and ordinary supported copper classes. All original groups, external branches, exact104/native/physical/source/replay/inverse/contact/hole/fault/visual gates precede any selection; no threshold/current/protection/fabrication change is authorized.
+
+ADR 0178 permits read-only enumeration of alternative ordinary supported VDD escapes at the exact three-part sensor cohort. A finite escape is not supply continuity; a new alternative requires a separate complete prototype scope and every original group/interface and acceptance gate.
+
+ADR 0179 permits an ignored complete local routing prototype at the exact previously screened second U39 pose and first R90 pose, keeping R89 fixed and preserving the same seventeen-track scope and all original interfaces. All native/physical/exact104/source/replay/inverse/contact/hole/fault/visual and fabrication holds remain.
+
+ADR 0180 permits only read-only complete-interface local hop discovery for the two exact row-gate bus segments blocking the sensor supply feed. No actual extra retirement or successor is selected; all original contacts, groups and acceptance/fabrication holds remain mandatory.
+
+ADR 0181 permits an ignored exact seventeen-item local GND bridge plane-substitution study only. All original groups, external layer-specific contacts, exact104/native/physical counts, source/profile/type preservation and byte-identical inverse proof are required before any further use; no successor or return-path/fabrication qualification is selected.
+
+ADR 0182 permits ignored complete sensor routing using only the verified exact GND bridge plane substitution plus the exact two-part sensor cohort (34 original retirements total). Every original group/contact, complete circuit and exact104/native/physical/source/replay/inverse/hole/fault/visual gate remains required; no canonical successor or fabrication qualification is selected.
+
+ADR 0183 permits ignored dense 0.050 mm witnessed-plane endpoint discovery using actual ordinary-track endcap overlap. Native refill must establish each actual join and retain every current group; no rule/geometry/retirement/qualification hold or final acceptance gate is relaxed.
+
+ADR 0184 permits bounded local native eight-neighbour/fine-grid refinement of the same sensor prototype while preserving all geometric, original-group, length and final acceptance gates. A finite path or miss does not select a board or relax any fabrication/qualification hold.
+
+The ADR 0176–0184 results select no successor: source remains 28 native/physical opens. Exact GND plane-substitution continuity/inverse proof passes in an unselected basis, but complete sensor supply/output restoration and C51/U40 bypass locality remain unresolved. See `docs/development/sensor-routing-2026-11-16.md`; all electrical/qualification/fabrication holds remain.
