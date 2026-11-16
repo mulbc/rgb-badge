@@ -867,3 +867,20 @@ Connectivity evidence does not qualify current capacity or fabrication.
 ADR 0150 permits only a read-only exact U48 locality screen near fixed corrected
 U49. A later migration requires complete bypass/leaf/contact scope and full
 source-preserving successor validation; no source pose or copper is changed.
+
+ADR 0151 permits only the exact ignored U48/C67 complete local prototype with
+thirteen additions and no source retirement, followed by bounded restoration
+of its actual supply, return and two signal groups. Every original group and
+full successor gate must pass before selection; unfinished findings are not waived.
+
+ADR 0152 permits cleanup of exactly two obsolete original U48 APP leaf items
+and two unused new input-capture items. Preserve both original external In4
+branches and actual filled source-plane contacts, every old live group and
+all other source items; complete successor validation precedes selection.
+
+**2026-11-15 inverter clock checkpoint selected:** ADR 0153 selects exact U48/C67
+locality, two obsolete original APP leaf retirements and 29 additions at
+29 native/physical opens. All 218 prior groups and original external contacts
+survive, with exact original 104 finding payloads under the two recorded rigid
+transforms. Independent replays/inverse/fault/hole/source/visual gates pass;
+zero opens and every qualification/fabrication hold remain unresolved.
