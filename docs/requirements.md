@@ -960,3 +960,17 @@ source/finding/replay/inverse/fault/visual gates precede selection.
 ADR 0169 qualifies only the exact ADR 0168 complete row-two exchange; selection requires all source/replay/inverse/contact/hole/fault/visual gates. Zero opens and all fabrication holds remain unresolved.
 
 Selected ADR 0169 successor has 28 matching native/physical opens, all 217 preceding groups and exact original 104 findings. Full source/replay/inverse/contact/hole/fault/visual checks pass as recorded in `docs/development/row2-routing-2026-11-15.md`; zero opens and fabrication holds remain.
+
+ADR 0170 permits bounded ignored additive routing discovery from the validated 28-open row-two source while preserving all 216 current groups and source copper/profiles. Adoption still requires full native/physical/source/replay/inverse/DRC/contact/hole/fault/visual gates; current limits and all fabrication holds remain unchanged.
+
+ADR 0171 permits read-only fixed-orientation ±0.500 mm translation screening of five provisional paired-row footprints for actual disconnected supply/ground contacts. No PCB, source retirement, part approval or fabrication change is authorized; any exact pose requires a separate decision and all continuity/finding/source/replay/inverse/fault/visual gates.
+
+ADR 0172 permits read-only off-pad TMP390 escape discovery within the earlier thermal/programming/bypass bounds and exact seventeen-item local cohort. No replacement, pose or successor is adopted; complete original groups and all electrical/qualification/fabrication holds remain mandatory.
+
+ADR 0173 permits read-only complete local restoration templates at the three exact ADR 0172 sensor escape poses, keeping R89/R90 fixed and preserving all original interfaces. A clear supply escape is incomplete until programming/output/ground/supply restoration and every successor gate pass; no PCB or fabrication release is selected.
+
+ADR 0174 permits only read-only exact R90 relocation discovery within 2 mm and existing 3 mm programming/ground limits at the second recorded TMP390 escape pose, keeping R89 and all other parts fixed. No PCB, threshold/current/protection change or successor selection is authorized.
+
+ADR 0175 permits read-only supported-layer TEMP_OK output restoration and bounded local ground leads only at the recorded sensor/R90 poses. Every original interface, full supply continuity and all successor gates remain required; no source or fabrication release is adopted.
+
+The ADR 0170–0175 continuation selects no successor: source remains 28 native/physical opens with unchanged selected evidence. Three TMP390 off-pad supply escapes and twelve nearby cold-resistor poses remain incomplete. See `docs/development/row2-routing-continuation-2026-11-15.md`; zero opens and every fabrication/qualification hold remain unresolved.
