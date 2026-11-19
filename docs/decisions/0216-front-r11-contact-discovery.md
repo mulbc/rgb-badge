@@ -36,3 +36,10 @@ cohort/lead plan and all original 215 groups, reduced matching counts,
 exact104 and every source/serialized/replay/inverse/hole/orphan/fault/visual
 gate before selection. No current/value/protection/default-off, electrical/
 thermal/bypass/assembly/fit/stack/process/Gate A/fabrication hold changes.
+
+Evidence correction: the first discovery executable called the historical
+B-only courtyard extractor. Corrected F.CrtYd screening reproduces all sixteen
+complete poses, including the selected pose. The source was already subject
+to exact full native courtyard DRC; the selected successor additionally has
+an explicit 257-neighbor front courtyard gate and overlap/missing controls.
+See `docs/development/r11-front-routing-2026-11-19.md`; source bytes are unchanged.

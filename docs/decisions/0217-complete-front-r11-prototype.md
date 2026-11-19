@@ -38,3 +38,9 @@ bypass/part/assembly/fit/stack/process/Gate A or fabrication hold changes.
 All required CAD gates pass; see `docs/development/r11-front-routing-2026-11-19.md`
 and `mechanical/review/r11-front-routing-checkpoint.json`. The 27-open parent
 remains immutable. No fabrication release is authorized.
+
+Validation correction adds an explicit F.CrtYd gate against all 257 original
+front footprints and two direct overlap/missing-courtyard rejection controls.
+Corrected preliminary discovery preserves the selected pose and all sixteen
+complete pose results. Native exact104, inverse/replays, all original groups
+and source/plan bytes remain unchanged. This does not relax any release hold.

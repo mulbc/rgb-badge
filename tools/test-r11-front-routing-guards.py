@@ -70,6 +70,19 @@ def trial(source,name):
  except AssertionError as error:print('REJECTED',name,str(error),flush=True);return
  raise RuntimeError('Fault accepted: '+name)
 
+def courtyard_controls(source):
+ rows=[]
+ for name in ['front-courtyard-overlap','front-courtyard-missing']:
+  b=p.LoadBoard(str(source));part=b.FindFootprintByReference('D1');held=[];assert part.GetLayer()==p.F_Cu
+  if name=='front-courtyard-overlap':part.SetPosition(b.FindFootprintByReference('R11').GetPosition())
+  else:
+   for item in list(part.GraphicalItems()):
+    if item.GetLayer()==p.F_CrtYd:part.Remove(item);held.append(item)
+  try:policy.front_courtyards(b)
+  except AssertionError as error:rows.append(dict(fault=name,exit_code=0));print('Rejected front courtyard control:',name,str(error),flush=True)
+  else:raise RuntimeError('Front courtyard control accepted: '+name)
+ return rows
+
 def main():
  ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--board',type=Path,required=True);ap.add_argument('--fault',choices=CASES);args=ap.parse_args();BUILD.mkdir(parents=True,exist_ok=True)
  if args.fault:trial(args.board.resolve(),args.fault);return
@@ -95,7 +108,8 @@ def main():
   except AssertionError:rows.append(dict(fault=name,exit_code=0))
   else:raise RuntimeError('DRC fault accepted: '+name)
  rows.extend(runpy.run_path(str(policy.ROOT/'tools/test-row2-routing-guards.py'))['hole_controls']())
+ rows.extend(courtyard_controls(args.board))
  assert policy.sha(args.board)==before;policy.audit(args.board)
- (BUILD/'results.json').write_text(json.dumps(rows,indent=2)+'\n');print('28 fault rejections and eight shared hole controls pass.',flush=True)
+ (BUILD/'results.json').write_text(json.dumps(rows,indent=2)+'\n');print('28 fault rejections, eight shared hole controls and two front courtyard controls pass.',flush=True)
 
 if __name__=='__main__':main()

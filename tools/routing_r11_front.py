@@ -59,6 +59,23 @@ def external_contacts(old,new,plan):
  assert abs(lead.GetLength()/1e6-plan['new_gate_length_mm'])<1e-10
  return dict(gate_outside_contacts=sorted(outside),retained_main_supply_contact=uid,new_supply_copper_mm=0,new_gate_length_mm=lead.GetLength()/1e6)
 
+def front_courtyards(board):
+ """Check the actual front side; the historical discovery helper is B-only."""
+ import pcbnew as p
+ geometry=runpy.run_path(str(ROOT/'tools/screen-converter-inductor-locality.py'))['geometry']
+ def polygons(fp):
+  fp.BuildCourtyardCaches();native=fp.GetCourtyard(p.F_CrtYd);result=[]
+  for i in range(native.OutlineCount()):
+   assert native.HoleCount(i)==0,'Unsupported front courtyard hole';chain=native.COutline(i);points=[(chain.CPoint(j).x,chain.CPoint(j).y) for j in range(chain.PointCount())];assert geometry.convex(points),'Unsupported front courtyard shape';result.append(points)
+  return result
+ target=board.FindFootprintByReference('R11');assert target.GetLayer()==p.F_Cu;own=polygons(target);assert len(own)==1,'R11 front courtyard missing'
+ others=[fp for fp in board.GetFootprints() if fp.GetReference()!='R11' and fp.GetLayer()==p.F_Cu];assert len(others)==257
+ count=0
+ for fp in others:
+  theirs=polygons(fp);assert len(theirs)==1,'Original front courtyard missing: '+fp.GetReference();count+=len(theirs)
+  assert not any(geometry.intersects(a,z) for a in own for z in theirs),'Front courtyard overlap: '+fp.GetReference()
+ return dict(r11_front_courtyards=1,other_front_footprints=257,other_front_courtyards=count,missing_front_courtyards=0,overlaps=0)
+
 def audit(path,plan=None):
  import pcbnew as p
  plan=load_plan() if plan is None else plan;assert plan==load_plan(),'Plan changed';serialized_ledger(path,plan)
@@ -89,4 +106,4 @@ def audit(path,plan=None):
   if isinstance(ot[uid],p.PCB_VIA):assert ot[uid].GetViaType()==nt[uid].GetViaType()
  for uid,row in added.items():assert list(h['signature'](new,nt[uid]))==row['signature'] and not isinstance(nt[uid],p.PCB_VIA) and row['via_type'] is None and nt[uid].GetWidth()==200000 and nt[uid].GetLayer()==p.F_Cu
  assert contact_catalog(old,retired)==plan['source_retirement_contacts']
- result=connectivity(old,new);result.update(external_contacts=external_contacts(old,new,plan),hole_audit=hole_audit(new,added),unchanged_source_copper=19356,retired_copper=25,added_copper=1,exact_part_inventory=483,unchanged_profiles_rules_structure=True);return result
+ result=connectivity(old,new);result.update(front_courtyards=front_courtyards(new),external_contacts=external_contacts(old,new,plan),hole_audit=hole_audit(new,added),unchanged_source_copper=19356,retired_copper=25,added_copper=1,exact_part_inventory=483,unchanged_profiles_rules_structure=True);return result

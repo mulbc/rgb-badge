@@ -151,9 +151,40 @@
       "bytes": 1120,
       "path": "hardware/coupon/rev-a/build/r11-local-routing/ground-cause-isolation.json",
       "sha256": "4ca7312544d74a4ee0d4483c0d89f9e3d15957630216f7ed6e46db75c9401762"
+    },
+    {
+      "bytes": 8462,
+      "path": "hardware/coupon/rev-a/build/r21-routing/r11-front/corrected-front-screen.py",
+      "sha256": "e19576955fecc1b78408468302a37b7877f9adfd556aef53fafa9aead3f9ae0f"
+    },
+    {
+      "bytes": 18284,
+      "path": "hardware/coupon/rev-a/build/r21-routing/r11-front/corrected-front-screen.json",
+      "sha256": "c1da1a955be8e605ad300b3f57414b558e6b59e9027d95370b579f355919429c"
+    },
+    {
+      "bytes": 2393,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/front-courtyard-audit.json",
+      "sha256": "778e726d6fe316203cc48578b1edf968bb2790bb8469a30a912a6af8e438ac76"
     }
   ],
   "fabrication_release_allowed": false,
+  "front_courtyard_erratum": {
+    "complete_pose_results_unchanged": true,
+    "corrected_front_courtyard_layer": "F.CrtYd",
+    "corrected_screen_path": "hardware/coupon/rev-a/build/r21-routing/r11-front/corrected-front-screen.json",
+    "native_front_courtyards": {
+      "missing_front_courtyards": 0,
+      "other_front_courtyards": 257,
+      "other_front_footprints": 257,
+      "overlaps": 0,
+      "r11_front_courtyards": 1
+    },
+    "original_method": "Historical helper extracted B.CrtYd only; preliminary F courtyard test was absent.",
+    "original_screen_path": "hardware/coupon/rev-a/build/r21-routing/r11-front/screen.json",
+    "original_screen_retained": true,
+    "qualified_selected_source_sha256_unchanged": "fb862c0a548599b7acf328ad8bb5006ce5f78d8b98ceec12bb4af9ace21f1d0f"
+  },
   "front_pose_screen": {
     "chosen_orientation_degrees": 180,
     "chosen_position_iu": [

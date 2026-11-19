@@ -54,7 +54,7 @@ Validation passes:
   all original 215 groups restored and empty integer XOR for all nine zones.
 - Twenty-eight injected fault rejections, including wrong-side placement and
   three independently established native terminal disconnections, plus eight
-  shared hole-policy controls.
+  shared hole-policy controls and two front-courtyard controls.
 - All 39 source workflow commands and native front/bottom visual review of
   the new site, retained ground plane and vacated original site.
 
@@ -81,3 +81,17 @@ The remaining 556 historical unsupported centre microvias stay held; removing
 one does not qualify the other transitions or the proposed fabricator stack.
 Independent Gate A review still precedes fabrication; a source merge is not
 a fabrication release.
+
+The initial front-pose discovery reused a historical helper that extracts
+B.CrtYd only, so its preliminary front courtyard check was absent. The full
+native exact104 comparison already checked actual courtyard overlaps.
+Corrected read-only F.CrtYd discovery returns the identical sixteen complete
+poses and selected placement. An explicit native gate now checks R11 against
+all 257 original front courtyards; overlap and missing-courtyard controls
+both reject. Original raw evidence remains intact with this erratum and
+corrected evidence hashes. The PCB, plan, inverse and replay hashes remain
+unchanged; no placement or fabrication qualification is inferred from the fix.
+
+[The row-zero continuation](row-zero-access-2026-11-19.md) identifies exact
+inner colour obstructions but selects no further join. The source remains
+26 opens and all qualification/fabrication holds remain.
