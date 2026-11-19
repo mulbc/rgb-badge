@@ -1,5 +1,7 @@
 <!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
 
+**2026-11-19 selected — 27 opens:** The [minimal R21 supply join](../../../docs/development/r21-routing-2026-11-19.md) preserves all 216 prior groups and attached source copper, with 27 matching native/physical opens and exact original104. Exact replays/inverse, serialized-source guards, 28 fault rejections, eight hole controls, 38 source checks and native visual review pass. Use `led-r21-routing-trial-114mm`; zero opens and all qualification/Gate A holds remain unfinished. Fabrication is prohibited.
+
 **2026-11-15 selected — 28 opens:** The [complete row-two exchange](../../../docs/development/row2-routing-2026-11-15.md) moves exact R8/R37, joins the full ROW_GATE_02 and restores all selector/ground contacts. All 217 prior groups survive, with matching native/physical counts and exact original 104 findings. Two byte-identical replays, byte-identical inverse, 21 fault guards, eight hole controls, 37 source checks and native visual review pass. Use `led-row2-routing-trial-114mm`. Zero opens and all electrical/part/process/fit/stack/Gate A holds remain; fabrication is prohibited.
 
 
@@ -37,7 +39,7 @@ The [2026-11-09 shunt/row continuation](../../../docs/development/shunt-ground-s
 
 **2026-11-06 corrected local stage selected — 47 opens:** [ADR 0090](../../../docs/decisions/0090-bounded-stack-and-complete-stage-corrections.md) and the [implementation record](../../../docs/development/bounded-corrections-2026-11-06.md) select the nine-part U36 correction: 14 exact retirements / 47 additions, all 238 parent groups retained, 47 native/physical opens and the exact unchanged 104 intrinsic findings. R81 output feed, feedback and enable pull-down are joined; short local capacitor routes, stable replay/fills, native/fault/source/orphan and visual checks pass. The 50-edge parent stays immutable. The corrected 0.80 mm manufacturing target remains provisional; 557 centre-layer transitions, electrical/process/fit qualification and independent Gate A still prohibit fabrication.
 
-Open the selected corrected CAD routing study: [led-row2-routing-trial-114mm.kicad_pro](staging/led-row2-routing-trial-114mm.kicad_pro). The root schematic includes the corrected RSE symbols.
+Open the selected corrected CAD routing study: [led-r21-routing-trial-114mm.kicad_pro](staging/led-r21-routing-trial-114mm.kicad_pro). The root schematic includes the corrected RSE symbols.
 
 **2026-11-06 supplied GRM188/HDI inputs:** The [source/proposal review](../../../docs/development/grm188-and-hdi-input-review-2026-11-06.md) confirms the resupplied Murata PDF is byte-identical to the existing reference sheet; exact combined-bias/aging capacitance remains unresolved. The proposed stack totals 1.272 mm rather than 1.6 mm and omits spans used by 1,670 existing inner-layer microvias. Connector thickness, fabricator build and topology need disposition before adoption. The selected 50/104 board, limits and Gate A hold remain unchanged.
 

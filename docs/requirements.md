@@ -1034,3 +1034,19 @@ ADR 0201 permits only read-only 15-degree fixed-pad R21/R11 discovery with nativ
 ADR 0202 permits only the exact R21 15/165-degree ignored prototypes and the unchanged ADR0200 bounded supported feed search, with R11 and every other part at selected poses. Preserve all original groups/copper/contacts and exact104; complete successor gates precede selection and no current/qualification/fabrication hold changes.
 
 The ADR0199–0202 continuation selects no successor: all three prepared pose prototypes retain 216 original groups/exact104 and 28 native/physical opens, while all four feed searches exhaust without joins. See `docs/development/fixed-contact-resistor-study-2026-11-16.md`; the selected PCB and every qualification/fabrication hold remain unchanged.
+
+ADR 0203 permits read-only small translations at the bounded resistor orientations only when every original pad-2 source contact remains physically touched, with exact source parts/pads/copper/rules and actual retained main-group copper or witnessed main-plane supply targets. No PCB, source retirement or successor is selected; all complete successor and fabrication gates remain.
+
+ADR 0204 permits only the exact supply-anchored R21 ignored prototype, two frozen private gate-leaf retirements and three ordinary B replacements, retaining all other source items and original interfaces/groups. Matching reduced counts, exact104 and every successor gate precede selection; no current or qualification/fabrication hold changes.
+
+ADR 0205 permits only the exact additional R11 supply-anchored ignored prototype, its one frozen private gate-leaf retirement and native-screened ordinary B replacements on the ADR0204 R21 candidate. All immutable source groups/interfaces, exact104 and every full successor gate remain mandatory; no current or qualification/fabrication hold changes.
+
+ADR 0206 permits only the exact two-track B ground-plane substitution after full native branch/fill-witness proof, then its exact combination with ADR0205. No ground pad/via removal, new via or current change is allowed; every immutable source group, exact104 and all full successor/fabrication gates remain mandatory.
+
+ADR 0207 permits only read-only supported outer gate-capture discovery at native B nodes reachable from the exact R11 pose under its unchanged source/cohort/rule bounds. An escape is incomplete until the full gate and all original groups pass every successor gate; no PCB or qualification/fabrication change is selected.
+
+ADR 0208 permits only the exact R11 gate-port relocation and obsolete outer-via retirement, completing a bounded ordinary supported outer-layer route to the exact retained In4 wire endpoint. The six-item original cohort and all immutable groups/interfaces/rules remain frozen; matching reduced counts, exact104 and every full successor gate precede selection. No current or qualification/fabrication hold changes.
+
+ADR 0209 qualifies only the exact minimal R21 exchange: two private gate retirements, two ordinary gate replacements and an actual retained main VLED contact, with no added supply trace/via. All original groups/copper and every serialized/native/physical/exact104/source/contact/replay/inverse/fault/visual gate precede selection; no current or qualification/fabrication hold changes.
+
+Selected ADR0209 successor has 27 matching native/physical opens, all 216 preceding groups and attached source copper preserved, and exact original104. Full source/contact/replay/inverse/serialized/fault/visual gates pass as recorded in `docs/development/r21-routing-2026-11-19.md`; zero opens and all qualification/fabrication holds remain unresolved.

@@ -1,0 +1,196 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_copper": 2,
+  "all_new_copper_attached_to_live_pads": true,
+  "board": "hardware/coupon/rev-a/staging/led-r21-routing-trial-114mm.kicad_pcb",
+  "board_sha256": "e7748bee49f33b3b5c021c9215d441a047718b284e3a1ee27975e3832ddfb5d2",
+  "date": "2026-11-19",
+  "drc_sha256": "c5aa3d579c6fa09fd850c399dcb2e502d43cb546d7161724b5e2eb6b906d9317",
+  "evidence": [
+    {
+      "bytes": 2449,
+      "path": "hardware/coupon/rev-a/build/r21-routing/current-audit.json",
+      "sha256": "41d425c2a3e196636bc4113a2c3cc00bf00220269c9c247eadf9f675d9945e6e"
+    },
+    {
+      "bytes": 107328,
+      "path": "hardware/coupon/rev-a/build/r21-routing/current-drc.json",
+      "sha256": "c5aa3d579c6fa09fd850c399dcb2e502d43cb546d7161724b5e2eb6b906d9317"
+    },
+    {
+      "bytes": 108100,
+      "path": "hardware/coupon/rev-a/build/r21-routing/original-restored-drc.json",
+      "sha256": "55d875bbcd49b0642b643892f780e3de969bab7a94e15fa526e0ed4bfa0311a8"
+    },
+    {
+      "bytes": 4895,
+      "path": "hardware/coupon/rev-a/build/r21-routing/source-checks.json",
+      "sha256": "f735fa186142811fb4fccc02511a00ffb70f20c20acd48bd695bd624b02b9e8a"
+    },
+    {
+      "bytes": 2486,
+      "path": "hardware/coupon/rev-a/build/r21-routing/faults/results.json",
+      "sha256": "500df700fb0592a95d7fcd622efdcb02688caa4d2ebfa8b33efbff4aabe8e196"
+    },
+    {
+      "bytes": 2128,
+      "path": "hardware/coupon/rev-a/build/r21-routing/visual-review-manifest.json",
+      "sha256": "52305b9298001f1d83460ca70a770322d54aa3eb9e29ef1969df396074cc12ee"
+    },
+    {
+      "bytes": 36223,
+      "path": "hardware/coupon/rev-a/build/r21-routing/workflow.log",
+      "sha256": "74323db954f60dc7e6d1f8883df960fec28e22199599386b32f01f638c05b657"
+    },
+    {
+      "bytes": 20669,
+      "path": "hardware/coupon/rev-a/build/r21-routing/parent-new-site.png",
+      "sha256": "4f6600b7ee0667de846069728011fd2bf597113f95ba51b553644aecc2e6454b"
+    },
+    {
+      "bytes": 20388,
+      "path": "hardware/coupon/rev-a/build/r21-routing/parent-old-site.png",
+      "sha256": "90b340bef964dd6f80c55b6db8b908e1dda9b50b32d1c69840de6de569193bd1"
+    },
+    {
+      "bytes": 21723,
+      "path": "hardware/coupon/rev-a/build/r21-routing/candidate-new-site.png",
+      "sha256": "11b15041141d9c271e1694b959abc66d2a419b1f6b9d1b2c154b9fe01d19bf38"
+    },
+    {
+      "bytes": 11195,
+      "path": "hardware/coupon/rev-a/build/r21-routing/candidate-old-site.png",
+      "sha256": "da1711fb216f447c51aa8a984e2398cadc7e13a62f386bd5efbafc06ebbeb8e6"
+    }
+  ],
+  "exact_part_inventory": 483,
+  "external_contacts": {
+    "gate_length_mm": 3.65,
+    "new_main_vled_pads": 36,
+    "new_supply_copper_mm": 0,
+    "original_main_vled_pads": 35,
+    "retained_direct_supply_tracks": [
+      "690a1ec7-0067-586b-be03-7295eb45d0c6",
+      "814c9c0b-a383-5ed4-9380-0a2f7eaf6928",
+      "22b7143d-9629-562b-9454-61b56bbe67cd"
+    ],
+    "retained_gate_via": "cb9294d1-c465-51d9-8d7a-b4344a70b4fc",
+    "source_gate_interfaces": [
+      "cb9294d1-c465-51d9-8d7a-b4344a70b4fc",
+      "fbf4ea90-ad4c-570e-98cd-868336697ae6"
+    ]
+  },
+  "fabrication_release_allowed": false,
+  "fault_rejections": 28,
+  "hole_audit": {
+    "aligned_adjacent_stacks": [],
+    "disjoint_supported_close_pairs": [],
+    "fabrication_qualified": false,
+    "minimum_unchanged_hole_clearance_mm": 0.25,
+    "other_close_pairs": 0
+  },
+  "independent_replay_hashes": [
+    "e7748bee49f33b3b5c021c9215d441a047718b284e3a1ee27975e3832ddfb5d2",
+    "e7748bee49f33b3b5c021c9215d441a047718b284e3a1ee27975e3832ddfb5d2"
+  ],
+  "intrinsic_findings": 104,
+  "inverse_all216_groups_equal": true,
+  "inverse_exact104": true,
+  "inverse_exact_integer_fill_xor_empty": [
+    "81b0abb6-bbba-5f7c-9599-18e6b0c72e0e",
+    "566adf1a-30fb-5b01-a217-ee87a01be9a9",
+    "5bba12ef-077c-5854-bc36-f3c0f0aec6c2",
+    "de293b84-4ac9-56e5-adda-363e58b4a9d2",
+    "52361cb6-e447-5a7a-8fab-433f1b57c9c9",
+    "c682ee16-0992-5842-bc59-f74f9def9083",
+    "3e9ab31e-6f61-56f6-bb4e-6d0f8c98c74a",
+    "626b02a6-8846-59f7-b7df-a75c78241fe0",
+    "d2173c7d-2262-5c12-89e8-acf8c24a80a7"
+  ],
+  "inverse_hashes": [
+    "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34",
+    "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34",
+    "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34"
+  ],
+  "inverse_parent_bytes_equal": true,
+  "kicad_version": "10.0.6",
+  "native_opens": 27,
+  "net_count": 188,
+  "no_added_supply_copper": true,
+  "no_new_or_retired_vias": true,
+  "original_orphan_copper_retained": 0,
+  "parent": "hardware/coupon/rev-a/staging/led-row2-routing-trial-114mm.kicad_pcb",
+  "physical_groups": 215,
+  "physical_opens": 27,
+  "plan_sha256": "bfb966c9644382d0f426d2abf7e1c6f809ad30eb455a465de1abb303870dc7ad",
+  "prior_groups_preserved": 216,
+  "retained_attached_source_copper": 19379,
+  "retired_copper": 2,
+  "selected": true,
+  "serialized_source_and_added_copper_compared_before_native_import": true,
+  "shared_hole_controls": 8,
+  "source_sha256": "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34",
+  "source_workflow_commands_passed": 38,
+  "status": "PASS_CAD_CONTINUITY_ONLY",
+  "unchanged_profiles_rules_structure": true,
+  "unchanged_source_copper": 19379,
+  "unsupported_historical_centre_microvias_unchanged": 557,
+  "visual_review": {
+    "board_sha256": "e7748bee49f33b3b5c021c9215d441a047718b284e3a1ee27975e3832ddfb5d2",
+    "findings": [
+      "Final minimal candidate and immutable parent compared at original and new R21 sites using native B copper/fabrication/courtyard exports.",
+      "R21.1 directly overlaps all three frozen original main-VLED branch segments; no new supply trace is present.",
+      "Two shortened gate replacements touch R21.2 and the retained gate via.",
+      "R21/R18 courtyards remain separate; vacated R21 pads and obsolete gate leaf are absent.",
+      "CAD review only; all electrical and fabrication qualification holds remain."
+    ],
+    "images": [
+      {
+        "path": "hardware/coupon/rev-a/build/r21-routing/parent-new-site.png",
+        "sha256": "4f6600b7ee0667de846069728011fd2bf597113f95ba51b553644aecc2e6454b",
+        "source": "hardware/coupon/rev-a/build/r21-routing/visual-old/led-row2-routing-trial-114mm-B_Cu.svg",
+        "view_box_mm": [
+          55.8,
+          4.1,
+          5.5,
+          2.6
+        ]
+      },
+      {
+        "path": "hardware/coupon/rev-a/build/r21-routing/parent-old-site.png",
+        "sha256": "90b340bef964dd6f80c55b6db8b908e1dda9b50b32d1c69840de6de569193bd1",
+        "source": "hardware/coupon/rev-a/build/r21-routing/visual-old/led-row2-routing-trial-114mm-B_Cu.svg",
+        "view_box_mm": [
+          65.7,
+          4.4,
+          3.0,
+          2.5
+        ]
+      },
+      {
+        "path": "hardware/coupon/rev-a/build/r21-routing/candidate-new-site.png",
+        "sha256": "11b15041141d9c271e1694b959abc66d2a419b1f6b9d1b2c154b9fe01d19bf38",
+        "source": "hardware/coupon/rev-a/build/r21-routing/visual-new/replay-a-B_Cu.svg",
+        "view_box_mm": [
+          55.8,
+          4.1,
+          5.5,
+          2.6
+        ]
+      },
+      {
+        "path": "hardware/coupon/rev-a/build/r21-routing/candidate-old-site.png",
+        "sha256": "da1711fb216f447c51aa8a984e2398cadc7e13a62f386bd5efbafc06ebbeb8e6",
+        "source": "hardware/coupon/rev-a/build/r21-routing/visual-new/replay-a-B_Cu.svg",
+        "view_box_mm": [
+          65.7,
+          4.4,
+          3.0,
+          2.5
+        ]
+      }
+    ],
+    "reviewed": true,
+    "source": "native KiCad SVG export"
+  }
+}

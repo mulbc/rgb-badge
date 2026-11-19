@@ -74,6 +74,10 @@ jobs:
             /mechanical/review/control-cluster-routing-plan.json
             /mechanical/review/ordinary-routing-plan.json
             /mechanical/review/row2-routing-plan.json
+            /mechanical/review/r21-routing-plan.json
+            /hardware/coupon/rev-a/staging/led-r21-routing-trial-114mm.kicad_pcb
+            /hardware/coupon/rev-a/staging/led-r21-routing-trial-114mm.kicad_pro
+            /hardware/coupon/rev-a/staging/led-r21-routing-trial-114mm.kicad_dru
             /hardware/coupon/rev-a/staging/led-row2-routing-trial-114mm.kicad_pcb
             /hardware/coupon/rev-a/staging/led-row2-routing-trial-114mm.kicad_pro
             /hardware/coupon/rev-a/staging/led-row2-routing-trial-114mm.kicad_dru
@@ -137,6 +141,7 @@ jobs:
           python3 tools/check-ordinary-routing-plan.py
           python3 tools/check-enable-routing-plan.py
           python3 tools/check-row2-routing-plan.py
+          python3 tools/check-r21-routing-plan.py
           python3 tools/check-inverter-routing-plan.py
           python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb --legacy-land-study --legacy-switch-study
           python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb
