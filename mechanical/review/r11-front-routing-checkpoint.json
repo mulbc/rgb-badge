@@ -1,0 +1,96 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_copper": 1,
+  "board_path": "hardware/coupon/rev-a/staging/led-r11-front-routing-trial-114mm.kicad_pcb",
+  "board_sha256": "fb862c0a548599b7acf328ad8bb5006ce5f78d8b98ceec12bb4af9ace21f1d0f",
+  "controlled_stack_and_process_qualification": "OPEN",
+  "copper": 19357,
+  "date": "2026-11-19",
+  "electrical_assembly_fit_qualification": "OPEN",
+  "evidence": [
+    {
+      "bytes": 2388,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/current-audit.json",
+      "sha256": "364ed65780c7665dea77bac5a2fae5269e2230c3707ed89d0c1e372a76539e73"
+    },
+    {
+      "bytes": 106555,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/current-drc.json",
+      "sha256": "d8f80226177aaa59bca9345622292c6f248a55f76ca254bc8028878c03157d72"
+    },
+    {
+      "bytes": 107320,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/original-restored-drc.json",
+      "sha256": "81b08b6ee00673b7a9ab5e53fcabb4c44e2b56dfd0760c996cf9fd69dd6334ab"
+    },
+    {
+      "bytes": 2465,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/faults/results.json",
+      "sha256": "30f50d2a07116e215bc5e62e5c17e19634bfaae6aabd8b4e6e937569d8f0f851"
+    },
+    {
+      "bytes": 4647,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/source-checks.json",
+      "sha256": "eb15fba5996a9a7634a81727fbffbbd8240d307d86864822a2218fb2a0089e31"
+    },
+    {
+      "bytes": 4180,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/visual-review-manifest.json",
+      "sha256": "fedc63f839f20b43db12d4aac361b24a71b18b1748a459b55690ea6f14320e0d"
+    },
+    {
+      "bytes": 592,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/prototype.json",
+      "sha256": "ae71e2ef247d65d6d90d6a8e75c4d7aa20234fb9e736d72f889ba68d87ca3698"
+    },
+    {
+      "bytes": 169608,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/remaining-groups.json",
+      "sha256": "5cf9a0bbcdb2e62a6f51c22ec2cdc9e5780ae721109e0e14e25d3407b1d4f730"
+    },
+    {
+      "bytes": 39680,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/workflow.log",
+      "sha256": "4be18ea3019ccf118043a79d27a2c6eb97536789b4dc5f40f88378339594bbef"
+    }
+  ],
+  "exact_original_findings": 104,
+  "fabrication_release_allowed": false,
+  "fault_rejections": 28,
+  "full_original_gate_pads": 4,
+  "independent_gate_a": "OPEN",
+  "independent_pad_transform_iu": "x_new=x_old+6100000; y_new=13350000-y_old",
+  "inverse_all215_groups_equal": true,
+  "inverse_empty_integer_zone_xor_count": 9,
+  "inverse_hashes": [
+    "e7748bee49f33b3b5c021c9215d441a047718b284e3a1ee27975e3832ddfb5d2",
+    "e7748bee49f33b3b5c021c9215d441a047718b284e3a1ee27975e3832ddfb5d2",
+    "e7748bee49f33b3b5c021c9215d441a047718b284e3a1ee27975e3832ddfb5d2"
+  ],
+  "legacy_unsupported_centre_microvias_remaining": 556,
+  "main_ground_pads": 196,
+  "main_vled_pads": 37,
+  "native_opens": 26,
+  "native_visual_review": true,
+  "net_count": 188,
+  "new_orphan_copper": 0,
+  "new_vias": 0,
+  "original_orphan_copper": 0,
+  "parts": 483,
+  "physical_groups": 214,
+  "physical_opens": 26,
+  "plan_sha256": "a98428bc804458696a56c58145af0bf8b9b1e9563d7e453fe89c8f8167723c62",
+  "replay_hashes": [
+    "fb862c0a548599b7acf328ad8bb5006ce5f78d8b98ceec12bb4af9ace21f1d0f",
+    "fb862c0a548599b7acf328ad8bb5006ce5f78d8b98ceec12bb4af9ace21f1d0f"
+  ],
+  "replay_stable_refills_each": 3,
+  "retained_attached_copper": 19356,
+  "retired_copper": 25,
+  "shared_hole_controls": 8,
+  "side_flip": "R11 only B.Cu -> F.Cu, native top-bottom",
+  "source_commands_passed": 39,
+  "source_groups_preserved": 215,
+  "source_sha256": "e7748bee49f33b3b5c021c9215d441a047718b284e3a1ee27975e3832ddfb5d2",
+  "status": "PASS_CAD_CONTINUITY_ONLY"
+}

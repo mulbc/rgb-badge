@@ -1050,3 +1050,21 @@ ADR 0208 permits only the exact R11 gate-port relocation and obsolete outer-via 
 ADR 0209 qualifies only the exact minimal R21 exchange: two private gate retirements, two ordinary gate replacements and an actual retained main VLED contact, with no added supply trace/via. All original groups/copper and every serialized/native/physical/exact104/source/contact/replay/inverse/fault/visual gate precede selection; no current or qualification/fabrication hold changes.
 
 Selected ADR0209 successor has 27 matching native/physical opens, all 216 preceding groups and attached source copper preserved, and exact original104. Full source/contact/replay/inverse/serialized/fault/visual gates pass as recorded in `docs/development/r21-routing-2026-11-19.md`; zero opens and all qualification/fabrication holds remain unresolved.
+
+ADR 0210 permits only read-only fine-phase R11 supply gateway discovery on the qualified 27-open source, retaining every old gate contact, all original copper and every other part. Direct targets must be actual main VLED copper; an off-pad gateway still requires complete successor qualification. No PCB or current/qualification/fabrication hold change is selected.
+
+ADR 0211 permits read-only complete R11 gate topology and local supply-anchored pose discovery near PAIR06, with exact source contacts, unchanged parts/rules and actual retained main VLED targets. No source retirement or PCB successor is selected; every complete successor and qualification/fabrication gate remains mandatory.
+
+ADR 0212 permits the exact ignored local R11 prototype: graph-proven 65-item obsolete private gate replacement, unchanged two PAIR06 bridges and two short ordinary B leads, with all other source items/parts/rules fixed. Selection requires all 215 preceding groups, matching 26 native/physical opens, exact104 and all serialized/source/contact/replay/inverse/hole/orphan/fault/visual gates. All qualification/fabrication holds remain.
+
+ADR 0213 permits only nine exact neighboring local R11 ignored pose/refill comparisons with the same 65-item cohort and two ordinary B leads. Every original GND and other live group must survive before qualification; geometry-only clear results do not select a successor. No additional copper retirement or qualification/fabrication hold change is authorized.
+
+ADR 0214 permits read-only ordinary local B ground-bridge discovery for the two actual ground pads isolated by ADR0212/0213, targeting only individually copper-witnessed main-GND polygons with exact endcap overlap. No PCB, extra retirement, via or successor is selected; every original-group and full qualification/fabrication gate remains mandatory.
+
+ADR 0215 permits only read-only supported outer ground-access discovery at the exact ordinary B nodes reachable from the two isolated ground pads of the rejected local R11 prototype, preserving all source obstacles and full-board hole rules. A gateway is incomplete; no PCB, extra retirement, unsupported via or qualification/fabrication change is selected.
+
+ADR 0216 permits read-only exact front-side R11 placement discovery using only the graph-proven 25-item private gate prefix, actual retained main VLED F copper and its exact retained F gate interface. All other source parts/copper/rules and both-face courtyards remain fixed. No PCB or successor is selected; every original-group and qualification/fabrication gate remains mandatory.
+
+ADR 0217 permits only the exact ignored front-side R11 prototype: fixed native flip/pose, graph-proven 25-item obsolete gate prefix replacement and one ordinary F gate lead, with direct retained main VLED contact and no new supply trace/via. All 215 prior groups, all GND contacts and retained copper, matching 26 native/physical opens, exact104 and every full successor gate precede selection. Assembly/fit and all other qualification/fabrication holds remain.
+
+Selected ADR0217 successor has 26 matching native/physical opens, all 215 preceding groups, all 196 main ground pads and attached retained copper preserved, exact original104 and all full source/contact/serialized/side-flip/replay/inverse/fault/visual gates passed. No new via is added; 556 unsupported historical centre microvias and every electrical/assembly/fit/stack/process/Gate A/fabrication hold remain unresolved. See `docs/development/r11-front-routing-2026-11-19.md`.
