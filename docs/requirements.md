@@ -1167,3 +1167,119 @@ ADR0244 permits only bounded read-only exact R9 bottom placement/lead
 screening between witnessed PAIR04 supply/gate ports; source copper may
 not retire and no PCB may be written without a separately frozen complete
 replacement and every successor check. All qualification holds persist.
+
+ADR0245 expands only read-only R9 bottom discovery and its gate conductor
+study bound to12 mm, with exact1 kΩ, native mutual/source clearance and
+all timing/return/Gate A holds retained. No source retirement or PCB follows
+without an exact frozen successor and full validation.
+
+ADR0246 permits only independent read-only B corridor screens of exact
+R10/R12/R13 against actual connected supply/gate ports, without source
+retirement, additional vias or part/net changes. Every successor gate and
+all electrical/qualification/Gate A holds remain prerequisites for adoption.
+
+ADR0247 permits only exact read-only R9 front supply/supported gate-fanout
+discovery with a mechanical centre and unchanged source/new drill rules.
+Every old group and retained attached copper, full successor validation
+and all electrical/qualification/Gate A holds remain mandatory.
+
+ADR0248 permits only read-only staggered R9 lower access discovery, first
+checking B to one supported B/In4 via without inferring an aligned In3/In4
+transition or complete gate. Source, hole, full successor and qualification
+boundaries remain unchanged.
+
+ADR0249 permits only exact read-only contact-preserving replacement
+discovery for one recorded COL_05_B segment, with a mandatory original
+left stem and fully screened supported gate/color captures. No source
+selection, new centre/through via or changed qualification follows from it.
+
+ADR0250 permits only exact read-only two-color gateway prerequisite
+screening with both recorded original contact catalogues, ordinary widths
+and unchanged source/new drill rules. All old groups and full successor,
+color/row qualification and independent Gate A boundaries remain required.
+
+ADR0251 permits only a bounded one-color local hop with native-tested
+within-pad gate access and exact original stems/ports; all original red,
+green, row and boot Cu remain. No source selection or complete gate may
+be inferred without the full successor and qualification gates.
+
+ADR0252 permits only native read-only complete lower/core gateway discovery
+before any color replacement is frozen, reserving a supported mechanical
+centre and full ordinary-width lower lead under unchanged source/new Cu,
+drill, old-group and qualification requirements. No PCB or join is inferred.
+
+ADR0253 permits only independent read-only gate/core routing with the
+unselected Blue capture omitted, retaining the original-contact stem and
+all original source boundaries. Full color and R9 restoration and every
+successor/qualification check still precede any board selection.
+
+ADR0254 permits only read-only additive fixed-U39 B supply discovery to
+actual retained main USB-rail Cu. No sensor/capacitor move, bypass
+reassignment, source retirement, new via or qualification change is allowed;
+all original groups and full successor checks precede22-open selection.
+
+ADR0255 permits only read-only fixed-U39 supply discovery through one
+supported B/In4 access with full source/new Cu and drill checks. No source
+retirement, part move, other via span or changed electrical/bypass/
+qualification boundary is permitted; all successor checks remain mandatory.
+
+ADR0256 permits only exact read-only replacement screening for two B
+selector walls and one supported access, with complete original interfaces,
+all other source Cu/parts and full source/new hole rules preserved. No
+supply join or source selection follows without all successor checks and
+unchanged electrical/qualification/Gate A boundaries.
+
+ADR0257 permits only an exact read-only0.15 mm U39 translation with full
+original pad-contact, thermal/programming/C50 bounds and four precisely
+catalogued selector/TEMP_OK replacements. No original other item or
+qualification boundary changes; full22-open restoration and successor
+checks remain prerequisites for adoption.
+
+ADR0258 permits only three bounded small sensor/gateway offset templates
+with all original contacts, fixed programming/capacitor roles, thermal
+reservation and original unsupported-hole floors enforced. No supply or
+source selection follows without full22-open successor qualification.
+
+ADR0259 permits only the exact small U39/R90 gateway prerequisite with
+unchanged parts/thresholds, complete original contacts and thermal/C50/
+programming bounds, all other481 parts and source Cu fixed. No source
+selection or supply join precedes the full22-open successor and Gate A
+qualification boundaries.
+
+ADR0260 permits only the exact three-part small sensor gateway with six
+catalogued source replacements, complete original programming/output/
+ground interfaces and unmodified thresholds/thermal/C50 bounds. All other
+source items and parts remain; supply and full successor/qualification
+checks still precede adoption.
+
+ADR0261 permits only read-only complete sensor supply discovery on its exact
+source-preserving gateway, with actual32-pad main targets and per-candidate
+refill/all211-group/retained-Cu/orphan checks. No saved PCB or22-open
+selection precedes a frozen full prototype and all qualification gates.
+
+ADR0262 permits only finer native B sampling on the same complete sensor
+supply gateway, with unmodified copper/clearance/via/hole dimensions and
+actual physical connectors. All per-candidate old-group/retained-Cu checks
+and full successor/qualification boundaries remain mandatory.
+
+ADR0263 permits only multiscale native supply discovery with explicit
+physical fine/coarse connectors and unchanged source/Cu/via/hole rules.
+All per-candidate original-group checks, full successor qualification and
+independent Gate A/fabrication boundaries remain mandatory.
+
+ADR0264 permits only actual-contact-derived ordinary B tangent polylines,
+with every integer segment native-screened and old groups/retained Cu
+verified after refill. Waypoints are not electrical witnesses. All physical
+rules, full successor and qualification/Gate A boundaries remain unchanged.
+
+ADR0265 permits bounded supply continuation carrying the exact real ADR0264
+escape and length, with original group/Cu preservation and actual USB32
+contact required. No waypoint witness, profile change or fabrication release.
+
+ADR0266 permits wider seeded sensor geometry discovery at x49..65/y9..21.5
+and20 mm total conductor,400000 states, without electrical acceptance or
+changes to physical rules, source preservation or fabrication boundaries.
+
+ADR0267 permits a second supported In3/In4 microvia and ordinary In3
+routing in the same bounded seeded study. All native source/mutual hole,
+contact, group/Cu and full successor qualification boundaries remain.
