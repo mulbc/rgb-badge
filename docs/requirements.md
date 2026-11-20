@@ -1092,3 +1092,11 @@ fabrication holds remain required before adoption or release.
 ADR0226 rejects ADR0225's split-supply candidate and authorizes the exact
 PAIR01-only ground successor study, targeting 25 matching opens with R6 and
 its original main supply intact; full successor gates remain mandatory.
+
+ADR0227 permits only read-only R6 discovery through the vacated R11 corridor
+on the selected 25-open source; supported transitions, exact original supply
+contacts and every existing group remain mandatory. No PCB adoption is authorized.
+
+ADR0228 separately permits read-only discovery for the R6 pull-up supply
+lead (≤8 mm), leaving PAIR01's row-current supply pad explicitly open and its
+prior ≤6 mm high-side limit unchanged. All full successor gates still apply.

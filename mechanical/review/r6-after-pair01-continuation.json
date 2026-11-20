@@ -1,0 +1,83 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "date": "2026-11-20",
+  "source_sha256": "ec0bf7fc842f3dd4f9210e7667925cffc388d3d82906e44c5bde4e10f428ee88",
+  "selected_source_native_opens": 25,
+  "selected_source_physical_opens": 25,
+  "source_unchanged": true,
+  "pcb_written": false,
+  "selected": false,
+  "goal_complete": false,
+  "fabrication_release_allowed": false,
+  "records": [
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-front-ground-routing/r6-corridor/screen.json",
+      "sha256": "ce28f3d9488fcea0a87c9b1130b79edf1e6e820a4683d380f84f6935f37854b6"
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-front-ground-routing/r6-corridor/main-supply-inventory.json",
+      "sha256": "9da529a05aa81b75525bfcef52411cba7e1d1456a55015972f8b82f984e436cc"
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-front-ground-routing/r6-corridor/supply-route.json",
+      "sha256": "c33832994b7aff8e22fde31453993e46d527362038881d4c606323c2b47ea3f9",
+      "expanded_nodes": 1200,
+      "outcome": "bounded_search_failed"
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-front-ground-routing/r6-front/supply-route.json",
+      "sha256": "135481d6728f842894ca92b0cbd0d3929f506972050e81a81153e34ae4040331",
+      "expanded_nodes": 769,
+      "outcome": "bounded_search_failed"
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-front-ground-routing/r6-front/front-supply-route.json",
+      "sha256": "65084cfa5f7b793809ae094a720feb8c092b86a792eb3b302fc3dfd2bc2a758d",
+      "expanded_nodes": 13674,
+      "outcome": "bounded_search_failed"
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-front-ground-routing/r6-front/in2-inventory.json",
+      "sha256": "a0b49855e7eaf6f51bb155560e594b42dcabd4ff122ceb2f7e27ea994284b1a8"
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-front-ground-routing/r6-front/in2-capture-screen.json",
+      "sha256": "50d78a031e0377a3f3e7ec21533335d1ac09d88bed1f84e80cb05d90ffc6d9aa",
+      "counts": {
+        "copper": 2468
+      },
+      "clear_captures": 31
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-front-ground-routing/r6-front/in2-supply-route.json",
+      "sha256": "bdc6b1533f5aa7d2d975cdbf1ac36bc2b12379df80d1128b57dce5ab4911b606",
+      "expanded_nodes": 489,
+      "outcome": "bounded_search_failed"
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-front-ground-routing/r6-front/two-layer-route.json",
+      "sha256": "2fc467b72a3cea3e52727dd846ef058ff1b65efb8748c2031dbf4be731c9a85a",
+      "expanded_nodes": 1260,
+      "via_candidates": 308,
+      "clear_via_candidates": 11,
+      "outcome": "bounded_heuristic_failed"
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-front-ground-routing/r6-front/in1-root-capture-screen.json",
+      "sha256": "766ff749a589f48506391075037446e8677c850197b95fb2383d23407c0b278f",
+      "counts": {
+        "copper": 1843
+      },
+      "clear_captures": 656
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-front-ground-routing/r6-front/two-layer-multi-root-route.json",
+      "sha256": "56a6f910ce4aed3ebcb68300cec4bc544a99983162350024489006a1f7bc88e5",
+      "expanded_nodes": 5294,
+      "via_candidates": 1285,
+      "clear_via_candidates": 42,
+      "outcome": "bounded_heuristic_failed"
+    }
+  ],
+  "result": "No qualifying R6 route in ADR0227/0228 bounds; this does not rule out other coordinated placements or multilayer routes."
+}
