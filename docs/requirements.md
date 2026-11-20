@@ -1100,3 +1100,39 @@ contacts and every existing group remain mandatory. No PCB adoption is authorize
 ADR0228 separately permits read-only discovery for the R6 pull-up supply
 lead (≤8 mm), leaving PAIR01's row-current supply pad explicitly open and its
 prior ≤6 mm high-side limit unchanged. All full successor gates still apply.
+
+ADR0229 permits read-only discovery of the reversed R6 B pose and supported
+lower-layer pull-up restoration. It does not select a board or imply gate or
+row-power closure, and all original groups and qualification holds persist.
+
+ADR0230 permits only the exact R6 combined discovery screen in vacated
+PAIR01 space, with separately restored pull-up supply/gate and unchanged
+row-power open. Full successor validation and all qualification holds persist.
+
+ADR0231 permits only bounded supported gate-transition and separate supply-
+capture discovery on the unchanged 25-open source; no full route or source
+replacement may be inferred from a clear local access.
+
+ADR0232 permits exact read-only replacement discovery for fifteen private
+COL_06_B In3 staircase segments, preserving all outside contacts and source
+groups; any complete successor still requires all full validation and holds.
+
+ADR0233 permits a separately bounded ≤24 mm front-only R6 resistor pull-up
+CAD study, with unchanged 1 kΩ/current/default-off and explicit timing/EMI
+qualification holds. It leaves row power open and authorizes no via or release.
+
+ADR0234 permits only exact combined discovery with separated R6 gate/supply
+captures and a contact-preserving color replacement. Full restoration and all
+successor gates are mandatory before source selection; all holds persist.
+
+ADR0235 permits only contact-preserving replacement discovery for the exact
+COL_07_G In2 track, with all other source and proposed copper retained and
+full restoration/successor checks still required before selection or release.
+
+ADR0236 permits read-only R6 placement/lead discovery using the actual
+PAIR02.4 B main-supply port and fixed supported gate transition, retaining
+all original color/row copper and every qualification hold.
+
+ADR0237 authorizes only the exact R6 direct-bottom prototype and complete
+successor validation, targeting 24 matching opens with all 213 original groups
+preserved and no color replacement or changed qualification/current limits.
