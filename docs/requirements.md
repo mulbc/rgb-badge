@@ -1078,3 +1078,17 @@ ADR 0220 permits only read-only supported B colour-hop discovery for the same on
 ADR 0221 permits only an independent read-only one-wire COL_09_B alternative using its two exact retained interfaces and mutually checked supported row-zero access/local ordinary In3 hop. The red net and all other source parts/copper/rules stay fixed; no PCB or successor is selected and every complete successor/fabrication gate remains mandatory.
 
 The selected front-R11 validation explicitly checks actual F.CrtYd geometry against all 257 original front footprints and rejects overlap/missing-courtyard controls. The preliminary B-only helper error is recorded with corrected identical pose results; full native exact104 and all PCB/plan/source hashes remain unchanged. No qualification/fabrication hold is relaxed.
+
+ADR 0222 permits only exact read-only additive R71 sense-branch discovery using ordinary conductors, supported staggered microvia/mechanical transitions and the unchanged 0.500 mm lower-edge clearance. All parts/source copper/current settings remain fixed; no PCB or successor is selected and every original-group/full-successor/qualification/fabrication gate remains mandatory.
+
+ADR 0223 permits only bounded read-only fixed-R71 B/In4 discovery using ordinary necks, supported outer captures and actual retained main VBUS targets, with all source copper/parts/rules/current settings fixed. No PCB or successor is selected; every original-group and complete successor/qualification/fabrication gate remains mandatory.
+
+ADR 0224 permits only exact read-only front-side PAIR01/R6 circuit discovery with correct front courtyards, the four frozen obsolete row-output items prospectively omitted and actual retained supply/ground/output/selector targets. Original pin associations, row-current lead bounds, all other source items and full successor/qualification/fabrication gates remain mandatory; no PCB or successor is selected.
+
+ADR0225 authorizes only the frozen front PAIR01/R6 CAD prototype, with exact
+source-group preservation and 23-open target; all successor validation and
+fabrication holds remain required before adoption or release.
+
+ADR0226 rejects ADR0225's split-supply candidate and authorizes the exact
+PAIR01-only ground successor study, targeting 25 matching opens with R6 and
+its original main supply intact; full successor gates remain mandatory.
