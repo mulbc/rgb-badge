@@ -1,5 +1,11 @@
 <!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
 
+ADR 0243 permits the exact ignored PAIR01 supply prototype frozen in
+`mechanical/review/pair01-supply-routing-plan.json`: only its 62 retired
+leaves, 27 new ordinary-width items and one same-face package transform.
+Adoption requires all 212 original groups and retained copper, matching
+23 opens, exact104, inverse/replay/fault/visual gates and unchanged holds.
+
 ADR 0121 permits ignored localization of exact R70 and TP31 beside the
 existing USB-control logic, replacing only three recorded obsolete leaves
 with ordinary B.Cu branches ≤16 mm. Preserve the complete supply group,
@@ -1136,3 +1142,28 @@ all original color/row copper and every qualification hold.
 ADR0237 authorizes only the exact R6 direct-bottom prototype and complete
 successor validation, targeting 24 matching opens with all 213 original groups
 preserved and no color replacement or changed qualification/current limits.
+
+ADR0238 permits only read-only supported access discovery at PAIR01.4 on
+the selected 24-open source, with no source retirement or changed current/
+default-off. Full restoration, row-power qualification and successor gates persist.
+
+ADR0239 permits exact read-only PAIR01 supply-locality discovery, retiring
+only its frozen obsolete package leaves and restoring all original groups/
+contacts; complete 23-open validation and all qualification holds remain required.
+
+ADR0240 permits only bounded In1/In2 selector restoration to witnessed
+retained driver Cu for the PAIR01 locality study, with unchanged full source/
+new-hole rules and all successor, row-power and fabrication holds.
+
+ADR0241 permits only read-only selector-access relocation below the retained
+color bus with an explicit F ground-lead template, preserving all source groups,
+unchanged study bounds and full qualification/successor requirements.
+
+ADR0242 permits only bounded F/In1/In2 selector discovery from the actual
+new pad, retaining the original direct ground proposal and all source Cu
+outside the frozen obsolete leaves; no release or qualification is implied.
+
+ADR0244 permits only bounded read-only exact R9 bottom placement/lead
+screening between witnessed PAIR04 supply/gate ports; source copper may
+not retire and no PCB may be written without a separately frozen complete
+replacement and every successor check. All qualification holds persist.

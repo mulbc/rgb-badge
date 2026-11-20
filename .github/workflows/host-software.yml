@@ -74,6 +74,10 @@ jobs:
             /mechanical/review/control-cluster-routing-plan.json
             /mechanical/review/ordinary-routing-plan.json
             /mechanical/review/row2-routing-plan.json
+            /mechanical/review/pair01-supply-routing-plan.json
+            /hardware/coupon/rev-a/staging/led-pair01-supply-routing-trial-114mm.kicad_pcb
+            /hardware/coupon/rev-a/staging/led-pair01-supply-routing-trial-114mm.kicad_pro
+            /hardware/coupon/rev-a/staging/led-pair01-supply-routing-trial-114mm.kicad_dru
             /mechanical/review/r6-direct-bottom-plan.json
             /hardware/coupon/rev-a/staging/led-r6-direct-bottom-trial-114mm.kicad_pcb
             /hardware/coupon/rev-a/staging/led-r6-direct-bottom-trial-114mm.kicad_pro
@@ -154,6 +158,7 @@ jobs:
           python3 tools/check-enable-routing-plan.py
           python3 tools/check-row2-routing-plan.py
           python3 tools/check-r21-routing-plan.py
+          python3 tools/check-pair01-supply-plan.py
           python3 tools/check-r6-direct-bottom-plan.py
           python3 tools/check-pair01-front-ground-plan.py
           python3 tools/check-r11-front-routing-plan.py
