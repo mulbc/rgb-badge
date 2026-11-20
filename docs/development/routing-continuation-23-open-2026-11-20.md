@@ -87,7 +87,8 @@ search carries the exact seed and physical length while retaining the
 same physical and source-preservation rules. It exhausts 145182 nodes,
 58103 capture positions and 1618 clear captures without a join. ADR0267
 therefore permits one further supported In3/In4 transition and ordinary
-In3 routing, with full mutual/source hole checks; that search is ongoing. A complete join must reach
+In3 routing, with full mutual/source hole checks; that graph exhausts 109256 nodes/74336 captures (3339 clear) without a
+join. The source-preserving gateway/escape remain unselected. A complete join must reach
 an actual conductor in the original 32-pad main USB supply group, refill
 to 22 matching opens/USB33 and preserve every old group and retained
 copper before a separate successor prototype can be authorized.
@@ -105,3 +106,9 @@ The selected board retains its original 104 findings and 554 unsupported
 historical centre microvias. Complete routing, exact-part/electrical,
 bypass/return/thermal, controlled-stack/process/assembly/fit qualification
 and independent Gate A remain open. Fabrication remains prohibited.
+
+The study checkpoint `e7ceb71a02eb6dee68b97f33abb63fe94269badb` is pushed.
+Both hosted runs pass: [44829780125](https://github.com/mulbc/rgb-badge/actions/runs/44829780125)
+and [44829767193](https://github.com/mulbc/rgb-badge/actions/runs/44829767193).
+ADR0268 subsequently finds a separate additive PAIR03 join; its qualification
+and selection are recorded in the [22-open checkpoint](pair03-supply-routing-2026-11-20.md).

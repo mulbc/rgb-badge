@@ -1283,3 +1283,20 @@ changes to physical rules, source preservation or fabrication boundaries.
 ADR0267 permits a second supported In3/In4 microvia and ordinary In3
 routing in the same bounded seeded study. All native source/mutual hole,
 contact, group/Cu and full successor qualification boundaries remain.
+
+ADR0268 permits an independent fixed-PAIR03 additive B/In4/In3 supply
+study with unchanged physical/part/source rules and explicit25 mm bound.
+Only actual filled22/VLED39 with every prior group/Cu retained can advance.
+
+ADR0269 freezes the exact18-item additive PAIR03 route before prototype
+write. Selection requires full source/group/Cu/DRC104/replay/inverse/fault/
+visual qualification; all electrical, trial-package and fabrication holds remain.
+
+ADR0270 selects the fully qualified22-open additive PAIR03 CAD source,
+preserving all211 previous groups/all19349 attached source Cu and exact104.
+The zero-open objective and all electrical/qualification/Gate A holds remain.
+
+ADR0271 permits fixed-PAIR05/07/09 additive supply discovery from source22,
+with actual VLED39 contact and all210 original groups/all19367 source Cu
+preserved. A combined RAM-only19-open/VLED42 trial requires all three
+full joins and all new/source hole checks; full qualification remains separate.

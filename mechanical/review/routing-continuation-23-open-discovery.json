@@ -1664,6 +1664,24 @@
         "selected": false,
         "fabrication_release_allowed": false
       }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/fixed-sensor/three-layer-seeded-supply-route.json",
+      "sha256": "e349582df9b0a8261fadc62bf336d8c04e338e8b240d205cce9fa15ecfd79450",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "expanded_nodes": 109256,
+        "edge_checks": 363278,
+        "via_candidates": 74336,
+        "via_copper_failures": 70997,
+        "hole_failures": 0,
+        "clear_vias": 3339,
+        "route": null,
+        "outcome": "bounded_graph_exhausted",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false
+      }
     }
   ],
   "validation": {
