@@ -1,0 +1,219 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_copper": 10,
+  "board_sha256": "230b0c9f456837a0dd1b5e432497aa5223da95334ac2909ff8cd39d2edea804a",
+  "bottom_courtyards": {
+    "checked_bottom_courtyards": 224,
+    "missing": 0,
+    "overlaps": 0
+  },
+  "date": "2026-11-20",
+  "drc_sha256": "f5d8432c2525343dc4940d7d21f951e79e51d65796d90caa508d9b4027fb2771",
+  "exact_part_inventory": 483,
+  "external_contacts": {
+    "mandatory_stem_junction_preserved": true,
+    "new_gate_length_mm": 2.224774058770734,
+    "new_supply_length_mm": 1.2075284675733322,
+    "supply_source_pad_uuid": "75480661-8dea-5444-ac43-3481bde8d9b8"
+  },
+  "fabrication_release_allowed": false,
+  "fault_controls": {
+    "file": "hardware/coupon/rev-a/build/r6-direct-bottom-routing/faults/results.json",
+    "sha256": "3cefac678869a36bb847ba75cf1e8d3032a4f99ddbeb6a60621663370dd18838"
+  },
+  "gate_a_complete": false,
+  "goal_complete": false,
+  "hardware_built": false,
+  "hole_audit": {
+    "aligned_adjacent_stacks": [
+      {
+        "first_position_iu": [
+          76600000,
+          4300000
+        ],
+        "first_span": [
+          "F.Cu",
+          "In1.Cu"
+        ],
+        "first_uuid": "cfd170f2-045c-5a5d-b35d-4ab098e14996",
+        "second_position_iu": [
+          76600000,
+          4300000
+        ],
+        "second_span": [
+          "In1.Cu",
+          "In2.Cu"
+        ],
+        "uuids": [
+          "4986b5dd-44f3-5c5c-a3c1-540ce3bd5a05",
+          "cfd170f2-045c-5a5d-b35d-4ab098e14996"
+        ]
+      },
+      {
+        "first_position_iu": [
+          76650000,
+          4550000
+        ],
+        "first_span": [
+          "In3.Cu",
+          "In4.Cu"
+        ],
+        "first_uuid": "2140bf13-6f5e-53f6-aace-23e7ffe9ef13",
+        "second_position_iu": [
+          76650000,
+          4550000
+        ],
+        "second_span": [
+          "In4.Cu",
+          "B.Cu"
+        ],
+        "uuids": [
+          "0a997cd1-4ee1-57d5-9e6c-a4db7931ebad",
+          "2140bf13-6f5e-53f6-aace-23e7ffe9ef13"
+        ]
+      }
+    ],
+    "disjoint_supported_close_pairs": [
+      {
+        "first_position_iu": [
+          76600000,
+          4300000
+        ],
+        "first_span": [
+          "F.Cu",
+          "In1.Cu"
+        ],
+        "first_uuid": "cfd170f2-045c-5a5d-b35d-4ab098e14996",
+        "second_position_iu": [
+          76650000,
+          4550000
+        ],
+        "second_span": [
+          "In3.Cu",
+          "In4.Cu"
+        ],
+        "uuids": [
+          "2140bf13-6f5e-53f6-aace-23e7ffe9ef13",
+          "cfd170f2-045c-5a5d-b35d-4ab098e14996"
+        ]
+      },
+      {
+        "first_position_iu": [
+          76600000,
+          4300000
+        ],
+        "first_span": [
+          "F.Cu",
+          "In1.Cu"
+        ],
+        "first_uuid": "cfd170f2-045c-5a5d-b35d-4ab098e14996",
+        "second_position_iu": [
+          76650000,
+          4550000
+        ],
+        "second_span": [
+          "In4.Cu",
+          "B.Cu"
+        ],
+        "uuids": [
+          "0a997cd1-4ee1-57d5-9e6c-a4db7931ebad",
+          "cfd170f2-045c-5a5d-b35d-4ab098e14996"
+        ]
+      },
+      {
+        "first_position_iu": [
+          76600000,
+          4300000
+        ],
+        "first_span": [
+          "In1.Cu",
+          "In2.Cu"
+        ],
+        "first_uuid": "4986b5dd-44f3-5c5c-a3c1-540ce3bd5a05",
+        "second_position_iu": [
+          76650000,
+          4550000
+        ],
+        "second_span": [
+          "In3.Cu",
+          "In4.Cu"
+        ],
+        "uuids": [
+          "2140bf13-6f5e-53f6-aace-23e7ffe9ef13",
+          "4986b5dd-44f3-5c5c-a3c1-540ce3bd5a05"
+        ]
+      },
+      {
+        "first_position_iu": [
+          76600000,
+          4300000
+        ],
+        "first_span": [
+          "In1.Cu",
+          "In2.Cu"
+        ],
+        "first_uuid": "4986b5dd-44f3-5c5c-a3c1-540ce3bd5a05",
+        "second_position_iu": [
+          76650000,
+          4550000
+        ],
+        "second_span": [
+          "In4.Cu",
+          "B.Cu"
+        ],
+        "uuids": [
+          "0a997cd1-4ee1-57d5-9e6c-a4db7931ebad",
+          "4986b5dd-44f3-5c5c-a3c1-540ce3bd5a05"
+        ]
+      }
+    ],
+    "fabrication_qualified": false,
+    "minimum_unchanged_hole_clearance_mm": 0.25,
+    "other_close_pairs": 0
+  },
+  "intrinsic_findings": 104,
+  "inverse_all213_groups_equal": true,
+  "inverse_exact104": true,
+  "inverse_exact_integer_fill_xor_empty": [
+    "81b0abb6-bbba-5f7c-9599-18e6b0c72e0e",
+    "566adf1a-30fb-5b01-a217-ee87a01be9a9",
+    "5bba12ef-077c-5854-bc36-f3c0f0aec6c2",
+    "de293b84-4ac9-56e5-adda-363e58b4a9d2",
+    "52361cb6-e447-5a7a-8fab-433f1b57c9c9",
+    "c682ee16-0992-5842-bc59-f74f9def9083",
+    "3e9ab31e-6f61-56f6-bb4e-6d0f8c98c74a",
+    "626b02a6-8846-59f7-b7df-a75c78241fe0",
+    "d2173c7d-2262-5c12-89e8-acf8c24a80a7"
+  ],
+  "inverse_hashes": [
+    "ec0bf7fc842f3dd4f9210e7667925cffc388d3d82906e44c5bde4e10f428ee88",
+    "ec0bf7fc842f3dd4f9210e7667925cffc388d3d82906e44c5bde4e10f428ee88",
+    "ec0bf7fc842f3dd4f9210e7667925cffc388d3d82906e44c5bde4e10f428ee88"
+  ],
+  "inverse_parent_bytes_equal": true,
+  "main_ground_pads": 197,
+  "main_vled_pads": 37,
+  "native_cad_version": "10.0.6",
+  "native_opens": 24,
+  "net_count": 188,
+  "orphan_copper": 0,
+  "physical_groups": 212,
+  "physical_opens": 24,
+  "plan_sha256": "20576fa6cb0bf253c34cc17a86c1b8d521b01a7762c2c550358fd7e6cb72277b",
+  "prior_groups_preserved": 213,
+  "remaining_unsupported_centre_microvias": 554,
+  "retained_attached_source_copper": 19374,
+  "retired_copper": 6,
+  "selected": true,
+  "source_checks": {
+    "file": "hardware/coupon/rev-a/build/r6-direct-bottom-routing/source-checks.json",
+    "sha256": "a211c45838e6d5869535371659a0d82174c4952b8f8e1fd123229a369b4875cb"
+  },
+  "source_sha256": "ec0bf7fc842f3dd4f9210e7667925cffc388d3d82906e44c5bde4e10f428ee88",
+  "status": "PASS_CAD_CONTINUITY_ONLY",
+  "unchanged_source_copper": 19374,
+  "visual_review": {
+    "file": "hardware/coupon/rev-a/build/r6-direct-bottom-routing/visual-review-manifest.json",
+    "sha256": "f4698d091190baf2c740a571e59172f41341ccd36b969508b41511336902de6a"
+  }
+}

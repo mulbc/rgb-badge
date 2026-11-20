@@ -1,0 +1,135 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_copper": 1,
+  "board_path": "hardware/coupon/rev-a/staging/led-r11-front-routing-trial-114mm.kicad_pcb",
+  "board_sha256": "fb862c0a548599b7acf328ad8bb5006ce5f78d8b98ceec12bb4af9ace21f1d0f",
+  "controlled_stack_and_process_qualification": "OPEN",
+  "copper": 19357,
+  "date": "2026-11-19",
+  "electrical_assembly_fit_qualification": "OPEN",
+  "evidence": [
+    {
+      "bytes": 2571,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/current-audit.json",
+      "sha256": "ccbaa9793d60bb28634414b00465561b4e6143126b5a84629e6345d8e0b2c5a9"
+    },
+    {
+      "bytes": 106512,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/current-drc.json",
+      "sha256": "2ac6b5397cdf4b47f4f0d6bfbfb374081870f859c9b924ac940ae7aacd9fb001"
+    },
+    {
+      "bytes": 107318,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/original-restored-drc.json",
+      "sha256": "0410e7563be9e1c878104aff724b3aaee6b2d52f3e51f538a6b786721f8ee8c8"
+    },
+    {
+      "bytes": 2601,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/faults/results.json",
+      "sha256": "ccae25776754fdf60cb00a2c6233a5460be523aa5bdb49be5788f314b8d2ada6"
+    },
+    {
+      "bytes": 4647,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/source-checks.json",
+      "sha256": "eb15fba5996a9a7634a81727fbffbbd8240d307d86864822a2218fb2a0089e31"
+    },
+    {
+      "bytes": 4180,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/visual-review-manifest.json",
+      "sha256": "fedc63f839f20b43db12d4aac361b24a71b18b1748a459b55690ea6f14320e0d"
+    },
+    {
+      "bytes": 592,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/prototype.json",
+      "sha256": "ae71e2ef247d65d6d90d6a8e75c4d7aa20234fb9e736d72f889ba68d87ca3698"
+    },
+    {
+      "bytes": 169608,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/remaining-groups.json",
+      "sha256": "5cf9a0bbcdb2e62a6f51c22ec2cdc9e5780ae721109e0e14e25d3407b1d4f730"
+    },
+    {
+      "bytes": 39680,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/workflow.log",
+      "sha256": "4be18ea3019ccf118043a79d27a2c6eb97536789b4dc5f40f88378339594bbef"
+    },
+    {
+      "bytes": 42078,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/workflow-front-courtyards.log",
+      "sha256": "a1845974abbe11e5f857ce3ce5b9d6b466d16e3eb41c36cf34d17a7c0daed771"
+    },
+    {
+      "bytes": 2393,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/front-courtyard-audit.json",
+      "sha256": "778e726d6fe316203cc48578b1edf968bb2790bb8469a30a912a6af8e438ac76"
+    },
+    {
+      "bytes": 8462,
+      "path": "hardware/coupon/rev-a/build/r21-routing/r11-front/corrected-front-screen.py",
+      "sha256": "e19576955fecc1b78408468302a37b7877f9adfd556aef53fafa9aead3f9ae0f"
+    },
+    {
+      "bytes": 18284,
+      "path": "hardware/coupon/rev-a/build/r21-routing/r11-front/corrected-front-screen.json",
+      "sha256": "c1da1a955be8e605ad300b3f57414b558e6b59e9027d95370b579f355919429c"
+    },
+    {
+      "bytes": 10716,
+      "path": "tools/routing_r11_front.py",
+      "sha256": "05e6d0a1ca6fa7eb12526e69b92a922041efaa24fe15b5d05bf1d63d76db1a04"
+    },
+    {
+      "bytes": 8192,
+      "path": "tools/test-r11-front-routing-guards.py",
+      "sha256": "98e96ce6046dc9d3e05a40d85dafbd37e59d3a862d2f3e2d7a5e57c7b02d94a6"
+    }
+  ],
+  "exact_original_findings": 104,
+  "fabrication_release_allowed": false,
+  "fault_rejections": 28,
+  "front_courtyard_controls": 2,
+  "front_courtyard_gate": {
+    "missing_front_courtyards": 0,
+    "other_front_courtyards": 257,
+    "other_front_footprints": 257,
+    "overlaps": 0,
+    "r11_front_courtyards": 1
+  },
+  "front_discovery_erratum": "Initial pose discovery called a B-only courtyard helper. Native exact104 already checked overlap. Corrected F.CrtYd discovery retains identical 16 complete poses and selected pose; explicit native front gate verifies R11 plus all 257 original front courtyards and targeted overlap/missing controls reject. Board/source/plan hashes unchanged.",
+  "full_original_gate_pads": 4,
+  "independent_gate_a": "OPEN",
+  "independent_pad_transform_iu": "x_new=x_old+6100000; y_new=13350000-y_old",
+  "inverse_all215_groups_equal": true,
+  "inverse_empty_integer_zone_xor_count": 9,
+  "inverse_hashes": [
+    "e7748bee49f33b3b5c021c9215d441a047718b284e3a1ee27975e3832ddfb5d2",
+    "e7748bee49f33b3b5c021c9215d441a047718b284e3a1ee27975e3832ddfb5d2",
+    "e7748bee49f33b3b5c021c9215d441a047718b284e3a1ee27975e3832ddfb5d2"
+  ],
+  "legacy_unsupported_centre_microvias_remaining": 556,
+  "main_ground_pads": 196,
+  "main_vled_pads": 37,
+  "native_opens": 26,
+  "native_visual_review": true,
+  "net_count": 188,
+  "new_orphan_copper": 0,
+  "new_vias": 0,
+  "original_orphan_copper": 0,
+  "parts": 483,
+  "physical_groups": 214,
+  "physical_opens": 26,
+  "plan_sha256": "a98428bc804458696a56c58145af0bf8b9b1e9563d7e453fe89c8f8167723c62",
+  "replay_hashes": [
+    "fb862c0a548599b7acf328ad8bb5006ce5f78d8b98ceec12bb4af9ace21f1d0f",
+    "fb862c0a548599b7acf328ad8bb5006ce5f78d8b98ceec12bb4af9ace21f1d0f"
+  ],
+  "replay_stable_refills_each": 3,
+  "retained_attached_copper": 19356,
+  "retired_copper": 25,
+  "shared_hole_controls": 8,
+  "side_flip": "R11 only B.Cu -> F.Cu, native top-bottom",
+  "source_commands_passed": 39,
+  "source_groups_preserved": 215,
+  "source_sha256": "e7748bee49f33b3b5c021c9215d441a047718b284e3a1ee27975e3832ddfb5d2",
+  "status": "PASS_CAD_CONTINUITY_ONLY"
+}

@@ -1,0 +1,314 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "board_sha256": "8b876d6f2769003e128836279bf13cf35d280bd57846a76892c918c325212e66",
+  "date": "2026-11-16",
+  "drc_sha256": "a4860cd17550de6ac07fbbae559d9d2045a5737cec52119f6add25219624ce6a",
+  "electrical_return_qualified": false,
+  "endpoint_ground_plane_witnesses": [
+    {
+      "layer": "B.Cu",
+      "original_endpoint_uuid": "359dde90-d39c-52d7-a479-82589b13f34d",
+      "polygon": 24,
+      "retained_source_witness": "37817b9f-d8ba-548a-81ca-3a83dccfc00f",
+      "zone_uuid": "81b0abb6-bbba-5f7c-9599-18e6b0c72e0e"
+    },
+    {
+      "layer": "In2.Cu",
+      "original_endpoint_uuid": "f2467c6f-3184-5d61-920d-2282e58200d3",
+      "polygon": 0,
+      "retained_source_witness": "87c8ce69-3ed6-5e2d-95d6-c3729a55728e",
+      "zone_uuid": "de293b84-4ac9-56e5-adda-363e58b4a9d2"
+    }
+  ],
+  "evidence": [
+    {
+      "bytes": 6108,
+      "path": "hardware/coupon/rev-a/build/row2-routing/ground-plane-substitution-audit.json",
+      "sha256": "c1e8c20779266f0ede8fc15ef83bca5348ff773b43d97ada287435edfdf16f08"
+    },
+    {
+      "bytes": 108110,
+      "path": "hardware/coupon/rev-a/build/row2-routing/ground-plane-substitution-drc.json",
+      "sha256": "a4860cd17550de6ac07fbbae559d9d2045a5737cec52119f6add25219624ce6a"
+    },
+    {
+      "bytes": 108071,
+      "path": "hardware/coupon/rev-a/build/row2-routing/ground-plane-inverse-drc.json",
+      "sha256": "659178d696da5b40df9c2acd607db22a6ad915080453c14fd8b5bfc91fd5aafc"
+    },
+    {
+      "bytes": 35176,
+      "path": "hardware/coupon/rev-a/build/row2-routing/ground-bridge-source-contacts.json",
+      "sha256": "5b3546c863ce469c9efa95566d3c27887a146f635653b5f652ecedbc939d7d8e"
+    },
+    {
+      "bytes": 5417,
+      "path": "hardware/coupon/rev-a/build/row2-routing/build-ground-plane-substitution.py",
+      "sha256": "749b6f2d1c7904c7549c659a0554478163c6bdd70b4c75183899b06630f52362"
+    }
+  ],
+  "exact_original104": true,
+  "fabrication_release_allowed": false,
+  "fills": [
+    "8b876d6f2769003e128836279bf13cf35d280bd57846a76892c918c325212e66",
+    "8b876d6f2769003e128836279bf13cf35d280bd57846a76892c918c325212e66",
+    "8b876d6f2769003e128836279bf13cf35d280bd57846a76892c918c325212e66"
+  ],
+  "inverse_all216_groups_and9_zone_fills_equal": true,
+  "inverse_hashes": [
+    "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34",
+    "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34",
+    "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34"
+  ],
+  "inverse_parent_bytes_equal": true,
+  "native_opens": 28,
+  "original_groups_preserved": 216,
+  "physical_opens": 28,
+  "retained_external_copper": [],
+  "retained_source_copper": 19364,
+  "retired_copper": [
+    {
+      "signature": [
+        "track",
+        "GND",
+        57000000,
+        18150000,
+        57000000,
+        18200000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "fd081016-a26c-53f1-a9bd-86ddc78eb527",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        57050000,
+        18100000,
+        57050000,
+        18150000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "211df3d9-65e2-5943-ab6e-3a61bd67f35c",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        57050000,
+        18150000,
+        57000000,
+        18150000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "3253ec4b-0c1a-58ae-a392-5a9c77c0b344",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        57150000,
+        18050000,
+        57150000,
+        18100000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "84b2c068-ec71-5ee2-b164-c79bf178063d",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        57150000,
+        18100000,
+        57050000,
+        18100000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "1080ac68-5690-5e92-b8bf-92b2c1288fc3",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        57250000,
+        18000000,
+        57250000,
+        18050000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "676038dc-0052-5fc4-8a20-6a0c37d6e2ff",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        57250000,
+        18050000,
+        57150000,
+        18050000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "de1f7def-9d62-5732-ab5e-75d18ab761b8",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        57300000,
+        17900000,
+        57300000,
+        18000000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "710117ff-9c96-57e8-ace3-149e22accc64",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        57300000,
+        18000000,
+        57250000,
+        18000000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "1b4e5a21-2d10-5c3a-81f2-f3c18a0bdf08",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        57350000,
+        17800000,
+        57350000,
+        17900000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "bef0c235-ceb2-5b97-ba01-e287f68af411",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        57350000,
+        17900000,
+        57300000,
+        17900000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "998776f4-c052-5e3b-b605-01dd4606423e",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        57400000,
+        17650000,
+        57400000,
+        17800000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "8dabe76c-b798-534f-8629-5fdb14dab36a",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        57400000,
+        17800000,
+        57350000,
+        17800000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "bbcce343-c6dd-56b0-8361-91e7210ebd0e",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        57450000,
+        17650000,
+        57400000,
+        17650000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "33ef5ad2-8223-52d5-bc10-c740177ec06e",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "GND",
+        57000000,
+        18200000,
+        "In2.Cu",
+        "In3.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "f2467c6f-3184-5d61-920d-2282e58200d3",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "via",
+        "GND",
+        57000000,
+        18200000,
+        "In3.Cu",
+        "In4.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "5fde5bfe-747a-557d-9395-2e53d1279873",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "via",
+        "GND",
+        57450000,
+        17650000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "359dde90-d39c-52d7-a479-82589b13f34d",
+      "via_type": 1
+    }
+  ],
+  "selected": false,
+  "source_contact_catalog_sha256": "5b3546c863ce469c9efa95566d3c27887a146f635653b5f652ecedbc939d7d8e",
+  "source_sha256": "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34",
+  "status": "UNSELECTED_EXACT_GROUND_PLANE_SUBSTITUTION_STUDY",
+  "zero_open_goal_complete": false
+}

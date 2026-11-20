@@ -1,0 +1,81 @@
+{
+  "SPDX-License-Identifier": "Apache-2.0",
+  "base_revision": "c2c8b3a8a866cebb9253797b7a7aa9606426f6f7",
+  "capacity_report_sha256": {
+    "firmware/review/asset-capacity-synthetic-2026-10-21.json": "13223ffa2b6cbf07d73cd731b82f661fb471ba6f21cc824a4d9982f196c66edf",
+    "firmware/review/asset-capacity-v2-synthetic-2026-10-21.json": "d38b2e0621d513150b5ad4e4ef9b998cecc778e1c7386f3aa512f210ff1bb51f"
+  },
+  "capacity_reports_repeat_byte_identical": true,
+  "ci_matrix": [
+    "GCC",
+    "Clang"
+  ],
+  "ci_results": "Verify linked final-head GitHub checks; local compiler is AppleClang only",
+  "cmake": "cmake version 4.4.4",
+  "commands": [
+    "./tools/check-host-firmware.sh",
+    "cmake -S firmware/host -B firmware/build/cmake-release -DCMAKE_CXX_COMPILER=c++ -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=OFF -DRGB_BADGE_SANITIZERS=OFF",
+    "cmake --build firmware/build/cmake-release --parallel 2",
+    "python3 firmware/tests/test_asset_inspection.py --inspector firmware/build/cmake-release/rgbb-inspect"
+  ],
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+  "core_cpp_modules": 5,
+  "core_cpp_standard": 17,
+  "core_exceptions": false,
+  "core_rtti": false,
+  "core_sources_unchanged_from_base": true,
+  "debug_ctest_groups_passed": 11,
+  "debug_python_test_methods": 40,
+  "debug_sanitizers": [
+    "address",
+    "undefined"
+  ],
+  "esp_idf_target_build": "NOT_RUN",
+  "executed_at_utc": "2026-10-21T22:29:54.645309+00:00",
+  "firmware_revision": "Base revision plus exact source_sha256 entries below; unchanged host core",
+  "hardware_measurements": "NONE",
+  "hardware_revision": "NONE: host software build/integrity tests, no board attached",
+  "host_architecture": "arm64",
+  "inspection_authenticates_uploads": false,
+  "native_regression_checks": {
+    "asset": 7847,
+    "colour": 1810,
+    "mode": 200763,
+    "playback": 67941,
+    "session": 110522
+  },
+  "python": "Python 3.15.0",
+  "raw_evidence_sha256": {
+    "/private/tmp/rgb-cmake-host-check.log": "47909c71192ade7a36b9c2746f5c7312211fba464ae17abf5d2269b4cb06519c",
+    "/private/tmp/rgb-host-release-check.log": "e78e2432836b62a94a889a34cfe1525b2c2c9ce532c113fc4c0fe916aaf30eab",
+    "firmware/build/cmake-host/Testing/Temporary/LastTest.log": "b0d4af5a38d9cf58f1da3fe86afa603b96c0fa75c5a00138cf886cd3df399d90",
+    "firmware/build/cmake-host/compile_commands.json": "b82ca173819ce59f96e33abe758d1b735ded355e1057f37c218f55253e55b504",
+    "firmware/build/cmake-release/compile_commands.json": "cdbe8c3f99fe478a5a220bf7b2c8f9f662656e576668bb79191afb41d4c8c39d"
+  },
+  "release_discovers_python_or_builds_tests": false,
+  "release_sanitizers": false,
+  "representative_content_storage": "NOT_VERIFIED",
+  "sanitizer_recovery": false,
+  "source_sha256": {
+    ".github/workflows/host-software.yml": "91b87c2728ad57649b79d1326374a6e7c31747ee7e1c7bbbba5658f7c5c36477",
+    "docs/decisions/0040-reusable-host-build-and-inspector.md": "4cf1bc739eec6f695af83280fecd810878201273a6ff9524dd92c14855d63659",
+    "firmware/core/asset_playback.cpp": "82afea7a0135da13a8cf0d972f6c1094bdc510c6cba1deb11771aed55fdf12a9",
+    "firmware/core/asset_reader.cpp": "2116b9e817e24416eb7c21bd5778ed7770e6f558b7843d94134f954010e5ccf3",
+    "firmware/core/color_transform.cpp": "03cbf929ddd5ca456f4ee050c5c726ccd97315b3487d1f9fdeb7efdaf7532747",
+    "firmware/core/content_session.cpp": "c562d5c0ace17e5e60199d5e6508256362c161d6157d82085f3fbcc44c27bab7",
+    "firmware/core/include/rgb_badge/asset_playback.h": "afd0640a0de97b7bd8cb11212196e6c7f04d38dddf0a4bfdae0437ec8568f4ae",
+    "firmware/core/include/rgb_badge/asset_reader.h": "3253d1beadbc25c6b94f82123fffa867ba799235d5e1ed707d70b7004212b76d",
+    "firmware/core/include/rgb_badge/color_transform.h": "399c99df71f60312f2b3ba2306cb9e5c29a66b54e3b7f0c96081696ae5ebd84c",
+    "firmware/core/include/rgb_badge/content_session.h": "ba4bc96aa458f8c98a86a69af1dc7cb09128db2200f0a14644bac8bd4bc27db4",
+    "firmware/core/include/rgb_badge/mode_button.h": "f676ebc8e2a465f5a55ad6412970aac6fd65baa086c4a5bdf215fce1dcb4ddae",
+    "firmware/core/mode_button.cpp": "7fcc36891c827a0dc228820d39a1c8ec27a8db2c63f754b733329bfb36f1b4b0",
+    "firmware/host/CMakeLists.txt": "9f62473673714304a0584a35def270ec65692e94228c2b36b949d32a337dbbbc",
+    "firmware/host/README.md": "c4f9917bc461922a22131ce9659646f54e139532d5e3e8b7d0afdf0db768e440",
+    "firmware/host/check_capacity.cmake": "7d4b89387e14916d8133a708f5f108a48f9e86ef7c307cd0071c9ed2e3d7043e",
+    "firmware/host/rgbb_inspect.cpp": "8d1c11308af30dca19e09ad5ae8e773fa74140faad013228cbb6ef6feee61df4",
+    "firmware/tests/test_asset_inspection.py": "674e4fd76b7b353052953116bd9e90d5541f76e79fdc4ee8dfed14dabbbd176e",
+    "tools/check-host-firmware.sh": "af68aabbbec7bde8ec1c36b6c116e66bb0fb71a7cf7c629774be21e8beffd422"
+  },
+  "standalone_release_inspection_tests_passed": 6,
+  "target_memory_timing_physical_blanking": "NOT_QUALIFIED"
+}

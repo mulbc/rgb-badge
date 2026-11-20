@@ -1,0 +1,43 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "accepted_pcb_bytes_unchanged": true,
+  "fabrication_release_allowed": false,
+  "local_review_sha256": {
+    "hardware/coupon/rev-a/build/murata-catalog-2026-10-31/490-catalog.txt": "c77f5824a7a6e0143a48d4314760e344b31c2ead997301ef610709ea2bc21ab2",
+    "hardware/coupon/rev-a/build/murata-catalog-2026-10-31/catalog.txt": "c77f5824a7a6e0143a48d4314760e344b31c2ead997301ef610709ea2bc21ab2",
+    "hardware/coupon/rev-a/build/murata-catalog-2026-10-31/guards.log": "d19273672468beea7a04629d6430eef627fa9ccd8c1b8b52e8599e285e020691",
+    "hardware/coupon/rev-a/build/murata-catalog-2026-10-31/land-page.txt": "84243ac76b6b778aad4d6b67ee219e133e168b60d7ccd75312b146b10fb0f041",
+    "hardware/coupon/rev-a/build/murata-catalog-2026-10-31/lands-277.png": "2c595725d8b779c2ffc9bb14722de46be618138c38fd7f4557502c27df728b82",
+    "hardware/coupon/rev-a/build/murata-catalog-2026-10-31/lands-278.png": "a77c2420f5a093a90685b1c16bc967bcbb11e2ada3c43c3f16c9156682d96e7c",
+    "hardware/coupon/rev-a/build/murata-catalog-2026-10-31/list-107.png": "c901db3c1375377a38c7958f62b03862e3c07c1493e51d0b82dc41813e4fdca6",
+    "hardware/coupon/rev-a/build/murata-catalog-2026-10-31/list-109.png": "0fac77bfbf81aec5830ded6056d3ac409465b4226b657932901f36f6c445d9f8",
+    "hardware/coupon/rev-a/build/murata-catalog-2026-10-31/reflow-table.txt": "d328832214619ef20a8396370a14ad4e7392d6fd90b98b8cc4fa9c5447bac542",
+    "hardware/coupon/rev-a/build/murata-catalog-2026-10-31/review.json": "ba9b5849b105ee64b81a9a93bf7a30a534d01b88eb1b7ca9dfb9baade874d432",
+    "hardware/coupon/rev-a/build/murata-catalog-2026-10-31/source-only-ci.log": "411958cdb0784deee905e305a75aee10853886839c57d3583c33bb3536d847b0",
+    "hardware/coupon/rev-a/build/murata-catalog-2026-10-31/symbols-4.png": "f47b3da1b003a02dde99cace253eb70ce10627eac148443da0f0062d743a7d20",
+    "hardware/coupon/rev-a/build/murata-catalog-2026-10-31/symbols.txt": "f3f3b5322dac275c5c6fd29683b8e332710897fec0b497e299dedcdfc1642de0"
+  },
+  "local_vendor_sha256": {
+    "hardware/coupon/rev-a/reference/vendor-datasheets/490_Chip_Multilayer_CAT2021_MLCC.pdf": "40827b0048b9af98017b011f5497ee063e5c4382c2d9eef3d95b5e8141530bb4",
+    "hardware/coupon/rev-a/reference/vendor-datasheets/Chip_Multilayer_CAT2021_MLCC.pdf": "40827b0048b9af98017b011f5497ee063e5c4382c2d9eef3d95b5e8141530bb4"
+  },
+  "new_host_guard_methods": 4,
+  "parts_or_footprints_migrated": false,
+  "source_and_tool_sha256": {
+    ".github/workflows/host-software.yml": "926862b7975026eaa6644fb3102b37e51d7048115bf010e788b9b252aae29b98",
+    "hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb": "3451177253a021d8706ff818696212afabf539a108f15ef9e5d6921e46435acc",
+    "mechanical/review/coupon-canonical-net-contract.json": "45b75cc40718b2ed7dd7c67219bdf877f818b105e422410c987c60de4eae4368",
+    "mechanical/review/murata-catalogue-reflow-review-2026-10-31.json": "ba9b5849b105ee64b81a9a93bf7a30a534d01b88eb1b7ca9dfb9baade874d432",
+    "tools/review-murata-catalogue-lands.py": "d853cba708e2f1d22e5baec3a7ab9843f41731d47846aeec3cd764c0d33bdb05",
+    "tools/tests/test_murata_catalogue_lands.py": "a29e1bdd8cab0ee47e0245e8d411e8bcc7d4a682eb769c36b679e37c9526fd73"
+  },
+  "source_only_ci_layout_passed_without_vendor_pdfs_native_xml_or_kicad": true,
+  "status": "FIRST_AUTHOR_READ_ONLY_SUPPLIED_CATALOGUE_REVIEW_NOT_EXACT_PART_APPROVAL",
+  "visually_checked_pages": [
+    4,
+    107,
+    109,
+    277,
+    278
+  ]
+}

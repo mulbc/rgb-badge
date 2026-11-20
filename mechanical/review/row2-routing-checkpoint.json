@@ -1,0 +1,162 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_copper": 4,
+  "board": "hardware/coupon/rev-a/staging/led-row2-routing-trial-114mm.kicad_pcb",
+  "board_sha256": "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34",
+  "calculated_new_track_lengths_mm": {
+    "ROW_GATE_02": 2.25,
+    "ROW_SEL_15": 0.9617696709716937
+  },
+  "copper_items": 19381,
+  "date": "2026-11-15",
+  "drc_sha256": "b956b8c2159ab0af4c8ea42f2486f42d7f7d95766fbff66616ccf8b1604c8be2",
+  "evidence": [
+    {
+      "bytes": 2640,
+      "path": "hardware/coupon/rev-a/build/row2-routing/current-audit.json",
+      "sha256": "865382fe98e50ab7ba804cb11c4df95c1f767f0a27ef8c02b9c3d546bc488dc7"
+    },
+    {
+      "bytes": 108079,
+      "path": "hardware/coupon/rev-a/build/row2-routing/current-drc.json",
+      "sha256": "b956b8c2159ab0af4c8ea42f2486f42d7f7d95766fbff66616ccf8b1604c8be2"
+    },
+    {
+      "bytes": 108911,
+      "path": "hardware/coupon/rev-a/build/row2-routing/original-restored-drc.json",
+      "sha256": "cba3c563d7ccb694c22d1e101f1c9a3eef5e2c0e041b398ab9010fb8901a1504"
+    },
+    {
+      "bytes": 2049,
+      "path": "hardware/coupon/rev-a/build/row2-routing/faults/results.json",
+      "sha256": "0789050aa53bfca4e52973dc6d16700b5659436bbf5469e6c20fc3a1d331a87e"
+    },
+    {
+      "bytes": 4469,
+      "path": "hardware/coupon/rev-a/build/row2-routing/source-checks.json",
+      "sha256": "63d4db2da2745cb63c7120134ee5a31b59596e97e632a4279d5f003f07d48e3e"
+    },
+    {
+      "bytes": 3603,
+      "path": "hardware/coupon/rev-a/build/row2-routing/visual-artifacts.json",
+      "sha256": "364fd9688054e8a5394ba82cc962a21a15a3017636bc018ec5c7b6a04a8bdd38"
+    },
+    {
+      "bytes": 9003,
+      "path": "hardware/coupon/rev-a/build/inverter-routing/r8-r37-exchange-screen.json",
+      "sha256": "f5b589afdae88a160250581957b01c1a064ca575e999ccbbeae798419ab4b2b8"
+    },
+    {
+      "bytes": 54017,
+      "path": "hardware/coupon/rev-a/build/inverter-routing/r37-private-selector-contacts.json",
+      "sha256": "173455e43b0e21ab5b4b63e2d233e2e14082243c1b3d6cc49f3e59833c55700f"
+    },
+    {
+      "bytes": 3335,
+      "path": "hardware/coupon/rev-a/build/inverter-routing/row2-selector-exchange.json",
+      "sha256": "e927c00da089b9e2e00a02da026ff87e29f03a1cbebfc04ed64bf61f369a724f"
+    }
+  ],
+  "exact_part_inventory": 483,
+  "external_plane_contacts": {
+    "fixed_supply_position_iu": [
+      72575000,
+      8500000
+    ],
+    "ground_fill": [
+      {
+        "layer": "B.Cu",
+        "polygon": 42,
+        "source_witness_uuid": "8e95d641-8b62-5a97-be89-437598eff082",
+        "zone_uuid": "81b0abb6-bbba-5f7c-9599-18e6b0c72e0e"
+      }
+    ],
+    "old_ground_tracks": [
+      "a1a9c1bb-c63d-56bb-824f-8b9fbd5d1f18",
+      "1c4af6ca-f65d-520e-bd7a-249ef70d6e05",
+      "7f504ec1-5611-5853-bc7e-742682b06f9e",
+      "9039a3e5-0134-5c49-a246-bbb1e44a47d4"
+    ],
+    "selector_tracks": [
+      "36109a50-65ec-5b8b-9792-107564cada9d",
+      "38717bb7-eb6b-5b60-a606-f024e331821d",
+      "3ffa76fd-a30d-5eb0-b171-e59a6a80197f",
+      "4c07a151-ca9d-5fd7-81b3-e2af2cc485b5",
+      "55611ec9-2b6b-557f-9aac-dd05926300e1",
+      "653e27e8-2d7c-56bb-9d8d-f59361d79267"
+    ]
+  },
+  "fabrication_release_allowed": false,
+  "hole_audit": {
+    "aligned_adjacent_stacks": [],
+    "disjoint_supported_close_pairs": [],
+    "fabrication_qualified": false,
+    "minimum_unchanged_hole_clearance_mm": 0.25,
+    "other_close_pairs": 0
+  },
+  "hole_policy_controls": {
+    "positive": 3,
+    "rejections": 5
+  },
+  "intrinsic_findings": 104,
+  "inverse_all217_groups_equal": true,
+  "inverse_exact104": true,
+  "inverse_exact_integer_fill_xor_empty": [
+    "81b0abb6-bbba-5f7c-9599-18e6b0c72e0e",
+    "566adf1a-30fb-5b01-a217-ee87a01be9a9",
+    "5bba12ef-077c-5854-bc36-f3c0f0aec6c2",
+    "de293b84-4ac9-56e5-adda-363e58b4a9d2",
+    "52361cb6-e447-5a7a-8fab-433f1b57c9c9",
+    "c682ee16-0992-5842-bc59-f74f9def9083",
+    "3e9ab31e-6f61-56f6-bb4e-6d0f8c98c74a",
+    "626b02a6-8846-59f7-b7df-a75c78241fe0",
+    "d2173c7d-2262-5c12-89e8-acf8c24a80a7"
+  ],
+  "inverse_hashes": [
+    "a4d27c5babed5556002cf71b8fae3c3280f627edeb0ff673b9b787d21d4b91ab",
+    "a4d27c5babed5556002cf71b8fae3c3280f627edeb0ff673b9b787d21d4b91ab",
+    "a4d27c5babed5556002cf71b8fae3c3280f627edeb0ff673b9b787d21d4b91ab"
+  ],
+  "inverse_parent_bytes_equal": true,
+  "native_faults": 21,
+  "native_opens": 28,
+  "net_count": 188,
+  "physical_groups": 216,
+  "physical_opens": 28,
+  "plan_sha256": "cfac460d07605254132805ab9f0e66c1fc67c446b65c5b03c87960e2d3741b01",
+  "prior_groups_preserved": 217,
+  "replays": [
+    {
+      "path": "hardware/coupon/rev-a/build/row2-routing/replay-a.kicad_pcb",
+      "sha256": "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34",
+      "stable_refills": 3
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/row2-routing/replay-b.kicad_pcb",
+      "sha256": "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34",
+      "stable_refills": 3
+    }
+  ],
+  "retired_copper": 19,
+  "source_check_commands": 37,
+  "source_sha256": "a4d27c5babed5556002cf71b8fae3c3280f627edeb0ff673b9b787d21d4b91ab",
+  "status": "SELECTED_CAD_ROUTING_CHECKPOINT",
+  "unchanged_rules_profiles_structure": true,
+  "unchanged_source_copper": 19377,
+  "visual_review": {
+    "comparisons": [
+      "old",
+      "new"
+    ],
+    "native_layers": [
+      "B.Cu",
+      "In4.Cu"
+    ],
+    "result": "PASS_GEOMETRY_REVIEW_ONLY",
+    "sites": [
+      "row2",
+      "old-selector"
+    ]
+  },
+  "zero_open_goal_complete": false
+}

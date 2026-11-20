@@ -1,0 +1,116 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "accepted_join": {
+    "anchor": [
+      "R101",
+      "2"
+    ],
+    "net": "GAUGE_I2C_SDA",
+    "source": [
+      "U46",
+      "3"
+    ]
+  },
+  "added_fault_regressions": [
+    "Detached gauge data with unchanged item counts is rejected",
+    "Gauge data remains joined but C38 disconnects after supply-bridge tracks move; checker rejects"
+  ],
+  "copyrighted_source_bytes_committed": false,
+  "hardware_measurements": "NONE",
+  "increment_added_adjacent_layer_microvias": 4,
+  "increment_added_signal_tracks": 23,
+  "increment_added_supply_continuity_tracks": 3,
+  "increment_base_board_sha256": "6d1b8e55356af88b86564c8981f96a79179067b45d26fa58f46b24154aaf3873",
+  "increment_base_revision": "0c1e0df3bdad6f4862a3837500d594f7d79dad21",
+  "independent_gate_a": "OPEN",
+  "isolated_native_guard_cases_passed": 11,
+  "manufacturer_source_recheck": [
+    {
+      "accessed": "2026-10-22",
+      "facts": "SDAA 3, SDAB 6; separate A/B; DGK example lands 1.4 x 0.45 mm, pitch 0.65 mm; existing library unchanged",
+      "observed_revision": "SCPS245E, October 2025",
+      "pages": [
+        4,
+        23
+      ],
+      "part": "TCA9517ADGKR",
+      "source": "https://www.ti.com/lit/ds/symlink/tca9517a.pdf"
+    },
+    {
+      "accessed": "2026-10-22",
+      "facts": "TDFN SDA 8, SCL 7, grounded EP; existing library unchanged",
+      "observed_revision": "19-6171 Rev 7, November 2016",
+      "pages": [
+        6
+      ],
+      "part": "MAX17048G+T10",
+      "source": "https://www.analog.com/media/en/technical-documentation/data-sheets/MAX17048-MAX17049.pdf"
+    }
+  ],
+  "native_opens_after": 228,
+  "native_opens_before": 229,
+  "new_native_drc_findings": 0,
+  "old_physical_pad_groups_preserved": true,
+  "rejected_combined_gauge_probes": [
+    {
+      "candidate": "combined-gauges",
+      "decision": "REJECTED",
+      "native_drc_findings": 108,
+      "native_opens": 227,
+      "raw_drc_sha256": "c52ee667f20b30d807342ada95070c6c914ba2e76a7a2d33313f4d2eb4361d5f",
+      "reason": "New native clearance/shorting findings on USB continuity bridge; 227-open source not adopted"
+    },
+    {
+      "candidate": "combined-gauges-in3-bridge",
+      "decision": "REJECTED",
+      "native_drc_findings": 107,
+      "native_opens": 227,
+      "raw_drc_sha256": "6aa4870ad91ff8ec359c47e92abbaf43948661bd4106561ad571cd8a87fb9700",
+      "reason": "New native clearance/shorting findings on USB continuity bridge; 227-open source not adopted"
+    }
+  ],
+  "remaining_application_data_opens": 2,
+  "remaining_gauge_clock_opens": 2,
+  "remaining_gauge_data_opens": 1,
+  "schematic_bom_libraries_current_limits_firmware_unchanged": true,
+  "selected_board_sha256": "8789452903b0f34641bdd9889cffa5dd9031f370f399ff537d2eb88bc95d4d86",
+  "status": "SELECTED_GEOMETRY_ONLY_NOT_HARDWARE_QUALIFICATION",
+  "supply_bridge": {
+    "current_capacity_and_decoupling_qualification": "OPEN",
+    "layer": "B.Cu",
+    "length_mm": 7.0,
+    "net": "+3V3_USB",
+    "purpose": "Preserve the pre-existing physical pad group after gauge-data zone refill; no new supply-group join",
+    "terminals": [
+      [
+        "C38",
+        "1"
+      ],
+      [
+        "C36",
+        "1"
+      ]
+    ],
+    "vertices_mm": [
+      [
+        57.65,
+        2.75
+      ],
+      [
+        57.65,
+        1.75
+      ],
+      [
+        52.65,
+        1.75
+      ],
+      [
+        52.65,
+        2.75
+      ]
+    ],
+    "width_mm": 0.2
+  },
+  "unchanged_footprints": 483,
+  "unchanged_native_drc_findings": 104
+}

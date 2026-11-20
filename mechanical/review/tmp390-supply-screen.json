@@ -1,0 +1,219 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "candidate_count": 0,
+  "candidates": [],
+  "exact_unselected_study_copper_cohort": [
+    [
+      "track",
+      "TEMP_OK",
+      56885000,
+      15000000,
+      56935000,
+      14750000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "TEMP_OK",
+      56885000,
+      16000000,
+      57550000,
+      16000000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "TEMP_OK",
+      57550000,
+      15000000,
+      56885000,
+      15000000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "TEMP_OK",
+      57550000,
+      16000000,
+      57550000,
+      15000000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "GND",
+      58350000,
+      16000000,
+      58450000,
+      16000000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "TMP_COLD_SET",
+      58365000,
+      15500000,
+      59000000,
+      15500000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "GND",
+      58365000,
+      16000000,
+      58350000,
+      16000000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "GND",
+      58450000,
+      16000000,
+      58365000,
+      16000000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "GND",
+      58450000,
+      16000000,
+      58450000,
+      17650000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "GND",
+      58450000,
+      17750000,
+      58450000,
+      16000000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "TMP_COLD_SET",
+      59000000,
+      15500000,
+      59000000,
+      16750000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "TMP_COLD_SET",
+      59000000,
+      16750000,
+      59500000,
+      16750000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "TMP_HOT_SET",
+      59865000,
+      14500000,
+      58365000,
+      15000000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "GND",
+      59865000,
+      15500000,
+      59865000,
+      16000000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "GND",
+      59865000,
+      16000000,
+      60250000,
+      16000000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "GND",
+      60250000,
+      16000000,
+      60250000,
+      17750000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "GND",
+      60250000,
+      17750000,
+      58450000,
+      17750000,
+      "B.Cu",
+      200000
+    ]
+  ],
+  "fabrication_release_allowed": false,
+  "failures": {
+    "bypass_distance_increased": 3020,
+    "courtyard": 2219,
+    "outside_sensor_reservation": 2386,
+    "pad_copper": 871,
+    "via_copper": 56
+  },
+  "fixed_bypass_reference": "C50",
+  "grid_step_iu": 100000,
+  "orthogonal_orientations_deg": [
+    0,
+    90,
+    180,
+    270
+  ],
+  "previous_bypass_pad_distance_mm": 3.816022143541623,
+  "sensor_centre_bounds_iu": [
+    [
+      54000000,
+      13000000
+    ],
+    [
+      59000000,
+      19000000
+    ]
+  ],
+  "sensor_movement_bound_iu": 3000000,
+  "sensor_reservation_iu": [
+    [
+      49500000,
+      12250000
+    ],
+    [
+      59500000,
+      20250000
+    ]
+  ],
+  "source_sha256": "aab8f44a9ec3ae65aed4ee2500d52d57d4d3872c8428b8f50c765bfedd205a1e",
+  "source_unchanged": true,
+  "status": "READ_ONLY_SENSOR_PAD_VIA_SCREEN_RESISTOR_RESTORATION_NOT_ESTABLISHED",
+  "tool_sha256": "dc13b95529afb5274ce7cdf4b66808fbff4263d30cd37cc047dff1ba5195af2e"
+}

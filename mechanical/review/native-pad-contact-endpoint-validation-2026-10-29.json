@@ -1,0 +1,39 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "canonical_board_changed": false,
+  "canonical_board_sha256": "d3b1de9ffa2bb61cb4816fc4161a23d73396cba12b0c3b66f15f310e82d561a3",
+  "canonical_native_open_edges": 62,
+  "canonical_source_faults_passed": 21,
+  "centre_only_reference_commit": "f025fb47246c9cade4feb79b6f7df48e3e28a774",
+  "clearance_tests_passed": 13,
+  "distance_tests_passed": 14,
+  "evidence_sha256": {
+    "docs/development/native-pad-contact-endpoint-after-drc-2026-10-29.json": "572539deaa66ea3a3e53e22b847ee5e09d50660b02395dd1e72261d1a40c89e9",
+    "docs/development/native-pad-contact-endpoint-before-drc-2026-10-29.json": "e954d9d2babe4e38940cabd04bb10bc8138ff28806910c95aa6c6b1365d00df5",
+    "mechanical/review/native-pad-contact-endpoint-after-2026-10-29.json": "b833dabc822681b28baf5d5737ca7e5a07760723b45d44454c69fa0603fcc1c5",
+    "mechanical/review/native-pad-contact-endpoint-before-2026-10-29.json": "949fd9020b984f3e0409db0d89e2d7c9861eb3c8e2d2b63987de762a8d82d6df",
+    "mechanical/review/native-pad-contact-endpoint-replay-2026-10-29.json": "b833dabc822681b28baf5d5737ca7e5a07760723b45d44454c69fa0603fcc1c5"
+  },
+  "existing_native_boundary_joins_passed": 2,
+  "fabrication_release_allowed": false,
+  "fixture_after_native_open_edges": 0,
+  "fixture_before_native_open_edges": 1,
+  "fixture_exact_replay": true,
+  "fixture_fixed_pads_and_ground_track_preserved": true,
+  "fixture_other_net_clearance_mm": 0.2,
+  "fixture_replay_native_open_edges": 0,
+  "fixture_source_sha256": "e803c1d3dd76e46c6b1a598394c77029cda46be2319103a7ce698f3c06653528",
+  "fixture_track_width_mm": 0.2,
+  "fixture_unchanged_full_drc_findings": 2,
+  "fixture_unchanged_intrinsic_pad_clearances": 2,
+  "kicad_version": "10.0.6",
+  "path_tests_passed": 6,
+  "portable_plan_guards_passed": 99,
+  "source_only_ci_layout_passed": true,
+  "status": "NATIVE_SYNTHETIC_REGRESSION_NOT_HARDWARE_MEASUREMENTS",
+  "tool_sha256": {
+    "tools/search-native-control-routes.py": "6d7a2bc95b4d3a43443bcc53d6b6cdbcf74a23d54b4e976fe1d6783d362d28c0",
+    "tools/test-native-pad-contact-endpoints.py": "37c00e4820a60aacc4a2d913ac3cd71cd364558b58288c7aa8ceab90026edf04",
+    "tools/test-native-route-edge-endpoints.py": "af42e0bdfd8f83c4be1604110b59dde0dab66e258041ee441bafc4e982139dfa"
+  }
+}

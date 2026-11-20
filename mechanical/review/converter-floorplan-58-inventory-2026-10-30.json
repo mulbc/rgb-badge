@@ -1,0 +1,2939 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "fabrication_release_allowed": false,
+  "kicad_version": "10.0.6",
+  "limitations": [
+    "Pad-centre distances are not route lengths or pad-edge path lower bounds",
+    "Direct nonzero copper contacts exclude filled zones and other pads",
+    "No component move, trace replacement or electrical setting selected",
+    "Not a power, assembly, process, EMI, thermal or hardware qualification"
+  ],
+  "results": {
+    "3V3": {
+      "direct_contact_pad_count": 16,
+      "ic": "U36",
+      "parts": {
+        "C40": {
+          "angle_deg": 180.0,
+          "footprint": "rgb-badge-coupon:C_Murata_GRM18_0603",
+          "mpn": "GRM187R61A226ME15",
+          "pads": [
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 63.35496606423209,
+                "number": "4",
+                "position_iu": [
+                  103865000,
+                  6250000
+                ]
+              },
+              "net": "+SYS_APP_IN_DRAFT",
+              "number": "1",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                40550000,
+                4000000
+              ],
+              "relative_position_iu": [
+                -800000,
+                0
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "via",
+                  "net": "+SYS_APP_IN_DRAFT",
+                  "uuid": "3bb988c7-c607-580d-b2d7-a5d9ad3f9deb"
+                },
+                {
+                  "kind": "track",
+                  "net": "+SYS_APP_IN_DRAFT",
+                  "uuid": "859a58d5-70cd-5f57-ad95-bb8e50f043bc"
+                },
+                {
+                  "kind": "track",
+                  "net": "+SYS_APP_IN_DRAFT",
+                  "uuid": "8ac13f6a-76e7-55d6-8866-0f7ed08cab13"
+                }
+              ],
+              "size_iu": [
+                900000,
+                900000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 63.44731456098043,
+                "number": "7",
+                "position_iu": [
+                  102385000,
+                  5250000
+                ]
+              },
+              "net": "GND",
+              "number": "2",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                38950000,
+                4000000
+              ],
+              "relative_position_iu": [
+                800000,
+                0
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "track",
+                  "net": "GND",
+                  "uuid": "233dff69-18f2-5ff3-bb65-2a36500a82c9"
+                },
+                {
+                  "kind": "via",
+                  "net": "GND",
+                  "uuid": "3efe2a0e-b995-57e2-8d97-93c448d5daeb"
+                },
+                {
+                  "kind": "via",
+                  "net": "GND",
+                  "uuid": "9ae114b5-a1c0-5d0a-bb21-e88003b47a39"
+                }
+              ],
+              "size_iu": [
+                900000,
+                900000
+              ]
+            }
+          ],
+          "position_iu": [
+            39750000,
+            4000000
+          ]
+        },
+        "C41": {
+          "angle_deg": 180.0,
+          "footprint": "rgb-badge-coupon:C_Murata_GRM18_0603",
+          "mpn": "GRM187R61A226ME15",
+          "pads": [
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 63.03401244566302,
+                "number": "4",
+                "position_iu": [
+                  103865000,
+                  6250000
+                ]
+              },
+              "net": "+SYS_APP_IN_DRAFT",
+              "number": "1",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                41050000,
+                1000000
+              ],
+              "relative_position_iu": [
+                -800000,
+                0
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "via",
+                  "net": "+SYS_APP_IN_DRAFT",
+                  "uuid": "551d03ed-b76a-5258-87f9-e425c65907c1"
+                }
+              ],
+              "size_iu": [
+                900000,
+                900000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 63.07833800125047,
+                "number": "7",
+                "position_iu": [
+                  102385000,
+                  5250000
+                ]
+              },
+              "net": "GND",
+              "number": "2",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                39450000,
+                1000000
+              ],
+              "relative_position_iu": [
+                800000,
+                0
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "via",
+                  "net": "GND",
+                  "uuid": "97a1f61d-54cf-5fe9-ac4b-12cca185b822"
+                },
+                {
+                  "kind": "track",
+                  "net": "GND",
+                  "uuid": "c5bf04fa-c007-5acf-9607-3669b14b06bc"
+                },
+                {
+                  "kind": "via",
+                  "net": "GND",
+                  "uuid": "e3873f13-a899-5103-a3bf-da2f6e1667c3"
+                }
+              ],
+              "size_iu": [
+                900000,
+                900000
+              ]
+            }
+          ],
+          "position_iu": [
+            40250000,
+            1000000
+          ]
+        },
+        "C42": {
+          "angle_deg": 180.0,
+          "footprint": "rgb-badge-coupon:C_Murata_GRM21_0805",
+          "mpn": "GRM219R60J476ME44",
+          "pads": [
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 20.49009760835707,
+                "number": "1",
+                "position_iu": [
+                  103865000,
+                  4750000
+                ]
+              },
+              "net": "+3V3_APP",
+              "number": "1",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                94075000,
+                22750000
+              ],
+              "relative_position_iu": [
+                -950000,
+                0
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "via",
+                  "net": "+3V3_APP",
+                  "uuid": "402e0448-a418-5d82-8e93-41a4fda1f837"
+                }
+              ],
+              "size_iu": [
+                1200000,
+                1300000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 19.830383253986795,
+                "number": "6",
+                "position_iu": [
+                  102385000,
+                  5750000
+                ]
+              },
+              "net": "GND",
+              "number": "2",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                92175000,
+                22750000
+              ],
+              "relative_position_iu": [
+                950000,
+                0
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "via",
+                  "net": "GND",
+                  "uuid": "c474107d-73a7-5a45-837f-abad0ba3198a"
+                },
+                {
+                  "kind": "track",
+                  "net": "GND",
+                  "uuid": "f3893f7f-3708-53b5-ac8a-f07ecf5607c1"
+                }
+              ],
+              "size_iu": [
+                1200000,
+                1300000
+              ]
+            }
+          ],
+          "position_iu": [
+            93125000,
+            22750000
+          ]
+        },
+        "C43": {
+          "angle_deg": 180.0,
+          "footprint": "rgb-badge-coupon:C_Murata_GRM21_0805",
+          "mpn": "GRM219R60J476ME44",
+          "pads": [
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 82.63741041441219,
+                "number": "1",
+                "position_iu": [
+                  103865000,
+                  4750000
+                ]
+              },
+              "net": "+3V3_APP",
+              "number": "1",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                23325000,
+                23250000
+              ],
+              "relative_position_iu": [
+                -950000,
+                0
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "via",
+                  "net": "+3V3_APP",
+                  "uuid": "8d067e9e-b8f0-553a-8e83-b40b9d061d0e"
+                }
+              ],
+              "size_iu": [
+                1200000,
+                1300000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 82.82977483972778,
+                "number": "6",
+                "position_iu": [
+                  102385000,
+                  5750000
+                ]
+              },
+              "net": "GND",
+              "number": "2",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                21425000,
+                23250000
+              ],
+              "relative_position_iu": [
+                950000,
+                0
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "via",
+                  "net": "GND",
+                  "uuid": "39785b30-5d2d-55db-98e2-3ffffa8217d1"
+                },
+                {
+                  "kind": "track",
+                  "net": "GND",
+                  "uuid": "464a5e53-9a07-5a06-ab81-97bc638ce5e9"
+                }
+              ],
+              "size_iu": [
+                1200000,
+                1300000
+              ]
+            }
+          ],
+          "position_iu": [
+            22375000,
+            23250000
+          ]
+        },
+        "L1": {
+          "angle_deg": 180.0,
+          "footprint": "rgb-badge-coupon:L_Murata_DFE252012P",
+          "mpn": "DFE252012P-1R0M=P2",
+          "pads": [
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 90.87952932316496,
+                "number": "3",
+                "position_iu": [
+                  103865000,
+                  5750000
+                ]
+              },
+              "net": "Net-(U36-LX1)",
+              "number": "1",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                13000000,
+                7375000
+              ],
+              "relative_position_iu": [
+                -1000000,
+                0
+              ],
+              "same_net_direct_copper": [],
+              "size_iu": [
+                800000,
+                2000000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 92.88930966478327,
+                "number": "2",
+                "position_iu": [
+                  103865000,
+                  5250000
+                ]
+              },
+              "net": "Net-(U36-LX2)",
+              "number": "2",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                11000000,
+                7375000
+              ],
+              "relative_position_iu": [
+                1000000,
+                0
+              ],
+              "same_net_direct_copper": [],
+              "size_iu": [
+                800000,
+                2000000
+              ]
+            }
+          ],
+          "position_iu": [
+            12000000,
+            7375000
+          ]
+        },
+        "R81": {
+          "angle_deg": 180.0,
+          "footprint": "rgb-badge-coupon:R_Panasonic_ERJ2_0402",
+          "mpn": "ERJ2RKF5113X",
+          "pads": [
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 51.41004984436409,
+                "number": "1",
+                "position_iu": [
+                  103865000,
+                  4750000
+                ]
+              },
+              "net": "+3V3_APP",
+              "number": "1",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                52750000,
+                10250000
+              ],
+              "relative_position_iu": [
+                -500000,
+                0
+              ],
+              "same_net_direct_copper": [],
+              "size_iu": [
+                500000,
+                500000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 50.9328305221691,
+                "number": "8",
+                "position_iu": [
+                  102385000,
+                  4750000
+                ]
+              },
+              "net": "APP_3V3_FB",
+              "number": "2",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                51750000,
+                10250000
+              ],
+              "relative_position_iu": [
+                500000,
+                0
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "track",
+                  "net": "APP_3V3_FB",
+                  "uuid": "c50a5ff0-4cfa-59b1-9bb8-dda1c20fc75c"
+                }
+              ],
+              "size_iu": [
+                500000,
+                500000
+              ]
+            }
+          ],
+          "position_iu": [
+            52250000,
+            10250000
+          ]
+        },
+        "R82": {
+          "angle_deg": 180.0,
+          "footprint": "rgb-badge-coupon:R_Panasonic_ERJ2_0402",
+          "mpn": "ERJ2RKF9102X",
+          "pads": [
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 47.45480191719274,
+                "number": "8",
+                "position_iu": [
+                  102385000,
+                  4750000
+                ]
+              },
+              "net": "APP_3V3_FB",
+              "number": "1",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                55250000,
+                10250000
+              ],
+              "relative_position_iu": [
+                -500000,
+                0
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "track",
+                  "net": "APP_3V3_FB",
+                  "uuid": "f9992f4e-4969-55ae-88a6-ab32f6f105c6"
+                }
+              ],
+              "size_iu": [
+                500000,
+                500000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 48.344888302694415,
+                "number": "6",
+                "position_iu": [
+                  102385000,
+                  5750000
+                ]
+              },
+              "net": "GND",
+              "number": "2",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                54250000,
+                10250000
+              ],
+              "relative_position_iu": [
+                500000,
+                0
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "track",
+                  "net": "GND",
+                  "uuid": "df39a698-4130-564e-addd-78c22e892e27"
+                }
+              ],
+              "size_iu": [
+                500000,
+                500000
+              ]
+            }
+          ],
+          "position_iu": [
+            54750000,
+            10250000
+          ]
+        },
+        "R83": {
+          "angle_deg": 180.0,
+          "footprint": "rgb-badge-coupon:R_Panasonic_ERJ2_0402",
+          "mpn": "ERJ2RKF1003X",
+          "pads": [
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 44.81387313098478,
+                "number": "5",
+                "position_iu": [
+                  102385000,
+                  6250000
+                ]
+              },
+              "net": "APP_ON_SW_DRAFT",
+              "number": "1",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                57750000,
+                10250000
+              ],
+              "relative_position_iu": [
+                -500000,
+                0
+              ],
+              "same_net_direct_copper": [],
+              "size_iu": [
+                500000,
+                500000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 45.85633244165957,
+                "number": "6",
+                "position_iu": [
+                  102385000,
+                  5750000
+                ]
+              },
+              "net": "GND",
+              "number": "2",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                56750000,
+                10250000
+              ],
+              "relative_position_iu": [
+                500000,
+                0
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "track",
+                  "net": "GND",
+                  "uuid": "4e05803a-fc76-53e4-85ff-d838d10face5"
+                },
+                {
+                  "kind": "track",
+                  "net": "GND",
+                  "uuid": "f8e32296-bbeb-5ae3-ac45-2581d406ce83"
+                }
+              ],
+              "size_iu": [
+                500000,
+                500000
+              ]
+            }
+          ],
+          "position_iu": [
+            57250000,
+            10250000
+          ]
+        },
+        "U36": {
+          "angle_deg": 180.0,
+          "footprint": "rgb-badge-coupon:SOT5X3_TI_DRL0008A",
+          "mpn": "TPS631000DRLR",
+          "pads": [
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 0.0,
+                "number": "1",
+                "position_iu": [
+                  103865000,
+                  4750000
+                ]
+              },
+              "net": "+3V3_APP",
+              "number": "1",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                103865000,
+                4750000
+              ],
+              "relative_position_iu": [
+                -740000,
+                750000
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "track",
+                  "net": "+3V3_APP",
+                  "uuid": "5155a441-00a7-5f1f-bbb0-4fc3baf1c773"
+                },
+                {
+                  "kind": "track",
+                  "net": "+3V3_APP",
+                  "uuid": "bde87c14-0bfa-5f70-a7f6-a8723d4ca9ae"
+                }
+              ],
+              "size_iu": [
+                670000,
+                300000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 0.0,
+                "number": "2",
+                "position_iu": [
+                  103865000,
+                  5250000
+                ]
+              },
+              "net": "Net-(U36-LX2)",
+              "number": "2",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                103865000,
+                5250000
+              ],
+              "relative_position_iu": [
+                -740000,
+                250000
+              ],
+              "same_net_direct_copper": [],
+              "size_iu": [
+                670000,
+                300000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 0.0,
+                "number": "3",
+                "position_iu": [
+                  103865000,
+                  5750000
+                ]
+              },
+              "net": "Net-(U36-LX1)",
+              "number": "3",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                103865000,
+                5750000
+              ],
+              "relative_position_iu": [
+                -740000,
+                -250000
+              ],
+              "same_net_direct_copper": [],
+              "size_iu": [
+                670000,
+                300000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 0.0,
+                "number": "4",
+                "position_iu": [
+                  103865000,
+                  6250000
+                ]
+              },
+              "net": "+SYS_APP_IN_DRAFT",
+              "number": "4",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                103865000,
+                6250000
+              ],
+              "relative_position_iu": [
+                -740000,
+                -750000
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "via",
+                  "net": "+SYS_APP_IN_DRAFT",
+                  "uuid": "cba27ade-15d5-59c5-aedd-d40f350dfa64"
+                }
+              ],
+              "size_iu": [
+                670000,
+                300000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 0.0,
+                "number": "5",
+                "position_iu": [
+                  102385000,
+                  6250000
+                ]
+              },
+              "net": "APP_ON_SW_DRAFT",
+              "number": "5",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                102385000,
+                6250000
+              ],
+              "relative_position_iu": [
+                740000,
+                -750000
+              ],
+              "same_net_direct_copper": [],
+              "size_iu": [
+                670000,
+                300000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 0.0,
+                "number": "6",
+                "position_iu": [
+                  102385000,
+                  5750000
+                ]
+              },
+              "net": "GND",
+              "number": "6",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                102385000,
+                5750000
+              ],
+              "relative_position_iu": [
+                740000,
+                -250000
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "track",
+                  "net": "GND",
+                  "uuid": "4a7e6abd-ca0c-556f-9ad3-5d7db403e89e"
+                },
+                {
+                  "kind": "via",
+                  "net": "GND",
+                  "uuid": "b2088ff0-869e-5eb0-b3a1-f9ee91227ddd"
+                },
+                {
+                  "kind": "track",
+                  "net": "GND",
+                  "uuid": "c14440d8-1091-5ed7-90e0-4d62507bb351"
+                }
+              ],
+              "size_iu": [
+                670000,
+                300000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 0.0,
+                "number": "7",
+                "position_iu": [
+                  102385000,
+                  5250000
+                ]
+              },
+              "net": "GND",
+              "number": "7",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                102385000,
+                5250000
+              ],
+              "relative_position_iu": [
+                740000,
+                250000
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "track",
+                  "net": "GND",
+                  "uuid": "2f09af5c-c050-5744-a08a-c7da66c2e671"
+                },
+                {
+                  "kind": "via",
+                  "net": "GND",
+                  "uuid": "9f353dd5-d5e3-58bf-a6b5-60e4abcb755f"
+                },
+                {
+                  "kind": "track",
+                  "net": "GND",
+                  "uuid": "d8522dc7-df5a-580d-bef7-c0b09e3bf3c1"
+                }
+              ],
+              "size_iu": [
+                670000,
+                300000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 0.0,
+                "number": "8",
+                "position_iu": [
+                  102385000,
+                  4750000
+                ]
+              },
+              "net": "APP_3V3_FB",
+              "number": "8",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                102385000,
+                4750000
+              ],
+              "relative_position_iu": [
+                740000,
+                750000
+              ],
+              "same_net_direct_copper": [],
+              "size_iu": [
+                670000,
+                300000
+              ]
+            }
+          ],
+          "position_iu": [
+            103125000,
+            5500000
+          ]
+        }
+      },
+      "parts_with_direct_nonzero_copper": [
+        "U36",
+        "C40",
+        "C41",
+        "C42",
+        "C43",
+        "R81",
+        "R82",
+        "R83"
+      ]
+    },
+    "VLED": {
+      "direct_contact_pad_count": 37,
+      "ic": "U37",
+      "parts": {
+        "C44": {
+          "angle_deg": 180.0,
+          "footprint": "rgb-badge-coupon:C_Murata_GRM188R60J106ME47_0603",
+          "mpn": "GRM188R60J106ME47D",
+          "pads": [
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 54.88900732387132,
+                "number": "1",
+                "position_iu": [
+                  92250000,
+                  3650000
+                ]
+              },
+              "net": "+SYS_APP_IN_DRAFT",
+              "number": "1",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                37425000,
+                1000000
+              ],
+              "relative_position_iu": [
+                -675000,
+                0
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "via",
+                  "net": "+SYS_APP_IN_DRAFT",
+                  "uuid": "24250800-3759-568d-b78e-75bb32b05346"
+                }
+              ],
+              "size_iu": [
+                650000,
+                700000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 55.86530682140751,
+                "number": "15",
+                "position_iu": [
+                  91937500,
+                  1560000
+                ]
+              },
+              "net": "GND",
+              "number": "2",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                36075000,
+                1000000
+              ],
+              "relative_position_iu": [
+                675000,
+                0
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "via",
+                  "net": "GND",
+                  "uuid": "3047fe8b-3acc-5c81-b8fb-1824f3314c05"
+                },
+                {
+                  "kind": "track",
+                  "net": "GND",
+                  "uuid": "71eb7e46-6bcb-59ec-929d-c0a26d887c99"
+                },
+                {
+                  "kind": "via",
+                  "net": "GND",
+                  "uuid": "fbc70da9-6a8e-51de-b545-724ec2af2886"
+                }
+              ],
+              "size_iu": [
+                650000,
+                700000
+              ]
+            }
+          ],
+          "position_iu": [
+            36750000,
+            1000000
+          ]
+        },
+        "C45": {
+          "angle_deg": 0.0,
+          "footprint": "rgb-badge-coupon:C_Murata_GRM188R60J106ME47_0603",
+          "mpn": "GRM188R60J106ME47D",
+          "pads": [
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 91.93328083452695,
+                "number": "1",
+                "position_iu": [
+                  92250000,
+                  3650000
+                ]
+              },
+              "net": "+SYS_APP_IN_DRAFT",
+              "number": "1",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                4325000,
+                30500000
+              ],
+              "relative_position_iu": [
+                -675000,
+                0
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "via",
+                  "net": "+SYS_APP_IN_DRAFT",
+                  "uuid": "0ef41dd2-7b91-52a4-a8ad-50966eff5ea3"
+                }
+              ],
+              "size_iu": [
+                650000,
+                700000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 90.55811673312337,
+                "number": "15",
+                "position_iu": [
+                  91937500,
+                  2940000
+                ]
+              },
+              "net": "GND",
+              "number": "2",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                5675000,
+                30500000
+              ],
+              "relative_position_iu": [
+                675000,
+                0
+              ],
+              "same_net_direct_copper": [],
+              "size_iu": [
+                650000,
+                700000
+              ]
+            }
+          ],
+          "position_iu": [
+            5000000,
+            30500000
+          ]
+        },
+        "C46": {
+          "angle_deg": 180.0,
+          "footprint": "rgb-badge-coupon:C_Murata_GRM18_0603",
+          "mpn": "GRM187R61A226ME15",
+          "pads": [
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 42.283123110763704,
+                "number": "4",
+                "position_iu": [
+                  93750000,
+                  3650000
+                ]
+              },
+              "net": "VLED",
+              "number": "1",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                51550000,
+                1000000
+              ],
+              "relative_position_iu": [
+                -800000,
+                0
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "via",
+                  "net": "VLED",
+                  "uuid": "9a98dd60-7e21-5dcd-99cf-b94f6041ba92"
+                }
+              ],
+              "size_iu": [
+                900000,
+                900000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 41.99123427871584,
+                "number": "15",
+                "position_iu": [
+                  91937500,
+                  1560000
+                ]
+              },
+              "net": "GND",
+              "number": "2",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                49950000,
+                1000000
+              ],
+              "relative_position_iu": [
+                800000,
+                0
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "track",
+                  "net": "GND",
+                  "uuid": "84398b55-cc8e-5b93-9b69-29fce5564548"
+                },
+                {
+                  "kind": "via",
+                  "net": "GND",
+                  "uuid": "cf2880e8-9afa-5eb8-9bac-1aa27208ea08"
+                },
+                {
+                  "kind": "via",
+                  "net": "GND",
+                  "uuid": "f9434f04-e234-506c-b073-3845716bcb15"
+                }
+              ],
+              "size_iu": [
+                900000,
+                900000
+              ]
+            }
+          ],
+          "position_iu": [
+            50750000,
+            1000000
+          ]
+        },
+        "C47": {
+          "angle_deg": 180.0,
+          "footprint": "rgb-badge-coupon:C_Murata_GRM18_0603",
+          "mpn": "GRM187R61A226ME15",
+          "pads": [
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 38.7906238671151,
+                "number": "4",
+                "position_iu": [
+                  93750000,
+                  3650000
+                ]
+              },
+              "net": "VLED",
+              "number": "1",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                55050000,
+                1000000
+              ],
+              "relative_position_iu": [
+                -800000,
+                0
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "via",
+                  "net": "VLED",
+                  "uuid": "b2dbe1f9-338d-5ee8-b22d-191904323bc1"
+                }
+              ],
+              "size_iu": [
+                900000,
+                900000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 38.49157383441212,
+                "number": "15",
+                "position_iu": [
+                  91937500,
+                  1560000
+                ]
+              },
+              "net": "GND",
+              "number": "2",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                53450000,
+                1000000
+              ],
+              "relative_position_iu": [
+                800000,
+                0
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "track",
+                  "net": "GND",
+                  "uuid": "224cf34f-6adc-59d1-a0f7-4b9c953496fe"
+                },
+                {
+                  "kind": "via",
+                  "net": "GND",
+                  "uuid": "241d8e02-1e0f-543f-acc6-9c6f99139869"
+                },
+                {
+                  "kind": "via",
+                  "net": "GND",
+                  "uuid": "8e3f69e6-485d-500c-ae0c-9d43c6099211"
+                }
+              ],
+              "size_iu": [
+                900000,
+                900000
+              ]
+            }
+          ],
+          "position_iu": [
+            54250000,
+            1000000
+          ]
+        },
+        "C48": {
+          "angle_deg": 180.0,
+          "footprint": "rgb-badge-coupon:C_Murata_GRM18_0603",
+          "mpn": "GRM187R61A226ME15",
+          "pads": [
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 35.2996104794373,
+                "number": "4",
+                "position_iu": [
+                  93750000,
+                  3650000
+                ]
+              },
+              "net": "VLED",
+              "number": "1",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                58550000,
+                1000000
+              ],
+              "relative_position_iu": [
+                -800000,
+                0
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "via",
+                  "net": "VLED",
+                  "uuid": "df1fa6ea-4e6a-561e-970b-c85b9cb0e617"
+                }
+              ],
+              "size_iu": [
+                900000,
+                900000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 34.99198131358097,
+                "number": "15",
+                "position_iu": [
+                  91937500,
+                  1560000
+                ]
+              },
+              "net": "GND",
+              "number": "2",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                56950000,
+                1000000
+              ],
+              "relative_position_iu": [
+                800000,
+                0
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "via",
+                  "net": "GND",
+                  "uuid": "6bbfa829-ce85-55cd-8246-e31953a0b804"
+                }
+              ],
+              "size_iu": [
+                900000,
+                900000
+              ]
+            }
+          ],
+          "position_iu": [
+            57750000,
+            1000000
+          ]
+        },
+        "C49": {
+          "angle_deg": 180.0,
+          "footprint": "rgb-badge-coupon:C_Murata_GRM18_0603",
+          "mpn": "GRM187R61A226ME15",
+          "pads": [
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 31.81057214197821,
+                "number": "4",
+                "position_iu": [
+                  93750000,
+                  3650000
+                ]
+              },
+              "net": "VLED",
+              "number": "1",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                62050000,
+                1000000
+              ],
+              "relative_position_iu": [
+                -800000,
+                0
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "via",
+                  "net": "VLED",
+                  "uuid": "c4f3b028-eb9c-539d-a73e-25d1eb6e11b7"
+                }
+              ],
+              "size_iu": [
+                900000,
+                900000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 31.49247936015836,
+                "number": "15",
+                "position_iu": [
+                  91937500,
+                  1560000
+                ]
+              },
+              "net": "GND",
+              "number": "2",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                60450000,
+                1000000
+              ],
+              "relative_position_iu": [
+                800000,
+                0
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "track",
+                  "net": "GND",
+                  "uuid": "985f1ce7-d55e-5630-aa3c-fcf9665673e7"
+                },
+                {
+                  "kind": "via",
+                  "net": "GND",
+                  "uuid": "bcd4ae0e-4dc5-5f96-b990-1bb67633846f"
+                }
+              ],
+              "size_iu": [
+                900000,
+                900000
+              ]
+            }
+          ],
+          "position_iu": [
+            61250000,
+            1000000
+          ]
+        },
+        "C63": {
+          "angle_deg": 180.0,
+          "footprint": "rgb-badge-coupon:C_Murata_GRM15_0402",
+          "mpn": "GRM155R71C104KA88D",
+          "pads": [
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 54.6032966037766,
+                "number": "1",
+                "position_iu": [
+                  92250000,
+                  3650000
+                ]
+              },
+              "net": "+SYS_APP_IN_DRAFT",
+              "number": "1",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                37650000,
+                4250000
+              ],
+              "relative_position_iu": [
+                -400000,
+                0
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "track",
+                  "net": "+SYS_APP_IN_DRAFT",
+                  "uuid": "359c8990-154c-54cd-b369-04f78c7e5f77"
+                }
+              ],
+              "size_iu": [
+                400000,
+                500000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 55.103073927413526,
+                "number": "15",
+                "position_iu": [
+                  91937500,
+                  2940000
+                ]
+              },
+              "net": "GND",
+              "number": "2",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                36850000,
+                4250000
+              ],
+              "relative_position_iu": [
+                400000,
+                0
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "track",
+                  "net": "GND",
+                  "uuid": "940458c9-470f-5ec2-9a49-c49e0729afc6"
+                },
+                {
+                  "kind": "via",
+                  "net": "GND",
+                  "uuid": "96348aed-cfdb-5f3b-a6ed-ae6abe3cd785"
+                },
+                {
+                  "kind": "via",
+                  "net": "GND",
+                  "uuid": "b333dd53-11eb-5927-9274-3d9286bf6edb"
+                }
+              ],
+              "size_iu": [
+                400000,
+                500000
+              ]
+            }
+          ],
+          "position_iu": [
+            37250000,
+            4250000
+          ]
+        },
+        "L2": {
+          "angle_deg": -90.0,
+          "footprint": "rgb-badge-coupon:L_Murata_DFE252012P",
+          "mpn": "DFE252012P-1R5M=P2",
+          "pads": [
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 78.94357557775047,
+                "number": "9",
+                "position_iu": [
+                  94750000,
+                  850000
+                ]
+              },
+              "net": "Net-(L2-~-Pad1)",
+              "number": "1",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                16000000,
+                6375000
+              ],
+              "relative_position_iu": [
+                -1000000,
+                0
+              ],
+              "same_net_direct_copper": [],
+              "size_iu": [
+                800000,
+                2000000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 78.89162265411962,
+                "number": "6",
+                "position_iu": [
+                  94750000,
+                  3650000
+                ]
+              },
+              "net": "Net-(L2-~-Pad2)",
+              "number": "2",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                16000000,
+                8375000
+              ],
+              "relative_position_iu": [
+                1000000,
+                0
+              ],
+              "same_net_direct_copper": [],
+              "size_iu": [
+                800000,
+                2000000
+              ]
+            }
+          ],
+          "position_iu": [
+            16000000,
+            7375000
+          ]
+        },
+        "R84": {
+          "angle_deg": 180.0,
+          "footprint": "rgb-badge-coupon:R_Panasonic_ERJ2_0402",
+          "mpn": "ERJ2RKF6203X",
+          "pads": [
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 34.14395993437199,
+                "number": "4",
+                "position_iu": [
+                  93750000,
+                  3650000
+                ]
+              },
+              "net": "VLED",
+              "number": "1",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                60250000,
+                10250000
+              ],
+              "relative_position_iu": [
+                -500000,
+                0
+              ],
+              "same_net_direct_copper": [],
+              "size_iu": [
+                500000,
+                500000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": null,
+              "net": "VLED_FB_TOP_MID",
+              "number": "2",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                59250000,
+                10250000
+              ],
+              "relative_position_iu": [
+                500000,
+                0
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "track",
+                  "net": "VLED_FB_TOP_MID",
+                  "uuid": "341caacb-4fb9-56a7-b578-f40b1e442d16"
+                }
+              ],
+              "size_iu": [
+                500000,
+                500000
+              ]
+            }
+          ],
+          "position_iu": [
+            59750000,
+            10250000
+          ]
+        },
+        "R85": {
+          "angle_deg": 180.0,
+          "footprint": "rgb-badge-coupon:R_Panasonic_ERJ2_0402",
+          "mpn": "ERJ2RKF6203X",
+          "pads": [
+            {
+              "nearest_same_net_ic_pad": null,
+              "net": "VLED_FB_TOP_MID",
+              "number": "1",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                62750000,
+                10250000
+              ],
+              "relative_position_iu": [
+                -500000,
+                0
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "track",
+                  "net": "VLED_FB_TOP_MID",
+                  "uuid": "6655fa02-407e-5454-ac01-b710e11a5f32"
+                }
+              ],
+              "size_iu": [
+                500000,
+                500000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 32.18400223713638,
+                "number": "3",
+                "position_iu": [
+                  93250000,
+                  3650000
+                ]
+              },
+              "net": "VLED_FB",
+              "number": "2",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                61750000,
+                10250000
+              ],
+              "relative_position_iu": [
+                500000,
+                0
+              ],
+              "same_net_direct_copper": [],
+              "size_iu": [
+                500000,
+                500000
+              ]
+            }
+          ],
+          "position_iu": [
+            62250000,
+            10250000
+          ]
+        },
+        "R86": {
+          "angle_deg": 180.0,
+          "footprint": "rgb-badge-coupon:R_Panasonic_ERJ2_0402",
+          "mpn": "ERJ2RKF1803X",
+          "pads": [
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 28.76734259538061,
+                "number": "3",
+                "position_iu": [
+                  93250000,
+                  3650000
+                ]
+              },
+              "net": "VLED_FB",
+              "number": "1",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                65250000,
+                10250000
+              ],
+              "relative_position_iu": [
+                -500000,
+                0
+              ],
+              "same_net_direct_copper": [],
+              "size_iu": [
+                500000,
+                500000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 28.636231530178687,
+                "number": "15",
+                "position_iu": [
+                  91937500,
+                  2940000
+                ]
+              },
+              "net": "GND",
+              "number": "2",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                64250000,
+                10250000
+              ],
+              "relative_position_iu": [
+                500000,
+                0
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "track",
+                  "net": "GND",
+                  "uuid": "0b70b627-75fd-56a6-82b0-7beddb32cade"
+                },
+                {
+                  "kind": "track",
+                  "net": "GND",
+                  "uuid": "846a006d-9f32-5a59-9691-84aae2655918"
+                },
+                {
+                  "kind": "via",
+                  "net": "GND",
+                  "uuid": "879b1696-6999-5f9b-91e4-c8907257defd"
+                },
+                {
+                  "kind": "track",
+                  "net": "GND",
+                  "uuid": "9c4d2914-cb36-5ffc-8b5d-33affc6a9213"
+                }
+              ],
+              "size_iu": [
+                500000,
+                500000
+              ]
+            }
+          ],
+          "position_iu": [
+            64750000,
+            10250000
+          ]
+        },
+        "R87": {
+          "angle_deg": 180.0,
+          "footprint": "rgb-badge-coupon:R_Panasonic_ERJ2_0402",
+          "mpn": "ERJ2RKF1003X",
+          "pads": [
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 27.177380300536697,
+                "number": "12",
+                "position_iu": [
+                  93250000,
+                  850000
+                ]
+              },
+              "net": "VLED_ENABLE_DRAFT",
+              "number": "1",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                67750000,
+                10250000
+              ],
+              "relative_position_iu": [
+                -500000,
+                0
+              ],
+              "same_net_direct_copper": [],
+              "size_iu": [
+                500000,
+                500000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 26.226823220702887,
+                "number": "15",
+                "position_iu": [
+                  91937500,
+                  2940000
+                ]
+              },
+              "net": "GND",
+              "number": "2",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                66750000,
+                10250000
+              ],
+              "relative_position_iu": [
+                500000,
+                0
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "track",
+                  "net": "GND",
+                  "uuid": "124a753f-e87c-5553-8b21-5010ec6cb30c"
+                },
+                {
+                  "kind": "via",
+                  "net": "GND",
+                  "uuid": "89cae817-b369-564e-ac91-1e785a014270"
+                },
+                {
+                  "kind": "track",
+                  "net": "GND",
+                  "uuid": "8e54be60-1c5b-5051-a0ed-31883452e33b"
+                },
+                {
+                  "kind": "via",
+                  "net": "GND",
+                  "uuid": "a1cf1dd9-5718-5b20-bfa3-410c1d2f06af"
+                }
+              ],
+              "size_iu": [
+                500000,
+                500000
+              ]
+            }
+          ],
+          "position_iu": [
+            67250000,
+            10250000
+          ]
+        },
+        "U37": {
+          "angle_deg": 0.0,
+          "footprint": "rgb-badge-coupon:VSON_TI_DSJ0014_4x3mm_P0.5mm_EP2.85x1.58mm",
+          "mpn": "TPS63020DSJT",
+          "pads": [
+            {
+              "nearest_same_net_ic_pad": null,
+              "net": "",
+              "number": "",
+              "on_back_copper": false,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                91975000,
+                1560000
+              ],
+              "relative_position_iu": [
+                -1775000,
+                -690000
+              ],
+              "same_net_direct_copper": [],
+              "size_iu": [
+                850000,
+                200000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": null,
+              "net": "",
+              "number": "",
+              "on_back_copper": false,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                91975000,
+                2020000
+              ],
+              "relative_position_iu": [
+                -1775000,
+                -230000
+              ],
+              "same_net_direct_copper": [],
+              "size_iu": [
+                850000,
+                200000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": null,
+              "net": "",
+              "number": "",
+              "on_back_copper": false,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                91975000,
+                2480000
+              ],
+              "relative_position_iu": [
+                -1775000,
+                230000
+              ],
+              "same_net_direct_copper": [],
+              "size_iu": [
+                850000,
+                200000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": null,
+              "net": "",
+              "number": "",
+              "on_back_copper": false,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                91975000,
+                2940000
+              ],
+              "relative_position_iu": [
+                -1775000,
+                690000
+              ],
+              "same_net_direct_copper": [],
+              "size_iu": [
+                850000,
+                200000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": null,
+              "net": "",
+              "number": "",
+              "on_back_copper": false,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                93025000,
+                1790000
+              ],
+              "relative_position_iu": [
+                -725000,
+                -460000
+              ],
+              "same_net_direct_copper": [],
+              "size_iu": [
+                1250000,
+                660000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": null,
+              "net": "",
+              "number": "",
+              "on_back_copper": false,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                93025000,
+                2710000
+              ],
+              "relative_position_iu": [
+                -725000,
+                460000
+              ],
+              "same_net_direct_copper": [],
+              "size_iu": [
+                1250000,
+                660000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": null,
+              "net": "",
+              "number": "",
+              "on_back_copper": false,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                94475000,
+                1790000
+              ],
+              "relative_position_iu": [
+                725000,
+                -460000
+              ],
+              "same_net_direct_copper": [],
+              "size_iu": [
+                1250000,
+                660000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": null,
+              "net": "",
+              "number": "",
+              "on_back_copper": false,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                94475000,
+                2710000
+              ],
+              "relative_position_iu": [
+                725000,
+                460000
+              ],
+              "same_net_direct_copper": [],
+              "size_iu": [
+                1250000,
+                660000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": null,
+              "net": "",
+              "number": "",
+              "on_back_copper": false,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                95525000,
+                1560000
+              ],
+              "relative_position_iu": [
+                1775000,
+                -690000
+              ],
+              "same_net_direct_copper": [],
+              "size_iu": [
+                850000,
+                200000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": null,
+              "net": "",
+              "number": "",
+              "on_back_copper": false,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                95525000,
+                2020000
+              ],
+              "relative_position_iu": [
+                1775000,
+                -230000
+              ],
+              "same_net_direct_copper": [],
+              "size_iu": [
+                850000,
+                200000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": null,
+              "net": "",
+              "number": "",
+              "on_back_copper": false,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                95525000,
+                2480000
+              ],
+              "relative_position_iu": [
+                1775000,
+                230000
+              ],
+              "same_net_direct_copper": [],
+              "size_iu": [
+                850000,
+                200000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": null,
+              "net": "",
+              "number": "",
+              "on_back_copper": false,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                95525000,
+                2940000
+              ],
+              "relative_position_iu": [
+                1775000,
+                690000
+              ],
+              "same_net_direct_copper": [],
+              "size_iu": [
+                850000,
+                200000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 0.0,
+                "number": "1",
+                "position_iu": [
+                  92250000,
+                  3650000
+                ]
+              },
+              "net": "+SYS_APP_IN_DRAFT",
+              "number": "1",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                92250000,
+                3650000
+              ],
+              "relative_position_iu": [
+                -1500000,
+                1400000
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "via",
+                  "net": "+SYS_APP_IN_DRAFT",
+                  "uuid": "6f5ebe73-1b13-5622-99b1-27f9fe9e68bd"
+                }
+              ],
+              "size_iu": [
+                240000,
+                600000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 0.0,
+                "number": "10",
+                "position_iu": [
+                  94250000,
+                  850000
+                ]
+              },
+              "net": "+SYS_APP_IN_DRAFT",
+              "number": "10",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                94250000,
+                850000
+              ],
+              "relative_position_iu": [
+                500000,
+                -1400000
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "via",
+                  "net": "+SYS_APP_IN_DRAFT",
+                  "uuid": "3609d409-d9b3-56b9-934b-dc87dea08f66"
+                },
+                {
+                  "kind": "track",
+                  "net": "+SYS_APP_IN_DRAFT",
+                  "uuid": "9a76ecf9-cc48-58a2-b170-8b2f3cd44ec6"
+                }
+              ],
+              "size_iu": [
+                240000,
+                600000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 0.0,
+                "number": "11",
+                "position_iu": [
+                  93750000,
+                  850000
+                ]
+              },
+              "net": "+SYS_APP_IN_DRAFT",
+              "number": "11",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                93750000,
+                850000
+              ],
+              "relative_position_iu": [
+                0,
+                -1400000
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "track",
+                  "net": "+SYS_APP_IN_DRAFT",
+                  "uuid": "9a76ecf9-cc48-58a2-b170-8b2f3cd44ec6"
+                }
+              ],
+              "size_iu": [
+                240000,
+                600000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 0.0,
+                "number": "12",
+                "position_iu": [
+                  93250000,
+                  850000
+                ]
+              },
+              "net": "VLED_ENABLE_DRAFT",
+              "number": "12",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                93250000,
+                850000
+              ],
+              "relative_position_iu": [
+                -500000,
+                -1400000
+              ],
+              "same_net_direct_copper": [],
+              "size_iu": [
+                240000,
+                600000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 0.0,
+                "number": "13",
+                "position_iu": [
+                  92750000,
+                  850000
+                ]
+              },
+              "net": "GND",
+              "number": "13",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                92750000,
+                850000
+              ],
+              "relative_position_iu": [
+                -1000000,
+                -1400000
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "via",
+                  "net": "GND",
+                  "uuid": "338c96e1-d121-59f9-914c-5f515d146b4e"
+                }
+              ],
+              "size_iu": [
+                240000,
+                600000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": null,
+              "net": "",
+              "number": "14",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                92250000,
+                850000
+              ],
+              "relative_position_iu": [
+                -1500000,
+                -1400000
+              ],
+              "same_net_direct_copper": [],
+              "size_iu": [
+                240000,
+                600000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 0.0,
+                "number": "15",
+                "position_iu": [
+                  91937500,
+                  1560000
+                ]
+              },
+              "net": "GND",
+              "number": "15",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                91937500,
+                1560000
+              ],
+              "relative_position_iu": [
+                -1812500,
+                -690000
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "via",
+                  "net": "GND",
+                  "uuid": "4869a0ea-7ffe-5121-be3f-62b6eca8545c"
+                },
+                {
+                  "kind": "track",
+                  "net": "GND",
+                  "uuid": "79e16a8d-e34f-5249-b515-8a387c84abda"
+                }
+              ],
+              "size_iu": [
+                775000,
+                200000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 0.0,
+                "number": "15",
+                "position_iu": [
+                  91937500,
+                  2020000
+                ]
+              },
+              "net": "GND",
+              "number": "15",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                91937500,
+                2020000
+              ],
+              "relative_position_iu": [
+                -1812500,
+                -230000
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "via",
+                  "net": "GND",
+                  "uuid": "84e3bb66-35e7-5f9f-ba29-f0b3522c0c84"
+                },
+                {
+                  "kind": "track",
+                  "net": "GND",
+                  "uuid": "b8738ecb-07d0-56ea-a3b2-3c450d46f1df"
+                }
+              ],
+              "size_iu": [
+                775000,
+                200000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 0.0,
+                "number": "15",
+                "position_iu": [
+                  91937500,
+                  2480000
+                ]
+              },
+              "net": "GND",
+              "number": "15",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                91937500,
+                2480000
+              ],
+              "relative_position_iu": [
+                -1812500,
+                230000
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "via",
+                  "net": "GND",
+                  "uuid": "6d12c945-f2bc-583b-8154-86f351ce1d63"
+                },
+                {
+                  "kind": "track",
+                  "net": "GND",
+                  "uuid": "aa89222b-c5b5-508e-ba47-439c4a2f4807"
+                }
+              ],
+              "size_iu": [
+                775000,
+                200000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 0.0,
+                "number": "15",
+                "position_iu": [
+                  91937500,
+                  2940000
+                ]
+              },
+              "net": "GND",
+              "number": "15",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                91937500,
+                2940000
+              ],
+              "relative_position_iu": [
+                -1812500,
+                690000
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "via",
+                  "net": "GND",
+                  "uuid": "69a066d5-e31e-565d-ab03-a98dee930303"
+                },
+                {
+                  "kind": "track",
+                  "net": "GND",
+                  "uuid": "80959b1b-44ad-5f94-b1b9-8f6b9c460361"
+                }
+              ],
+              "size_iu": [
+                775000,
+                200000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 0.0,
+                "number": "15",
+                "position_iu": [
+                  93750000,
+                  2250000
+                ]
+              },
+              "net": "GND",
+              "number": "15",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                93750000,
+                2250000
+              ],
+              "relative_position_iu": [
+                0,
+                0
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "via",
+                  "net": "GND",
+                  "uuid": "e4866988-f46f-5ed5-8292-7e42c27047bc"
+                }
+              ],
+              "size_iu": [
+                2850000,
+                1580000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 0.0,
+                "number": "15",
+                "position_iu": [
+                  95562500,
+                  1560000
+                ]
+              },
+              "net": "GND",
+              "number": "15",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                95562500,
+                1560000
+              ],
+              "relative_position_iu": [
+                1812500,
+                -690000
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "track",
+                  "net": "GND",
+                  "uuid": "40a94a80-bb2c-5972-a97c-1eb8babba6fe"
+                },
+                {
+                  "kind": "via",
+                  "net": "GND",
+                  "uuid": "b2f5129d-4320-5fe6-948f-2ebbc62b573e"
+                }
+              ],
+              "size_iu": [
+                775000,
+                200000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 0.0,
+                "number": "15",
+                "position_iu": [
+                  95562500,
+                  2020000
+                ]
+              },
+              "net": "GND",
+              "number": "15",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                95562500,
+                2020000
+              ],
+              "relative_position_iu": [
+                1812500,
+                -230000
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "via",
+                  "net": "GND",
+                  "uuid": "da801138-6152-595a-adca-00f318c4965a"
+                },
+                {
+                  "kind": "track",
+                  "net": "GND",
+                  "uuid": "e5277ccf-ad2f-54d5-be43-311421d69164"
+                }
+              ],
+              "size_iu": [
+                775000,
+                200000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 0.0,
+                "number": "15",
+                "position_iu": [
+                  95562500,
+                  2480000
+                ]
+              },
+              "net": "GND",
+              "number": "15",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                95562500,
+                2480000
+              ],
+              "relative_position_iu": [
+                1812500,
+                230000
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "track",
+                  "net": "GND",
+                  "uuid": "0ca7fa4b-f39e-5be4-86c9-67c45e45e922"
+                },
+                {
+                  "kind": "via",
+                  "net": "GND",
+                  "uuid": "af567b52-95df-513f-990c-c47e0cec35d3"
+                }
+              ],
+              "size_iu": [
+                775000,
+                200000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 0.0,
+                "number": "15",
+                "position_iu": [
+                  95562500,
+                  2940000
+                ]
+              },
+              "net": "GND",
+              "number": "15",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                95562500,
+                2940000
+              ],
+              "relative_position_iu": [
+                1812500,
+                690000
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "track",
+                  "net": "GND",
+                  "uuid": "71920c30-464f-5320-9c5d-c4edc4d94b2d"
+                },
+                {
+                  "kind": "via",
+                  "net": "GND",
+                  "uuid": "99aac450-7e5c-5858-bb84-43fe92d19dad"
+                }
+              ],
+              "size_iu": [
+                775000,
+                200000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 0.0,
+                "number": "2",
+                "position_iu": [
+                  92750000,
+                  3650000
+                ]
+              },
+              "net": "GND",
+              "number": "2",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                92750000,
+                3650000
+              ],
+              "relative_position_iu": [
+                -1000000,
+                1400000
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "via",
+                  "net": "GND",
+                  "uuid": "830c8a32-86ac-5981-91dd-769b97246d5b"
+                }
+              ],
+              "size_iu": [
+                240000,
+                600000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 0.0,
+                "number": "3",
+                "position_iu": [
+                  93250000,
+                  3650000
+                ]
+              },
+              "net": "VLED_FB",
+              "number": "3",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                93250000,
+                3650000
+              ],
+              "relative_position_iu": [
+                -500000,
+                1400000
+              ],
+              "same_net_direct_copper": [],
+              "size_iu": [
+                240000,
+                600000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 0.0,
+                "number": "4",
+                "position_iu": [
+                  93750000,
+                  3650000
+                ]
+              },
+              "net": "VLED",
+              "number": "4",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                93750000,
+                3650000
+              ],
+              "relative_position_iu": [
+                0,
+                1400000
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "via",
+                  "net": "VLED",
+                  "uuid": "5fef2e49-e055-5b01-9887-21ce1de7bdca"
+                }
+              ],
+              "size_iu": [
+                240000,
+                600000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 0.0,
+                "number": "5",
+                "position_iu": [
+                  94250000,
+                  3650000
+                ]
+              },
+              "net": "VLED",
+              "number": "5",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                94250000,
+                3650000
+              ],
+              "relative_position_iu": [
+                500000,
+                1400000
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "via",
+                  "net": "VLED",
+                  "uuid": "a65101fe-6007-5583-b913-d8af8981b8ac"
+                }
+              ],
+              "size_iu": [
+                240000,
+                600000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 0.0,
+                "number": "6",
+                "position_iu": [
+                  94750000,
+                  3650000
+                ]
+              },
+              "net": "Net-(L2-~-Pad2)",
+              "number": "6",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                94750000,
+                3650000
+              ],
+              "relative_position_iu": [
+                1000000,
+                1400000
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "track",
+                  "net": "Net-(L2-~-Pad2)",
+                  "uuid": "c75ac1f6-44ab-550c-b65b-36422858142c"
+                }
+              ],
+              "size_iu": [
+                240000,
+                600000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 0.0,
+                "number": "7",
+                "position_iu": [
+                  95250000,
+                  3650000
+                ]
+              },
+              "net": "Net-(L2-~-Pad2)",
+              "number": "7",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                95250000,
+                3650000
+              ],
+              "relative_position_iu": [
+                1500000,
+                1400000
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "track",
+                  "net": "Net-(L2-~-Pad2)",
+                  "uuid": "c75ac1f6-44ab-550c-b65b-36422858142c"
+                }
+              ],
+              "size_iu": [
+                240000,
+                600000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 0.0,
+                "number": "8",
+                "position_iu": [
+                  95250000,
+                  850000
+                ]
+              },
+              "net": "Net-(L2-~-Pad1)",
+              "number": "8",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                95250000,
+                850000
+              ],
+              "relative_position_iu": [
+                1500000,
+                -1400000
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "track",
+                  "net": "Net-(L2-~-Pad1)",
+                  "uuid": "384449f3-77cc-55e7-9f35-580a0ce2360b"
+                }
+              ],
+              "size_iu": [
+                240000,
+                600000
+              ]
+            },
+            {
+              "nearest_same_net_ic_pad": {
+                "centre_distance_mm": 0.0,
+                "number": "9",
+                "position_iu": [
+                  94750000,
+                  850000
+                ]
+              },
+              "net": "Net-(L2-~-Pad1)",
+              "number": "9",
+              "on_back_copper": true,
+              "other_net_direct_copper": [],
+              "position_iu": [
+                94750000,
+                850000
+              ],
+              "relative_position_iu": [
+                1000000,
+                -1400000
+              ],
+              "same_net_direct_copper": [
+                {
+                  "kind": "track",
+                  "net": "Net-(L2-~-Pad1)",
+                  "uuid": "384449f3-77cc-55e7-9f35-580a0ce2360b"
+                }
+              ],
+              "size_iu": [
+                240000,
+                600000
+              ]
+            }
+          ],
+          "position_iu": [
+            93750000,
+            2250000
+          ]
+        }
+      },
+      "parts_with_direct_nonzero_copper": [
+        "U37",
+        "C44",
+        "C45",
+        "C46",
+        "C47",
+        "C48",
+        "C49",
+        "C63",
+        "R84",
+        "R85",
+        "R86",
+        "R87"
+      ]
+    }
+  },
+  "source_sha256": "3451177253a021d8706ff818696212afabf539a108f15ef9e5d6921e46435acc",
+  "source_unchanged": true,
+  "status": "READ_ONLY_CONVERTER_FLOORPLAN_INVENTORY_NOT_LAYOUT_ACCEPTANCE",
+  "tool_sha256": "d28bc1baa96da14bc4f2ad7b85753ad52d1cfe94b7d27fdbaccda46b339f3b52"
+}

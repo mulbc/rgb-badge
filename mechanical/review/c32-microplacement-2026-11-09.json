@@ -1,0 +1,188 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_copper": [],
+  "angle_deg": 180,
+  "c32_pose_result": {
+    "added_copper": [],
+    "angle_deg": 180.0,
+    "native_opens": 36,
+    "offset_iu": [
+      0,
+      -250000
+    ],
+    "physical_opens": 36,
+    "pose_board": "hardware/coupon/rev-a/build/zero-open-routing/c32-shift-x0-y-250000.kicad_pcb",
+    "position_iu": [
+      89250000,
+      10250000
+    ]
+  },
+  "c32_poses_evaluated": 75,
+  "contact_witness": {
+    "contact_count": 1,
+    "displacement_iu": [
+      0,
+      -250000
+    ],
+    "filled_component_index": 33,
+    "historical_ground_isolated": true,
+    "historical_source_copper_retained": true,
+    "joined_pad": [
+      "U35",
+      "9"
+    ],
+    "original_direct_land_contacts_retained": true,
+    "reference": "C32",
+    "retained_main_ground_copper_uuid": "07b3115d-2653-5240-a616-04176b0f73fb",
+    "single_individual_bcu_ground_component": true,
+    "source_commit": "e17fa35733158734a4276d1731dc6819258ba8ac",
+    "source_sha256": "ed6d3ff570f2481b47423d8375d9d4a40d756145cdd49e2c222bacc36edbfa57",
+    "zone_uuid": "81b0abb6-bbba-5f7c-9599-18e6b0c72e0e"
+  },
+  "date": "2026-11-09",
+  "earlier_pair01_ignored_study": {
+    "forced_pad_searches": [
+      {
+        "native_opens": 37,
+        "offset_iu": [
+          0,
+          50000
+        ],
+        "report": "hardware/coupon/rev-a/build/zero-open-routing/pair01-shift-x0-y50000-ground-search.json"
+      },
+      {
+        "native_opens": 37,
+        "offset_iu": [
+          50000,
+          0
+        ],
+        "report": "hardware/coupon/rev-a/build/zero-open-routing/pair01-shift-x50000-y0-ground-search.json"
+      },
+      {
+        "native_opens": 37,
+        "offset_iu": [
+          50000,
+          50000
+        ],
+        "report": "hardware/coupon/rev-a/build/zero-open-routing/pair01-shift-x50000-y50000-ground-search.json"
+      },
+      {
+        "native_opens": 37,
+        "offset_iu": [
+          0,
+          100000
+        ],
+        "report": "hardware/coupon/rev-a/build/zero-open-routing/pair01-shift-x0-y100000-ground-search.json"
+      },
+      {
+        "native_opens": 37,
+        "offset_iu": [
+          -50000,
+          100000
+        ],
+        "report": "hardware/coupon/rev-a/build/zero-open-routing/pair01-shift-x-50000-y100000-ground-search.json"
+      },
+      {
+        "native_opens": 37,
+        "offset_iu": [
+          50000,
+          100000
+        ],
+        "report": "hardware/coupon/rev-a/build/zero-open-routing/pair01-shift-x50000-y100000-ground-search.json"
+      }
+    ],
+    "outcomes": {
+      "foreign_pad_copper": 74,
+      "stack_capture": 7
+    },
+    "poses_evaluated": 81,
+    "retained_poses": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        50000
+      ],
+      [
+        50000,
+        0
+      ],
+      [
+        50000,
+        50000
+      ],
+      [
+        0,
+        100000
+      ],
+      [
+        -50000,
+        100000
+      ],
+      [
+        50000,
+        100000
+      ]
+    ],
+    "selected": false
+  },
+  "fabrication_release_allowed": false,
+  "interpretation": "Calculated native CAD geometry and connectivity only; no hardware/firmware measurement or electrical/process qualification.",
+  "isolated_fault_guards_passed": 36,
+  "native_opens": 36,
+  "neck_calculation": {
+    "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+    "disk_centre_iu": [
+      90000000,
+      10925000
+    ],
+    "fabrication_release_allowed": false,
+    "filled_component_index": 33,
+    "filled_intervals_y_iu": [
+      [
+        10801000,
+        11049000
+      ]
+    ],
+    "firmware_revision": "Not applicable",
+    "hardware_revision": "Unbuilt Coupon Rev A CAD",
+    "interpretation": "CAD polygon calculation, not a hardware measurement or current/return qualification",
+    "local_0p20mm_disk_verified_by_erosion": true,
+    "sample_step_iu": 1000,
+    "setup": {
+      "kicad_version": "10.0.6",
+      "method": "Native filled-component vertical Contains sampling at 1 um; polygon erosion by 0.100 mm; unchanged board/profile."
+    },
+    "source_sha256": "a24e9220226b77411ae8e8baea5cd629ce0fea8a97c377a708510d6791c2e439",
+    "x_iu": 90000000,
+    "zone_minimum_thickness_iu": 250000,
+    "zone_uuid": "81b0abb6-bbba-5f7c-9599-18e6b0c72e0e"
+  },
+  "old_position_iu": [
+    89250000,
+    10500000
+  ],
+  "physical_opens": 36,
+  "position_iu": [
+    89250000,
+    10250000
+  ],
+  "raw_evidence": {
+    "hardware/coupon/rev-a/build/remaining-routing/36-c32-neck.json": "b9050de82457324e33a8fc481c78f7885e1e18b914f817f8a97fd122032d7789",
+    "hardware/coupon/rev-a/build/zero-open-routing/c32-microplacement-refilled.json": "d02bba93cfb115f5293e67e12ed395b25af6b51aefdc8def1c82d3329df6fe16",
+    "hardware/coupon/rev-a/build/zero-open-routing/pair01-microplacement-refilled.json": "68147d412a7f6e3fd0d10c251cd536ff10d8cb82ee08beb424e2cbd6bd406335",
+    "hardware/coupon/rev-a/build/zero-open-routing/pair01-shift-searches.json": "af2d0ac5f63f405c723fdd7ea4473b441b108ecdd6ccb77afed8999e7e340a94"
+  },
+  "retired_copper": [],
+  "selected_sha256": "a24e9220226b77411ae8e8baea5cd629ce0fea8a97c377a708510d6791c2e439",
+  "source_copper_unchanged": true,
+  "source_sha256": "ed6d3ff570f2481b47423d8375d9d4a40d756145cdd49e2c222bacc36edbfa57",
+  "source_workflow_commands_passed": 27,
+  "status": "SELECTED_GEOMETRIC_CHECKPOINT_ONLY",
+  "vendor_reference_sha256": {
+    "hardware/coupon/rev-a/reference/vendor-datasheets/GRM188R60J106ME47-61A-EN.pdf": "f51cff8dad7a6983263ab35b5705f4d1d4b9977b1f03739c653381ba03d94ea8",
+    "hardware/coupon/rev-a/reference/vendor-datasheets/NTLJD3119C-D.PDF": "202122bd220e16138c458ac93bb737ab4fdb8a60d3a3722059636636f47d7aed"
+  }
+}

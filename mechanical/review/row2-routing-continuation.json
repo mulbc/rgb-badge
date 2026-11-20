@@ -1,0 +1,117 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "date": "2026-11-15",
+  "evidence": [
+    {
+      "bytes": 4712,
+      "path": "hardware/coupon/rev-a/build/row2-routing/supply-ground-search.json",
+      "sha256": "74ec741af093747b5bc8daabc3df3cfd6cd5e8d0cd320709268471c3625dcdd2"
+    },
+    {
+      "bytes": 3242,
+      "path": "hardware/coupon/rev-a/build/row2-routing/r21-diagonal-search.json",
+      "sha256": "d80b7a96b0be52b6975f1d1e42503da62561fec6069bd85ec20cec253248bd14"
+    },
+    {
+      "bytes": 5050,
+      "path": "hardware/coupon/rev-a/build/row2-routing/row-gates-diagonal-search.json",
+      "sha256": "145fbcc193440c4a909c58501c2ebaa1077cc7c055886a04f138457d2a2b384e"
+    },
+    {
+      "bytes": 31993,
+      "path": "hardware/coupon/rev-a/build/row2-routing/remaining-groups.json",
+      "sha256": "ee5496213d4408ad253a82c26d71445ce9f4ff79b424864054a3e358be156676"
+    },
+    {
+      "bytes": 16132,
+      "path": "hardware/coupon/rev-a/build/row2-routing/paired-translation-screen.json",
+      "sha256": "160ffa90b8c47129c3d4318db464a89ad7c4df5110226e2e68ee36bd87e21f97"
+    },
+    {
+      "bytes": 6165,
+      "path": "hardware/coupon/rev-a/build/row2-routing/paired-capture-screen.json",
+      "sha256": "9096e12ec97b9294d9b5f45221e9e723857e909436105fb11792b8c1b9d88ed0"
+    },
+    {
+      "bytes": 5383,
+      "path": "hardware/coupon/rev-a/build/row2-routing/tmp390-offpad-screen.json",
+      "sha256": "53a00d206b1a6b7ad978e8a09df9d5bed30224e17fd317edc99403e7a58d7b11"
+    },
+    {
+      "bytes": 17758,
+      "path": "hardware/coupon/rev-a/build/row2-routing/tmp390-local-cohort-contacts.json",
+      "sha256": "c718b0ad26181a75c32527e9e350250ab2d906b40bf5dda15a52971863dd318a"
+    },
+    {
+      "bytes": 6075,
+      "path": "hardware/coupon/rev-a/build/row2-routing/tmp390-complete-template-screen.json",
+      "sha256": "3c0026ff61f24fba15e315faf3c142620b641499896af7b111a1656d7465c9f1"
+    },
+    {
+      "bytes": 11414,
+      "path": "hardware/coupon/rev-a/build/row2-routing/tmp390-r90-screen.json",
+      "sha256": "35adeeb7f4cfa9299287fa72e1d693cafa70a6b8652021e67e04c583cfe25eb4"
+    },
+    {
+      "bytes": 929,
+      "path": "hardware/coupon/rev-a/build/row2-routing/tmp390-output-capture-screen.json",
+      "sha256": "239974d875d67461b11f48a8f8773e50376db3cdb8113e0b0855589930294629"
+    },
+    {
+      "bytes": 427,
+      "path": "hardware/coupon/rev-a/build/row2-routing/r90-edge-envelope.json",
+      "sha256": "74e7f10df45b8753c141cd9f72b114f6db074585e66f926f784b00765272f7ef"
+    },
+    {
+      "bytes": 4497,
+      "path": "hardware/coupon/rev-a/build/row2-routing/screen-paired-translations.py",
+      "sha256": "c554e165d662ba636d8c34f7910ba572ad1d417047f2c9f4bbcc97ccbec573ad"
+    },
+    {
+      "bytes": 5025,
+      "path": "hardware/coupon/rev-a/build/row2-routing/screen-paired-captures.py",
+      "sha256": "1a69d51b7279f82c77a89d3d3440a5de35cd6743c2ad27c00cea0f083c533cec"
+    },
+    {
+      "bytes": 7545,
+      "path": "hardware/coupon/rev-a/build/row2-routing/screen-tmp390-offpad.py",
+      "sha256": "eafec163f8d1b0d87a8c334d9f1a197079a60600c9c48e1a6c9d161a368bfd2f"
+    },
+    {
+      "bytes": 5948,
+      "path": "hardware/coupon/rev-a/build/row2-routing/screen-tmp390-complete-templates.py",
+      "sha256": "4b6bd13d4fcc2a8f28f746e6a1a88029dbcdb6dd98887b40e2316239b4394851"
+    },
+    {
+      "bytes": 3467,
+      "path": "hardware/coupon/rev-a/build/row2-routing/screen-tmp390-r90.py",
+      "sha256": "bc2e05294dc84ce693b7d5d83062ae95f12c1736c0af999f0420c2860a248905"
+    },
+    {
+      "bytes": 3651,
+      "path": "hardware/coupon/rev-a/build/row2-routing/screen-tmp390-layered-outputs.py",
+      "sha256": "02d7b31b2adac9d5adb9e3ee1d9e0eed47a27e090a3734dc8759cfcfbe85ca71"
+    }
+  ],
+  "fabrication_release_allowed": false,
+  "hosted_validation": [
+    {
+      "conclusion": "success",
+      "url": "https://github.com/mulbc/rgb-badge/actions/runs/43792924999"
+    },
+    {
+      "conclusion": "success",
+      "url": "https://github.com/mulbc/rgb-badge/actions/runs/43792918195"
+    }
+  ],
+  "native_opens": 28,
+  "physical_opens": 28,
+  "selected_board": "hardware/coupon/rev-a/staging/led-row2-routing-trial-114mm.kicad_pcb",
+  "selected_checkpoint_commit": "14256cd661ed52312b1dc91b20036e0586adf530",
+  "selected_checkpoint_evidence_unchanged": true,
+  "selected_new_board": false,
+  "source_profiles_unchanged": true,
+  "source_sha256": "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34",
+  "status": "BOUNDED_READ_ONLY_AND_IGNORED_DISCOVERY_NO_SUCCESSOR",
+  "zero_open_goal_complete": false
+}

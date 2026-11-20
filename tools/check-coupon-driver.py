@@ -28,12 +28,12 @@ OUTG10 OUTB10 OUTR11 OUTG11 OUTB11 OUTR12 OUTG12 OUTB12
 OUTR13 OUTG13 OUTB13 IREFGND GND_EP'''.split()
 PARTS = {
     'U1': ('TLC59581RTQT', 'TLC59581RTQT', FP),
-    'R1': ('ERJ-2RKF3922X', '39.2k 1%', 'rgb-badge-coupon:R_Panasonic_ERJ2_0402'),
+    'R1': ('ERJ2RKF3922X', '39.2k 1%', 'rgb-badge-coupon:R_Panasonic_ERJ2_0402'),
     'C1': ('GRM155R71C104KA88D', '100n 16V X7R', 'rgb-badge-coupon:C_Murata_GRM15_0402'),
 }
-PARTS.update({f'R{i}': ('ERJ-2RKF1003X', '100k 1%', 'rgb-badge-coupon:R_Panasonic_ERJ2_0402') for i in range(2, 6)})
+PARTS.update({f'R{i}': ('ERJ2RKF1003X', '100k 1%', 'rgb-badge-coupon:R_Panasonic_ERJ2_0402') for i in range(2, 6)})
 PARTS['TP1'] = ('TestPoint_Pad', 'LED_SOUT', 'rgb-badge-coupon:TestPoint_Pad_D1.0mm')
-FLAGS = {'#FLG01': '+3V3_APP', '#FLG02': 'GND'}
+FLAGS = {'#FLG02': 'GND'}
 
 
 def require(condition, message):

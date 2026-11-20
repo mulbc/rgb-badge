@@ -1,0 +1,35 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "board_sha256": "330909098cacf16d71eb44a9361d863c145190b8ade2352576f730de68dbfe6f",
+  "candidate_microvia_diameter_drill_mm": [
+    0.3,
+    0.1
+  ],
+  "connected_pulldowns": 16,
+  "grid_mm": 0.05,
+  "layers": [
+    "B.Cu",
+    "In4.Cu",
+    "In3.Cu",
+    "In2.Cu",
+    "In1.Cu"
+  ],
+  "moved_resistor": "R24",
+  "open_edges": 534,
+  "r24_center_mm": [
+    69.5,
+    13.5
+  ],
+  "routes": [
+    {
+      "connected": true,
+      "expanded_nodes": 679495,
+      "net": "ROW_SEL_02",
+      "resistor": "R24"
+    }
+  ],
+  "source_sha256": "6fc5022bce254c82ea8e02b0c038d700f635081bb6a84fd142e8e5499b2bf9ac",
+  "status": "UNQUALIFIED_ROUTING_STUDY",
+  "tracks_and_vias": 11481,
+  "width_mm": 0.2
+}

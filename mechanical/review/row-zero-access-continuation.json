@@ -1,0 +1,246 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "blue_gateway_count": 0,
+  "blue_reachable_b_nodes": 870,
+  "date": "2026-11-19",
+  "evidence": [
+    {
+      "bytes": 338,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/freed-corridor/blue-gateway-screen.json",
+      "sha256": "1d1fef431b93315b74d2567cfc61413cbcaee3b8186158b5ca290ae911f36894"
+    },
+    {
+      "bytes": 6371,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/freed-corridor/blue-gateway-screen.py",
+      "sha256": "6e055330fb275caa21d004e2ea2258670bc4ef3a343707f23db4811585c4520e"
+    },
+    {
+      "bytes": 334,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/freed-corridor/colour-b-bfs.json",
+      "sha256": "a69e23784a0ccbb64fae951261ef5ad5688b0053841021dba18f1f223348ad50"
+    },
+    {
+      "bytes": 7890,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/freed-corridor/colour-b-bfs.py",
+      "sha256": "8a6ab6a96b04b7510dcc164bddbbc7c742328bfef0558e10cec095d5e21cb6a7"
+    },
+    {
+      "bytes": 1423,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/freed-corridor/colour-b-hop.json",
+      "sha256": "bed0d22c1828f87de0542fe4763ec458f27990130ef32969ce34f75a641207e6"
+    },
+    {
+      "bytes": 7664,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/freed-corridor/colour-b-hop.py",
+      "sha256": "806ebf28b72ecfdc498068fdfb8d7c40ca744132ae8df635aab3e2f589ffb049"
+    },
+    {
+      "bytes": 2197,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/freed-corridor/colour-blocker-contacts.json",
+      "sha256": "b777133d4dc88eefda7c95efe9c9ed4e9751688d5a558ce8b81d62c612eebf08"
+    },
+    {
+      "bytes": 3597,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/freed-corridor/colour-blocker-contacts.py",
+      "sha256": "90f4d317e8d0129ce80753cdec64a1e34f17fb3902655efdb9bdd43fff18c7a4"
+    },
+    {
+      "bytes": 7756,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/freed-corridor/colour-components-without-wire.json",
+      "sha256": "ac1056684de7c16845952d61aaf8cdb765d7d3ac4ae424cc5bcbe5d9ce75010f"
+    },
+    {
+      "bytes": 22104,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/freed-corridor/colour-gateway-screen.json",
+      "sha256": "24c9e9d8658f87586d107d347f0d0cac4a804a1b911028d216018779b73d44b6"
+    },
+    {
+      "bytes": 6373,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/freed-corridor/colour-gateway-screen.py",
+      "sha256": "89c4088e8777c353c6152a9faad59695a4ef137581a9395e6bbae37bff3256ef"
+    },
+    {
+      "bytes": 1736,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/freed-corridor/colour-in3-route.json",
+      "sha256": "78048ce736ff97976a41bd6a7f466b5910c2fd6a6ffb334f1452edaacb780ac2"
+    },
+    {
+      "bytes": 7381,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/freed-corridor/colour-in3-route.py",
+      "sha256": "e3418793101ad055cf4a3dd6418571d02002274277c35169a3309476cc0cc279"
+    },
+    {
+      "bytes": 384,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/freed-corridor/colour-local-hop.json",
+      "sha256": "c3ee4b8ff1998dcb2d1150a605c64a54fbc69f2a831f4373dd472a4466296456"
+    },
+    {
+      "bytes": 7634,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/freed-corridor/colour-local-hop.py",
+      "sha256": "d93aadc1a508bad3811334c0a8f60c01bb401a48924ad8e285d1f101701cff44"
+    },
+    {
+      "bytes": 281,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/freed-corridor/gate-bfs.json",
+      "sha256": "e3f677c9dabb6a468ad2bc0a276c722d5bc1d1471909cbca3bd17f4628e907f7"
+    },
+    {
+      "bytes": 5012,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/freed-corridor/gate-bfs.py",
+      "sha256": "735a76eccc647687ed7d91577709f3ac86d0d7886a4c3dcd4184dad2eb2c769d"
+    },
+    {
+      "bytes": 2038,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/freed-corridor/gate-capture-blockers.json",
+      "sha256": "ef5112b706fcc95e297585d385644d69df83f401a84905fe107fecf0746f1def"
+    },
+    {
+      "bytes": 6491,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/freed-corridor/gate-capture-blockers.py",
+      "sha256": "d697a9e3802406903111a0647bb8ef670136c7c647920f205989157655f35bad"
+    },
+    {
+      "bytes": 443,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/freed-corridor/gate-group-bfs.json",
+      "sha256": "6b62127d931d4aec77c124f8eb69b7ffb9092cd7d73fd039d86868a45eda531d"
+    },
+    {
+      "bytes": 5523,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/freed-corridor/gate-group-bfs.py",
+      "sha256": "bee738386635337ad6d710454f203b5b22154b801bc7eedda4e0a9f42ca67a89"
+    },
+    {
+      "bytes": 6906,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/freed-corridor/inventory-colour-groups.py",
+      "sha256": "e664a4a62158d09a98228024d4229352e46cc98afa782c6a464a8e5005e2d4f5"
+    },
+    {
+      "bytes": 4116,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/freed-corridor/inventory-r6-cohort.py",
+      "sha256": "08d9f0303bdd1f672b113599fef95569574cb16f206e66d6c1683c2e62dc2a24"
+    },
+    {
+      "bytes": 9827,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/freed-corridor/r6-old-private-cohort.json",
+      "sha256": "4d4b0e7dc067f486479c90896b167f64e96cf6b186256175d4661b9856bbaec5"
+    },
+    {
+      "bytes": 87968,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/freed-corridor/screen.json",
+      "sha256": "deefcde1c850f6f17eab8b1ffc24a668b26d98f0c3154d3949043988fa01c491"
+    },
+    {
+      "bytes": 5390,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/freed-corridor/screen.py",
+      "sha256": "5b714f8340eb5ade88bf561b3c766e4528adaa9067b7ca0dbb616fbfa2a7acf9"
+    },
+    {
+      "bytes": 127447,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/remaining-layer-interfaces.json",
+      "sha256": "408c304856098ba106375be68f7077b0f2ae69b9de7c4aa3ac1da277757f8b5b"
+    }
+  ],
+  "fabrication_release_allowed": false,
+  "fine_capture_screen": [
+    {
+      "clear_captures": 0,
+      "counts": {
+        "capture_points": 8591,
+        "gate_neck_blocked": 151,
+        "lower_copper_blocked": 8440
+      },
+      "in3_access_count": 0,
+      "main_vled_contact_count": 0,
+      "net": "ROW_GATE_00"
+    },
+    {
+      "clear_captures": 151,
+      "counts": {
+        "capture_points": 8591,
+        "lower_copper_blocked": 8416,
+        "lower_hole_blocked": 24
+      },
+      "in3_access_count": 0,
+      "main_vled_contact_count": 0,
+      "net": "VLED"
+    }
+  ],
+  "hosted_validation_for_selected_commit": {
+    "commit": "b6bdbcd2c412bb4d381de79464aad51c1cb625da",
+    "runs": [
+      {
+        "conclusion": "success",
+        "database_id": 44604635498,
+        "url": "https://github.com/mulbc/rgb-badge/actions/runs/44604635498"
+      },
+      {
+        "conclusion": "success",
+        "database_id": 44604608982,
+        "url": "https://github.com/mulbc/rgb-badge/actions/runs/44604608982"
+      }
+    ]
+  },
+  "native_opens": 26,
+  "no_pcb_written": true,
+  "original_r6_cohort_note": "The historical six-item cohort includes a shared In2 stem with multiple outside interfaces. ADR0119 already requires retaining its shortened shared stem; it cannot be removed as an unbranched leaf. No R6 source item was retired here.",
+  "original_red_split_without_wire": {
+    "driver_group_f_copper": 0,
+    "driver_pad": [
+      "U1",
+      "39"
+    ],
+    "led_pads": 16
+  },
+  "physical_opens": 26,
+  "red_gateway_count": 13,
+  "red_in3_graph": {
+    "expanded_nodes": 1573,
+    "outcome": "exhausted_finite_graph"
+  },
+  "red_local_in3_capture_pairs": 0,
+  "red_local_in3_capture_samples": 51,
+  "red_outer_hop": {
+    "b_graph_expanded_nodes": 2625,
+    "b_graph_outcome": "exhausted_finite_graph",
+    "clear_paths": 0,
+    "left_captures": 8,
+    "orthogonal_paths": 12120,
+    "pairs": 120,
+    "right_captures": 15
+  },
+  "selected": false,
+  "selected_board_sha256": "fb862c0a548599b7acf328ad8bb5006ce5f78d8b98ceec12bb4af9ace21f1d0f",
+  "single_pad_b_graph_nodes": 425,
+  "sole_inner_blockers": [
+    {
+      "reachable_capture_count": 171,
+      "signature": [
+        "track",
+        "COL_09_R",
+        60900000,
+        3250000,
+        78600000,
+        3250000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "88aa7fc4-2e84-5bb4-847e-f3ce1119f29a"
+    },
+    {
+      "reachable_capture_count": 29,
+      "signature": [
+        "track",
+        "COL_09_B",
+        77200000,
+        3750000,
+        59500000,
+        3750000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "7d3b740c-3700-5948-afb0-514468ad24d2"
+    }
+  ],
+  "status": "READ_ONLY_NO_SUCCESSOR_SELECTED",
+  "whole_three_pad_b_graph_nodes": 870
+}

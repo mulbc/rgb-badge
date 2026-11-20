@@ -1,0 +1,19 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "board_sha256": "73353bb4b3f52a03812d760090bedb392349c3a8b36c9062f6914fb9acb3fb16",
+  "ground_anchor_mm": [
+    34.25,
+    7.25
+  ],
+  "ground_anchor_ref_pad": [
+    "R25",
+    "2"
+  ],
+  "open_edges": 534,
+  "source_sha256": "330909098cacf16d71eb44a9361d863c145190b8ade2352576f730de68dbfe6f",
+  "status": "UNQUALIFIED_GROUND_PLANE_STUDY",
+  "tracks_and_vias": 11484,
+  "zone_area_mm2": 2921.998,
+  "zone_layer": "In2.Cu",
+  "zone_outlines": 1
+}

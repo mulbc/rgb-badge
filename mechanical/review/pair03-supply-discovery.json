@@ -1,0 +1,300 @@
+{
+  "spdx_license_identifier": "CERN-OHL-S-2.0",
+  "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+  "expanded_nodes": 3109,
+  "base_gateway": {
+    "native_opens": 23,
+    "physical_opens": 23,
+    "prior_groups_preserved": 211,
+    "current_groups": 211,
+    "retained_attached_source_copper": 19349,
+    "main_ground_pads": 197,
+    "main_vled_pads": 38,
+    "main_usb_pads": 32,
+    "orphan_copper": 0
+  },
+  "rejected_joins": [],
+  "edge_checks": 12277,
+  "via_candidates": 2837,
+  "via_copper_failures": 2716,
+  "hole_failures": 19,
+  "clear_vias": 102,
+  "route": {
+    "source_pad_uuid": "2607f574-5636-5e7c-9d82-58041b990583",
+    "goal_witness_uuid": "85ad9ca5-5c6b-5aa4-a068-b51753571be9",
+    "goal_layer": "In4.Cu",
+    "goal_position_iu": [
+      78575000,
+      10075000
+    ],
+    "goal_signature": [
+      "via",
+      "VLED",
+      78800000,
+      10150000,
+      "In3.Cu",
+      "In4.Cu",
+      300000,
+      100000
+    ],
+    "length_mm": 5.235660171779819,
+    "hole_audit": {
+      "disjoint_supported_close_pairs": [],
+      "aligned_adjacent_stacks": [],
+      "other_close_pairs": 0,
+      "minimum_unchanged_hole_clearance_mm": 0.25,
+      "fabrication_qualified": false
+    },
+    "filled_join": {
+      "native_opens": 22,
+      "physical_opens": 22,
+      "prior_groups_preserved": 211,
+      "current_groups": 210,
+      "retained_attached_source_copper": 19349,
+      "main_ground_pads": 197,
+      "main_vled_pads": 39,
+      "main_usb_pads": 32,
+      "orphan_copper": 0
+    },
+    "new_copper": [
+      {
+        "signature": [
+          "track",
+          "VLED",
+          74825000,
+          8150000,
+          74825000,
+          8475000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "VLED",
+          74825000,
+          8475000,
+          75025000,
+          8675000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "VLED",
+          75025000,
+          8675000,
+          75050000,
+          8675000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "VLED",
+          75050000,
+          8675000,
+          75075000,
+          8700000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "VLED",
+          75075000,
+          8700000,
+          75100000,
+          8700000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "VLED",
+          75100000,
+          8700000,
+          75125000,
+          8725000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "VLED",
+          75125000,
+          8725000,
+          76825000,
+          8725000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "VLED",
+          76825000,
+          8725000,
+          76900000,
+          8800000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "VLED",
+          76900000,
+          8800000,
+          77325000,
+          8800000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "VLED",
+          77325000,
+          8800000,
+          77350000,
+          8825000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "VLED",
+          77350000,
+          8825000,
+          77375000,
+          8825000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "VLED",
+          77375000,
+          8825000,
+          77400000,
+          8850000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "VLED",
+          77400000,
+          8850000,
+          77425000,
+          8850000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "VLED",
+          77425000,
+          8850000,
+          77800000,
+          9225000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "VLED",
+          77800000,
+          9225000,
+          77800000,
+          10050000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "VLED",
+          77800000,
+          10050000,
+          77800000,
+          10075000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "via",
+          "VLED",
+          77800000,
+          10075000,
+          "In4.Cu",
+          "B.Cu",
+          300000,
+          100000
+        ],
+        "via_type": 1
+      },
+      {
+        "signature": [
+          "track",
+          "VLED",
+          77800000,
+          10075000,
+          78575000,
+          10075000,
+          "In4.Cu",
+          200000
+        ],
+        "via_type": null
+      }
+    ]
+  },
+  "outcome": "found",
+  "read_only": true,
+  "selected": false,
+  "fabrication_release_allowed": false
+}

@@ -1,0 +1,235 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "date": "2026-11-19",
+  "evidence": [
+    {
+      "bytes": 304882,
+      "path": "hardware/coupon/rev-a/build/row2-routing/translated-contact-resistor-screen.json",
+      "sha256": "8638ede8077229084fa7f0c7f0e1676d02bf617e99bce345c87c269972693b96"
+    },
+    {
+      "bytes": 8736,
+      "path": "hardware/coupon/rev-a/build/row2-routing/r21-private-gate-inventory.json",
+      "sha256": "64ffac2185197a74480a158b24d604c1c49aa0ca4ab80351cf19189bf087ca66"
+    },
+    {
+      "bytes": 290,
+      "path": "hardware/coupon/rev-a/build/row2-routing/r21-supply-anchored-initial-obstructions.json",
+      "sha256": "fb4fb6d8c73e6e3b092728118969335a2a99b0d1aaf469371587e88a5e0f7e3d"
+    },
+    {
+      "bytes": 2098,
+      "path": "hardware/coupon/rev-a/build/row2-routing/r21-supply-anchored-trial.json",
+      "sha256": "bd78a17035effe6bf9960b05dd55c107ea2aa7fe419346ee3c1a9cd9acfd2f00"
+    },
+    {
+      "bytes": 107328,
+      "path": "hardware/coupon/rev-a/build/row2-routing/r21-supply-anchored-trial-drc.json",
+      "sha256": "954d927327bbbce6f7af415cdfd259a3b9958ce8b02f5e4da378e0f2a9c018ab"
+    },
+    {
+      "bytes": 1184,
+      "path": "hardware/coupon/rev-a/build/row2-routing/r21-supply-anchored-preflight.json",
+      "sha256": "c3b0e0bdc35ec7a3bc52fa72a4359606957b9b52d0733005aceadca6a75238dd"
+    },
+    {
+      "bytes": 2568,
+      "path": "hardware/coupon/rev-a/build/row2-routing/r21-minimal-trial.json",
+      "sha256": "7bc8844f38af9dcce0131ffcba07a104a31cd6746c6b3e747e27189f181852e4"
+    },
+    {
+      "bytes": 8475,
+      "path": "hardware/coupon/rev-a/build/row2-routing/r11-private-gate-inventory.json",
+      "sha256": "48b5db0eeeaf6c2fc9ef37b6a917ed6a742bde856d3e6841343245e3b4f924f2"
+    },
+    {
+      "bytes": 946,
+      "path": "hardware/coupon/rev-a/build/row2-routing/r11-old-gate-via-contacts.json",
+      "sha256": "68fd624b00cc12e1a5088b5297e59afce0e7237b1498a35101ffaf1d7d129d89"
+    },
+    {
+      "bytes": 1712,
+      "path": "hardware/coupon/rev-a/build/row2-routing/r11-ground-substitution-audit.json",
+      "sha256": "a6f0deb1ab65e6281fa0dd00029a7cf464edd87fb76b3541c965d2423a32487d"
+    },
+    {
+      "bytes": 1603,
+      "path": "hardware/coupon/rev-a/build/row2-routing/r11-ground-substitution-source-contacts.json",
+      "sha256": "b469a3d5ccf89f133a7b99dd8bbc9d4d3f188d31cce1e7e3daf5ef7c68fbd42b"
+    },
+    {
+      "bytes": 107291,
+      "path": "hardware/coupon/rev-a/build/row2-routing/r21-r11-ground-basis-drc.json",
+      "sha256": "a3c5a660e5962d886e44ed89db71da6908e3cf194160ce55aa53d5ddc2e6a5b9"
+    },
+    {
+      "bytes": 23848,
+      "path": "hardware/coupon/rev-a/build/row2-routing/r11-supported-gate-escape-screen.json",
+      "sha256": "a086411243d3eaf7875b4966fa5e425aec01ef0ffeb7c314d2aeebb067afbe69"
+    },
+    {
+      "bytes": 3962,
+      "path": "hardware/coupon/rev-a/build/row2-routing/r11-gate-port-prepared.json",
+      "sha256": "9cfca26f0644ce7a50c1e229ceaf2612d70e34020f3f9a51a096ce2a8c3ec87b"
+    },
+    {
+      "bytes": 4382,
+      "path": "hardware/coupon/rev-a/build/row2-routing/r11-gate-port-source-contacts.json",
+      "sha256": "b8db2daf059940a9d4bc841eea4406a0a2772a92166d663f9fb48f7cefb33bcd"
+    },
+    {
+      "bytes": 3635,
+      "path": "hardware/coupon/rev-a/build/row2-routing/r11-relocated-gate-search.json",
+      "sha256": "5ae8c5b398127949f3461b0041850e20648cfbf9a4f86ac9f927863bb96f4ed5"
+    },
+    {
+      "bytes": 3649,
+      "path": "hardware/coupon/rev-a/build/row2-routing/r11-relocated-gate-three-layer-search.json",
+      "sha256": "66399d52284d6c66682aadf72ec078418cd7debda28bedacde820b1a48135bca"
+    },
+    {
+      "bytes": 7558,
+      "path": "hardware/coupon/rev-a/build/row2-routing/screen-translated-contact-resistors.py",
+      "sha256": "b4e947d8f3b786546a3e1d63cb7b6dd38ef9245c9022955c00608ab4ad890fda"
+    },
+    {
+      "bytes": 5803,
+      "path": "hardware/coupon/rev-a/build/row2-routing/build-r21-supply-anchored.py",
+      "sha256": "c927d2e41d15e498ee6d60e33b5b5c37d68dfab00c09970c067831f9977e9ac0"
+    },
+    {
+      "bytes": 6399,
+      "path": "hardware/coupon/rev-a/build/row2-routing/build-r21-minimal.py",
+      "sha256": "798afc3fbbb22ad9ad6b7b6f836ca5cddc457a29c61c6e1ad0d900fff38d62bd"
+    },
+    {
+      "bytes": 3502,
+      "path": "hardware/coupon/rev-a/build/row2-routing/build-r11-ground-substitution.py",
+      "sha256": "03aa6eff97be77d99e72d50c1a381e554d2195774764e3909384a64a05331fdd"
+    },
+    {
+      "bytes": 8895,
+      "path": "hardware/coupon/rev-a/build/row2-routing/build-r11-r21-supply-anchored.py",
+      "sha256": "65071537273afb1b9e1be059f88336e3d226dd1bbc2aa5a1c39b274d58345ff3"
+    },
+    {
+      "bytes": 6243,
+      "path": "hardware/coupon/rev-a/build/row2-routing/screen-r11-supported-gate-escape.py",
+      "sha256": "da8b83f8102d2e1683aacc7a2925803e56a837341f8e6957afaa024c7a7b4945"
+    },
+    {
+      "bytes": 6519,
+      "path": "hardware/coupon/rev-a/build/row2-routing/build-r11-gate-port.py",
+      "sha256": "c089433c8db25a67cf021db79023638b8be9e0af5c03d6c086b14e5a1d535eaf"
+    },
+    {
+      "bytes": 39998,
+      "path": "hardware/coupon/rev-a/build/row2-routing/search-r11-relocated-gate.py",
+      "sha256": "8099ece52dfa49bad22494f78a01b786c0f795150152288e3050c556712258e2"
+    }
+  ],
+  "fabrication_release_allowed": false,
+  "ground_substitution": {
+    "board_sha256": "961fb41dd4b6418311320f36b10ab5a6f7014c87d14bccf576ab20c91d8597ad",
+    "exact_original104": true,
+    "fabrication_release_allowed": false,
+    "ground_fill_witnesses": [
+      {
+        "outside_uuid": "7da93c0c-81f6-5bea-99cc-483c119c504b",
+        "polygon": 46,
+        "retained_source_witness": "9039a3e5-0134-5c49-a246-bbb1e44a47d4",
+        "zone_uuid": "81b0abb6-bbba-5f7c-9599-18e6b0c72e0e"
+      }
+    ],
+    "immutable_source_sha256": "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34",
+    "native_opens": 27,
+    "original_current_groups_preserved": 215,
+    "original_immutable_groups_preserved": 216,
+    "outside_ground_contacts": [
+      "7da93c0c-81f6-5bea-99cc-483c119c504b"
+    ],
+    "physical_opens": 27,
+    "retired": [
+      {
+        "signature": [
+          "track",
+          "GND",
+          71750000,
+          7250000,
+          71000000,
+          7250000,
+          "B.Cu",
+          200000
+        ],
+        "uuid": "5dbd65a2-997f-5eef-a3c8-37793576a7ff",
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "GND",
+          71000000,
+          7250000,
+          70850000,
+          7200000,
+          "B.Cu",
+          200000
+        ],
+        "uuid": "b28e3949-8fca-5e9b-8f67-c8d64ef424af",
+        "via_type": null
+      }
+    ],
+    "selected": false,
+    "source_contact_catalog_sha256": "b469a3d5ccf89f133a7b99dd8bbc9d4d3f188d31cce1e7e3daf5ef7c68fbd42b",
+    "source_sha256": "3848dfe9fc5784f7b0cfdffb0e7dd7207cc73447e4c46543086f267bb37cc6c5",
+    "stable_fill_hashes": [
+      "961fb41dd4b6418311320f36b10ab5a6f7014c87d14bccf576ab20c91d8597ad",
+      "961fb41dd4b6418311320f36b10ab5a6f7014c87d14bccf576ab20c91d8597ad",
+      "961fb41dd4b6418311320f36b10ab5a6f7014c87d14bccf576ab20c91d8597ad"
+    ]
+  },
+  "immutable_28_open_source_sha256": "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34",
+  "r11_complete_route_results": {
+    "r11-relocated-gate-search.json": [
+      {
+        "expanded_nodes": 1108,
+        "net": "ROW_GATE_05",
+        "path_length_mm": null,
+        "routed": false,
+        "search_outcome": "exhausted_grid",
+        "source": [
+          "R11",
+          "2"
+        ]
+      }
+    ],
+    "r11-relocated-gate-three-layer-search.json": [
+      {
+        "expanded_nodes": 1108,
+        "net": "ROW_GATE_05",
+        "path_length_mm": null,
+        "routed": false,
+        "search_outcome": "exhausted_grid",
+        "source": [
+          "R11",
+          "2"
+        ]
+      }
+    ]
+  },
+  "r11_gate_capture_count": 16,
+  "report_metadata_erratum": "Unselected R11 gate-search reports inherited unrelated net-length-bound labels; the frozen executable enforces ROW_GATE_05 <=8 mm. Both graphs exhaust without a path, so no length-bound decision or selection depends on that stale label.",
+  "selected": false,
+  "selected_minimal_27_open_source_sha256": "e7748bee49f33b3b5c021c9215d441a047718b284e3a1ee27975e3832ddfb5d2",
+  "status": "UNSELECTED_CONTINUATION_EVIDENCE",
+  "translation_counts": {
+    "capture_samples": 891922,
+    "clear_poses": 1258,
+    "courtyard": 1428,
+    "no_nearby_main_target": 891922,
+    "pad_copper": 3488,
+    "pose_samples": 6174,
+    "reference_without_main_in3_plane": 3
+  },
+  "unselected_three_track_r21_parent_sha256": "3848dfe9fc5784f7b0cfdffb0e7dd7207cc73447e4c46543086f267bb37cc6c5"
+}

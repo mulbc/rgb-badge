@@ -1,0 +1,1698 @@
+{
+  "spdx_license_identifier": "CERN-OHL-S-2.0",
+  "source": "hardware/coupon/rev-a/staging/led-pair01-supply-routing-trial-114mm.kicad_pcb",
+  "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+  "selected_source_opens": 23,
+  "selected": false,
+  "fabrication_release_allowed": false,
+  "evidence": [
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/r9-direct/screen.json",
+      "sha256": "5c00e7bce90d83527905f20c3126671b7b27be713fc16383208c254cd0d027ea",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "tested_poses": 17324,
+        "complete_pose_count": 0,
+        "supply_source_pad_uuid": "48ae23bc-9b69-5764-bf2f-cb74368f5054",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "counts": {
+          "courtyard": 17300,
+          "pad_copper": 24
+        }
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/r9-expanded/screen.json",
+      "sha256": "d5215af732a47dbefaa0da0fe77dd89d2246412bda285619b2bef0563d56ddb8",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "tested_poses": 73884,
+        "complete_pose_count": 0,
+        "supply_source_pad_uuid": "48ae23bc-9b69-5764-bf2f-cb74368f5054",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "counts": {
+          "pad_copper": 8784,
+          "courtyard": 63258,
+          "lead_copper": 1842
+        }
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/r9-expanded/source-leaf.json",
+      "sha256": "73466e90820f3ee8255f77000ae82837974232f77d4910f00e31d775b096af81",
+      "metrics": {
+        "record_count": 5
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/r9-corridor/blockers.json",
+      "sha256": "303d5febdbb046bf98c05d574c0db71183b1c942cdebf1bb69b38ecf5854f6f3",
+      "metrics": {
+        "read_only": true,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/r9-corridor/screen.json",
+      "sha256": "ee584cbab84209211a6cc5700784b682a6f2eed465f69e2dc2a59d41a451a312",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "tested_poses": 5324,
+        "complete_pose_count": 0,
+        "supply_source_pad_uuid": "48ae23bc-9b69-5764-bf2f-cb74368f5054",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "counts": {
+          "courtyard": 5106,
+          "pad_copper": 218
+        }
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/r10-corridor/screen.json",
+      "sha256": "c8b2b7f3f878f926a2a7a7755c43412dd2c1250f0f59511f84e7e143d3c2a425",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "tested_poses": 5324,
+        "complete_pose_count": 0,
+        "supply_source_pad_uuid": "2e9747a5-e8ac-525f-8bbd-240b5e10f2a7",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "counts": {
+          "courtyard": 5082,
+          "pad_copper": 242
+        }
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/r12-corridor/screen.json",
+      "sha256": "c0b38efe1091163f638f353a9ecca8f87166a754e1fedcc154ecaef9174b3432",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "tested_poses": 5324,
+        "complete_pose_count": 0,
+        "supply_source_pad_uuid": "3f0bbc04-3408-5738-8b6c-11dc23e7a0f9",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "counts": {
+          "courtyard": 5082,
+          "pad_copper": 242
+        }
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/r13-corridor/screen.json",
+      "sha256": "81435c398910ccb06280aa0f06f99a8f25525a506fee449f08783f937afe439a",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "tested_poses": 5324,
+        "complete_pose_count": 0,
+        "supply_source_pad_uuid": "3f0bbc04-3408-5738-8b6c-11dc23e7a0f9",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "counts": {
+          "courtyard": 5082,
+          "pad_copper": 242
+        }
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/r9-front/capture-holes.json",
+      "sha256": "04f589c073668a7620b8c802fbd8c6a6651be79ab85ea6bbde96501d50050ae3",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/r9-front/color-contact-probe.json",
+      "sha256": "8a1095c69a081fad172e00e1f3c633551c5f2e79da932c49190ea8545380446e",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/r9-front/color-gateway-offset.json",
+      "sha256": "3d5600cfa999931415d65b0e3f951c5de4e5aa95b0e244670479c5b724d5d650",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "expanded_nodes": 0,
+        "route": null,
+        "outcome": "no_right_capture",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/r9-front/color-gateway-wide-offset.json",
+      "sha256": "3f281c8946268797e17fb4ef68ff6f28db8ecf97eb9f6f67b98e761a6dd1b39c",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "expanded_nodes": 1114,
+        "route": null,
+        "outcome": "bounded_graph_exhausted",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/r9-front/color-gateway.json",
+      "sha256": "0c9eeeae11a9d72ec4569297b61924d9b0a0d88461fbafd0ac62a9010fd7ad77",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "hole_error": null,
+        "expanded_nodes": 0,
+        "route": null,
+        "outcome": "fixed_prerequisite_failed",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "hole_audit": {
+          "disjoint_supported_close_pairs": [
+            {
+              "uuids": [
+                "22d54c67-b17c-5924-a878-1cd1b8ffacf5",
+                "e196204b-1ac4-456f-a109-b99534e845b3"
+              ],
+              "first_uuid": "e196204b-1ac4-456f-a109-b99534e845b3",
+              "first_span": [
+                "In3.Cu",
+                "In4.Cu"
+              ],
+              "second_span": [
+                "In1.Cu",
+                "In2.Cu"
+              ],
+              "first_position_iu": [
+                84750000,
+                8900000
+              ],
+              "second_position_iu": [
+                84600000,
+                8950000
+              ]
+            }
+          ],
+          "aligned_adjacent_stacks": [
+            {
+              "uuids": [
+                "850bbe2c-9394-4090-ba25-9e1b64d48a73",
+                "8d43482d-2464-46f5-83a7-ed5267cc47f7"
+              ],
+              "first_uuid": "850bbe2c-9394-4090-ba25-9e1b64d48a73",
+              "first_span": [
+                "In3.Cu",
+                "In4.Cu"
+              ],
+              "second_span": [
+                "In4.Cu",
+                "B.Cu"
+              ],
+              "first_position_iu": [
+                79750000,
+                8900000
+              ],
+              "second_position_iu": [
+                79750000,
+                8900000
+              ]
+            },
+            {
+              "uuids": [
+                "9fa02f31-afeb-572d-bf49-a06309b990c8",
+                "e196204b-1ac4-456f-a109-b99534e845b3"
+              ],
+              "first_uuid": "e196204b-1ac4-456f-a109-b99534e845b3",
+              "first_span": [
+                "In3.Cu",
+                "In4.Cu"
+              ],
+              "second_span": [
+                "In4.Cu",
+                "B.Cu"
+              ],
+              "first_position_iu": [
+                84750000,
+                8900000
+              ],
+              "second_position_iu": [
+                84750000,
+                8900000
+              ]
+            }
+          ],
+          "other_close_pairs": 0,
+          "minimum_unchanged_hole_clearance_mm": 0.25,
+          "fabrication_qualified": false
+        },
+        "source_contacts_preserved": [
+          {
+            "uuid": "01335523-b2bb-5a7a-8e23-d3bf583988a1",
+            "retained": true
+          },
+          {
+            "uuid": "1b2d65f9-adfe-530f-96b3-a4ebd27389d7",
+            "retained": true
+          },
+          {
+            "uuid": "1b6f780b-17f0-53fc-9e64-de13cd292b7f",
+            "retained": true
+          },
+          {
+            "uuid": "3488a3e4-33f4-5272-82dc-7180a4aa97f3",
+            "retained": true
+          },
+          {
+            "uuid": "35ee922d-75c7-519f-8de5-9646bc1551de",
+            "retained": true
+          },
+          {
+            "uuid": "9fa02f31-afeb-572d-bf49-a06309b990c8",
+            "retained": true
+          },
+          {
+            "uuid": "fac2b3ce-b4a7-5c0a-bb44-65cf7137efc1",
+            "retained": true
+          }
+        ]
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/r9-front/core-gateway-route.json",
+      "sha256": "9f5fc11c4d13c3ff04770a48215ce4240aafe2dfa10d4f1af6e9d1848f112467",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "root_count": 66,
+        "centre_count": 92,
+        "expanded_nodes": 3271,
+        "edge_checks": 4823,
+        "route": null,
+        "outcome": "bounded_graph_exhausted",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/r9-front/core-gateways-no-proposed-capture.json",
+      "sha256": "ac2b4dfa2d8cab5cd863500474cc81592e05aaa61732a2b3a86ffc1eeb8ed165",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "counts": {
+          "core_copper": 7289,
+          "core_qualified": 92,
+          "root_copper": 11,
+          "lead_copper": 6072
+        }
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/r9-front/core-gateways.json",
+      "sha256": "ac2b4dfa2d8cab5cd863500474cc81592e05aaa61732a2b3a86ffc1eeb8ed165",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "counts": {
+          "core_copper": 7289,
+          "core_qualified": 92,
+          "root_copper": 11,
+          "lead_copper": 6072
+        }
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/r9-front/front-poses.json",
+      "sha256": "e8a1ef1c0605a1750305ba20060adc6da9f66b87504b45fb92100ad8f3fd022b",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "tested_poses": 39204,
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "counts": {
+          "courtyard": 19160,
+          "pad_copper": 18670,
+          "complete_supply": 118,
+          "supply_lead": 1256
+        }
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/r9-front/gate-priority-core-route.json",
+      "sha256": "05ee91f643a7d578a5e6d812cf5a2490ffab5d351d6650775f34e716db22e7d3",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "root_count": 66,
+        "centre_count": 92,
+        "expanded_nodes": 3924,
+        "edge_checks": 5699,
+        "route": null,
+        "outcome": "bounded_graph_exhausted",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/r9-front/local-color-hop.json",
+      "sha256": "035e4d6c3f44d70ab44b21dfa482613a43ea6389f8ae58898a38e856e1e14639",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "outcome": "found",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false
+      },
+      "route_scalar_metrics": {
+        "length_mm": 1.9778174593052007,
+        "total_color_conductor_mm": 7.077817459305201,
+        "tail_length_mm": 4.55
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/r9-front/lower-ports-bends.json",
+      "sha256": "46a7c8b7d2fe231404c5caf02b234f22766e5ddd01432c8a537fd5e30b7357bb",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "tested_points": 28341,
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "counts": {
+          "capture_copper": 28326,
+          "lead_copper": 15
+        }
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/r9-front/lower-ports-expanded.json",
+      "sha256": "7184a0795eedfbfafa14de4c6e6c930ef725d44856058180818d8bed217614b7",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "tested_points": 28341,
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "counts": {
+          "capture_copper": 28326,
+          "lead_copper": 15
+        }
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/r9-front/lower-ports.json",
+      "sha256": "d224db36f03b3c7e9a2ef2fd3789d2411b6f3b8bd16a82b56e166c37aa7999c8",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "tested_points": 4941,
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "counts": {
+          "capture_copper": 4941
+        }
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/r9-front/lower-route.json",
+      "sha256": "677c170474c86c3d631573f8344462d5c0ef0aa1f29408741cc233eb5b98eec2",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "expanded_nodes": 10171,
+        "edge_checks": 14408,
+        "outcome": "bounded_graph_exhausted",
+        "route": null,
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/r9-front/lower-staggered-escape.json",
+      "sha256": "07fee1f23f1740f8e97b4782b6c487970c537bc01eff871e73876e3b19cee385",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "expanded_nodes": 10171,
+        "edge_checks": 12685,
+        "via_tests": 2591,
+        "source_clear_vias": 0,
+        "hole_rejections": 0,
+        "outcome": "bounded_graph_exhausted",
+        "route": null,
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/r9-front/screen.json",
+      "sha256": "54fd9b5e034eff96cd1146a2f4d5b2b686db7f6a9bb1b5215018df6887781c09",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "checked_front_courtyards": 260,
+        "tested_centres": 0,
+        "complete_count": 0,
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "counts": {},
+        "courtyard_overlaps": [
+          "R11"
+        ]
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/r9-front/source-contacts.json",
+      "sha256": "063b3b57356096af9826760bdbbdf453f08a35a6c4e405556a30619789f6796b",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/r9-front/two-color-gateway.json",
+      "sha256": "5684b2ffeffc13834c119efad222999dea06fdad658a144c915ebda71893e639",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "hole_error": null,
+        "outcome": "fixed_prerequisite_failed",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "hole_audit": {
+          "disjoint_supported_close_pairs": [
+            {
+              "uuids": [
+                "b69ecd6c-863a-57bc-94d1-532ff5bca9ae",
+                "e6ae5317-81ca-426c-a21a-863b567495fe"
+              ],
+              "first_uuid": "e6ae5317-81ca-426c-a21a-863b567495fe",
+              "first_span": [
+                "In3.Cu",
+                "In4.Cu"
+              ],
+              "second_span": [
+                "F.Cu",
+                "In1.Cu"
+              ],
+              "first_position_iu": [
+                78600000,
+                9400000
+              ],
+              "second_position_iu": [
+                78800000,
+                9650000
+              ]
+            },
+            {
+              "uuids": [
+                "39d4d099-d79a-5165-a9ec-4ef886262bed",
+                "e6ae5317-81ca-426c-a21a-863b567495fe"
+              ],
+              "first_uuid": "e6ae5317-81ca-426c-a21a-863b567495fe",
+              "first_span": [
+                "In3.Cu",
+                "In4.Cu"
+              ],
+              "second_span": [
+                "In1.Cu",
+                "In2.Cu"
+              ],
+              "first_position_iu": [
+                78600000,
+                9400000
+              ],
+              "second_position_iu": [
+                78800000,
+                9650000
+              ]
+            }
+          ],
+          "aligned_adjacent_stacks": [
+            {
+              "uuids": [
+                "3c3682c5-b25b-430e-b548-ae8578633c58",
+                "944ee037-30b1-443e-95dd-b8a5d726964c"
+              ],
+              "first_uuid": "944ee037-30b1-443e-95dd-b8a5d726964c",
+              "first_span": [
+                "In3.Cu",
+                "In4.Cu"
+              ],
+              "second_span": [
+                "In4.Cu",
+                "B.Cu"
+              ],
+              "first_position_iu": [
+                79750000,
+                8900000
+              ],
+              "second_position_iu": [
+                79750000,
+                8900000
+              ]
+            }
+          ],
+          "other_close_pairs": 0,
+          "minimum_unchanged_hole_clearance_mm": 0.25,
+          "fabrication_qualified": false
+        },
+        "source_contacts_preserved": [
+          {
+            "source_uuid": "b5fba1d8-a4db-52d4-aa02-4b3fb7d808ee",
+            "contact_uuid": "01335523-b2bb-5a7a-8e23-d3bf583988a1",
+            "retained": true
+          },
+          {
+            "source_uuid": "b5fba1d8-a4db-52d4-aa02-4b3fb7d808ee",
+            "contact_uuid": "1b2d65f9-adfe-530f-96b3-a4ebd27389d7",
+            "retained": true
+          },
+          {
+            "source_uuid": "b5fba1d8-a4db-52d4-aa02-4b3fb7d808ee",
+            "contact_uuid": "1b6f780b-17f0-53fc-9e64-de13cd292b7f",
+            "retained": true
+          },
+          {
+            "source_uuid": "b5fba1d8-a4db-52d4-aa02-4b3fb7d808ee",
+            "contact_uuid": "3488a3e4-33f4-5272-82dc-7180a4aa97f3",
+            "retained": true
+          },
+          {
+            "source_uuid": "b5fba1d8-a4db-52d4-aa02-4b3fb7d808ee",
+            "contact_uuid": "35ee922d-75c7-519f-8de5-9646bc1551de",
+            "retained": true
+          },
+          {
+            "source_uuid": "b5fba1d8-a4db-52d4-aa02-4b3fb7d808ee",
+            "contact_uuid": "9fa02f31-afeb-572d-bf49-a06309b990c8",
+            "retained": true
+          },
+          {
+            "source_uuid": "b5fba1d8-a4db-52d4-aa02-4b3fb7d808ee",
+            "contact_uuid": "fac2b3ce-b4a7-5c0a-bb44-65cf7137efc1",
+            "retained": true
+          },
+          {
+            "source_uuid": "1d156336-1523-50d9-800d-45ae98fbf560",
+            "contact_uuid": "1e0823e9-6d97-5e3d-b078-01a596bf7c09",
+            "retained": true
+          },
+          {
+            "source_uuid": "1d156336-1523-50d9-800d-45ae98fbf560",
+            "contact_uuid": "2678ddd4-e1af-5bdb-92a6-e3d3a2c0cc65",
+            "retained": true
+          },
+          {
+            "source_uuid": "1d156336-1523-50d9-800d-45ae98fbf560",
+            "contact_uuid": "4656ce67-8e53-5a3c-bf39-e00dbf3206ab",
+            "retained": true
+          },
+          {
+            "source_uuid": "1d156336-1523-50d9-800d-45ae98fbf560",
+            "contact_uuid": "4d00e6c2-9d90-555c-a434-b75e97f50a0f",
+            "retained": true
+          },
+          {
+            "source_uuid": "1d156336-1523-50d9-800d-45ae98fbf560",
+            "contact_uuid": "bab43dd0-f688-50e4-969c-eca4faf7f255",
+            "retained": true
+          },
+          {
+            "source_uuid": "1d156336-1523-50d9-800d-45ae98fbf560",
+            "contact_uuid": "bc7ef3d2-0f97-5912-9388-02e5f06233cf",
+            "retained": true
+          },
+          {
+            "source_uuid": "1d156336-1523-50d9-800d-45ae98fbf560",
+            "contact_uuid": "ccf06ce4-d625-555c-b88c-29ad9442d37d",
+            "retained": true
+          },
+          {
+            "source_uuid": "1d156336-1523-50d9-800d-45ae98fbf560",
+            "contact_uuid": "ec5152cc-a5d8-5d24-b120-e78557656b9a",
+            "retained": true
+          }
+        ]
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/fixed-sensor/complete-gateway-supply-route.json",
+      "sha256": "0e1ff08d0a44ea2b27e47d7af4ed4855b18b3cfc7cec69ea24167d97ea298505",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "expanded_nodes": 177,
+        "edge_checks": 832,
+        "via_candidates": 356,
+        "via_copper_failures": 356,
+        "hole_failures": 0,
+        "clear_vias": 0,
+        "route": null,
+        "outcome": "bounded_graph_exhausted",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "base_gateway": {
+          "native_opens": 23,
+          "physical_opens": 23,
+          "prior_groups_preserved": 211,
+          "current_groups": 211,
+          "net_count": 188,
+          "main_ground_pads": 197,
+          "main_vled_pads": 38,
+          "main_usb_pads": 32,
+          "orphan_copper": 0,
+          "retained_attached_source_copper": 19343
+        }
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/fixed-sensor/contact-tangent-escape.json",
+      "sha256": "65cd5e012754250389a2361aebd7e52bef49a86bb4834e59c5b523bde4494e8b",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "gateway_sha256": "16241968522d55d715c6641cd3ddeed51644c0fc4ae3c5b7166a56faec6d0110",
+        "outcome": "found",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/fixed-sensor/fine-gateway-supply-route.json",
+      "sha256": "eed2f0706bb3a3d5674120909bc1d59be13bbad87b47c10a731ff86b8343e0d4",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "expanded_nodes": 100000,
+        "edge_checks": 358483,
+        "via_candidates": 3612,
+        "via_copper_failures": 3612,
+        "hole_failures": 0,
+        "clear_vias": 0,
+        "route": null,
+        "outcome": "node_bound",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "base_gateway": {
+          "native_opens": 23,
+          "physical_opens": 23,
+          "prior_groups_preserved": 211,
+          "current_groups": 211,
+          "net_count": 188,
+          "main_ground_pads": 197,
+          "main_vled_pads": 38,
+          "main_usb_pads": 32,
+          "orphan_copper": 0,
+          "retained_attached_source_copper": 19343
+        }
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/fixed-sensor/multiscale-gateway-supply-route.json",
+      "sha256": "44df2659e0e4e47d8cb85b06221277b0cb2055276b36a38805f5e1c3b8d23163",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "expanded_nodes": 25434,
+        "edge_checks": 99329,
+        "via_candidates": 7160,
+        "via_copper_failures": 7160,
+        "hole_failures": 0,
+        "clear_vias": 0,
+        "route": null,
+        "outcome": "bounded_graph_exhausted",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "base_gateway": {
+          "native_opens": 23,
+          "physical_opens": 23,
+          "prior_groups_preserved": 211,
+          "current_groups": 211,
+          "net_count": 188,
+          "main_ground_pads": 197,
+          "main_vled_pads": 38,
+          "main_usb_pads": 32,
+          "orphan_copper": 0,
+          "retained_attached_source_copper": 19343
+        }
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/fixed-sensor/seeded-gateway-supply-route.json",
+      "sha256": "0bea81d10188ea24f959971525985d4e91ea1de3afc83b74f7937ec51bbdee94",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "expanded_nodes": 6980,
+        "edge_checks": 28295,
+        "via_candidates": 7019,
+        "via_copper_failures": 7019,
+        "hole_failures": 0,
+        "clear_vias": 0,
+        "route": null,
+        "outcome": "bounded_graph_exhausted",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "base_gateway": {
+          "native_opens": 23,
+          "physical_opens": 23,
+          "prior_groups_preserved": 211,
+          "current_groups": 211,
+          "net_count": 188,
+          "main_ground_pads": 197,
+          "main_vled_pads": 38,
+          "main_usb_pads": 32,
+          "orphan_copper": 0,
+          "retained_attached_source_copper": 19343
+        }
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/fixed-sensor/selector-wall-gateway.json",
+      "sha256": "0e155dee958d608bd802b387307a521c53ddb00dd0073e238644a12e8e0871b5",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "hole_audit": null,
+        "hole_error": "Unsupported or overlapping close new drill pair: {'uuids': ['2ba04fe2-b7ee-50a9-9467-88d3612170d5', '3947ff0d-c32f-48b5-ab5e-c997267c3c71'], 'first_uuid': '3947ff0d-c32f-48b5-ab5e-c997267c3c71', 'first_span': ['In4.Cu', 'B.Cu'], 'second_span': ['In3.Cu', 'In4.Cu'], 'first_position_iu': [55325000, 15700000], 'second_position_iu': [55150000, 15750000]}",
+        "outcome": "fixed_prerequisite_failed",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "source_contacts_preserved": [
+          {
+            "source_uuid": "20ea7d57-fa47-5c6c-8ab6-3a5d113a3f67",
+            "contact_uuid": "5600f32c-2585-5391-b9e4-55a8f71323a0",
+            "layer": "In4.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "179d2bcd-c417-583f-a1a4-dc32f7c727e4",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "3a27014f-b0ee-5c2b-9f34-f080d840c159",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "6777d2c6-010e-5170-afb5-e688b40bc137",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "6babbcfe-8587-59d0-89b3-0c055380e9b2",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "788750d4-9eaf-589a-90cd-ab7a0b00b38a",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "b62a5db2-9e63-5ff9-9b08-4034fa9da26b",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "e96ed60d-857b-5a1f-8a2a-b98ebff6bbfb",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "e734f33e-d79f-507d-97c2-bf4f468110e3",
+            "contact_uuid": "f84e47c4-8b2c-5f71-8856-eb523c1ade2e",
+            "layer": "B.Cu",
+            "retained": true
+          }
+        ]
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/fixed-sensor/selector-wall-offset-gateway.json",
+      "sha256": "9f53157f486d721471312648d834adbf8e92b8971c671f26b3de96516024c1a9",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "outcome": "bounded_capture_templates_exhausted",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "counts": {
+          "capture_copper": 925
+        }
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/fixed-sensor/sensor-programming-ground-gateway.json",
+      "sha256": "16241968522d55d715c6641cd3ddeed51644c0fc4ae3c5b7166a56faec6d0110",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "c50_pad_distance_mm": 3.7950823442976835,
+        "original_c50_pad_distance_mm": 3.816022143541623,
+        "hole_error": null,
+        "outcome": "clear_template",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "filled_gateway": {
+          "native_opens": 23,
+          "physical_opens": 23,
+          "prior_groups": 211,
+          "current_groups": 211,
+          "split_groups": [],
+          "lost_retained_copper": [],
+          "orphans": 0
+        },
+        "hole_audit": {
+          "disjoint_supported_close_pairs": [
+            {
+              "uuids": [
+                "c710fb14-a3b2-4963-a02a-74b9f4c015c5",
+                "fa13bffe-e1be-57a5-891b-9c8f74289c73"
+              ],
+              "first_uuid": "c710fb14-a3b2-4963-a02a-74b9f4c015c5",
+              "first_span": [
+                "In4.Cu",
+                "B.Cu"
+              ],
+              "second_span": [
+                "F.Cu",
+                "In1.Cu"
+              ],
+              "first_position_iu": [
+                55850000,
+                15800000
+              ],
+              "second_position_iu": [
+                55600000,
+                15700000
+              ]
+            }
+          ],
+          "aligned_adjacent_stacks": [],
+          "other_close_pairs": 0,
+          "minimum_unchanged_hole_clearance_mm": 0.25,
+          "fabrication_qualified": false
+        },
+        "source_contacts_preserved": [
+          {
+            "source_uuid": "20ea7d57-fa47-5c6c-8ab6-3a5d113a3f67",
+            "contact_uuid": "5600f32c-2585-5391-b9e4-55a8f71323a0",
+            "layer": "In4.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "2a6ffeb0-e209-5116-a8b2-31bbae1c9fe7",
+            "contact_uuid": "203518a7-2610-5416-a454-e94881e1a8e7",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "2a6ffeb0-e209-5116-a8b2-31bbae1c9fe7",
+            "contact_uuid": "b0650699-8080-52ab-b613-837da5867827",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "2e37e68f-aaa0-57ec-87ec-9cbeec3eb43f",
+            "contact_uuid": "37e94d4c-8645-5bca-9b71-2c8327be486a",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "2e37e68f-aaa0-57ec-87ec-9cbeec3eb43f",
+            "contact_uuid": "a897a2ce-0106-5b3a-9bb2-665938176886",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "179d2bcd-c417-583f-a1a4-dc32f7c727e4",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "3a27014f-b0ee-5c2b-9f34-f080d840c159",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "6777d2c6-010e-5170-afb5-e688b40bc137",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "6babbcfe-8587-59d0-89b3-0c055380e9b2",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "788750d4-9eaf-589a-90cd-ab7a0b00b38a",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "b62a5db2-9e63-5ff9-9b08-4034fa9da26b",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "e96ed60d-857b-5a1f-8a2a-b98ebff6bbfb",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "e734f33e-d79f-507d-97c2-bf4f468110e3",
+            "contact_uuid": "f84e47c4-8b2c-5f71-8856-eb523c1ade2e",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "ebdefb60-8e25-59e1-b88a-9b7b1abf74cd",
+            "contact_uuid": "0c2d6ff1-ebc0-5599-921f-739ac3291653",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "ebdefb60-8e25-59e1-b88a-9b7b1abf74cd",
+            "contact_uuid": "4e97664f-9a17-5672-b67a-cb17c9ccffd3",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "ebdefb60-8e25-59e1-b88a-9b7b1abf74cd",
+            "contact_uuid": "5c4098c2-2a94-55ad-a1f1-60b04a83656a",
+            "layer": "B.Cu",
+            "retained": true
+          }
+        ],
+        "courtyard_overlaps": []
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/fixed-sensor/small-sensor-resistor-wall-gateway.json",
+      "sha256": "484c343fc67574436237ca0755b96c48ccb0042510e350c637ee23acd87289c4",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "c50_pad_distance_mm": 3.7950823442976835,
+        "original_c50_pad_distance_mm": 3.816022143541623,
+        "filled_gateway": null,
+        "hole_error": null,
+        "outcome": "fixed_prerequisite_failed",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "hole_audit": {
+          "disjoint_supported_close_pairs": [
+            {
+              "uuids": [
+                "b5ad9fe3-ec50-447e-ab3f-9275930e05c4",
+                "fa13bffe-e1be-57a5-891b-9c8f74289c73"
+              ],
+              "first_uuid": "b5ad9fe3-ec50-447e-ab3f-9275930e05c4",
+              "first_span": [
+                "In4.Cu",
+                "B.Cu"
+              ],
+              "second_span": [
+                "F.Cu",
+                "In1.Cu"
+              ],
+              "first_position_iu": [
+                55850000,
+                15800000
+              ],
+              "second_position_iu": [
+                55600000,
+                15700000
+              ]
+            }
+          ],
+          "aligned_adjacent_stacks": [],
+          "other_close_pairs": 0,
+          "minimum_unchanged_hole_clearance_mm": 0.25,
+          "fabrication_qualified": false
+        },
+        "source_contacts_preserved": [
+          {
+            "source_uuid": "20ea7d57-fa47-5c6c-8ab6-3a5d113a3f67",
+            "contact_uuid": "5600f32c-2585-5391-b9e4-55a8f71323a0",
+            "layer": "In4.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "2a6ffeb0-e209-5116-a8b2-31bbae1c9fe7",
+            "contact_uuid": "203518a7-2610-5416-a454-e94881e1a8e7",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "2a6ffeb0-e209-5116-a8b2-31bbae1c9fe7",
+            "contact_uuid": "b0650699-8080-52ab-b613-837da5867827",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "179d2bcd-c417-583f-a1a4-dc32f7c727e4",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "3a27014f-b0ee-5c2b-9f34-f080d840c159",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "6777d2c6-010e-5170-afb5-e688b40bc137",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "6babbcfe-8587-59d0-89b3-0c055380e9b2",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "788750d4-9eaf-589a-90cd-ab7a0b00b38a",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "b62a5db2-9e63-5ff9-9b08-4034fa9da26b",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "e96ed60d-857b-5a1f-8a2a-b98ebff6bbfb",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "e734f33e-d79f-507d-97c2-bf4f468110e3",
+            "contact_uuid": "f84e47c4-8b2c-5f71-8856-eb523c1ade2e",
+            "layer": "B.Cu",
+            "retained": true
+          }
+        ],
+        "courtyard_overlaps": []
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/fixed-sensor/small-sensor-wall-250000-gateway.json",
+      "sha256": "0d560a8697ed94c1c97851cfbd23dda5bbb6ce98748582f5f9ea5dd8b2b79e20",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "c50_pad_distance_mm": 3.797963269964574,
+        "original_c50_pad_distance_mm": 3.816022143541623,
+        "filled_gateway": null,
+        "hole_error": null,
+        "outcome": "fixed_prerequisite_failed",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "hole_audit": {
+          "disjoint_supported_close_pairs": [
+            {
+              "uuids": [
+                "2dc6457d-e881-4626-915c-8bac8ffe73fe",
+                "fa13bffe-e1be-57a5-891b-9c8f74289c73"
+              ],
+              "first_uuid": "2dc6457d-e881-4626-915c-8bac8ffe73fe",
+              "first_span": [
+                "In4.Cu",
+                "B.Cu"
+              ],
+              "second_span": [
+                "F.Cu",
+                "In1.Cu"
+              ],
+              "first_position_iu": [
+                55850000,
+                15800000
+              ],
+              "second_position_iu": [
+                55600000,
+                15700000
+              ]
+            }
+          ],
+          "aligned_adjacent_stacks": [],
+          "other_close_pairs": 0,
+          "minimum_unchanged_hole_clearance_mm": 0.25,
+          "fabrication_qualified": false
+        },
+        "source_contacts_preserved": [
+          {
+            "source_uuid": "20ea7d57-fa47-5c6c-8ab6-3a5d113a3f67",
+            "contact_uuid": "5600f32c-2585-5391-b9e4-55a8f71323a0",
+            "layer": "In4.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "2a6ffeb0-e209-5116-a8b2-31bbae1c9fe7",
+            "contact_uuid": "203518a7-2610-5416-a454-e94881e1a8e7",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "2a6ffeb0-e209-5116-a8b2-31bbae1c9fe7",
+            "contact_uuid": "b0650699-8080-52ab-b613-837da5867827",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "179d2bcd-c417-583f-a1a4-dc32f7c727e4",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "3a27014f-b0ee-5c2b-9f34-f080d840c159",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "6777d2c6-010e-5170-afb5-e688b40bc137",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "6babbcfe-8587-59d0-89b3-0c055380e9b2",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "788750d4-9eaf-589a-90cd-ab7a0b00b38a",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "b62a5db2-9e63-5ff9-9b08-4034fa9da26b",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "e96ed60d-857b-5a1f-8a2a-b98ebff6bbfb",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "e734f33e-d79f-507d-97c2-bf4f468110e3",
+            "contact_uuid": "f84e47c4-8b2c-5f71-8856-eb523c1ade2e",
+            "layer": "B.Cu",
+            "retained": true
+          }
+        ],
+        "courtyard_overlaps": [
+          "R90"
+        ]
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/fixed-sensor/small-sensor-wall-300000-gateway.json",
+      "sha256": "6277c2ecb2a3823a034554ac6d3f7828fd24b59bfc2285cc616c6ecea24bbab3",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "c50_pad_distance_mm": 3.7963172944315393,
+        "original_c50_pad_distance_mm": 3.816022143541623,
+        "filled_gateway": null,
+        "hole_error": null,
+        "outcome": "fixed_prerequisite_failed",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "hole_audit": {
+          "disjoint_supported_close_pairs": [
+            {
+              "uuids": [
+                "bde92d24-03ab-4b0e-86ef-e9d51012d4ce",
+                "fa13bffe-e1be-57a5-891b-9c8f74289c73"
+              ],
+              "first_uuid": "bde92d24-03ab-4b0e-86ef-e9d51012d4ce",
+              "first_span": [
+                "In4.Cu",
+                "B.Cu"
+              ],
+              "second_span": [
+                "F.Cu",
+                "In1.Cu"
+              ],
+              "first_position_iu": [
+                55850000,
+                15800000
+              ],
+              "second_position_iu": [
+                55600000,
+                15700000
+              ]
+            }
+          ],
+          "aligned_adjacent_stacks": [],
+          "other_close_pairs": 0,
+          "minimum_unchanged_hole_clearance_mm": 0.25,
+          "fabrication_qualified": false
+        },
+        "source_contacts_preserved": [
+          {
+            "source_uuid": "20ea7d57-fa47-5c6c-8ab6-3a5d113a3f67",
+            "contact_uuid": "5600f32c-2585-5391-b9e4-55a8f71323a0",
+            "layer": "In4.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "2a6ffeb0-e209-5116-a8b2-31bbae1c9fe7",
+            "contact_uuid": "203518a7-2610-5416-a454-e94881e1a8e7",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "2a6ffeb0-e209-5116-a8b2-31bbae1c9fe7",
+            "contact_uuid": "b0650699-8080-52ab-b613-837da5867827",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "179d2bcd-c417-583f-a1a4-dc32f7c727e4",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "3a27014f-b0ee-5c2b-9f34-f080d840c159",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "6777d2c6-010e-5170-afb5-e688b40bc137",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "6babbcfe-8587-59d0-89b3-0c055380e9b2",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "788750d4-9eaf-589a-90cd-ab7a0b00b38a",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "b62a5db2-9e63-5ff9-9b08-4034fa9da26b",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "e96ed60d-857b-5a1f-8a2a-b98ebff6bbfb",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "e734f33e-d79f-507d-97c2-bf4f468110e3",
+            "contact_uuid": "f84e47c4-8b2c-5f71-8856-eb523c1ade2e",
+            "layer": "B.Cu",
+            "retained": true
+          }
+        ],
+        "courtyard_overlaps": [
+          "R90"
+        ]
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/fixed-sensor/small-sensor-wall-350000-gateway.json",
+      "sha256": "e766919f9bf1190d7edc87b6fccc104fbb21072d87f1af67ae73ca8581a04a19",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "c50_pad_distance_mm": 3.7953293664713734,
+        "original_c50_pad_distance_mm": 3.816022143541623,
+        "filled_gateway": null,
+        "hole_error": null,
+        "outcome": "fixed_prerequisite_failed",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "hole_audit": {
+          "disjoint_supported_close_pairs": [
+            {
+              "uuids": [
+                "39aa5240-f526-4660-8c43-bad4b78153ea",
+                "fa13bffe-e1be-57a5-891b-9c8f74289c73"
+              ],
+              "first_uuid": "39aa5240-f526-4660-8c43-bad4b78153ea",
+              "first_span": [
+                "In4.Cu",
+                "B.Cu"
+              ],
+              "second_span": [
+                "F.Cu",
+                "In1.Cu"
+              ],
+              "first_position_iu": [
+                55850000,
+                15800000
+              ],
+              "second_position_iu": [
+                55600000,
+                15700000
+              ]
+            }
+          ],
+          "aligned_adjacent_stacks": [],
+          "other_close_pairs": 0,
+          "minimum_unchanged_hole_clearance_mm": 0.25,
+          "fabrication_qualified": false
+        },
+        "source_contacts_preserved": [
+          {
+            "source_uuid": "20ea7d57-fa47-5c6c-8ab6-3a5d113a3f67",
+            "contact_uuid": "5600f32c-2585-5391-b9e4-55a8f71323a0",
+            "layer": "In4.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "2a6ffeb0-e209-5116-a8b2-31bbae1c9fe7",
+            "contact_uuid": "203518a7-2610-5416-a454-e94881e1a8e7",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "2a6ffeb0-e209-5116-a8b2-31bbae1c9fe7",
+            "contact_uuid": "b0650699-8080-52ab-b613-837da5867827",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "179d2bcd-c417-583f-a1a4-dc32f7c727e4",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "3a27014f-b0ee-5c2b-9f34-f080d840c159",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "6777d2c6-010e-5170-afb5-e688b40bc137",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "6babbcfe-8587-59d0-89b3-0c055380e9b2",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "788750d4-9eaf-589a-90cd-ab7a0b00b38a",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "b62a5db2-9e63-5ff9-9b08-4034fa9da26b",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "e96ed60d-857b-5a1f-8a2a-b98ebff6bbfb",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "e734f33e-d79f-507d-97c2-bf4f468110e3",
+            "contact_uuid": "f84e47c4-8b2c-5f71-8856-eb523c1ade2e",
+            "layer": "B.Cu",
+            "retained": true
+          }
+        ],
+        "courtyard_overlaps": [
+          "R90"
+        ]
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/fixed-sensor/small-sensor-wall-gateway.json",
+      "sha256": "1896389235c12394636262e6caee09a9eb41820a0ddfebbadeae9e2ce11fb13e",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "c50_pad_distance_mm": 3.8032256046677007,
+        "original_c50_pad_distance_mm": 3.816022143541623,
+        "filled_gateway": null,
+        "hole_audit": null,
+        "hole_error": "Unsupported or overlapping close new drill pair: {'uuids': ['626588c1-0875-4ff3-9ba3-55f6c4940b5d', 'f74e2fc3-645b-5978-a1d8-bd5cd8c3d706'], 'first_uuid': '626588c1-0875-4ff3-9ba3-55f6c4940b5d', 'first_span': ['In4.Cu', 'B.Cu'], 'second_span': ['In2.Cu', 'In3.Cu'], 'first_position_iu': [55650000, 15800000], 'second_position_iu': [55500000, 15650000]}",
+        "outcome": "fixed_prerequisite_failed",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "source_contacts_preserved": [
+          {
+            "source_uuid": "20ea7d57-fa47-5c6c-8ab6-3a5d113a3f67",
+            "contact_uuid": "5600f32c-2585-5391-b9e4-55a8f71323a0",
+            "layer": "In4.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "2a6ffeb0-e209-5116-a8b2-31bbae1c9fe7",
+            "contact_uuid": "203518a7-2610-5416-a454-e94881e1a8e7",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "2a6ffeb0-e209-5116-a8b2-31bbae1c9fe7",
+            "contact_uuid": "b0650699-8080-52ab-b613-837da5867827",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "179d2bcd-c417-583f-a1a4-dc32f7c727e4",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "3a27014f-b0ee-5c2b-9f34-f080d840c159",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "6777d2c6-010e-5170-afb5-e688b40bc137",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "6babbcfe-8587-59d0-89b3-0c055380e9b2",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "788750d4-9eaf-589a-90cd-ab7a0b00b38a",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "b62a5db2-9e63-5ff9-9b08-4034fa9da26b",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+            "contact_uuid": "e96ed60d-857b-5a1f-8a2a-b98ebff6bbfb",
+            "layer": "B.Cu",
+            "retained": true
+          },
+          {
+            "source_uuid": "e734f33e-d79f-507d-97c2-bf4f468110e3",
+            "contact_uuid": "f84e47c4-8b2c-5f71-8856-eb523c1ade2e",
+            "layer": "B.Cu",
+            "retained": true
+          }
+        ],
+        "courtyard_overlaps": [
+          "R90"
+        ]
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/fixed-sensor/supply-capture-blockers.json",
+      "sha256": "ddc0d9d08c76d9009de6ff23df49214bc556000a4fac5fa8aa5ac058f8b1ab07",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "read_only": true,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/fixed-sensor/supply-route.json",
+      "sha256": "b0868c14685cd3dabf8ab254c46fa9b972c912fab484e77e1d4942a66e8dfbe5",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "expanded_nodes": 110,
+        "edge_checks": 305,
+        "route": null,
+        "outcome": "bounded_graph_exhausted",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/fixed-sensor/supply-wide-capture-blockers.json",
+      "sha256": "957625657452609fb2b0d210267f20c7875e5398c96080c69ff394458c73d3f3",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "read_only": true,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/fixed-sensor/supported-supply-global-route.json",
+      "sha256": "d54f9965b2d92b5a253d412fbe2796403e3126b67b23c86e33f333edd6e5af7d",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "expanded_nodes": 110,
+        "edge_checks": 519,
+        "via_candidates": 225,
+        "via_copper_failures": 225,
+        "hole_failures": 0,
+        "clear_vias": 0,
+        "route": null,
+        "outcome": "bounded_graph_exhausted",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/fixed-sensor/supported-supply-route.json",
+      "sha256": "40174f2f16f9518a1b4f6f6465ab8160920745b082368031b7b8c5401b035b39",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "expanded_nodes": 110,
+        "edge_checks": 519,
+        "via_candidates": 110,
+        "via_copper_failures": 110,
+        "hole_failures": 0,
+        "clear_vias": 0,
+        "route": null,
+        "outcome": "bounded_graph_exhausted",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/fixed-sensor/wide-seeded-gateway-supply-route.json",
+      "sha256": "ba1482b4502cc35454782a85103055486764e85a315a9b646a2adf69ef75b709",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "expanded_nodes": 145182,
+        "edge_checks": 301048,
+        "via_candidates": 58103,
+        "via_copper_failures": 56485,
+        "hole_failures": 0,
+        "clear_vias": 1618,
+        "route": null,
+        "outcome": "bounded_graph_exhausted",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/fixed-sensor/three-layer-seeded-supply-route.json",
+      "sha256": "e349582df9b0a8261fadc62bf336d8c04e338e8b240d205cce9fa15ecfd79450",
+      "metrics": {
+        "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+        "expanded_nodes": 109256,
+        "edge_checks": 363278,
+        "via_candidates": 74336,
+        "via_copper_failures": 70997,
+        "hole_failures": 0,
+        "clear_vias": 3339,
+        "route": null,
+        "outcome": "bounded_graph_exhausted",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false
+      }
+    }
+  ],
+  "validation": {
+    "continuation-source-checks.json": {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/fixed-sensor/continuation-source-checks.json",
+      "sha256": "efa36f8e6c29db0a395b41427637277db1ac486ce358e427375a6375877f317e"
+    },
+    "public-gateway-check.log": {
+      "path": "hardware/coupon/rev-a/build/pair01-supply-routing/fixed-sensor/public-gateway-check.log",
+      "sha256": "f5c2fb0572d63afedef0825fc4f355bc2285b3e5229c33675c850398054bf856"
+    },
+    "portable_commands_passed": 42
+  }
+}

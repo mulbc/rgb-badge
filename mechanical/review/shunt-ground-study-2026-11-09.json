@@ -1,0 +1,1246 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "coupled_trial": {
+    "ground_group_sizes_after": [
+      1,
+      2,
+      194
+    ],
+    "ground_group_sizes_before": [
+      1,
+      2,
+      194
+    ],
+    "joined_to_main_ground": [
+      [
+        "U38",
+        "3"
+      ],
+      [
+        "U52",
+        "3"
+      ]
+    ],
+    "lost_from_main_ground": [
+      [
+        "PAIR03",
+        "1"
+      ],
+      [
+        "PAIR04",
+        "1"
+      ]
+    ],
+    "native_exact_baseline_comparison_passed": true,
+    "native_exact_baseline_drc_findings": 104,
+    "native_opens": 36,
+    "selected": false
+  },
+  "evidence_files": [
+    {
+      "bytes": 58503,
+      "path": "hardware/coupon/rev-a/build/zero-open-routing/u38-microplacement-refilled.json",
+      "sha256": "a0a922ec6e1f6d7c1f01a7af63b28a5fb21a944f86119d06d70f2f2dfa781fa2"
+    },
+    {
+      "bytes": 5200,
+      "path": "hardware/coupon/rev-a/build/zero-open-routing/u38-microplacement-refilled.py",
+      "sha256": "f07a24836b4398cc4576b7cfbd241bfba044b905b41832e07099cb3bf16c8ffc"
+    },
+    {
+      "bytes": 31382,
+      "path": "hardware/coupon/rev-a/build/zero-open-routing/search-ground-plane.py",
+      "sha256": "fd2f8a16f1e84d6271b9ee8802096ed31514dfb1aa006ad4a82e8318ebd2e528"
+    },
+    {
+      "bytes": 31604,
+      "path": "hardware/coupon/rev-a/build/zero-open-routing/search-ground-plane-fine.py",
+      "sha256": "bbadbe7012a1c1fa9fe01d5dfc1550514f78de758a091951768906d120942ea6"
+    },
+    {
+      "bytes": 31604,
+      "path": "hardware/coupon/rev-a/build/zero-open-routing/search-ground-plane-fine-all.py",
+      "sha256": "bbadbe7012a1c1fa9fe01d5dfc1550514f78de758a091951768906d120942ea6"
+    },
+    {
+      "bytes": 4518,
+      "path": "hardware/coupon/rev-a/build/zero-open-routing/shunt-reroute.py",
+      "sha256": "469384a631e8b6225e9604b12ebd88bcfa3608da68fb17fdef37732bad24e37f"
+    },
+    {
+      "bytes": 4657,
+      "path": "hardware/coupon/rev-a/build/zero-open-routing/shunt-three-row.py",
+      "sha256": "ea11b45a0127569e3baf53e328a18983b82c0497cc915ac574b5beaecb2c6ba0"
+    },
+    {
+      "bytes": 4731,
+      "path": "hardware/coupon/rev-a/build/zero-open-routing/shunt-coupled.py",
+      "sha256": "36930d92b015b38fd7d25f71a0a745a00dc982d2006d45f9a36cbdaa8e3961e7"
+    },
+    {
+      "bytes": 4799,
+      "path": "hardware/coupon/rev-a/build/zero-open-routing/shunt-preserved-row0.py",
+      "sha256": "e907fa29beebc05f29642b033633fbb33b5816fe885cb4bfa5357237fd5bf1a3"
+    },
+    {
+      "bytes": 5195,
+      "path": "hardware/coupon/rev-a/build/zero-open-routing/shunt-front-transfer.py",
+      "sha256": "8608edc0ab8c5c0214574f39948c6921fd596b0ce378494bd803039da38d64cf"
+    },
+    {
+      "bytes": 3784,
+      "path": "hardware/coupon/rev-a/build/zero-open-routing/shunt-row1-transfer.py",
+      "sha256": "c6911c2a2fdca2fc94f0f4267a164f89cee0bb22f7280b7629e714a22112b440"
+    },
+    {
+      "bytes": 3018,
+      "path": "hardware/coupon/rev-a/build/zero-open-routing/reserve-ground-corridor.py",
+      "sha256": "0fa0a065f3ec3631983b0c8b8167ff030ee8c278225d17adccbb3182e98d50db"
+    },
+    {
+      "bytes": 1198,
+      "path": "hardware/coupon/rev-a/build/zero-open-routing/shunt-critical.py",
+      "sha256": "6c4caee6a63c2b9e3a16cf185432ab845735668aa9598ec43a1b0a0f35bcee9c"
+    },
+    {
+      "bytes": 1034,
+      "path": "hardware/coupon/rev-a/build/zero-open-routing/widen-row1-capture.py",
+      "sha256": "0f2f0ddfb0c4d08b9307bf5d411689b6f23ff4d67c86ecade29201068c7ee2ca"
+    },
+    {
+      "bytes": 1479,
+      "path": "hardware/coupon/rev-a/build/zero-open-routing/dsf-seeds.py",
+      "sha256": "922ebe4505d32d088c7a265a362213db2dfc4ffba42f62e849ee16b697be2249"
+    },
+    {
+      "bytes": 157,
+      "path": "hardware/coupon/rev-a/build/zero-open-routing/shunt-front-transfer.json",
+      "sha256": "9e97c72d93551de0450f1180065e3ff82d9706888ffc3307d274d0dc51fef351"
+    },
+    {
+      "bytes": 1565,
+      "path": "hardware/coupon/rev-a/build/zero-open-routing/shunt-reroute-trial.json",
+      "sha256": "efa06f0da83a9c3c4d62f2f21a94e1a4a47bff80e01316783bc82088106eb8a9"
+    },
+    {
+      "bytes": 17033,
+      "path": "hardware/coupon/rev-a/build/zero-open-routing/shunt-reroute-GND-ROW_SEL_01-ROW_SEL_03.json",
+      "sha256": "8c54a06fd34f97d6c7173650f9ff727a2e195ceee93363ca111adb65f9b2fa89"
+    },
+    {
+      "bytes": 11111,
+      "path": "hardware/coupon/rev-a/build/zero-open-routing/shunt-three-row-GND-ROW_SEL_00-ROW_SEL_03-ROW_SEL_01.json",
+      "sha256": "84666e270337d2ecd6721af2331411b5b8d0fe58989a6c37314721c785eba21a"
+    },
+    {
+      "bytes": 9733,
+      "path": "hardware/coupon/rev-a/build/zero-open-routing/shunt-coupled-GND-ROW_SEL_00-ROW_SEL_03-ROW_SEL_01.json",
+      "sha256": "bb49faa5a29c59ad6516ead83df60c06dd9db700be6905740a258b7663e9d429"
+    },
+    {
+      "bytes": 9458,
+      "path": "hardware/coupon/rev-a/build/zero-open-routing/shunt-preserved-row0-GND-ROW_SEL_03-ROW_SEL_01.json",
+      "sha256": "873953a931333e998f9d890ab179b054d8ec8e37aa28c3403dc807b3b1d6ce46"
+    },
+    {
+      "bytes": 362,
+      "path": "hardware/coupon/rev-a/build/zero-open-routing/shunt-coupled-group-delta.json",
+      "sha256": "08076acbab7aabb26c48cd409705d76b3effdf4064054500668aa9ca3943d6ae"
+    },
+    {
+      "bytes": 629,
+      "path": "hardware/coupon/rev-a/build/zero-open-routing/shunt-row1-transfer.json",
+      "sha256": "a583cd9ea3de7cedb5c78e4c1aeee0ec7df1eafca6cc69da1be7c9c95cf31d53"
+    },
+    {
+      "bytes": 6354,
+      "path": "hardware/coupon/rev-a/build/zero-open-routing/shunt-ground-reserved.json",
+      "sha256": "381d79faf8a58ef4e4c8f876b6da22b46dc12198214b260ab84e733e1ca80e38"
+    },
+    {
+      "bytes": 666,
+      "path": "hardware/coupon/rev-a/build/zero-open-routing/36-dsf-seeds.json",
+      "sha256": "e40ff42d545827a13a319de37c005ec0c541981f2d3cb77cf574bb78999e0159"
+    },
+    {
+      "bytes": 114512,
+      "path": "hardware/coupon/rev-a/build/zero-open-routing/shunt-coupled-trial.drc.json",
+      "sha256": "d56fc42c017ebc4e2e271fe76ab712cb35decdf00bbf96d38e825afb7b4233bb"
+    }
+  ],
+  "fabrication_release_allowed": false,
+  "ground_reservation": {
+    "interpretation": "Ignored routing constraint, not electrical return-path qualification; no successor selected",
+    "source_native_opens": 36,
+    "track_width_mm": 0.2,
+    "tracks": 48
+  },
+  "limitations": [
+    "Finite sampled geometry and node bounds do not prove global impossibility.",
+    "Incomplete DSF seed escapes are not selected.",
+    "The 196-pad return and row-selector interface must be restored together.",
+    "No successor replay/fault/visual acceptance was claimed for rejected trials."
+  ],
+  "searches": [
+    {
+      "added_tracks_and_vias": 0,
+      "grid_mm": 0.05,
+      "name": "36-ground-plane-search",
+      "open_edges": 36,
+      "routes": [
+        {
+          "expanded_nodes": 269,
+          "net": "GND",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "PAIR01",
+            "1"
+          ]
+        },
+        {
+          "expanded_nodes": 7004,
+          "net": "GND",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "U38",
+            "3"
+          ]
+        },
+        {
+          "expanded_nodes": 11338,
+          "net": "GND",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "U52",
+            "3"
+          ]
+        }
+      ],
+      "search_tool_sha256": "fd2f8a16f1e84d6271b9ee8802096ed31514dfb1aa006ad4a82e8318ebd2e528",
+      "source_sha256": "a24e9220226b77411ae8e8baea5cd629ce0fea8a97c377a708510d6791c2e439"
+    },
+    {
+      "added_tracks_and_vias": 0,
+      "grid_mm": 0.025,
+      "name": "36-ground-plane-fine",
+      "open_edges": 36,
+      "routes": [
+        {
+          "expanded_nodes": 0,
+          "net": "GND",
+          "routed": false,
+          "search_outcome": "no_usable_grid_endpoint",
+          "source": [
+            "PAIR01",
+            "1"
+          ]
+        },
+        {
+          "expanded_nodes": 16314,
+          "net": "GND",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "U38",
+            "3"
+          ]
+        },
+        {
+          "expanded_nodes": 16314,
+          "net": "GND",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "U52",
+            "3"
+          ]
+        }
+      ],
+      "search_tool_sha256": "bbadbe7012a1c1fa9fe01d5dfc1550514f78de758a091951768906d120942ea6",
+      "source_sha256": "a24e9220226b77411ae8e8baea5cd629ce0fea8a97c377a708510d6791c2e439"
+    },
+    {
+      "added_tracks_and_vias": 0,
+      "grid_mm": 0.025,
+      "name": "36-ground-plane-fine-all",
+      "open_edges": 36,
+      "routes": [
+        {
+          "expanded_nodes": 1007,
+          "net": "GND",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "PAIR01",
+            "1"
+          ]
+        },
+        {
+          "expanded_nodes": 43339,
+          "net": "GND",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "U38",
+            "3"
+          ]
+        },
+        {
+          "expanded_nodes": 43339,
+          "net": "GND",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "U52",
+            "3"
+          ]
+        }
+      ],
+      "search_tool_sha256": "bbadbe7012a1c1fa9fe01d5dfc1550514f78de758a091951768906d120942ea6",
+      "source_sha256": "a24e9220226b77411ae8e8baea5cd629ce0fea8a97c377a708510d6791c2e439"
+    },
+    {
+      "added_tracks_and_vias": 0,
+      "grid_mm": 0.05,
+      "name": "36-through-control-search",
+      "open_edges": 36,
+      "routes": [
+        {
+          "expanded_nodes": 766,
+          "net": "ROW_GATE_02",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "R8",
+            "2"
+          ]
+        },
+        {
+          "expanded_nodes": 212,
+          "net": "ROW_GATE_00",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "R6",
+            "2"
+          ]
+        },
+        {
+          "expanded_nodes": 0,
+          "net": "DISPLAY_CLEAR_3",
+          "routed": false,
+          "search_outcome": "no_usable_grid_endpoint",
+          "source": [
+            "U52",
+            "1"
+          ]
+        },
+        {
+          "expanded_nodes": 160001,
+          "net": "ROW_GATE_04",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "R10",
+            "2"
+          ]
+        },
+        {
+          "expanded_nodes": 160001,
+          "net": "ROW_GATE_06",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "R12",
+            "2"
+          ]
+        },
+        {
+          "expanded_nodes": 160001,
+          "net": "ROW_GATE_07",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "R13",
+            "2"
+          ]
+        },
+        {
+          "expanded_nodes": 806,
+          "net": "CHARGER_EN2",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "U38",
+            "1"
+          ]
+        },
+        {
+          "expanded_nodes": 127,
+          "net": "ROW_GATE_03",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "R9",
+            "2"
+          ]
+        },
+        {
+          "expanded_nodes": 3035,
+          "net": "CHARGER_TS",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "TH1",
+            "1"
+          ]
+        },
+        {
+          "expanded_nodes": 0,
+          "net": "DISPLAY_HEARTBEAT",
+          "routed": false,
+          "search_outcome": "no_usable_grid_endpoint",
+          "source": [
+            "U48",
+            "2"
+          ]
+        },
+        {
+          "expanded_nodes": 62,
+          "net": "USB_D+",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "U32",
+            "2"
+          ]
+        },
+        {
+          "expanded_nodes": 160001,
+          "net": "USB_D-",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "U32",
+            "6"
+          ]
+        },
+        {
+          "expanded_nodes": 0,
+          "net": "HEARTBEAT_FALL_CLK",
+          "routed": false,
+          "search_outcome": "no_usable_grid_endpoint",
+          "source": [
+            "U49",
+            "1"
+          ]
+        },
+        {
+          "expanded_nodes": 1200,
+          "net": "VLED",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "PAIR01",
+            "4"
+          ]
+        },
+        {
+          "expanded_nodes": 41,
+          "net": "VLED",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "PAIR03",
+            "4"
+          ]
+        },
+        {
+          "expanded_nodes": 48,
+          "net": "VLED",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "PAIR05",
+            "4"
+          ]
+        },
+        {
+          "expanded_nodes": 43,
+          "net": "VLED",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "PAIR07",
+            "4"
+          ]
+        },
+        {
+          "expanded_nodes": 41,
+          "net": "VLED",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "PAIR09",
+            "4"
+          ]
+        },
+        {
+          "expanded_nodes": 5365,
+          "net": "VLED",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "R11",
+            "1"
+          ]
+        },
+        {
+          "expanded_nodes": 268,
+          "net": "VLED",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "R21",
+            "1"
+          ]
+        },
+        {
+          "expanded_nodes": 160001,
+          "net": "VBUS_CONNECTOR",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "R71",
+            "1"
+          ]
+        },
+        {
+          "expanded_nodes": 37,
+          "net": "LED_LAT",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "U1",
+            "27"
+          ]
+        },
+        {
+          "expanded_nodes": 160001,
+          "net": "ESP_EN",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "U51",
+            "3"
+          ]
+        },
+        {
+          "expanded_nodes": 246,
+          "net": "LED_GCLK",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "U1",
+            "29"
+          ]
+        },
+        {
+          "expanded_nodes": 160001,
+          "net": "USB_CC1",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "U31",
+            "1"
+          ]
+        },
+        {
+          "expanded_nodes": 214,
+          "net": "LED_SCLK",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "U1",
+            "28"
+          ]
+        },
+        {
+          "expanded_nodes": 0,
+          "net": "DISPLAY_ENABLE",
+          "routed": false,
+          "search_outcome": "no_usable_grid_endpoint",
+          "source": [
+            "U52",
+            "2"
+          ]
+        },
+        {
+          "expanded_nodes": 160001,
+          "net": "USB_EN1_RAW_N",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "U23",
+            "4"
+          ]
+        },
+        {
+          "expanded_nodes": 4602,
+          "net": "+BAT_GAUGE_SW",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "C64",
+            "1"
+          ]
+        },
+        {
+          "expanded_nodes": 4602,
+          "net": "+BAT_GAUGE_SW",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "R101",
+            "1"
+          ]
+        },
+        {
+          "expanded_nodes": 4602,
+          "net": "+BAT_GAUGE_SW",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "R102",
+            "1"
+          ]
+        },
+        {
+          "expanded_nodes": 160001,
+          "net": "+BAT_GAUGE_SW",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "U35",
+            "2"
+          ]
+        },
+        {
+          "expanded_nodes": 160001,
+          "net": "+BAT_GAUGE_SW",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "U35",
+            "3"
+          ]
+        },
+        {
+          "expanded_nodes": 160001,
+          "net": "HEARTBEAT_SEEN",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "U50",
+            "2"
+          ]
+        },
+        {
+          "expanded_nodes": 160001,
+          "net": "DISPLAY_CLEAR_OK",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "U50",
+            "6"
+          ]
+        },
+        {
+          "expanded_nodes": 0,
+          "net": "DISPLAY_CLEAR_OK",
+          "routed": false,
+          "search_outcome": "no_usable_grid_endpoint",
+          "source": [
+            "U52",
+            "4"
+          ]
+        },
+        {
+          "expanded_nodes": 36,
+          "net": "+3V3_USB",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "U39",
+            "5"
+          ]
+        }
+      ],
+      "search_tool_sha256": "6c6b7fb3be76d03a65c35ddc78de9e0e2b33442042ba5a8aba17523a2de291b5",
+      "source_sha256": "a24e9220226b77411ae8e8baea5cd629ce0fea8a97c377a708510d6791c2e439"
+    },
+    {
+      "added_tracks_and_vias": 0,
+      "grid_mm": 0.05,
+      "name": "36-reverse-search",
+      "open_edges": 36,
+      "routes": [
+        {
+          "expanded_nodes": 5461,
+          "net": "ROW_GATE_02",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "R8",
+            "2"
+          ]
+        },
+        {
+          "expanded_nodes": 445,
+          "net": "ROW_GATE_00",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "R6",
+            "2"
+          ]
+        },
+        {
+          "expanded_nodes": 0,
+          "net": "DISPLAY_CLEAR_3",
+          "routed": false,
+          "search_outcome": "no_usable_grid_endpoint",
+          "source": [
+            "U52",
+            "1"
+          ]
+        },
+        {
+          "expanded_nodes": 478,
+          "net": "ROW_GATE_04",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "R10",
+            "2"
+          ]
+        },
+        {
+          "expanded_nodes": 4734,
+          "net": "ROW_GATE_06",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "R12",
+            "2"
+          ]
+        },
+        {
+          "expanded_nodes": 4705,
+          "net": "ROW_GATE_07",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "R13",
+            "2"
+          ]
+        },
+        {
+          "expanded_nodes": 200001,
+          "net": "CHARGER_EN2",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "U38",
+            "1"
+          ]
+        },
+        {
+          "expanded_nodes": 2061,
+          "net": "ROW_GATE_03",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "R9",
+            "2"
+          ]
+        },
+        {
+          "expanded_nodes": 200001,
+          "net": "CHARGER_TS",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "TH1",
+            "1"
+          ]
+        },
+        {
+          "expanded_nodes": 0,
+          "net": "DISPLAY_HEARTBEAT",
+          "routed": false,
+          "search_outcome": "no_usable_grid_endpoint",
+          "source": [
+            "U48",
+            "2"
+          ]
+        },
+        {
+          "expanded_nodes": 262,
+          "net": "USB_D+",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "U32",
+            "2"
+          ]
+        },
+        {
+          "expanded_nodes": 162,
+          "net": "USB_D-",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "U32",
+            "6"
+          ]
+        },
+        {
+          "expanded_nodes": 0,
+          "net": "HEARTBEAT_FALL_CLK",
+          "routed": false,
+          "search_outcome": "no_usable_grid_endpoint",
+          "source": [
+            "U49",
+            "1"
+          ]
+        },
+        {
+          "expanded_nodes": 200001,
+          "net": "VLED",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "PAIR01",
+            "4"
+          ]
+        },
+        {
+          "expanded_nodes": 200001,
+          "net": "VLED",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "PAIR03",
+            "4"
+          ]
+        },
+        {
+          "expanded_nodes": 200001,
+          "net": "VLED",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "PAIR05",
+            "4"
+          ]
+        },
+        {
+          "expanded_nodes": 200001,
+          "net": "VLED",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "PAIR07",
+            "4"
+          ]
+        },
+        {
+          "expanded_nodes": 200001,
+          "net": "VLED",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "PAIR09",
+            "4"
+          ]
+        },
+        {
+          "expanded_nodes": 200001,
+          "net": "VLED",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "R11",
+            "1"
+          ]
+        },
+        {
+          "expanded_nodes": 200001,
+          "net": "VLED",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "R21",
+            "1"
+          ]
+        },
+        {
+          "expanded_nodes": 200001,
+          "net": "VBUS_CONNECTOR",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "R71",
+            "1"
+          ]
+        },
+        {
+          "expanded_nodes": 200001,
+          "net": "LED_LAT",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "U1",
+            "27"
+          ]
+        },
+        {
+          "expanded_nodes": 200001,
+          "net": "ESP_EN",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "U51",
+            "3"
+          ]
+        },
+        {
+          "expanded_nodes": 200001,
+          "net": "LED_GCLK",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "U1",
+            "29"
+          ]
+        },
+        {
+          "expanded_nodes": 200001,
+          "net": "USB_CC1",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "U31",
+            "1"
+          ]
+        },
+        {
+          "expanded_nodes": 200001,
+          "net": "LED_SCLK",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "U1",
+            "28"
+          ]
+        },
+        {
+          "expanded_nodes": 0,
+          "net": "DISPLAY_ENABLE",
+          "routed": false,
+          "search_outcome": "no_usable_grid_endpoint",
+          "source": [
+            "U52",
+            "2"
+          ]
+        },
+        {
+          "expanded_nodes": 200001,
+          "net": "USB_EN1_RAW_N",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "U23",
+            "4"
+          ]
+        },
+        {
+          "expanded_nodes": 200001,
+          "net": "+BAT_GAUGE_SW",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "C64",
+            "1"
+          ]
+        },
+        {
+          "expanded_nodes": 200001,
+          "net": "+BAT_GAUGE_SW",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "R101",
+            "1"
+          ]
+        },
+        {
+          "expanded_nodes": 200001,
+          "net": "+BAT_GAUGE_SW",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "R102",
+            "1"
+          ]
+        },
+        {
+          "expanded_nodes": 200001,
+          "net": "+BAT_GAUGE_SW",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "U35",
+            "2"
+          ]
+        },
+        {
+          "expanded_nodes": 200001,
+          "net": "+BAT_GAUGE_SW",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "U35",
+            "3"
+          ]
+        },
+        {
+          "expanded_nodes": 200001,
+          "net": "HEARTBEAT_SEEN",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "U50",
+            "2"
+          ]
+        },
+        {
+          "expanded_nodes": 200001,
+          "net": "DISPLAY_CLEAR_OK",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "U50",
+            "6"
+          ]
+        },
+        {
+          "expanded_nodes": 0,
+          "net": "DISPLAY_CLEAR_OK",
+          "routed": false,
+          "search_outcome": "no_usable_grid_endpoint",
+          "source": [
+            "U52",
+            "4"
+          ]
+        },
+        {
+          "expanded_nodes": 200001,
+          "net": "+3V3_USB",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "U39",
+            "5"
+          ]
+        }
+      ],
+      "search_tool_sha256": "6c6b7fb3be76d03a65c35ddc78de9e0e2b33442042ba5a8aba17523a2de291b5",
+      "source_sha256": "a24e9220226b77411ae8e8baea5cd629ce0fea8a97c377a708510d6791c2e439"
+    },
+    {
+      "added_tracks_and_vias": 0,
+      "grid_mm": 0.05,
+      "name": "36-dsf-routes",
+      "open_edges": 36,
+      "routes": [
+        {
+          "expanded_nodes": 5117,
+          "net": "DISPLAY_CLEAR_3",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "U52",
+            "1"
+          ]
+        },
+        {
+          "expanded_nodes": 250001,
+          "net": "HEARTBEAT_FALL_CLK",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "U49",
+            "1"
+          ]
+        }
+      ],
+      "search_tool_sha256": "6c6b7fb3be76d03a65c35ddc78de9e0e2b33442042ba5a8aba17523a2de291b5",
+      "source_sha256": "404e3906722f9aca37557728a06e44e83153d690e83d5d1b926df1fbb5655fb3"
+    },
+    {
+      "added_tracks_and_vias": 0,
+      "grid_mm": 0.05,
+      "name": "shunt-coupled-ground",
+      "open_edges": 36,
+      "routes": [
+        {
+          "expanded_nodes": 229,
+          "net": "GND",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "PAIR01",
+            "1"
+          ]
+        },
+        {
+          "expanded_nodes": 1984,
+          "net": "GND",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "PAIR03",
+            "1"
+          ]
+        },
+        {
+          "expanded_nodes": 1984,
+          "net": "GND",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "PAIR04",
+            "1"
+          ]
+        }
+      ],
+      "search_tool_sha256": "6c6b7fb3be76d03a65c35ddc78de9e0e2b33442042ba5a8aba17523a2de291b5",
+      "source_sha256": "4b28fd77d34ded2391f9922d8d6ab6c3421a925ff676e0abc7ceef263dd04519"
+    },
+    {
+      "added_tracks_and_vias": 0,
+      "grid_mm": 0.05,
+      "name": "shunt-row1-restored",
+      "open_edges": 36,
+      "routes": [
+        {
+          "expanded_nodes": 19776,
+          "net": "ROW_SEL_01",
+          "rejected_reason": "existing_pad_cluster_split_after_zone_refill",
+          "rejected_snapshot": {
+            "board_sha256": "dffbac201493250bf6dcd0abb2b711511c67af651e92c9823521f5ce31f2cd5a",
+            "path": "hardware/coupon/rev-a/build/zero-open-routing/shunt-row1-restored-rejected/ROW_SEL_01-PAIR02-2.kicad_pcb",
+            "physical_pad_groups": [
+              {
+                "anchor": [
+                  "J1",
+                  "A1_B12"
+                ],
+                "lost": [
+                  [
+                    "PAIR03",
+                    "1",
+                    76675000,
+                    6850000
+                  ],
+                  [
+                    "PAIR04",
+                    "1",
+                    80675000,
+                    8850000
+                  ]
+                ],
+                "net": "GND"
+              }
+            ]
+          },
+          "routed": false,
+          "search_outcome": "existing_pad_cluster_split_after_zone_refill",
+          "source": [
+            "PAIR02",
+            "2"
+          ]
+        }
+      ],
+      "search_tool_sha256": "6c6b7fb3be76d03a65c35ddc78de9e0e2b33442042ba5a8aba17523a2de291b5",
+      "source_sha256": "7c04620654a8e4c3be1593eb648fb2a1bd52ad090b36000b779cc876b952cfd1"
+    },
+    {
+      "added_tracks_and_vias": 0,
+      "grid_mm": 0.05,
+      "name": "shunt-ground-reserved-restored",
+      "open_edges": 36,
+      "routes": [
+        {
+          "expanded_nodes": 18962,
+          "net": "ROW_SEL_01",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "PAIR02",
+            "2"
+          ]
+        }
+      ],
+      "search_tool_sha256": "6c6b7fb3be76d03a65c35ddc78de9e0e2b33442042ba5a8aba17523a2de291b5",
+      "source_sha256": "34a998274f3553442e7530c1e051fafd666e6749859660dded2472d5a130dcc9"
+    },
+    {
+      "added_tracks_and_vias": 0,
+      "grid_mm": 0.05,
+      "name": "shunt-wide-restored",
+      "open_edges": 36,
+      "routes": [
+        {
+          "expanded_nodes": 322,
+          "net": "ROW_SEL_01",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "PAIR02",
+            "2"
+          ]
+        }
+      ],
+      "search_tool_sha256": "6c6b7fb3be76d03a65c35ddc78de9e0e2b33442042ba5a8aba17523a2de291b5",
+      "source_sha256": "49753da7d5b4a7bf7f130dab7a6630dcff9da4d09e991e86f544e2806eb7e4f5"
+    }
+  ],
+  "source_board_changed": false,
+  "source_native_opens": 36,
+  "source_physical_opens": 36,
+  "source_sha256": "a24e9220226b77411ae8e8baea5cd629ce0fea8a97c377a708510d6791c2e439",
+  "status": "REJECTED_BOUNDED_EXPLORATIONS_SOURCE_UNCHANGED",
+  "u38_microplacement": {
+    "original_contacts": {
+      "54d0e230-8e05-52c8-8a48-3d22a430d097": [],
+      "b40c5739-9a27-57d2-abee-57d61aa4917b": [],
+      "e31cbe1d-5f20-5738-88bf-59b0ba46de86": [
+        "f73e7cc3-462c-55b9-9015-0e768240f820",
+        "90ec5cbd-8b4c-521e-9dd6-82cccee9fb28"
+      ]
+    },
+    "outcomes": {
+      "foreign_pad_copper": 79,
+      "no_ground_join": 1,
+      "original_land_contact": 1
+    },
+    "selected_trial": null,
+    "trials": 81
+  }
+}

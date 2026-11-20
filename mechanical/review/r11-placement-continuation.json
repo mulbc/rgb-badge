@@ -1,0 +1,295 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "date": "2026-11-19",
+  "evidence": [
+    {
+      "bytes": 5343,
+      "path": "hardware/coupon/rev-a/build/r21-routing/r11-contact-escape/blockers.json",
+      "sha256": "c5a22745d3ad5deaf0ebdd9130d8e9db8fb63820d60e5e49b8105b8d4ca8c53f"
+    },
+    {
+      "bytes": 4066,
+      "path": "hardware/coupon/rev-a/build/r21-routing/r11-contact-escape/blockers.py",
+      "sha256": "f2f4751270495d38307a579cfe1de8ad76e62c22f71c4a36779c11dd9271ca15"
+    },
+    {
+      "bytes": 3817,
+      "path": "hardware/coupon/rev-a/build/r21-routing/r11-contact-escape/gates.py",
+      "sha256": "5096a8f0fc985b01c4bd523e11e52b8728625ebb138d0a092abf4ebe25c77bc2"
+    },
+    {
+      "bytes": 336,
+      "path": "hardware/coupon/rev-a/build/r21-routing/r11-contact-escape/screen.json",
+      "sha256": "133f5bc368c154595565e70b6cc8834c9a5e93f4a2269d23dac671f855d05591"
+    },
+    {
+      "bytes": 7318,
+      "path": "hardware/coupon/rev-a/build/r21-routing/r11-contact-escape/screen.py",
+      "sha256": "7801e05744e98f6f12b2dd3a1c8d63bc65be66b3c5dc08e39c209a5b1d3f7093"
+    },
+    {
+      "bytes": 2424,
+      "path": "hardware/coupon/rev-a/build/r21-routing/r11-front/build-prototype.py",
+      "sha256": "f41d3d4e1a4dfddaf4ce0bb4adc3206a2d104040a6ed83d111a7a96bfbf39227"
+    },
+    {
+      "bytes": 48826,
+      "path": "hardware/coupon/rev-a/build/r21-routing/r11-front/private-source-contacts.json",
+      "sha256": "afca32845c208cb16749767278abeaf8e9a5539b4be59802fc50d88c42bd2630"
+    },
+    {
+      "bytes": 18284,
+      "path": "hardware/coupon/rev-a/build/r21-routing/r11-front/screen.json",
+      "sha256": "c1da1a955be8e605ad300b3f57414b558e6b59e9027d95370b579f355919429c"
+    },
+    {
+      "bytes": 8048,
+      "path": "hardware/coupon/rev-a/build/r21-routing/r11-front/screen.py",
+      "sha256": "06624d3c58797b996542836c41c8dfc07e40ae074e751549b521b5b0db4592a3"
+    },
+    {
+      "bytes": 2783,
+      "path": "hardware/coupon/rev-a/build/r21-routing/r11-local/audit-rejected-prototype.py",
+      "sha256": "6901c441431446aedfa2baebd25450248fa413bd2d36e522c05820859beb5d19"
+    },
+    {
+      "bytes": 2370,
+      "path": "hardware/coupon/rev-a/build/r21-routing/r11-local/build-prototype.py",
+      "sha256": "bf5209316fa783a228e03eebbecf63180538a6739de5c92f7d29c2f09fbbc443"
+    },
+    {
+      "bytes": 2650,
+      "path": "hardware/coupon/rev-a/build/r21-routing/r11-local/compare-poses.py",
+      "sha256": "55de75f2d02f20ac8e43678e8a905b632d119236d8413dae2e15f663b1d2ee69"
+    },
+    {
+      "bytes": 1241,
+      "path": "hardware/coupon/rev-a/build/r21-routing/r11-local/diagnose-prototype.py",
+      "sha256": "30a7449c6f5cbd2564b5ecc7fa13a1396d00c67cc5890cb60753c537899f8ce7"
+    },
+    {
+      "bytes": 647,
+      "path": "hardware/coupon/rev-a/build/r21-routing/r11-local/ground-bridge-bfs.json",
+      "sha256": "c731fe0235e4ca002b694823b560ece61f36bb12f756243dce8b8352b6269c65"
+    },
+    {
+      "bytes": 5142,
+      "path": "hardware/coupon/rev-a/build/r21-routing/r11-local/ground-bridge-bfs.py",
+      "sha256": "9741360952eba8520dc6af408a4cf37d50ef7df9285ff9e885e3801b1fb52425"
+    },
+    {
+      "bytes": 677,
+      "path": "hardware/coupon/rev-a/build/r21-routing/r11-local/ground-bridge-screen.json",
+      "sha256": "b34eea9857defdae855eb2875404f2f2634fb70c5c0b16224932661fb029f02d"
+    },
+    {
+      "bytes": 5081,
+      "path": "hardware/coupon/rev-a/build/r21-routing/r11-local/ground-bridge-screen.py",
+      "sha256": "960dd64eb725bf2865b41289ac08107b1363b1f0dc633a0e49c2caf0671a9826"
+    },
+    {
+      "bytes": 16587,
+      "path": "hardware/coupon/rev-a/build/r21-routing/r11-local/ground-supported-access.json",
+      "sha256": "ac31d6fd0e33b2406b2a525207c11989e4e3ca21814f9c15aa7909df76e71931"
+    },
+    {
+      "bytes": 6616,
+      "path": "hardware/coupon/rev-a/build/r21-routing/r11-local/ground-supported-access.py",
+      "sha256": "8dbbe306abae899884ba8dd5e354f3780d024e7557e1d3157186439e22eee925"
+    },
+    {
+      "bytes": 1829,
+      "path": "hardware/coupon/rev-a/build/r21-routing/r11-local/isolate-ground-cause.py",
+      "sha256": "1dacbc2cd88ea8f91e2783fe6b95b934d30920f15731cbd0d683b7ccc0bc14df"
+    },
+    {
+      "bytes": 3992,
+      "path": "hardware/coupon/rev-a/build/r21-routing/r11-local/layer-inventory.py",
+      "sha256": "c55e5c225e9710c77ea4b2fd051eb19b37cbcc4681f45ac6337da76bfdfe7a75"
+    },
+    {
+      "bytes": 111278,
+      "path": "hardware/coupon/rev-a/build/r21-routing/r11-local/private-source-contacts.json",
+      "sha256": "f95b92167cbc59c077b2869ac7fa31dce03fe0dab33f34274d97d6eb10f26f2f"
+    },
+    {
+      "bytes": 287,
+      "path": "hardware/coupon/rev-a/build/r21-routing/r11-local/screen.json",
+      "sha256": "77e845858b568dabaf9a459d9733aa70a1d5bf20cccd2e6624eb6b24eb79c387"
+    },
+    {
+      "bytes": 5850,
+      "path": "hardware/coupon/rev-a/build/r21-routing/r11-local/screen.py",
+      "sha256": "207f140fcc48db08e9ab6ba51fa605ecbc694b901cfba5c23df28c954f611489"
+    },
+    {
+      "bytes": 22914,
+      "path": "hardware/coupon/rev-a/build/r21-routing/r11-local/short-neck-screen.json",
+      "sha256": "0dbac801bcb28d1c9959601f6ba4f3de87365efe1a3db8c8bf087cd8ff031aee"
+    },
+    {
+      "bytes": 7790,
+      "path": "hardware/coupon/rev-a/build/r21-routing/r11-local/short-neck-screen.py",
+      "sha256": "66b225063bbc2ab2925e51fb6fe27763ecc5a038906d721d569f0b8be42bb20e"
+    },
+    {
+      "bytes": 146064,
+      "path": "hardware/coupon/rev-a/build/r11-local-routing/pose-comparison.json",
+      "sha256": "23d99bacb43eaf9532cee4cc446856f34b2965d0bdbfde10953164f91fc855a2"
+    },
+    {
+      "bytes": 658,
+      "path": "hardware/coupon/rev-a/build/r11-local-routing/rejected-prototype-audit.json",
+      "sha256": "a34d12591691106b42d5cf356e991cb27125b5d1627a4a7f4233a58c8fd788d8"
+    },
+    {
+      "bytes": 108113,
+      "path": "hardware/coupon/rev-a/build/r11-local-routing/prototype-drc.json",
+      "sha256": "da5cfbab7458f5bd1bef09d6bd53043b31df8d4d6c1f4b7c3f1909bc9b3316c2"
+    },
+    {
+      "bytes": 1120,
+      "path": "hardware/coupon/rev-a/build/r11-local-routing/ground-cause-isolation.json",
+      "sha256": "4ca7312544d74a4ee0d4483c0d89f9e3d15957630216f7ed6e46db75c9401762"
+    },
+    {
+      "bytes": 8462,
+      "path": "hardware/coupon/rev-a/build/r21-routing/r11-front/corrected-front-screen.py",
+      "sha256": "e19576955fecc1b78408468302a37b7877f9adfd556aef53fafa9aead3f9ae0f"
+    },
+    {
+      "bytes": 18284,
+      "path": "hardware/coupon/rev-a/build/r21-routing/r11-front/corrected-front-screen.json",
+      "sha256": "c1da1a955be8e605ad300b3f57414b558e6b59e9027d95370b579f355919429c"
+    },
+    {
+      "bytes": 2393,
+      "path": "hardware/coupon/rev-a/build/r11-front-routing/front-courtyard-audit.json",
+      "sha256": "778e726d6fe316203cc48578b1edf968bb2790bb8469a30a912a6af8e438ac76"
+    }
+  ],
+  "fabrication_release_allowed": false,
+  "front_courtyard_erratum": {
+    "complete_pose_results_unchanged": true,
+    "corrected_front_courtyard_layer": "F.CrtYd",
+    "corrected_screen_path": "hardware/coupon/rev-a/build/r21-routing/r11-front/corrected-front-screen.json",
+    "native_front_courtyards": {
+      "missing_front_courtyards": 0,
+      "other_front_courtyards": 257,
+      "other_front_footprints": 257,
+      "overlaps": 0,
+      "r11_front_courtyards": 1
+    },
+    "original_method": "Historical helper extracted B.CrtYd only; preliminary F courtyard test was absent.",
+    "original_screen_path": "hardware/coupon/rev-a/build/r21-routing/r11-front/screen.json",
+    "original_screen_retained": true,
+    "qualified_selected_source_sha256_unchanged": "fb862c0a548599b7acf328ad8bb5006ce5f78d8b98ceec12bb4af9ace21f1d0f"
+  },
+  "front_pose_screen": {
+    "chosen_orientation_degrees": 180,
+    "chosen_position_iu": [
+      78850000,
+      9100000
+    ],
+    "clear_complete_poses": 16,
+    "poses": 24242
+  },
+  "ground_bfs_expanded_nodes": {
+    "PAIR07": 1155,
+    "PAIR08": 1573
+  },
+  "ground_gateway_main_contacts": 0,
+  "ground_subset_controls": [
+    {
+      "case": "retirement-only",
+      "gnd_group_sizes": [
+        196
+      ],
+      "isolated": []
+    },
+    {
+      "case": "retirement-and-pose",
+      "gnd_group_sizes": [
+        194,
+        1,
+        1
+      ],
+      "isolated": [
+        [
+          [
+            "PAIR08",
+            "1"
+          ]
+        ],
+        [
+          [
+            "PAIR07",
+            "1"
+          ]
+        ]
+      ]
+    },
+    {
+      "case": "retirement-and-supply",
+      "gnd_group_sizes": [
+        195,
+        1
+      ],
+      "isolated": [
+        [
+          [
+            "PAIR08",
+            "1"
+          ]
+        ]
+      ]
+    },
+    {
+      "case": "retirement-and-gate",
+      "gnd_group_sizes": [
+        194,
+        2
+      ],
+      "isolated": [
+        [
+          [
+            "PAIR07",
+            "1"
+          ],
+          [
+            "PAIR08",
+            "1"
+          ]
+        ]
+      ]
+    }
+  ],
+  "immutable_27_open_sha256": "e7748bee49f33b3b5c021c9215d441a047718b284e3a1ee27975e3832ddfb5d2",
+  "local_b_screen": {
+    "all_nine_groups_preserved": 214,
+    "all_nine_native_physical_opens": 28,
+    "direct_contact_clear_poses": 0,
+    "exact_original104_middle_pose": true,
+    "new_orphans": 0,
+    "original_ground_split": [
+      194,
+      1,
+      1
+    ],
+    "pose_samples_each_mode": 90804,
+    "retained_copper_preserved": true,
+    "selected": false,
+    "short_neck_complete_clear_poses": 9
+  },
+  "r11_contact_escape": {
+    "all_lower_copper_blocked": true,
+    "capture_points": 22701,
+    "gateways": 0,
+    "rechecked_poses": 208
+  },
+  "selected_26_open_sha256": "fb862c0a548599b7acf328ad8bb5006ce5f78d8b98ceec12bb4af9ace21f1d0f",
+  "supported_ground_gateways": {
+    "PAIR07": 0,
+    "PAIR08": 6
+  }
+}

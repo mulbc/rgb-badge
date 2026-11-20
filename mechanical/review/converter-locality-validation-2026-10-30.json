@@ -1,0 +1,31 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "cached_vendor_sha256": {
+    "hardware/coupon/rev-a/reference/vendor-datasheets/GRM188R60J106ME47-61A-EN.pdf": "f51cff8dad7a6983263ab35b5705f4d1d4b9977b1f03739c653381ba03d94ea8",
+    "hardware/coupon/rev-a/reference/vendor-datasheets/Littelfuse-CK-Slide-JS-Series-Datasheet.pdf": "0f35cdf47a1f93da71bb7235581f3c77915516488be930d7a3ea4f4942ff0f3b",
+    "hardware/coupon/rev-a/reference/vendor-datasheets/m_dfe252012p.pdf": "ce259ba611fb3ea196baf60e2c7080a21cd897cdb662bf77552cc842c2b91c3e",
+    "hardware/coupon/rev-a/reference/vendor-datasheets/tca9517a.pdf": "ad2d7dc5994583006aa21b67ee9f18507a2698ad9366285dff56816f065790c6",
+    "hardware/coupon/rev-a/reference/vendor-datasheets/tps63020.pdf": "d117773bb7370fd79377bc70ce987eec3469ea5979547a09df52fca5f95b2e69",
+    "hardware/coupon/rev-a/reference/vendor-datasheets/tps631000.pdf": "b52a4064a8c2cbb4c9dd97f366b398dedcb490ffc9d564245f297536a19b426b"
+  },
+  "fabrication_release_allowed": false,
+  "host_convex_guard_methods": 4,
+  "local_raw_sha256": {
+    "/Users/cblum/Downloads/m_dfe252012p.pdf": "ce259ba611fb3ea196baf60e2c7080a21cd897cdb662bf77552cc842c2b91c3e",
+    "hardware/coupon/rev-a/build/converter-locality-59/convex-native-oracle.json": "e73ff723b17c6b9a72f401e16132c3b97e4269a677f1fe2ca0f6ebbd55a10ffd",
+    "hardware/coupon/rev-a/build/converter-locality-59/convex-tests.log": "b6eaba8111a0811baaaa35c6fcd0e76d4c9673bb309ddff8b9633c651ad8a3a6",
+    "hardware/coupon/rev-a/build/converter-locality-59/fine-angled-final.json": "e79322d3f2e71964eb08f519598b4be23aa2c5d3d945c8fc0bff6bc7a928626c",
+    "hardware/coupon/rev-a/build/converter-locality-59/fine-angled-final.log": "00af8b9daf6e5acbabafbd3b36962dfaa07cdb1d975cba7c8e33b89014417200",
+    "hardware/coupon/rev-a/build/converter-locality-59/ground-search.json": "7a59dc7daf2d680ae21872ee86cd2f4cb285092c61c917d77c45be34d07e30b2",
+    "hardware/coupon/rev-a/build/converter-locality-59/ground-search.log": "80043aa977fa0aea7ebbbbbb13a860015c5637a5cf0279b5a1dd8f3850b8cf7f",
+    "hardware/coupon/rev-a/build/converter-locality-59/initial-poses.json": "20c15feac096e0160665c657a89d33cd79dcf778f5b2141a8bfe871f0ffc9e86",
+    "hardware/coupon/rev-a/build/converter-locality-59/refined-poses.json": "08e466a814b6827bb90c5e4ede544fe02c0af13af4abdff41271894d26353aed",
+    "hardware/coupon/rev-a/build/converter-locality-59/tps63020.pdf": "d117773bb7370fd79377bc70ce987eec3469ea5979547a09df52fca5f95b2e69",
+    "hardware/coupon/rev-a/build/converter-locality-59/tps631000.pdf": "b52a4064a8c2cbb4c9dd97f366b398dedcb490ffc9d564245f297536a19b426b"
+  },
+  "native_convex_oracle_pairs": 2000,
+  "poses_passing_all_final_geometry_screens": 0,
+  "source_sha256": "95d7b7679319cdd64f8e22d428bd2a78454b91298ca17432d34ede0c824ab214",
+  "status": "FIRST_AUTHOR_FINITE_LOCALITY_SCREEN_NO_POSE_SELECTED",
+  "total_final_sampled_poses": 963888
+}

@@ -1,0 +1,95 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_copper": 18,
+  "added_track_length_mm": 5.235660171779822,
+  "board_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+  "drc_sha256": "28d3748d9015d57c506f2c7530909c5d92450e30da71c1c33a9fb835c332265f",
+  "exact_part_inventory": 483,
+  "fabrication_release_allowed": false,
+  "hole_audit": {
+    "aligned_adjacent_stacks": [],
+    "disjoint_supported_close_pairs": [],
+    "fabrication_qualified": false,
+    "minimum_unchanged_hole_clearance_mm": 0.25,
+    "other_close_pairs": 0
+  },
+  "intrinsic_findings": 104,
+  "inverse_all211_groups_equal": true,
+  "inverse_exact104": true,
+  "inverse_exact_integer_fill_xor_empty": [
+    "81b0abb6-bbba-5f7c-9599-18e6b0c72e0e",
+    "566adf1a-30fb-5b01-a217-ee87a01be9a9",
+    "5bba12ef-077c-5854-bc36-f3c0f0aec6c2",
+    "de293b84-4ac9-56e5-adda-363e58b4a9d2",
+    "52361cb6-e447-5a7a-8fab-433f1b57c9c9",
+    "c682ee16-0992-5842-bc59-f74f9def9083",
+    "3e9ab31e-6f61-56f6-bb4e-6d0f8c98c74a",
+    "626b02a6-8846-59f7-b7df-a75c78241fe0",
+    "d2173c7d-2262-5c12-89e8-acf8c24a80a7"
+  ],
+  "inverse_hashes": [
+    "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+    "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+    "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3"
+  ],
+  "inverse_parent_bytes_equal": true,
+  "main_ground_pads": 197,
+  "main_usb_pads": 32,
+  "main_vled_pads": 39,
+  "native_opens": 22,
+  "net_count": 188,
+  "new_vias": 1,
+  "orphan_copper": 0,
+  "physical_groups": 210,
+  "physical_opens": 22,
+  "plan_sha256": "f7a1e57ece3039d58a20f15118869d80e0a939ecda95f21461e493753362d7e6",
+  "prior_groups_preserved": 211,
+  "retained_attached_source_copper": 19349,
+  "retired_copper": 0,
+  "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+  "status": "PASS_CAD_CONTINUITY_ONLY",
+  "selected": true,
+  "source_checks_passed": 43,
+  "deliberate_fault_rejections": 32,
+  "hole_controls": 8,
+  "historical_unsupported_centre_microvias": 554,
+  "initial_stable_refills": 4,
+  "independent_replays": 2,
+  "refills_each_replay": 3,
+  "native_visual_review": true,
+  "evidence": {
+    "prototype-result.json": {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/prototype-result.json",
+      "sha256": "76a9122ec28bcad84b40572a24c27ea254ec22eaa6e3033b941c6de3df4d2f5a"
+    },
+    "current-audit.json": {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/current-audit.json",
+      "sha256": "1b8820069fa5c9ba9822c5ec0095e19da780386ded03095f31c9015404e3ceb6"
+    },
+    "faults/results.json": {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/faults/results.json",
+      "sha256": "8003f98591fe309eb1717d643021f35cbb867afebd06085b36ba7afbd3ec32a0"
+    },
+    "source-checks.json": {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/source-checks.json",
+      "sha256": "92d6758f42fe21ad2b6b53f62a52e6b3cc74c6af05acc7d4cb06c33114730b6d"
+    },
+    "visual-review-manifest.json": {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/visual-review-manifest.json",
+      "sha256": "8dcf0ae73ede869315a749c4fb5e8a52beedea7d3ca2f54add5a12f2a7adb6c8"
+    },
+    "replay-a.log": {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/replay-a.log",
+      "sha256": "6c2ff7ccc45d6895041adec170ba680454714f3edd9e8e9846653af99ea53aff"
+    },
+    "replay-b.log": {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/replay-b.log",
+      "sha256": "53789234fae6caabed55b7efd122bdd7d10b8d76d109b632fbdcd02052b3e115"
+    },
+    "canonical-audit.json": {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/canonical-audit.json",
+      "sha256": "41eca19dca561d7b134d46b09ef9c1b2ef1c5b5a50463bd2b8f794090ba16762"
+    }
+  },
+  "canonical_board_audit_exact104": true
+}

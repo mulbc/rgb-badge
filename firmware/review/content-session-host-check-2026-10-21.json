@@ -1,0 +1,79 @@
+{
+  "SPDX-License-Identifier": "Apache-2.0",
+  "base_revision": "50fc021e1e34b78937021a2b367bea1abae1a627",
+  "command": "./tools/check-content-session.sh",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+  "dimensions": [
+    [
+      16,
+      16
+    ],
+    [
+      48,
+      16
+    ]
+  ],
+  "esp_idf_target_build": "NOT_RUN",
+  "executed_at_utc": "2026-10-21T19:46:01.648322+00:00",
+  "firmware_revision": "Base revision plus exact source_sha256 entries below; host core only",
+  "hardware_measurements": "NONE",
+  "hardware_revision": "NONE: host software simulation, no board attached",
+  "host_architecture": "arm64",
+  "independent_colour_oracle": "Python integer quadratic gamma x asymmetric white balance x fixed brightness, rounded once",
+  "native_check_count": 110522,
+  "physical_ble_display_blanking_arming": "NOT_IMPLEMENTED_OR_QUALIFIED by the host core",
+  "python_integration_test_methods": 7,
+  "raw_evidence": {
+    "/private/tmp/rgb-content-session-check.log": "6ca0b01889eea268ec8f2a69ce2cf5bcb78578730af978e2d0c4448d0e9f58fb",
+    "/private/tmp/rgb-session-assets-regression.log": "874998d4b45cb69093d059b9643c303b3ccd80515362b65a9b675e174a4382f1",
+    "/private/tmp/rgb-session-colour-regression.log": "1c403115687ed96f70752a7208229d8e58b3b953c54cdca728d310a8391e5656",
+    "/private/tmp/rgb-session-mode-regression.log": "3abf50c99d4649a5bcde0a282231acf7ef720a136ea82e3ff726c640ba198282",
+    "/private/tmp/rgb-session-playback-regression.log": "9a9fe4846a25d46958a080bd34a529f453a94aabd7b4e8ef6ad31925c1ad9939"
+  },
+  "regression_results": {
+    "asset_native_checks": 7847,
+    "asset_python_tests": 21,
+    "colour_native_checks": 1810,
+    "mode_native_checks": 200763,
+    "playback_native_checks": 67941,
+    "playback_python_tests": 6
+  },
+  "representative_content_capacity": "NOT_VERIFIED",
+  "sanitizer_recovery": false,
+  "sanitizers": [
+    "address",
+    "undefined"
+  ],
+  "seeded_adversarial_traces": {
+    "count": 200,
+    "initial_xorshift32_seed": "0x391c0de",
+    "steps_each": 100
+  },
+  "session_object_bytes_host": 9984,
+  "source_sha256": {
+    ".github/workflows/host-software.yml": "b5dd362959ad51d1c80861b668f608cc2d55c0e2e86b4d759860461a78c465a0",
+    "docs/decisions/0039-host-content-session.md": "dce2b58ae3e56edf5ad5d0e2652f92b33d0581be9e2abe7e99bb3e6346891056",
+    "firmware/content-session.md": "091658d966bb6377214238c55927291d0ac8e7cee51eb96b279989acf0b37216",
+    "firmware/core/asset_playback.cpp": "82afea7a0135da13a8cf0d972f6c1094bdc510c6cba1deb11771aed55fdf12a9",
+    "firmware/core/asset_reader.cpp": "2116b9e817e24416eb7c21bd5778ed7770e6f558b7843d94134f954010e5ccf3",
+    "firmware/core/color_transform.cpp": "03cbf929ddd5ca456f4ee050c5c726ccd97315b3487d1f9fdeb7efdaf7532747",
+    "firmware/core/content_session.cpp": "c562d5c0ace17e5e60199d5e6508256362c161d6157d82085f3fbcc44c27bab7",
+    "firmware/core/include/rgb_badge/asset_playback.h": "afd0640a0de97b7bd8cb11212196e6c7f04d38dddf0a4bfdae0437ec8568f4ae",
+    "firmware/core/include/rgb_badge/asset_reader.h": "3253d1beadbc25c6b94f82123fffa867ba799235d5e1ed707d70b7004212b76d",
+    "firmware/core/include/rgb_badge/color_transform.h": "399c99df71f60312f2b3ba2306cb9e5c29a66b54e3b7f0c96081696ae5ebd84c",
+    "firmware/core/include/rgb_badge/content_session.h": "ba4bc96aa458f8c98a86a69af1dc7cb09128db2200f0a14644bac8bd4bc27db4",
+    "firmware/core/include/rgb_badge/mode_button.h": "f676ebc8e2a465f5a55ad6412970aac6fd65baa086c4a5bdf215fce1dcb4ddae",
+    "firmware/core/mode_button.cpp": "7fcc36891c827a0dc228820d39a1c8ec27a8db2c63f754b733329bfb36f1b4b0",
+    "firmware/tests/content_session_cli.cpp": "03ddc186fad58682bee0ce71d5e21a7a01633631a587c951b331fc14537cc1a3",
+    "firmware/tests/content_session_test.cpp": "65fa6ca31c46af6117261ba860c2f7299456310925cf709403ecd02925a0bb2f",
+    "firmware/tests/test_content_session.py": "b9db9050513799cdad248da7a20bb91feb694b0efb8a82c8c705d8d25668fc29",
+    "tools/check-content-session.sh": "d8e0b09481f1dd600ee0c1d863708f77c89a7b8fafb7416a0de18d6710ea43c4",
+    "tools/compile-assets.py": "bb6d39e0139069a38faee4142b10f6ad357d104fbe8752639c35480bf7da7ce1"
+  },
+  "supported_asset_versions": [
+    1,
+    2
+  ],
+  "synthetic_colour_calibration": "SOFTWARE_TEST_ONLY, not measured optical calibration",
+  "target_timing_object_stack_placement": "NOT_QUALIFIED"
+}

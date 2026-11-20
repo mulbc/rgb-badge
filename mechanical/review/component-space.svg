@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -35 868.0 360.0">
+<title>Rear component-space stress test; unplaced components remain</title>
+<style>text{font:14px sans-serif;fill:#18242e}</style>
+<rect x="-10" y="-35" width="868.0" height="360.0" fill="#ffffff"/>
+<text x="0" y="-12">BASELINE · all captured parts kept outside the battery outline</text>
+<rect x="0" y="0" width="848.0" height="260.0" fill="#f4f6f8" stroke="#263238"/>
+<rect x="200.00" y="8.00" width="448.00" height="244.00" fill="#f2d59e" opacity="1" stroke="#263238" stroke-width="0.5"/>
+<rect x="37.60" y="50.40" width="156.80" height="164.00" fill="#8cc79b" opacity="1" stroke="#263238" stroke-width="0.5"/>
+<rect x="656.40" y="4.40" width="71.20" height="71.20" fill="#8982c6" opacity="1" stroke="#263238" stroke-width="0.5"/>
+<rect x="656.40" y="94.40" width="71.20" height="71.20" fill="#8982c6" opacity="1" stroke="#263238" stroke-width="0.5"/>
+<rect x="656.40" y="184.40" width="71.20" height="71.20" fill="#8982c6" opacity="1" stroke="#263238" stroke-width="0.5"/>
+<rect x="787.20" y="78.80" width="66.80" height="102.40" fill="#f1a6a6" opacity="1" stroke="#263238" stroke-width="0.5"/>
+<rect x="728.00" y="0.00" width="66.00" height="72.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="0.00" y="0.00" width="82.00" height="42.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="82.00" y="0.00" width="46.00" height="32.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="128.00" y="0.00" width="40.00" height="34.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="794.00" y="0.00" width="40.00" height="34.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="794.00" y="34.00" width="40.00" height="34.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="728.00" y="72.00" width="40.00" height="34.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="728.00" y="106.00" width="40.00" height="34.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="728.00" y="140.00" width="40.00" height="34.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="728.00" y="174.00" width="40.00" height="34.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="168.00" y="0.00" width="32.00" height="34.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="0.00" y="42.00" width="32.00" height="34.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="0.00" y="76.00" width="32.00" height="34.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="0.00" y="110.00" width="32.00" height="34.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="0.00" y="144.00" width="32.00" height="34.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="0.00" y="178.00" width="32.00" height="34.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="768.00" y="182.00" width="32.00" height="34.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="800.00" y="182.00" width="32.00" height="34.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="728.00" y="208.00" width="32.00" height="34.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="0.00" y="212.00" width="32.00" height="34.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="32.00" y="216.00" width="32.00" height="34.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="64.00" y="216.00" width="32.00" height="34.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="96.00" y="216.00" width="32.00" height="34.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="128.00" y="216.00" width="32.00" height="34.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="160.00" y="216.00" width="32.00" height="34.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="760.00" y="216.00" width="32.00" height="34.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="792.00" y="216.00" width="32.00" height="32.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="824.00" y="216.00" width="22.00" height="28.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="82.00" y="32.00" width="28.00" height="16.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="110.00" y="34.00" width="28.00" height="16.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="138.00" y="34.00" width="28.00" height="16.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="166.00" y="34.00" width="28.00" height="16.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="768.00" y="72.00" width="16.00" height="16.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="648.00" y="76.00" width="16.00" height="16.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="664.00" y="76.00" width="16.00" height="16.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="680.00" y="76.00" width="16.00" height="16.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="696.00" y="76.00" width="16.00" height="16.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="712.00" y="76.00" width="16.00" height="16.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="768.00" y="88.00" width="16.00" height="16.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="768.00" y="104.00" width="16.00" height="16.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="768.00" y="120.00" width="16.00" height="16.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="768.00" y="136.00" width="16.00" height="16.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="768.00" y="152.00" width="16.00" height="16.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="648.00" y="166.00" width="16.00" height="16.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="664.00" y="166.00" width="16.00" height="16.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="680.00" y="166.00" width="16.00" height="16.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="696.00" y="166.00" width="16.00" height="16.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="712.00" y="166.00" width="16.00" height="16.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="832.00" y="182.00" width="16.00" height="16.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="832.00" y="198.00" width="16.00" height="16.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="728.00" y="242.00" width="16.00" height="16.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="744.00" y="242.00" width="16.00" height="16.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="824.00" y="244.00" width="20.00" height="12.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="0.00" y="246.00" width="20.00" height="12.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<rect x="792.00" y="248.00" width="20.00" height="12.00" fill="#3d8fba" opacity="0.8" stroke="#263238" stroke-width="0.5"/>
+<text x="0" y="282">First-fit only: 55 placed, 96 unplaced.</text>
+<text x="0" y="302">No routing, thermal spacing, leads or unfinished power circuit included.</text>
+<text x="0" y="322">Conditional 0402-under-pack screen: 77 moved; 22 still unplaced outside.</text>
+</svg>

@@ -1,0 +1,179 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_copper_items": 47,
+  "all_238_parent_groups_preserved": true,
+  "all_local_pin_witnesses_passed": true,
+  "board_sha256": "e3036ccd84dee004425115617b409ff9c770b8cd7f75a529e178154b17cf5d53",
+  "capacitor_distances": {
+    "C40": {
+      "return_centre_distance_mm": 3.013507093072787,
+      "supply_centre_distance_mm": 2.0115230548020073
+    },
+    "C41": {
+      "return_centre_distance_mm": 5.214424704605484,
+      "supply_centre_distance_mm": 2.350579715729718
+    },
+    "C42": {
+      "return_centre_distance_mm": 5.997507815751471,
+      "supply_centre_distance_mm": 5.256434152541058
+    },
+    "C43": {
+      "return_centre_distance_mm": 2.8004642472275947,
+      "supply_centre_distance_mm": 3.518891871029855
+    }
+  },
+  "checker_sha256": "2094ce18fa73fd264338b09016d4995895249379924d0722594e005da48a6225",
+  "date": "2026-11-06",
+  "drc_sha256": "24ab52a7fac1570ddf3a54a937481c1b74c5013258c8fe4ea85c81caa63b452f",
+  "fabrication_release_allowed": false,
+  "intrinsic_findings": 104,
+  "isolated_fault_guards": [
+    {
+      "case": "feedback-disconnected",
+      "reason": "Exact new copper differs",
+      "rejected": true
+    },
+    {
+      "case": "enable-pulldown-disconnected",
+      "reason": "Exact new copper differs",
+      "rejected": true
+    },
+    {
+      "case": "remote-input-cap",
+      "reason": "Pose changed outside ledger: C40",
+      "rejected": true
+    },
+    {
+      "case": "narrow-power-copper",
+      "reason": "Exact new copper differs",
+      "rejected": true
+    },
+    {
+      "case": "mode-default-net-changed",
+      "reason": "Pad geometry/net changed",
+      "rejected": true
+    }
+  ],
+  "legacy_centre_microvias_unresolved": 557,
+  "local_source_workflow_checks": [
+    {
+      "command": "python3 tools/check-coupon-study-contract.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb --legacy-land-study --legacy-switch-study",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-routing-progress-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-converter-checkpoint-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-u36-stage-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-u36-stage-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/test-converter-review-calculations.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/test-hdi-stack-policy.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-converter-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-c32-land-candidate.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_c32_land_candidate.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_murata_catalogue_lands.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_convex_geometry.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_supply_join.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_slide_switch_library.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_progress_plan.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_coupon_study_contract.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_goal_distance.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_native_route_paths.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_clearance.py -v",
+      "exit_code": 0
+    }
+  ],
+  "manufacturing_stack_status": "Unadopted 0.80 mm planning target; comparison CAD general thickness remains 1.0 mm",
+  "native_opens": 47,
+  "native_visual_review": "B.Cu/Fab/courtyard crop inspected; connector holes, pad numbering, short switching and capacitor column; assembly/fit remains unqualified",
+  "original_orphan_restoration": {
+    "all_live_pad_groups_identical": true,
+    "native_opens": 47,
+    "only_three_exact_original_orphan_warnings": true
+  },
+  "output": "hardware/coupon/rev-a/staging/led-u36-stage-routing-trial-114mm.kicad_pcb",
+  "parent_sha256": "5e07fb866cc059de670e34102045d9dfd88c88f101355fcdbb27253c0ae26e43",
+  "physical_opens": 47,
+  "plan_sha256": "533984854b6f607bfec29b0f90eac1113e2bc3b8159ae238a25230f67493e6b0",
+  "policy_sha256": "2788c8e8a8978c3814d57aa56e8f0b75b0c1efcff9f855a823421d5725ccf5f8",
+  "poses": 9,
+  "project_sha256": "1141b004ecffd1e7e8e0c30cf21aeae7ce6381093df674998133d226ab9c27fb",
+  "removed_copper_items": 14,
+  "replay_sha256": [
+    "e3036ccd84dee004425115617b409ff9c770b8cd7f75a529e178154b17cf5d53",
+    "e3036ccd84dee004425115617b409ff9c770b8cd7f75a529e178154b17cf5d53"
+  ],
+  "rules_sha256": "80c92b0cdef868dd0ef0037aa2f63d1266f709a2dd0326094735c75ffbd31a2e",
+  "stable_fill_and_replay_identical": true,
+  "status": "PASS_GEOMETRIC_ROUTING_STUDY_ONLY",
+  "switch_boundary_still_open": true,
+  "switching_path_length_mm": {
+    "2": 2.2381697103780183,
+    "3": 2.452997571504075
+  },
+  "tool_sha256": {
+    "tools/check-u36-stage-checkpoint.py": "2094ce18fa73fd264338b09016d4995895249379924d0722594e005da48a6225",
+    "tools/check-u36-stage-plan.py": "a21b6ff94b075ee4743d06f727f120dc18f5fa309bb6b1faf2f44716878a7094",
+    "tools/generate-u36-stage-checkpoint.py": "163bef0ab6239e45cac74e098b2cd644859c8fc2e6db50513e854cd2f6346829",
+    "tools/test-u36-stage-checkpoint-guards.py": "fe66181076d7837a9eb0345b67a5a311cbfd75c73dcefe6e71e6eb6e11b54ab0",
+    "tools/u36_stage_checkpoint.py": "2788c8e8a8978c3814d57aa56e8f0b75b0c1efcff9f855a823421d5725ccf5f8"
+  }
+}

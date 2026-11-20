@@ -1,0 +1,32 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "fabrication_release_allowed": false,
+  "footprint": "rgb-badge-coupon:C_Murata_GRM188R60J106ME47_0603",
+  "kicad_version": "10.0.6",
+  "local_raw_sha256": {
+    "hardware/coupon/rev-a/build/murata-native-review/coupon-erc.rpt": "3c7198cb1fca4c7598324240b248ba90366c0ef8ab29d132f738b521954b068b",
+    "hardware/coupon/rev-a/build/murata-native-review/coupon-matrix.xml": "d10ac45d3bdbeba89141d512683f8c50a04a522dca978758b844f9364b9ebccf",
+    "hardware/coupon/rev-a/build/murata-native-review/coupon-schematic.pdf": "574740b962f7efe6c050b27f58e266d06dc583cfa04202441626680e27cce9fb",
+    "hardware/coupon/rev-a/build/murata-native-review/footprints/copper/C_Murata_GRM188R60J106ME47_0603.svg": "525ddeb90eb718d715deceea6c7a47cf424324c41d884d32687028a5cdb45cd6",
+    "hardware/coupon/rev-a/build/murata-native-review/footprints/fabrication/C_Murata_GRM188R60J106ME47_0603.svg": "3de9a9914737bac0c6c7b8c52340c8577bc513ac1f28f2fee26c547ec1c758ba",
+    "hardware/coupon/rev-a/build/murata-native-review/footprints/mechanical/C_Murata_GRM188R60J106ME47_0603.svg": "9eb7b5b555eacded3fc86a19408f0bf7c72b2dcc2b59eb2c76b7b9529f11078e",
+    "hardware/coupon/rev-a/build/murata-native-review/footprints/paste/C_Murata_GRM188R60J106ME47_0603.svg": "525ddeb90eb718d715deceea6c7a47cf424324c41d884d32687028a5cdb45cd6"
+  },
+  "native_xml_and_configured_erc_passed": true,
+  "remaining_holds": [
+    "stencil and assembly qualification",
+    "electrical and capacitance/voltage qualification",
+    "other exact MPN land reviews",
+    "independent Gate A"
+  ],
+  "review_date": "2026-10-30",
+  "reviewed_views": [
+    "native copper: two separate rectangular lands",
+    "native paste: two separate matching apertures",
+    "native fabrication: pads 1/2, body and courtyard",
+    "native mechanical: nonpolar body",
+    "controller/USB/charger/VLED schematic pages 8/11/16/19; all six source footprint properties checked in native XML"
+  ],
+  "status": "FIRST_AUTHOR_NATIVE_RENDER_REVIEW_NOT_HARDWARE_MEASUREMENTS",
+  "vendor_sheet_sha256": "f51cff8dad7a6983263ab35b5705f4d1d4b9977b1f03739c653381ba03d94ea8"
+}

@@ -1,0 +1,559 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_copper": [
+    {
+      "signature": [
+        "via",
+        "+3V3_APP",
+        109850000,
+        29950000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "10153982-7ea0-589b-ba19-4d4596f1d95d",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        109050000,
+        27750000,
+        109050000,
+        29950000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "1652fcb7-092c-5898-b7d9-bff7d6616810",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "HEARTBEAT_FALL_CLK",
+        110650000,
+        27800000,
+        "In2.Cu",
+        "In3.Cu",
+        500000,
+        300000
+      ],
+      "uuid": "1b403d48-5edd-5eae-9cec-766e173cb7ae",
+      "via_type": 3
+    },
+    {
+      "signature": [
+        "track",
+        "HEARTBEAT_FALL_CLK",
+        111300000,
+        23750000,
+        111325000,
+        23750000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "1dbf6c30-092c-542b-a10e-662bb7351bf3",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "HEARTBEAT_FALL_CLK",
+        111300000,
+        23750000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "3680b186-8374-53a7-b5dd-2c2f5181ceb5",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "track",
+        "HEARTBEAT_FALL_CLK",
+        110350000,
+        28550000,
+        110450000,
+        28550000,
+        "B.Cu",
+        120000
+      ],
+      "uuid": "4cae6fc3-d0dd-5279-9c44-3cb01683b57a",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "GND",
+        110450000,
+        27750000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "5c53cfe7-191e-5afa-a6d7-97da4388e468",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "track",
+        "HEARTBEAT_FALL_CLK",
+        111000000,
+        23750000,
+        111300000,
+        23750000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "5ffbccfc-6fa1-5f5d-ae84-1e9e748cdc59",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "HEARTBEAT_FALL_CLK",
+        110650000,
+        27800000,
+        110650000,
+        23850000,
+        "In2.Cu",
+        200000
+      ],
+      "uuid": "6d75d3b2-2647-5ac8-997e-aae5caba61a4",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "HEARTBEAT_FALL_CLK",
+        110650000,
+        28250000,
+        "In3.Cu",
+        "In4.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "71f2800a-4c42-59b5-8b62-32a216f25349",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "track",
+        "+3V3_APP",
+        109550000,
+        28550000,
+        109850000,
+        29950000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "74282592-0833-5ecc-89af-1561ca3137ff",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        110350000,
+        27750000,
+        110450000,
+        27750000,
+        "B.Cu",
+        120000
+      ],
+      "uuid": "7904ee8d-4c52-5458-9036-59f08ed5a864",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "HEARTBEAT_FALL_CLK",
+        110650000,
+        28250000,
+        110650000,
+        27800000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "8014a368-1266-5077-90f8-c42f2042f6b0",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "+3V3_APP",
+        110650000,
+        29350000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "801c9df9-f939-5b55-9519-971bb49739db",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "track",
+        "HEARTBEAT_FALL_CLK",
+        110550000,
+        28250000,
+        110650000,
+        28250000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "839b36e6-e932-5088-b66e-6a34d31616f3",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+3V3_APP",
+        110650000,
+        29350000,
+        110750000,
+        29350000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "916e5111-f3e9-50ee-b0c9-bc8134471d50",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "HEARTBEAT_FALL_CLK",
+        110850000,
+        23850000,
+        111000000,
+        23850000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "ac67c5e7-7a9b-566a-a6cb-bd37b3883c9f",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "HEARTBEAT_FALL_CLK",
+        110450000,
+        28550000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "bd20f5d4-6b83-512f-a2ca-5a7a6a3772ef",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "track",
+        "+3V3_APP",
+        110050000,
+        29950000,
+        110650000,
+        29350000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "c8ec4f07-56f3-5f48-8668-14745bd231de",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "HEARTBEAT_FALL_CLK",
+        110450000,
+        28550000,
+        110550000,
+        28450000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "cb802187-7e8e-5d63-857f-74609339110e",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "+3V3_APP",
+        109550000,
+        28550000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "cbc2bcde-6078-56ce-8b2b-7d42fd5d263b",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "via",
+        "HEARTBEAT_FALL_CLK",
+        111300000,
+        23750000,
+        "In3.Cu",
+        "In4.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "d658d770-a7da-5cb2-ab29-2f1a4fb2e689",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        110450000,
+        27750000,
+        109050000,
+        27750000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "e540b6de-3b31-56af-8abc-663ed730453d",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "HEARTBEAT_FALL_CLK",
+        110850000,
+        23850000,
+        "In2.Cu",
+        "In3.Cu",
+        500000,
+        300000
+      ],
+      "uuid": "e7726888-8695-59ee-a252-27719805e070",
+      "via_type": 3
+    },
+    {
+      "signature": [
+        "track",
+        "HEARTBEAT_FALL_CLK",
+        110550000,
+        28450000,
+        110550000,
+        28250000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "e8ddfc12-85cd-514a-b870-e6fef0fb668b",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+3V3_APP",
+        109650000,
+        28550000,
+        109550000,
+        28550000,
+        "B.Cu",
+        120000
+      ],
+      "uuid": "ecc62f11-df37-5827-9b27-7f5bcc359306",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "HEARTBEAT_FALL_CLK",
+        110650000,
+        23850000,
+        110850000,
+        23850000,
+        "In2.Cu",
+        200000
+      ],
+      "uuid": "ef5c47ae-de4f-53e5-9c7a-154e839ab82c",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "GND",
+        109050000,
+        29950000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "fd4d8f02-3fdd-51b1-a1ad-c2552d380608",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "track",
+        "HEARTBEAT_FALL_CLK",
+        111000000,
+        23850000,
+        111000000,
+        23750000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "fee387e2-5c20-51ee-ac22-d2927d7c051d",
+      "via_type": null
+    }
+  ],
+  "clock_pads": [
+    [
+      "U48",
+      "4"
+    ],
+    [
+      "U49",
+      "7"
+    ]
+  ],
+  "expected_board_sha256": "a4d27c5babed5556002cf71b8fae3c3280f627edeb0ff673b9b787d21d4b91ab",
+  "fabrication_release_allowed": false,
+  "native_opens": 29,
+  "physical_opens": 29,
+  "poses": {
+    "C67": {
+      "orientation_degrees": 180,
+      "position_iu": [
+        109450000,
+        29950000
+      ]
+    },
+    "U48": {
+      "orientation_degrees": 270,
+      "position_iu": [
+        110000000,
+        28150000
+      ]
+    }
+  },
+  "retired_copper": [
+    {
+      "signature": [
+        "via",
+        "+3V3_APP",
+        63300000,
+        650000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "0f1184fa-3b7b-5bbc-9b14-39fb0d58d95c",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "track",
+        "+3V3_APP",
+        63850000,
+        650000,
+        63300000,
+        650000,
+        "B.Cu",
+        120000
+      ],
+      "uuid": "15606914-5a77-520f-891e-15e122b1afc8",
+      "via_type": null
+    }
+  ],
+  "source_groups": 218,
+  "source_retirement_contacts": {
+    "0f1184fa-3b7b-5bbc-9b14-39fb0d58d95c": {
+      "B.Cu": {
+        "copper_and_pads": [
+          {
+            "signature": [
+              "track",
+              "+3V3_APP",
+              63850000,
+              650000,
+              63300000,
+              650000,
+              "B.Cu",
+              120000
+            ],
+            "uuid": "15606914-5a77-520f-891e-15e122b1afc8"
+          }
+        ],
+        "filled_polygons": []
+      },
+      "In4.Cu": {
+        "copper_and_pads": [
+          {
+            "signature": [
+              "track",
+              "+3V3_APP",
+              63200000,
+              750000,
+              60900000,
+              750000,
+              "In4.Cu",
+              200000
+            ],
+            "uuid": "60e01f83-f71a-5075-a05f-7bb6b2aa0ac9"
+          },
+          {
+            "signature": [
+              "track",
+              "+3V3_APP",
+              63300000,
+              650000,
+              63200000,
+              750000,
+              "In4.Cu",
+              200000
+            ],
+            "uuid": "7ffffe04-6468-5761-a7bc-1fb7684213d0"
+          }
+        ],
+        "filled_polygons": [
+          {
+            "polygon": 26,
+            "uuid": "626b02a6-8846-59f7-b7df-a75c78241fe0"
+          }
+        ]
+      }
+    },
+    "15606914-5a77-520f-891e-15e122b1afc8": {
+      "B.Cu": {
+        "copper_and_pads": [
+          {
+            "signature": [
+              "via",
+              "+3V3_APP",
+              63300000,
+              650000,
+              "In4.Cu",
+              "B.Cu",
+              300000,
+              100000
+            ],
+            "uuid": "0f1184fa-3b7b-5bbc-9b14-39fb0d58d95c"
+          },
+          {
+            "pad": [
+              "U48",
+              "6"
+            ],
+            "uuid": "6bad936f-74bd-580a-8f77-02361c3ebace"
+          }
+        ],
+        "filled_polygons": []
+      }
+    }
+  },
+  "source_sha256": "90db778d8e44b2c71ab5e1f5d8a1c586ee71c25d46892b1406c4792ac7720abd",
+  "status": "EXACT_INVERTER_CLOCK_ROUTING_LEDGER"
+}

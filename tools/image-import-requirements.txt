@@ -1,0 +1,3 @@
+# SPDX-License-Identifier: Apache-2.0
+# Optional host artwork import only; the core compiler has no dependencies.
+Pillow==13.0.0

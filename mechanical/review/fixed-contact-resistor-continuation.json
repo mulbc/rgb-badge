@@ -1,0 +1,366 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "date": "2026-11-16",
+  "decision_range": [
+    199,
+    202
+  ],
+  "evidence": [
+    {
+      "bytes": 70043,
+      "path": "hardware/coupon/rev-a/build/row2-routing/angular-fixed-contact-resistor-screen.json",
+      "sha256": "6d3898d728cff13b7aff3a5a8193816147af12efc5f38e9897b4f1d7e915b1a8"
+    },
+    {
+      "bytes": 469,
+      "path": "hardware/coupon/rev-a/build/row2-routing/angular-r21-165-inverse-audit.json",
+      "sha256": "0d90017b4d045ba13f55d6971a4ba2dbc45ccd7380126d2ac2ca809e5e7ad6e5"
+    },
+    {
+      "bytes": 1112,
+      "path": "hardware/coupon/rev-a/build/row2-routing/angular-r21-165-preflight.json",
+      "sha256": "6a1abc670152c39b5f6d7d352bf52dab338823d30450860d7519b4e0619b4a71"
+    },
+    {
+      "bytes": 108083,
+      "path": "hardware/coupon/rev-a/build/row2-routing/angular-r21-165-prepared-drc.json",
+      "sha256": "083904bf2ab4fe0364b94ba2865fd7b4cca43a9266a6e1b32ee37c8a37707c9f"
+    },
+    {
+      "bytes": 744,
+      "path": "hardware/coupon/rev-a/build/row2-routing/angular-r21-165-prepared.json",
+      "sha256": "3f89e0bd49389d0af66dff9d4c4669d583b3ef40178042b830fe823f4ea777fd"
+    },
+    {
+      "bytes": 3238,
+      "path": "hardware/coupon/rev-a/build/row2-routing/angular-r21-165-search.json",
+      "sha256": "01de7352789f1d930e3f07fec02c3e91deb8a359d78a28e69fbfd3988d805fbd"
+    },
+    {
+      "bytes": 469,
+      "path": "hardware/coupon/rev-a/build/row2-routing/angular-r21-inverse-audit.json",
+      "sha256": "0d90017b4d045ba13f55d6971a4ba2dbc45ccd7380126d2ac2ca809e5e7ad6e5"
+    },
+    {
+      "bytes": 1108,
+      "path": "hardware/coupon/rev-a/build/row2-routing/angular-r21-preflight.json",
+      "sha256": "a56888d6b186641ff4ac784f7e97cc7ac67c28372ff3d51704ce2d490c90c233"
+    },
+    {
+      "bytes": 108119,
+      "path": "hardware/coupon/rev-a/build/row2-routing/angular-r21-prepared-drc.json",
+      "sha256": "d29c1425ad2cc60ce89068f2ff5328e8b186d686f0a7bcb7ef55c1e247a3780f"
+    },
+    {
+      "bytes": 743,
+      "path": "hardware/coupon/rev-a/build/row2-routing/angular-r21-prepared.json",
+      "sha256": "2f59ae10a1987c1368a7ddac9c39456985442df520e03c8c9819917312eb31cf"
+    },
+    {
+      "bytes": 3241,
+      "path": "hardware/coupon/rev-a/build/row2-routing/angular-r21-search.json",
+      "sha256": "de904f8d660f5dbbd5204f4ba38ad050e5121ab24365bd04a9624e51f176a9dd"
+    },
+    {
+      "bytes": 1838,
+      "path": "hardware/coupon/rev-a/build/row2-routing/audit-angular-r21-165-inverse.py",
+      "sha256": "cbb8e29a9bf2c39ff3798b935dd88ae4b5d518d84240ef507698b7f3208bf3e9"
+    },
+    {
+      "bytes": 4560,
+      "path": "hardware/coupon/rev-a/build/row2-routing/audit-angular-r21-165.py",
+      "sha256": "19cb3c359b468091e84171116b5ce34426866725bbd4c74eef62a7d5482e05f0"
+    },
+    {
+      "bytes": 1818,
+      "path": "hardware/coupon/rev-a/build/row2-routing/audit-angular-r21-inverse.py",
+      "sha256": "1bcb0252cf6686fcf8dd78d8f837f5aa6b62412b9203f01867d8c47e125d7ff1"
+    },
+    {
+      "bytes": 4548,
+      "path": "hardware/coupon/rev-a/build/row2-routing/audit-angular-r21.py",
+      "sha256": "41e87a49d58551e2dd7547e34a1dedd501991e1f0bfa6c8ccd5d6d0bde1b413e"
+    },
+    {
+      "bytes": 1673,
+      "path": "hardware/coupon/rev-a/build/row2-routing/audit-fixed-pad-resistors-inverse.py",
+      "sha256": "9631bf7c7b5c72264320ae7ae5a7ed715868e42d0589a245336afd5c623aee92"
+    },
+    {
+      "bytes": 4396,
+      "path": "hardware/coupon/rev-a/build/row2-routing/audit-fixed-pad-resistors.py",
+      "sha256": "52d3a87a5c319f4fbfe2c396febeae1bbeffd077aeb805d4a0e693f459482f60"
+    },
+    {
+      "bytes": 2488,
+      "path": "hardware/coupon/rev-a/build/row2-routing/build-angular-r21-165.py",
+      "sha256": "a81e03e4990585e8191ad5e41ac93c48fc96cb139b38c0a9a4fde855a2ff04fd"
+    },
+    {
+      "bytes": 2479,
+      "path": "hardware/coupon/rev-a/build/row2-routing/build-angular-r21.py",
+      "sha256": "29fe82f389f7fa9c44f07f042a396627fea9908f70eb08ff8834177054dddd25"
+    },
+    {
+      "bytes": 2498,
+      "path": "hardware/coupon/rev-a/build/row2-routing/build-fixed-pad-resistors.py",
+      "sha256": "4bffb223f7ef4a4744ca8de9053fabdb060e9b531832f6d4abcff7165007173f"
+    },
+    {
+      "bytes": 16329,
+      "path": "hardware/coupon/rev-a/build/row2-routing/fixed-contact-resistor-screen.json",
+      "sha256": "525d148dac8a93c21e7c3c6e763f20e3f4fcd647fe19a48142f9ae654e3d6396"
+    },
+    {
+      "bytes": 3248,
+      "path": "hardware/coupon/rev-a/build/row2-routing/fixed-pad-r11-search.json",
+      "sha256": "7ab31b75f0ee6df9f4f05d7be38699bda883580de8981f5dc8a124ae0b45b234"
+    },
+    {
+      "bytes": 3241,
+      "path": "hardware/coupon/rev-a/build/row2-routing/fixed-pad-r21-search.json",
+      "sha256": "e86a5e77a5e03c06e645bf401e9a638d74d2721c1ca085cb20a0b73c68b5827e"
+    },
+    {
+      "bytes": 469,
+      "path": "hardware/coupon/rev-a/build/row2-routing/fixed-pad-resistors-inverse-audit.json",
+      "sha256": "0d90017b4d045ba13f55d6971a4ba2dbc45ccd7380126d2ac2ca809e5e7ad6e5"
+    },
+    {
+      "bytes": 1116,
+      "path": "hardware/coupon/rev-a/build/row2-routing/fixed-pad-resistors-preflight.json",
+      "sha256": "d557bf4f04df16b8ad00425bba83a286c4c2832c284f1cc66956cb1003c48f4a"
+    },
+    {
+      "bytes": 108092,
+      "path": "hardware/coupon/rev-a/build/row2-routing/fixed-pad-resistors-prepared-drc.json",
+      "sha256": "503912489819adfcf8dabcedd64716dc50a4e0fb6fc3a7f50efa12dbea90d2e6"
+    },
+    {
+      "bytes": 823,
+      "path": "hardware/coupon/rev-a/build/row2-routing/fixed-pad-resistors-prepared.json",
+      "sha256": "f095cb9245752018844a6603f4285ad432bd6576c30e2c816e8c9704cfb4513d"
+    },
+    {
+      "bytes": 1060,
+      "path": "hardware/coupon/rev-a/build/row2-routing/inventory-remaining-resistor-contacts.py",
+      "sha256": "558c9648e8681304ea3647dea3b85360f3ee7617062e85c5293bf77c3b40c2d3"
+    },
+    {
+      "bytes": 24138,
+      "path": "hardware/coupon/rev-a/build/row2-routing/remaining-resistor-fixed-contact-inventory.json",
+      "sha256": "bf0d28de76aa4e05f9e7a147979f3ee56cbe8fadee2f321a57a6d5ff229683bd"
+    },
+    {
+      "bytes": 5729,
+      "path": "hardware/coupon/rev-a/build/row2-routing/screen-angular-fixed-contact-resistors.py",
+      "sha256": "be146399cb488680c34f671ba0f33bdcbd38a187f891bb2f31a30fb07850f4cc"
+    },
+    {
+      "bytes": 4360,
+      "path": "hardware/coupon/rev-a/build/row2-routing/screen-fixed-contact-resistors.py",
+      "sha256": "86005760529451ee4db425bb24388cbd1dbf77c4f4a9fea278268adf81c98334"
+    },
+    {
+      "bytes": 39001,
+      "path": "hardware/coupon/rev-a/build/row2-routing/search-fixed-pad-resistors.py",
+      "sha256": "1f30738a5c44e52148225d5be370037ba4e90960b76e4770d15b94c45349f207"
+    }
+  ],
+  "fabrication_release_allowed": false,
+  "inverse_audits": [
+    {
+      "fabrication_release_allowed": false,
+      "inverse_hashes": [
+        "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34",
+        "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34",
+        "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34"
+      ],
+      "inverse_parent_bytes_equal": true,
+      "prepared_exact_original104": true,
+      "selected": false,
+      "source_sha256": "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34"
+    },
+    {
+      "fabrication_release_allowed": false,
+      "inverse_hashes": [
+        "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34",
+        "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34",
+        "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34"
+      ],
+      "inverse_parent_bytes_equal": true,
+      "prepared_exact_original104": true,
+      "selected": false,
+      "source_sha256": "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34"
+    },
+    {
+      "fabrication_release_allowed": false,
+      "inverse_hashes": [
+        "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34",
+        "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34",
+        "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34"
+      ],
+      "inverse_parent_bytes_equal": true,
+      "prepared_exact_original104": true,
+      "selected": false,
+      "source_sha256": "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34"
+    }
+  ],
+  "prototype_audits": [
+    {
+      "added_copper": 0,
+      "board": "hardware/coupon/rev-a/build/row2-routing/fixed-pad-resistors-prepared.kicad_pcb",
+      "board_sha256": "1c7bde2f9a405092e1c51b842ac922b13e9ce9927b794009b6d3acfc4ce84b48",
+      "complete_circuit": false,
+      "exact_483_parts_fields_local_pads_and_independent_global_transforms": true,
+      "fabrication_release_allowed": false,
+      "hole_audit": {
+        "aligned_adjacent_stacks": [],
+        "disjoint_supported_close_pairs": [],
+        "fabrication_qualified": false,
+        "minimum_unchanged_hole_clearance_mm": 0.25,
+        "other_close_pairs": 0
+      },
+      "native_opens": 28,
+      "new_track_lengths_mm": {},
+      "original_group_losses": [],
+      "original_groups_preserved": 216,
+      "physical_opens": 28,
+      "profiles_rules_structure_unchanged": true,
+      "retired_source_copper": 0,
+      "selected": false,
+      "unchanged_retained_source_copper": 19381
+    },
+    {
+      "added_copper": 0,
+      "board": "hardware/coupon/rev-a/build/row2-routing/angular-r21-prepared.kicad_pcb",
+      "board_sha256": "014ca4e04f159f61211b5249b9227885ca6874fd1fefdab34035c0ee7b48a886",
+      "complete_circuit": false,
+      "exact_483_parts_fields_local_pads_and_independent_global_transforms": true,
+      "fabrication_release_allowed": false,
+      "hole_audit": {
+        "aligned_adjacent_stacks": [],
+        "disjoint_supported_close_pairs": [],
+        "fabrication_qualified": false,
+        "minimum_unchanged_hole_clearance_mm": 0.25,
+        "other_close_pairs": 0
+      },
+      "native_opens": 28,
+      "new_track_lengths_mm": {},
+      "original_group_losses": [],
+      "original_groups_preserved": 216,
+      "physical_opens": 28,
+      "profiles_rules_structure_unchanged": true,
+      "retired_source_copper": 0,
+      "selected": false,
+      "unchanged_retained_source_copper": 19381
+    },
+    {
+      "added_copper": 0,
+      "board": "hardware/coupon/rev-a/build/row2-routing/angular-r21-165-prepared.kicad_pcb",
+      "board_sha256": "cbf31d92ec281cfce337ee5d9a958467e09118a6d5f9e5fbf4fca536e5b850ec",
+      "complete_circuit": false,
+      "exact_483_parts_fields_local_pads_and_independent_global_transforms": true,
+      "fabrication_release_allowed": false,
+      "hole_audit": {
+        "aligned_adjacent_stacks": [],
+        "disjoint_supported_close_pairs": [],
+        "fabrication_qualified": false,
+        "minimum_unchanged_hole_clearance_mm": 0.25,
+        "other_close_pairs": 0
+      },
+      "native_opens": 28,
+      "new_track_lengths_mm": {},
+      "original_group_losses": [],
+      "original_groups_preserved": 216,
+      "physical_opens": 28,
+      "profiles_rules_structure_unchanged": true,
+      "retired_source_copper": 0,
+      "selected": false,
+      "unchanged_retained_source_copper": 19381
+    }
+  ],
+  "selected": false,
+  "selected_native_opens": 28,
+  "selected_physical_opens": 28,
+  "source_sha256": "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34",
+  "status": "UNSELECTED_NO_COMPLETE_FEED",
+  "trial_searches": [
+    {
+      "board_sha256": "1c7bde2f9a405092e1c51b842ac922b13e9ce9927b794009b6d3acfc4ce84b48",
+      "byte_equal_prepared": true,
+      "name": "fixed-pad-r21",
+      "native_opens": 28,
+      "physical_opens": 28,
+      "routes": [
+        {
+          "expanded_nodes": 1500,
+          "net": "VLED",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "R21",
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "board_sha256": "1c7bde2f9a405092e1c51b842ac922b13e9ce9927b794009b6d3acfc4ce84b48",
+      "byte_equal_prepared": true,
+      "name": "fixed-pad-r11",
+      "native_opens": 28,
+      "physical_opens": 28,
+      "routes": [
+        {
+          "expanded_nodes": 7530,
+          "net": "VLED",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "R11",
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "board_sha256": "014ca4e04f159f61211b5249b9227885ca6874fd1fefdab34035c0ee7b48a886",
+      "byte_equal_prepared": true,
+      "name": "angular-r21",
+      "native_opens": 28,
+      "physical_opens": 28,
+      "routes": [
+        {
+          "expanded_nodes": 1493,
+          "net": "VLED",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "R21",
+            "1"
+          ]
+        }
+      ]
+    },
+    {
+      "board_sha256": "cbf31d92ec281cfce337ee5d9a958467e09118a6d5f9e5fbf4fca536e5b850ec",
+      "byte_equal_prepared": true,
+      "name": "angular-r21-165",
+      "native_opens": 28,
+      "physical_opens": 28,
+      "routes": [
+        {
+          "expanded_nodes": 264,
+          "net": "VLED",
+          "routed": false,
+          "search_outcome": "exhausted_grid",
+          "source": [
+            "R21",
+            "1"
+          ]
+        }
+      ]
+    }
+  ]
+}
