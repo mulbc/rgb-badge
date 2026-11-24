@@ -1,0 +1,98 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "acceptance_transaction": "Clock route plus both supply repairs; intermediate partial repairs are not accepted",
+  "accepted_join": {
+    "anchor": [
+      "R102",
+      "2"
+    ],
+    "net": "GAUGE_I2C_SCL",
+    "source": [
+      "U46",
+      "2"
+    ]
+  },
+  "all_existing_physical_pad_groups_and_source_copper_preserved": true,
+  "application_repair": "Restore old C1/C2 and C37/R104 pad groups via C1-C3 rear connection and C37-to-main routed connection; add no source power group",
+  "base_board_sha256": "8789452903b0f34641bdd9889cffa5dd9031f370f399ff537d2eb88bc95d4d86",
+  "base_revision": "c2029b6d4b78c151ad9fd59e2bfce8de6a5a9145",
+  "checksum_encoding": "Sorted integer native signatures, compact JSON; exact coordinate/layer/width/via data in native-control-routing-plan.json",
+  "clock_checkpoint_board_sha256": "46a326848454efa8dce85c484875f3fc49af5a1e522389bc0b1e4d7ae7f68e43",
+  "cumulative_power_geometry_checksums": {
+    "+3V3_APP": {
+      "items": 26,
+      "sha256": "fda8fe3404655998aceb7616469bf9d6faee7f075ab474304bccf1918ce93e89"
+    },
+    "+3V3_USB": {
+      "items": 9,
+      "sha256": "096cac28c26aacd3ad239d27865023a515b26db94f74ba090675830c62983bfb"
+    }
+  },
+  "firmware_schematic_bom_libraries_current_limits_unchanged": true,
+  "hardware_measurements": "NONE",
+  "increment_by_net": {
+    "+3V3_APP": {
+      "microvias": 2,
+      "tracks": 24
+    },
+    "+3V3_USB": {
+      "microvias": 0,
+      "tracks": 6
+    },
+    "GAUGE_I2C_SCL": {
+      "microvias": 2,
+      "tracks": 45
+    }
+  },
+  "increment_microvias": 4,
+  "increment_tracks": 75,
+  "independent_gate_a": "OPEN",
+  "isolated_guard_cases_passed_at_clock_checkpoint": 14,
+  "limitations": [
+    "Gauge SCL and SDA each still have one open to MAX17048 U35",
+    "Application SDA still has two opens",
+    "Power repair impedance, bypass locality, return/current capacity and bus electrical behavior unqualified",
+    "104 intrinsic fine-pitch findings, mixed-source package adoption, HDI/fit and independent Gate A remain open"
+  ],
+  "native_drc_findings": 104,
+  "native_opens_after": 227,
+  "native_opens_before": 228,
+  "new_guard_cases": [
+    "Detached gauge clock with unchanged item counts",
+    "Gauge clock stays joined but withdrawing application repairs splits old supply group",
+    "Gauge clock stays joined but withdrawing six new USB bridge tracks splits old supply group"
+  ],
+  "new_native_drc_findings": 0,
+  "power_open_edges_unchanged": {
+    "+3V3_APP": 7,
+    "+3V3_USB": 4,
+    "GND": 27,
+    "VLED": 14
+  },
+  "raw_evidence_sha256": {
+    "/private/tmp/rgb-check-clock-chain.log": "fcfc1d33971145bc71abb55e6ec6a902078ed98a88364c1d2448ce508564652e",
+    "/private/tmp/rgb-clock-app-bridge-search.log": "f7d72e603aec6156d90f52f8ce40b2b350647fed7aa05fd3e017198eb502e61c",
+    "/private/tmp/rgb-clock-joint-repair-drc.log": "7c50803c8d41ce25e642fd85833a13b1a95dd421bb7bf518654e2953e9b2d34b",
+    "/private/tmp/rgb-clock-usb-chain-drc.log": "e98a1c73670c210af36e66d07ca8e79384aa3b28614cc0f363a317bf7c085fe2",
+    "/private/tmp/rgb-gauge-clock-full-check.log": "9970719bd4d429ff583aeab2b53c3a2e9cca24a74347e4906e99a4c9fcdb6206",
+    "/private/tmp/rgb-gauge-clock-generate.log": "8e7b71591175bd19806fd7f0ba2c8c788c87df3dc04aa05c4ca14aac667e6e79",
+    "/private/tmp/rgb-gauge-clock-reproduce.log": "0cbc38d43f71230eb5ea292b637e9cdf564d6030831cb89f7693293e0e78993f"
+  },
+  "rejected_partial_probes": [
+    {
+      "native_drc_findings": 104,
+      "native_opens": 230,
+      "probe": "clock-joint-power-repair",
+      "reason": "Old USB bypass groups still split despite no new DRC findings"
+    },
+    {
+      "native_drc_findings": 107,
+      "native_opens": 232,
+      "probe": "gauge-clock-shift-In3_Cu",
+      "reason": "USB-logic pad groups split and new geometry findings"
+    }
+  ],
+  "status": "GEOMETRY_CHECKED_NOT_HARDWARE_QUALIFICATION",
+  "unchanged_footprints": 483,
+  "usb_repair": "Retain old C38/C36 bridge and reconnect C23/C24/C25/C36/C38 to C17 main group using six exact rear tracks; add no source power group"
+}

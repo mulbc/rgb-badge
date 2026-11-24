@@ -1,0 +1,56 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "date": "2026-11-20",
+  "source_sha256": "fb862c0a548599b7acf328ad8bb5006ce5f78d8b98ceec12bb4af9ace21f1d0f",
+  "records": [
+    {
+      "file": "hardware/coupon/rev-a/build/r11-front-routing/r71-edge/screen.json",
+      "sha256": "24e1528cc1b6e4d3418e4ba7b0226c2e92ef344e0ef3ff7dcae84c23bc2e0bc1"
+    },
+    {
+      "file": "hardware/coupon/rev-a/build/r11-front-routing/r71-edge/lower-gateways.json",
+      "sha256": "3289fc2373cf506138b19dad2fe5c002b525679d5daac0d3b07aafbc374c3dab"
+    },
+    {
+      "file": "hardware/coupon/rev-a/build/r11-front-routing/r71-edge/all-lower-gateways.json",
+      "sha256": "3289fc2373cf506138b19dad2fe5c002b525679d5daac0d3b07aafbc374c3dab"
+    },
+    {
+      "file": "hardware/coupon/rev-a/build/r11-front-routing/front-row-zero/selector-private-cohort.json",
+      "sha256": "a9cfc62cca4381c29031157185f4c73a3151bd979082254dbc86affdab6230ca"
+    },
+    {
+      "file": "hardware/coupon/rev-a/build/r11-front-routing/front-row-zero/selector-in1-route.json",
+      "sha256": "74c155e561f7b2c21a2d721fbf2c29d4bd7d3320c2fbc6acec1cb010d5ef05f8"
+    },
+    {
+      "file": "hardware/coupon/rev-a/build/r11-front-routing/front-row-zero/prototype-result.json",
+      "sha256": "144f1e8cfe93f81e4ba80c3f5290dccdf5ca52ea9c2dbac0ef91d1fad0cef3dd"
+    },
+    {
+      "file": "hardware/coupon/rev-a/build/r11-front-routing/front-row-zero/supply-route.json",
+      "sha256": "eaca5ca17fc8cd846973e2969eb13155234f258026f876a055eb2764228daf46"
+    },
+    {
+      "file": "hardware/coupon/rev-a/build/r11-front-routing/front-row-zero/supply-capture-screen.json",
+      "sha256": "63ed47a0e24b71121a9703bbb9b89e42915b889a40ab8fb77b107babd1d19eb9"
+    },
+    {
+      "file": "hardware/coupon/rev-a/build/r11-front-routing/front-row-zero/supply-plane-capture-screen.json",
+      "sha256": "ab411772fcda183b3f334adec220cb7c32552ac59ffa9f658554e17ea921fb7f"
+    },
+    {
+      "file": "hardware/coupon/rev-a/build/r11-front-routing/front-row-zero/supply-plane-capture-expanded.json",
+      "sha256": "0fa9b3d5da1002e013888478a69cc6fd19ea3d553287de010931aac5e75fe246"
+    },
+    {
+      "file": "hardware/coupon/rev-a/build/r11-front-routing/front-row-zero/supply-first-route.json",
+      "sha256": "cfb3e76e4b9869ca20689bbfae5a4699596e6ac32acf916154f54eef01cc9e8b"
+    }
+  ],
+  "r71_result": "No supported lower gateway or clear edge route in the recorded finite bounds",
+  "two_part_front_candidate": "REJECTED: 24 opens; original R6 supply group split; main VLED36",
+  "short_supply_attempts": "No clear explicit <=6 mm supply lead or witnessed short off-pad access found in recorded bounds",
+  "pair_only_successor": "Separate 25-open PAIR01-only ground candidate under ADR0226; no R6/power closure claimed",
+  "fabrication_release_allowed": false
+}

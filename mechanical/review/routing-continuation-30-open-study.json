@@ -1,0 +1,115 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "status": "UNSELECTED_ROUTING_CONTINUATION",
+  "selected_board": "hardware/coupon/rev-a/staging/led-enable-routing-trial-114mm.kicad_pcb",
+  "selected_sha256": "90db778d8e44b2c71ab5e1f5d8a1c586ee71c25d46892b1406c4792ac7720abd",
+  "selected_native_and_physical_opens": 30,
+  "selected_groups": 218,
+  "selected_findings": 104,
+  "decisions": [
+    143,
+    144,
+    145,
+    146,
+    147,
+    148
+  ],
+  "evidence": [
+    {
+      "path": "hardware/coupon/rev-a/build/enable-routing/exact-transition-screen.json",
+      "sha256": "50c6975659be45894d3ca337f5800506c1ab63a60744a7e5a53034c734c847ca",
+      "bytes": 6291
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/enable-routing/row2-component-trial.json",
+      "sha256": "bda844778ad9929dcff64a42dfd6119a0aaf24055d6fc2e25b0ceee8b1bf7d94",
+      "bytes": 2690
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/enable-routing/component-R8-2.json",
+      "sha256": "ad2d138aa74dc4d5c87275ab3f5dd23cede7c656d928e7a6f7c2a42986c8b526",
+      "bytes": 144397
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/enable-routing/component-PAIR03-5.json",
+      "sha256": "fa41442d439fdeae250388157c3e19bd17ce8385a73dce031030d571ae6b0688",
+      "bytes": 335242
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/enable-routing/r8-complete-screen.json",
+      "sha256": "24ff3b9c37ced0fc24eca51630246104b25fc1c24e2be495bd6c2901c651b865",
+      "bytes": 507
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/enable-routing/r8-complete-layer-screen.json",
+      "sha256": "87cf0fa0b76f977acbb5f73607cf27a097a56983920f18b7d282f0514aed3441",
+      "bytes": 512
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/enable-routing/row15-r8-prototype.json",
+      "sha256": "c3a28811179d45c07de8d8a7ec15e2f2cbd15e8b9f45b3c399ed6eb650117660",
+      "bytes": 1249
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/enable-routing/row15-r8-prototype-drc.json",
+      "sha256": "ffe89225d5b8382da8ec99702c6bd571cf44bc58edbb0b0162cd0120592ca1a5",
+      "bytes": 110659
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/enable-routing/row15-r8-restored.json",
+      "sha256": "50e528639d9357a0008dcfb0fe149e29bcede1601d6ceb53e8da289627a74e9e",
+      "bytes": 2693
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/enable-routing/r37-anchor-screen.json",
+      "sha256": "633d5f9d8e920769fad710c95763174ca5eef35c2ac050f0eb86ea274e6f93df",
+      "bytes": 2276
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/enable-routing/hole-span-fixtures/results.json",
+      "sha256": "5b645971cb51facb3975f2d970366c345d06d17559fc6be5250efd9014e070f1",
+      "bytes": 14373
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/enable-routing/qualified-control-trial.json",
+      "sha256": "f8baa258fa3442dfd6b43fd65ac03760306692042a601fa70d7fa5ff32158acc",
+      "bytes": 8406
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/enable-routing/row15-qualified-restoration.json",
+      "sha256": "65158a9b9a81e28ae722afd2531ed05c22d383b60e7bb58e2b6df1b8a1434cd9",
+      "bytes": 2830
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/enable-routing/u48-qualified-neck-screen.json",
+      "sha256": "eda951346c487499d4ef725cc7ff46127aff72ed5f5b95e6e0d08a4f0dd64a0d",
+      "bytes": 633
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/enable-routing/open-groups-30.json",
+      "sha256": "4bfe35b5d7e2d9b8dbdd9c9ed392e543b8114e3931b491474a58290e89e072ae",
+      "bytes": 61385
+    }
+  ],
+  "results": {
+    "r8_poses_each_screen": 7344,
+    "r8_clear_poses": 0,
+    "r37_angles": 72,
+    "r37_clear_poses": 1,
+    "r37_clear_captures": 0,
+    "u48_existing_neck_captures": 0,
+    "native_hole_fixtures": 9,
+    "qualified_control_batch_joins": 0,
+    "selector_repair_join": false
+  },
+  "unfinished_prototype": {
+    "board": "hardware/coupon/rev-a/build/enable-routing/row15-r8-prototype.kicad_pcb",
+    "sha256": "6cf68a2a7303fdeac7d169a0a7e6de2a0f05307bfececfc887075ec193dc8bcc",
+    "source_groups_preserved": 217,
+    "required_groups": 218,
+    "original_selector_group_lost": true,
+    "additional_dangling_findings": 2,
+    "selected": false
+  },
+  "fabrication_release_allowed": false
+}

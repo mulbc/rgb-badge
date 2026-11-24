@@ -1,0 +1,1270 @@
+{
+  "spdx_license_identifier": "CERN-OHL-S-2.0",
+  "source_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+  "retired_copper": [
+    {
+      "uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        56200000,
+        10600000,
+        56200000,
+        16250000,
+        "B.Cu",
+        200000
+      ],
+      "via_type": null
+    },
+    {
+      "uuid": "e734f33e-d79f-507d-97c2-bf4f468110e3",
+      "signature": [
+        "track",
+        "ROW_SEL_06",
+        55700000,
+        10850000,
+        55700000,
+        15750000,
+        "B.Cu",
+        200000
+      ],
+      "via_type": null
+    },
+    {
+      "uuid": "20ea7d57-fa47-5c6c-8ab6-3a5d113a3f67",
+      "signature": [
+        "via",
+        "ROW_SEL_06",
+        55700000,
+        15750000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "via_type": 1
+    },
+    {
+      "uuid": "2a6ffeb0-e209-5116-a8b2-31bbae1c9fe7",
+      "signature": [
+        "track",
+        "TEMP_OK",
+        57550000,
+        16000000,
+        57550000,
+        15000000,
+        "B.Cu",
+        200000
+      ],
+      "via_type": null
+    },
+    {
+      "uuid": "2e37e68f-aaa0-57ec-87ec-9cbeec3eb43f",
+      "signature": [
+        "track",
+        "TMP_COLD_SET",
+        59000000,
+        15500000,
+        59000000,
+        16750000,
+        "B.Cu",
+        200000
+      ],
+      "via_type": null
+    },
+    {
+      "uuid": "ebdefb60-8e25-59e1-b88a-9b7b1abf74cd",
+      "signature": [
+        "track",
+        "GND",
+        60250000,
+        16000000,
+        60250000,
+        17750000,
+        "B.Cu",
+        200000
+      ],
+      "via_type": null
+    }
+  ],
+  "source_retirement_contacts": {
+    "20ea7d57-fa47-5c6c-8ab6-3a5d113a3f67": {
+      "In4.Cu": {
+        "copper_and_pads": [
+          {
+            "uuid": "5600f32c-2585-5391-b9e4-55a8f71323a0",
+            "signature": [
+              "track",
+              "ROW_SEL_06",
+              55700000,
+              15750000,
+              57800000,
+              15750000,
+              "In4.Cu",
+              200000
+            ]
+          }
+        ],
+        "filled_polygons": []
+      },
+      "B.Cu": {
+        "copper_and_pads": [
+          {
+            "uuid": "e734f33e-d79f-507d-97c2-bf4f468110e3",
+            "signature": [
+              "track",
+              "ROW_SEL_06",
+              55700000,
+              10850000,
+              55700000,
+              15750000,
+              "B.Cu",
+              200000
+            ]
+          }
+        ],
+        "filled_polygons": []
+      }
+    },
+    "2a6ffeb0-e209-5116-a8b2-31bbae1c9fe7": {
+      "B.Cu": {
+        "copper_and_pads": [
+          {
+            "uuid": "203518a7-2610-5416-a454-e94881e1a8e7",
+            "signature": [
+              "track",
+              "TEMP_OK",
+              57550000,
+              15000000,
+              56885000,
+              15000000,
+              "B.Cu",
+              200000
+            ]
+          },
+          {
+            "uuid": "b0650699-8080-52ab-b613-837da5867827",
+            "signature": [
+              "track",
+              "TEMP_OK",
+              56885000,
+              16000000,
+              57550000,
+              16000000,
+              "B.Cu",
+              200000
+            ]
+          }
+        ],
+        "filled_polygons": []
+      }
+    },
+    "2e37e68f-aaa0-57ec-87ec-9cbeec3eb43f": {
+      "B.Cu": {
+        "copper_and_pads": [
+          {
+            "uuid": "37e94d4c-8645-5bca-9b71-2c8327be486a",
+            "signature": [
+              "track",
+              "TMP_COLD_SET",
+              59000000,
+              16750000,
+              59500000,
+              16750000,
+              "B.Cu",
+              200000
+            ]
+          },
+          {
+            "uuid": "a897a2ce-0106-5b3a-9bb2-665938176886",
+            "signature": [
+              "track",
+              "TMP_COLD_SET",
+              58365000,
+              15500000,
+              59000000,
+              15500000,
+              "B.Cu",
+              200000
+            ]
+          }
+        ],
+        "filled_polygons": []
+      }
+    },
+    "db361ff2-8ade-5ab0-bd15-6c1bbad753f9": {
+      "B.Cu": {
+        "copper_and_pads": [
+          {
+            "uuid": "179d2bcd-c417-583f-a1a4-dc32f7c727e4",
+            "signature": [
+              "track",
+              "ROW_SEL_08",
+              56300000,
+              16350000,
+              56300000,
+              16400000,
+              "B.Cu",
+              200000
+            ]
+          },
+          {
+            "uuid": "3a27014f-b0ee-5c2b-9f34-f080d840c159",
+            "signature": [
+              "track",
+              "ROW_SEL_08",
+              56150000,
+              10600000,
+              56200000,
+              10600000,
+              "B.Cu",
+              200000
+            ]
+          },
+          {
+            "uuid": "6777d2c6-010e-5170-afb5-e688b40bc137",
+            "signature": [
+              "track",
+              "ROW_SEL_08",
+              56300000,
+              16400000,
+              56350000,
+              16400000,
+              "B.Cu",
+              200000
+            ]
+          },
+          {
+            "uuid": "6babbcfe-8587-59d0-89b3-0c055380e9b2",
+            "signature": [
+              "track",
+              "ROW_SEL_08",
+              56150000,
+              9700000,
+              56150000,
+              10600000,
+              "B.Cu",
+              200000
+            ]
+          },
+          {
+            "uuid": "788750d4-9eaf-589a-90cd-ab7a0b00b38a",
+            "signature": [
+              "track",
+              "ROW_SEL_08",
+              56200000,
+              16250000,
+              56250000,
+              16250000,
+              "B.Cu",
+              200000
+            ]
+          },
+          {
+            "uuid": "b62a5db2-9e63-5ff9-9b08-4034fa9da26b",
+            "signature": [
+              "track",
+              "ROW_SEL_08",
+              56250000,
+              16250000,
+              56250000,
+              16350000,
+              "B.Cu",
+              200000
+            ]
+          },
+          {
+            "uuid": "e96ed60d-857b-5a1f-8a2a-b98ebff6bbfb",
+            "signature": [
+              "track",
+              "ROW_SEL_08",
+              56250000,
+              16350000,
+              56300000,
+              16350000,
+              "B.Cu",
+              200000
+            ]
+          }
+        ],
+        "filled_polygons": []
+      }
+    },
+    "e734f33e-d79f-507d-97c2-bf4f468110e3": {
+      "B.Cu": {
+        "copper_and_pads": [
+          {
+            "uuid": "20ea7d57-fa47-5c6c-8ab6-3a5d113a3f67",
+            "signature": [
+              "via",
+              "ROW_SEL_06",
+              55700000,
+              15750000,
+              "In4.Cu",
+              "B.Cu",
+              300000,
+              100000
+            ]
+          },
+          {
+            "uuid": "f84e47c4-8b2c-5f71-8856-eb523c1ade2e",
+            "signature": [
+              "track",
+              "ROW_SEL_06",
+              48900000,
+              10850000,
+              55700000,
+              10850000,
+              "B.Cu",
+              200000
+            ]
+          }
+        ],
+        "filled_polygons": []
+      }
+    },
+    "ebdefb60-8e25-59e1-b88a-9b7b1abf74cd": {
+      "B.Cu": {
+        "copper_and_pads": [
+          {
+            "uuid": "0c2d6ff1-ebc0-5599-921f-739ac3291653",
+            "pad": [
+              "R90",
+              "2"
+            ]
+          },
+          {
+            "uuid": "4e97664f-9a17-5672-b67a-cb17c9ccffd3",
+            "signature": [
+              "track",
+              "GND",
+              59865000,
+              16000000,
+              60250000,
+              16000000,
+              "B.Cu",
+              200000
+            ]
+          },
+          {
+            "uuid": "5c4098c2-2a94-55ad-a1f1-60b04a83656a",
+            "signature": [
+              "track",
+              "GND",
+              60250000,
+              17750000,
+              58450000,
+              17750000,
+              "B.Cu",
+              200000
+            ]
+          }
+        ],
+        "filled_polygons": [
+          {
+            "uuid": "81b0abb6-bbba-5f7c-9599-18e6b0c72e0e",
+            "polygon": 24
+          }
+        ]
+      }
+    }
+  },
+  "fixed_geometry": [
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_06",
+        55700000,
+        10850000,
+        55700000,
+        13800000,
+        "B.Cu",
+        200000
+      ],
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_06",
+        55700000,
+        13800000,
+        55250000,
+        14250000,
+        "B.Cu",
+        200000
+      ],
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_06",
+        55250000,
+        14250000,
+        55250000,
+        15700000,
+        "B.Cu",
+        200000
+      ],
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_06",
+        55250000,
+        15700000,
+        55850000,
+        15800000,
+        "B.Cu",
+        200000
+      ],
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        56200000,
+        10600000,
+        56200000,
+        14000000,
+        "B.Cu",
+        200000
+      ],
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        56200000,
+        14000000,
+        55700000,
+        14500000,
+        "B.Cu",
+        200000
+      ],
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        55700000,
+        14500000,
+        55700000,
+        15100000,
+        "B.Cu",
+        200000
+      ],
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        55700000,
+        15100000,
+        56350000,
+        15600000,
+        "B.Cu",
+        200000
+      ],
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        56350000,
+        15600000,
+        56350000,
+        16000000,
+        "B.Cu",
+        200000
+      ],
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        56350000,
+        16000000,
+        56200000,
+        16250000,
+        "B.Cu",
+        200000
+      ],
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "ROW_SEL_06",
+        55850000,
+        15800000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_06",
+        55850000,
+        15800000,
+        55700000,
+        15750000,
+        "In4.Cu",
+        200000
+      ],
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "TEMP_OK",
+        57550000,
+        15000000,
+        57925000,
+        15000000,
+        "B.Cu",
+        200000
+      ],
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "TEMP_OK",
+        57925000,
+        15000000,
+        57925000,
+        16000000,
+        "B.Cu",
+        200000
+      ],
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "TEMP_OK",
+        57925000,
+        16000000,
+        57550000,
+        16000000,
+        "B.Cu",
+        200000
+      ],
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "TMP_COLD_SET",
+        59500000,
+        16750000,
+        59900000,
+        16750000,
+        "B.Cu",
+        200000
+      ],
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "TMP_COLD_SET",
+        59000000,
+        15500000,
+        59375000,
+        15500000,
+        "B.Cu",
+        200000
+      ],
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "TMP_COLD_SET",
+        59375000,
+        15500000,
+        59375000,
+        16400000,
+        "B.Cu",
+        200000
+      ],
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "TMP_COLD_SET",
+        59375000,
+        16400000,
+        59000000,
+        16750000,
+        "B.Cu",
+        200000
+      ],
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        60250000,
+        16000000,
+        60900000,
+        16000000,
+        "B.Cu",
+        200000
+      ],
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        60900000,
+        16000000,
+        60900000,
+        17750000,
+        "B.Cu",
+        200000
+      ],
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        60900000,
+        17750000,
+        60250000,
+        17750000,
+        "B.Cu",
+        200000
+      ],
+      "via_type": null
+    }
+  ],
+  "fixed_copper": [
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_06",
+        55700000,
+        10850000,
+        55700000,
+        13800000,
+        "B.Cu",
+        200000
+      ],
+      "blockers": []
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_06",
+        55700000,
+        13800000,
+        55250000,
+        14250000,
+        "B.Cu",
+        200000
+      ],
+      "blockers": []
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_06",
+        55250000,
+        14250000,
+        55250000,
+        15700000,
+        "B.Cu",
+        200000
+      ],
+      "blockers": []
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_06",
+        55250000,
+        15700000,
+        55850000,
+        15800000,
+        "B.Cu",
+        200000
+      ],
+      "blockers": []
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        56200000,
+        10600000,
+        56200000,
+        14000000,
+        "B.Cu",
+        200000
+      ],
+      "blockers": []
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        56200000,
+        14000000,
+        55700000,
+        14500000,
+        "B.Cu",
+        200000
+      ],
+      "blockers": []
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        55700000,
+        14500000,
+        55700000,
+        15100000,
+        "B.Cu",
+        200000
+      ],
+      "blockers": []
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        55700000,
+        15100000,
+        56350000,
+        15600000,
+        "B.Cu",
+        200000
+      ],
+      "blockers": []
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        56350000,
+        15600000,
+        56350000,
+        16000000,
+        "B.Cu",
+        200000
+      ],
+      "blockers": []
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_08",
+        56350000,
+        16000000,
+        56200000,
+        16250000,
+        "B.Cu",
+        200000
+      ],
+      "blockers": []
+    },
+    {
+      "signature": [
+        "via",
+        "ROW_SEL_06",
+        55850000,
+        15800000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "blockers": []
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_06",
+        55850000,
+        15800000,
+        55700000,
+        15750000,
+        "In4.Cu",
+        200000
+      ],
+      "blockers": []
+    },
+    {
+      "signature": [
+        "track",
+        "TEMP_OK",
+        57550000,
+        15000000,
+        57925000,
+        15000000,
+        "B.Cu",
+        200000
+      ],
+      "blockers": []
+    },
+    {
+      "signature": [
+        "track",
+        "TEMP_OK",
+        57925000,
+        15000000,
+        57925000,
+        16000000,
+        "B.Cu",
+        200000
+      ],
+      "blockers": []
+    },
+    {
+      "signature": [
+        "track",
+        "TEMP_OK",
+        57925000,
+        16000000,
+        57550000,
+        16000000,
+        "B.Cu",
+        200000
+      ],
+      "blockers": []
+    },
+    {
+      "signature": [
+        "track",
+        "TMP_COLD_SET",
+        59500000,
+        16750000,
+        59900000,
+        16750000,
+        "B.Cu",
+        200000
+      ],
+      "blockers": []
+    },
+    {
+      "signature": [
+        "track",
+        "TMP_COLD_SET",
+        59000000,
+        15500000,
+        59375000,
+        15500000,
+        "B.Cu",
+        200000
+      ],
+      "blockers": []
+    },
+    {
+      "signature": [
+        "track",
+        "TMP_COLD_SET",
+        59375000,
+        15500000,
+        59375000,
+        16400000,
+        "B.Cu",
+        200000
+      ],
+      "blockers": []
+    },
+    {
+      "signature": [
+        "track",
+        "TMP_COLD_SET",
+        59375000,
+        16400000,
+        59000000,
+        16750000,
+        "B.Cu",
+        200000
+      ],
+      "blockers": []
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        60250000,
+        16000000,
+        60900000,
+        16000000,
+        "B.Cu",
+        200000
+      ],
+      "blockers": []
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        60900000,
+        16000000,
+        60900000,
+        17750000,
+        "B.Cu",
+        200000
+      ],
+      "blockers": []
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        60900000,
+        17750000,
+        60250000,
+        17750000,
+        "B.Cu",
+        200000
+      ],
+      "blockers": []
+    },
+    {
+      "signature": [
+        "pad",
+        "U39",
+        "1"
+      ],
+      "blockers": []
+    },
+    {
+      "signature": [
+        "pad",
+        "U39",
+        "2"
+      ],
+      "blockers": []
+    },
+    {
+      "signature": [
+        "pad",
+        "U39",
+        "3"
+      ],
+      "blockers": []
+    },
+    {
+      "signature": [
+        "pad",
+        "U39",
+        "4"
+      ],
+      "blockers": []
+    },
+    {
+      "signature": [
+        "pad",
+        "U39",
+        "5"
+      ],
+      "blockers": []
+    },
+    {
+      "signature": [
+        "pad",
+        "U39",
+        "6"
+      ],
+      "blockers": []
+    },
+    {
+      "signature": [
+        "pad",
+        "R90",
+        "1"
+      ],
+      "blockers": []
+    },
+    {
+      "signature": [
+        "pad",
+        "R90",
+        "2"
+      ],
+      "blockers": []
+    },
+    {
+      "signature": [
+        "pad",
+        "R89",
+        "1"
+      ],
+      "blockers": []
+    },
+    {
+      "signature": [
+        "pad",
+        "R89",
+        "2"
+      ],
+      "blockers": []
+    }
+  ],
+  "poses": {
+    "U39": {
+      "position_iu": [
+        58000000,
+        15500000
+      ],
+      "orientation_degrees": 180,
+      "layer": "B.Cu"
+    },
+    "R90": {
+      "position_iu": [
+        60400000,
+        16750000
+      ],
+      "orientation_degrees": 0,
+      "layer": "B.Cu"
+    },
+    "R89": {
+      "position_iu": [
+        59965000,
+        15000000
+      ],
+      "orientation_degrees": 270,
+      "layer": "B.Cu"
+    }
+  },
+  "r89_original_pin_contacts": [
+    {
+      "pin": "1",
+      "copper_uuid": "faf24dc2-2ea4-57bd-bfa9-2a2cd286fd6a"
+    },
+    {
+      "pin": "2",
+      "copper_uuid": "5d7d420d-19b5-5743-a5f4-ce345c680b33"
+    }
+  ],
+  "r90_original_interfaces": [
+    {
+      "pin": "1",
+      "copper_uuid": "37e94d4c-8645-5bca-9b71-2c8327be486a",
+      "direct_bridge": true,
+      "restored": true
+    }
+  ],
+  "courtyard_overlaps": [],
+  "original_pad_contacts": [
+    {
+      "pin": "1",
+      "copper_uuid": "faf24dc2-2ea4-57bd-bfa9-2a2cd286fd6a"
+    },
+    {
+      "pin": "2",
+      "copper_uuid": "a897a2ce-0106-5b3a-9bb2-665938176886"
+    },
+    {
+      "pin": "3",
+      "copper_uuid": "79d17ae9-eb78-501a-8fd4-30fef9c86236"
+    },
+    {
+      "pin": "3",
+      "copper_uuid": "9763b5e6-8a19-53a7-a158-504dc3673965"
+    },
+    {
+      "pin": "3",
+      "copper_uuid": "37a26f2a-1038-5e0c-8e46-a974fcb35860"
+    },
+    {
+      "pin": "3",
+      "copper_uuid": "8cb7e6d1-f572-554b-bd9b-389d26be759f"
+    },
+    {
+      "pin": "3",
+      "copper_uuid": "01daede1-fe0f-59d7-bd14-9106c5899805"
+    },
+    {
+      "pin": "4",
+      "copper_uuid": "b0650699-8080-52ab-b613-837da5867827"
+    },
+    {
+      "pin": "6",
+      "copper_uuid": "f338c49a-fe01-5838-bf3f-91c558bcb69d"
+    },
+    {
+      "pin": "6",
+      "copper_uuid": "203518a7-2610-5416-a454-e94881e1a8e7"
+    },
+    {
+      "pin": "6",
+      "copper_uuid": "e31c71aa-2029-5915-a289-5a9fbe9fbf6b"
+    }
+  ],
+  "c50_pad_distance_mm": 3.7950823442976835,
+  "original_c50_pad_distance_mm": 3.816022143541623,
+  "programming_distances_mm": {
+    "R89": 1.3231118622399243,
+    "R90": 1.7053152201279387,
+    "R89_ground": 1.3231118622399243,
+    "R90_ground": 2.2865038814749474
+  },
+  "filled_gateway": {
+    "native_opens": 23,
+    "physical_opens": 23,
+    "prior_groups": 211,
+    "current_groups": 211,
+    "split_groups": [],
+    "lost_retained_copper": [],
+    "orphans": 0
+  },
+  "source_contacts_preserved": [
+    {
+      "source_uuid": "20ea7d57-fa47-5c6c-8ab6-3a5d113a3f67",
+      "contact_uuid": "5600f32c-2585-5391-b9e4-55a8f71323a0",
+      "layer": "In4.Cu",
+      "retained": true
+    },
+    {
+      "source_uuid": "2a6ffeb0-e209-5116-a8b2-31bbae1c9fe7",
+      "contact_uuid": "203518a7-2610-5416-a454-e94881e1a8e7",
+      "layer": "B.Cu",
+      "retained": true
+    },
+    {
+      "source_uuid": "2a6ffeb0-e209-5116-a8b2-31bbae1c9fe7",
+      "contact_uuid": "b0650699-8080-52ab-b613-837da5867827",
+      "layer": "B.Cu",
+      "retained": true
+    },
+    {
+      "source_uuid": "2e37e68f-aaa0-57ec-87ec-9cbeec3eb43f",
+      "contact_uuid": "37e94d4c-8645-5bca-9b71-2c8327be486a",
+      "layer": "B.Cu",
+      "retained": true
+    },
+    {
+      "source_uuid": "2e37e68f-aaa0-57ec-87ec-9cbeec3eb43f",
+      "contact_uuid": "a897a2ce-0106-5b3a-9bb2-665938176886",
+      "layer": "B.Cu",
+      "retained": true
+    },
+    {
+      "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+      "contact_uuid": "179d2bcd-c417-583f-a1a4-dc32f7c727e4",
+      "layer": "B.Cu",
+      "retained": true
+    },
+    {
+      "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+      "contact_uuid": "3a27014f-b0ee-5c2b-9f34-f080d840c159",
+      "layer": "B.Cu",
+      "retained": true
+    },
+    {
+      "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+      "contact_uuid": "6777d2c6-010e-5170-afb5-e688b40bc137",
+      "layer": "B.Cu",
+      "retained": true
+    },
+    {
+      "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+      "contact_uuid": "6babbcfe-8587-59d0-89b3-0c055380e9b2",
+      "layer": "B.Cu",
+      "retained": true
+    },
+    {
+      "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+      "contact_uuid": "788750d4-9eaf-589a-90cd-ab7a0b00b38a",
+      "layer": "B.Cu",
+      "retained": true
+    },
+    {
+      "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+      "contact_uuid": "b62a5db2-9e63-5ff9-9b08-4034fa9da26b",
+      "layer": "B.Cu",
+      "retained": true
+    },
+    {
+      "source_uuid": "db361ff2-8ade-5ab0-bd15-6c1bbad753f9",
+      "contact_uuid": "e96ed60d-857b-5a1f-8a2a-b98ebff6bbfb",
+      "layer": "B.Cu",
+      "retained": true
+    },
+    {
+      "source_uuid": "e734f33e-d79f-507d-97c2-bf4f468110e3",
+      "contact_uuid": "f84e47c4-8b2c-5f71-8856-eb523c1ade2e",
+      "layer": "B.Cu",
+      "retained": true
+    },
+    {
+      "source_uuid": "ebdefb60-8e25-59e1-b88a-9b7b1abf74cd",
+      "contact_uuid": "0c2d6ff1-ebc0-5599-921f-739ac3291653",
+      "layer": "B.Cu",
+      "retained": true
+    },
+    {
+      "source_uuid": "ebdefb60-8e25-59e1-b88a-9b7b1abf74cd",
+      "contact_uuid": "4e97664f-9a17-5672-b67a-cb17c9ccffd3",
+      "layer": "B.Cu",
+      "retained": true
+    },
+    {
+      "source_uuid": "ebdefb60-8e25-59e1-b88a-9b7b1abf74cd",
+      "contact_uuid": "5c4098c2-2a94-55ad-a1f1-60b04a83656a",
+      "layer": "B.Cu",
+      "retained": true
+    }
+  ],
+  "hole_audit": {
+    "disjoint_supported_close_pairs": [
+      {
+        "uuids": [
+          "c710fb14-a3b2-4963-a02a-74b9f4c015c5",
+          "fa13bffe-e1be-57a5-891b-9c8f74289c73"
+        ],
+        "first_uuid": "c710fb14-a3b2-4963-a02a-74b9f4c015c5",
+        "first_span": [
+          "In4.Cu",
+          "B.Cu"
+        ],
+        "second_span": [
+          "F.Cu",
+          "In1.Cu"
+        ],
+        "first_position_iu": [
+          55850000,
+          15800000
+        ],
+        "second_position_iu": [
+          55600000,
+          15700000
+        ]
+      }
+    ],
+    "aligned_adjacent_stacks": [],
+    "other_close_pairs": 0,
+    "minimum_unchanged_hole_clearance_mm": 0.25,
+    "fabrication_qualified": false
+  },
+  "hole_error": null,
+  "outcome": "clear_template",
+  "read_only": true,
+  "selected": false,
+  "fabrication_release_allowed": false
+}

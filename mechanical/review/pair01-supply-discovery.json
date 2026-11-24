@@ -1,0 +1,46 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "date": "2026-11-20",
+  "source_sha256": "230b0c9f456837a0dd1b5e432497aa5223da95334ac2909ff8cd39d2edea804a",
+  "records": [
+    {
+      "file": "hardware/coupon/rev-a/build/r6-direct-bottom-routing/pair01-supply-locality/screen-first.json",
+      "sha256": "2e02db5780821a09c285d7d8cd973d37485554921cf01592879e99b1adb13423"
+    },
+    {
+      "file": "hardware/coupon/rev-a/build/r6-direct-bottom-routing/pair01-supply-locality/screen-body-centre.json",
+      "sha256": "85a639eb768c6281754194ad14e44c15b28343c528aadbc42e3d6847659bf0d3"
+    },
+    {
+      "file": "hardware/coupon/rev-a/build/r6-direct-bottom-routing/pair01-supply-locality/screen-offset-above-bus.json",
+      "sha256": "901c94bfe4bb3faac28dbe98880669d9477554b9356d7e40ea1d7275ca940592"
+    },
+    {
+      "file": "hardware/coupon/rev-a/build/r6-direct-bottom-routing/pair01-supply-locality/selector-route.json",
+      "sha256": "22dbfca71487b3f878ef74f36b2832ea201859051f22454cb38cfbe2d49868b1",
+      "expanded_nodes": 10483
+    },
+    {
+      "file": "hardware/coupon/rev-a/build/r6-direct-bottom-routing/pair01-supply-locality/selector-route-dual.json",
+      "sha256": "207d09b231f2e07892e11d9950a7f0170abb6a5794111979f00fa52e6f01a53b",
+      "expanded_nodes": 16896,
+      "via_candidates": 2994,
+      "clear_via_candidates": 1122
+    },
+    {
+      "file": "hardware/coupon/rev-a/build/r6-direct-bottom-routing/pair01-supply-locality/selector-route-three-layer.json",
+      "sha256": "a78bbfa5d00cc05b948cb977595ba8770d374732458e41d5488000b99f811d55",
+      "outcome": "found",
+      "expanded_nodes": 12450,
+      "via_candidates": 4153,
+      "clear_via_candidates": 1158,
+      "selector_conductor_mm": 4.099137802864838
+    },
+    {
+      "file": "hardware/coupon/rev-a/build/r6-direct-bottom-routing/pair01-supply-locality/screen.json",
+      "sha256": "0bd3cef3c57671ba965efd637e9d2b79ff1c247354bef8b352c66a2686bffcd7"
+    }
+  ],
+  "selected_successor_sha256": "9574949d6bd56caa6f79b9db78af3531b0150cfba1f110d727c829effcaf62b3",
+  "fabrication_release_allowed": false
+}

@@ -1,0 +1,180 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "source_69_board_sha256": "8a763a39aa0089c8c3d2c110e0a73f46a7b17cc905ea1ce6734417a0ea65c8c9",
+  "source_69_plan_sha256": "4afcfc21c9c28463a9b0a4d58a85fe82428ab5ae3b10b27347b9de1000473086",
+  "status": "UNQUALIFIED_ENUMERATED_TESTPAD_PLACEMENTS",
+  "testpads": [
+    {
+      "connection": [
+        [
+          "track",
+          "LED_SOUT",
+          8395000,
+          30795000,
+          8395000,
+          28700000,
+          "B.Cu",
+          200000
+        ]
+      ],
+      "joined_source_group": [
+        [
+          "U3",
+          "22",
+          1905000,
+          -9500000
+        ]
+      ],
+      "net": "LED_SOUT",
+      "new_angle_deg": 180.0,
+      "new_position_iu": [
+        8395000,
+        30795000
+      ],
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        74001262,
+        1000001
+      ],
+      "reference": "TP1"
+    },
+    {
+      "connection": [
+        [
+          "track",
+          "ESP_EN",
+          42150000,
+          14590000,
+          42150000,
+          13045000,
+          "B.Cu",
+          200000
+        ]
+      ],
+      "joined_source_group": [
+        [
+          "C5",
+          "1",
+          -400000,
+          0
+        ],
+        [
+          "R43",
+          "2",
+          500000,
+          0
+        ],
+        [
+          "U3",
+          "3",
+          -8750000,
+          5720000
+        ]
+      ],
+      "net": "ESP_EN",
+      "new_angle_deg": 180.0,
+      "new_position_iu": [
+        42150000,
+        14590000
+      ],
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        84501262,
+        10500001
+      ],
+      "reference": "TP2"
+    },
+    {
+      "connection": [
+        [
+          "track",
+          "SYS_I2C_SDA",
+          44250000,
+          11795000,
+          43250000,
+          10750000,
+          "B.Cu",
+          200000
+        ]
+      ],
+      "joined_source_group": [
+        [
+          "R79",
+          "2",
+          500000,
+          0
+        ],
+        [
+          "U3",
+          "10",
+          -8750000,
+          -3170000
+        ],
+        [
+          "U46",
+          "6",
+          1500000,
+          -325000
+        ]
+      ],
+      "net": "SYS_I2C_SDA",
+      "new_angle_deg": 180.0,
+      "new_position_iu": [
+        44250000,
+        11795000
+      ],
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        76001262,
+        1000001
+      ],
+      "reference": "TP11"
+    },
+    {
+      "connection": [
+        [
+          "track",
+          "USB_RAW_OUT1",
+          24725000,
+          29815000,
+          24725000,
+          28270000,
+          "B.Cu",
+          200000
+        ]
+      ],
+      "joined_source_group": [
+        [
+          "R60",
+          "1",
+          -500000,
+          0
+        ],
+        [
+          "U24",
+          "1",
+          -1300000,
+          950000
+        ],
+        [
+          "U31",
+          "7",
+          650000,
+          -200000
+        ]
+      ],
+      "net": "USB_RAW_OUT1",
+      "new_angle_deg": 180.0,
+      "new_position_iu": [
+        24725000,
+        29815000
+      ],
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        86501262,
+        10500001
+      ],
+      "reference": "TP20"
+    }
+  ]
+}

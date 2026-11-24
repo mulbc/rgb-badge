@@ -1,0 +1,24 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_tracks_and_vias": 397,
+  "board_sha256": "7def02820ad488304c6a83479d233b45d1fd738f6b0239af4bff524c76caf5c6",
+  "changed_nets": [
+    "ARM_LATCH",
+    "ROW_REQUEST",
+    "TEMP_OK",
+    "USB_CHARGE_REQ",
+    "USB_LOGIC_READY",
+    "USB_OUT2",
+    "USB_VBUS_VALID",
+    "VLED_WINDOW_OK"
+  ],
+  "control_joins": 10,
+  "drc_sha256": "f8d5f059fdf3161091d0dabd1c42e09b4ada315199ab087a3b43c68a7d76a9b6",
+  "existing_pad_clusters_preserved": true,
+  "full_drc": "104_UNCHANGED_INTRINSIC_FINDINGS",
+  "ground_open_edges": 27,
+  "kicad_version": "10.0.6",
+  "native_open_edges": 354,
+  "source_tracks_and_vias_preserved": true,
+  "unchanged_footprints": 483
+}

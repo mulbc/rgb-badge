@@ -1,0 +1,17 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_tracks_and_vias": 297,
+  "board_sha256": "b6fde6e68dcba7f2ec012989f1d8d97cb71dea4efc4fd009f2951cfc7d61e5e7",
+  "drc_sha256": "d1052ed2c2eade8feef2b54b910e38dca9b98872615c75c04eaca81ab5d3aca1",
+  "full_drc": "104_UNCHANGED_INTRINSIC_FINDINGS",
+  "ground_open_edges": 27,
+  "kicad_version": "10.0.6",
+  "limitations": "No copper-current, transient, bypass-loop, RF, thermal, HDI or fabrication approval",
+  "native_open_edges": 262,
+  "other_pad_clusters_unchanged": true,
+  "source_connected_to_main": true,
+  "source_tracks_and_vias_preserved": true,
+  "supply_open_edges": 15,
+  "target_net": "VLED",
+  "unchanged_footprints": 483
+}

@@ -1,0 +1,245 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "clear_poses": [],
+  "clearance_iu": 200000,
+  "control_search": {
+    "added_copper": 0,
+    "attempts": 39,
+    "max_nodes_per_attempt": 60000,
+    "native_opens": 35,
+    "outcomes": {
+      "exhausted_grid": 13,
+      "existing_pad_cluster_split_after_zone_refill": 1,
+      "no_usable_grid_endpoint": 9,
+      "node_bound": 16
+    },
+    "selected": false,
+    "source_sha256": "3967bb66e89e0005f6859ce78a766b4536d06883b76fce130e75a6fdeefaf96e"
+  },
+  "copper_edge_iu": 500000,
+  "counts": {
+    "courtyard_clear": 9232,
+    "courtyard_obstructed": 29972,
+    "courtyard_outside_board": 41120,
+    "pad_or_edge_obstructed": 9232,
+    "sampled": 80324
+  },
+  "date": "2026-11-12",
+  "fabrication_release_allowed": false,
+  "frequent_saved_witness_blockers": [
+    {
+      "net": "GND",
+      "pad": null,
+      "signature": [
+        "track",
+        "GND",
+        59150000,
+        4250000,
+        59150000,
+        3400000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "2e01aaad-770c-5bbb-9b8a-4acce49f38d9",
+      "witness_observations": 165
+    },
+    {
+      "net": "ROW_GATE_15",
+      "pad": null,
+      "signature": [
+        "track",
+        "ROW_GATE_15",
+        66750000,
+        5000000,
+        56750000,
+        5000000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "d25db091-cafe-51d4-b153-6ad69339ab4e",
+      "witness_observations": 112
+    },
+    {
+      "net": "GND",
+      "pad": null,
+      "signature": [
+        "via",
+        "GND",
+        59350000,
+        2750000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "e603b149-7288-55b1-b36a-0c11a4354c2f",
+      "witness_observations": 106
+    },
+    {
+      "net": "GND",
+      "pad": null,
+      "signature": [
+        "track",
+        "GND",
+        59150000,
+        3650000,
+        59150000,
+        3400000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "1950532b-17ea-5bb2-9890-d9e23ccbba4f",
+      "witness_observations": 105
+    },
+    {
+      "net": "GND",
+      "pad": null,
+      "signature": [
+        "track",
+        "GND",
+        59150000,
+        3650000,
+        59150000,
+        3400000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "60dfe99b-124a-552c-b9fd-ca305928f5e8",
+      "witness_observations": 105
+    },
+    {
+      "net": "GND",
+      "pad": null,
+      "signature": [
+        "track",
+        "GND",
+        59150000,
+        3650000,
+        59150000,
+        3400000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "82ffdf2e-5c8c-5212-a038-b008a1051d86",
+      "witness_observations": 105
+    },
+    {
+      "net": "GND",
+      "pad": null,
+      "signature": [
+        "via",
+        "GND",
+        59200000,
+        3350000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "53f4701e-82b4-55e4-bc6f-d73d35aeb110",
+      "witness_observations": 100
+    },
+    {
+      "net": "GND",
+      "pad": null,
+      "signature": [
+        "via",
+        "GND",
+        59200000,
+        3350000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "5c36833c-3c4f-5174-bf7d-d8efd744d6de",
+      "witness_observations": 100
+    },
+    {
+      "net": "GND",
+      "pad": null,
+      "signature": [
+        "via",
+        "GND",
+        59200000,
+        3350000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "fc97f080-4e54-5bb1-a1f8-ef6ee7333b57",
+      "witness_observations": 100
+    },
+    {
+      "net": "GND",
+      "pad": null,
+      "signature": [
+        "track",
+        "GND",
+        63100000,
+        3650000,
+        59150000,
+        3650000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "69849d5c-7230-50cb-82e1-9c1e0ce3627f",
+      "witness_observations": 100
+    },
+    {
+      "net": "GND",
+      "pad": null,
+      "signature": [
+        "track",
+        "GND",
+        65600000,
+        3650000,
+        59150000,
+        3650000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "0c8f062f-9cbf-5427-a61d-4059b0f99e40",
+      "witness_observations": 100
+    },
+    {
+      "net": "GND",
+      "pad": null,
+      "signature": [
+        "track",
+        "GND",
+        65600000,
+        3650000,
+        59150000,
+        3650000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "8eaabca9-c830-5b5f-bfbe-f9552cc67d7f",
+      "witness_observations": 100
+    }
+  ],
+  "ignored_evidence_sha256": {
+    "hardware/coupon/rev-a/build/rse-pin-correction/continuation-control.json": "49bb139d4399f735a766410841f09b01b5b2c4ecf9a0209fb218fbdac8d208c3",
+    "hardware/coupon/rev-a/build/rse-pin-correction/continuation-control.log": "bf0887f355bdf89022f8996f17cc98032cd3cba7e9e2df90045b474ca2a2e1e7",
+    "hardware/coupon/rev-a/build/rse-pin-correction/u49-clock-locality.json": "048a6a88b1c79fe6fbe1ea677d60ac0d1f2854509476195b4f4be3c3926040c5"
+  },
+  "kicad_version": "10.0.6",
+  "limitations": [
+    "Finite samples only, not proof of impossibility",
+    "Filled zones excluded; native refills still required",
+    "No support/bypass relocation, contact restoration, routing or DRC acceptance",
+    "No PCB saved or source modified"
+  ],
+  "minimum_courtyard_blocker_count": 0,
+  "radius_iu": 8000000,
+  "sampled_copper_witnesses_saved": 512,
+  "source_sha256": "3967bb66e89e0005f6859ce78a766b4536d06883b76fce130e75a6fdeefaf96e",
+  "source_unchanged": true,
+  "status": "READ_ONLY_FINITE_SCREEN_NOT_LAYOUT_ACCEPTANCE",
+  "step_iu": 100000,
+  "tool_sha256": {
+    "tools/screen-rse-clock-locality.py": "3bce187797d28b2da1105d9798083007eafc2d39c3232791f05a955ac11297d6"
+  }
+}

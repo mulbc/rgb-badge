@@ -8,11 +8,11 @@ Status: exact-part library, source checks and owner KiCad 10.0.6 ERC/render/netl
 
 | Function | Exact part | Package / selected value | Controlled evidence |
 |---|---|---|---|
-| Controller / BLE / native USB | `ESP32-S3-WROOM-1U-N16R8` | 18 × 19.2 × 3.2 mm external-antenna module; 16 MB flash; 8 MB octal PSRAM | [Espressif module datasheet v1.81](https://documentation.espressif.com/esp32-s3-wroom-1_wroom-1u_datasheet_en.pdf) and [hardware guidelines](https://docs.espressif.com/projects/esp-hardware-design-guidelines/en/latest/esp32s3/schematic-checklist.html) |
+| Controller / BLE / native USB | `ESP32-S3-WROOM-1U-N16R8` | 18 × 19.2 × 3.2 mm external-antenna module; 16 MB flash; 8 MB octal PSRAM | [Espressif module datasheet v1.8](https://documentation.espressif.com/esp32-s3-wroom-1_wroom-1u_datasheet_en.pdf) and [hardware guidelines](https://docs.espressif.com/projects/esp-hardware-design-guidelines/en/latest/esp32s3/schematic-checklist.html) |
 | Mode / ROM-recovery button | `EVQP7J01P` | side-push SPST-NO, 1.6 N, 1.35 mm high | [Panasonic EVQP7/P3/9P7 drawing](https://industrial.panasonic.com/cdbs/www-data/pdf/ATK0000/ATK0000C378.pdf) and [current product page](https://industry.panasonic.com/global/en/products/control/switch/light-touch/number/evqp7j01p) |
-| EN and GPIO0 pull-ups | `ERJ-2RKF1002X` | 10 kΩ ±1%, 0402 | [Panasonic ERJ data sheet](https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf) |
-| Native USB series resistors | `ERJ-2RKF22R0X` | 22 Ω ±1%, 0402 | same Panasonic ERJ data sheet |
-| UART0 TX series resistor | `ERJ-2RKF4990X` | 499 Ω ±1%, 0402 | same Panasonic ERJ data sheet |
+| EN and GPIO0 pull-ups | `ERJ2RKF1002X` | 10 kΩ ±1%, 0402 | [Panasonic ERJ data sheet](https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf) |
+| Native USB series resistors | `ERJ2RKF22R0X` | 22 Ω ±1%, 0402 | same Panasonic ERJ data sheet |
+| UART0 TX series resistor | `ERJ2RKF4990X` | 499 Ω ±1%, 0402 | same Panasonic ERJ data sheet |
 | Local bulk capacitor | `GRM188R60J106ME47D` | 10 µF ±20%, 6.3 V, X5R, 0603 | [Murata product record](https://pim.murata.com/en-global/pim/details/?partNum=GRM188R60J106ME47D) |
 | EN-delay capacitor | `GRM155C71A105KE11D` | 1 µF ±10%, 10 V, X7S, 0402 | [Murata product record](https://pim.murata.com/en-global/pim/details/?partNum=GRM155C71A105KE11D) |
 | Local high-frequency capacitor | `GRM155R71C104KA88D` | 100 nF ±10%, 16 V, X7R, 0402 | controlled driver-library record |
@@ -21,10 +21,14 @@ The obsolete `GRM155R61A105KE15D` was explicitly rejected during capture and rep
 
 ## Pin and GPIO allocation
 
+**2026-10-21 source recheck:** The [provisional machine-readable inventory](../../../firmware/boards/README.md), under ADR 0041, derives all 41 pins from the unchanged canonical source and checks a fresh complete native XML export. The manufacturer PDF cover/table identify version 1.8 (correcting the earlier link label); its exact hash and review pages are recorded without PDF bytes. This is not pin-map freeze, target configuration or hardware qualification.
+
 | Module pad / GPIO | Coupon net | Purpose |
 |---|---|---|
 | 4–7 / GPIO4–7 | `ROW_A0`–`ROW_A3` | row-decoder address |
-| 12 / GPIO8 | `ROW_ENABLE_N` | active-high hardware-safe row blanking request; existing 100 kΩ pull-up keeps rows off |
+| 8 / GPIO15 | `DISPLAY_HEARTBEAT` | provisional isolated interlock heartbeat under ADR 0032 |
+| 9 / GPIO16 | `DISPLAY_ARM_CLK` | provisional isolated interlock arm clock; no actual EN/E connection |
+| 12 / GPIO8 | `ROW_ENABLE_REQ_N` | controller row request; isolated from decoder E until the hardware gate is captured |
 | 17 / GPIO9 | `DISPLAY_ENABLE` | request to the pending hardware VLED gate; firmware alone is not the safety interlock |
 | 18–22 / GPIO10–14 | `LED_LAT`, `LED_SIN`, `LED_SCLK`, `LED_GCLK`, `LED_SOUT` | TLC59581 control and readback |
 | 10–11 / GPIO17–18 | `SYS_I2C_SDA`, `SYS_I2C_SCL` | charger/gauge/current-monitor service bus |
@@ -49,14 +53,14 @@ The pending power sheet must make `DISPLAY_ENABLE` fail-safe: VLED remains off t
 |---|---|
 | `TP2`, `TP3` | `ESP_EN`, `MODE_BOOT_N` |
 | `TP4`, `TP5` | `UART0_TX`, `UART0_RX` |
-| `TP6`, `TP7` | `LED_GCLK`, `ROW_ENABLE_N` |
+| `TP6`, `TP7` | `LED_GCLK`, `ROW_ENABLE_REQ_N` |
 | `TP8`, `TP9` | `+3V3_APP`, `GND` |
 | `TP10` | `DISPLAY_ENABLE` |
 | `TP11`, `TP12` | `SYS_I2C_SDA`, `SYS_I2C_SCL` |
 
 Native USB remains available through the future USB-C receptacle when the application rail is on. R45/R46 belong beside U3 in layout; the receptacle, controlled-impedance pair, ESD array and Type-C circuits remain on the next power/input sheet.
 
-Until that sheet is captured, native ERC correctly reports the single-ended `USB_D-` and `USB_D+` global labels as isolated. The wrapper accepts only that exact two-warning set (or zero warnings after connection); any other ERC message remains fatal. This is a temporary staged-capture exception, not an electrical waiver.
+Historical controller-only checkpoint: before that sheet was captured, native ERC reported the single-ended `USB_D-` and `USB_D+` global labels as isolated. The former wrapper accepted only that exact pair. The USB interface now connects both nets, and the exception is retired: current ERC must have zero violations. Native review of the new interface is pending.
 
 ## Library provenance and checks
 

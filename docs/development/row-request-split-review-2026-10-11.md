@@ -1,0 +1,9 @@
+<!-- SPDX-License-Identifier: CERN-OHL-S-2.0 -->
+
+# Row-request separation source review, 2026-10-11
+
+[ADR 0031](../decisions/0031-separate-row-request-from-decoder-enable.md) changes only the controller-side row-enable label. The exact ESP32-S3-WROOM-1U-N16R8 symbol keeps U3 pad 12/GPIO8 on `ROW_ENABLE_REQ_N`; TP7 observes the same request. The Nexperia `74HC4514PW,118` U2 pin 23/E and Panasonic `ERJ2RKF1003X` R42 pin 2 remain on `ROW_ENABLE_N`. R42 pin 1 remains on `+3V3_APP`. These are separate nets; no row-arm gate is yet present. TPS63020DSJT U37 pin 12/EN remains only with R87's 100 kΩ pull-down on `VLED_ENABLE_DRAFT`.
+
+KiCad CLI 10.0.6's full-project check completed with **zero configured ERC violations**, **466 PCB items / 1,711 logical pins** and a 19-page native PDF. Source and exported-XML checkers passed. The native XML confirms `ROW_ENABLE_REQ_N` has only U3.12 and TP7.1; `ROW_ENABLE_N` has only U2.23 and R42.2; `VLED_ENABLE_DRAFT` has only U37.12 and R87.1. Evidence is in `/private/tmp/rgb-row-split-native-20261011/` (`coupon-erc.rpt`, `coupon-matrix.xml`, `coupon-schematic.pdf`). PDF pages 7–8 were visually inspected for the decoder/pull-up and controller/request labels, and no new overlap was found. The focused controller/wrapper suite passed 29 tests. The complete host suite passed **175 tests**. Both include a synthetic netlist fault that reconnects GPIO8 to decoder E and must be rejected.
+
+These results validate captured pin connectivity and presentation, not powered behavior. With `+3V3_APP` valid and no hardware gate, R42 is intended to hold E high and blank all rows, while the VLED EN pull-down is intended to keep the converter off. Their behavior through power ramps, internal reset, programming, faults and residual VLED is unmeasured. The exact hardware interlock, full PCB routing, physical measurements and independent Gate A review remain open before any display operation or fabrication release.

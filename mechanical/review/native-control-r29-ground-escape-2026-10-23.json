@@ -1,0 +1,90 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "accepted_join": {
+    "anchor": [
+      "R25",
+      "2"
+    ],
+    "net": "GND",
+    "source": [
+      "R29",
+      "2"
+    ]
+  },
+  "all_old_physical_pad_groups_and_placements_preserved": true,
+  "base_board_sha256": "1ddc1f914b714c9ed37fa81e200254bef2dcd842f20794a145c362d508f8d83e",
+  "base_revision": "b1d28cac89c06e7ca92fd35801bd40d6c7a5fc65",
+  "board_sha256": "c90db60ca8cec219eeb5379766f537083a829c7c3ba6e404a13a1870ddd9c5b0",
+  "candidate_board_sha256": "d9ac0f53130f05ca70a521b418c57dd8f20e27b20f80ebaf500c717a4ca4f2a9",
+  "candidate_drc_sha256": "9cfd580ad3e29a0a0e269c3a0f21d65696b645ae676d1a553ed5bd8d9f6fa72b",
+  "exact_unchanged_intrinsic_drc_findings": 104,
+  "fabrication_release_allowed": false,
+  "ground_escape": {
+    "added_microvias": 5,
+    "changed_previously_added_tracks": 5,
+    "ground_pad": [
+      "R29",
+      "2"
+    ],
+    "ground_via_position_iu": [
+      44250000,
+      7250000
+    ],
+    "open_edges": 218,
+    "row_detour_iu": [
+      [
+        40500000,
+        7250000
+      ],
+      [
+        40500000,
+        7750000
+      ],
+      [
+        44800000,
+        7750000
+      ],
+      [
+        44800000,
+        7250000
+      ]
+    ]
+  },
+  "ground_open_edges_after": 25,
+  "ground_open_edges_before": 26,
+  "hardware_measurements": "NONE",
+  "increment_added_adjacent_layer_microvias": 5,
+  "increment_added_tracks": 4,
+  "isolated_native_guard_cases_passed": 25,
+  "limitations": [
+    "218 opens including 25 GND, 14 VLED, TP11, transmit test-pad leg, six gate terminals and remaining power/control/USB",
+    "104 intrinsic findings unresolved",
+    "No electrical/return/current/process/fit qualification or independent Gate A"
+  ],
+  "native_open_edges_after": 218,
+  "native_open_edges_before": 219,
+  "net_added_native_items": 5,
+  "new_fault_case": "Withdraw R29 GND vias only; prove R28 remains connected; require rejection with all item counts unchanged",
+  "original_source_items_retained": 14493,
+  "original_source_track_exception_count_unchanged": 1,
+  "previous_r28_join_preserved": true,
+  "raw_evidence_sha256": {
+    "/private/tmp/rgb-extract-r29-ground-escape.log": "35989c00e2c21c8205752ab6fa74378633a1028994ddb9a9939020584fb7e209",
+    "/private/tmp/rgb-extract-r29-ground-escape.py": "99f095d3bacb1babf88cef2ffbc599951647e45780a920b0adac735ee682ad2d",
+    "/private/tmp/rgb-r29-ground-escape-ci-layout.log": "b1114b829a2a45f7b07ac758d7b259ec517beeb5ef50cafebf10d978cadb7866",
+    "/private/tmp/rgb-r29-ground-escape-generate.log": "48f2479e3245b89acca2338cfdcd8e6ecce20e2086bdbb9e5d6bb2dae3e410eb",
+    "/private/tmp/rgb-r29-ground-escape-native-check.log": "5e84046cb443bc9e04de35a2fc772767919e362e61fd1412cde3cecc6d89a3e2",
+    "/private/tmp/rgb-r29-ground-escape-native-contract.log": "c0bc36af404eb3cd01b2914cbfc279475331fb9373ec638ee729015fb5700184",
+    "/private/tmp/rgb-r29-ground-escape-open-nets.json": "5ec850fbaf6024ad739003c04b7ef6be81c241e2ccc7549c914e9fc9ad846efe",
+    "/private/tmp/rgb-r29-ground-escape-reproduce.log": "47f6cbc956d974b5b75604f8f3c5b5108651a4f893cfd80750f6ff1a0a6a4ffc",
+    "/private/tmp/rgb-r29-in3-ground-escape-drc.log": "23db947bdffcdba3662d30933ed624f75e387306fcfa3f113c2b1abe89073bc9",
+    "/private/tmp/rgb-reserve-r29-ground-escape.log": "122a11c8e90c93eae984aad57c5ce6419e71b9d19e74c3b1df24db7699dee64b",
+    "/private/tmp/rgb-reserve-r29-ground-escape.py": "ad1f1c67a0ef48cd5fe585431e8bf0d0fc5d04ddd167e103f354cd74cf622852",
+    "/private/tmp/rgb-reserve-r29-in3-ground-escape.log": "951d896e5213f61ecad2c264a9ba059bc14da5951c7ed93c47c28882265ea3c8",
+    "/private/tmp/rgb-reserve-r29-in3-ground-escape.py": "35f7fbe9d189ee588246f6c9271b135bd51a22853fdd372c4dcf90f8334e2c01"
+  },
+  "repeated_generation_byte_identical": true,
+  "retired_previously_added_tracks": 4,
+  "same_layer_probe": "No native-clear candidate in bounded right-endpoint range 44.8\u201346.0 mm at fixed 6.25 mm detour height; rejected/local",
+  "status": "CHECKED_R29_GROUND_EXTENSION_NOT_FABRICATION_SOURCE"
+}

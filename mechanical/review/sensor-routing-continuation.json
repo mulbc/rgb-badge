@@ -1,0 +1,323 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "date": "2026-11-16",
+  "evidence": [
+    {
+      "bytes": 997,
+      "path": "hardware/coupon/rev-a/build/row2-routing/tmp390-three-part-preflight.json",
+      "sha256": "6f0212cd4f9bc5ff7826b2d6d9d66c6bb5eb9287e40ed08a71fb3f229c918d6b"
+    },
+    {
+      "bytes": 6902,
+      "path": "hardware/coupon/rev-a/build/row2-routing/tmp390-three-part-capture-screen.json",
+      "sha256": "b64dc7ea18715337580c07123086e09016418b325f6718b6b4fcff597e4afa23"
+    },
+    {
+      "bytes": 2022,
+      "path": "hardware/coupon/rev-a/build/row2-routing/tmp390-supply-alternative-screen.json",
+      "sha256": "dae9eaac490f9c598558bb4f169fd4048ab455b59cffb16cbd6e4c399de5765c"
+    },
+    {
+      "bytes": 6137,
+      "path": "hardware/coupon/rev-a/build/row2-routing/tmp390-prepared.json",
+      "sha256": "4923138e195f6b1021b295eaa2f56a1951fa23744b8a4005c9cd9ba4d6ef2cbe"
+    },
+    {
+      "bytes": 5194,
+      "path": "hardware/coupon/rev-a/build/row2-routing/tmp390-local-search.json",
+      "sha256": "c4d9bf725faa5a5e055f27c374429a986d06d06388822c87b1ed343fb8bfa5bb"
+    },
+    {
+      "bytes": 6719,
+      "path": "hardware/coupon/rev-a/build/row2-routing/tmp390-cold-first-search.json",
+      "sha256": "5c8e5917c59440418fd2d3e07c6d0284d15b93408eaf409bffc2e9254eb51b85"
+    },
+    {
+      "bytes": 109424,
+      "path": "hardware/coupon/rev-a/build/row2-routing/tmp390-local-drc.json",
+      "sha256": "7f46c46413e571ab3cf032cb6fc42f1cb68afe81bb5628a2bcc1cbebc62bebd3"
+    },
+    {
+      "bytes": 1245,
+      "path": "hardware/coupon/rev-a/build/row2-routing/tmp390-first-prototype-audit.json",
+      "sha256": "f3ccefe5e849345e8b6663c31ef391c1c150411cf8e02f5be99d76b184768739"
+    },
+    {
+      "bytes": 6055,
+      "path": "hardware/coupon/rev-a/build/row2-routing/tmp390-two-part-prepared.json",
+      "sha256": "1873007371186a81c2cb39ae800284ca5de255b9078483f991f1358fa606ed1e"
+    },
+    {
+      "bytes": 5514,
+      "path": "hardware/coupon/rev-a/build/row2-routing/tmp390-two-part-search.json",
+      "sha256": "2578ebc5b1427c2e03156531894a35f99f73ad5b56173a1581db0952a0e12fb2"
+    },
+    {
+      "bytes": 3755,
+      "path": "hardware/coupon/rev-a/build/row2-routing/row-bus-source-contacts.json",
+      "sha256": "e85882fab17749ab06dc6a13906737b23ebd98bed214c33dd9cce175cacbaf6f"
+    },
+    {
+      "bytes": 517,
+      "path": "hardware/coupon/rev-a/build/row2-routing/row-bus-hop-screen.json",
+      "sha256": "4c94448c07404f1296f0d36621c30d52bfc429fe4846e5600e305d47a00530c8"
+    },
+    {
+      "bytes": 6108,
+      "path": "hardware/coupon/rev-a/build/row2-routing/ground-plane-substitution-audit.json",
+      "sha256": "c1e8c20779266f0ede8fc15ef83bca5348ff773b43d97ada287435edfdf16f08"
+    },
+    {
+      "bytes": 52931,
+      "path": "hardware/coupon/rev-a/build/row2-routing/tmp390-combined-source-contacts.json",
+      "sha256": "117c177cf35f6342740d8749d307bbfe41ec0016f57b57455e1f0f8e7c29d3e3"
+    },
+    {
+      "bytes": 10809,
+      "path": "hardware/coupon/rev-a/build/row2-routing/tmp390-combined-prepared.json",
+      "sha256": "96e59c33b0a0101305b5c0d19ae0e7aea702eff09306e890b3c9da44de57294d"
+    },
+    {
+      "bytes": 5514,
+      "path": "hardware/coupon/rev-a/build/row2-routing/tmp390-combined-search.json",
+      "sha256": "ad4e1b9917bb1a6f145c42a7707e3884357ca065592ce3f2581a8f0659da77d3"
+    },
+    {
+      "bytes": 5658,
+      "path": "hardware/coupon/rev-a/build/row2-routing/tmp390-dense-plane-search.json",
+      "sha256": "7d2cee188a6d2629fa84278ce7962f37e21c8379c36ab795b20c5e664a10c959"
+    },
+    {
+      "bytes": 3978,
+      "path": "hardware/coupon/rev-a/build/row2-routing/tmp390-usb-fine-diagonal-search.json",
+      "sha256": "50847e5decf99df2682c52f521250db4436255a466fa357a260d2d53173c5645"
+    },
+    {
+      "bytes": 7965,
+      "path": "hardware/coupon/rev-a/build/row2-routing/sensor-prototype-comparison.json",
+      "sha256": "3108ca0fc4595966ec86c1e2798a3eee9e559988eb9081ebbfd00577aad9f884"
+    },
+    {
+      "bytes": 5740,
+      "path": "hardware/coupon/rev-a/build/row2-routing/screen-tmp390-three-part-captures.py",
+      "sha256": "463e19b9068f94aa6f6dbd6266352009b447cb2dc74fcbf86d30e02460f4a189"
+    },
+    {
+      "bytes": 5637,
+      "path": "hardware/coupon/rev-a/build/row2-routing/screen-tmp390-supply-alternatives.py",
+      "sha256": "19eded4a3471d9f8c234ca40c43e92774fdfb2875c59393f7b808915f8170f88"
+    },
+    {
+      "bytes": 4093,
+      "path": "hardware/coupon/rev-a/build/row2-routing/build-tmp390-prepared.py",
+      "sha256": "fa81d529e076a57780a01496d9a2951810c00d49b25cea127b062f09c8d729fc"
+    },
+    {
+      "bytes": 4051,
+      "path": "hardware/coupon/rev-a/build/row2-routing/build-tmp390-two-part-prepared.py",
+      "sha256": "4370971a8306858eff611d6aea2c5685acf1301918196da7fb985f60debfe354"
+    },
+    {
+      "bytes": 4727,
+      "path": "hardware/coupon/rev-a/build/row2-routing/build-tmp390-combined-prepared.py",
+      "sha256": "fc47dcfcac7af639d989bbaeee13d919360e79ede162aabcf44528ed76ba8c3f"
+    },
+    {
+      "bytes": 38516,
+      "path": "hardware/coupon/rev-a/build/row2-routing/search-tmp390-local.py",
+      "sha256": "f180bd494c52822414e8a88798daf5692341be84e1cb2d3c212d86c1e1800e51"
+    },
+    {
+      "bytes": 38673,
+      "path": "hardware/coupon/rev-a/build/row2-routing/search-tmp390-local-cold-first.py",
+      "sha256": "38ac465465bbc2a9bd0754a6fd9146b8b27ce01f38f760f5032fc1a96c7c700c"
+    },
+    {
+      "bytes": 38674,
+      "path": "hardware/coupon/rev-a/build/row2-routing/search-tmp390-two-part.py",
+      "sha256": "39c7ab052851668dd54412f591a08f08eedc876b3539a99cf3bac07b1423c1f1"
+    },
+    {
+      "bytes": 39051,
+      "path": "hardware/coupon/rev-a/build/row2-routing/search-tmp390-dense-plane.py",
+      "sha256": "3ea67f4e7af5fc9addc259e28ae23de50b8e7c4dd4328d4860ff78754bd6f8f8"
+    },
+    {
+      "bytes": 39648,
+      "path": "hardware/coupon/rev-a/build/row2-routing/search-tmp390-local-fine-diagonal.py",
+      "sha256": "5ab927d99b143a8c90ee8560935f0eb287e6d1026c257ef61044f1fea4d979f8"
+    },
+    {
+      "bytes": 4234,
+      "path": "hardware/coupon/rev-a/build/row2-routing/screen-row-bus-hops.py",
+      "sha256": "944ef5242a3efac51da96dba4d54779c476ba119ca0c1ac3946ca9a69b43696f"
+    },
+    {
+      "bytes": 4647,
+      "path": "hardware/coupon/rev-a/build/row2-routing/audit-sensor-prototypes.py",
+      "sha256": "c76b73021f3bb2ee5eacd36f86562511e615130ced30a727cf2c38331ea4fb48"
+    }
+  ],
+  "fabrication_release_allowed": false,
+  "ground_plane_study": "mechanical/review/local-ground-plane-study.json",
+  "independent_prototype_results": [
+    {
+      "added_copper": 12,
+      "board": "hardware/coupon/rev-a/build/row2-routing/tmp390-local-trial.kicad_pcb",
+      "board_sha256": "0ba14dfe7247e9184f883b1624531643d1ea9ef09af4a69762e09ecfebce31e5",
+      "native_opens": 29,
+      "original_group_losses": [
+        {
+          "missing": [
+            [
+              "U39",
+              "2"
+            ]
+          ],
+          "net": "TMP_COLD_SET"
+        }
+      ],
+      "original_groups_preserved": 215,
+      "physical_opens": 29,
+      "retired_source_copper": 17,
+      "unchanged_retained_source_copper": 19364
+    },
+    {
+      "added_copper": 12,
+      "board": "hardware/coupon/rev-a/build/row2-routing/tmp390-cold-first-trial.kicad_pcb",
+      "board_sha256": "0ba14dfe7247e9184f883b1624531643d1ea9ef09af4a69762e09ecfebce31e5",
+      "native_opens": 29,
+      "original_group_losses": [
+        {
+          "missing": [
+            [
+              "U39",
+              "2"
+            ]
+          ],
+          "net": "TMP_COLD_SET"
+        }
+      ],
+      "original_groups_preserved": 215,
+      "physical_opens": 29,
+      "retired_source_copper": 17,
+      "unchanged_retained_source_copper": 19364
+    },
+    {
+      "added_copper": 18,
+      "board": "hardware/coupon/rev-a/build/row2-routing/tmp390-two-part-trial.kicad_pcb",
+      "board_sha256": "df35bdf5e8b38bb0bf24ab1e9b44a5940e34409f4ca21495359187f3dce1edaa",
+      "native_opens": 29,
+      "original_group_losses": [
+        {
+          "missing": [
+            [
+              "U39",
+              "4"
+            ]
+          ],
+          "net": "TEMP_OK"
+        }
+      ],
+      "original_groups_preserved": 215,
+      "physical_opens": 29,
+      "retired_source_copper": 17,
+      "unchanged_retained_source_copper": 19364
+    },
+    {
+      "added_copper": 18,
+      "board": "hardware/coupon/rev-a/build/row2-routing/tmp390-combined-trial.kicad_pcb",
+      "board_sha256": "4026b42485f05ab00df85b93948e83c1ef5cd37193690beb5a5d3d24f381193d",
+      "native_opens": 29,
+      "original_group_losses": [
+        {
+          "missing": [
+            [
+              "U39",
+              "4"
+            ]
+          ],
+          "net": "TEMP_OK"
+        }
+      ],
+      "original_groups_preserved": 215,
+      "physical_opens": 29,
+      "retired_source_copper": 34,
+      "unchanged_retained_source_copper": 19347
+    },
+    {
+      "added_copper": 18,
+      "board": "hardware/coupon/rev-a/build/row2-routing/tmp390-dense-plane-trial.kicad_pcb",
+      "board_sha256": "4026b42485f05ab00df85b93948e83c1ef5cd37193690beb5a5d3d24f381193d",
+      "native_opens": 29,
+      "original_group_losses": [
+        {
+          "missing": [
+            [
+              "U39",
+              "4"
+            ]
+          ],
+          "net": "TEMP_OK"
+        }
+      ],
+      "original_groups_preserved": 215,
+      "physical_opens": 29,
+      "retired_source_copper": 34,
+      "unchanged_retained_source_copper": 19347
+    },
+    {
+      "added_copper": 2,
+      "board": "hardware/coupon/rev-a/build/row2-routing/tmp390-usb-fine-diagonal-trial.kicad_pcb",
+      "board_sha256": "c8585ace4d0efb5fd86c3ba1ab7effef913584901ff89241a0bea4ac68848b70",
+      "native_opens": 32,
+      "original_group_losses": [
+        {
+          "missing": [
+            [
+              "U39",
+              "1"
+            ]
+          ],
+          "net": "TMP_HOT_SET"
+        },
+        {
+          "missing": [
+            [
+              "U39",
+              "2"
+            ]
+          ],
+          "net": "TMP_COLD_SET"
+        },
+        {
+          "missing": [
+            [
+              "U39",
+              "6"
+            ],
+            [
+              "U39",
+              "4"
+            ]
+          ],
+          "net": "TEMP_OK"
+        }
+      ],
+      "original_groups_preserved": 213,
+      "physical_opens": 32,
+      "retired_source_copper": 34,
+      "unchanged_retained_source_copper": 19347
+    }
+  ],
+  "selected_checkpoint_evidence_unchanged": true,
+  "selected_source_native_opens": 28,
+  "selected_source_physical_opens": 28,
+  "source_profile_sha256": {
+    ".kicad_dru": "80c92b0cdef868dd0ef0037aa2f63d1266f709a2dd0326094735c75ffbd31a2e",
+    ".kicad_pro": "1141b004ecffd1e7e8e0c30cf21aeae7ce6381093df674998133d226ab9c27fb"
+  },
+  "source_sha256": "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34",
+  "status": "UNSELECTED_COMPLETE_SENSOR_STUDIES",
+  "zero_open_goal_complete": false
+}

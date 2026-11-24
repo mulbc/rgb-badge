@@ -1,0 +1,398 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "date": "2026-11-10",
+  "fabrication_release_allowed": false,
+  "ignored_failed_localizations": {
+    "R11": {
+      "bounded_2mm_poses": 788,
+      "bounded_outcomes": {
+        "gate_lead": 7,
+        "no_complete_join": 110,
+        "pad_copper": 671
+      },
+      "local_outcomes": {
+        "courtyard": 94,
+        "gate_lead": 1,
+        "no_complete_join": 1,
+        "pad_copper": 1668
+      },
+      "local_poses": 1764,
+      "selected": false
+    },
+    "R21": {
+      "bounded_2mm_poses": 788,
+      "bounded_outcomes": {
+        "gate_lead": 6,
+        "no_complete_join": 28,
+        "pad_copper": 754
+      },
+      "local_outcomes": {
+        "courtyard": 74,
+        "gate_lead": 162,
+        "pad_copper": 1528
+      },
+      "local_poses": 1764,
+      "selected": false
+    }
+  },
+  "intrinsic_findings": 104,
+  "native_contact_witness": {
+    "actual_old_ground_endpoints_retained": true,
+    "all_original_land_contacts_accounted_for": true,
+    "displacement_iu": [
+      500000,
+      0
+    ],
+    "exact_original_leaf_retired": true,
+    "far_end_contacts_retained": true,
+    "gate_lead_length_mm": 0.1,
+    "main_ground_pad_count": 196,
+    "original_contact_count": 2,
+    "reference": "R11",
+    "retained_ground_via_centres_reached": true,
+    "shunt_ground_joined": true
+  },
+  "native_fault_cases": 44,
+  "native_opens": 35,
+  "new_adjacent_microvias": 1,
+  "new_copper": [
+    [
+      "track",
+      "GND",
+      70995000,
+      1150000,
+      71100000,
+      1250000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "GND",
+      71550000,
+      4200000,
+      71600000,
+      4200000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "GND",
+      71100000,
+      1350000,
+      71350000,
+      1350000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "GND",
+      71500000,
+      1550000,
+      71550000,
+      1550000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "GND",
+      71450000,
+      1450000,
+      71500000,
+      1450000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "GND",
+      71550000,
+      1550000,
+      71550000,
+      4200000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "GND",
+      71100000,
+      1250000,
+      71100000,
+      1350000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "GND",
+      71450000,
+      1400000,
+      71450000,
+      1450000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "GND",
+      71350000,
+      1350000,
+      71350000,
+      1400000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "GND",
+      71500000,
+      1450000,
+      71500000,
+      1550000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "GND",
+      71350000,
+      1400000,
+      71450000,
+      1400000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "GND",
+      69400000,
+      4450000,
+      69295346,
+      4349500,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "GND",
+      71600000,
+      4200000,
+      71600000,
+      4450000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "GND",
+      71600000,
+      4450000,
+      69400000,
+      4450000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "via",
+      "GND",
+      71600000,
+      4200000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000,
+      1
+    ],
+    [
+      "track",
+      "GND",
+      70800000,
+      1150000,
+      70995000,
+      1150000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "GND",
+      69295346,
+      4349500,
+      69100346,
+      4349500,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "ROW_GATE_05",
+      72250000,
+      4250000,
+      72150000,
+      4250000,
+      "B.Cu",
+      200000
+    ]
+  ],
+  "new_ground_trace_length_mm": 6.580095519282988,
+  "original_parent_groups_preserved": 231,
+  "physical_opens": 35,
+  "previous_added_copper_preserved": 226,
+  "previous_groups_preserved": 224,
+  "r11_pose": {
+    "angle_deg": 180,
+    "old_angle_deg": 180,
+    "old_position_iu": [
+      72250000,
+      4250000
+    ],
+    "position_iu": [
+      72750000,
+      4250000
+    ]
+  },
+  "raw_evidence": {
+    "hardware/coupon/rev-a/build/remaining-routing/35-check.log": "b055272eb9d05d3d2ab20e75bd270b484836dd599c52e26f1d6e20b002b4495d",
+    "hardware/coupon/rev-a/build/remaining-routing/35-faults.log": "b894f578d4ae17e8130a73667b293cd81b1030355affcfb7ea0a7c1fa627074c",
+    "hardware/coupon/rev-a/build/zero-open-routing/35-r11-vled-search.json": "ef10bac46e5d4e5fd0c39beb7b663274af9d672fa559c5778747d13809bb62a3",
+    "hardware/coupon/rev-a/build/zero-open-routing/R11-local-ground-restored.json": "f393e72d403684d5229c6cff9e7def5e627e301b91dd6f62e5aee62a4dfb9f16",
+    "hardware/coupon/rev-a/build/zero-open-routing/R11-local-vled-transfer.json": "13efc077ab74ebef150aa61388925c2038d2a8aec7d0e15374a6936716356269",
+    "hardware/coupon/rev-a/build/zero-open-routing/R11-localized-fine-pullup.json": "2db7105aad584ffe970f69c13fecb1ebe25f814bf0833a7d98a7bd97ec5fa61f",
+    "hardware/coupon/rev-a/build/zero-open-routing/R11-localized-group-delta.json": "57ed52078a45eb485f7ad2641734a159316333cc1fa32fceedd9506df2618bf2",
+    "hardware/coupon/rev-a/build/zero-open-routing/new-ground-intersections.json": "8e446a0d7c6d7bc1ceba1ee8b8b835890072213850cda4faa168652c856114af",
+    "hardware/coupon/rev-a/build/zero-open-routing/r11-ground-contact-data.json": "37fb00c6f48c5291b6605a2eef664948749156f9e65cd472b9c7f1aef1f7a8d8"
+  },
+  "retired_copper": [
+    [
+      "track",
+      "ROW_GATE_05",
+      71750000,
+      4250000,
+      72150000,
+      4250000,
+      "B.Cu",
+      200000
+    ]
+  ],
+  "selected_sha256": "da3764ddf5c8c615529340c33c92974cff3fd036b937b5e4a53c408e0b141637",
+  "source_sha256": "a24e9220226b77411ae8e8baea5cd629ce0fea8a97c377a708510d6791c2e439",
+  "source_workflow_checks": [
+    {
+      "command": "python3 tools/check-coupon-study-contract.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb --legacy-land-study --legacy-switch-study",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-routing-progress-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-converter-checkpoint-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-u36-stage-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-routing-closure-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-switch-routing-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-remaining-routing-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-remaining-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-switch-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-routing-closure-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-u36-stage-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/test-routing-group-targets.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/test-converter-review-calculations.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/test-hdi-stack-policy.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-converter-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-c32-land-candidate.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_c32_land_candidate.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_murata_catalogue_lands.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_convex_geometry.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_supply_join.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_slide_switch_library.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_progress_plan.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_coupon_study_contract.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_goal_distance.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_native_route_paths.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_clearance.py -v",
+      "exit_code": 0
+    }
+  ],
+  "status": "SELECTED_GEOMETRIC_CHECKPOINT_ONLY"
+}

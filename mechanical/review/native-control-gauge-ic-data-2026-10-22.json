@@ -1,0 +1,101 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "accepted_join": {
+    "anchor": [
+      "R101",
+      "2"
+    ],
+    "net": "GAUGE_I2C_SDA",
+    "source": [
+      "U35",
+      "8"
+    ]
+  },
+  "all_old_copper_placements_and_pad_groups_preserved": true,
+  "base_board_sha256": "9844ae5d0d9ff9ed5e839cefa9734e89693dd405fce39092f68e8c3c7e62bc04",
+  "base_revision": "fcbddfca1dde253c6dada1943a2b6bc965bb3d3d",
+  "board_sha256": "29d1f9cec25abc5ed199dd29b96c11338a646a2a95c4e6b49667e9a1b41bcf7e",
+  "detour": {
+    "adjacent_microvias_at_both_ends": true,
+    "end_iu": [
+      40900000,
+      15800000
+    ],
+    "filled_candidates_before_acceptance": 1,
+    "native_clear_same_x_detours": 309,
+    "native_clear_via_sites": 84,
+    "net": "GAUGE_I2C_SDA",
+    "original_layer": "In4.Cu",
+    "selected_layer": "In3.Cu",
+    "start_iu": [
+      40900000,
+      14800000
+    ]
+  },
+  "exact_unchanged_intrinsic_drc_findings": 104,
+  "fabrication_release_allowed": false,
+  "gauge_data_connected_pad_group": [
+    [
+      "R101",
+      "2"
+    ],
+    [
+      "U35",
+      "8"
+    ],
+    [
+      "U46",
+      "3"
+    ]
+  ],
+  "hardware_measurements": "NONE",
+  "increment_added_adjacent_layer_microvias": 10,
+  "increment_added_tracks": 128,
+  "isolated_native_guard_cases_passed": 19,
+  "limitations": [
+    "223 opens including U35.7 gauge clock, TP11 and transmit test-pad leg",
+    "104 intrinsic findings unresolved",
+    "No electrical/bus/current/return/process/fit qualification or independent Gate A"
+  ],
+  "native_open_edges_after": 223,
+  "native_open_edges_before": 224,
+  "new_power_copper": false,
+  "raw_evidence_sha256": {
+    "/private/tmp/rgb-extract-gauge-data.py": "375260110ba2301e097365306e181d9ec727841a21a9b6d4c130cae1821a0042",
+    "/private/tmp/rgb-gauge-data-ci-layout.log": "87b71dba36407776e445f35fd5097fdc981b9da2f765bdef130b26ead02e5353",
+    "/private/tmp/rgb-gauge-data-detour-drc.log": "8b7da333748e13e695bfb9513ddd38991da21af6a7d00bbdeb3c7b0078804e59",
+    "/private/tmp/rgb-gauge-data-extract.log": "b81b0f5c43940161b89739e133f50779ff087bc8020d96c15e6207c81d96043e",
+    "/private/tmp/rgb-gauge-data-generate.log": "29e60cfed3cdc91ce60558ca81077722cc8647381ce2e34f00e073618c123ee1",
+    "/private/tmp/rgb-gauge-data-native-check.log": "32e327977e7206185fc691aba859ebb78658870f9dc2c64c0e10fd63e4dcfd18",
+    "/private/tmp/rgb-gauge-data-native-contract.log": "89873f2ffbd96feddabc291e7ddf291ea85b8e166310d34db6e88a952916e4d3",
+    "/private/tmp/rgb-gauge-data-open-nets.json": "d17bed1f1e434142c37eec84783ec3c94bbf347cb1f0bf775a845dfe435ce256",
+    "/private/tmp/rgb-gauge-data-reproduce.log": "18c4d5fc5bcdda6c6fa53d7feac51965cacfc202199cc1c4d5e96b1b3770fd7b",
+    "/private/tmp/rgb-gauge-detour.log": "f7d169dc607619d2547e83099c08864812d95082820b730d31574764ac4aabc9",
+    "/private/tmp/rgb-gauge-detour.py": "c0f9f1aafd79a1ca4c1c50fdd97bbabd483aea980f2bae870723416cbcaa435d",
+    "hardware/coupon/rev-a/build/scl-preserve/gauge-data-detour-drc.json": "dcdea683db9829b2faeffe9be8d3b318894335f46ed59fb54116d6bee1e79ca0",
+    "hardware/coupon/rev-a/build/scl-preserve/gauge-data-detour.kicad_pcb": "68c2efefee63daa45aaa4faab9c255bb2cb39f6aabc053b789b533a14bc58ee9"
+  },
+  "regression": "Return the 1 mm detour to In4, retaining item counts; gauge data stays joined but all four supply pads disconnect and are rejected",
+  "rejected_search_evidence": "mechanical/review/native-route-search-upgrade-2026-10-22.json",
+  "rejected_search_snapshot_sha256": "b3be13699360894ccde4ec444d952114f8a7132e4e49c42ac84e496a83cfdaa0",
+  "rejected_supply_pad_group_split": [
+    [
+      "R42",
+      "1"
+    ],
+    [
+      "R43",
+      "1"
+    ],
+    [
+      "R44",
+      "1"
+    ],
+    [
+      "R79",
+      "1"
+    ]
+  ],
+  "repeated_generation_byte_identical": true,
+  "status": "CHECKED_GAUGE_IC_DATA_ROUTE_NOT_FABRICATION_SOURCE"
+}

@@ -1,0 +1,10 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "board_sha256": "ff0fffdeb9034c7e80381d6d7d2cc491b9b43bda924c049b7a53b0905dc7ffd8",
+  "candidate_part": "NTLJD3119CTBG_TRIAL_ONLY",
+  "connected_local_gate_ties": 16,
+  "open_edges": 566,
+  "source_sha256": "39ab69bd7b5be40f557984ab47ceaf241e1a0e7adb7eed5f46442d42d08d936d",
+  "status": "UNQUALIFIED_ROUTING_STUDY",
+  "tracks_and_vias": 6656
+}

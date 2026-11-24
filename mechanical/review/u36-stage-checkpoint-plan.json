@@ -1,0 +1,1024 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_copper": [
+    [
+      "track",
+      "+3V3_APP",
+      108250000,
+      16750000,
+      108500000,
+      16149999,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+3V3_APP",
+      108500000,
+      16149999,
+      109100000,
+      16510000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+3V3_APP",
+      109300000,
+      17300000,
+      109250000,
+      16845000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+3V3_APP",
+      109300000,
+      19200000,
+      109300000,
+      17300000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+3V3_APP",
+      109700000,
+      19350000,
+      109300000,
+      19200000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+3V3_APP",
+      109900000,
+      14900000,
+      109900000,
+      16700000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+3V3_APP",
+      109900000,
+      16700000,
+      109300000,
+      17300000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+3V3_APP",
+      111950000,
+      12650000,
+      112550000,
+      13000000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+3V3_APP",
+      112400000,
+      14850000,
+      112400000,
+      14900000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+3V3_APP",
+      112400000,
+      14900000,
+      109900000,
+      14900000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+3V3_APP",
+      112450000,
+      14800000,
+      112450000,
+      14850000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+3V3_APP",
+      112450000,
+      14850000,
+      112400000,
+      14850000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+3V3_APP",
+      112500000,
+      14750000,
+      112500000,
+      14800000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+3V3_APP",
+      112500000,
+      14800000,
+      112450000,
+      14800000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+3V3_APP",
+      112550000,
+      13000000,
+      112550000,
+      14200000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+3V3_APP",
+      112550000,
+      14200000,
+      112600000,
+      14200000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+3V3_APP",
+      112550000,
+      14700000,
+      112550000,
+      14750000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+3V3_APP",
+      112550000,
+      14750000,
+      112500000,
+      14750000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+3V3_APP",
+      112600000,
+      14200000,
+      112600000,
+      14700000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+3V3_APP",
+      112600000,
+      14700000,
+      112550000,
+      14700000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      108450000,
+      13700000,
+      108500000,
+      14300000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      108500000,
+      14300000,
+      112150000,
+      14300000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      111500000,
+      16100000,
+      110900000,
+      16510000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      111700000,
+      16100000,
+      111500000,
+      16100000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      111950000,
+      15500000,
+      111500000,
+      16100000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      112150000,
+      14300000,
+      112150000,
+      14450000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      112150000,
+      14450000,
+      112750000,
+      14900000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      112300000,
+      15275000,
+      111950000,
+      15500000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      112300000,
+      16725000,
+      111700000,
+      16100000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "APP_3V3_FB",
+      108250000,
+      18000000,
+      108800000,
+      17400000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "APP_3V3_FB",
+      108800000,
+      17400000,
+      109250000,
+      17990000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "APP_3V3_FB",
+      109650000,
+      18900000,
+      109250000,
+      18325000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "APP_3V3_FB",
+      110400000,
+      18900000,
+      109650000,
+      18900000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "APP_3V3_FB",
+      111000000,
+      19250000,
+      110400000,
+      18900000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "APP_ON_SW_DRAFT",
+      111500000,
+      18600000,
+      110900000,
+      17990000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "APP_ON_SW_DRAFT",
+      111800000,
+      18600000,
+      111500000,
+      18600000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "APP_ON_SW_DRAFT",
+      111800000,
+      19150000,
+      111800000,
+      18600000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "APP_ON_SW_DRAFT",
+      112250000,
+      19750000,
+      111800000,
+      19150000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "Net-(U36-LX1)",
+      110250000,
+      15910000,
+      111250000,
+      14350000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "Net-(U36-LX1)",
+      110250000,
+      16510000,
+      110250000,
+      15910000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "Net-(U36-LX2)",
+      109750000,
+      15910000,
+      109250000,
+      14350000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "Net-(U36-LX2)",
+      109750000,
+      16510000,
+      109750000,
+      15910000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "via",
+      "+3V3_APP",
+      109300000,
+      17300000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+3V3_APP",
+      109300000,
+      19200000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+3V3_APP",
+      112550000,
+      13000000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      108500000,
+      14300000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+SYS_APP_IN_DRAFT",
+      112150000,
+      14450000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ]
+  ],
+  "all_238_parent_groups_required": true,
+  "cleanup_evidence": {
+    "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+    "drc_sha256": "13aed2bca9884fa54937b130f0822bf5ed3cc821a456f54427e4010bf9796384",
+    "fabrication_release_allowed": false,
+    "phase": 1,
+    "removed": [
+      {
+        "signature": [
+          "track",
+          "APP_3V3_FB",
+          54850000,
+          10250000,
+          52150000,
+          10250000,
+          "In4.Cu",
+          200000
+        ],
+        "uuid": "075d3566-0d9b-5418-a00d-7d67a8b218db"
+      },
+      {
+        "signature": [
+          "track",
+          "+SYS_APP_IN_DRAFT",
+          108550000,
+          13600000,
+          108450000,
+          13700000,
+          "B.Cu",
+          200000
+        ],
+        "uuid": "0dc94973-b9e9-54ce-b12e-5022d8db23f3"
+      },
+      {
+        "signature": [
+          "via",
+          "+3V3_APP",
+          94075000,
+          22750000,
+          "In4.Cu",
+          "B.Cu",
+          300000,
+          100000
+        ],
+        "uuid": "402e0448-a418-5d82-8e93-41a4fda1f837"
+      },
+      {
+        "signature": [
+          "via",
+          "+3V3_APP",
+          23325000,
+          23250000,
+          "In4.Cu",
+          "B.Cu",
+          300000,
+          100000
+        ],
+        "uuid": "8d067e9e-b8f0-553a-8e83-b40b9d061d0e"
+      },
+      {
+        "signature": [
+          "track",
+          "APP_3V3_FB",
+          52150000,
+          10250000,
+          51750000,
+          10250000,
+          "B.Cu",
+          200000
+        ],
+        "uuid": "c50a5ff0-4cfa-59b1-9bb8-dda1c20fc75c"
+      },
+      {
+        "signature": [
+          "via",
+          "APP_3V3_FB",
+          52150000,
+          10250000,
+          "In4.Cu",
+          "B.Cu",
+          300000,
+          100000
+        ],
+        "uuid": "ed8d8aea-dfa7-5f78-9a67-6a5c48d86442"
+      },
+      {
+        "signature": [
+          "via",
+          "APP_3V3_FB",
+          54850000,
+          10250000,
+          "In4.Cu",
+          "B.Cu",
+          300000,
+          100000
+        ],
+        "uuid": "f4d4a8bf-e311-5f97-a058-fb8bb629fb72"
+      },
+      {
+        "signature": [
+          "track",
+          "APP_3V3_FB",
+          55250000,
+          10250000,
+          54850000,
+          10250000,
+          "B.Cu",
+          200000
+        ],
+        "uuid": "f9992f4e-4969-55ae-88a6-ab32f6f105c6"
+      }
+    ],
+    "source_sha256": "49dc71161ba5c5cb5dcbb81ad8cc49b8289d5658aa3cfc17d598587a8ec0f6f9"
+  },
+  "fabrication_release_allowed": false,
+  "intrinsic_findings": 104,
+  "native_opens": 47,
+  "new_via_layers": [
+    "In4.Cu",
+    "B.Cu"
+  ],
+  "parent_sha256": "5e07fb866cc059de670e34102045d9dfd88c88f101355fcdbb27253c0ae26e43",
+  "physical_opens": 47,
+  "poses": {
+    "C40": {
+      "angle_deg": -90,
+      "mpn": "GRM187R61A226ME15",
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        39750000,
+        4000000
+      ],
+      "position_iu": [
+        112750000,
+        17500000
+      ]
+    },
+    "C41": {
+      "angle_deg": 90,
+      "mpn": "GRM187R61A226ME15",
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        40250000,
+        1000000
+      ],
+      "position_iu": [
+        112750000,
+        14500000
+      ]
+    },
+    "C42": {
+      "angle_deg": 180,
+      "mpn": "GRM219R60J476ME44",
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        93125000,
+        22750000
+      ],
+      "position_iu": [
+        111000000,
+        12000000
+      ]
+    },
+    "C43": {
+      "angle_deg": 180,
+      "mpn": "GRM219R60J476ME44",
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        22375000,
+        23250000
+      ],
+      "position_iu": [
+        108750000,
+        20000000
+      ]
+    },
+    "L1": {
+      "angle_deg": 180.0,
+      "mpn": "DFE252012P-1R0M=P2",
+      "old_angle_deg": 90.0,
+      "old_position_iu": [
+        111650000,
+        12750000
+      ],
+      "position_iu": [
+        110250000,
+        14350000
+      ]
+    },
+    "R81": {
+      "angle_deg": -90,
+      "mpn": "ERJ2RKF5113X",
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        52250000,
+        10250000
+      ],
+      "position_iu": [
+        108250000,
+        17500000
+      ]
+    },
+    "R82": {
+      "angle_deg": -90,
+      "mpn": "ERJ2RKF9102X",
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        54750000,
+        10250000
+      ],
+      "position_iu": [
+        111250000,
+        19750000
+      ]
+    },
+    "R83": {
+      "angle_deg": 0,
+      "mpn": "ERJ2RKF1003X",
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        57250000,
+        10250000
+      ],
+      "position_iu": [
+        112750000,
+        20000000
+      ]
+    },
+    "U36": {
+      "angle_deg": -90.0,
+      "mpn": "TPS631000DRLR",
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        108750000,
+        12500000
+      ],
+      "position_iu": [
+        110000000,
+        17250000
+      ]
+    }
+  },
+  "primary_local_route_evidence": [
+    {
+      "added_trace_length_mm": 1.555965288168551,
+      "added_vias": 0,
+      "expanded_nodes": 0,
+      "net": "APP_3V3_FB",
+      "primary_local": false,
+      "routed": true,
+      "search_outcome": "accepted_join",
+      "source": [
+        "R81",
+        "2"
+      ]
+    },
+    {
+      "added_trace_length_mm": 2.145068485778585,
+      "added_vias": 0,
+      "expanded_nodes": 1153,
+      "net": "APP_3V3_FB",
+      "primary_local": false,
+      "routed": true,
+      "search_outcome": "accepted_join",
+      "source": [
+        "R82",
+        "1"
+      ]
+    },
+    {
+      "added_trace_length_mm": 2.4556284240252895,
+      "added_vias": 0,
+      "expanded_nodes": 1111,
+      "net": "APP_ON_SW_DRAFT",
+      "primary_local": false,
+      "routed": true,
+      "search_outcome": "accepted_join",
+      "source": [
+        "R83",
+        "1"
+      ]
+    },
+    {
+      "added_trace_length_mm": 1.7930910645191396,
+      "added_vias": 0,
+      "expanded_nodes": 610,
+      "net": "+SYS_APP_IN_DRAFT",
+      "primary_local": true,
+      "routed": true,
+      "search_outcome": "accepted_join",
+      "source": [
+        "C40",
+        "1"
+      ]
+    },
+    {
+      "added_trace_length_mm": 1.166082924427331,
+      "added_vias": 0,
+      "expanded_nodes": 0,
+      "net": "+SYS_APP_IN_DRAFT",
+      "primary_local": false,
+      "routed": true,
+      "search_outcome": "accepted_join",
+      "source": [
+        "C41",
+        "1"
+      ]
+    },
+    {
+      "added_trace_length_mm": 5.152079728939615,
+      "added_vias": 2,
+      "expanded_nodes": 2922,
+      "net": "+SYS_APP_IN_DRAFT",
+      "primary_local": false,
+      "routed": true,
+      "search_outcome": "accepted_join",
+      "source": [
+        "C44",
+        "1"
+      ]
+    },
+    {
+      "added_trace_length_mm": 2.7849391958723095,
+      "added_vias": 2,
+      "expanded_nodes": 1477,
+      "net": "+3V3_APP",
+      "primary_local": true,
+      "routed": true,
+      "search_outcome": "accepted_join",
+      "source": [
+        "C43",
+        "1"
+      ]
+    },
+    {
+      "added_trace_length_mm": 7.993150336896347,
+      "added_vias": 1,
+      "expanded_nodes": 7531,
+      "net": "+3V3_APP",
+      "primary_local": false,
+      "routed": true,
+      "search_outcome": "accepted_join",
+      "source": [
+        "C42",
+        "1"
+      ]
+    },
+    {
+      "added_trace_length_mm": 1.349715664954754,
+      "added_vias": 0,
+      "expanded_nodes": 0,
+      "net": "+3V3_APP",
+      "primary_local": false,
+      "routed": true,
+      "search_outcome": "accepted_join",
+      "source": [
+        "R81",
+        "1"
+      ]
+    }
+  ],
+  "removed_copper": [
+    [
+      "track",
+      "+3V3_APP",
+      109490000,
+      11600000,
+      109600000,
+      11000000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      108550000,
+      13600000,
+      108450000,
+      13700000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      109155000,
+      13250000,
+      108550000,
+      13600000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "APP_3V3_FB",
+      52150000,
+      10250000,
+      51750000,
+      10250000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "APP_3V3_FB",
+      54850000,
+      10250000,
+      52150000,
+      10250000,
+      "In4.Cu",
+      200000
+    ],
+    [
+      "track",
+      "APP_3V3_FB",
+      55250000,
+      10250000,
+      54850000,
+      10250000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "Net-(U36-LX1)",
+      109490000,
+      12750000,
+      110090000,
+      12750000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "Net-(U36-LX1)",
+      110090000,
+      12750000,
+      111650000,
+      13750000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "Net-(U36-LX2)",
+      109490000,
+      12250000,
+      110090000,
+      12250000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "Net-(U36-LX2)",
+      110090000,
+      12250000,
+      111650000,
+      11750000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "via",
+      "+3V3_APP",
+      23325000,
+      23250000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "+3V3_APP",
+      94075000,
+      22750000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "APP_3V3_FB",
+      52150000,
+      10250000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ],
+    [
+      "via",
+      "APP_3V3_FB",
+      54850000,
+      10250000,
+      "In4.Cu",
+      "B.Cu",
+      300000,
+      100000
+    ]
+  ],
+  "schema_version": 1,
+  "source_project_sha256": "1141b004ecffd1e7e8e0c30cf21aeae7ce6381093df674998133d226ab9c27fb",
+  "source_rules_sha256": "80c92b0cdef868dd0ef0037aa2f63d1266f709a2dd0326094735c75ffbd31a2e",
+  "status": "EXACT_47_EDGE_ROUTING_STUDY_LEDGER_NOT_MANUFACTURING_RELEASE",
+  "switching_routes": [
+    [
+      "track",
+      "Net-(U36-LX1)",
+      110250000,
+      16510000,
+      110250000,
+      15910000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "Net-(U36-LX1)",
+      110250000,
+      15910000,
+      111250000,
+      14350000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "Net-(U36-LX2)",
+      109750000,
+      16510000,
+      109750000,
+      15910000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "Net-(U36-LX2)",
+      109750000,
+      15910000,
+      109250000,
+      14350000,
+      "B.Cu",
+      200000
+    ]
+  ]
+}

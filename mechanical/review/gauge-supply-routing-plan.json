@@ -1,0 +1,1679 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_copper": [
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        38750000,
+        4650000,
+        38750000,
+        4600000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "0019dc83-bbfa-5276-9019-38a216303446",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        20050000,
+        2350000,
+        19940000,
+        2250000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "01f5bd37-8cf3-580c-a685-1f9b53c84868",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        33700000,
+        5500000,
+        33650000,
+        5500000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "0703729e-b8ee-5827-81a7-ef212164afc6",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        32000000,
+        6150000,
+        32000000,
+        6200000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "09acb8af-4d9f-591b-acca-819bee7873c0",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "+BAT_GAUGE_SW",
+        40050000,
+        5100000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "0bb4d27b-5bfa-5ef4-b103-e42c7e180eea",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        47850000,
+        5550000,
+        47850000,
+        5400000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "138c8694-992c-5c10-a3fd-590f78bebb70",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        37200000,
+        4600000,
+        37150000,
+        4600000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "15bbcc82-afe9-5338-be60-b8a52109728f",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        31050000,
+        6050000,
+        31050000,
+        6000000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "1642ca59-8122-5701-b97a-16ef85378256",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "+BAT_GAUGE_SW",
+        49850000,
+        4350000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "1a51b5c5-a295-5509-8db9-5240eed05d75",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        20050000,
+        2750000,
+        20050000,
+        2350000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "1a8d7f77-a0d9-5c13-9949-cac2839d05a5",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        32200000,
+        6000000,
+        32150000,
+        6000000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "1d3ae127-991e-57a1-9725-145eee5349b5",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "+BAT_GAUGE_SW",
+        47850000,
+        5550000,
+        "In2.Cu",
+        "In3.Cu",
+        500000,
+        300000
+      ],
+      "uuid": "1d94e414-732e-567a-873e-dc9405248668",
+      "via_type": 3
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        32000000,
+        6200000,
+        31200000,
+        6200000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "1e4e8b0a-62c7-54cd-b55d-df384d9b2429",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        48800000,
+        4500000,
+        48800000,
+        4450000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "1f101735-31d6-54f6-aea1-e09b2d9b8bc8",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        48200000,
+        4700000,
+        48150000,
+        4700000,
+        "In2.Cu",
+        200000
+      ],
+      "uuid": "1f5fa466-c8bf-5add-b261-9682518a5ee4",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        39650000,
+        4600000,
+        39650000,
+        4650000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "22e385e2-39d6-5bbc-88d3-9e538008fede",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        48050000,
+        4800000,
+        48050000,
+        4850000,
+        "In2.Cu",
+        200000
+      ],
+      "uuid": "2316f89c-8967-54e5-9c06-c09c04347812",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "+BAT_GAUGE_SW",
+        41050000,
+        5100000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "2575bce6-dcae-5509-8834-7f6a7da487ef",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        45800000,
+        5300000,
+        45800000,
+        5150000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "25dbe632-7c32-5be1-a8cb-39d8663ae9f5",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        32100000,
+        6100000,
+        32050000,
+        6100000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "2798a4b9-495e-5127-8fde-059ecb98adc5",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        38750000,
+        4600000,
+        38700000,
+        4600000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "2a3acbd4-4697-52e9-9ad7-dd9051167db7",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        50250000,
+        4250000,
+        49850000,
+        4350000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "2af66408-ed3e-52b6-bd62-af4c42ebaf03",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        37250000,
+        4500000,
+        37250000,
+        4550000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "2f64c6a7-c5b1-5404-b36e-cee5e6fa34e8",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        48000000,
+        4900000,
+        47850000,
+        4900000,
+        "In2.Cu",
+        200000
+      ],
+      "uuid": "2f66c3d4-8351-5e67-91ca-7c87525df3ec",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        47850000,
+        4900000,
+        47850000,
+        5550000,
+        "In2.Cu",
+        200000
+      ],
+      "uuid": "323c1557-5ae0-57a6-9cf6-68dbf6e58ca0",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        37250000,
+        4550000,
+        37200000,
+        4550000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "3261f1d4-7e2d-5afe-8e67-e832ca82793d",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        20050000,
+        5850000,
+        20050000,
+        5900000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "3763ecbd-5125-5ced-8761-cf3969a4e07a",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "+BAT_GAUGE_SW",
+        49850000,
+        4350000,
+        "In3.Cu",
+        "In4.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "383ca971-76b7-5578-bd84-7eaa7c3ed1fe",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        41050000,
+        5100000,
+        40050000,
+        5100000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "3a4d110b-903f-50c9-9b71-7b62fd87604f",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        48100000,
+        4750000,
+        48100000,
+        4800000,
+        "In2.Cu",
+        200000
+      ],
+      "uuid": "3ebf2a21-da0c-58ce-9f6b-d9a39aa63f1e",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        25900000,
+        5850000,
+        20050000,
+        5850000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "3f4b1dee-8846-5441-a8a6-f3b0a5ebbfde",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        47850000,
+        5400000,
+        47550000,
+        5400000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "400bf6c6-7cec-5f1d-a102-0c6c59c3ace4",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        48050000,
+        4850000,
+        48000000,
+        4850000,
+        "In2.Cu",
+        200000
+      ],
+      "uuid": "402e1119-8637-5845-9eb3-63679b93cd78",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        48100000,
+        4800000,
+        48050000,
+        4800000,
+        "In2.Cu",
+        200000
+      ],
+      "uuid": "41e9ce39-2adb-567d-8cae-4c3b8973fef5",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        48000000,
+        4850000,
+        48000000,
+        4900000,
+        "In2.Cu",
+        200000
+      ],
+      "uuid": "42fe2422-ef9c-55fa-909e-6d3cddd78e64",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        49850000,
+        4350000,
+        49500000,
+        4350000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "433edb62-ec21-58c7-9fd2-c85edc9db65a",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        39600000,
+        4700000,
+        38800000,
+        4700000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "43593458-c55e-5421-85a7-500fd177becf",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        48850000,
+        4500000,
+        48800000,
+        4500000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "4417b22c-168f-5177-b610-0a397aebe325",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        37300000,
+        4500000,
+        37250000,
+        4500000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "44a51c1c-41b8-54b3-8f36-b0a31cce3cc0",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        32100000,
+        6050000,
+        32100000,
+        6100000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "48b98ace-c18d-5fa0-9bf7-011d5ff6659c",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        40050000,
+        5100000,
+        40050000,
+        4600000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "48d8b605-86fc-5c44-b0fb-c9bc66b8a325",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        38600000,
+        4250000,
+        37300000,
+        4250000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "4ae8ca12-19f8-5f15-afcd-f0318233a0d5",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "+BAT_GAUGE_SW",
+        48500000,
+        4450000,
+        "In2.Cu",
+        "In3.Cu",
+        500000,
+        300000
+      ],
+      "uuid": "4ce09f74-6c67-52e9-9314-4fc901f3a206",
+      "via_type": 3
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        40050000,
+        4600000,
+        39650000,
+        4600000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "54d2881c-f245-5e17-9885-34b685eb8266",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        26050000,
+        5750000,
+        26000000,
+        5750000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "5a2fbf71-87cd-5da0-96a7-8aeb28f15fbf",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        38650000,
+        4500000,
+        38600000,
+        4500000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "5b3a841d-c8e9-5b18-b685-80d4d78bc581",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        37100000,
+        4700000,
+        33700000,
+        4700000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "5cc3ed2d-aeca-510c-a03e-3ceab20cb636",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        20050000,
+        5900000,
+        20050000,
+        2750000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "5f483b83-f855-54c5-9a42-09c7fdf6839e",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        32050000,
+        6150000,
+        32000000,
+        6150000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "5faca5d2-579e-56b0-a9dc-14e1ecbff7de",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        31150000,
+        6100000,
+        31100000,
+        6100000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "6268f6e5-b039-5f89-9fd2-f8d00fe3080c",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        48850000,
+        4550000,
+        48850000,
+        4500000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "63a761a7-575b-5e9c-b5f4-b256beca5ffe",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        32150000,
+        6050000,
+        32100000,
+        6050000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "67d66ffe-dd77-5cb0-a5e7-dc5b42b1899f",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        33550000,
+        5600000,
+        33550000,
+        5650000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "6874a026-884e-581d-b3bd-2a8b94b17755",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        49500000,
+        4350000,
+        49500000,
+        4400000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "69888c9c-e802-5ade-b7d7-d43481722e73",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        38800000,
+        4650000,
+        38750000,
+        4650000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "699416db-6ab2-5d8c-9f52-415ca716f0ac",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        41150000,
+        5100000,
+        41050000,
+        5100000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "6e08b11a-ea87-5fd2-8fcd-8e09c42bc7c4",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        46700000,
+        5300000,
+        45800000,
+        5300000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "6e16703c-f9e1-55ef-9581-d66c160fc619",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        47550000,
+        5400000,
+        47550000,
+        5350000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "6e3ee3ca-fd89-53bc-9692-b23ee9acc3d2",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        33500000,
+        5700000,
+        32200000,
+        5700000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "76489a94-d074-52c3-bce3-3bbae717fb6d",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        38700000,
+        4550000,
+        38650000,
+        4550000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "7714a1de-bbd7-5404-8a3f-a5f947f134c0",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        33700000,
+        4700000,
+        33700000,
+        5500000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "7a087a86-2b5b-5b54-b4d7-033cb232bfc5",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        38650000,
+        4550000,
+        38650000,
+        4500000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "7c863061-5ad7-58b8-abe0-339b8e123483",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "+BAT_GAUGE_SW",
+        20050000,
+        5900000,
+        "In3.Cu",
+        "In4.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "7d36a59c-f17b-5186-8992-fbc14459d4c3",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        26100000,
+        5700000,
+        26050000,
+        5700000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "7e477c3e-c36c-5db0-afd3-a0b42a3c0b46",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        26000000,
+        5750000,
+        26000000,
+        5800000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "7e63715d-a9e9-5af2-b8fe-4afe908d29cb",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        31200000,
+        6150000,
+        31150000,
+        6150000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "8438f3e8-331b-5214-afb8-956d23887939",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        37150000,
+        4600000,
+        37150000,
+        4650000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "877438a8-a1df-5236-8c4e-11ba463aad9f",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        32150000,
+        6000000,
+        32150000,
+        6050000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "8c74c094-9137-582e-aace-32b6b80eaa47",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        26100000,
+        5650000,
+        26100000,
+        5700000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "8f9c4b7c-535f-5328-ae15-b243a6b09e5e",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        32050000,
+        6100000,
+        32050000,
+        6150000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "90703b1d-0783-5a58-a36d-bb46c7c6fbd6",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        47550000,
+        5350000,
+        46700000,
+        5350000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "9497e436-5e85-5c2b-85e9-8f830ab260a7",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        48150000,
+        4700000,
+        48150000,
+        4750000,
+        "In2.Cu",
+        200000
+      ],
+      "uuid": "99d215b3-e6db-5e7e-a8c6-74d27dfec840",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        26050000,
+        5700000,
+        26050000,
+        5750000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "9dc4ad86-3935-5807-bb47-50e5423d0fc3",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        32200000,
+        5700000,
+        32200000,
+        6000000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "9e48bb05-fcc7-51e4-952d-6adf1b74398d",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        45800000,
+        5150000,
+        41150000,
+        5150000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "9f6ea5ce-556e-517c-a1d2-d0a69cb3b269",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        49450000,
+        4400000,
+        49450000,
+        4450000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "9fae102f-566b-5106-8dac-7b450f611a33",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        33600000,
+        5600000,
+        33550000,
+        5600000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "a0361cec-2382-5eb6-9ec3-e3b6ea34a573",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        39650000,
+        4650000,
+        39600000,
+        4650000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "a3215b14-590a-5554-b8ce-77717c6339d9",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        31000000,
+        5650000,
+        26100000,
+        5650000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "a500d0ba-5d18-5723-b54b-05049ae995a7",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        48200000,
+        4450000,
+        48200000,
+        4700000,
+        "In2.Cu",
+        200000
+      ],
+      "uuid": "a6f1abb7-0857-518f-93d9-d99398549854",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        49350000,
+        4500000,
+        49350000,
+        4550000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "aa3f58b7-3144-566b-82fe-ce4f5bd6ccb9",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        38800000,
+        4700000,
+        38800000,
+        4650000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "aa8d9bbd-bcc0-505b-ab49-d62421c67f8b",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        38700000,
+        4600000,
+        38700000,
+        4550000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "acd9adab-3bf8-5ff8-9dd6-e36d79a2c191",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        49400000,
+        4500000,
+        49350000,
+        4500000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "b0077f69-7d57-5650-a83f-98773fde3d38",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        37100000,
+        4650000,
+        37100000,
+        4700000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "b09b8038-b7b9-54a0-8d88-659dbbe89ce1",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        33550000,
+        5650000,
+        33500000,
+        5650000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "b5760c30-74e1-52ae-84cd-6692be798220",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        48800000,
+        4450000,
+        48500000,
+        4450000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "b745b252-561b-506f-ae04-1a0c75b53144",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        38600000,
+        4500000,
+        38600000,
+        4250000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "b9442dc7-3dd0-54e4-aabf-c0a8dac44216",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        41150000,
+        5150000,
+        41150000,
+        5100000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "bd9e7d6a-9cf6-52fa-b787-5acb18e5e2ca",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        33650000,
+        5500000,
+        33650000,
+        5550000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "be37b01e-c8e8-55f0-9846-7d5af0a00fcb",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        31200000,
+        6200000,
+        31200000,
+        6150000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "beaff694-a757-59b4-978b-2498c3df73ea",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        39600000,
+        4650000,
+        39600000,
+        4700000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "c8f51054-12eb-5cdc-92e6-6b968ebdb418",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        31100000,
+        6050000,
+        31050000,
+        6050000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "cc731fc3-8918-5187-93fb-8710a4dae187",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        48150000,
+        4750000,
+        48100000,
+        4750000,
+        "In2.Cu",
+        200000
+      ],
+      "uuid": "d17efcc5-883e-5bfa-a369-fb5675d5df8a",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        49350000,
+        4550000,
+        48850000,
+        4550000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "d7bf647c-4c25-56f3-bb52-e5a9e8662662",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        37150000,
+        4650000,
+        37100000,
+        4650000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "d8f5e3d7-d03a-569d-ba03-201bebf4e351",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        49500000,
+        4400000,
+        49450000,
+        4400000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "d91245a6-2025-5751-bb25-a367bf1cfc3a",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        33600000,
+        5550000,
+        33600000,
+        5600000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "dc19f8bf-ccff-582d-8eee-1dac6f69d53e",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        49450000,
+        4450000,
+        49400000,
+        4450000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "de64b475-4685-521f-8f6b-efbee7dd0801",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        31100000,
+        6100000,
+        31100000,
+        6050000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "e302f9e8-5230-5eca-a0a2-704c90724b13",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        37300000,
+        4250000,
+        37300000,
+        4500000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "e3645e0c-e2b9-55f4-9d7c-747016ced0f3",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        26000000,
+        5800000,
+        25900000,
+        5800000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "e3cda9e7-b1ed-58df-82b5-98a2ee0bfaf3",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        37200000,
+        4550000,
+        37200000,
+        4600000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "e554439e-2cec-535e-b685-f560528b4b31",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        31000000,
+        6000000,
+        31000000,
+        5650000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "e70ac335-6c06-5881-831e-d690d64a2d54",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        48500000,
+        4450000,
+        48200000,
+        4450000,
+        "In2.Cu",
+        200000
+      ],
+      "uuid": "e9169725-7f6b-5d86-8793-3f36fb6c8108",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        25900000,
+        5800000,
+        25900000,
+        5850000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "f01aa108-7d22-56b9-b670-a37847a43c80",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        49400000,
+        4450000,
+        49400000,
+        4500000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "f0cf2a00-de7d-5609-8ed9-74b4ba5bdb16",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        33500000,
+        5650000,
+        33500000,
+        5700000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "f1e5bc88-cd2f-56b3-8fc1-ec3c1f2c104d",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "+BAT_GAUGE_SW",
+        20050000,
+        2750000,
+        "In3.Cu",
+        "In4.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "f663a59c-2a7a-55b5-80b0-511a3b0d9e54",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        33650000,
+        5550000,
+        33600000,
+        5550000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "f96a2d40-c1c6-52c1-b25a-ee76e4de920a",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "+BAT_GAUGE_SW",
+        45800000,
+        5300000,
+        "In3.Cu",
+        "In4.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "fafd77d0-e6ac-5c8b-874c-d63a49fabbbe",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        31150000,
+        6150000,
+        31150000,
+        6100000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "fc086c5e-939f-5b8e-aad5-b6b006fe3d1f",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        31050000,
+        6000000,
+        31000000,
+        6000000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "ff00eb35-9713-5925-bd17-5b125f2afbd2",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+BAT_GAUGE_SW",
+        46700000,
+        5350000,
+        46700000,
+        5300000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "ff3c804e-ac46-5174-a8bf-d4f847010821",
+      "via_type": null
+    }
+  ],
+  "fabrication_release_allowed": false,
+  "gauge_supply_device_group_still_open": [
+    [
+      "U35",
+      "2"
+    ],
+    [
+      "U35",
+      "3"
+    ]
+  ],
+  "native_opens": 33,
+  "original_contacts": [
+    {
+      "added_uuid": "01f5bd37-8cf3-580c-a685-1f9b53c84868",
+      "layer": "In4.Cu",
+      "pad": null,
+      "source_uuid": "2fa4f578-74b1-5b39-81ad-026ef04c2dec"
+    },
+    {
+      "added_uuid": "01f5bd37-8cf3-580c-a685-1f9b53c84868",
+      "layer": "In4.Cu",
+      "pad": null,
+      "source_uuid": "79db87fa-1a40-56a7-b821-441f4bd65184"
+    },
+    {
+      "added_uuid": "2af66408-ed3e-52b6-bd62-af4c42ebaf03",
+      "layer": "B.Cu",
+      "pad": null,
+      "source_uuid": "66212cc1-41d5-5ba7-9c05-fe035e548d36"
+    },
+    {
+      "added_uuid": "2af66408-ed3e-52b6-bd62-af4c42ebaf03",
+      "layer": "B.Cu",
+      "pad": null,
+      "source_uuid": "a1efe850-2d89-5528-94b5-1f7e676b3440"
+    },
+    {
+      "added_uuid": "2af66408-ed3e-52b6-bd62-af4c42ebaf03",
+      "layer": "B.Cu",
+      "pad": [
+        "R101",
+        "1"
+      ],
+      "source_uuid": "d8f153f0-5559-5a1f-9244-a5380bab0ae6"
+    }
+  ],
+  "physical_opens": 33,
+  "poses": {},
+  "retired_copper": [],
+  "source_sha256": "92f942e46281475cbdadf6e9a0ad7a0d531e38c3032f85a4206bbf9e9bc1fccd",
+  "status": "BOUNDED_GAUGE_SUPPLY_CANDIDATE_UNDER_VALIDATION",
+  "target_pads": [
+    [
+      "SW2",
+      "7"
+    ],
+    [
+      "U46",
+      "1"
+    ],
+    [
+      "C39",
+      "1"
+    ],
+    [
+      "C64",
+      "1"
+    ],
+    [
+      "R101",
+      "1"
+    ],
+    [
+      "R102",
+      "1"
+    ]
+  ]
+}

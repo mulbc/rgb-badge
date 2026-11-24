@@ -1,0 +1,215 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_copper_items": 271,
+  "all_232_parent_groups_preserved": true,
+  "board": "hardware/coupon/rev-a/staging/led-switch-routing-trial-114mm.kicad_pcb",
+  "board_sha256": "b847f59f8a13a63d8db7a3c2ed2e7efc37239edc03c16fe12adc8b5758b4d524",
+  "by_net": {
+    "+3V3_USB": 1,
+    "+BAT_GAUGE_SW": 2,
+    "CHARGER_EN2": 1,
+    "CHARGER_TS": 1,
+    "DISPLAY_CLEAR_3": 1,
+    "DISPLAY_CLEAR_OK": 2,
+    "DISPLAY_ENABLE": 1,
+    "DISPLAY_HEARTBEAT": 1,
+    "ESP_EN": 1,
+    "GND": 3,
+    "HEARTBEAT_FALL_CLK": 1,
+    "HEARTBEAT_SEEN": 1,
+    "LED_GCLK": 1,
+    "LED_LAT": 1,
+    "LED_SCLK": 1,
+    "ROW_ENABLE_N_CANDIDATE": 1,
+    "ROW_GATE_00": 1,
+    "ROW_GATE_02": 1,
+    "ROW_GATE_03": 1,
+    "ROW_GATE_04": 1,
+    "ROW_GATE_06": 1,
+    "ROW_GATE_07": 1,
+    "TEMP_OK": 1,
+    "TMP_COLD_SET": 1,
+    "USB_CC1": 1,
+    "USB_D+": 1,
+    "USB_D-": 1,
+    "USB_DN_MCU": 1,
+    "USB_DP_MCU": 1,
+    "USB_EN1_RAW_N": 1,
+    "VBUS_CONNECTOR": 1,
+    "VLED": 7,
+    "VLED_ENABLE_CANDIDATE": 1
+  },
+  "checker_sha256": "7d364cecda4a0abd07a085d49b33abb8a8668f13664dfb9edb07dc31897d0b7f",
+  "date": "2026-11-07",
+  "drc_sha256": "59c78e660380eb3fd02ac8b957b70b62411c77e6bd44c64b0def36c9242fe198",
+  "fabrication_release_allowed": false,
+  "goal_status": "IN_PROGRESS_ZERO_OPEN_GOAL",
+  "interpretation": "Unconnected pad clusters minus one per net; no electrical or manufacturability qualification",
+  "intrinsic_findings": 104,
+  "isolated_fault_guards": [
+    {
+      "case": "switch-open",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "battery-plane-bridge-open",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "full-span-retyped-microvia",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "full-span-shrunk",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "ordinary-track-narrowed",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "converter-default-changed",
+      "reason": "Local pad/net geometry changed: U36",
+      "rejected": true
+    },
+    {
+      "case": "previous-iref-copper-removed",
+      "reason": "Exact copper retirement differs",
+      "rejected": true
+    }
+  ],
+  "legacy_centre_microvias_unresolved": 557,
+  "local_source_workflow_checks": [
+    {
+      "command": "python3 tools/check-coupon-study-contract.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb --legacy-land-study --legacy-switch-study",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-routing-progress-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-converter-checkpoint-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-u36-stage-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-routing-closure-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-switch-routing-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-switch-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-routing-closure-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-u36-stage-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/test-converter-review-calculations.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/test-hdi-stack-policy.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-converter-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-c32-land-candidate.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_c32_land_candidate.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_murata_catalogue_lands.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_convex_geometry.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_supply_join.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_slide_switch_library.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_progress_plan.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_coupon_study_contract.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_goal_distance.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_native_route_paths.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_clearance.py -v",
+      "exit_code": 0
+    }
+  ],
+  "native_open_edges": 43,
+  "native_opens": 43,
+  "original_orphan_restoration": {
+    "all_live_pad_groups_identical": true,
+    "native_opens": 43,
+    "only_three_exact_original_orphan_warnings": true
+  },
+  "pad_cluster_open_edges": 43,
+  "parent_sha256": "d961cf435d1ea8ff63454d580953edae26f16330c46768c84db3cfa88fbd41aa",
+  "physical_opens": 43,
+  "plan_sha256": "28c5536523bebfd7c366431f5a800f37e0bda597d400ae413eea4e2aa7696559",
+  "policy_sha256": "d70f96d7ba284682bf27b109a6d532f22b2acaccc2fc304a99e31d85d7b2b5b4",
+  "poses": {},
+  "project_sha256": "1141b004ecffd1e7e8e0c30cf21aeae7ce6381093df674998133d226ab9c27fb",
+  "removed_copper_items": 0,
+  "rules_sha256": "80c92b0cdef868dd0ef0037aa2f63d1266f709a2dd0326094735c75ffbd31a2e",
+  "stable_fill_and_replay_identical": true,
+  "status": "PASS_GEOMETRIC_ROUTING_STUDY_ONLY",
+  "tool_sha256": {
+    "tools/check-switch-routing-plan.py": "05e82753eecf5f73a72aae89d93fc4abd69783d2d8905063cb966442ab365e2c",
+    "tools/check-switch-routing.py": "7d364cecda4a0abd07a085d49b33abb8a8668f13664dfb9edb07dc31897d0b7f",
+    "tools/generate-switch-routing.py": "1248f339ef66bc854e94ecd941b6c8bfbcef0853d3d683fdeb6bf93383bd489f",
+    "tools/routing_switch_closure.py": "d70f96d7ba284682bf27b109a6d532f22b2acaccc2fc304a99e31d85d7b2b5b4",
+    "tools/test-switch-routing-guards.py": "e368e65097a85dc877c658c8956eb0fdca64b2f99d0c04abcd2718b3fee7184d"
+  },
+  "visual_review": "Native B.Cu SVG close-up inspected at U44/USB-input supply bridges; ignored build/switch-routing/bridge-closeup.png"
+}

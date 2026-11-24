@@ -1,0 +1,233 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_switching_copper": [
+    [
+      "track",
+      "Net-(U36-LX1)",
+      110250000,
+      16510000,
+      110250000,
+      15910000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "Net-(U36-LX1)",
+      110250000,
+      15910000,
+      111250000,
+      14350000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "Net-(U36-LX2)",
+      109750000,
+      16510000,
+      109750000,
+      15910000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "Net-(U36-LX2)",
+      109750000,
+      15910000,
+      109250000,
+      14350000,
+      "B.Cu",
+      200000
+    ]
+  ],
+  "fabrication_release_allowed": false,
+  "poses": {
+    "C40": {
+      "angle_deg": -90,
+      "mpn": "GRM187R61A226ME15",
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        39750000,
+        4000000
+      ],
+      "position_iu": [
+        112750000,
+        17500000
+      ]
+    },
+    "C41": {
+      "angle_deg": 90,
+      "mpn": "GRM187R61A226ME15",
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        40250000,
+        1000000
+      ],
+      "position_iu": [
+        112750000,
+        14500000
+      ]
+    },
+    "C42": {
+      "angle_deg": 180,
+      "mpn": "GRM219R60J476ME44",
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        93125000,
+        22750000
+      ],
+      "position_iu": [
+        111000000,
+        12000000
+      ]
+    },
+    "C43": {
+      "angle_deg": 180,
+      "mpn": "GRM219R60J476ME44",
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        22375000,
+        23250000
+      ],
+      "position_iu": [
+        108750000,
+        20000000
+      ]
+    },
+    "L1": {
+      "angle_deg": 180.0,
+      "mpn": "DFE252012P-1R0M=P2",
+      "old_angle_deg": 90.0,
+      "old_position_iu": [
+        111650000,
+        12750000
+      ],
+      "position_iu": [
+        110250000,
+        14350000
+      ]
+    },
+    "R81": {
+      "angle_deg": -90,
+      "mpn": "ERJ2RKF5113X",
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        52250000,
+        10250000
+      ],
+      "position_iu": [
+        108250000,
+        17500000
+      ]
+    },
+    "R82": {
+      "angle_deg": -90,
+      "mpn": "ERJ2RKF9102X",
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        54750000,
+        10250000
+      ],
+      "position_iu": [
+        111250000,
+        19750000
+      ]
+    },
+    "R83": {
+      "angle_deg": 0,
+      "mpn": "ERJ2RKF1003X",
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        57250000,
+        10250000
+      ],
+      "position_iu": [
+        112750000,
+        20000000
+      ]
+    },
+    "U36": {
+      "angle_deg": -90.0,
+      "mpn": "TPS631000DRLR",
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        108750000,
+        12500000
+      ],
+      "position_iu": [
+        110000000,
+        17250000
+      ]
+    }
+  },
+  "primary_local_caps": {
+    "input": "C40",
+    "output": "C43"
+  },
+  "removed_copper": [
+    [
+      "track",
+      "Net-(U36-LX1)",
+      109490000,
+      12750000,
+      110090000,
+      12750000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "Net-(U36-LX1)",
+      110090000,
+      12750000,
+      111650000,
+      13750000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "Net-(U36-LX2)",
+      109490000,
+      12250000,
+      110090000,
+      12250000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "Net-(U36-LX2)",
+      110090000,
+      12250000,
+      111650000,
+      11750000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+SYS_APP_IN_DRAFT",
+      109155000,
+      13250000,
+      108550000,
+      13600000,
+      "B.Cu",
+      200000
+    ],
+    [
+      "track",
+      "+3V3_APP",
+      109490000,
+      11600000,
+      109600000,
+      11000000,
+      "B.Cu",
+      200000
+    ]
+  ],
+  "source_sha256": "5e07fb866cc059de670e34102045d9dfd88c88f101355fcdbb27253c0ae26e43",
+  "status": "IGNORED_NINE_PART_STAGE_PLACEMENT_AND_RECONNECTION_PLAN_NOT_CANONICAL_SELECTION"
+}

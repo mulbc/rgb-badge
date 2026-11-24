@@ -1,0 +1,74 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "accepted_intrinsic_findings": 104,
+  "accepted_open_edges": 59,
+  "clock_colour_transfer": {
+    "candidate_doglegs": 7752,
+    "canonical_adoption": false,
+    "maximum_extra_length_mm": 2,
+    "maximum_y_displacement_mm": 1,
+    "original": [
+      "track",
+      "COL_05_B",
+      84750000,
+      8900000,
+      77950000,
+      8900000,
+      "In4.Cu",
+      200000
+    ],
+    "other_net_clear_candidates": 0,
+    "other_net_clearance_mm": 0.2,
+    "refill_candidates": 0,
+    "source_colour_width_mm": 0.2
+  },
+  "fabrication_release_allowed": false,
+  "firmware": "Unchanged; no hardware measurements",
+  "global_search": {
+    "endpoint_attempts": 16,
+    "grid_mm": 0.05,
+    "nets": 15,
+    "node_bound_per_attempt": 700000,
+    "outcomes": {
+      "exhausted_grid": 13,
+      "existing_pad_cluster_split_after_zone_refill": 1,
+      "node_bound": 2
+    },
+    "raw_report": "docs/development/led-routing-progress-59-follow-on-search-2026-10-30.json",
+    "raw_sha256": "6656a2ceb36226496b1849f21e82fa8576ebe768d7ce77b4fe40347b19892136"
+  },
+  "hardware": "Coupon Rev A, unbuilt",
+  "kicad_version": "10.0.6",
+  "limitations": [
+    "Finite grids, layer choices and node bounds do not prove routing impossibility",
+    "The experimental eight-direction search helper remains ignored and is not a new published or CI-qualified router",
+    "No candidate with an old pad-group split is accepted"
+  ],
+  "local_log_sha256": {
+    "/private/tmp/rgb-r58-usben-plane-repair.log": "53adecf7f2bd394003cf708fea576ef83dacd5ba713256cb9c7c592e88283a10",
+    "/private/tmp/rgb-r59-clock-transfer-blockers.log": "1873357445d1abb9f1972d2eaedbb021c8d7a59544c2276dc8628da23842f462",
+    "/private/tmp/rgb-r59-clock-transfer.log": "77b194d35bd925797a14997b7b5a236bd3c0a6240132207b00717de3df91c680",
+    "/private/tmp/rgb-r59-next-digital.log": "979925c4db3400e965e8a2de0ad512c6c7c2760d8241b0e088e83275412868a1",
+    "/private/tmp/rgb-usben-app-cause.log": "7729286f53b77e670e5de1d4d766817e33a37afb07f6c418f20f88f8c46bf791"
+  },
+  "new_accepted_connections": 0,
+  "source_commit": "d88599a51c184b2c106abee380734fa09c21f4b8",
+  "source_sha256": "a28258edac032d3dd047f2d7404c0752b25c472af4236b4618b3854717ddfc62",
+  "status": "BOUNDED_UNSELECTED_SOURCE_GEOMETRY_EXPERIMENTS",
+  "usb_trial": {
+    "canonical_adoption": false,
+    "existing_application_supply_group_still_split": true,
+    "ground_repaired_trial": {
+      "path": "hardware/coupon/rev-a/build/native-control-search/r58-usben-repaired.kicad_pcb",
+      "sha256": "2892cc764495daf20cb358b4a4d8454f2ef9200711c7e3d6bd0f7e7270a73b8b"
+    },
+    "individual_in4_component_removal_screens": 9,
+    "individual_removals_restoring_full_old_supply_group": 0,
+    "native_edges_after_ground_repair": 59,
+    "new_ordinary_ground_bridges": 1,
+    "raw_initial_drc": {
+      "path": "hardware/coupon/rev-a/build/native-control-search/r58-usben-pre-repair.drc.json",
+      "sha256": "3a07e3d555df6d0b544edcfe30116c60fe5924c6049a0236329c05e94bf616f3"
+    }
+  }
+}

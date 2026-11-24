@@ -1,0 +1,46 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "base_revision": "29830c7d8e6e292457f7260cf26c2ef1534bbb28",
+  "canonical_components": 497,
+  "canonical_logical_pins": 1814,
+  "commands": [
+    "./tools/check-coupon-study-contract.sh",
+    "Source-only CI-layout audit and fault-suite run in a temporary directory"
+  ],
+  "executed_at_utc": "2026-10-22T13:58:28.013581+00:00",
+  "fault_test_methods_passed": 18,
+  "hardware_measurements": "NONE",
+  "hardware_source_and_firmware_unchanged": true,
+  "limitations": [
+    "Known row-pair and netless driver study exceptions remain",
+    "PCB exact MPN fields absent for 465 shared references",
+    "No new physical connectivity/DRC/electrical/fixture/ROM recovery qualification",
+    "Independent Gate A and fabrication release remain open/prohibited"
+  ],
+  "matched_common_components": 465,
+  "matched_common_logical_pins": 1718,
+  "matched_physical_electrical_pads": 1747,
+  "native_export_tool": "Eeschema 10.0.6",
+  "native_xml_path": "/Users/cblum/Nextcloud/work/rgb-badge/hardware/coupon/rev-a/build/reconciliation-review/coupon.xml",
+  "native_xml_sha256": "2006dd85d95f271a978755a3b5081f06ea1430d466383f2e32913c8684f4df46",
+  "raw_evidence_sha256": {
+    "/private/tmp/rgb-reconciliation-ci-layout.log": "412f1a286aee9637734924d1f764a04843bb97423511646b590f055744142835",
+    "/private/tmp/rgb-reconciliation-native-check.log": "9b3f57b4ea3bb8e1988f76699b6553a0471ac6566308129aeffdbde227e1badf",
+    "/private/tmp/rgb-tp4-placement.log": "1f14a6924446294b4b6e7c0c72829205daba069425044269dce9abd0837f03a2",
+    "/private/tmp/rgb-uart-pad-merge-drc.log": "bc1bd052a994296fec27d098b07d62b9f9629eb5f544e7b9f6124a645c2d43d2"
+  },
+  "source_only_ci_layout_passed": true,
+  "source_sha256": {
+    ".github/workflows/host-software.yml": "f6cb0a7919b2e2c5f0345a89a2f32420772a4a9c510d6b659374155a9308ef70",
+    "CONTEXT.md": "a7f313290301c28fbf76c900f8c365346255ee33496b2798063071d5d81046ce",
+    "docs/development/coupon-study-reconciliation-2026-10-22.md": "eae70e76d2c116c5f6e5c0a72ad4457f1b473d457fc24c2f398b7c78e23d08fc",
+    "hardware/coupon/rev-a/README.md": "a28fb3d5a5ec582d09e97fd317f6f778429eed0d813b9e200579d19f3bb1abbd",
+    "hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb": "0fd1f0dfe320dd65765fa7f50a605fd68e0932434a2166878481631b06b4b313",
+    "mechanical/review/coupon-canonical-net-contract.json": "3b7f150bd2dcd5b6d6efd7df4350da27ee625d483439e6c5e3ff2cfc5c45131c",
+    "mechanical/review/coupon-study-reconciliation.json": "760009a2ccff121aae805caf0361f7760dea3a8ffc7042b64fd88bdda2c41a42",
+    "tools/check-coupon-study-contract.py": "a821043a47020047b35f75247102cacef6d36a7d81d5df26760a7600071fd3bd",
+    "tools/check-coupon-study-contract.sh": "28f858586efe2194b58133972980f88d0e6d9da2ca64d99b1f6637de89c992e1",
+    "tools/tests/test_coupon_study_contract.py": "43bf9cded4c558bb902b8f44ecadd5c9ed03a0cfb49ca9c59755083adc92b3d0"
+  },
+  "status": "SOURCE_AUDIT_WITH_KNOWN_STUDY_EXCEPTIONS"
+}

@@ -1,0 +1,104 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "corrected_entrypoints": [
+    "tools/search-native-control-profiled.py",
+    "tools/search-routing-closure-profiled.py",
+    "tools/search-u36-stage-profiled.py"
+  ],
+  "date": "2026-11-15",
+  "evidence": [
+    {
+      "bytes": 2435,
+      "path": "hardware/coupon/rev-a/build/inverter-routing/profile-context-validation/unit-tests.log",
+      "sha256": "aa6d759dbb80538a334fc395d69d140861d1af672122c94f4290241bd7dae1c4"
+    },
+    {
+      "bytes": 4382,
+      "path": "hardware/coupon/rev-a/build/inverter-routing/profile-context-validation/source-checks.json",
+      "sha256": "39730ca4438ba01e301f5b9348da6075682c510b7fbe258828d27ee26860d42e"
+    },
+    {
+      "bytes": 3314,
+      "path": "hardware/coupon/rev-a/build/inverter-routing/profile-context-validation/native-smoke.json",
+      "sha256": "898975dff14d161b42819c2c68eb037f36439fcaef2b0a1254cbfaca43b09276"
+    },
+    {
+      "bytes": 468,
+      "path": "hardware/coupon/rev-a/build/inverter-routing/profile-context-validation/native-smoke.profiles.json",
+      "sha256": "f3c94183ab70b3f6d38ddb0bb37a5b538f74b8c227af859c787b219f322299e2"
+    },
+    {
+      "bytes": 665,
+      "path": "hardware/coupon/rev-a/build/inverter-routing/heartbeat-coupled-profiled-input.json",
+      "sha256": "829a56ca24df39ae4c9e36403e7cf7feccf129a8e9544e5439cae25c1a618c9a"
+    },
+    {
+      "bytes": 112389,
+      "path": "hardware/coupon/rev-a/build/inverter-routing/heartbeat-coupled-profiled-input-drc.json",
+      "sha256": "0e5c46cc25ed98c8d2ae3a9f366592b8694122cd0430d775eeffc577f5d81916"
+    },
+    {
+      "bytes": 5575,
+      "path": "hardware/coupon/rev-a/build/inverter-routing/heartbeat-profiled-restoration.json",
+      "sha256": "9dbdfd2d7c993bf03d0fb7750c98777241e0085d52fd6142d03325740fd6449f"
+    },
+    {
+      "bytes": 9889,
+      "path": "hardware/coupon/rev-a/build/inverter-routing/heartbeat-rejection-audit.json",
+      "sha256": "161a03bbd33b7e98f40b1f92bad8e8c0636c61ba134d82c96c471c0877fe6202"
+    },
+    {
+      "bytes": 83471,
+      "path": "hardware/coupon/rev-a/build/inverter-routing/pad-capture-discovery.json",
+      "sha256": "d21dacb1e2e23c8d44b3c8ce335c3339aa9e2010f3f157a53d0a3a68b21f79b6"
+    },
+    {
+      "bytes": 1394,
+      "path": "hardware/coupon/rev-a/build/inverter-routing/pair07-supply-prepared.json",
+      "sha256": "d277bef0b1dc73e64fe526438a74ab60b3e906f701bee44e42d26b61173fbc6b"
+    },
+    {
+      "bytes": 2625,
+      "path": "hardware/coupon/rev-a/build/inverter-routing/pair07-supply-join.json",
+      "sha256": "fde9aa22cd8d02f781844d8333d6d7e996677906035ee8f5395b91b3468333e0"
+    },
+    {
+      "bytes": 287,
+      "path": "hardware/coupon/rev-a/build/inverter-routing/pair07-through-screen.json",
+      "sha256": "dd112afd925005b8694f536172de280f62c03b876259d8d46c7c5b4a25b754c9"
+    },
+    {
+      "bytes": 17897,
+      "path": "hardware/coupon/rev-a/build/inverter-routing/heartbeat-input-in1.json",
+      "sha256": "6dff5c63be04df1f7288cb5b1c0eb6c38c87baf2e73812fab8e2ead778cceb11"
+    },
+    {
+      "bytes": 17899,
+      "path": "hardware/coupon/rev-a/build/inverter-routing/heartbeat-input-front.json",
+      "sha256": "8e24b91524c873f0f3c639dc01035b17b22abb616f3402ec8b8c8d7601032845"
+    }
+  ],
+  "fabrication_release_allowed": false,
+  "historical_search_files_unchanged": true,
+  "native_smoke": {
+    "added_copper": 0,
+    "native_opens": 29,
+    "source_context_roundtrip": true
+  },
+  "native_smoke_board_sha256": "a4d27c5babed5556002cf71b8fae3c3280f627edeb0ff673b9b787d21d4b91ab",
+  "profile_regression_tests": 14,
+  "selected_board_sha256": "a4d27c5babed5556002cf71b8fae3c3280f627edeb0ff673b9b787d21d4b91ab",
+  "source_profile_hashes": {
+    ".kicad_dru": "80c92b0cdef868dd0ef0037aa2f63d1266f709a2dd0326094735c75ffbd31a2e",
+    ".kicad_pro": "1141b004ecffd1e7e8e0c30cf21aeae7ce6381093df674998133d226ab9c27fb"
+  },
+  "source_workflow_commands": 36,
+  "status": "PASS_PROFILE_PRESERVATION_NO_NEW_ROUTING_SELECTED",
+  "tool_sha256": {
+    "tools/routing_snapshot_profiles.py": "23149bf8c369086c438b4e696716cb4bfe0491c733f2c308bb57a872dc1b764a",
+    "tools/search-native-control-profiled.py": "d8b1810138b659fbd5ecd7747df7a5bfd60fdc6504930cefea376f5911bd508f",
+    "tools/search-routing-closure-profiled.py": "93aa83e5791590fd594e854d6d6205558cef3152e812a887a7643cb47221419b",
+    "tools/search-u36-stage-profiled.py": "ffc27be1ef776d61dafb49b366d6c6b6a09dff8746c497c4b08bf0bb242172ad",
+    "tools/tests/test_native_route_paths.py": "273461664ca973872db2bb19f5cb79b96c7e156e2dc58951965cf1d9f5697791"
+  }
+}

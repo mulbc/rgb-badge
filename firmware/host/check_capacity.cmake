@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: Apache-2.0
+foreach(required IN ITEMS PYTHON_EXECUTABLE REPO_ROOT OUTPUT_DIR VERSION)
+  if(NOT DEFINED ${required})
+    message(FATAL_ERROR "Missing ${required}")
+  endif()
+endforeach()
+if(VERSION STREQUAL "1")
+  set(expected "${REPO_ROOT}/firmware/review/asset-capacity-synthetic-2026-10-21.json")
+elseif(VERSION STREQUAL "2")
+  set(expected "${REPO_ROOT}/firmware/review/asset-capacity-v2-synthetic-2026-10-21.json")
+else()
+  message(FATAL_ERROR "Unsupported capacity version")
+endif()
+set(report "${OUTPUT_DIR}/asset-capacity-v${VERSION}.json")
+execute_process(COMMAND "${PYTHON_EXECUTABLE}" "${REPO_ROOT}/tools/screen-asset-capacity.py"
+  --version "${VERSION}" --report "${report}"
+  RESULT_VARIABLE result OUTPUT_VARIABLE output ERROR_VARIABLE error)
+if(NOT result STREQUAL "0")
+  message(FATAL_ERROR "Capacity generation failed: ${result}\n${output}\n${error}")
+endif()
+execute_process(COMMAND "${CMAKE_COMMAND}" -E compare_files "${report}" "${expected}"
+  RESULT_VARIABLE result)
+if(NOT result STREQUAL "0")
+  message(FATAL_ERROR "Version ${VERSION} capacity evidence differs: ${report}")
+endif()
+message(STATUS "Version ${VERSION} capacity report reproduces byte-for-byte")

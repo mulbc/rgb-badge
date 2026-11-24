@@ -1,0 +1,99 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "angle_step_deg": 15,
+  "clearance_iu": 200000,
+  "copper_edge_clearance_iu": 500000,
+  "fabrication_release_allowed": false,
+  "footprint_parts": {
+    "L1": {
+      "mpn": "DFE252012P-1R0M=P2",
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        12000000,
+        7375000
+      ]
+    },
+    "L2": {
+      "mpn": "DFE252012P-1R5M=P2",
+      "old_angle_deg": -90.0,
+      "old_position_iu": [
+        16000000,
+        7375000
+      ]
+    }
+  },
+  "kicad_version": "10.0.6",
+  "limitations": [
+    "Finite sampled positions/angles only",
+    "No route, refill, current, bypass, return or thermal acceptance implied",
+    "Centre distances are planning observations, not pad-edge routing lower bounds"
+  ],
+  "radius_iu": 8000000,
+  "results": {
+    "L1": {
+      "clear_poses": [],
+      "counts": {
+        "courtyard_clear": 86,
+        "courtyard_obstructed": 374336,
+        "courtyard_outside_board": 107522,
+        "pad_copper_or_edge_obstructed": 86,
+        "sampled_poses": 481944
+      },
+      "courtyard_blockers": {
+        "C55": 26742,
+        "C60": 19502,
+        "C61": 342,
+        "C70": 40838,
+        "R100": 1236,
+        "R38": 20288,
+        "R39": 5340,
+        "R42": 41550,
+        "R63": 30642,
+        "R97": 11360,
+        "R99": 15338,
+        "SW1": 74234,
+        "U11": 125746,
+        "U17": 29996,
+        "U2": 155836,
+        "U25": 110930,
+        "U29": 10234,
+        "U33": 71346,
+        "U36": 83856,
+        "U37": 23856,
+        "U45": 15446,
+        "U51": 20484
+      }
+    },
+    "L2": {
+      "clear_poses": [],
+      "counts": {
+        "courtyard_obstructed": 255306,
+        "courtyard_outside_board": 226638,
+        "sampled_poses": 481944
+      },
+      "courtyard_blockers": {
+        "C32": 10550,
+        "C70": 44258,
+        "PROJ_U1_2": 28,
+        "R99": 624,
+        "SW1": 35718,
+        "U1": 108894,
+        "U11": 87014,
+        "U17": 126166,
+        "U25": 11082,
+        "U29": 45692,
+        "U36": 11672,
+        "U37": 80540,
+        "U51": 22570
+      }
+    }
+  },
+  "source_sha256": "95d7b7679319cdd64f8e22d428bd2a78454b91298ca17432d34ede0c824ab214",
+  "source_unchanged": true,
+  "status": "UNSELECTED_FINITE_INDUCTOR_LOCALITY_SCREEN_NOT_HARDWARE_MEASUREMENTS",
+  "step_iu": 100000,
+  "tool_sha256": {
+    "tools/convex_geometry.py": "348be312df0198d253257cfb134959b432a6ade829207662d2c6d45d9d010962",
+    "tools/screen-converter-inductor-locality.py": "8f8bc79624f1501744ce9632269d32f695c28d42c713d467461bb0e83c6e3bfd"
+  }
+}

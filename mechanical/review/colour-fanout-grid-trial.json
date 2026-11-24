@@ -1,0 +1,421 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "board_sha256": "39ab69bd7b5be40f557984ab47ceaf241e1a0e7adb7eed5f46442d42d08d936d",
+  "clearance_mm": 0.2,
+  "connected_colours": 48,
+  "grid_mm": 0.05,
+  "initial_node_limit": 400000,
+  "kicad_version": "10.0.6",
+  "matrix_sha256": "5caaa613030eb55e97cb793176e9970057823637c17218760c1e8b0f1fcd9a3e",
+  "microvia_diameter_drill_mm": [
+    0.3,
+    0.1
+  ],
+  "open_edges": 598,
+  "order": "near",
+  "priority_nets": [
+    "COL_06_G",
+    "COL_10_B"
+  ],
+  "retry_node_limit": 1500000,
+  "routes": [
+    {
+      "connected": true,
+      "driver_pin": "31",
+      "expanded_nodes": 25065,
+      "grid_edges": 601,
+      "native_connected_leds": 16,
+      "net": "COL_06_G"
+    },
+    {
+      "connected": true,
+      "driver_pin": "46",
+      "expanded_nodes": 24650,
+      "grid_edges": 489,
+      "native_connected_leds": 16,
+      "net": "COL_10_B"
+    },
+    {
+      "connected": true,
+      "driver_pin": "5",
+      "expanded_nodes": 46496,
+      "grid_edges": 369,
+      "native_connected_leds": 16,
+      "net": "COL_15_R"
+    },
+    {
+      "connected": true,
+      "driver_pin": "6",
+      "expanded_nodes": 45586,
+      "grid_edges": 402,
+      "native_connected_leds": 16,
+      "net": "COL_15_G"
+    },
+    {
+      "connected": true,
+      "driver_pin": "7",
+      "expanded_nodes": 91895,
+      "grid_edges": 439,
+      "native_connected_leds": 16,
+      "net": "COL_15_B"
+    },
+    {
+      "connected": true,
+      "driver_pin": "2",
+      "expanded_nodes": 24011,
+      "grid_edges": 393,
+      "native_connected_leds": 16,
+      "net": "COL_14_R"
+    },
+    {
+      "connected": true,
+      "driver_pin": "53",
+      "expanded_nodes": 21535,
+      "grid_edges": 397,
+      "native_connected_leds": 16,
+      "net": "COL_13_R"
+    },
+    {
+      "connected": true,
+      "driver_pin": "3",
+      "expanded_nodes": 22746,
+      "grid_edges": 430,
+      "native_connected_leds": 16,
+      "net": "COL_14_G"
+    },
+    {
+      "connected": true,
+      "driver_pin": "50",
+      "expanded_nodes": 15487,
+      "grid_edges": 410,
+      "native_connected_leds": 16,
+      "net": "COL_12_R"
+    },
+    {
+      "connected": true,
+      "driver_pin": "54",
+      "expanded_nodes": 7477,
+      "grid_edges": 427,
+      "native_connected_leds": 16,
+      "net": "COL_13_G"
+    },
+    {
+      "connected": true,
+      "driver_pin": "4",
+      "expanded_nodes": 63974,
+      "grid_edges": 477,
+      "native_connected_leds": 16,
+      "net": "COL_14_B"
+    },
+    {
+      "connected": true,
+      "driver_pin": "47",
+      "expanded_nodes": 96001,
+      "grid_edges": 598,
+      "native_connected_leds": 16,
+      "net": "COL_11_R"
+    },
+    {
+      "connected": true,
+      "driver_pin": "51",
+      "expanded_nodes": 105038,
+      "grid_edges": 628,
+      "native_connected_leds": 16,
+      "net": "COL_12_G"
+    },
+    {
+      "connected": true,
+      "driver_pin": "44",
+      "expanded_nodes": 5198,
+      "grid_edges": 434,
+      "native_connected_leds": 16,
+      "net": "COL_10_R"
+    },
+    {
+      "connected": true,
+      "driver_pin": "55",
+      "expanded_nodes": 162671,
+      "grid_edges": 581,
+      "native_connected_leds": 16,
+      "net": "COL_13_B"
+    },
+    {
+      "connected": true,
+      "driver_pin": "48",
+      "expanded_nodes": 113426,
+      "grid_edges": 593,
+      "native_connected_leds": 16,
+      "net": "COL_11_G"
+    },
+    {
+      "connected": true,
+      "driver_pin": "52",
+      "expanded_nodes": 107494,
+      "grid_edges": 605,
+      "native_connected_leds": 16,
+      "net": "COL_12_B"
+    },
+    {
+      "connected": true,
+      "driver_pin": "39",
+      "expanded_nodes": 1340,
+      "grid_edges": 437,
+      "native_connected_leds": 16,
+      "net": "COL_09_R"
+    },
+    {
+      "connected": true,
+      "driver_pin": "45",
+      "expanded_nodes": 165897,
+      "grid_edges": 875,
+      "native_connected_leds": 16,
+      "net": "COL_10_G"
+    },
+    {
+      "connected": true,
+      "driver_pin": "49",
+      "expanded_nodes": 179078,
+      "grid_edges": 676,
+      "native_connected_leds": 16,
+      "net": "COL_11_B"
+    },
+    {
+      "connected": true,
+      "driver_pin": "40",
+      "expanded_nodes": 7075,
+      "grid_edges": 454,
+      "native_connected_leds": 16,
+      "net": "COL_09_G"
+    },
+    {
+      "connected": true,
+      "driver_pin": "41",
+      "expanded_nodes": 57578,
+      "grid_edges": 505,
+      "native_connected_leds": 16,
+      "net": "COL_09_B"
+    },
+    {
+      "connected": true,
+      "driver_pin": "36",
+      "expanded_nodes": 4874,
+      "grid_edges": 486,
+      "native_connected_leds": 16,
+      "net": "COL_08_R"
+    },
+    {
+      "connected": true,
+      "driver_pin": "37",
+      "expanded_nodes": 53364,
+      "grid_edges": 527,
+      "native_connected_leds": 16,
+      "net": "COL_08_G"
+    },
+    {
+      "connected": true,
+      "driver_pin": "38",
+      "expanded_nodes": 62163,
+      "grid_edges": 555,
+      "native_connected_leds": 16,
+      "net": "COL_08_B"
+    },
+    {
+      "connected": true,
+      "driver_pin": "33",
+      "expanded_nodes": 1436,
+      "grid_edges": 530,
+      "native_connected_leds": 16,
+      "net": "COL_07_R"
+    },
+    {
+      "connected": true,
+      "driver_pin": "35",
+      "expanded_nodes": 61222,
+      "grid_edges": 601,
+      "native_connected_leds": 16,
+      "net": "COL_07_B"
+    },
+    {
+      "connected": true,
+      "driver_pin": "34",
+      "expanded_nodes": 62181,
+      "grid_edges": 662,
+      "native_connected_leds": 16,
+      "net": "COL_07_G"
+    },
+    {
+      "connected": true,
+      "driver_pin": "30",
+      "expanded_nodes": 76789,
+      "grid_edges": 639,
+      "native_connected_leds": 16,
+      "net": "COL_06_R"
+    },
+    {
+      "connected": true,
+      "driver_pin": "32",
+      "expanded_nodes": 92941,
+      "grid_edges": 732,
+      "native_connected_leds": 16,
+      "net": "COL_06_B"
+    },
+    {
+      "connected": true,
+      "driver_pin": "25",
+      "expanded_nodes": 17030,
+      "grid_edges": 678,
+      "native_connected_leds": 16,
+      "net": "COL_05_B"
+    },
+    {
+      "connected": true,
+      "driver_pin": "23",
+      "expanded_nodes": 10800,
+      "grid_edges": 685,
+      "native_connected_leds": 16,
+      "net": "COL_05_R"
+    },
+    {
+      "connected": true,
+      "driver_pin": "24",
+      "expanded_nodes": 66815,
+      "grid_edges": 725,
+      "native_connected_leds": 16,
+      "net": "COL_05_G"
+    },
+    {
+      "connected": true,
+      "driver_pin": "22",
+      "expanded_nodes": 40599,
+      "grid_edges": 783,
+      "native_connected_leds": 16,
+      "net": "COL_04_B"
+    },
+    {
+      "connected": true,
+      "driver_pin": "20",
+      "expanded_nodes": 77123,
+      "grid_edges": 809,
+      "native_connected_leds": 16,
+      "net": "COL_04_R"
+    },
+    {
+      "connected": true,
+      "driver_pin": "21",
+      "expanded_nodes": 162549,
+      "grid_edges": 905,
+      "native_connected_leds": 16,
+      "net": "COL_04_G"
+    },
+    {
+      "connected": true,
+      "driver_pin": "19",
+      "expanded_nodes": 101874,
+      "grid_edges": 889,
+      "native_connected_leds": 16,
+      "net": "COL_03_B"
+    },
+    {
+      "connected": true,
+      "driver_pin": "17",
+      "expanded_nodes": 112183,
+      "grid_edges": 897,
+      "native_connected_leds": 16,
+      "net": "COL_03_R"
+    },
+    {
+      "connected": true,
+      "driver_pin": "18",
+      "expanded_nodes": 197671,
+      "grid_edges": 925,
+      "native_connected_leds": 16,
+      "net": "COL_03_G"
+    },
+    {
+      "connected": true,
+      "driver_pin": "16",
+      "expanded_nodes": 171707,
+      "grid_edges": 990,
+      "native_connected_leds": 16,
+      "net": "COL_02_B"
+    },
+    {
+      "connected": true,
+      "driver_pin": "14",
+      "expanded_nodes": 206496,
+      "grid_edges": 1015,
+      "native_connected_leds": 16,
+      "net": "COL_02_R"
+    },
+    {
+      "connected": true,
+      "driver_pin": "15",
+      "expanded_nodes": 263190,
+      "grid_edges": 943,
+      "native_connected_leds": 16,
+      "net": "COL_02_G"
+    },
+    {
+      "connected": true,
+      "driver_pin": "11",
+      "expanded_nodes": 281509,
+      "grid_edges": 1131,
+      "native_connected_leds": 16,
+      "net": "COL_01_R"
+    },
+    {
+      "connected": true,
+      "driver_pin": "13",
+      "expanded_nodes": 362435,
+      "grid_edges": 1039,
+      "native_connected_leds": 16,
+      "net": "COL_01_B"
+    },
+    {
+      "connected": true,
+      "driver_pin": "12",
+      "expanded_nodes": 406792,
+      "grid_edges": 1235,
+      "native_connected_leds": 16,
+      "net": "COL_01_G",
+      "retried": true
+    },
+    {
+      "connected": true,
+      "driver_pin": "8",
+      "expanded_nodes": 304834,
+      "grid_edges": 1225,
+      "native_connected_leds": 16,
+      "net": "COL_00_R"
+    },
+    {
+      "connected": true,
+      "driver_pin": "10",
+      "expanded_nodes": 496282,
+      "grid_edges": 1182,
+      "native_connected_leds": 16,
+      "net": "COL_00_B",
+      "retried": true
+    },
+    {
+      "connected": true,
+      "driver_pin": "9",
+      "expanded_nodes": 420179,
+      "grid_edges": 1271,
+      "native_connected_leds": 16,
+      "net": "COL_00_G",
+      "retried": true
+    }
+  ],
+  "search_bounds_mm": [
+    39.5,
+    0.4,
+    94.0,
+    32.1
+  ],
+  "search_guard_mm": 0.012,
+  "source_sha256": "898d9f5f4c802512abe8739a75334250d69ff3e7a138343b87320de5be405df2",
+  "status": "UNQUALIFIED_ROUTING_STUDY",
+  "track_mm": 0.2,
+  "tracks_and_vias": 6624
+}

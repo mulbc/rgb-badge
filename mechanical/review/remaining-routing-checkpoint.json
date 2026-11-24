@@ -1,0 +1,744 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_copper_items": 244,
+  "all_231_parent_groups_preserved": true,
+  "board": "hardware/coupon/rev-a/staging/led-remaining-routing-trial-114mm.kicad_pcb",
+  "board_sha256": "da3764ddf5c8c615529340c33c92974cff3fd036b937b5e4a53c408e0b141637",
+  "by_net": {
+    "+3V3_USB": 1,
+    "+BAT_GAUGE_SW": 2,
+    "CHARGER_EN2": 1,
+    "CHARGER_TS": 1,
+    "DISPLAY_CLEAR_3": 1,
+    "DISPLAY_CLEAR_OK": 2,
+    "DISPLAY_ENABLE": 1,
+    "DISPLAY_HEARTBEAT": 1,
+    "ESP_EN": 1,
+    "GND": 1,
+    "HEARTBEAT_FALL_CLK": 1,
+    "HEARTBEAT_SEEN": 1,
+    "LED_GCLK": 1,
+    "LED_LAT": 1,
+    "LED_SCLK": 1,
+    "ROW_GATE_00": 1,
+    "ROW_GATE_02": 1,
+    "ROW_GATE_03": 1,
+    "ROW_GATE_04": 1,
+    "ROW_GATE_06": 1,
+    "ROW_GATE_07": 1,
+    "USB_CC1": 1,
+    "USB_D+": 1,
+    "USB_D-": 1,
+    "USB_EN1_RAW_N": 1,
+    "VBUS_CONNECTOR": 1,
+    "VLED": 7
+  },
+  "capacitor_ground_neck_calculation": {
+    "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+    "disk_centre_iu": [
+      90000000,
+      10925000
+    ],
+    "fabrication_release_allowed": false,
+    "filled_component_index": 33,
+    "filled_intervals_y_iu": [
+      [
+        10801000,
+        11049000
+      ]
+    ],
+    "firmware_revision": "Not applicable",
+    "hardware_revision": "Unbuilt Coupon Rev A CAD",
+    "interpretation": "CAD polygon calculation, not a hardware measurement or current/return qualification",
+    "local_0p20mm_disk_verified_by_erosion": true,
+    "sample_step_iu": 1000,
+    "setup": {
+      "kicad_version": "10.0.6",
+      "method": "Native filled-component vertical Contains sampling at 1 um; polygon erosion by 0.100 mm; unchanged board/profile."
+    },
+    "source_sha256": "a24e9220226b77411ae8e8baea5cd629ce0fea8a97c377a708510d6791c2e439",
+    "x_iu": 90000000,
+    "zone_minimum_thickness_iu": 250000,
+    "zone_uuid": "81b0abb6-bbba-5f7c-9599-18e6b0c72e0e"
+  },
+  "capacitor_microplacement_witness": {
+    "contact_count": 1,
+    "displacement_iu": [
+      0,
+      -250000
+    ],
+    "filled_component_index": 33,
+    "historical_approved_retired_copper": [
+      [
+        "track",
+        "ROW_GATE_05",
+        71750000,
+        4250000,
+        72150000,
+        4250000,
+        "B.Cu",
+        200000
+      ]
+    ],
+    "historical_ground_isolated": true,
+    "historical_source_copper_retained": false,
+    "historical_source_copper_retained_except_reviewed_leaf": true,
+    "joined_pad": [
+      "U35",
+      "9"
+    ],
+    "original_direct_land_contacts_retained": true,
+    "reference": "C32",
+    "retained_main_ground_copper_uuid": "07b3115d-2653-5240-a616-04176b0f73fb",
+    "single_individual_bcu_ground_component": true,
+    "source_commit": "e17fa35733158734a4276d1731dc6819258ba8ac",
+    "source_sha256": "ed6d3ff570f2481b47423d8375d9d4a40d756145cdd49e2c222bacc36edbfa57",
+    "zone_uuid": "81b0abb6-bbba-5f7c-9599-18e6b0c72e0e"
+  },
+  "checker_sha256": "d2f81b3e0040192cf24df018c6a3cecb292105d837d8f497f6303a8578ec8fb3",
+  "copper_items_added_since_previous": 18,
+  "copper_items_removed_since_previous": 1,
+  "date": "2026-11-10",
+  "drc_sha256": "e9f86280550e6138b5af96d690646e75a47e34df8561a21974da0e44ec3f0d3e",
+  "fabrication_release_allowed": false,
+  "goal_status": "IN_PROGRESS_ZERO_OPEN_GOAL",
+  "ground_plane_replacement_witness": {
+    "both_endpoint_disks_touch": true,
+    "boundary_contact_count": 5,
+    "filled_component_index": 24,
+    "single_individual_bcu_ground_component": true,
+    "zone_uuid": "81b0abb6-bbba-5f7c-9599-18e6b0c72e0e"
+  },
+  "ground_return_replacement": {
+    "all_original_layer_contacts_retained": true,
+    "both_original_endpoints_retained": true,
+    "contact_count": 5,
+    "original": [
+      "track",
+      "GND",
+      59865000,
+      16000000,
+      58365000,
+      16000000,
+      "B.Cu",
+      200000
+    ],
+    "replacement_length_mm": 5.77
+  },
+  "historical_c32_neck_calculation_basis_sha256": "a24e9220226b77411ae8e8baea5cd629ce0fea8a97c377a708510d6791c2e439",
+  "historical_tool_sha256": {
+    "tools/search-routing-closure.py": "b3b54c79fbcb1f7ed9e0f95e5e75288d86f53fc94dddab4d14701984df6eb4b7"
+  },
+  "inherited_original_orphan_restoration": {
+    "all_live_pad_groups_identical": true,
+    "basis": "IMMUTABLE_43_OPEN_PARENT",
+    "board_sha256": "b847f59f8a13a63d8db7a3c2ed2e7efc37239edc03c16fe12adc8b5758b4d524",
+    "native_opens": 43,
+    "only_three_exact_original_orphan_warnings": true
+  },
+  "interpretation": "Unbuilt Coupon Rev A CAD continuity only. Exact R11 leaf replacement and ordinary ground route join U38/U52 to main ground with all previous groups and accepted additions retained. Zero opens and electrical/process/stack/fit/Gate A work remain ongoing.",
+  "intrinsic_findings": 104,
+  "isolated_fault_guards": [
+    {
+      "case": "temperature-output-open",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "cold-programming-open",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "usb-dp-open",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "usb-dn-open",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "usb-supply-open",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "app-supply-open",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "unsupported-full-span-microvia",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "outer-microvia-shrunk",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "ordinary-track-narrowed",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "converter-default-changed",
+      "reason": "Local pad/net geometry changed: U36",
+      "rejected": true
+    },
+    {
+      "case": "previous-switch-copper-removed",
+      "reason": "Exact copper retirement differs",
+      "rejected": true
+    },
+    {
+      "case": "retired-via-reintroduced",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "cold-resistor-remote",
+      "reason": "Exact copper retirement differs",
+      "rejected": true
+    },
+    {
+      "case": "cold-resistor-retuned",
+      "reason": "Part fields changed",
+      "rejected": true
+    },
+    {
+      "case": "obsolete-return-reintroduced",
+      "reason": "Exact copper retirement differs",
+      "rejected": true
+    },
+    {
+      "case": "return-endpoint-lost-with-matching-ledger",
+      "reason": "Original return endpoint lost",
+      "rejected": true
+    },
+    {
+      "case": "obsolete-body-ground-strap-reintroduced",
+      "reason": "Exact copper retirement differs",
+      "rejected": true
+    },
+    {
+      "case": "plane-boundary-omitted-with-matching-copper",
+      "reason": "Plane replacement boundary inventory differs",
+      "rejected": true
+    },
+    {
+      "case": "row-enable-probe-open",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "permission-lead-open",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "obsolete-permission-lead-reintroduced",
+      "reason": "Exact copper retirement differs",
+      "rejected": true
+    },
+    {
+      "case": "permission-endpoint-lost-with-matching-ledger",
+      "reason": "Permission outer endpoint lost",
+      "rejected": true
+    },
+    {
+      "case": "tp14-remote-again",
+      "reason": "Pose differs: TP14",
+      "rejected": true
+    },
+    {
+      "case": "permission-boundary-omitted-with-matching-copper",
+      "reason": "Permission boundary inventory differs",
+      "rejected": true
+    },
+    {
+      "case": "tp14-prior-contact-with-matching-ledger",
+      "reason": "TP14 prior copper-contact proof failed",
+      "rejected": true
+    },
+    {
+      "case": "vled-enable-probe-open",
+      "reason": "Exact added copper differs",
+      "rejected": true
+    },
+    {
+      "case": "native-source-rounded-with-matching-ledger",
+      "reason": "Native source capture moved",
+      "rejected": true
+    },
+    {
+      "case": "tp13-prior-contact-with-matching-ledger",
+      "reason": "TP13 prior copper-contact proof failed",
+      "rejected": true
+    },
+    {
+      "case": "tp13-remote-again",
+      "reason": "Pose differs: TP13",
+      "rejected": true
+    },
+    {
+      "case": "tp13-forged-historical-isolation",
+      "reason": "Test-land historical isolation group differs",
+      "rejected": true
+    },
+    {
+      "case": "c32-actual-ground-open-with-matching-ledger",
+      "reason": "Actual C32 ground join missing",
+      "rejected": true
+    },
+    {
+      "case": "c32-contact-omitted-with-matching-copper",
+      "reason": "Original C32 contact inventory differs",
+      "rejected": true
+    },
+    {
+      "case": "c32-outside-bound-with-matching-ledger",
+      "reason": "C32 translation exceeds 0.25 mm",
+      "rejected": true
+    },
+    {
+      "case": "c32-forged-historical-source",
+      "reason": "C32 historical source differs",
+      "rejected": true
+    },
+    {
+      "case": "c32-contact-guard-omitted",
+      "reason": "C32 contact guard missing",
+      "rejected": true
+    },
+    {
+      "case": "c32-silent-packaging-substitution",
+      "reason": "Part fields changed",
+      "rejected": true
+    },
+    {
+      "case": "shunt-actual-ground-open-with-matching-ledger",
+      "reason": "Ground-route adjacent capture missing",
+      "rejected": true
+    },
+    {
+      "case": "r11-far-end-lost-with-matching-ledger",
+      "reason": "R11 retained far-end contact lost",
+      "rejected": true
+    },
+    {
+      "case": "r11-original-contact-omitted",
+      "reason": "R11 original leaf contacts differ",
+      "rejected": true
+    },
+    {
+      "case": "ground-original-endpoint-witness-omitted",
+      "reason": "Ground source endpoint contact inventory differs",
+      "rejected": true
+    },
+    {
+      "case": "r11-outside-exact-pose-with-matching-ledger",
+      "reason": "R11 relocation pose differs",
+      "rejected": true
+    },
+    {
+      "case": "unreviewed-second-r11-retirement-with-matching-ledger",
+      "reason": "Unreviewed retirement scope",
+      "rejected": true
+    },
+    {
+      "case": "r11-retirement-guard-omitted",
+      "reason": "R11 relocation guard missing",
+      "rejected": true
+    },
+    {
+      "case": "ground-via-centre-landing-omitted-with-continuity",
+      "reason": "Ground retained via centre not reached",
+      "rejected": true
+    }
+  ],
+  "legacy_centre_microvias_unresolved": 557,
+  "local_source_workflow_checks": [
+    {
+      "command": "python3 tools/check-coupon-study-contract.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb --legacy-land-study --legacy-switch-study",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-routing-progress-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-converter-checkpoint-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-u36-stage-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-routing-closure-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-switch-routing-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-remaining-routing-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-remaining-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-switch-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-routing-closure-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-u36-stage-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/test-routing-group-targets.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/test-converter-review-calculations.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/test-hdi-stack-policy.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --board hardware/coupon/rev-a/staging/led-converter-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-c32-land-candidate.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_c32_land_candidate.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_murata_catalogue_lands.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_convex_geometry.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_supply_join.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_slide_switch_library.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_progress_plan.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_coupon_study_contract.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_goal_distance.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_native_route_paths.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_clearance.py -v",
+      "exit_code": 0
+    }
+  ],
+  "native_actual_copper_endpoint_fixture_passed": true,
+  "native_open_edges": 35,
+  "native_opens": 35,
+  "native_testpad_escape_witness": {
+    "historical_isolation_source_sha256": "01fb2e8a1ac781172797d369df99ff3c834016453ffeaa3d76c224b525355031",
+    "joined_pad": [
+      "U55",
+      "7"
+    ],
+    "new_vias": 2,
+    "prior_isolation_and_no_copper_contact": true,
+    "source_capture_iu": [
+      26250000,
+      20875000
+    ],
+    "source_copper_retired": false,
+    "target_capture_iu": [
+      23250000,
+      23300000
+    ],
+    "trace_length_mm": 3.857541315397672
+  },
+  "pad_cluster_open_edges": 35,
+  "parent_sha256": "b847f59f8a13a63d8db7a3c2ed2e7efc37239edc03c16fe12adc8b5758b4d524",
+  "permission_lead_replacement_witness": {
+    "all_original_bcu_contacts_retained": true,
+    "both_outer_endpoints_retained": true,
+    "boundary_contact_count": 4,
+    "tp14_isolation_source_sha256": "aab8f44a9ec3ae65aed4ee2500d52d57d4d3872c8428b8f50c765bfedd205a1e",
+    "tp14_joined_pad": [
+      "U54",
+      "3"
+    ],
+    "tp14_lead_length_mm": 3.125,
+    "tp14_previous_isolation_and_no_copper_contact": true
+  },
+  "physical_opens": 35,
+  "plan_sha256": "d3337ea9a71a1b646e2329d8271144d42a6a568e6eee3bd7ca3ee08e3c3433c3",
+  "policy_sha256": "cd3589939ed67faaa464dd3d4bdcac453992e32fb82c3ebe51e8cfa6f33a6e3f",
+  "poses": {
+    "C32": {
+      "angle_deg": 180,
+      "old_angle_deg": 180,
+      "old_position_iu": [
+        89250000,
+        10500000
+      ],
+      "position_iu": [
+        89250000,
+        10250000
+      ]
+    },
+    "R11": {
+      "angle_deg": 180,
+      "old_angle_deg": 180,
+      "old_position_iu": [
+        72250000,
+        4250000
+      ],
+      "position_iu": [
+        72750000,
+        4250000
+      ]
+    },
+    "R90": {
+      "angle_deg": 0,
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        34750000,
+        11750000
+      ],
+      "position_iu": [
+        60000000,
+        16750000
+      ]
+    },
+    "TP13": {
+      "angle_deg": 180.0,
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        82501262,
+        10500001
+      ],
+      "position_iu": [
+        23250000,
+        23300000
+      ]
+    },
+    "TP14": {
+      "angle_deg": 180.0,
+      "old_angle_deg": 180.0,
+      "old_position_iu": [
+        34001262,
+        1000001
+      ],
+      "position_iu": [
+        93500000,
+        22000000
+      ]
+    }
+  },
+  "previous_checkpoint_preserved": {
+    "added_copper_items": 226,
+    "all_groups_and_added_copper_preserved": true,
+    "commit": "4c2b60361106eea5ea55d82f1124d206da8737b3",
+    "group_count": 224,
+    "source_sha256": "a24e9220226b77411ae8e8baea5cd629ce0fea8a97c377a708510d6791c2e439"
+  },
+  "project_sha256": "1141b004ecffd1e7e8e0c30cf21aeae7ce6381093df674998133d226ab9c27fb",
+  "r11_ground_replacement_witness": {
+    "actual_old_ground_endpoints_retained": true,
+    "all_original_land_contacts_accounted_for": true,
+    "displacement_iu": [
+      500000,
+      0
+    ],
+    "exact_original_leaf_retired": true,
+    "far_end_contacts_retained": true,
+    "gate_lead_length_mm": 0.1,
+    "main_ground_pad_count": 196,
+    "original_contact_count": 2,
+    "reference": "R11",
+    "retained_ground_via_centres_reached": true,
+    "shunt_ground_joined": true
+  },
+  "removed_copper_items": 10,
+  "routing_search_extension": {
+    "board_unchanged": true,
+    "date": "2026-11-10",
+    "default_anchor_mode_preserved": true,
+    "native_regression": {
+      "all_group_opens": 1,
+      "all_previous_groups_preserved": true,
+      "all_source_copper_retained": true,
+      "anchor_opens": 2,
+      "ordinary_width_bcu_additions_only": true,
+      "raw_evidence": {
+        "hardware/coupon/rev-a/build/group-target-regression/all.json": "e0d5c5dc3edacef9527d39e35756a03d53d7a662554e173ddc5abafc3856fa32",
+        "hardware/coupon/rev-a/build/group-target-regression/anchor.json": "669c54e2675fbd9d6d5c2183b5bdbae5866efe8be47529cb9ff3e68f36646bde"
+      }
+    },
+    "native_regression_passed": true,
+    "opt_in_all_group_targets": true,
+    "previous_search_tool_sha256": "6c6b7fb3be76d03a65c35ddc78de9e0e2b33442042ba5a8aba17523a2de291b5",
+    "qualification": "Search-only change; prior board validation remains on unchanged source, profiles and acceptance policy."
+  },
+  "rules_sha256": "80c92b0cdef868dd0ef0037aa2f63d1266f709a2dd0326094735c75ffbd31a2e",
+  "selected_retirement_probe": {
+    "all_live_pad_groups_identical": true,
+    "drc_sha256": "041dc1c5f34a3554ec45b77b3729a8b0cb92433dca3dcdb4536ce542cd4dfd1f",
+    "drc_types": {
+      "clearance": 104,
+      "via_dangling": 3
+    },
+    "injected_via_identity": [
+      {
+        "expected": [
+          "via",
+          "+3V3_APP",
+          40250000,
+          8750000,
+          "In4.Cu",
+          "B.Cu",
+          300000,
+          100000
+        ],
+        "observed": [
+          "via",
+          "+3V3_APP",
+          40250000,
+          8750000,
+          "In4.Cu",
+          "B.Cu",
+          300000,
+          100000
+        ]
+      },
+      {
+        "expected": [
+          "via",
+          "+3V3_APP",
+          45250000,
+          8750000,
+          "In4.Cu",
+          "B.Cu",
+          300000,
+          100000
+        ],
+        "observed": [
+          "via",
+          "USB_DN_MCU",
+          45250000,
+          8750000,
+          "In4.Cu",
+          "B.Cu",
+          300000,
+          100000
+        ]
+      },
+      {
+        "expected": [
+          "via",
+          "+3V3_APP",
+          62750000,
+          4250000,
+          "In4.Cu",
+          "B.Cu",
+          300000,
+          100000
+        ],
+        "observed": [
+          "via",
+          "+3V3_APP",
+          62750000,
+          4250000,
+          "In4.Cu",
+          "B.Cu",
+          300000,
+          100000
+        ]
+      }
+    ],
+    "native_opens": 35,
+    "raw_report": "hardware/coupon/rev-a/build/remaining-routing/selected-retirement-probe.drc.json",
+    "source_unchanged": true,
+    "status": "REJECTED_COUNTERFACTUAL_NOT_SELECTED_SOURCE"
+  },
+  "stable_fill_and_replay_identical": true,
+  "status": "PASS_GEOMETRIC_ROUTING_STUDY_ONLY",
+  "tmp390_locality": {
+    "cold_pad_distance_mm": 1.6884090144274877,
+    "ground_pad_distance_mm": 2.2629018980061866,
+    "same_local_bcu_ground_polygon": true
+  },
+  "tool_fingerprint_updates": [
+    {
+      "board_plan_and_native_evidence_unchanged": true,
+      "current_sha256": "9a55de7373b5ee633b64d5012649e4bb7038b9c8a51328b06df7adaf9bf46ed0",
+      "date": "2026-11-12",
+      "exact_compatibility_proof": "Removing the exact three added report lines reproduces historical source bytes; routing/search/geometry behaviour is unchanged",
+      "historical_source_revision": "0e4b154b5f9f9d577e133b1aa434c4fe8c4d6761",
+      "path": "tools/search-routing-closure.py",
+      "previous_sha256": "b3b54c79fbcb1f7ed9e0f95e5e75288d86f53fc94dddab4d14701984df6eb4b7",
+      "reason": "Add source/target endpoint counts, radius and empty-side report fields only",
+      "validation": "Six existing source/path tests and native two-boundary join/source-ground/exact-replay fixture pass; full source workflow rechecked separately"
+    }
+  ],
+  "tool_sha256": {
+    "tools/check-remaining-routing-plan.py": "da715444e0759a694bc4cdf2a1932a7b2f275e65a2a3256c3e352a8df6d9bfb1",
+    "tools/check-remaining-routing.py": "d2f81b3e0040192cf24df018c6a3cecb292105d837d8f497f6303a8578ec8fb3",
+    "tools/generate-remaining-routing.py": "32bd3d77c1a135b43b242a6afa005efd4b74961f501f3fcbb0db3ca03dd13b18",
+    "tools/localize-tmp390-resistor.py": "7ea5b644f591f37db48a673093aa535f076fbbca6d9f5398fb237e0a5f2703de",
+    "tools/report-open-pad-groups.py": "fd6ad99c999b44d7c8c879e8203c078e077cd6995333aed000ab8bbbd2624662",
+    "tools/routing_cap_microplacement.py": "a272c4b9c7451a819787a4fe6b20bbd5dbb87521fb957fa12f7c6ba625a025b9",
+    "tools/routing_ground_plane.py": "b37af5b2659bc01127d8e8fa1cf400a79d62ca4f9172bc5c73f4238216310f32",
+    "tools/routing_group_targets.py": "ce0385afd0fd66baeb3731883677ea71c5175c61d2afba24a400f1d80cfba9bc",
+    "tools/routing_native_testpad.py": "c35548b5597362a41c9a92b790393f59b8423b3b38eeffb18d764e29b7285a73",
+    "tools/routing_permission_lead.py": "384dd4db00c0cc327a9d618efa7890d26a8c742062dfbf787510beb442183e10",
+    "tools/routing_r11_ground.py": "9d5a3e80b1d9ce1344d82dfb4f161ae7729e9e1f59af9a517ff38f3d65d0d698",
+    "tools/routing_remaining.py": "cd3589939ed67faaa464dd3d4bdcac453992e32fb82c3ebe51e8cfa6f33a6e3f",
+    "tools/search-routing-closure.py": "9a55de7373b5ee633b64d5012649e4bb7038b9c8a51328b06df7adaf9bf46ed0",
+    "tools/test-native-copper-endpoint.py": "338a517961c1828aed919bfcd4e67121471e9745e01483157087c9f6121e233e",
+    "tools/test-remaining-routing-guards.py": "2f5cd4fabdab579c429d02353546100e1a5143b82e0404f44a55b408613f276b",
+    "tools/test-routing-group-targets.py": "0c066d28cf7e2ba258675ccacaf9a954f2dab0c6192c87e5d5ab592916f4ebe9"
+  },
+  "visual_review": "Native before/after B.Cu and In4.Cu crops inspected in ignored build/remaining-routing/35-views/{old,new}-{B_Cu,In4_Cu}.png. R11 shifts right, original gate via is retained, new ground capture and strengthened centre landings are clear."
+}

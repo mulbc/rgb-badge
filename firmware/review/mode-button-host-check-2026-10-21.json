@@ -1,0 +1,41 @@
+{
+  "SPDX-License-Identifier": "Apache-2.0",
+  "base_revision": "69a56f8a3e24864ac1739f0f4ab91762c3f780b0",
+  "ble_resources_current_range": "NOT_IMPLEMENTED_OR_MEASURED",
+  "button_object_bytes_host": 48,
+  "command": "./tools/check-mode-button.sh",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.3.34.2)",
+  "default_debounce_us": 30000,
+  "default_hold_us_after_press_qualification": 3000000,
+  "default_timing_qualification": "HOST_DEVELOPMENT_POLICY; not measured switch timing",
+  "display_arm_or_current_limit_api": "NONE",
+  "esp_idf_target_build": "NOT_RUN",
+  "executed_at_utc": "2026-10-21T19:26:28.013402+00:00",
+  "exhaustive_waveforms": 4096,
+  "firmware_revision": "Base revision plus exact source_sha256 entries below; host core only",
+  "gpio_polarity_sampling_cadence": "NOT_INTEGRATED_OR_QUALIFIED",
+  "hardware_measurements": "NONE",
+  "hardware_revision": "NONE: sampled-input host simulation, no board attached",
+  "host_architecture": "arm64",
+  "independent_oracle": "Three-sample binary window with debounce=2, hold=4; compared at every sample",
+  "native_check_count": 200759,
+  "physical_display_blanking_rom_recovery": "NOT_QUALIFIED",
+  "raw_evidence": {
+    "/private/tmp/rgb-mode-button-check.log": "f09c22c25baa2754d0c80359c2c3c496371a26c9d87869412bd480afe328fabd"
+  },
+  "samples_per_waveform": 12,
+  "sanitizer_recovery": false,
+  "sanitizers": [
+    "address",
+    "undefined"
+  ],
+  "source_sha256": {
+    ".github/workflows/host-software.yml": "8292afb77c67e0c51d0ead0f4e9ee2bb0b679bb3be4831ea76b79e50dfa28ced",
+    "docs/decisions/0038-host-mode-button.md": "0c95a6fb110be0547f85ead37f11f92c7fab4bef657048349bd137d14f5a602f",
+    "firmware/core/include/rgb_badge/mode_button.h": "814ca5fae662dceab5b619c60973a486b4730b44d887f0359cfba6815f1a015c",
+    "firmware/core/mode_button.cpp": "cd60ab76040f1798a61e77a9a9351325c8f900bc38ca0f0dee66054125c27eeb",
+    "firmware/mode-button.md": "ee4bec39bdfe57cc393bc6af4ba820efbce9c5d95443841904eb01051ec0e04c",
+    "firmware/tests/mode_button_test.cpp": "2ec35fa331690139925e17becc68480441e9002b12806d185a7275150c41ce5e",
+    "tools/check-mode-button.sh": "e84dd6a2d350a424f01f8cf4deca648f1566139650ed62d8dd33366f9931b6cf"
+  }
+}

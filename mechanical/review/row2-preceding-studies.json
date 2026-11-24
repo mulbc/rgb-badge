@@ -1,0 +1,54 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "date": "2026-11-15",
+  "evidence": [
+    {
+      "bytes": 9365,
+      "path": "hardware/coupon/rev-a/build/inverter-routing/usb-plane-corridor-discovery.json",
+      "sha256": "e76016672e74171b32292638864fc78cad97d3591542533c46469a71b29be893"
+    },
+    {
+      "bytes": 16442,
+      "path": "hardware/coupon/rev-a/build/inverter-routing/usb-copper-union-corridor-discovery.json",
+      "sha256": "bed1d4224e73178f907c528173137de96f2583dc3790bfdc962cdfbe56047c42"
+    },
+    {
+      "bytes": 17391,
+      "path": "hardware/coupon/rev-a/build/inverter-routing/usb-copper-union-wide-discovery.json",
+      "sha256": "a27bb2e0a6aafe21d59901f9d912571dd371951f19077718bcbffd362c1d6f61"
+    },
+    {
+      "bytes": 2412,
+      "path": "hardware/coupon/rev-a/build/inverter-routing/usb-private-bridge-contacts.json",
+      "sha256": "8b59d10806ff0d3ff27c66b87bc54e0e6cf5438533821526c3b92633a991fa27"
+    },
+    {
+      "bytes": 2537,
+      "path": "hardware/coupon/rev-a/build/inverter-routing/usb-private-bridge-prototype-audit.json",
+      "sha256": "4735a159f0d4af158536e7e1b85a9901035b54f4879cfa89c823d04d142ec204"
+    },
+    {
+      "bytes": 1050,
+      "path": "hardware/coupon/rev-a/build/inverter-routing/usb-private-bridge-inverse.json",
+      "sha256": "6ac91949bb59e83bfad10fd42d1203d369a1f2cb215c59cc195739a99dc8913c"
+    },
+    {
+      "bytes": 2702,
+      "path": "hardware/coupon/rev-a/build/inverter-routing/heartbeat-front-access-binned-screen.json",
+      "sha256": "e3dc0b37fe8a446c806bcdc5a131b687f990cb0cb8e4c0aee1b33875f39a4617"
+    },
+    {
+      "bytes": 6736368,
+      "path": "hardware/coupon/rev-a/build/inverter-routing/heartbeat-front-prepared.kicad_pcb",
+      "sha256": "cb4102a7378cd022290ff7131f91629a75745edd1c91e087ee2e0fcdadecf6c8"
+    },
+    {
+      "bytes": 9003,
+      "path": "hardware/coupon/rev-a/build/inverter-routing/r8-r37-exchange-screen.json",
+      "sha256": "f5b589afdae88a160250581957b01c1a064ca575e999ccbbeae798419ab4b2b8"
+    }
+  ],
+  "fabrication_release_allowed": false,
+  "source_sha256": "a4d27c5babed5556002cf71b8fae3c3280f627edeb0ff673b9b787d21d4b91ab",
+  "status": "UNSELECTED_BOUNDED_STUDIES"
+}

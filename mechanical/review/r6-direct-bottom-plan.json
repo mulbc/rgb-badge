@@ -1,0 +1,526 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_copper": [
+    {
+      "signature": [
+        "via",
+        "ROW_GATE_00",
+        76650000,
+        4550000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "0a997cd1-4ee1-57d5-9e6c-a4db7931ebad",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "via",
+        "ROW_GATE_00",
+        76650000,
+        4550000,
+        "In3.Cu",
+        "In4.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "2140bf13-6f5e-53f6-aace-23e7ffe9ef13",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "via",
+        "ROW_GATE_00",
+        76600000,
+        4300000,
+        "In1.Cu",
+        "In2.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "4986b5dd-44f3-5c5c-a3c1-540ce3bd5a05",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "via",
+        "ROW_GATE_00",
+        76600000,
+        4300000,
+        "F.Cu",
+        "In1.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "cfd170f2-045c-5a5d-b35d-4ab098e14996",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_GATE_00",
+        76650000,
+        4550000,
+        77100000,
+        4350000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "ab015ac6-d7e7-5a15-aa32-a8c1c638293e",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_GATE_00",
+        77100000,
+        4350000,
+        76600000,
+        4300000,
+        "In2.Cu",
+        200000
+      ],
+      "uuid": "58be07be-728b-5aac-a6f9-7c8e3c1e8884",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "ROW_GATE_00",
+        77100000,
+        4350000,
+        "In2.Cu",
+        "In3.Cu",
+        500000,
+        300000
+      ],
+      "uuid": "b63a77a2-929e-500a-afac-7798888d3a71",
+      "via_type": 3
+    },
+    {
+      "signature": [
+        "track",
+        "VLED",
+        58750000,
+        9713636,
+        58750000,
+        14050000,
+        "In2.Cu",
+        200000
+      ],
+      "uuid": "5ecee5bd-36e2-5f9c-8c94-d62dc02dc640",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "VLED",
+        77750000,
+        6100000,
+        78825000,
+        6650000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "b5248c7e-f803-58dd-b134-4050ee1f6bc4",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_GATE_00",
+        77750000,
+        5100000,
+        76650000,
+        4550000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "5e89ad1c-d3c2-5060-b0f1-91a27221232c",
+      "via_type": null
+    }
+  ],
+  "expected_board_sha256": "230b0c9f456837a0dd1b5e432497aa5223da95334ac2909ff8cd39d2edea804a",
+  "expected_main_ground_pads": 197,
+  "expected_main_vled_pads": 37,
+  "expected_native_opens": 24,
+  "expected_physical_opens": 24,
+  "fabrication_release_allowed": false,
+  "new_gate_length_mm": 2.224774058770734,
+  "new_supply_length_mm": 1.2075284675733322,
+  "poses": {
+    "R6": {
+      "layer": "B.Cu",
+      "orientation_degrees": 90,
+      "position_iu": [
+        77750000,
+        5600000
+      ]
+    }
+  },
+  "retired_copper": [
+    {
+      "signature": [
+        "track",
+        "VLED",
+        57750000,
+        8750000,
+        58450000,
+        8750000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "2538e05f-0e95-52a5-813a-3f61b41300a2",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "VLED",
+        57750000,
+        8750000,
+        "In3.Cu",
+        "In4.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "37dd7533-43cb-5304-82c1-189a29f31d7b",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "track",
+        "VLED",
+        58450000,
+        8750000,
+        58750000,
+        8750000,
+        "In2.Cu",
+        200000
+      ],
+      "uuid": "42fd1a41-569a-505d-a7f3-ff8a9a5bd1b8",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "VLED",
+        57750000,
+        8750000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "430f9728-db9a-55c3-bc3a-c15f77000cfa",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "via",
+        "VLED",
+        58450000,
+        8750000,
+        "In2.Cu",
+        "In3.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "750bfacf-ba86-5c75-9580-95e8142b8407",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "track",
+        "VLED",
+        58750000,
+        8750000,
+        58750000,
+        14050000,
+        "In2.Cu",
+        200000
+      ],
+      "uuid": "b0d25ba3-c6d5-5224-8d60-741e3760ff1a",
+      "via_type": null
+    }
+  ],
+  "selected": false,
+  "source_retirement_contacts": {
+    "2538e05f-0e95-52a5-813a-3f61b41300a2": {
+      "In3.Cu": {
+        "copper_and_pads": [
+          {
+            "signature": [
+              "via",
+              "VLED",
+              57750000,
+              8750000,
+              "In3.Cu",
+              "In4.Cu",
+              300000,
+              100000
+            ],
+            "uuid": "37dd7533-43cb-5304-82c1-189a29f31d7b"
+          },
+          {
+            "signature": [
+              "via",
+              "VLED",
+              58450000,
+              8750000,
+              "In2.Cu",
+              "In3.Cu",
+              300000,
+              100000
+            ],
+            "uuid": "750bfacf-ba86-5c75-9580-95e8142b8407"
+          }
+        ],
+        "filled_polygons": []
+      }
+    },
+    "37dd7533-43cb-5304-82c1-189a29f31d7b": {
+      "In3.Cu": {
+        "copper_and_pads": [
+          {
+            "signature": [
+              "track",
+              "VLED",
+              57750000,
+              8750000,
+              58450000,
+              8750000,
+              "In3.Cu",
+              200000
+            ],
+            "uuid": "2538e05f-0e95-52a5-813a-3f61b41300a2"
+          }
+        ],
+        "filled_polygons": []
+      },
+      "In4.Cu": {
+        "copper_and_pads": [
+          {
+            "signature": [
+              "via",
+              "VLED",
+              57750000,
+              8750000,
+              "In4.Cu",
+              "B.Cu",
+              300000,
+              100000
+            ],
+            "uuid": "430f9728-db9a-55c3-bc3a-c15f77000cfa"
+          }
+        ],
+        "filled_polygons": []
+      }
+    },
+    "42fd1a41-569a-505d-a7f3-ff8a9a5bd1b8": {
+      "In2.Cu": {
+        "copper_and_pads": [
+          {
+            "signature": [
+              "via",
+              "VLED",
+              58450000,
+              8750000,
+              "In2.Cu",
+              "In3.Cu",
+              300000,
+              100000
+            ],
+            "uuid": "750bfacf-ba86-5c75-9580-95e8142b8407"
+          },
+          {
+            "signature": [
+              "track",
+              "VLED",
+              58750000,
+              8750000,
+              58750000,
+              14050000,
+              "In2.Cu",
+              200000
+            ],
+            "uuid": "b0d25ba3-c6d5-5224-8d60-741e3760ff1a"
+          }
+        ],
+        "filled_polygons": []
+      }
+    },
+    "430f9728-db9a-55c3-bc3a-c15f77000cfa": {
+      "B.Cu": {
+        "copper_and_pads": [
+          {
+            "pad": [
+              "R6",
+              "1"
+            ],
+            "uuid": "5801a35b-d078-57b5-bd53-fbb6288dbdec"
+          }
+        ],
+        "filled_polygons": []
+      },
+      "In4.Cu": {
+        "copper_and_pads": [
+          {
+            "signature": [
+              "via",
+              "VLED",
+              57750000,
+              8750000,
+              "In3.Cu",
+              "In4.Cu",
+              300000,
+              100000
+            ],
+            "uuid": "37dd7533-43cb-5304-82c1-189a29f31d7b"
+          }
+        ],
+        "filled_polygons": []
+      }
+    },
+    "750bfacf-ba86-5c75-9580-95e8142b8407": {
+      "In2.Cu": {
+        "copper_and_pads": [
+          {
+            "signature": [
+              "track",
+              "VLED",
+              58450000,
+              8750000,
+              58750000,
+              8750000,
+              "In2.Cu",
+              200000
+            ],
+            "uuid": "42fd1a41-569a-505d-a7f3-ff8a9a5bd1b8"
+          }
+        ],
+        "filled_polygons": []
+      },
+      "In3.Cu": {
+        "copper_and_pads": [
+          {
+            "signature": [
+              "track",
+              "VLED",
+              57750000,
+              8750000,
+              58450000,
+              8750000,
+              "In3.Cu",
+              200000
+            ],
+            "uuid": "2538e05f-0e95-52a5-813a-3f61b41300a2"
+          }
+        ],
+        "filled_polygons": []
+      }
+    },
+    "b0d25ba3-c6d5-5224-8d60-741e3760ff1a": {
+      "In2.Cu": {
+        "copper_and_pads": [
+          {
+            "signature": [
+              "track",
+              "VLED",
+              58450000,
+              8750000,
+              58750000,
+              8750000,
+              "In2.Cu",
+              200000
+            ],
+            "uuid": "42fd1a41-569a-505d-a7f3-ff8a9a5bd1b8"
+          },
+          {
+            "signature": [
+              "track",
+              "VLED",
+              58750000,
+              14050000,
+              58800000,
+              14050000,
+              "In2.Cu",
+              200000
+            ],
+            "uuid": "452b137c-5e4f-5d65-8c50-bc31620dcef0"
+          },
+          {
+            "signature": [
+              "track",
+              "VLED",
+              58800000,
+              9950000,
+              58750000,
+              9713636,
+              "In2.Cu",
+              200000
+            ],
+            "uuid": "607bd79b-bb37-5fc4-8a76-ed1e127f247c"
+          },
+          {
+            "signature": [
+              "track",
+              "VLED",
+              58850000,
+              14150000,
+              58850000,
+              14250000,
+              "In2.Cu",
+              200000
+            ],
+            "uuid": "66ef5cac-7824-5b17-a95e-c972b9b9e050"
+          },
+          {
+            "signature": [
+              "via",
+              "VLED",
+              58800000,
+              9950000,
+              "In2.Cu",
+              "In3.Cu",
+              300000,
+              100000
+            ],
+            "uuid": "69098987-cf59-5df9-84aa-e4060b986f8e"
+          },
+          {
+            "signature": [
+              "track",
+              "VLED",
+              58800000,
+              14050000,
+              58800000,
+              14150000,
+              "In2.Cu",
+              200000
+            ],
+            "uuid": "9657406a-591f-55f9-91cc-c9657999e85f"
+          },
+          {
+            "signature": [
+              "track",
+              "VLED",
+              58800000,
+              14150000,
+              58850000,
+              14150000,
+              "In2.Cu",
+              200000
+            ],
+            "uuid": "df7678f7-c151-526a-9dee-ad7640a37bfe"
+          }
+        ],
+        "filled_polygons": []
+      }
+    }
+  },
+  "source_sha256": "ec0bf7fc842f3dd4f9210e7667925cffc388d3d82906e44c5bde4e10f428ee88",
+  "supply_source_pad_uuid": "75480661-8dea-5444-ac43-3481bde8d9b8"
+}

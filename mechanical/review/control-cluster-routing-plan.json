@@ -1,0 +1,1512 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_copper": [
+    {
+      "signature": [
+        "track",
+        "DISPLAY_CLEAR_3",
+        98950000,
+        1850000,
+        98950000,
+        1400000,
+        "In2.Cu",
+        200000
+      ],
+      "uuid": "082d9848-c2b2-5543-a9dd-511623ef5a5d",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_14",
+        103800000,
+        7250000,
+        103800000,
+        7300000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "0e43ef4f-96cd-5704-8afd-fdf3025953f3",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "DISPLAY_CLEAR_3",
+        98150000,
+        1700000,
+        97400000,
+        1700000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "0f3a4631-ff7c-5d25-b5a7-f98bf1f16306",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_14",
+        103800000,
+        7300000,
+        101500000,
+        7300000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "149fbbb2-b640-580e-b737-6beebac18582",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "DISPLAY_CLEAR_3",
+        103600000,
+        6750000,
+        "In1.Cu",
+        "In2.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "1bbd6d3c-645d-553a-9900-d8ab3e25c32f",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "via",
+        "DISPLAY_CLEAR_3",
+        97325000,
+        1750000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "1f649f6f-3da9-5a91-8dd8-431b40491311",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "track",
+        "DISPLAY_CLEAR_3",
+        98200000,
+        1650000,
+        98150000,
+        1650000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "22eb94da-e7dc-530d-92bc-77cf32843793",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "+3V3_APP",
+        103550000,
+        4875000,
+        104000000,
+        5400000,
+        "B.Cu",
+        120000
+      ],
+      "uuid": "275d90fd-1b09-5546-b836-200be4c09be0",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "DISPLAY_CLEAR_3",
+        98750000,
+        1400000,
+        98750000,
+        1450000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "30be88c3-4f07-5d6e-947e-6937b50764f1",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "DISPLAY_CLEAR_3",
+        104050000,
+        6850000,
+        104050000,
+        6750000,
+        "In2.Cu",
+        200000
+      ],
+      "uuid": "32753ea0-9929-5e4e-8f9a-b3fb1c4ad6af",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "DISPLAY_CLEAR_3",
+        98300000,
+        1500000,
+        98300000,
+        1550000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "3a9d36e5-4c17-5f84-9907-55f48a9ced50",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "DISPLAY_CLEAR_3",
+        103600000,
+        6750000,
+        103600000,
+        1850000,
+        "In1.Cu",
+        200000
+      ],
+      "uuid": "3b46755a-7994-50da-94ec-84aeeab8482a",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "DISPLAY_CLEAR_3",
+        104300000,
+        6450000,
+        "In3.Cu",
+        "In4.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "44ce0f20-2efa-54ec-b388-93a92189bc18",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "track",
+        "DISPLAY_CLEAR_3",
+        98350000,
+        1450000,
+        98350000,
+        1500000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "466a2fa4-bb25-5df7-8a5d-7780e2e820e1",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        102850000,
+        5675000,
+        102400000,
+        5750000,
+        "B.Cu",
+        120000
+      ],
+      "uuid": "4a536d52-27a0-56b4-b465-9afb12698ad3",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_14",
+        104200000,
+        7050000,
+        103900000,
+        7050000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "5b070a15-4b30-51e1-b6ea-deedb08e1089",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "DISPLAY_CLEAR_3",
+        98950000,
+        1400000,
+        "In2.Cu",
+        "In3.Cu",
+        500000,
+        300000
+      ],
+      "uuid": "648135a5-fbc5-5ead-8e7f-9acb151b767c",
+      "via_type": 3
+    },
+    {
+      "signature": [
+        "track",
+        "DISPLAY_CLEAR_3",
+        104300000,
+        6450000,
+        104050000,
+        6450000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "6a5f5607-4b50-5165-af47-71f2ab0f70b4",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "DISPLAY_CLEAR_3",
+        103550000,
+        5675000,
+        103975000,
+        6275000,
+        "B.Cu",
+        120000
+      ],
+      "uuid": "6d01e54f-0eff-5bb5-8864-2f2782efbb6f",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "DISPLAY_CLEAR_3",
+        97400000,
+        1700000,
+        97325000,
+        1750000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "6d25ceb4-a037-5d79-8cc2-e5feb650d01d",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "DISPLAY_CLEAR_3",
+        104050000,
+        6450000,
+        104050000,
+        6850000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "83864951-d1d0-5e04-9a45-bd28389936b9",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "DISPLAY_CLEAR_3",
+        98950000,
+        1850000,
+        "In1.Cu",
+        "In2.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "89a02d40-1d75-5d26-b9a7-32e6f6b9f7b5",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "track",
+        "MODE_BOOT_N",
+        97175000,
+        750000,
+        96600000,
+        1300000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "8aaf6211-b2e6-5921-8975-313d4bf42269",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        102400000,
+        6400000,
+        102400000,
+        5750000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "960737c3-9f4c-5d71-b14e-761f51269e73",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "DISPLAY_CLEAR_3",
+        104300000,
+        6400000,
+        104300000,
+        6450000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "96a0d179-a8d3-57ca-b1ab-058fcf1253a5",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_14",
+        103900000,
+        7200000,
+        103850000,
+        7200000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "9c25f672-ceba-549e-a18c-26721b8edad3",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "DISPLAY_CLEAR_3",
+        98150000,
+        1650000,
+        98150000,
+        1700000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "9cb93cc4-7e8d-53f6-9cc8-d8d6cf264ff2",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "DISPLAY_CLEAR_3",
+        98750000,
+        1450000,
+        98350000,
+        1450000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "9ec7380b-f788-5aaf-86cc-6d5ffd4f8446",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "MODE_BOOT_N",
+        96600000,
+        1300000,
+        96399999,
+        1300000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "a0945287-2ea7-5b0f-87e0-cc5fc2794002",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "MODE_BOOT_N",
+        96399999,
+        2500000,
+        96300000,
+        2600000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "a4326b12-bccf-5afc-ac13-9ad32c5c5ac1",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "+3V3_APP",
+        104000000,
+        5400000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "b8162966-5f8d-51f3-bb3f-b799411d97a6",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_14",
+        103900000,
+        7050000,
+        103900000,
+        7200000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "b85f2f91-a960-5c6b-bbdb-58337e0c5993",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "DISPLAY_CLEAR_3",
+        98250000,
+        1550000,
+        98250000,
+        1600000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "bbb14262-30d7-5145-a4e8-3c5bd5d2a2c4",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "MODE_BOOT_N",
+        96399999,
+        1300000,
+        96399999,
+        2500000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "bc659e9d-28c6-5899-886d-2b8d911ecf7e",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_14",
+        101500000,
+        7400000,
+        101200000,
+        7500000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "bd0047fd-b45a-5d8e-b481-00de11b1186e",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "MODE_BOOT_N",
+        103250000,
+        2150000,
+        102649999,
+        2700000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "bd3d17c5-9e9d-554d-8f8c-4d55020fd0b5",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "DISPLAY_CLEAR_3",
+        98250000,
+        1600000,
+        98200000,
+        1600000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "c3d1294e-397a-527a-abf5-0a93d09e60ca",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "MODE_BOOT_N",
+        96600000,
+        1300000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "c400b453-dc9d-53de-bb4a-b47743585640",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "via",
+        "DISPLAY_CLEAR_3",
+        104050000,
+        6850000,
+        "In2.Cu",
+        "In3.Cu",
+        500000,
+        300000
+      ],
+      "uuid": "c682b8ab-528b-5785-ae8a-226a97bee7b6",
+      "via_type": 3
+    },
+    {
+      "signature": [
+        "track",
+        "MODE_BOOT_N",
+        102649999,
+        2700000,
+        96500000,
+        2700000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "c8101db1-6200-54b4-9dc8-a1b4e2ba7f1d",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "DISPLAY_CLEAR_3",
+        103975000,
+        6275000,
+        104050000,
+        6400000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "ca6bed9e-130c-574f-9932-623f7b080f31",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "+3V3_APP",
+        103400000,
+        6400000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "cae1dd88-576d-5a0f-8616-ca4000e8c5d3",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_14",
+        103850000,
+        7250000,
+        103800000,
+        7250000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "cb7640c4-5ed7-5e5c-929c-1280a342c5f8",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "DISPLAY_CLEAR_3",
+        104050000,
+        6750000,
+        103600000,
+        6750000,
+        "In2.Cu",
+        200000
+      ],
+      "uuid": "cbe20f31-b745-5deb-a5c5-ce29761a345a",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_14",
+        101500000,
+        7300000,
+        101500000,
+        7400000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "d005e725-ed6b-531d-9414-cf4283cd6c19",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "DISPLAY_CLEAR_3",
+        98300000,
+        1550000,
+        98250000,
+        1550000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "d03087cc-2adc-5580-acc0-ed8aae9e8b4e",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "DISPLAY_CLEAR_3",
+        98350000,
+        1500000,
+        98300000,
+        1500000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "d25f6aee-8bb1-54f1-86d7-a4a26f9a5451",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        102600000,
+        6750000,
+        102400000,
+        6400000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "d9e75938-e0d3-5aca-8c05-4e7264aa3a24",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "DISPLAY_CLEAR_3",
+        103975000,
+        6275000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "db710ad6-44fb-53b5-b154-5967d9212175",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "track",
+        "MODE_BOOT_N",
+        96500000,
+        2700000,
+        96399999,
+        2695000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "dc48d114-c8a1-5568-a271-843e5a2fa449",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "DISPLAY_CLEAR_3",
+        98200000,
+        1600000,
+        98200000,
+        1650000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "df04248e-0bac-554b-9ffa-fef9243dc414",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_14",
+        104300000,
+        6750000,
+        104200000,
+        7050000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "df705507-cee9-503a-989e-fde9d3fc349a",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "MODE_BOOT_N",
+        96925000,
+        2025000,
+        96600000,
+        1300000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "e7142da0-7f7a-520a-8ebf-dbb8e52af6ad",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "via",
+        "DISPLAY_CLEAR_3",
+        98150000,
+        1700000,
+        "In3.Cu",
+        "In4.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "e8381aac-3402-5e5d-a7bd-1e028ead1e7e",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "via",
+        "MODE_BOOT_N",
+        102649999,
+        2700000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "eea83ee9-ec15-5623-84a8-8a97dfdde3ee",
+      "via_type": 1
+    },
+    {
+      "signature": [
+        "track",
+        "DISPLAY_CLEAR_3",
+        104050000,
+        6400000,
+        104300000,
+        6400000,
+        "In4.Cu",
+        200000
+      ],
+      "uuid": "f01795eb-a07a-5552-b001-2851478a43c8",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "DISPLAY_CLEAR_3",
+        98950000,
+        1400000,
+        98750000,
+        1400000,
+        "In3.Cu",
+        200000
+      ],
+      "uuid": "f40844df-ecdf-5973-b2dd-53dd30998da4",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_14",
+        103850000,
+        7200000,
+        103850000,
+        7250000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "fb704a98-507f-5bd3-8974-d3457d30c453",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "DISPLAY_CLEAR_3",
+        103600000,
+        1850000,
+        98950000,
+        1850000,
+        "In1.Cu",
+        200000
+      ],
+      "uuid": "fe80c5ac-6241-555f-99ee-eb5d53f2d4f4",
+      "via_type": null
+    }
+  ],
+  "expected_board_sha256": "1d34fd1e29c8f65d22e7626cc0d2f0307be26b8d5255a0f6e16eb0eac46ceb6b",
+  "fabrication_release_allowed": false,
+  "initial_search_board_sha256": "419ccd5782c4d91d6fffad57609e680d59a9102ed3d3b0df5525a4ee5e7f7e6b",
+  "intrinsic_finding_pose_transform": "U52-only; independent integer pad transform; exact full remaining finding payload",
+  "native_opens": 32,
+  "net_count": 188,
+  "physical_opens": 32,
+  "poses": {
+    "C71": {
+      "orientation_degrees": 180,
+      "position_iu": [
+        103000000,
+        6750000
+      ]
+    },
+    "U52": {
+      "orientation_degrees": 90,
+      "position_iu": [
+        103200000,
+        5275000
+      ]
+    }
+  },
+  "retired_copper": [
+    {
+      "signature": [
+        "track",
+        "+3V3_APP",
+        68200000,
+        650000,
+        67900000,
+        650000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "15254fa2-f738-593f-8c07-41f52b5e7bff"
+    },
+    {
+      "signature": [
+        "track",
+        "GND",
+        69650000,
+        1350000,
+        70350000,
+        1350000,
+        "B.Cu",
+        120000
+      ],
+      "uuid": "2f3709dd-8895-5e91-8827-796974de6d2d"
+    },
+    {
+      "signature": [
+        "track",
+        "MODE_BOOT_N",
+        97050000,
+        2150000,
+        103250000,
+        2150000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "2f82fdbb-eae9-5498-a755-08b12a55a5df"
+    },
+    {
+      "signature": [
+        "track",
+        "MODE_BOOT_N",
+        96800000,
+        1900000,
+        97050000,
+        2150000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "603b5899-dfa0-5fcc-a29d-866c989fe914"
+    },
+    {
+      "signature": [
+        "via",
+        "+3V3_APP",
+        67900000,
+        650000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "68b7363f-10d2-5d5c-8091-0cf040b2a189"
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_14",
+        101200000,
+        7500000,
+        101200000,
+        6750000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "8ac4e8e2-39d6-5d3b-998e-590f576d8edf"
+    },
+    {
+      "signature": [
+        "track",
+        "+3V3_APP",
+        68100000,
+        3695000,
+        67500000,
+        4295000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "92bb2acd-fe8a-5220-bf9c-212fe569e9a9"
+    },
+    {
+      "signature": [
+        "track",
+        "MODE_BOOT_N",
+        96800000,
+        899999,
+        96800000,
+        1900000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "9b8a2e6e-3dae-53ca-8d32-998c02d25f88"
+    },
+    {
+      "signature": [
+        "track",
+        "+3V3_APP",
+        68850000,
+        650000,
+        68200000,
+        650000,
+        "B.Cu",
+        120000
+      ],
+      "uuid": "9bf66294-f9fb-5c34-b774-02b3000f6dfa"
+    },
+    {
+      "signature": [
+        "via",
+        "+3V3_APP",
+        67500000,
+        4295000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      "uuid": "b4491996-43cd-5299-9200-6a7d40282591"
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_SEL_14",
+        101200000,
+        6750000,
+        104300000,
+        6750000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "cd082b6f-a457-51b2-9175-398e50ffe1c0"
+    }
+  ],
+  "source_groups": 221,
+  "source_retirement_contacts": {
+    "15254fa2-f738-593f-8c07-41f52b5e7bff": {
+      "B.Cu": {
+        "copper_and_pads": [
+          {
+            "signature": [
+              "via",
+              "+3V3_APP",
+              67900000,
+              650000,
+              "In4.Cu",
+              "B.Cu",
+              300000,
+              100000
+            ],
+            "uuid": "68b7363f-10d2-5d5c-8091-0cf040b2a189"
+          },
+          {
+            "signature": [
+              "track",
+              "+3V3_APP",
+              68850000,
+              650000,
+              68200000,
+              650000,
+              "B.Cu",
+              120000
+            ],
+            "uuid": "9bf66294-f9fb-5c34-b774-02b3000f6dfa"
+          }
+        ],
+        "filled_polygons": []
+      }
+    },
+    "2f3709dd-8895-5e91-8827-796974de6d2d": {
+      "B.Cu": {
+        "copper_and_pads": [
+          {
+            "signature": [
+              "track",
+              "GND",
+              70350000,
+              1350000,
+              70350000,
+              1150000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "0bf9424c-5eb3-50cb-9684-ad2ff4cf02e1"
+          },
+          {
+            "pad": [
+              "U52",
+              "3"
+            ],
+            "uuid": "1cfc3ec5-6e26-5c17-9dac-6a9abd67775f"
+          }
+        ],
+        "filled_polygons": [
+          {
+            "polygon": 65,
+            "uuid": "81b0abb6-bbba-5f7c-9599-18e6b0c72e0e"
+          }
+        ]
+      }
+    },
+    "2f82fdbb-eae9-5498-a755-08b12a55a5df": {
+      "B.Cu": {
+        "copper_and_pads": [
+          {
+            "signature": [
+              "track",
+              "MODE_BOOT_N",
+              96800000,
+              1900000,
+              97050000,
+              2150000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "603b5899-dfa0-5fcc-a29d-866c989fe914"
+          },
+          {
+            "signature": [
+              "track",
+              "MODE_BOOT_N",
+              96925000,
+              2025000,
+              96300000,
+              2600000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "75433db9-88f5-507c-8474-3d11561bd47f"
+          },
+          {
+            "signature": [
+              "track",
+              "MODE_BOOT_N",
+              103250000,
+              2150000,
+              103550000,
+              1950000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "ddc59806-b696-5093-803b-32b831740b34"
+          }
+        ],
+        "filled_polygons": []
+      }
+    },
+    "603b5899-dfa0-5fcc-a29d-866c989fe914": {
+      "B.Cu": {
+        "copper_and_pads": [
+          {
+            "signature": [
+              "track",
+              "MODE_BOOT_N",
+              97050000,
+              2150000,
+              103250000,
+              2150000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "2f82fdbb-eae9-5498-a755-08b12a55a5df"
+          },
+          {
+            "signature": [
+              "track",
+              "MODE_BOOT_N",
+              96925000,
+              2025000,
+              96300000,
+              2600000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "75433db9-88f5-507c-8474-3d11561bd47f"
+          },
+          {
+            "signature": [
+              "track",
+              "MODE_BOOT_N",
+              96800000,
+              899999,
+              96800000,
+              1900000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "9b8a2e6e-3dae-53ca-8d32-998c02d25f88"
+          }
+        ],
+        "filled_polygons": []
+      }
+    },
+    "68b7363f-10d2-5d5c-8091-0cf040b2a189": {
+      "B.Cu": {
+        "copper_and_pads": [
+          {
+            "signature": [
+              "track",
+              "+3V3_APP",
+              68200000,
+              650000,
+              67900000,
+              650000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "15254fa2-f738-593f-8c07-41f52b5e7bff"
+          }
+        ],
+        "filled_polygons": []
+      },
+      "In4.Cu": {
+        "copper_and_pads": [],
+        "filled_polygons": [
+          {
+            "polygon": 26,
+            "uuid": "626b02a6-8846-59f7-b7df-a75c78241fe0"
+          }
+        ]
+      }
+    },
+    "8ac4e8e2-39d6-5d3b-998e-590f576d8edf": {
+      "B.Cu": {
+        "copper_and_pads": [
+          {
+            "signature": [
+              "track",
+              "ROW_SEL_14",
+              101100000,
+              7650000,
+              101100000,
+              7600000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "237bd3d6-6d64-5fd1-9987-521160be1f18"
+          },
+          {
+            "signature": [
+              "track",
+              "ROW_SEL_14",
+              101150000,
+              7500000,
+              101200000,
+              7500000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "827ff597-441e-5db6-a89f-0109365175e8"
+          },
+          {
+            "signature": [
+              "track",
+              "ROW_SEL_14",
+              101100000,
+              7600000,
+              101150000,
+              7600000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "88b19704-54b4-53b8-955a-92e476ac3c83"
+          },
+          {
+            "signature": [
+              "track",
+              "ROW_SEL_14",
+              101000000,
+              7650000,
+              101100000,
+              7650000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "b70d1676-8251-5d87-b628-88fde78af467"
+          },
+          {
+            "signature": [
+              "track",
+              "ROW_SEL_14",
+              101150000,
+              7600000,
+              101150000,
+              7500000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "c999c376-1d9b-575e-a637-0dd0b72afc74"
+          },
+          {
+            "signature": [
+              "track",
+              "ROW_SEL_14",
+              101200000,
+              6750000,
+              104300000,
+              6750000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "cd082b6f-a457-51b2-9175-398e50ffe1c0"
+          }
+        ],
+        "filled_polygons": []
+      }
+    },
+    "92bb2acd-fe8a-5220-bf9c-212fe569e9a9": {
+      "B.Cu": {
+        "copper_and_pads": [
+          {
+            "pad": [
+              "C71",
+              "1"
+            ],
+            "uuid": "807325f5-ebd2-543d-ba1e-7cc5e56977e1"
+          },
+          {
+            "signature": [
+              "via",
+              "+3V3_APP",
+              67500000,
+              4295000,
+              "In4.Cu",
+              "B.Cu",
+              300000,
+              100000
+            ],
+            "uuid": "b4491996-43cd-5299-9200-6a7d40282591"
+          }
+        ],
+        "filled_polygons": []
+      }
+    },
+    "9b8a2e6e-3dae-53ca-8d32-998c02d25f88": {
+      "B.Cu": {
+        "copper_and_pads": [
+          {
+            "signature": [
+              "track",
+              "MODE_BOOT_N",
+              97325000,
+              750000,
+              96825000,
+              750000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "123fbb24-cb1e-54a7-b2af-1029faa60bd2"
+          },
+          {
+            "signature": [
+              "track",
+              "MODE_BOOT_N",
+              96800000,
+              1900000,
+              97050000,
+              2150000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "603b5899-dfa0-5fcc-a29d-866c989fe914"
+          },
+          {
+            "signature": [
+              "track",
+              "MODE_BOOT_N",
+              96925000,
+              2025000,
+              96300000,
+              2600000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "75433db9-88f5-507c-8474-3d11561bd47f"
+          },
+          {
+            "signature": [
+              "track",
+              "MODE_BOOT_N",
+              96825000,
+              750000,
+              96800000,
+              899999,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "abb9155e-9c44-5bcc-840c-1cda4dca18c2"
+          }
+        ],
+        "filled_polygons": []
+      }
+    },
+    "9bf66294-f9fb-5c34-b774-02b3000f6dfa": {
+      "B.Cu": {
+        "copper_and_pads": [
+          {
+            "signature": [
+              "track",
+              "+3V3_APP",
+              68200000,
+              650000,
+              67900000,
+              650000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "15254fa2-f738-593f-8c07-41f52b5e7bff"
+          },
+          {
+            "pad": [
+              "U52",
+              "6"
+            ],
+            "uuid": "a7fa0fdf-475d-5c35-a19a-130360cbc5dc"
+          }
+        ],
+        "filled_polygons": []
+      }
+    },
+    "b4491996-43cd-5299-9200-6a7d40282591": {
+      "B.Cu": {
+        "copper_and_pads": [
+          {
+            "signature": [
+              "track",
+              "+3V3_APP",
+              68100000,
+              3695000,
+              67500000,
+              4295000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "92bb2acd-fe8a-5220-bf9c-212fe569e9a9"
+          }
+        ],
+        "filled_polygons": []
+      },
+      "In4.Cu": {
+        "copper_and_pads": [],
+        "filled_polygons": [
+          {
+            "polygon": 23,
+            "uuid": "626b02a6-8846-59f7-b7df-a75c78241fe0"
+          }
+        ]
+      }
+    },
+    "cd082b6f-a457-51b2-9175-398e50ffe1c0": {
+      "B.Cu": {
+        "copper_and_pads": [
+          {
+            "signature": [
+              "track",
+              "ROW_SEL_14",
+              104300000,
+              6750000,
+              104300000,
+              6700000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "3dc451f6-e9af-5b1c-aff0-6203882c1e82"
+          },
+          {
+            "signature": [
+              "track",
+              "ROW_SEL_14",
+              101200000,
+              7500000,
+              101200000,
+              6750000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "8ac4e8e2-39d6-5d3b-998e-590f576d8edf"
+          },
+          {
+            "signature": [
+              "track",
+              "ROW_SEL_14",
+              104300000,
+              6700000,
+              104400000,
+              6700000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "ba3df8a3-d547-5fc6-87e8-5c715368a5bf"
+          },
+          {
+            "signature": [
+              "track",
+              "ROW_SEL_14",
+              104400000,
+              6700000,
+              104400000,
+              6650000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "bca5113d-a798-576e-8e6c-c2ca85e423b5"
+          },
+          {
+            "signature": [
+              "track",
+              "ROW_SEL_14",
+              104450000,
+              6650000,
+              104450000,
+              6600000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "bcac4139-0824-5236-8bab-221e77a4c6dd"
+          },
+          {
+            "signature": [
+              "track",
+              "ROW_SEL_14",
+              104400000,
+              6650000,
+              104450000,
+              6650000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "eb894121-cc7a-5c9e-bb30-a36173a48bb5"
+          }
+        ],
+        "filled_polygons": []
+      }
+    }
+  },
+  "source_sha256": "14f0c49582063bab84ea685a8cec798011eb4cd66389b085a3a47777180a13ce",
+  "status": "FROZEN_CAD_CONTINUITY_PLAN",
+  "target_pads": [
+    [
+      "U51",
+      "4"
+    ],
+    [
+      "U52",
+      "1"
+    ]
+  ]
+}

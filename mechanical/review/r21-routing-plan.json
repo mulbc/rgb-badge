@@ -1,0 +1,194 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_copper": [
+    {
+      "signature": [
+        "track",
+        "ROW_GATE_15",
+        59800000,
+        5600000,
+        59800000,
+        5000000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "d956768d-ab68-539c-a3d3-f856194e6de2",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_GATE_15",
+        59800000,
+        5000000,
+        56750000,
+        5000000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "4116289b-e518-54ef-8291-be55d9d551af",
+      "via_type": null
+    }
+  ],
+  "exact_mpn": {
+    "R21": "ERJ2RKF1001X"
+  },
+  "expected_board_sha256": "e7748bee49f33b3b5c021c9215d441a047718b284e3a1ee27975e3832ddfb5d2",
+  "expected_main_vled_pads": 36,
+  "external_gate_via_uuid": "cb9294d1-c465-51d9-8d7a-b4344a70b4fc",
+  "fabrication_release_allowed": false,
+  "gate_lead_uuids": [
+    "d956768d-ab68-539c-a3d3-f856194e6de2",
+    "4116289b-e518-54ef-8291-be55d9d551af"
+  ],
+  "native_opens": 27,
+  "new_gate_length_mm": 3.65,
+  "new_supply_copper_mm": 0,
+  "original_gate_length_mm": 10.75,
+  "physical_opens": 27,
+  "poses": {
+    "R21": {
+      "orientation_degrees": 0,
+      "position_iu": [
+        59300000,
+        5600000
+      ]
+    }
+  },
+  "retired_copper": [
+    {
+      "signature": [
+        "track",
+        "ROW_GATE_15",
+        66750000,
+        5000000,
+        56750000,
+        5000000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "d25db091-cafe-51d4-b153-6ad69339ab4e",
+      "via_type": null
+    },
+    {
+      "signature": [
+        "track",
+        "ROW_GATE_15",
+        66750000,
+        5750000,
+        66750000,
+        5000000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "e10a833e-5a12-5e19-b8b4-85f4670985f6",
+      "via_type": null
+    }
+  ],
+  "source_copper": 19381,
+  "source_groups": 216,
+  "source_retirement_contacts": {
+    "d25db091-cafe-51d4-b153-6ad69339ab4e": {
+      "B.Cu": {
+        "copper_and_pads": [
+          {
+            "signature": [
+              "via",
+              "ROW_GATE_15",
+              56750000,
+              5000000,
+              "In4.Cu",
+              "B.Cu",
+              300000,
+              100000
+            ],
+            "uuid": "cb9294d1-c465-51d9-8d7a-b4344a70b4fc"
+          },
+          {
+            "signature": [
+              "track",
+              "ROW_GATE_15",
+              66750000,
+              5750000,
+              66750000,
+              5000000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "e10a833e-5a12-5e19-b8b4-85f4670985f6"
+          }
+        ],
+        "filled_polygons": []
+      }
+    },
+    "e10a833e-5a12-5e19-b8b4-85f4670985f6": {
+      "B.Cu": {
+        "copper_and_pads": [
+          {
+            "signature": [
+              "track",
+              "ROW_GATE_15",
+              66750000,
+              5000000,
+              56750000,
+              5000000,
+              "B.Cu",
+              200000
+            ],
+            "uuid": "d25db091-cafe-51d4-b153-6ad69339ab4e"
+          },
+          {
+            "pad": [
+              "R21",
+              "2"
+            ],
+            "uuid": "fbf4ea90-ad4c-570e-98cd-868336697ae6"
+          }
+        ],
+        "filled_polygons": []
+      }
+    }
+  },
+  "source_sha256": "1723cb53524f7907c784cc401e3b73c5e0ee93b667dedd246a87bf60c673ac34",
+  "supply_source_contacts": [
+    {
+      "signature": [
+        "track",
+        "VLED",
+        57750000,
+        5750000,
+        58750000,
+        5750000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "690a1ec7-0067-586b-be03-7295eb45d0c6"
+    },
+    {
+      "signature": [
+        "track",
+        "VLED",
+        58750000,
+        5750000,
+        58900000,
+        5900000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "814c9c0b-a383-5ed4-9380-0a2f7eaf6928"
+    },
+    {
+      "signature": [
+        "track",
+        "VLED",
+        58900000,
+        5900000,
+        58900000,
+        6150000,
+        "B.Cu",
+        200000
+      ],
+      "uuid": "22b7143d-9629-562b-9454-61b56bbe67cd"
+    }
+  ]
+}

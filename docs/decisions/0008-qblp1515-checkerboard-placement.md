@@ -2,7 +2,7 @@
 
 # ADR 0008: Preserve the QBLP1515 land pattern with checkerboard rotation
 
-- Status: Accepted
+- Status: Superseded for Coupon Rev A by ADR 0034 on 2026-10-18; retained as historical 1.95 mm geometry study
 - Date: 2026-09-06
 
 ## Context

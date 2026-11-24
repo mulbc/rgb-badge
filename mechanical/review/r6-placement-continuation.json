@@ -1,0 +1,103 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "date": "2026-11-20",
+  "source_sha256": "ec0bf7fc842f3dd4f9210e7667925cffc388d3d82906e44c5bde4e10f428ee88",
+  "records": [
+    {
+      "file": "hardware/coupon/rev-a/build/pair01-front-ground-routing/r6-reversed/screen.json",
+      "sha256": "a3f7891fa882c395f349cab935e94abc36b82844ae34d9262f3eafa3eb7909d3"
+    },
+    {
+      "file": "hardware/coupon/rev-a/build/pair01-front-ground-routing/r6-reversed/lower-supply-route.json",
+      "sha256": "55498df909b1743c80a1820a816677125321a0ecf6e4821c32353dc27b49abee",
+      "expanded_nodes": 635,
+      "via_candidates": 170,
+      "clear_via_candidates": 0,
+      "outcome": "bounded_heuristic_failed"
+    },
+    {
+      "file": "hardware/coupon/rev-a/build/pair01-front-ground-routing/r6-old-pair/screen.json",
+      "sha256": "cfcf062c9d7281551f2382af3c682419ece36bb6033abba30f31fc20e9401891"
+    },
+    {
+      "file": "hardware/coupon/rev-a/build/pair01-front-ground-routing/r6-gateway/screen.json",
+      "sha256": "802415ea7a90819dcf9da5fdb857a8dd9db250d1f494000cca0df6e3d8ffab00",
+      "counts": {
+        "copper": 4291,
+        "hole": 30
+      },
+      "clear_local_candidates": 10
+    },
+    {
+      "file": "hardware/coupon/rev-a/build/pair01-front-ground-routing/r6-gateway/supply-around-gate-route.json",
+      "sha256": "d53875a2f92c615738ff2de0477577a1b57e703c3db25e7aaebc90c2231740d5",
+      "expanded_nodes": 2516,
+      "via_candidates": 662,
+      "clear_via_candidates": 0,
+      "outcome": "bounded_heuristic_failed"
+    },
+    {
+      "file": "hardware/coupon/rev-a/build/pair01-front-ground-routing/r6-gateway/alternative-lower-gate.json",
+      "sha256": "880328a21af3dad665bfcdc441cdd66a6c2f1c92a379947db6d19d3acc39f780",
+      "counts": {
+        "copper": 489,
+        "hole": 36
+      },
+      "clear_local_candidates": 0
+    },
+    {
+      "file": "hardware/coupon/rev-a/build/pair01-front-ground-routing/r6-gateway/colour-clearance-screen.json",
+      "sha256": "344be637e1fdd8468b6a9ee7d9bbefa26c7f04c70751626b95b03c6e463ae3b2",
+      "counts": {
+        "copper": 4
+      },
+      "clear_local_candidates": 16
+    },
+    {
+      "file": "hardware/coupon/rev-a/build/pair01-front-ground-routing/r6-front/extended-front-supply-route.json",
+      "sha256": "b21b5c649b34dc4500c65c914ef11a0a46c20c67ebe798c028dde9bc3d7d6734",
+      "expanded_nodes": 14878,
+      "outcome": "bounded_search_failed"
+    },
+    {
+      "file": "hardware/coupon/rev-a/build/pair01-front-ground-routing/r6-separated/screen.json",
+      "sha256": "4915e101dd0a8ec031fdd3ce9213255250bc7004ccb2121dff0dfa02bf4920a0"
+    },
+    {
+      "file": "hardware/coupon/rev-a/build/pair01-front-ground-routing/r6-separated/col07g-replacement.json",
+      "sha256": "9430852ecdb97ef25d874da5ad0c8efd012d1096cfc2556f8594a9fc9d29a62f",
+      "expanded_nodes": 3593,
+      "outcome": "found",
+      "route_length_mm": 4.68847763108502
+    },
+    {
+      "file": "hardware/coupon/rev-a/build/pair01-front-ground-routing/r6-separated/complete-supply-route.json",
+      "sha256": "5db7c0578d7818ecbbc9942e6602468797116445e4dfceea1d7435dbfd6846a5",
+      "expanded_nodes": 2900,
+      "via_candidates": 573,
+      "clear_via_candidates": 71,
+      "outcome": "bounded_heuristic_failed"
+    },
+    {
+      "file": "hardware/coupon/rev-a/build/pair01-front-ground-routing/main-vled-bottom-upper-region.json",
+      "sha256": "b6b14ca16a03c64d3248ffbe13f29d10d010d57b32068d2fca2c5082f56621d8"
+    },
+    {
+      "file": "hardware/coupon/rev-a/build/pair01-front-ground-routing/r6-direct-bottom-screen.json",
+      "sha256": "0f4519f53524f53c5000c8b533e5fd75ef6d595537b4219d0e970db65c74316d",
+      "counts": {
+        "pad_copper": 4652,
+        "lead_copper": 2925,
+        "courtyard": 14480,
+        "complete": 1043
+      },
+      "tested_poses": 23100,
+      "complete_pose_count": 1043
+    }
+  ],
+  "alternate_color_replacements_selected": false,
+  "alternate_poses_selected": false,
+  "result": "Only ADR0237 direct B R6 candidate qualifies at 24 opens; original color/row copper is unchanged",
+  "goal_complete": false,
+  "fabrication_release_allowed": false
+}

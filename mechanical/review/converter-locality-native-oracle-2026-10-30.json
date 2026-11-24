@@ -1,0 +1,13 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "all_results_match": true,
+  "convex_rectangle_pairs": 2000,
+  "kicad_version": "10.0.6",
+  "seed": 5469,
+  "status": "DETERMINISTIC_NATIVE_POLYGON_COMPARISON_NOT_HARDWARE_MEASUREMENTS",
+  "tool_sha256": {
+    "tools/convex_geometry.py": "348be312df0198d253257cfb134959b432a6ade829207662d2c6d45d9d010962",
+    "tools/test-convex-native.py": "186957815fd8ba11dfca127d85515522434ee4b86c339534e9c72bd367e30abe"
+  },
+  "touching_policy": "Conservatively classify exact touching as obstructed; explicit host fixture"
+}

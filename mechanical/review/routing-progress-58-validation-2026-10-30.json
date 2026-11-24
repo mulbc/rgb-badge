@@ -1,0 +1,125 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "absolute_body_pin1_actuator_and_assembly_orientation_qualified": false,
+  "added_adjacent_microvias": 1,
+  "added_track_count": 13,
+  "added_track_width_mm": 0.2,
+  "all_physical_land_geometries_and_nets_preserved": true,
+  "board_pin_inventory_guard_methods": 8,
+  "byte_identical_pcb_replay": true,
+  "cached_vendor_sha256": {
+    "hardware/coupon/rev-a/reference/vendor-datasheets/GRM188R60J106ME47-61A-EN.pdf": "f51cff8dad7a6983263ab35b5705f4d1d4b9977b1f03739c653381ba03d94ea8",
+    "hardware/coupon/rev-a/reference/vendor-datasheets/Littelfuse-CK-Slide-JS-Series-Datasheet.pdf": "0f35cdf47a1f93da71bb7235581f3c77915516488be930d7a3ea4f4942ff0f3b",
+    "hardware/coupon/rev-a/reference/vendor-datasheets/m_dfe252012p.pdf": "ce259ba611fb3ea196baf60e2c7080a21cd897cdb662bf77552cc842c2b91c3e",
+    "hardware/coupon/rev-a/reference/vendor-datasheets/tca9517a.pdf": "ad2d7dc5994583006aa21b67ee9f18507a2698ad9366285dff56816f065790c6",
+    "hardware/coupon/rev-a/reference/vendor-datasheets/tps63020.pdf": "d117773bb7370fd79377bc70ce987eec3469ea5979547a09df52fca5f95b2e69",
+    "hardware/coupon/rev-a/reference/vendor-datasheets/tps631000.pdf": "b52a4064a8c2cbb4c9dd97f366b398dedcb490ffc9d564245f297536a19b426b"
+  },
+  "controller_guard_methods": 9,
+  "convex_host_guards": 4,
+  "convex_native_oracle_pairs": 2000,
+  "exact_supply_catalog_guard_methods": 3,
+  "fabrication_release_allowed": false,
+  "firmware_logic": "UNCHANGED",
+  "hardware_revision": "Coupon Rev A",
+  "local_raw_sha256": {
+    "hardware/coupon/rev-a/build/converter-locality-59/plan-guards.log": "52df097816e1d0259cef841172765840b6ab4fb7db2016aaf1dcb4838b6c6a40",
+    "hardware/coupon/rev-a/build/converter-locality-59/printed-controller-guards.log": "8bda0a258b33627164387efe05f98d82cf51bec82c767675fe218c9a590447ae",
+    "hardware/coupon/rev-a/build/converter-locality-59/printed-pin-map-guards.log": "c239bca1724ad92163b51b68c35051f40a72f8b4fa469b62e4014c886d93e640",
+    "hardware/coupon/rev-a/build/converter-locality-59/printed-pins-native-review.log": "16283a4c03016dec5e7f6f369417b6b893cc6054073ef37a9b0f4a3084f4c01c",
+    "hardware/coupon/rev-a/build/converter-locality-59/printed-pins-native-review/coupon-erc.rpt": "58479e7b20550ac8b9957ebe0c9e1be368fc02e3f97cd2acbbbda8d7fed6675e",
+    "hardware/coupon/rev-a/build/converter-locality-59/printed-pins-native-review/coupon-matrix.xml": "f46498b4c05639ec95c295cd95a0ad5ca6267b69b65064fc95926c2def3f2561",
+    "hardware/coupon/rev-a/build/converter-locality-59/printed-pins-native-review/coupon-schematic.pdf": "5f6fb050d01175bde92b4b287c8e163af01ad0253d874d3c972e87666e5b813f",
+    "hardware/coupon/rev-a/build/converter-locality-59/printed-pins-native-review/footprints/copper/SW_CK_JS202011JCQN_ManufacturerPins.svg": "bce9f13bcb4ed3ff59220150d55f55a74c92578e36bab0e3c678107362d65a16",
+    "hardware/coupon/rev-a/build/converter-locality-59/printed-pins-native-review/footprints/fabrication/SW_CK_JS202011JCQN_ManufacturerPins.svg": "e632188acf61a51b29d598470f140c8405c3295fc390a72a7750f728f843b260",
+    "hardware/coupon/rev-a/build/converter-locality-59/printed-pins-native-review/footprints/paste/SW_CK_JS202011JCQN_ManufacturerPins.svg": "089f06ae611003034e3c3c1bcd21dc4d8ab8d237a67102ab8004aed2c2f9e351",
+    "hardware/coupon/rev-a/build/converter-locality-59/printed-pins-replay-2.log": "ee1899a4c4166e9b0aff2c19faf03d1a42ee9ccb8348faa42d1180d3122a603f",
+    "hardware/coupon/rev-a/build/converter-locality-59/printed-pins-routing-validation.log": "b9c8a07de4b98131ec07c9130be9269647797a420425ea9ae8cc9a5b1a866723",
+    "hardware/coupon/rev-a/build/converter-locality-59/printed-source-guards.log": "4e70dc68e7941c31cd7efed2f777f14cb4ebcb748d786c6411ebcfd8680baa76",
+    "hardware/coupon/rev-a/build/converter-locality-59/printed-source-only-ci.log": "0673332b794f32ade1e67f064267093ba3254ee61845cc15d8b4777dd3638451",
+    "hardware/coupon/rev-a/build/converter-locality-59/printed-wrapper-guards.log": "ce1fe92d75204772ba8a439e4b325e1e3b8f4001d085ceef50045067e81d9eb0",
+    "hardware/coupon/rev-a/build/converter-locality-59/switch-library-guards.log": "d969e4acc8689e6106f47844808bdd17defba337fbc9d86dc76033e02e7a4999"
+  },
+  "native_canonical_xml_and_configured_erc": "PASSED",
+  "native_guard_methods": 65,
+  "native_led_checks": 256,
+  "native_open_edges": 58,
+  "new_track_length_mm_calculated": 15.05799164370461,
+  "original_orphan_restoration": "58_OPENS_104_INTRINSIC_PLUS_THE_SAME_THREE_DANGLING_VIAS",
+  "pad_cluster_open_edges": 58,
+  "portable_plan_guard_methods": 116,
+  "printed_common_terminals": [
+    "2",
+    "6"
+  ],
+  "printed_switch_library_guard_methods": 4,
+  "printed_switch_terminals": [
+    "1",
+    "2",
+    "3",
+    "5",
+    "6",
+    "7"
+  ],
+  "remaining_holds": [
+    "all other gauge supply groups",
+    "inductor/converter locality",
+    "104 intrinsic findings",
+    "switch bottom/top-view/received-part/actuation/transition review",
+    "current/thermal/bypass/return/timing/RF/HDI/enclosure/assembly",
+    "independent Gate A"
+  ],
+  "required_joined_pads": [
+    [
+      "SW2",
+      "7"
+    ],
+    [
+      "C39",
+      "1"
+    ],
+    [
+      "U46",
+      "1"
+    ]
+  ],
+  "second_pole_legacy_to_printed_mapping": {
+    "4": "5",
+    "5": "6",
+    "6": "7"
+  },
+  "source_and_evidence_sha256": {
+    "docs/development/led-routing-progress-58-drc-2026-10-30.json": "b458fcd4afb0b14ec92b6a5162c2b80d0d088141ff86bd937856c5e14d270a04",
+    "docs/development/led-routing-progress-58-orphan-restoration-drc-2026-10-30.json": "25be46c5996569e1a011570c0326a3286fe556ea77a57854723b7a7ab9232426",
+    "hardware/coupon/rev-a/app-control.kicad_sch": "57efe491a8554508467016f9574ba35a0bbeb0126721341cb5e13e7a56b5ef80",
+    "hardware/coupon/rev-a/footprints/rgb-badge-coupon.pretty/SW_CK_JS202011JCQN.kicad_mod": "fa050c2fa9f8d6741d5d91dcae2fe0a58829d9fbc71d70fc6a76b73a80c1344b",
+    "hardware/coupon/rev-a/footprints/rgb-badge-coupon.pretty/SW_CK_JS202011JCQN_ManufacturerPins.kicad_mod": "faa485c7a72ca8ad9b51469af50bad4ceb4dba4775393c2c28efea5e3f33de21",
+    "hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb": "3451177253a021d8706ff818696212afabf539a108f15ef9e5d6921e46435acc",
+    "hardware/coupon/rev-a/symbols/rgb-badge-coupon.kicad_sym": "42df3b921cc8d3249b40515a1c0555c7752ca35cc5fa73f69a3689e4ee271f22",
+    "mechanical/review/coupon-canonical-net-contract-before-switch-pins.json": "fd63b18a1d1f545ebca966de2b945c68321ac8e6a7f3b050dc2eb424268079fe",
+    "mechanical/review/coupon-canonical-net-contract.json": "45b75cc40718b2ed7dd7c67219bdf877f818b105e422410c987c60de4eae4368",
+    "mechanical/review/gauge58-printed-switch-contract-2026-10-30.json": "94d042cbdd3c3c41a71066e436ff0b922aa2a92847df404cda4a879208826128",
+    "mechanical/review/routing-progress-58-native-check-2026-10-30.json": "216d1700069e37cdb2211e2e78523c1dcf9fd559e1358684bdd9fe64ddeb3777",
+    "mechanical/review/routing-progress-gauge-supply-join.json": "8adfc892c893cf0d8de0b5806e1e8c17fb36d2b4b2eac5896991ec023212ba3d",
+    "mechanical/review/routing-progress-plan.json": "7dada5e89215def36204290082193a94184d3843faa2afa4682057658ff4d709",
+    "mechanical/review/routing-progress-trial.json": "66b92c807e938a72b0e18da1db8821b06a9177e1b2af48065a96055aff0357d6",
+    "tools/check-coupon-study-contract.py": "4a1d1046cf5ffac0475ae1db611413c2018cec01c87b2810eba680f574960242",
+    "tools/check-routing-progress-plan.py": "c88a072f034cc10f29dd138823ceaf4cf9a82cd4dc90589ca40db4c2916c4170",
+    "tools/check-routing-progress-trial.py": "dbbb4b38f2f2e32134f7d7fe418cc188b6ad7ba9420cd3dc0538ca188cca7366",
+    "tools/check-slide-switch-library.py": "7885acdda6f96a803ad9463e39cf4138f66610bc2ee8cb2c3948eadf440c81ce",
+    "tools/generate-routing-progress-trial.py": "06445555c998ec7b99f44e7b506e8d91a40117c00d564da67be749380575aaba",
+    "tools/routing_supply_join.py": "99b9a759a8d11a1e304ca4b89d91eae355b8fa863148167bdb042fc43e1d3f2e",
+    "tools/switch_pin_migration.py": "88283229ea49c1845de1745f5a1ce4c8817cedbab9aa0f9dee7ac1399099ebfa",
+    "tools/test-routing-progress-guards.py": "b829ab92088168c68844ed9aaa37651bfe71c1d106f4a1a4448f4dac14ba43b9"
+  },
+  "source_contact_mm": [
+    3.2,
+    3.1
+  ],
+  "source_guard_methods": 24,
+  "source_only_ci_layout": "PASSED_WITHOUT_NATIVE_XML_KICAD_OR_VENDOR_PDFS",
+  "stable_fill_passes": 3,
+  "status": "FIRST_AUTHOR_PRINTED_SWITCH_LABEL_AND_GAUGE_ROUTING_REVIEW_NOT_HARDWARE_MEASUREMENTS",
+  "unchanged_intrinsic_drc_findings": 104,
+  "wrapper_guard_methods": 24
+}

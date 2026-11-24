@@ -1,0 +1,279 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "added_copper_items": 134,
+  "all_246_parent_uuid_groups_preserved": true,
+  "board_sha256": "5e07fb866cc059de670e34102045d9dfd88c88f101355fcdbb27253c0ae26e43",
+  "checker_sha256": "601b64e93bd0f219206d6b106092a29d8e96363f9e199686bdc43702c2bf48ce",
+  "converter_pin_witnesses": {
+    "FB": [
+      [
+        "U37",
+        "3"
+      ],
+      [
+        "R85",
+        "2"
+      ],
+      [
+        "R86",
+        "1"
+      ]
+    ],
+    "FB_mid": [
+      [
+        "R84",
+        "2"
+      ],
+      [
+        "R85",
+        "1"
+      ]
+    ],
+    "LX1": [
+      [
+        "L2",
+        "1"
+      ],
+      [
+        "U37",
+        "8"
+      ],
+      [
+        "U37",
+        "9"
+      ]
+    ],
+    "LX2": [
+      [
+        "L2",
+        "2"
+      ],
+      [
+        "U37",
+        "6"
+      ],
+      [
+        "U37",
+        "7"
+      ]
+    ],
+    "app_LX1": [
+      [
+        "L1",
+        "1"
+      ],
+      [
+        "U36",
+        "3"
+      ]
+    ],
+    "app_LX2": [
+      [
+        "L1",
+        "2"
+      ],
+      [
+        "U36",
+        "2"
+      ]
+    ],
+    "app_input": [
+      [
+        "U36",
+        "4"
+      ],
+      [
+        "C63",
+        "1"
+      ]
+    ],
+    "app_output": [
+      [
+        "U36",
+        "1"
+      ],
+      [
+        "U48",
+        "6"
+      ]
+    ],
+    "enable": [
+      [
+        "U37",
+        "12"
+      ],
+      [
+        "R87",
+        "1"
+      ]
+    ],
+    "input": [
+      [
+        "U37",
+        "1"
+      ],
+      [
+        "U37",
+        "10"
+      ],
+      [
+        "U37",
+        "11"
+      ],
+      [
+        "C44",
+        "1"
+      ],
+      [
+        "C45",
+        "1"
+      ],
+      [
+        "C63",
+        "1"
+      ]
+    ],
+    "output": [
+      [
+        "U37",
+        "4"
+      ],
+      [
+        "U37",
+        "5"
+      ],
+      [
+        "C46",
+        "1"
+      ],
+      [
+        "C47",
+        "1"
+      ],
+      [
+        "C48",
+        "1"
+      ],
+      [
+        "C49",
+        "1"
+      ],
+      [
+        "R84",
+        "1"
+      ]
+    ],
+    "return": [
+      [
+        "C47",
+        "2"
+      ],
+      [
+        "U37",
+        "2"
+      ],
+      [
+        "U37",
+        "15"
+      ]
+    ]
+  },
+  "drc_sha256": "2da6b7a52a2adfd069a52723005c74141123782dd079d83fe78c9b7c75ab433d",
+  "exact_poses": 15,
+  "fabrication_release_allowed": false,
+  "full_intrinsic_findings": 104,
+  "opens": {
+    "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+    "board": "hardware/coupon/rev-a/staging/led-converter-routing-trial-114mm.kicad_pcb",
+    "board_sha256": "5e07fb866cc059de670e34102045d9dfd88c88f101355fcdbb27253c0ae26e43",
+    "by_net": {
+      "+3V3_APP": 1,
+      "+3V3_USB": 1,
+      "+BAT_GAUGE_SW": 2,
+      "APP_3V3_FB": 1,
+      "APP_ON_SW_DRAFT": 2,
+      "CHARGER_EN2": 1,
+      "CHARGER_TS": 1,
+      "DISPLAY_CLEAR_3": 1,
+      "DISPLAY_CLEAR_OK": 2,
+      "DISPLAY_ENABLE": 1,
+      "DISPLAY_HEARTBEAT": 1,
+      "E1_ILM": 1,
+      "ESP_EN": 1,
+      "GND": 3,
+      "HEARTBEAT_FALL_CLK": 1,
+      "HEARTBEAT_SEEN": 1,
+      "LED_GCLK": 1,
+      "LED_IREF": 1,
+      "LED_LAT": 1,
+      "LED_SCLK": 1,
+      "ROW_ENABLE_N_CANDIDATE": 1,
+      "ROW_GATE_00": 1,
+      "ROW_GATE_02": 1,
+      "ROW_GATE_03": 1,
+      "ROW_GATE_04": 1,
+      "ROW_GATE_06": 1,
+      "ROW_GATE_07": 1,
+      "TEMP_OK": 1,
+      "TMP_COLD_SET": 1,
+      "USB_CC1": 1,
+      "USB_D+": 1,
+      "USB_D-": 1,
+      "USB_DN_MCU": 1,
+      "USB_DP_MCU": 1,
+      "USB_EN1_RAW_N": 1,
+      "USB_LOGIC_CT": 1,
+      "VBUS_CONNECTOR": 1,
+      "VLED": 7,
+      "VLED_ENABLE_CANDIDATE": 1
+    },
+    "interpretation": "Unconnected pad clusters minus one per net; no electrical or manufacturability qualification",
+    "native_open_edges": 50,
+    "pad_cluster_open_edges": 50
+  },
+  "original_orphan_restoration": {
+    "all_selected_groups_preserved": true,
+    "drc_sha256": "2d4d8e85e5d1bdc8df6f24c8f4aa61ba878989491de4087c881b351387084574",
+    "exact_restored_vias": [
+      [
+        "via",
+        "+3V3_APP",
+        40250000,
+        8750000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      [
+        "via",
+        "+3V3_APP",
+        45250000,
+        8750000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ],
+      [
+        "via",
+        "+3V3_APP",
+        62750000,
+        4250000,
+        "In4.Cu",
+        "B.Cu",
+        300000,
+        100000
+      ]
+    ],
+    "full_findings": 107,
+    "native_opens": 50,
+    "only_three_exact_dangling_vias_added": true
+  },
+  "parent_sha256": "817241b48eee1ae6ccc6ff0a99bf89d6c373bde6b45cba687a71e2309115f3d4",
+  "plan_sha256": "2b5e0c59a0a86ac0e791fe7ed78d66b2e6a8252288686e8dceb59a675adac640",
+  "policy_sha256": "d6d80ad6c3b72959b178d0613105164b9023e2ff67cdc30a8cf5116306893bb8",
+  "retired_accepted_items": 45,
+  "retired_original_items": 20,
+  "status": "PASS_EXACT_CONVERTER_CHILD_GEOMETRY_NOT_ELECTRICAL_QUALIFICATION"
+}

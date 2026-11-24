@@ -1,0 +1,375 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "audit": {
+    "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+    "added_copper": 88,
+    "board_sha256": "90db778d8e44b2c71ab5e1f5d8a1c586ee71c25d46892b1406c4792ac7720abd",
+    "drc_sha256": "6a27c018007289fbf2340121535d0adb042915bcec14e6a0bfaaf682f576635c",
+    "exact_part_inventory": 483,
+    "fabrication_release_allowed": false,
+    "intrinsic_findings": 104,
+    "inverse_all219_groups_equal": true,
+    "inverse_exact104": true,
+    "inverse_exact_integer_fill_xor_empty": [
+      "81b0abb6-bbba-5f7c-9599-18e6b0c72e0e",
+      "566adf1a-30fb-5b01-a217-ee87a01be9a9",
+      "5bba12ef-077c-5854-bc36-f3c0f0aec6c2",
+      "de293b84-4ac9-56e5-adda-363e58b4a9d2",
+      "52361cb6-e447-5a7a-8fab-433f1b57c9c9",
+      "c682ee16-0992-5842-bc59-f74f9def9083",
+      "3e9ab31e-6f61-56f6-bb4e-6d0f8c98c74a",
+      "626b02a6-8846-59f7-b7df-a75c78241fe0",
+      "d2173c7d-2262-5c12-89e8-acf8c24a80a7"
+    ],
+    "inverse_hashes": [
+      "cddf5a7db6fe03735dd170c937f27a009c148825e67af15dcdd57f0ad78a9605",
+      "cddf5a7db6fe03735dd170c937f27a009c148825e67af15dcdd57f0ad78a9605",
+      "cddf5a7db6fe03735dd170c937f27a009c148825e67af15dcdd57f0ad78a9605"
+    ],
+    "inverse_parent_bytes_equal": false,
+    "native_opens": 30,
+    "net_count": 188,
+    "physical_groups": 218,
+    "physical_opens": 30,
+    "plan_sha256": "bf6e2c902e2cdb0d0a3dd6aedbe309200a01b22a6d6b9a7b45ff9ec81c0c433f",
+    "prior_groups_preserved": 219,
+    "retired_copper": 2,
+    "source_sha256": "4b14dd289f0f9908d9c9f2339a37bb29896bec00ba805e2c6742a52eb241cb2c",
+    "status": "PASS_CAD_CONTINUITY_ONLY",
+    "unchanged_rules_profiles_structure": true,
+    "unchanged_source_copper": 19281
+  },
+  "completed_enable_group": [
+    [
+      "R105",
+      "1"
+    ],
+    [
+      "TP10",
+      "1"
+    ],
+    [
+      "U3",
+      "17"
+    ],
+    [
+      "U52",
+      "2"
+    ],
+    [
+      "U55",
+      "2"
+    ]
+  ],
+  "corrected_predecessor_contact_fixture": {
+    "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+    "corrected_fixture_sha256": "2f6f0625cb3ea2566741360ffd7e4b7eade6368a2ae0be0d6f3e2056b9b8e6ad",
+    "correction": "Clear source_retirement_contacts; retain unchanged frozen-plan equality guard.",
+    "date": "2026-11-14",
+    "exit_code": 0,
+    "native_result": "REJECTED omit-contacts Plan fields changed",
+    "old_fixture_issue": "omit-contacts inserted empty original_contacts instead of clearing actual source_retirement_contacts; this exercised unknown-field rejection.",
+    "predecessor_board_sha256": "1d34fd1e29c8f65d22e7626cc0d2f0307be26b8d5255a0f6e16eb0eac46ceb6b",
+    "predecessor_board_unchanged": true,
+    "raw_log": "hardware/coupon/rev-a/build/ordinary-routing/predecessor-contact-fixture-correction.log",
+    "raw_log_sha256": "d3ba981058003f8bf754695027ca4784c373d4d89e8420533ddfe5fbdd127bd4"
+  },
+  "date": "2026-11-14",
+  "existing_rule_new_neck_length_mm": 0.7363406011768427,
+  "fabrication_release_allowed": false,
+  "faults": [
+    {
+      "exit_code": 0,
+      "fault": "wrong-part"
+    },
+    {
+      "exit_code": 0,
+      "fault": "wrong-net"
+    },
+    {
+      "exit_code": 0,
+      "fault": "move-part"
+    },
+    {
+      "exit_code": 0,
+      "fault": "retire-source"
+    },
+    {
+      "exit_code": 0,
+      "fault": "narrow-track"
+    },
+    {
+      "exit_code": 0,
+      "fault": "extra-track"
+    },
+    {
+      "exit_code": 0,
+      "fault": "wrong-via-type"
+    },
+    {
+      "exit_code": 0,
+      "fault": "wrong-via-drill"
+    },
+    {
+      "exit_code": 0,
+      "fault": "omit-contacts"
+    },
+    {
+      "exit_code": 0,
+      "fault": "disconnect-longest-track"
+    },
+    {
+      "exit_code": 0,
+      "fault": "remove-whole-join"
+    },
+    {
+      "exit_code": 0,
+      "fault": "shift-gate"
+    },
+    {
+      "exit_code": 0,
+      "fault": "wrong-capture-span"
+    },
+    {
+      "exit_code": 0,
+      "fault": "move-original-contact"
+    },
+    {
+      "exit_code": 0,
+      "fault": "shift-intrinsic-position"
+    },
+    {
+      "exit_code": 0,
+      "fault": "change-intrinsic-description"
+    },
+    {
+      "exit_code": 0,
+      "fault": "drop-intrinsic-finding"
+    },
+    {
+      "exit_code": 0,
+      "fault": "ignore-new-check"
+    }
+  ],
+  "independent_replays": {
+    "board_sha256": "90db778d8e44b2c71ab5e1f5d8a1c586ee71c25d46892b1406c4792ac7720abd",
+    "byte_identical": true,
+    "count": 2,
+    "stable_fills_each": 3
+  },
+  "larger_bounded_search": {
+    "additional_joins": 0,
+    "directional_attempts": 20,
+    "exhausted_grid": 7,
+    "node_bound": 13
+  },
+  "local_raw_evidence": {
+    "hardware/coupon/rev-a/build/enable-routing/current-audit.json": "41d793b1704ae887c3d8d10a43d0db032b4bf74f2ba17057b19a9dd25b656af4",
+    "hardware/coupon/rev-a/build/enable-routing/current-drc.json": "6a27c018007289fbf2340121535d0adb042915bcec14e6a0bfaaf682f576635c",
+    "hardware/coupon/rev-a/build/enable-routing/faults/results.json": "77e82e63330195995393af0b91d15d8f800f95d5d734c93a00fac1e9d8593dd6",
+    "hardware/coupon/rev-a/build/enable-routing/original-restored-drc.json": "408f469636b6de9f60a60cca39967016564af27094266af2c0006ea20a3c27a0",
+    "hardware/coupon/rev-a/build/enable-routing/original-restored.kicad_pcb": "cddf5a7db6fe03735dd170c937f27a009c148825e67af15dcdd57f0ad78a9605",
+    "hardware/coupon/rev-a/build/enable-routing/predecessor-contact-fixture-correction.json": "94c2e83d70fd2755ae44d6c4b8ef9ee4646d4b269378250dd69dc199e8d69628",
+    "hardware/coupon/rev-a/build/enable-routing/replay-a.kicad_pcb": "90db778d8e44b2c71ab5e1f5d8a1c586ee71c25d46892b1406c4792ac7720abd",
+    "hardware/coupon/rev-a/build/enable-routing/replay-b.kicad_pcb": "90db778d8e44b2c71ab5e1f5d8a1c586ee71c25d46892b1406c4792ac7720abd",
+    "hardware/coupon/rev-a/build/enable-routing/source-checks.json": "11274b15662be72308404f26018333f732a3bd74715f46281bb4b061688f4e17",
+    "hardware/coupon/rev-a/build/ordinary-routing/c71-enable-prototype-audit.json": "4554c39a0c26129ee2e58ba38486121c57456c50bdb285ac947c00d742abdc0a",
+    "hardware/coupon/rev-a/build/ordinary-routing/c71-enable-prototype.json": "f0172d4792995b37858cfb0cf96ba7c2dd3732123cfe3f6bcc18c8a60a0f8ca7",
+    "hardware/coupon/rev-a/build/ordinary-routing/c71-enable-retirement-contacts.json": "50b0bbd862d8b10af88325b7eb2c7bb03925156508eb9d0324b44ce12d0e9826",
+    "hardware/coupon/rev-a/build/ordinary-routing/c71-enable-screen.json": "2ce0f9fe882025636e52f6b778a344392e111636129f3c5c28b5be8d6f701e08",
+    "hardware/coupon/rev-a/build/ordinary-routing/enable-exact-stack-screen.json": "45c657bd55379cd1615d829691e7bb9380e72c9c6cb7cc88b4de4ab1ca77726a",
+    "hardware/coupon/rev-a/build/ordinary-routing/enable-full-check.log": "08ef1a224bda124c715cc30b69e0eaa17b427b350cf3d1d2237f2bdce4d22a88",
+    "hardware/coupon/rev-a/build/ordinary-routing/enable-in2-join-audit.json": "c6f0aa0221103201fa9d11c8bd7ffe552a3f3bddfed889669ab490b87628b66d",
+    "hardware/coupon/rev-a/build/ordinary-routing/enable-in2-join.json": "7ae8915f1e3d5f9228538dc49fcacac17d34d9ac51f4529318f927d53301dbbc",
+    "hardware/coupon/rev-a/build/ordinary-routing/enable-join.json": "557134f796a667ed2fdd86295f24a98fc8fafcaaf2523409693811ba8b7e4a68",
+    "hardware/coupon/rev-a/build/ordinary-routing/enable-replay-a.log": "22d1c544cc6f0b03de4e1e3ef2fb19bc9861c23ab26ceb1500741864f50be8e5",
+    "hardware/coupon/rev-a/build/ordinary-routing/enable-replay-b.log": "498d194917bcb4a6815a48b178c6380c3e482a79e9734ef166268279762c249d",
+    "hardware/coupon/rev-a/build/ordinary-routing/enable-stack-join.json": "90a14180807401cfcf3195817988712098e8c6a5f718420a563fe13d25b7113b",
+    "hardware/coupon/rev-a/build/ordinary-routing/enable-stack-prototype-drc.json": "0353ef1487b698afbb03438447046d0041e968f8409206872865ca4694a2e1bc",
+    "hardware/coupon/rev-a/build/ordinary-routing/enable-stack-prototype.json": "6a8ec2e3b03a9a073e37e90ddf4e8378183599acf69d3de04b2a2201247a0d67",
+    "hardware/coupon/rev-a/build/ordinary-routing/larger-continuation.json": "3c40368c0fbe207211730aadf2021b9a372d6acca4ea7d30651838a40ea98cac"
+  },
+  "predecessor_ci": {
+    "commit": "fd63c323ecbb37c335d7c84fa20f413e72ce8a49",
+    "successful_runs": [
+      "https://github.com/mulbc/rgb-badge/actions/runs/43630031811",
+      "https://github.com/mulbc/rgb-badge/actions/runs/43630025486"
+    ]
+  },
+  "qualification_holds": [
+    "zero opens",
+    "exact-part and effective-capacitance qualification",
+    "electrical, timing, return and thermal qualification",
+    "controlled stack and 557 historical centre microvias",
+    "HDI/connector/assembly/process/fit qualification",
+    "independent Gate A review"
+  ],
+  "selected": true,
+  "source_checks": [
+    {
+      "command": "python3 tools/check-coupon-study-contract.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-rse-pin-migration-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-usb-en1-routing-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-gauge-supply-routing-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-control-cluster-routing-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-ordinary-routing-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-enable-routing-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-native-control-trial-114mm.kicad_pcb --legacy-land-study --legacy-switch-study",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-routing-progress-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-routing-progress-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-converter-checkpoint-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-u36-stage-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-routing-closure-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-switch-routing-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-remaining-routing-plan.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-remaining-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-switch-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-routing-closure-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-u36-stage-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_rse_pin_contract.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/test-routing-group-targets.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/test-converter-review-calculations.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/test-hdi-stack-policy.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-coupon-study-contract.py --legacy-rse-study --board hardware/coupon/rev-a/staging/led-converter-routing-trial-114mm.kicad_pcb",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 tools/check-c32-land-candidate.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_c32_land_candidate.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_murata_catalogue_lands.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_convex_geometry.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_supply_join.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_slide_switch_library.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_progress_plan.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_coupon_study_contract.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_goal_distance.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_native_route_paths.py -v",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -m unittest discover -s tools/tests -p test_routing_clearance.py -v",
+      "exit_code": 0
+    }
+  ],
+  "source_contacts_frozen_before_implementation": true,
+  "status": "SELECTED_CAD_CONTINUITY_ONLY",
+  "tracked_files": {
+    "hardware/coupon/rev-a/staging/led-enable-routing-trial-114mm.kicad_dru": "80c92b0cdef868dd0ef0037aa2f63d1266f709a2dd0326094735c75ffbd31a2e",
+    "hardware/coupon/rev-a/staging/led-enable-routing-trial-114mm.kicad_pcb": "90db778d8e44b2c71ab5e1f5d8a1c586ee71c25d46892b1406c4792ac7720abd",
+    "hardware/coupon/rev-a/staging/led-enable-routing-trial-114mm.kicad_pro": "1141b004ecffd1e7e8e0c30cf21aeae7ce6381093df674998133d226ab9c27fb",
+    "mechanical/review/enable-routing-plan.json": "bf6e2c902e2cdb0d0a3dd6aedbe309200a01b22a6d6b9a7b45ff9ec81c0c433f",
+    "tools/check-enable-routing-plan.py": "2a1ae8b2a166e3e218bd1c94bf11bcebb2bca1bd5c60938a22980b55eca182c6",
+    "tools/check-enable-routing.py": "d36cabd7edfddaf3ef66826f9fe0c5d96ca5a0ade7531b8b8554f3a94e5ef0ec",
+    "tools/check-enable-routing.sh": "342e13cfe8338d254390972dad7c12bd83503887b1ee505edb70a9cec9b1892b",
+    "tools/generate-enable-routing.py": "7e837fb613cbb84eacfa87ca254908d963989fbed3604c8e08c18a8df2dfaec8",
+    "tools/routing_enable.py": "9b985a0188678716f42e638d2dc85dfc115f808ad49bec0377faac4d9392f9dd",
+    "tools/test-control-cluster-routing-guards.py": "2f6f0625cb3ea2566741360ffd7e4b7eade6368a2ae0be0d6f3e2056b9b8e6ad",
+    "tools/test-enable-routing-guards.py": "eb70ec2fda8611a2e5b387eeebdb752aae50193fe4a70fc4dd89c6f9ec9722c3"
+  },
+  "visually_inspected_views": {
+    "hardware/coupon/rev-a/build/enable-routing/views/new/review-B_Cu.png": "c036d093b0b6a519321aed986482122986fd5b1b6b67f8be6587afc4aaa14ef6",
+    "hardware/coupon/rev-a/build/enable-routing/views/new/review-In1_Cu.png": "7f82b4a0e48aae8f09e4d447cc6d1af5d4ddd39220e1da1cdd173086e6bc1a8e",
+    "hardware/coupon/rev-a/build/enable-routing/views/new/review-In2_Cu.png": "cfa2d11122842e0822785ef8fee47ee2625ba51bddc437d6bb5335a888590176",
+    "hardware/coupon/rev-a/build/enable-routing/views/new/review-In3_Cu.png": "2243b03cf462b817a548185da2aa69fdf9a99cd99c443794ea98c48fd3f8e526",
+    "hardware/coupon/rev-a/build/enable-routing/views/new/review-In4_Cu.png": "57c37d771d764a918ba72da50e672bf0b5b6a4390ff62fa15e461601968bd705",
+    "hardware/coupon/rev-a/build/enable-routing/views/old/review-B_Cu.png": "406aa82b1a4dae6ddaaf801601d9c7096948ecef2f8d3cd92f9cde051a046002",
+    "hardware/coupon/rev-a/build/enable-routing/views/old/review-In2_Cu.png": "ed3dc3095b7e4ab6f96cec39a9282b3a9946381cbd6163625e4ff086430791a6"
+  },
+  "zero_open_goal_complete": false
+}

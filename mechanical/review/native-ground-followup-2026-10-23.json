@@ -1,0 +1,519 @@
+{
+  "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+  "accepted_board_sha256": "a1f742cd395079eb8360483a912c69890bd4f5f2ebbf17201bbd5ddf74f23f98",
+  "accepted_ground_open_edges": 24,
+  "accepted_intrinsic_drc_findings": 104,
+  "accepted_open_edges": 217,
+  "accepted_source_revision": "b85cf46dba8ba56db3ac0277a561ed458d2ae2c4",
+  "fabrication_release_allowed": false,
+  "github_checks": {
+    "checks": [
+      {
+        "conclusion": "SUCCESS",
+        "details_url": "https://github.com/mulbc/rgb-badge/actions/runs/39974306434/job/120484814886",
+        "name": "Schematic to study contract"
+      },
+      {
+        "conclusion": "SUCCESS",
+        "details_url": "https://github.com/mulbc/rgb-badge/actions/runs/39974297117/job/120484778954",
+        "name": "Schematic to study contract"
+      },
+      {
+        "conclusion": "SUCCESS",
+        "details_url": "https://github.com/mulbc/rgb-badge/actions/runs/39974306434/job/120484814931",
+        "name": "Exact PNG and GIF import"
+      },
+      {
+        "conclusion": "SUCCESS",
+        "details_url": "https://github.com/mulbc/rgb-badge/actions/runs/39974297117/job/120484778832",
+        "name": "Exact PNG and GIF import"
+      },
+      {
+        "conclusion": "SUCCESS",
+        "details_url": "https://github.com/mulbc/rgb-badge/actions/runs/39974306434/job/120484814502",
+        "name": "Provisional board pin inventory"
+      },
+      {
+        "conclusion": "SUCCESS",
+        "details_url": "https://github.com/mulbc/rgb-badge/actions/runs/39974297117/job/120484779080",
+        "name": "Provisional board pin inventory"
+      },
+      {
+        "conclusion": "SUCCESS",
+        "details_url": "https://github.com/mulbc/rgb-badge/actions/runs/39974306434/job/120484814750",
+        "name": "Firmware host checks (GCC)"
+      },
+      {
+        "conclusion": "SUCCESS",
+        "details_url": "https://github.com/mulbc/rgb-badge/actions/runs/39974297117/job/120484778936",
+        "name": "Firmware host checks (GCC)"
+      },
+      {
+        "conclusion": "SUCCESS",
+        "details_url": "https://github.com/mulbc/rgb-badge/actions/runs/39974306434/job/120484814763",
+        "name": "Firmware host checks (Clang)"
+      },
+      {
+        "conclusion": "SUCCESS",
+        "details_url": "https://github.com/mulbc/rgb-badge/actions/runs/39974297117/job/120484778419",
+        "name": "Firmware host checks (Clang)"
+      }
+    ],
+    "draft": true,
+    "passed": 10,
+    "revision": "b85cf46dba8ba56db3ac0277a561ed458d2ae2c4"
+  },
+  "hardware_measurements": "NONE",
+  "r36_global_column_search": {
+    "cleanup_attempt": "Remove exactly the original COL_06_G In3/In4 microvia at (61.9,7.25) mm. Every accepted physical pad group survives, but DRC exposes its unused 0.95 mm In3 track end.",
+    "cleanup_drc_findings": 105,
+    "disposition": "REJECTED: each 216-open candidate adds a native DRC finding; neither route, source removal nor cleanup is accepted. Exact obsolete branch cleanup and complete independent DRC/pad-group acceptance would be required for a future proposal.",
+    "forward_candidate_native_opens": 216,
+    "forward_drc_findings": 105,
+    "forward_report": {
+      "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+      "added_tracks_and_vias": 80,
+      "allowed_nets": [
+        "COL_06_G"
+      ],
+      "board_sha256": "2bc9da801bd462dcd1f654fabc2b62c415886524ee5086eb36b88c78ad60cb7d",
+      "clearance_mm": 0.2,
+      "connected_copper_endpoints": true,
+      "exact_native_grid_fallback": true,
+      "fabrication_release_allowed": false,
+      "grid_mm": 0.05,
+      "heuristic": "exact_empty_grid_layer_costs",
+      "heuristic_sha256": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4",
+      "heuristic_storage_bytes": 33686856,
+      "kicad_version": "10.0.6",
+      "max_nodes": 400000,
+      "microvia_diameter_drill_mm": [
+        0.3,
+        0.1
+      ],
+      "native_grid_statistics": {
+        "native_clear_masked_edges": 22579,
+        "native_clear_masked_points": 16966,
+        "native_edge_queries": 22579,
+        "native_point_queries": 223146
+      },
+      "open_edges": 216,
+      "preserve_clusters_after_each_join": true,
+      "reverse_search": false,
+      "routes": [
+        {
+          "expanded_nodes": 381583,
+          "net": "COL_06_G",
+          "routed": true,
+          "search_outcome": "accepted_join",
+          "source": [
+            "U1",
+            "31"
+          ]
+        }
+      ],
+      "search_tool_sha256": "a466e35594fd9193d349032c2e97cf201c693311f5ca79386511286054858938",
+      "source_sha256": "ae80df7b444ccdfc3b7574cbb133c95a40632d7fedb5891eebefabd258157550",
+      "status": "UNQUALIFIED_LOCAL_CONTROL_STUDY",
+      "tool_source_sha256": {
+        "hardware/coupon/rev-a/build/native-control-search/r36-column-search.py": "a466e35594fd9193d349032c2e97cf201c693311f5ca79386511286054858938",
+        "tools/generate-colour-fanout-grid-trial.py": "62fbbc1ce6c0e8cb0a276dd15900885562a8e69c69557949eb6f689945ea1224",
+        "tools/generate-paired-charger-114mm-routing.py": "807eaba5aea8e92ecbf514ca16ab767c30d006703c6697a9fec10cf2e46e1441",
+        "tools/routing_clearance.py": "d1797c13ac7f5df4d066fc5e245fb143a67f002ad6bf7c0a67b96ff456d7db91",
+        "tools/routing_goal_distance.py": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4"
+      },
+      "tracks_and_vias": 15586,
+      "width_mm": 0.2
+    },
+    "local_tool_scope": "An ignored local copy of the current low-speed search tool; only repository ROOT and allowed net COL_06_G changed. Accepted production search tool unchanged. This screen does not qualify colour timing/current/return behavior.",
+    "new_cleanup_findings": [
+      {
+        "description": "Track has unconnected end",
+        "items": [
+          {
+            "description": "Track [COL_06_G] on In3.Cu, length 0.9500 mm",
+            "pos": {
+              "x": 61.9,
+              "y": 7.25
+            },
+            "uuid": "c9cfea0c-816a-59fe-a155-3ae1ffd108aa"
+          }
+        ],
+        "severity": "warning",
+        "type": "track_dangling"
+      }
+    ],
+    "new_forward_findings": [
+      {
+        "description": "Via is not connected or connected on only one layer",
+        "items": [
+          {
+            "description": "Micro via [COL_06_G] on In3.Cu - In4.Cu",
+            "pos": {
+              "x": 61.9,
+              "y": 7.25
+            },
+            "uuid": "c393b9d7-6bb7-5af9-8921-96a31f48f0c9"
+          }
+        ],
+        "severity": "warning",
+        "type": "via_dangling"
+      }
+    ],
+    "reverse_report": {
+      "SPDX-License-Identifier": "CERN-OHL-S-2.0",
+      "added_tracks_and_vias": 0,
+      "allowed_nets": [
+        "COL_06_G"
+      ],
+      "board_sha256": "94418987506049b8c8397478a85aa67a7e15d60cf3a52ea51551c146e3b9a04c",
+      "clearance_mm": 0.2,
+      "connected_copper_endpoints": true,
+      "exact_native_grid_fallback": true,
+      "fabrication_release_allowed": false,
+      "grid_mm": 0.05,
+      "heuristic": "exact_empty_grid_layer_costs",
+      "heuristic_sha256": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4",
+      "heuristic_storage_bytes": 33686856,
+      "kicad_version": "10.0.6",
+      "max_nodes": 400000,
+      "microvia_diameter_drill_mm": [
+        0.3,
+        0.1
+      ],
+      "native_grid_statistics": {
+        "native_clear_masked_edges": 30919,
+        "native_clear_masked_points": 21809,
+        "native_edge_queries": 30919,
+        "native_point_queries": 297827
+      },
+      "open_edges": 217,
+      "preserve_clusters_after_each_join": true,
+      "reverse_search": true,
+      "routes": [
+        {
+          "expanded_nodes": 400001,
+          "net": "COL_06_G",
+          "routed": false,
+          "search_outcome": "node_bound",
+          "source": [
+            "U1",
+            "31"
+          ]
+        }
+      ],
+      "search_tool_sha256": "a466e35594fd9193d349032c2e97cf201c693311f5ca79386511286054858938",
+      "source_sha256": "ae80df7b444ccdfc3b7574cbb133c95a40632d7fedb5891eebefabd258157550",
+      "status": "UNQUALIFIED_LOCAL_CONTROL_STUDY",
+      "tool_source_sha256": {
+        "hardware/coupon/rev-a/build/native-control-search/r36-column-search.py": "a466e35594fd9193d349032c2e97cf201c693311f5ca79386511286054858938",
+        "tools/generate-colour-fanout-grid-trial.py": "62fbbc1ce6c0e8cb0a276dd15900885562a8e69c69557949eb6f689945ea1224",
+        "tools/generate-paired-charger-114mm-routing.py": "807eaba5aea8e92ecbf514ca16ab767c30d006703c6697a9fec10cf2e46e1441",
+        "tools/routing_clearance.py": "d1797c13ac7f5df4d066fc5e245fb143a67f002ad6bf7c0a67b96ff456d7db91",
+        "tools/routing_goal_distance.py": "1d6914698111c660a852172efbedb5b28559344046f8f93fd0adb88e01a8d8b4"
+      },
+      "tracks_and_vias": 15506,
+      "width_mm": 0.2
+    },
+    "source_preparation": "Remove exact In4 COL_06_G (82.6,7.25) to (61.9,7.25) mm and add short R36.2 lead plus three adjacent microvias to main In2 GND; no accepted-source mutation"
+  },
+  "r36_local_detours": {
+    "asymmetric_in3": "No native-clear candidate; representative In3 segments intersect ROW_03_A and ROW_GATE_01 although both endpoint vias clear",
+    "in1_fixed_transition_stacks": "No native-clear candidate",
+    "native_in3_in1_limits": {
+      "bounds_mm": [
+        61,
+        5.8,
+        68,
+        9.5
+      ],
+      "expanded": 1216,
+      "grid_iu": 50000,
+      "node_bound": 150000,
+      "outcome": "Exhausted grid; no route",
+      "planar_In2_steps_allowed": false
+    },
+    "native_in3_in1_search": {
+      "accepted": false,
+      "expanded": 1216,
+      "path_found": false
+    }
+  },
+  "raw_evidence_sha256": {
+    "/Users/cblum/Nextcloud/work/rgb-badge/hardware/coupon/rev-a/build/native-control-search/r36-column-clean-drc.json": "14779770ea925accdff98422e7eadc7c5cc551a7670ba0d9e53cb9bbad089fb8",
+    "/Users/cblum/Nextcloud/work/rgb-badge/hardware/coupon/rev-a/build/native-control-search/r36-column-clean.kicad_pcb": "53f14cc281ebc5d157f633a9e176141639cd7fa4adf4986a0ccebc1cab2a2b13",
+    "/Users/cblum/Nextcloud/work/rgb-badge/hardware/coupon/rev-a/build/native-control-search/r36-column-restored-drc.json": "a4216a2a795d72cde66f2319398cff02e81373958654d5eefc474b64b5011fe4",
+    "/Users/cblum/Nextcloud/work/rgb-badge/hardware/coupon/rev-a/build/native-control-search/r36-column-restored-reverse.json": "c431f5eb48d7321ffb05f726fbe9fe4880122ace14f0b3e806e27dcbf0089819",
+    "/Users/cblum/Nextcloud/work/rgb-badge/hardware/coupon/rev-a/build/native-control-search/r36-column-restored.json": "f2bb46a4c7cd5c44d3d28e29c9013465c80704c3159361f6bc96b96adacf1d16",
+    "/Users/cblum/Nextcloud/work/rgb-badge/hardware/coupon/rev-a/build/native-control-search/r36-column-restored.kicad_pcb": "2bc9da801bd462dcd1f654fabc2b62c415886524ee5086eb36b88c78ad60cb7d",
+    "/Users/cblum/Nextcloud/work/rgb-badge/hardware/coupon/rev-a/build/native-control-search/r36-column-search.py": "a466e35594fd9193d349032c2e97cf201c693311f5ca79386511286054858938",
+    "/Users/cblum/Nextcloud/work/rgb-badge/hardware/coupon/rev-a/build/scl-preserve/local-ground-astar.json": "fda207e89a48ea6a4b19f44686d07e51618c86ef53b016e1e613843415f255c6",
+    "/Users/cblum/Nextcloud/work/rgb-badge/hardware/coupon/rev-a/build/scl-preserve/r36-column-reserved-source.kicad_pcb": "ae80df7b444ccdfc3b7574cbb133c95a40632d7fedb5891eebefabd258157550",
+    "/Users/cblum/Nextcloud/work/rgb-badge/hardware/coupon/rev-a/build/scl-preserve/r36-multilayer-ground.json": "232ab9d32638e684b9c2111653f398934486ea300df0ba961646c98573b8be47",
+    "/private/tmp/rgb-clean-r36-column.log": "c9d134a3975f3a6c4d92ee4e491fd315cf70776c766771a1003a1cc75db842eb",
+    "/private/tmp/rgb-clean-r36-column.py": "f89baa8b7c4027916403907b1677c50e7b932fd42b57870c6855974a2eacdcf8",
+    "/private/tmp/rgb-local-ground-astar.log": "8452b1cf88e52e27d6d768a7460b8cbf0f13136da678246771b47c9a0308693c",
+    "/private/tmp/rgb-local-ground-astar.py": "94950c81fff221815b2be5b470647b49c6e6759c9bea7fe1f8f3531174b1def8",
+    "/private/tmp/rgb-prepare-r36-global.log": "2fa71b012badf1cc18fe0600def21a67517baf64a14073a1bc760a24a0fae2a5",
+    "/private/tmp/rgb-prepare-r36-global.py": "8275d18b3f98d9e9c77e25824de513c2e6b2759a64cac8a10e2caf555baa6347",
+    "/private/tmp/rgb-r36-blockers.log": "0d88d9cb6e495b97d45630f2dabdc8b08f93b43cfdd1f670470725fe65338d64",
+    "/private/tmp/rgb-r36-blockers.py": "68e853a7d2a125847b0757d2ff6dc480e9a69bbb891aca86a28c43e8b54e8f3a",
+    "/private/tmp/rgb-r36-clean-drc.log": "ffa8807255856c052dc932c8f14108033596584f0a0424f6e0a59a1d2e77af7d",
+    "/private/tmp/rgb-r36-global-drc.log": "332e3bd5ed87c65dc9e8f3edce5a3230325c782dfdb95bb4f79b3940be12643c",
+    "/private/tmp/rgb-r36-global-search-reverse.log": "5a492da983db6204a55cf2121d5a34c544dae50ed4e7df4c54841837d7ccb48c",
+    "/private/tmp/rgb-r36-global-search.log": "bef0ec67926327b46a842395e00b882b107bee27a1f4f03705b5efeee77404e9",
+    "/private/tmp/rgb-r36-multilayer.log": "dd0da2022373336f9c6b8cbb9560d71f625e6f67faf4466a8d9c8580519b9fc4",
+    "/private/tmp/rgb-r36-multilayer.py": "9a1ae7139e3589996b036c6814aa374bfbb9d711f2b027641a10aabf6db1ed9a",
+    "/private/tmp/rgb-r36-via-sites.log": "cd1b17a4df39d88a9827577a1dec7f2d6c39a9ebeb571a69546afc744d884cbc",
+    "/private/tmp/rgb-r36-via-sites.py": "98616da8400db02bdb28d596ece8282b5c67f9b881d9aefc8bc5eee021423c5d",
+    "/private/tmp/rgb-reserve-r36-asymmetric.log": "3a2801f06846d8990977c99a7d71471922ad0901471adb920cee06eea9cb5c27",
+    "/private/tmp/rgb-reserve-r36-asymmetric.py": "cf7ad57ef3c344e10f14731a72e25ae562f1d81dc802938c912a5edb011b3e19",
+    "/private/tmp/rgb-reserve-r36-in1.log": "e09129c3e94f98bbeb04778d2e470e594e7a4518f3287ee05f7b54f324581ec1",
+    "/private/tmp/rgb-reserve-r36-in1.py": "88c649e45d88eacde29760c2ed23a900bda74daf5c9af07b71e7d5d9ea53c208"
+  },
+  "rear_ground_astar": {
+    "attempt_bound": 18,
+    "board_bounds_mm": [
+      0.7,
+      0.7,
+      113.3,
+      31.8
+    ],
+    "edge_test": "Both endpoints and complete segment checked against foreign native pad/track shapes",
+    "global_node_bound": 100000,
+    "grid_iu": 50000,
+    "interpretation": "Eighteen endpoint-clear bounded searches exhaust without a route; 84 nearby pairs were enumerated, not all searched. No proof that other geometry is impossible.",
+    "layer": "B.Cu",
+    "maximum_pair_distance_mm": 8,
+    "per_pair_node_bound": 20000,
+    "rectangle_margin_each_axis_mm": 2.5,
+    "result": {
+      "accepted": false,
+      "elapsed_seconds": 0.45105108399999994,
+      "open_edges": 217,
+      "searches": [
+        {
+          "anchor": [
+            "R2",
+            "2"
+          ],
+          "expanded": 126,
+          "reached": false,
+          "source": [
+            "R35",
+            "2"
+          ]
+        },
+        {
+          "anchor": [
+            "R62",
+            "2"
+          ],
+          "expanded": 126,
+          "reached": false,
+          "source": [
+            "R36",
+            "2"
+          ]
+        },
+        {
+          "anchor": [
+            "R22",
+            "2"
+          ],
+          "expanded": 126,
+          "reached": false,
+          "source": [
+            "R38",
+            "2"
+          ]
+        },
+        {
+          "anchor": [
+            "R32",
+            "2"
+          ],
+          "expanded": 212,
+          "reached": false,
+          "source": [
+            "R5",
+            "2"
+          ]
+        },
+        {
+          "anchor": [
+            "R82",
+            "2"
+          ],
+          "expanded": 212,
+          "reached": false,
+          "source": [
+            "R5",
+            "2"
+          ]
+        },
+        {
+          "anchor": [
+            "R62",
+            "2"
+          ],
+          "expanded": 212,
+          "reached": false,
+          "source": [
+            "R86",
+            "2"
+          ]
+        },
+        {
+          "anchor": [
+            "C50",
+            "2"
+          ],
+          "expanded": 67,
+          "reached": false,
+          "source": [
+            "C67",
+            "2"
+          ]
+        },
+        {
+          "anchor": [
+            "C50",
+            "2"
+          ],
+          "expanded": 740,
+          "reached": false,
+          "source": [
+            "C51",
+            "2"
+          ]
+        },
+        {
+          "anchor": [
+            "R22",
+            "2"
+          ],
+          "expanded": 685,
+          "reached": false,
+          "source": [
+            "R23",
+            "2"
+          ]
+        },
+        {
+          "anchor": [
+            "R29",
+            "2"
+          ],
+          "expanded": 126,
+          "reached": false,
+          "source": [
+            "R3",
+            "2"
+          ]
+        },
+        {
+          "anchor": [
+            "R30",
+            "2"
+          ],
+          "expanded": 126,
+          "reached": false,
+          "source": [
+            "R3",
+            "2"
+          ]
+        },
+        {
+          "anchor": [
+            "R30",
+            "2"
+          ],
+          "expanded": 126,
+          "reached": false,
+          "source": [
+            "R31",
+            "2"
+          ]
+        },
+        {
+          "anchor": [
+            "R32",
+            "2"
+          ],
+          "expanded": 126,
+          "reached": false,
+          "source": [
+            "R31",
+            "2"
+          ]
+        },
+        {
+          "anchor": [
+            "R34",
+            "2"
+          ],
+          "expanded": 126,
+          "reached": false,
+          "source": [
+            "R35",
+            "2"
+          ]
+        },
+        {
+          "anchor": [
+            "R62",
+            "2"
+          ],
+          "expanded": 212,
+          "reached": false,
+          "source": [
+            "R63",
+            "2"
+          ]
+        },
+        {
+          "anchor": [
+            "PAIR02",
+            "1"
+          ],
+          "expanded": 885,
+          "reached": false,
+          "source": [
+            "U38",
+            "2"
+          ]
+        },
+        {
+          "anchor": [
+            "C5",
+            "2"
+          ],
+          "expanded": 67,
+          "reached": false,
+          "source": [
+            "C67",
+            "2"
+          ]
+        },
+        {
+          "anchor": [
+            "R62",
+            "2"
+          ],
+          "expanded": 126,
+          "reached": false,
+          "source": [
+            "R35",
+            "2"
+          ]
+        }
+      ],
+      "source_board_sha256": "a1f742cd395079eb8360483a912c69890bd4f5f2ebbf17201bbd5ddf74f23f98",
+      "source_pairs": 84,
+      "total_expanded": 4426
+    },
+    "width_clearance_iu": 200000
+  },
+  "status": "REJECTED_GROUND_FOLLOWUP_ACCEPTED_BOARD_UNCHANGED"
+}
