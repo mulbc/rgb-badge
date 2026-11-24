@@ -1391,3 +1391,47 @@ ADR0290 permits bounded supported F/In1 selector discovery after direct
 templates fail; ADR0291 permits bounded supported In1/In2 row discovery
 after the fixed aligned capture fails Cu clearance. Every original
 source/group/Cu/hole and complete-cell qualification boundary remains.
+
+ADR0292 permits one supported mechanical In2/In3 transition in the bounded
+row study after early In2 routing exhausts. Full unchanged mechanical and
+source/mutual hole, Cu, group, complete-cell and qualification requirements
+remain; no new centre microvia or partial source selection is permitted.
+
+ADR0293 permits alternate coordinated front-cell poses from the existing
+qualified set, with the same111-item cohort and strict native source,
+identity, package, clearance, continuity and complete-cell boundaries.
+No template alone is a selected routing improvement or fabrication release.
+
+ADR0294 permits actual Cu/PAD starts for bounded original/alternate front
+row access, and supported alternate selector access. Every source, identity,
+native Cu/hole/courtyard, group and complete-cell qualification boundary
+remains; no partial state or template may replace the selected source.
+
+ADR0295 permits a wider supported row corridor including real retained
+ports outside the earlier ROI, with explicit18 mm conductor bound and
+unchanged native Cu/drill/group requirements. Timing/return/electrical
+qualification and full complete-cell/source-selection gates remain.
+
+The ADR0295 computational continuation permits a0.050 mm/300000-node
+pass in the same physical corridor and acceptance boundaries after both
+fine searches reach their node limits; no geometry/rule waiver is added.
+
+ADR0296 permits one supported aligned lower outer stack to return the
+front row to actual retained B Cu, within unchanged corridor/conductor/
+source and full native preservation boundaries. No new through hole,
+centre microvia, partial selection or fabrication release is permitted.
+
+ADR0297 permits a real F/In2/F row bridge through at most two supported
+outer stacks, within unchanged conductor/corridor/source/native Cu/drill
+and complete-group boundaries. No waypoint-only or partial source join
+qualifies; full PCB qualification and all existing holds remain.
+
+ADR0298 includes each frozen proved selector before row discovery, making
+its actual Cu and hole part of every collision screen. A completed RAM
+state requires20 matching opens/all210 original groups and unchanged full
+source/native checks before any separate PCB qualification.
+
+ADR0299 permits bounded bidirectional exchanges using only the supported
+outer microvia and mechanical-centre profiles, at most eight real new
+holes, with the proved selector already present. All source/mutual Cu,
+drill, complete-group and separate PCB qualification gates remain.

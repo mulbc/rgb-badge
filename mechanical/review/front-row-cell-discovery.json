@@ -7575,5 +7575,7142 @@
     "pcb_written": false,
     "fabrication_release_allowed": false
   },
-  "selector_route_sha256": "a251ec65094ca128045753ce7b11c0d169ca0373406d8f54cc0e32930f02cc52"
+  "selector_route_sha256": "a251ec65094ca128045753ce7b11c0d169ca0373406d8f54cc0e32930f02cc52",
+  "alternate_geometry": {
+    "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+    "source_board": "hardware/coupon/rev-a/staging/led-pair03-supply-routing-trial-114mm.kicad_pcb",
+    "poses": {
+      "PAIR05": {
+        "position_iu": [
+          83400000,
+          12700000
+        ],
+        "orientation_degrees": 90,
+        "layer": "F.Cu",
+        "flip": "top-bottom",
+        "power_pad_position_iu": [
+          84050000,
+          11775000
+        ],
+        "ground_pad_position_iu": [
+          82750000,
+          13625000
+        ],
+        "gate_pad_position_iu": [
+          83400000,
+          11775000
+        ],
+        "row_pad_position_iu": [
+          84050000,
+          13625000
+        ],
+        "nearest_row_source_pad": [
+          "D80",
+          "1"
+        ],
+        "nearest_row_source_position_iu": [
+          74075000,
+          9825000
+        ],
+        "nearest_row_distance_mm": 10.67429740076601,
+        "source_plane_witnesses": {
+          "power": [
+            {
+              "zone_uuid": "566adf1a-30fb-5b01-a217-ee87a01be9a9",
+              "polygon": 2,
+              "layer": "In1.Cu"
+            }
+          ],
+          "ground": [
+            {
+              "zone_uuid": "de293b84-4ac9-56e5-adda-363e58b4a9d2",
+              "polygon": 1,
+              "layer": "In2.Cu"
+            }
+          ]
+        },
+        "new_copper": [
+          {
+            "signature": [
+              "track",
+              "ROW_04_A",
+              84050000,
+              13625000,
+              83900000,
+              12700000,
+              "F.Cu",
+              200000
+            ],
+            "via_type": null
+          },
+          {
+            "signature": [
+              "track",
+              "ROW_GATE_04",
+              82750000,
+              11775000,
+              82900000,
+              12700000,
+              "F.Cu",
+              200000
+            ],
+            "via_type": null
+          },
+          {
+            "signature": [
+              "track",
+              "ROW_GATE_04",
+              83400000,
+              11775000,
+              82750000,
+              11775000,
+              "F.Cu",
+              200000
+            ],
+            "via_type": null
+          },
+          {
+            "signature": [
+              "via",
+              "VLED",
+              84050000,
+              11775000,
+              "F.Cu",
+              "In1.Cu",
+              300000,
+              100000
+            ],
+            "via_type": 1
+          },
+          {
+            "signature": [
+              "via",
+              "GND",
+              82750000,
+              13625000,
+              "F.Cu",
+              "In1.Cu",
+              300000,
+              100000
+            ],
+            "via_type": 1
+          },
+          {
+            "signature": [
+              "via",
+              "GND",
+              82750000,
+              13625000,
+              "In1.Cu",
+              "In2.Cu",
+              300000,
+              100000
+            ],
+            "via_type": 1
+          }
+        ],
+        "hole_audit": {
+          "disjoint_supported_close_pairs": [],
+          "aligned_adjacent_stacks": [
+            {
+              "uuids": [
+                "120dc928-077b-4099-9695-e15cd8e3cabc",
+                "ff717aa0-2508-4aa4-a767-427440fd1d2b"
+              ],
+              "first_uuid": "120dc928-077b-4099-9695-e15cd8e3cabc",
+              "first_span": [
+                "In1.Cu",
+                "In2.Cu"
+              ],
+              "second_span": [
+                "F.Cu",
+                "In1.Cu"
+              ],
+              "first_position_iu": [
+                82750000,
+                13625000
+              ],
+              "second_position_iu": [
+                82750000,
+                13625000
+              ]
+            }
+          ],
+          "other_close_pairs": 0,
+          "minimum_unchanged_hole_clearance_mm": 0.25,
+          "fabrication_qualified": false
+        }
+      },
+      "R10": {
+        "position_iu": [
+          83700000,
+          10700000
+        ],
+        "orientation_degrees": 180,
+        "layer": "F.Cu",
+        "flip": "top-bottom"
+      },
+      "R26": {
+        "position_iu": [
+          83100000,
+          14700000
+        ],
+        "orientation_degrees": 180,
+        "layer": "F.Cu",
+        "flip": "top-bottom"
+      }
+    },
+    "retired_copper": [
+      {
+        "uuid": "00093fa2-8c6b-5f49-b08c-13ca1174986a",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          74200000,
+          15100000,
+          74250000,
+          15100000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "003eaa32-81e0-556a-85eb-a839ab6d9b88",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          55100000,
+          12150000,
+          56000000,
+          12150000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "005c0644-012a-5744-9514-fe0d7dd69ad3",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          56000000,
+          12200000,
+          56850000,
+          12200000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "06f60c8b-b02c-5499-8750-9449c46ad565",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          61250000,
+          12500000,
+          62100000,
+          12500000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "0842a3f3-a0a5-58bc-b1cf-d3905888ef15",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          63850000,
+          12600000,
+          63850000,
+          12650000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "0d8b7bc3-a30c-5c80-a8e0-010135a91a84",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          74450000,
+          13300000,
+          75000000,
+          13300000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "0e2cd010-90f1-50e2-ad66-e87820ad12a1",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          60350000,
+          12400000,
+          60350000,
+          12450000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "0e3fb199-456b-547b-baf5-d545de49ebb1",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          66500000,
+          12800000,
+          67350000,
+          12800000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "0fb35538-b607-5212-90b3-1fc8d3bcfe9a",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          57750000,
+          12300000,
+          58600000,
+          12300000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "1140e499-19b1-56d0-8ed2-b91483e53ab4",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          58600000,
+          12350000,
+          59500000,
+          12350000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "14f7a5ed-12a2-5cfd-80e8-624df5a145c0",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          74250000,
+          15000000,
+          74950000,
+          15000000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "15abb6d9-94fd-5ec7-8af8-cb6bc39f25d6",
+        "signature": [
+          "via",
+          "ROW_SEL_04",
+          74200000,
+          15250000,
+          "In4.Cu",
+          "B.Cu",
+          300000,
+          100000
+        ],
+        "via_type": 1
+      },
+      {
+        "uuid": "1751f3fa-56b5-5541-b3eb-386ce1a482ef",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          59500000,
+          12400000,
+          60350000,
+          12400000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "183e69ff-c4d3-52e3-bd38-7966a0290185",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          77700000,
+          12250000,
+          77700000,
+          12300000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "1a82fe1a-d96f-5958-90ee-559d11639178",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          74250000,
+          15100000,
+          74250000,
+          15000000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "1cdac08a-61a9-5cf2-bb65-f668834e8215",
+        "signature": [
+          "track",
+          "ROW_GATE_04",
+          74825000,
+          11250000,
+          74825000,
+          10600000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "1d060897-5249-5a78-ae49-ed9bb43757b5",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          70000000,
+          13000000,
+          70850000,
+          13000000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "1ea2ca08-aa57-59f7-9391-4b6f6b1618d3",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          54100000,
+          8300000,
+          54100000,
+          8400000,
+          "In4.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "20aad481-619c-55be-adb1-984fcfa32d7c",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          73500000,
+          13150000,
+          73500000,
+          13200000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "20f8e629-6194-5697-b796-ddf47a8fe3dd",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          74200000,
+          15250000,
+          74200000,
+          15100000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "2363077f-8ad4-566d-a419-3824fa92b174",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          73500000,
+          13200000,
+          74300000,
+          13200000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "238e96b4-7770-5c8b-b2f2-7251c3053804",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          77750000,
+          12200000,
+          77750000,
+          12250000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "23fdc221-84ca-56b8-8563-709035904220",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          63000000,
+          12550000,
+          63000000,
+          12600000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "2589fd38-2bfb-526d-b557-ada2955133d0",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          77850000,
+          12050000,
+          77800000,
+          12050000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "276689b1-ccd9-597c-a0d9-f3febe7e37c7",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          80200000,
+          15000000,
+          84850000,
+          15000000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "292109a3-0912-5028-af68-36b4a661fe19",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          77800000,
+          12050000,
+          77800000,
+          12200000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "2a2bbc81-3d9c-50ad-a336-3e9ddac44699",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          74300000,
+          13250000,
+          74450000,
+          13250000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "2bc267b0-042a-5d5c-b609-bacd0e888afd",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          37750000,
+          7250000,
+          38600000,
+          7250000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "2c15071a-e5dc-5d99-8a12-2e65dbbfcfcb",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          40500000,
+          7250000,
+          40500000,
+          7750000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "35d91ccc-eaab-5d68-9dac-6ffcdd4a554b",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          54100000,
+          8400000,
+          54150000,
+          8400000,
+          "In4.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "369f217b-ec64-5b0c-87eb-433e93e762df",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          71750000,
+          13100000,
+          72600000,
+          13100000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "390545de-87e5-5761-a582-f99e0c6671c9",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          74200000,
+          12500000,
+          74200000,
+          15250000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "3b6d7907-a231-52b4-9516-6cd56ae957d4",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          76675000,
+          11250000,
+          76650000,
+          11250000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "3cdafcab-cc04-598e-a59f-3bc946f3e16e",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          62100000,
+          12550000,
+          63000000,
+          12550000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "3d63e0a6-fa13-546a-8c17-e4c46b543804",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          74950000,
+          15000000,
+          80200000,
+          15000000,
+          "In2.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "43c9fc20-b639-5c4c-a6f9-792467c20978",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          71750000,
+          13050000,
+          71750000,
+          13100000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "43ef272c-ba48-5303-97e7-42290c7828ac",
+        "signature": [
+          "via",
+          "ROW_SEL_04",
+          74950000,
+          15000000,
+          "In2.Cu",
+          "In3.Cu",
+          300000,
+          100000
+        ],
+        "via_type": 1
+      },
+      {
+        "uuid": "44c5a440-ec9d-558b-aec4-1e55c957019f",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          68250000,
+          12850000,
+          68250000,
+          12900000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "47ac9dcf-f4c8-5011-982c-c4c6337ad5c0",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          70000000,
+          12950000,
+          70000000,
+          13000000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "4d66a059-ab56-5d02-bcf3-5ffedf2d40bf",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          74450000,
+          13250000,
+          74450000,
+          13300000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "4e2e77a4-5af4-5a3a-b592-ae6bc8413b78",
+        "signature": [
+          "track",
+          "ROW_04_A",
+          76675000,
+          11900000,
+          77250000,
+          11900000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "4fd17e28-4944-5501-bbfb-3341d0fff6e5",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          75000000,
+          13350000,
+          75150000,
+          13350000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "51a5eb4e-3fef-5412-8de0-1391f24b255a",
+        "signature": [
+          "via",
+          "ROW_SEL_04",
+          54200000,
+          12100000,
+          "In2.Cu",
+          "In3.Cu",
+          300000,
+          100000
+        ],
+        "via_type": 1
+      },
+      {
+        "uuid": "581825b5-ddf3-5662-9c22-bc0c32f32d6b",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          62100000,
+          12500000,
+          62100000,
+          12550000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "583c32e7-3cd8-5508-a5a1-6839627583b5",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          77800000,
+          12200000,
+          77750000,
+          12200000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "5a14e970-2859-58f6-8c85-109fdeea3b18",
+        "signature": [
+          "via",
+          "ROW_SEL_04",
+          80200000,
+          15000000,
+          "In1.Cu",
+          "In2.Cu",
+          300000,
+          100000
+        ],
+        "via_type": 1
+      },
+      {
+        "uuid": "5d06fef0-9e20-559e-a93f-a89e3e0d486c",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          63850000,
+          12650000,
+          64750000,
+          12650000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "606bde92-9ff6-5707-ab53-b888d03ec621",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          54200000,
+          12100000,
+          55100000,
+          12100000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "697f14b4-9b79-5ae8-8599-bb83a4b42634",
+        "signature": [
+          "via",
+          "ROW_SEL_04",
+          75150000,
+          13400000,
+          "In2.Cu",
+          "In3.Cu",
+          300000,
+          100000
+        ],
+        "via_type": 1
+      },
+      {
+        "uuid": "6c2e4815-ab8b-57e6-853e-354d4e1311e1",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          54000000,
+          7250000,
+          54000000,
+          8199999,
+          "In4.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "70806735-19c7-559b-a9ee-d4d02ed178cc",
+        "signature": [
+          "via",
+          "ROW_SEL_04",
+          74200000,
+          15250000,
+          "In3.Cu",
+          "In4.Cu",
+          300000,
+          100000
+        ],
+        "via_type": 1
+      },
+      {
+        "uuid": "7093e413-c5aa-5346-8d08-d8fafb53a4ec",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          77600000,
+          12400000,
+          77550000,
+          12400000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "7a16992e-d59e-58a7-bc13-d0932628d9c1",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          57750000,
+          12250000,
+          57750000,
+          12300000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "7c8c664a-2545-5947-9999-8e9c3f45ffda",
+        "signature": [
+          "via",
+          "VLED",
+          47750000,
+          4250000,
+          "In4.Cu",
+          "B.Cu",
+          300000,
+          100000
+        ],
+        "via_type": 1
+      },
+      {
+        "uuid": "7db519b7-09a6-5709-9a0a-637b74054744",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          77550000,
+          12450000,
+          77400000,
+          12450000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "7e73fcfa-7f21-5351-99d6-e70c3eb40309",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          77550000,
+          12400000,
+          77550000,
+          12450000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "869cc00d-c3b5-5831-b739-bf0733c067d4",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          65599999,
+          12750000,
+          66500000,
+          12750000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "87fb1b9a-6736-5e4d-a9a5-208eed60f75d",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          40500000,
+          7750000,
+          44800000,
+          7750000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "8a58b703-9488-5827-806e-d2ac4d740afd",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          54050000,
+          8199999,
+          54050000,
+          8300000,
+          "In4.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "8a6e979a-4333-58a2-9408-3f4058fe88c9",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          70850000,
+          13000000,
+          70850000,
+          13050000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "8bde67c0-4ba3-5b35-9351-eb969e965fbd",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          77600000,
+          12350000,
+          77600000,
+          12400000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "8eb3b3f8-e81e-590b-8f0c-25d3ede4bbde",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          54000000,
+          8199999,
+          54050000,
+          8199999,
+          "In4.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "9148639c-2c68-5043-9ffe-81597941cc00",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          70850000,
+          13050000,
+          71750000,
+          13050000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "964732b6-1ac6-5d18-80ee-dd6b17d6b299",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          56850000,
+          12250000,
+          57750000,
+          12250000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "a17fa9d9-06a0-577d-a70d-7e570c218c1c",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          56850000,
+          12200000,
+          56850000,
+          12250000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "a3278da8-f893-5a29-b8c5-cf94f32fba35",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          54150000,
+          8400000,
+          54150000,
+          8450000,
+          "In4.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "a46796c1-6ec7-5970-b4ca-2d17718a8336",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          77650000,
+          12300000,
+          77650000,
+          12350000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "a793ea57-9d7d-5e90-a095-bae5ec825daa",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          54050000,
+          8300000,
+          54100000,
+          8300000,
+          "In4.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "aa224615-44e5-5ed5-95ea-9dfee82a431f",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          44800000,
+          7250000,
+          54000000,
+          7250000,
+          "In4.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "aa291aea-9e79-5613-a8b1-ebf16872f011",
+        "signature": [
+          "via",
+          "ROW_SEL_04",
+          54200000,
+          8750000,
+          "In3.Cu",
+          "In4.Cu",
+          300000,
+          100000
+        ],
+        "via_type": 1
+      },
+      {
+        "uuid": "aa633b26-c98e-5198-abfb-b0469af712fd",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          54150000,
+          8450000,
+          54200000,
+          8450000,
+          "In4.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "ac49e368-46d0-5ed9-8e77-6f84f929e766",
+        "signature": [
+          "track",
+          "ROW_GATE_04",
+          74825000,
+          10600000,
+          75750000,
+          10750000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "ac7f3602-466c-57b8-ae0e-5b42868913cb",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          69100000,
+          12950000,
+          70000000,
+          12950000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "b236e849-aa64-5698-9e0a-310866b83521",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          77650000,
+          12350000,
+          77600000,
+          12350000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "b9a21fa3-e44f-52a2-bd6a-a603af3b65b7",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          64750000,
+          12700000,
+          65599999,
+          12700000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "ba32d058-40ff-5012-b6ef-4bb6084b44b9",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          59500000,
+          12350000,
+          59500000,
+          12400000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "bcf073b4-d908-5588-bc52-1922b4a9b5ea",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          77400000,
+          12500000,
+          74200000,
+          12500000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "bf1226e6-8957-5453-a355-e19733a1f0ad",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          74300000,
+          13200000,
+          74300000,
+          13250000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "c31959c2-b49a-587a-b3a8-b3a8f6745e92",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          38600000,
+          7250000,
+          40500000,
+          7250000,
+          "In4.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "c3c8ad97-423d-5f77-937d-d7d39b4a4654",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          54200000,
+          8750000,
+          54200000,
+          12100000,
+          "In2.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "c491a668-8e7e-5f33-ae5c-95180c1ce1b2",
+        "signature": [
+          "track",
+          "ROW_04_A",
+          75750000,
+          11750000,
+          76675000,
+          11900000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "c6052eb3-2ded-5ab5-9eb1-833d82eeb985",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          67350000,
+          12850000,
+          68250000,
+          12850000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "c68b20d3-7aea-579e-9573-9beb53c4235b",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          68250000,
+          12900000,
+          69100000,
+          12900000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "c97229bd-0744-5f60-bd86-bfe40fd42b33",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          58600000,
+          12300000,
+          58600000,
+          12350000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "ca00c51a-11bf-50ab-aad9-c1e592619832",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          77400000,
+          12450000,
+          77400000,
+          12500000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "d05d078a-2565-507e-bab1-befeb9ee7937",
+        "signature": [
+          "via",
+          "ROW_SEL_04",
+          54200000,
+          8750000,
+          "In2.Cu",
+          "In3.Cu",
+          300000,
+          100000
+        ],
+        "via_type": 1
+      },
+      {
+        "uuid": "d09b301e-8ee3-529d-adab-84169685d06c",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          75200000,
+          13400000,
+          75200000,
+          15000000,
+          "In2.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "d5c51174-a6d9-5d02-9480-34de956fb95e",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          75000000,
+          13300000,
+          75000000,
+          13350000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "da013903-86a3-56c3-8d16-2a3ec2fcb6b6",
+        "signature": [
+          "via",
+          "ROW_SEL_04",
+          40500000,
+          7250000,
+          "In3.Cu",
+          "In4.Cu",
+          300000,
+          100000
+        ],
+        "via_type": 1
+      },
+      {
+        "uuid": "db7eac00-8276-5faa-b3b6-58f5ca9cbd19",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          64750000,
+          12650000,
+          64750000,
+          12700000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "de3ba297-7af6-5363-831b-8f202e5f5042",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          72600000,
+          13150000,
+          73500000,
+          13150000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "deb0f2b8-11d4-51ad-b36e-16ee947bd4e2",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          56000000,
+          12150000,
+          56000000,
+          12200000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "e088e584-48b0-5013-90da-91dc840a8f34",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          75150000,
+          13350000,
+          75150000,
+          13400000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "e54dcf37-423d-5feb-8e85-6dc705d56d4c",
+        "signature": [
+          "via",
+          "ROW_SEL_04",
+          38600000,
+          7250000,
+          "In4.Cu",
+          "B.Cu",
+          300000,
+          100000
+        ],
+        "via_type": 1
+      },
+      {
+        "uuid": "e60bef06-58ac-56fb-805a-7b97f8dcc661",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          72600000,
+          13100000,
+          72600000,
+          13150000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "ea8e1cf1-674c-52c5-8d66-b16c395d4f41",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          67350000,
+          12800000,
+          67350000,
+          12850000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "ec601763-5de1-576a-9995-a5a59699eab1",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          63000000,
+          12600000,
+          63850000,
+          12600000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "ed02d090-6421-5749-a6a6-80a056f8928d",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          76650000,
+          11250000,
+          77850000,
+          11250000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "ee59328b-7aa1-54cb-8e82-6a49a944a15f",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          69100000,
+          12900000,
+          69100000,
+          12950000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "ee62cf69-7950-50ae-86d3-bc7fb49c3787",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          75150000,
+          13400000,
+          75200000,
+          13400000,
+          "In2.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "f386bf95-cbbe-5806-807c-6dde05d5074b",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          77700000,
+          12300000,
+          77650000,
+          12300000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "f418400d-c9ca-5db7-80c1-c5e1563c879b",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          66500000,
+          12750000,
+          66500000,
+          12800000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "f5113b43-b444-5f49-8dde-9326a28e018e",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          77850000,
+          11250000,
+          77850000,
+          12050000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "f6908e04-dc73-52f8-99d0-eb9f590475e2",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          44800000,
+          7750000,
+          44800000,
+          7250000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "f6e764e8-c332-5794-88c7-bbda761c143f",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          61250000,
+          12450000,
+          61250000,
+          12500000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "f76f41c0-4665-57a7-83dc-81c23a39faf3",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          54200000,
+          8450000,
+          54200000,
+          8750000,
+          "In4.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "fa76eba0-38bc-581e-8d6d-fa398f242ae0",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          55100000,
+          12100000,
+          55100000,
+          12150000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "fac57670-5e1e-57cf-84e8-97a9b845f004",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          77750000,
+          12250000,
+          77700000,
+          12250000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "fae944ab-7b75-5d88-9102-3588613cec5c",
+        "signature": [
+          "via",
+          "ROW_SEL_04",
+          44800000,
+          7250000,
+          "In3.Cu",
+          "In4.Cu",
+          300000,
+          100000
+        ],
+        "via_type": 1
+      },
+      {
+        "uuid": "fece0b97-f4e2-5934-8259-6e2e7922f7e4",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          65599999,
+          12700000,
+          65599999,
+          12750000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "ffe9ae76-f1d0-51ae-bb9a-e2fa4763a2b8",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          60350000,
+          12450000,
+          61250000,
+          12450000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      }
+    ],
+    "source_retirement_external_contacts": {
+      "00093fa2-8c6b-5f49-b08c-13ca1174986a": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "003eaa32-81e0-556a-85eb-a839ab6d9b88": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "005c0644-012a-5744-9514-fe0d7dd69ad3": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "06f60c8b-b02c-5499-8750-9449c46ad565": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "0842a3f3-a0a5-58bc-b1cf-d3905888ef15": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "0d8b7bc3-a30c-5c80-a8e0-010135a91a84": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "0e2cd010-90f1-50e2-ad66-e87820ad12a1": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "0e3fb199-456b-547b-baf5-d545de49ebb1": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "0fb35538-b607-5212-90b3-1fc8d3bcfe9a": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "1140e499-19b1-56d0-8ed2-b91483e53ab4": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "14f7a5ed-12a2-5cfd-80e8-624df5a145c0": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "15abb6d9-94fd-5ec7-8af8-cb6bc39f25d6": {
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        },
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "1751f3fa-56b5-5541-b3eb-386ce1a482ef": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "183e69ff-c4d3-52e3-bd38-7966a0290185": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "1a82fe1a-d96f-5958-90ee-559d11639178": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "1cdac08a-61a9-5cf2-bb65-f668834e8215": {
+        "B.Cu": {
+          "copper_and_pads": [
+            {
+              "uuid": "6923fab3-3fa1-5a1f-a067-ecfcf260fefc",
+              "pad": [
+                "PAIR05",
+                "5"
+              ]
+            },
+            {
+              "uuid": "dcc7af0f-e9e7-5e01-a8c7-bf4917455245",
+              "pad": [
+                "PAIR05",
+                "6"
+              ]
+            }
+          ],
+          "filled_polygons": []
+        }
+      },
+      "1d060897-5249-5a78-ae49-ed9bb43757b5": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "1ea2ca08-aa57-59f7-9391-4b6f6b1618d3": {
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "20aad481-619c-55be-adb1-984fcfa32d7c": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "20f8e629-6194-5697-b796-ddf47a8fe3dd": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "2363077f-8ad4-566d-a419-3824fa92b174": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "238e96b4-7770-5c8b-b2f2-7251c3053804": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "23fdc221-84ca-56b8-8563-709035904220": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "2589fd38-2bfb-526d-b557-ada2955133d0": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "276689b1-ccd9-597c-a0d9-f3febe7e37c7": {
+        "In1.Cu": {
+          "copper_and_pads": [
+            {
+              "uuid": "7c230c90-28aa-5a4c-a462-1ff328f288fd",
+              "signature": [
+                "via",
+                "ROW_SEL_04",
+                84850000,
+                15000000,
+                "In1.Cu",
+                "In2.Cu",
+                300000,
+                100000
+              ]
+            }
+          ],
+          "filled_polygons": []
+        }
+      },
+      "292109a3-0912-5028-af68-36b4a661fe19": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "2a2bbc81-3d9c-50ad-a336-3e9ddac44699": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "2bc267b0-042a-5d5c-b609-bacd0e888afd": {
+        "B.Cu": {
+          "copper_and_pads": [
+            {
+              "uuid": "8a0cda1c-a2e8-5304-b9e4-4b41d1eec3a2",
+              "pad": [
+                "R26",
+                "1"
+              ]
+            }
+          ],
+          "filled_polygons": []
+        }
+      },
+      "2c15071a-e5dc-5d99-8a12-2e65dbbfcfcb": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "35d91ccc-eaab-5d68-9dac-6ffcdd4a554b": {
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "369f217b-ec64-5b0c-87eb-433e93e762df": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "390545de-87e5-5761-a582-f99e0c6671c9": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "3b6d7907-a231-52b4-9516-6cd56ae957d4": {
+        "B.Cu": {
+          "copper_and_pads": [
+            {
+              "uuid": "c24f34e4-cd06-519a-91b2-2f1bf53f1231",
+              "pad": [
+                "PAIR05",
+                "2"
+              ]
+            }
+          ],
+          "filled_polygons": []
+        }
+      },
+      "3cdafcab-cc04-598e-a59f-3bc946f3e16e": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "3d63e0a6-fa13-546a-8c17-e4c46b543804": {
+        "In2.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "43c9fc20-b639-5c4c-a6f9-792467c20978": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "43ef272c-ba48-5303-97e7-42290c7828ac": {
+        "In2.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        },
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "44c5a440-ec9d-558b-aec4-1e55c957019f": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "47ac9dcf-f4c8-5011-982c-c4c6337ad5c0": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "4d66a059-ab56-5d02-bcf3-5ffedf2d40bf": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "4e2e77a4-5af4-5a3a-b592-ae6bc8413b78": {
+        "B.Cu": {
+          "copper_and_pads": [
+            {
+              "uuid": "627758bf-8374-5a03-b92d-141515d23afc",
+              "pad": [
+                "PAIR05",
+                "3"
+              ]
+            },
+            {
+              "uuid": "642e420b-6171-523e-af5e-ae5a512f8a23",
+              "signature": [
+                "via",
+                "ROW_04_A",
+                77250000,
+                11900000,
+                "F.Cu",
+                "B.Cu",
+                500000,
+                300000
+              ]
+            }
+          ],
+          "filled_polygons": []
+        }
+      },
+      "4fd17e28-4944-5501-bbfb-3341d0fff6e5": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "51a5eb4e-3fef-5412-8de0-1391f24b255a": {
+        "In2.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        },
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "581825b5-ddf3-5662-9c22-bc0c32f32d6b": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "583c32e7-3cd8-5508-a5a1-6839627583b5": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "5a14e970-2859-58f6-8c85-109fdeea3b18": {
+        "In1.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        },
+        "In2.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "5d06fef0-9e20-559e-a93f-a89e3e0d486c": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "606bde92-9ff6-5707-ab53-b888d03ec621": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "697f14b4-9b79-5ae8-8599-bb83a4b42634": {
+        "In2.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        },
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "6c2e4815-ab8b-57e6-853e-354d4e1311e1": {
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "70806735-19c7-559b-a9ee-d4d02ed178cc": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        },
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "7093e413-c5aa-5346-8d08-d8fafb53a4ec": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "7a16992e-d59e-58a7-bc13-d0932628d9c1": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "7c8c664a-2545-5947-9999-8e9c3f45ffda": {
+        "In4.Cu": {
+          "copper_and_pads": [
+            {
+              "uuid": "4235edd3-378b-57d8-b6be-6357976fcd1a",
+              "signature": [
+                "track",
+                "VLED",
+                47750000,
+                5150000,
+                47750000,
+                4450000,
+                "In4.Cu",
+                200000
+              ]
+            },
+            {
+              "uuid": "77f9cb70-e61f-5c0e-9448-992b50298c12",
+              "signature": [
+                "via",
+                "VLED",
+                47750000,
+                4250000,
+                "In3.Cu",
+                "In4.Cu",
+                300000,
+                100000
+              ]
+            },
+            {
+              "uuid": "ecb354c5-3bbc-53b2-9095-55fb25ec18a6",
+              "signature": [
+                "via",
+                "VLED",
+                47750000,
+                4450000,
+                "In3.Cu",
+                "In4.Cu",
+                300000,
+                100000
+              ]
+            }
+          ],
+          "filled_polygons": []
+        },
+        "B.Cu": {
+          "copper_and_pads": [
+            {
+              "uuid": "6bdb6961-0f03-5d2a-93b0-b609a937f5de",
+              "pad": [
+                "R10",
+                "1"
+              ]
+            }
+          ],
+          "filled_polygons": []
+        }
+      },
+      "7db519b7-09a6-5709-9a0a-637b74054744": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "7e73fcfa-7f21-5351-99d6-e70c3eb40309": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "869cc00d-c3b5-5831-b739-bf0733c067d4": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "87fb1b9a-6736-5e4d-a9a5-208eed60f75d": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "8a58b703-9488-5827-806e-d2ac4d740afd": {
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "8a6e979a-4333-58a2-9408-3f4058fe88c9": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "8bde67c0-4ba3-5b35-9351-eb969e965fbd": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "8eb3b3f8-e81e-590b-8f0c-25d3ede4bbde": {
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "9148639c-2c68-5043-9ffe-81597941cc00": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "964732b6-1ac6-5d18-80ee-dd6b17d6b299": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "a17fa9d9-06a0-577d-a70d-7e570c218c1c": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "a3278da8-f893-5a29-b8c5-cf94f32fba35": {
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "a46796c1-6ec7-5970-b4ca-2d17718a8336": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "a793ea57-9d7d-5e90-a095-bae5ec825daa": {
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "aa224615-44e5-5ed5-95ea-9dfee82a431f": {
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "aa291aea-9e79-5613-a8b1-ebf16872f011": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        },
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "aa633b26-c98e-5198-abfb-b0469af712fd": {
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "ac49e368-46d0-5ed9-8e77-6f84f929e766": {
+        "B.Cu": {
+          "copper_and_pads": [
+            {
+              "uuid": "956efc22-d22c-5f43-9dcf-5e9ab7df3fe5",
+              "pad": [
+                "PAIR05",
+                "6"
+              ]
+            },
+            {
+              "uuid": "dcc7af0f-e9e7-5e01-a8c7-bf4917455245",
+              "pad": [
+                "PAIR05",
+                "6"
+              ]
+            }
+          ],
+          "filled_polygons": []
+        }
+      },
+      "ac7f3602-466c-57b8-ae0e-5b42868913cb": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "b236e849-aa64-5698-9e0a-310866b83521": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "b9a21fa3-e44f-52a2-bd6a-a603af3b65b7": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "ba32d058-40ff-5012-b6ef-4bb6084b44b9": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "bcf073b4-d908-5588-bc52-1922b4a9b5ea": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "bf1226e6-8957-5453-a355-e19733a1f0ad": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "c31959c2-b49a-587a-b3a8-b3a8f6745e92": {
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "c3c8ad97-423d-5f77-937d-d7d39b4a4654": {
+        "In2.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "c491a668-8e7e-5f33-ae5c-95180c1ce1b2": {
+        "B.Cu": {
+          "copper_and_pads": [
+            {
+              "uuid": "627758bf-8374-5a03-b92d-141515d23afc",
+              "pad": [
+                "PAIR05",
+                "3"
+              ]
+            },
+            {
+              "uuid": "bf43d51b-d1b5-56bd-8185-b5ecea2103f7",
+              "pad": [
+                "PAIR05",
+                "3"
+              ]
+            }
+          ],
+          "filled_polygons": []
+        }
+      },
+      "c6052eb3-2ded-5ab5-9eb1-833d82eeb985": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "c68b20d3-7aea-579e-9573-9beb53c4235b": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "c97229bd-0744-5f60-bd86-bfe40fd42b33": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "ca00c51a-11bf-50ab-aad9-c1e592619832": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "d05d078a-2565-507e-bab1-befeb9ee7937": {
+        "In2.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        },
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "d09b301e-8ee3-529d-adab-84169685d06c": {
+        "In2.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "d5c51174-a6d9-5d02-9480-34de956fb95e": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "da013903-86a3-56c3-8d16-2a3ec2fcb6b6": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        },
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "db7eac00-8276-5faa-b3b6-58f5ca9cbd19": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "de3ba297-7af6-5363-831b-8f202e5f5042": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "deb0f2b8-11d4-51ad-b36e-16ee947bd4e2": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "e088e584-48b0-5013-90da-91dc840a8f34": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "e54dcf37-423d-5feb-8e85-6dc705d56d4c": {
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        },
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "e60bef06-58ac-56fb-805a-7b97f8dcc661": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "ea8e1cf1-674c-52c5-8d66-b16c395d4f41": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "ec601763-5de1-576a-9995-a5a59699eab1": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "ed02d090-6421-5749-a6a6-80a056f8928d": {
+        "B.Cu": {
+          "copper_and_pads": [
+            {
+              "uuid": "c24f34e4-cd06-519a-91b2-2f1bf53f1231",
+              "pad": [
+                "PAIR05",
+                "2"
+              ]
+            }
+          ],
+          "filled_polygons": []
+        }
+      },
+      "ee59328b-7aa1-54cb-8e82-6a49a944a15f": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "ee62cf69-7950-50ae-86d3-bc7fb49c3787": {
+        "In2.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "f386bf95-cbbe-5806-807c-6dde05d5074b": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "f418400d-c9ca-5db7-80c1-c5e1563c879b": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "f5113b43-b444-5f49-8dde-9326a28e018e": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "f6908e04-dc73-52f8-99d0-eb9f590475e2": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "f6e764e8-c332-5794-88c7-bbda761c143f": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "f76f41c0-4665-57a7-83dc-81c23a39faf3": {
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "fa76eba0-38bc-581e-8d6d-fa398f242ae0": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "fac57670-5e1e-57cf-84e8-97a9b845f004": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "fae944ab-7b75-5d88-9102-3588613cec5c": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        },
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "fece0b97-f4e2-5934-8259-6e2e7922f7e4": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "ffe9ae76-f1d0-51ae-bb9a-e2fa4763a2b8": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      }
+    },
+    "added_copper": [
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          84050000,
+          13625000,
+          83900000,
+          12700000,
+          "F.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_GATE_04",
+          82750000,
+          11775000,
+          82900000,
+          12700000,
+          "F.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_GATE_04",
+          83400000,
+          11775000,
+          82750000,
+          11775000,
+          "F.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "via",
+          "VLED",
+          84050000,
+          11775000,
+          "F.Cu",
+          "In1.Cu",
+          300000,
+          100000
+        ],
+        "via_type": 1
+      },
+      {
+        "signature": [
+          "via",
+          "GND",
+          82750000,
+          13625000,
+          "F.Cu",
+          "In1.Cu",
+          300000,
+          100000
+        ],
+        "via_type": 1
+      },
+      {
+        "signature": [
+          "via",
+          "GND",
+          82750000,
+          13625000,
+          "In1.Cu",
+          "In2.Cu",
+          300000,
+          100000
+        ],
+        "via_type": 1
+      },
+      {
+        "signature": [
+          "track",
+          "VLED",
+          84200000,
+          10700000,
+          84050000,
+          11775000,
+          "F.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_GATE_04",
+          83200000,
+          10700000,
+          83400000,
+          11775000,
+          "F.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          83600000,
+          14700000,
+          83400000,
+          13625000,
+          "F.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "GND",
+          82600000,
+          14700000,
+          82750000,
+          13625000,
+          "F.Cu",
+          200000
+        ],
+        "via_type": null
+      }
+    ]
+  },
+  "alternate_geometry_sha256": "f71bc9d29a7779ad6cbd60dafa26f6d4d8bb1cad717b88cb747cd898d1c6c933",
+  "alternate_selector_only_restoration": {
+    "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+    "expanded_nodes": 1446,
+    "source_points": 2,
+    "via_probes": 1065,
+    "clear_via_probes": 970,
+    "rejected_candidates": [],
+    "supply_bridge": {
+      "source_witness_uuid": "8a0cda1c-a2e8-5304-b9e4-4b41d1eec3a2",
+      "goal_witness_uuid": "7c230c90-28aa-5a4c-a462-1ff328f288fd",
+      "conductor_mm": 1.3540641575195216,
+      "new_microvias": 1,
+      "filled_bridge": {
+        "native_opens": 21,
+        "physical_opens": 21,
+        "original_groups": 210,
+        "prior_groups_preserved": 209,
+        "temporarily_split_original_groups": [
+          "ROW_04_A"
+        ],
+        "retained_attached_source_copper": 19256,
+        "main_ground_pads": 197,
+        "main_vled_pads": 40,
+        "gate_pads": 4,
+        "row_pads": 2,
+        "selector_pads": 3,
+        "orphan_copper": 0
+      },
+      "hole_audit": {
+        "disjoint_supported_close_pairs": [],
+        "aligned_adjacent_stacks": [
+          {
+            "uuids": [
+              "12223678-5d65-58f4-838f-2657b86141e3",
+              "9bcc8df2-f1bf-53ee-b928-43afb27ce3cf"
+            ],
+            "first_uuid": "12223678-5d65-58f4-838f-2657b86141e3",
+            "first_span": [
+              "In1.Cu",
+              "In2.Cu"
+            ],
+            "second_span": [
+              "F.Cu",
+              "In1.Cu"
+            ],
+            "first_position_iu": [
+              82750000,
+              13625000
+            ],
+            "second_position_iu": [
+              82750000,
+              13625000
+            ]
+          }
+        ],
+        "other_close_pairs": 0,
+        "minimum_unchanged_hole_clearance_mm": 0.25,
+        "fabrication_qualified": false
+      },
+      "new_copper": [
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83600000,
+            14700000,
+            83625000,
+            14700000,
+            "F.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83625000,
+            14700000,
+            83650000,
+            14700000,
+            "F.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83650000,
+            14700000,
+            83675000,
+            14700000,
+            "F.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83675000,
+            14700000,
+            83700000,
+            14700000,
+            "F.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83700000,
+            14700000,
+            83725000,
+            14700000,
+            "F.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83725000,
+            14700000,
+            83750000,
+            14700000,
+            "F.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83750000,
+            14700000,
+            83775000,
+            14700000,
+            "F.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83775000,
+            14700000,
+            83800000,
+            14700000,
+            "F.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83800000,
+            14700000,
+            83825000,
+            14700000,
+            "F.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83825000,
+            14700000,
+            83850000,
+            14700000,
+            "F.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83850000,
+            14700000,
+            83875000,
+            14700000,
+            "F.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83875000,
+            14700000,
+            83900000,
+            14700000,
+            "F.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83900000,
+            14700000,
+            83925000,
+            14700000,
+            "F.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83925000,
+            14700000,
+            83950000,
+            14700000,
+            "F.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83950000,
+            14700000,
+            83975000,
+            14700000,
+            "F.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83975000,
+            14700000,
+            84000000,
+            14700000,
+            "F.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84000000,
+            14700000,
+            84025000,
+            14700000,
+            "F.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84025000,
+            14700000,
+            84050000,
+            14700000,
+            "F.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84050000,
+            14700000,
+            84075000,
+            14700000,
+            "F.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84075000,
+            14700000,
+            84100000,
+            14700000,
+            "F.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84100000,
+            14700000,
+            84125000,
+            14700000,
+            "F.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84125000,
+            14700000,
+            84150000,
+            14700000,
+            "F.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84150000,
+            14700000,
+            84175000,
+            14700000,
+            "F.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84175000,
+            14700000,
+            84200000,
+            14700000,
+            "F.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84200000,
+            14700000,
+            84225000,
+            14700000,
+            "F.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84225000,
+            14700000,
+            84250000,
+            14700000,
+            "F.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84250000,
+            14700000,
+            84275000,
+            14700000,
+            "F.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84275000,
+            14700000,
+            84300000,
+            14700000,
+            "F.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "via",
+            "ROW_SEL_04",
+            84300000,
+            14700000,
+            "F.Cu",
+            "In1.Cu",
+            300000,
+            100000
+          ],
+          "via_type": 1
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84300000,
+            14700000,
+            84325000,
+            14700000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84325000,
+            14700000,
+            84350000,
+            14700000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84350000,
+            14700000,
+            84375000,
+            14700000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84375000,
+            14700000,
+            84400000,
+            14700000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84400000,
+            14700000,
+            84425000,
+            14700000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84425000,
+            14700000,
+            84450000,
+            14725000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84450000,
+            14725000,
+            84475000,
+            14750000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84475000,
+            14750000,
+            84500000,
+            14775000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84500000,
+            14775000,
+            84525000,
+            14800000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84525000,
+            14800000,
+            84550000,
+            14825000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84550000,
+            14825000,
+            84575000,
+            14850000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84575000,
+            14850000,
+            84600000,
+            14875000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84600000,
+            14875000,
+            84625000,
+            14900000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84625000,
+            14900000,
+            84850000,
+            15000000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        }
+      ]
+    },
+    "outcome": "selector_restored_row_pending",
+    "selected": false,
+    "read_only": true,
+    "pcb_written": false,
+    "fabrication_release_allowed": false
+  },
+  "alternate_selector_route_sha256": "0accb905f0117b025fd7a7658e4229522ad54e8a801e51e4be06c908ef3707fa",
+  "extended_continuations": [
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/row-layer-access.json",
+      "sha256": "1fcb0d93707d5e8610ddbbd725c746b6611a5f84ec6223048fd7bde9258f7d79",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "expanded_nodes": 35679,
+        "source_points": 1,
+        "via_probes": 20152,
+        "clear_via_probes": 6460,
+        "rejected_candidates": [
+          {
+            "goal": [
+              6,
+              76950000,
+              11725000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              76975000,
+              11700000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              76950000,
+              11750000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              76975000,
+              11725000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77000000,
+              11675000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              76975000,
+              11750000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              76925000,
+              11775000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77000000,
+              11700000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77025000,
+              11650000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              76950000,
+              11775000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77000000,
+              11725000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77025000,
+              11675000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              76975000,
+              11775000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77000000,
+              11750000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              76925000,
+              11800000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77025000,
+              11700000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77050000,
+              11650000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77000000,
+              11775000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              76950000,
+              11800000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77025000,
+              11725000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77050000,
+              11625000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77050000,
+              11675000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              76975000,
+              11800000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77025000,
+              11750000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              76925000,
+              11825000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77050000,
+              11700000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77075000,
+              11650000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77000000,
+              11800000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77025000,
+              11775000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              76950000,
+              11825000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77050000,
+              11725000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77075000,
+              11625000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77075000,
+              11675000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77025000,
+              11800000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              76975000,
+              11825000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77050000,
+              11750000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              76925000,
+              11850000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77075000,
+              11600000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77075000,
+              11700000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77100000,
+              11650000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77000000,
+              11825000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77050000,
+              11775000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              76950000,
+              11850000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77075000,
+              11725000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77100000,
+              11625000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77100000,
+              11675000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77025000,
+              11825000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77050000,
+              11800000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              76975000,
+              11850000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77075000,
+              11750000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              76925000,
+              11875000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77100000,
+              11600000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77100000,
+              11700000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77050000,
+              11825000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77125000,
+              11650000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77000000,
+              11850000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77075000,
+              11775000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              76950000,
+              11875000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77100000,
+              11725000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77125000,
+              11625000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77125000,
+              11675000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77025000,
+              11850000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              77075000,
+              11800000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              6,
+              76975000,
+              11875000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          }
+        ],
+        "outcome": "rejected_candidate_bound",
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false,
+        "maximum_rejected_candidates": 64
+      },
+      "script_sha256": "fa206ea40d7549b51598edf1a07ad9f597db2175d5548cc06778306b884df2a7"
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/row-early-layer-access.json",
+      "sha256": "d458455001fcfc930450f30492239413f481c4271108db9a997ea2905e920a98",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "expanded_nodes": 60412,
+        "source_points": 1,
+        "via_probes": 6352,
+        "clear_via_probes": 2405,
+        "rejected_candidates": [
+          {
+            "goal": [
+              4,
+              77575000,
+              11775000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11725000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              11800000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11750000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11700000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              11825000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11775000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11725000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              11850000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11675000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11800000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11750000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              11875000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11700000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11825000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77475000,
+              11650000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11775000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              11900000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11725000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11850000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77475000,
+              11675000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11800000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              11925000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11750000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11875000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77475000,
+              11700000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11825000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              11950000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77450000,
+              11650000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11775000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11900000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77475000,
+              11725000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11850000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              11975000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77450000,
+              11625000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77450000,
+              11675000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11800000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11925000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77475000,
+              11750000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11875000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              12000000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77450000,
+              11700000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11825000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11950000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77425000,
+              11650000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77475000,
+              11775000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11900000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              12025000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77450000,
+              11725000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11850000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11975000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77425000,
+              11625000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77425000,
+              11675000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77475000,
+              11800000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11925000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77450000,
+              11750000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11875000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              12000000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77425000,
+              11600000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77425000,
+              11700000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77475000,
+              11825000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11950000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77400000,
+              11650000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77450000,
+              11775000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          }
+        ],
+        "outcome": "rejected_candidate_bound",
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false,
+        "maximum_rejected_candidates": 64
+      },
+      "script_sha256": "beed3731cb46f0a1cd31ec92db8883dd1ca4cabadc90d64a3687971d3e7ff9d3"
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/row-immediate-layer-access.json",
+      "sha256": "70f00afd6cfdcb7e8e92c3d40b7e0faa7996bd8bc8abceae5a28b17f2129ff1c",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "expanded_nodes": 60412,
+        "source_points": 1,
+        "via_probes": 4112,
+        "clear_via_probes": 1810,
+        "rejected_candidates": [
+          {
+            "goal": [
+              4,
+              77575000,
+              11775000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11725000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              11800000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11750000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11700000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              11825000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11775000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11725000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              11850000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11675000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11800000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11750000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              11875000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11700000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11825000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77475000,
+              11650000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11775000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              11900000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11725000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11850000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77475000,
+              11675000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11800000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              11925000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11750000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11875000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77475000,
+              11700000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11825000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              11950000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77450000,
+              11650000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11775000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11900000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77475000,
+              11725000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11850000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              11975000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77450000,
+              11625000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77450000,
+              11675000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11800000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11925000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77475000,
+              11750000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11875000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              12000000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77450000,
+              11700000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11825000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11950000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77425000,
+              11650000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77475000,
+              11775000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11900000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              12025000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77450000,
+              11725000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11850000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11975000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77425000,
+              11625000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77425000,
+              11675000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77475000,
+              11800000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11925000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77450000,
+              11750000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11875000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              12000000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77425000,
+              11600000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77425000,
+              11700000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77475000,
+              11825000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11950000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77400000,
+              11650000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77450000,
+              11775000,
+              2
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          }
+        ],
+        "outcome": "rejected_candidate_bound",
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false,
+        "maximum_rejected_candidates": 64
+      },
+      "script_sha256": "744c90ccbd912e611d70e47e6914d84d1e92c5d2901089d1563cc69da92ecdac"
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/row-single-inner-access.json",
+      "sha256": "0dbf7c8a8cb0c02baa11e92b32cb68880bbd92e1b4767667546881aa997eb28a",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "expanded_nodes": 70844,
+        "source_points": 1,
+        "via_probes": 2288,
+        "clear_via_probes": 702,
+        "rejected_candidates": [],
+        "outcome": "bounded_graph_exhausted",
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false
+      },
+      "script_sha256": "200a7d55439ba939ba191953ce80cb02c13328a21e8690155dcf7aeff6333ddf"
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/row-mechanical-access.json",
+      "sha256": "28bd738be4944d835637755f967b6423c4e20a14fff1aeaca929cbcc8401eee2",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "expanded_nodes": 71176,
+        "source_points": 1,
+        "via_probes": 14500,
+        "clear_via_probes": 702,
+        "rejected_candidates": [],
+        "outcome": "bounded_graph_exhausted",
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false
+      },
+      "script_sha256": "3cbe2d2b01dd05cd0c6f1de53c6d8b85744c8ff759d9d61b19489700d99d9a56"
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/actual-contact-row-access.json",
+      "sha256": "2c4d51bf4ad229e3637c0063e0c038a9621c10b6b7741083b9ebf5122e5bbb9d",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "expanded_nodes": 12189,
+        "source_points": 2,
+        "via_probes": 6740,
+        "clear_via_probes": 2024,
+        "rejected_candidates": [
+          {
+            "goal": [
+              4,
+              77575000,
+              11775000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11725000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              11800000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11750000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11700000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              11825000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11775000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11725000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              11850000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11675000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11800000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11750000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              11875000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11700000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11825000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77475000,
+              11650000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11775000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              11900000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11725000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11850000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77475000,
+              11675000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11800000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              11925000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11750000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11875000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77475000,
+              11700000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11825000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              11950000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77450000,
+              11650000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11775000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11900000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77475000,
+              11725000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11850000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              11975000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77450000,
+              11625000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77450000,
+              11675000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11800000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11925000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77475000,
+              11750000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11875000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              12000000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77450000,
+              11700000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11825000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11950000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77425000,
+              11650000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77475000,
+              11775000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11900000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              12025000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77450000,
+              11725000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11850000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11975000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77425000,
+              11625000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77425000,
+              11675000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77475000,
+              11800000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11925000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77450000,
+              11750000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11875000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              12000000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77425000,
+              11600000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77425000,
+              11700000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77475000,
+              11825000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11950000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77400000,
+              11650000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77450000,
+              11775000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          }
+        ],
+        "outcome": "rejected_candidate_bound",
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false
+      },
+      "script_sha256": "d81db6ef399f86444057bf3ee0b49aa61c18a7bf0c8ad5a238756dfd5be0fd4d"
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/alternate-row-access.json",
+      "sha256": "7e7fc570ddb88d700d5794cedbbcd55491718720637b23a87f184bcbb7200e29",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "expanded_nodes": 18101,
+        "source_points": 2,
+        "via_probes": 9108,
+        "clear_via_probes": 1982,
+        "rejected_candidates": [
+          {
+            "goal": [
+              4,
+              77575000,
+              11775000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11725000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              11800000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11750000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11700000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              11825000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11775000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11725000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              11850000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11675000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11800000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11750000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              11875000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11700000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11825000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77475000,
+              11650000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11775000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              11900000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11725000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11850000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77475000,
+              11675000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11800000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              11925000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11750000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11875000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77475000,
+              11700000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11825000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              11950000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77450000,
+              11650000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11775000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11900000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77475000,
+              11725000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11850000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              11975000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77450000,
+              11625000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77450000,
+              11675000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11800000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11925000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77475000,
+              11750000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11875000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              12000000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77450000,
+              11700000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11825000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11950000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77425000,
+              11650000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77475000,
+              11775000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11900000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77575000,
+              12025000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77450000,
+              11725000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11850000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              11975000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77425000,
+              11625000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77425000,
+              11675000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77475000,
+              11800000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11925000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77450000,
+              11750000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77500000,
+              11875000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77550000,
+              12000000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77425000,
+              11600000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77425000,
+              11700000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77475000,
+              11825000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77525000,
+              11950000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77400000,
+              11650000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          },
+          {
+            "goal": [
+              4,
+              77450000,
+              11775000,
+              1
+            ],
+            "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])"
+          }
+        ],
+        "outcome": "rejected_candidate_bound",
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false
+      },
+      "script_sha256": "52c4f3bf011a6687d5c1b3df04990fdb8d8b85940ac61d3a701822641c90be46"
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/wide-stack-row-access.json",
+      "sha256": "908a49e9931270cc9c2d97ad57b0286373e7bc9b744f7a1d1a2bbb8945bb461e",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "expanded_nodes": 100000,
+        "source_points": 2,
+        "via_probes": 72200,
+        "clear_via_probes": 17695,
+        "rejected_candidates": [],
+        "outcome": "node_bound",
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false
+      },
+      "script_sha256": "cdf7296b5aadd2955b9366de02d05649213c75ecdf9a837d3eadf1946f74b506"
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/alternate-wide-stack-row-access.json",
+      "sha256": "58986e5b452cd1da97dd26912400fa4333ac0b1b1ba892b6b74c560c7dd17e8e",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "expanded_nodes": 100000,
+        "source_points": 2,
+        "via_probes": 70879,
+        "clear_via_probes": 27912,
+        "rejected_candidates": [],
+        "outcome": "node_bound",
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false
+      },
+      "script_sha256": "ec798075a1a3129147d2fe8b3c6561217164c1bf253a5ab22b0842383b695770"
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/wide-stack-row-access-coarse.json",
+      "sha256": "dd216fea1f03edde309014c6cdbe86a45006bf4c737be5c110dd85b950512806",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "frontier_diagnostic": [
+          {
+            "layer": "F.Cu",
+            "minimum_box_distance_mm": 2.5706262369317714,
+            "visited_states": 4522
+          },
+          {
+            "layer": "In2.Cu",
+            "minimum_box_distance_mm": 1.4267521333441209,
+            "visited_states": 31514
+          },
+          {
+            "layer": "In3.Cu",
+            "minimum_box_distance_mm": 7.9429202060704345,
+            "visited_states": 12469
+          }
+        ],
+        "grid_mm": 0.05,
+        "maximum_nodes": 300000,
+        "expanded_nodes": 49156,
+        "source_points": 2,
+        "via_probes": 36036,
+        "clear_via_probes": 11505,
+        "rejected_candidates": [],
+        "outcome": "bounded_graph_exhausted",
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false
+      },
+      "script_sha256": "41c53a62774961feb8fdfc1cfa0e95267135a713834ac2e2b2543f5b9166e873"
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/alternate-wide-stack-row-access-coarse.json",
+      "sha256": "f3e31e798b5016a8a13060d5897f49d29daeffc735a4d457ef127c1eb45f6914",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "frontier_diagnostic": [
+          {
+            "layer": "F.Cu",
+            "minimum_box_distance_mm": 5.007555396598425,
+            "visited_states": 2048
+          },
+          {
+            "layer": "In2.Cu",
+            "minimum_box_distance_mm": 5.11767661639557,
+            "visited_states": 36325
+          },
+          {
+            "layer": "In3.Cu",
+            "minimum_box_distance_mm": 7.9429202060704345,
+            "visited_states": 16331
+          }
+        ],
+        "grid_mm": 0.05,
+        "maximum_nodes": 300000,
+        "expanded_nodes": 55920,
+        "source_points": 2,
+        "via_probes": 38373,
+        "clear_via_probes": 16058,
+        "rejected_candidates": [],
+        "outcome": "bounded_graph_exhausted",
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false
+      },
+      "script_sha256": "6c817cea1916c921f884e60b8d5b1ad863052a36ddb6d777d18ee8da502251dc"
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/alternate-three-part-cell.json",
+      "sha256": "7493c9117237c7993cd0f93e73bf1814e58140c250a16f4d5f057e8972a6f950",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "counts": {
+          "tested_pull_poses": 7148,
+          "mutual_courtyard_fail": 4944,
+          "pull_pad_copper_fail": 1994,
+          "pull_lead_fail": 206,
+          "mutual_lead_fail": 3,
+          "clear_three_part_cell": 1
+        },
+        "outcome": "clear_cell_template",
+        "selected": false,
+        "read_only": true,
+        "fabrication_release_allowed": false
+      },
+      "script_sha256": "59cdf5112f2aebf71f2c7031f47231b0ef0df9982b2f5ac19a566cb3255bec87"
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/alternate-cell-base.json",
+      "sha256": "6f892e08ed6e262a6dae23ac8ca46422db5774014976290414088030666b7cb2",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "base": {
+          "native_opens": 22,
+          "physical_opens": 22,
+          "original_groups": 210,
+          "prior_groups_preserved": 208,
+          "temporarily_split_original_groups": [
+            "ROW_04_A",
+            "ROW_SEL_04"
+          ],
+          "retained_attached_source_copper": 19256,
+          "main_ground_pads": 197,
+          "main_vled_pads": 40,
+          "gate_pads": 4,
+          "row_pads": 2,
+          "selector_pads": 2,
+          "orphan_copper": 0
+        },
+        "hole_audit": {
+          "disjoint_supported_close_pairs": [],
+          "aligned_adjacent_stacks": [
+            {
+              "uuids": [
+                "12223678-5d65-58f4-838f-2657b86141e3",
+                "9bcc8df2-f1bf-53ee-b928-43afb27ce3cf"
+              ],
+              "first_uuid": "12223678-5d65-58f4-838f-2657b86141e3",
+              "first_span": [
+                "In1.Cu",
+                "In2.Cu"
+              ],
+              "second_span": [
+                "F.Cu",
+                "In1.Cu"
+              ],
+              "first_position_iu": [
+                82750000,
+                13625000
+              ],
+              "second_position_iu": [
+                82750000,
+                13625000
+              ]
+            }
+          ],
+          "other_close_pairs": 0,
+          "minimum_unchanged_hole_clearance_mm": 0.25,
+          "fabrication_qualified": false
+        },
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false
+      },
+      "script_sha256": "3d7325184e73a42c7fba72e97401f055f4b4c5b0347ec6467d405ee567ced5bd"
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/alternate-selector-access.json",
+      "sha256": "d12ae9854785318e3e16f1bbd2124714a330abc678607d4abd3df09a5761c84f",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "expanded_nodes": 1446,
+        "source_points": 2,
+        "via_probes": 1065,
+        "clear_via_probes": 970,
+        "rejected_candidates": [],
+        "outcome": "selector_restored_row_pending",
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false
+      },
+      "script_sha256": "037e2d8f304adf5c23ca7d42c59cfd26addc23f5b9cbdf2188db49b4f8d7534c"
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/public-selector-replay.json",
+      "sha256": "a0190981717aed5154bd640679b856685d6d5c41e83bf24a00d6376e0e474e2b",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "geometry_sha256": "db91c5495a3b62cc592347452859dfab5c469b1775f04fb16396e9562b361ee8",
+        "selector_route_sha256": "a251ec65094ca128045753ce7b11c0d169ca0373406d8f54cc0e32930f02cc52",
+        "selector": {
+          "native_opens": 21,
+          "physical_opens": 21,
+          "original_groups": 210,
+          "prior_groups_preserved": 209,
+          "temporarily_split_original_groups": [
+            "ROW_04_A"
+          ],
+          "retained_attached_source_copper": 19256,
+          "main_ground_pads": 197,
+          "main_vled_pads": 40,
+          "gate_pads": 4,
+          "row_pads": 2,
+          "selector_pads": 3,
+          "orphan_copper": 0
+        },
+        "hole_audit": {
+          "disjoint_supported_close_pairs": [],
+          "aligned_adjacent_stacks": [
+            {
+              "uuids": [
+                "b027a28a-4f67-5591-bead-75785b621011",
+                "b4df1be6-fd66-50ce-af4c-271a37bbaace"
+              ],
+              "first_uuid": "b027a28a-4f67-5591-bead-75785b621011",
+              "first_span": [
+                "In1.Cu",
+                "In2.Cu"
+              ],
+              "second_span": [
+                "F.Cu",
+                "In1.Cu"
+              ],
+              "first_position_iu": [
+                84050000,
+                12175000
+              ],
+              "second_position_iu": [
+                84050000,
+                12175000
+              ]
+            }
+          ],
+          "other_close_pairs": 0,
+          "minimum_unchanged_hole_clearance_mm": 0.25,
+          "fabrication_qualified": false
+        },
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/public-alternate-selector-replay.json",
+      "sha256": "4841bf8735ed97959c5fe635d9115bd64b0697b37c87da62961f8e9e2361f214",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "geometry_sha256": "f71bc9d29a7779ad6cbd60dafa26f6d4d8bb1cad717b88cb747cd898d1c6c933",
+        "selector_route_sha256": "0accb905f0117b025fd7a7658e4229522ad54e8a801e51e4be06c908ef3707fa",
+        "selector": {
+          "native_opens": 21,
+          "physical_opens": 21,
+          "original_groups": 210,
+          "prior_groups_preserved": 209,
+          "temporarily_split_original_groups": [
+            "ROW_04_A"
+          ],
+          "retained_attached_source_copper": 19256,
+          "main_ground_pads": 197,
+          "main_vled_pads": 40,
+          "gate_pads": 4,
+          "row_pads": 2,
+          "selector_pads": 3,
+          "orphan_copper": 0
+        },
+        "hole_audit": {
+          "disjoint_supported_close_pairs": [],
+          "aligned_adjacent_stacks": [
+            {
+              "uuids": [
+                "12223678-5d65-58f4-838f-2657b86141e3",
+                "9bcc8df2-f1bf-53ee-b928-43afb27ce3cf"
+              ],
+              "first_uuid": "12223678-5d65-58f4-838f-2657b86141e3",
+              "first_span": [
+                "In1.Cu",
+                "In2.Cu"
+              ],
+              "second_span": [
+                "F.Cu",
+                "In1.Cu"
+              ],
+              "first_position_iu": [
+                82750000,
+                13625000
+              ],
+              "second_position_iu": [
+                82750000,
+                13625000
+              ]
+            }
+          ],
+          "other_close_pairs": 0,
+          "minimum_unchanged_hole_clearance_mm": 0.25,
+          "fabrication_qualified": false
+        },
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/early-row-supply-diagnostic.json",
+      "sha256": "6e9fa420323975200da6f71da6a3854f692ce8d2e50ba8fc203aa2c18f49d3cf",
+      "metrics": {
+        "native_opens": 22,
+        "vled_groups": [
+          [
+            "PAIR07.4"
+          ],
+          [
+            "PAIR09.4"
+          ],
+          [
+            "PAIR01.4",
+            "PAIR02.4",
+            "PAIR03.4",
+            "PAIR04.4",
+            "R11.1",
+            "R6.1"
+          ],
+          [
+            "C46.1",
+            "C47.1",
+            "C48.1",
+            "C49.1",
+            "PAIR05.4",
+            "PAIR06.4",
+            "PAIR08.4",
+            "PAIR10.4",
+            "PAIR11.4",
+            "PAIR12.4",
+            "PAIR13.4",
+            "PAIR14.4",
+            "PAIR15.4",
+            "PAIR16.4",
+            "R10.1",
+            "R109.1",
+            "R111.1",
+            "R113.1",
+            "R12.1",
+            "R13.1",
+            "R14.1",
+            "R15.1",
+            "R16.1",
+            "R17.1",
+            "R18.1",
+            "R19.1",
+            "R20.1",
+            "R21.1",
+            "R7.1",
+            "R8.1",
+            "R84.1",
+            "R9.1",
+            "U37.4",
+            "U37.5"
+          ]
+        ],
+        "transitions": [
+          {
+            "signature": [
+              "via",
+              "ROW_04_A",
+              82725000,
+              12725000,
+              "F.Cu",
+              "In1.Cu",
+              300000,
+              100000
+            ],
+            "via_type": 1
+          },
+          {
+            "signature": [
+              "via",
+              "ROW_04_A",
+              82750000,
+              13275000,
+              "In1.Cu",
+              "In2.Cu",
+              300000,
+              100000
+            ],
+            "via_type": 1
+          },
+          {
+            "signature": [
+              "via",
+              "ROW_04_A",
+              83000000,
+              13525000,
+              "In1.Cu",
+              "In2.Cu",
+              300000,
+              100000
+            ],
+            "via_type": 1
+          }
+        ],
+        "selected": false,
+        "pcb_written": false
+      },
+      "script_sha256": "335b551d381b5c460b5cf6f365db3ad4b099e5827a5223d421ad35f33b5c5c40"
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/wide-stack-row-access-fine-expanded.json",
+      "sha256": "12d8e766fc4d3c1c7fb819eec6994ab866e78b45bf95bd1bee24d7ea81c9bf42",
+      "script_sha256": "8ae1aabd91aa1f154cdad67c8542d8e4fed79229f205e3f388e1f19d7d9c3fde",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "frontier_diagnostic": [
+          {
+            "layer": "F.Cu",
+            "minimum_box_distance_mm": 2.567585305301851,
+            "visited_states": 16411
+          },
+          {
+            "layer": "In2.Cu",
+            "minimum_box_distance_mm": 1.397541323182252,
+            "visited_states": 68687
+          },
+          {
+            "layer": "In3.Cu",
+            "minimum_box_distance_mm": 7.9429202060704345,
+            "visited_states": 27465
+          }
+        ],
+        "grid_mm": 0.025,
+        "maximum_nodes": 300000,
+        "expanded_nodes": 123796,
+        "source_points": 2,
+        "via_probes": 85098,
+        "clear_via_probes": 25521,
+        "rejected_candidates": [],
+        "outcome": "bounded_graph_exhausted",
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/alternate-wide-stack-row-access-fine-expanded.json",
+      "sha256": "8bb3926e57321559c8f8d5697177f5fbbfcacdce2d7a9d235145a35bf046d5e4",
+      "script_sha256": "44210b57e5dd20e61cf6ea2e3fe2db89240617277421a32276db5752c9a78df6",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "frontier_diagnostic": [
+          {
+            "layer": "F.Cu",
+            "minimum_box_distance_mm": 5.001560861371378,
+            "visited_states": 4020
+          },
+          {
+            "layer": "In2.Cu",
+            "minimum_box_distance_mm": 5.11767661639557,
+            "visited_states": 76552
+          },
+          {
+            "layer": "In3.Cu",
+            "minimum_box_distance_mm": 7.9429202060704345,
+            "visited_states": 35250
+          }
+        ],
+        "grid_mm": 0.025,
+        "maximum_nodes": 300000,
+        "expanded_nodes": 118777,
+        "source_points": 2,
+        "via_probes": 80572,
+        "clear_via_probes": 34322,
+        "rejected_candidates": [],
+        "outcome": "bounded_graph_exhausted",
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/wide-stack-row-access-bottom.json",
+      "sha256": "db39b30205ad2d54af66afd5462b332c02290a9ff97d10dad956d2d5a21e62e8",
+      "script_sha256": "7869ec1d0c45f9c1016ba6995954fb985c865fcaf0f8118f930bd72da166e58e",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "frontier_diagnostic": [
+          {
+            "layer": "F.Cu",
+            "minimum_box_distance_mm": 2.5706262369317714,
+            "visited_states": 4522
+          },
+          {
+            "layer": "In2.Cu",
+            "minimum_box_distance_mm": 1.4267521333441209,
+            "visited_states": 31514
+          },
+          {
+            "layer": "In3.Cu",
+            "minimum_box_distance_mm": 7.9429202060704345,
+            "visited_states": 12469
+          },
+          {
+            "layer": "B.Cu",
+            "minimum_box_distance_mm": 7.184008616364682,
+            "visited_states": 361
+          }
+        ],
+        "grid_mm": 0.05,
+        "maximum_nodes": 300000,
+        "expanded_nodes": 49678,
+        "source_points": 2,
+        "via_probes": 48505,
+        "clear_via_probes": 11543,
+        "rejected_candidates": [],
+        "outcome": "bounded_graph_exhausted",
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/alternate-wide-stack-row-access-bottom.json",
+      "sha256": "e1652ed0395140bf7affe1516de4d87c1253b6db9f10b04a1d574d4e41ffda9b",
+      "script_sha256": "51327d2a145dce37864b7ee1de293a5a044cb796cd24bcb19389ce389182c844",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "frontier_diagnostic": [
+          {
+            "layer": "F.Cu",
+            "minimum_box_distance_mm": 5.007555396598425,
+            "visited_states": 2048
+          },
+          {
+            "layer": "In2.Cu",
+            "minimum_box_distance_mm": 5.11767661639557,
+            "visited_states": 36325
+          },
+          {
+            "layer": "In3.Cu",
+            "minimum_box_distance_mm": 7.9429202060704345,
+            "visited_states": 16331
+          },
+          {
+            "layer": "B.Cu",
+            "minimum_box_distance_mm": 6.122549211725619,
+            "visited_states": 908
+          }
+        ],
+        "grid_mm": 0.05,
+        "maximum_nodes": 300000,
+        "expanded_nodes": 57222,
+        "source_points": 2,
+        "via_probes": 54704,
+        "clear_via_probes": 16135,
+        "rejected_candidates": [],
+        "outcome": "bounded_graph_exhausted",
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/wide-stack-row-access-front-return.json",
+      "sha256": "fc7dbb2562883be3094736076b8780d87291d369b55f9bb51301e7a4f2fc51cd",
+      "script_sha256": "030b8126a8dc3f77c06706bf3583558f186af2d9c1d30d72c8193a11d101ef93",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "frontier_diagnostic": [
+          {
+            "layer": "F.Cu",
+            "minimum_box_distance_mm": 1.599999,
+            "visited_states": 45433
+          },
+          {
+            "layer": "In2.Cu",
+            "minimum_box_distance_mm": 1.4267521333441209,
+            "visited_states": 31514
+          },
+          {
+            "layer": "F.Cu",
+            "minimum_box_distance_mm": 1.599999,
+            "visited_states": 45433
+          }
+        ],
+        "grid_mm": 0.05,
+        "maximum_nodes": 300000,
+        "expanded_nodes": 78079,
+        "source_points": 2,
+        "via_probes": 36036,
+        "clear_via_probes": 20076,
+        "rejected_candidates": [],
+        "outcome": "bounded_graph_exhausted",
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/alternate-wide-stack-row-access-front-return.json",
+      "sha256": "9e788700327feeb769f8d626d00f5822f8bbb1ab5b54d6270fd53b3c4bf17672",
+      "script_sha256": "0ff7571b74c9d96c9bf7f0ee870a010f743a243725f3d692dce3e517cd621d1f",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "frontier_diagnostic": [
+          {
+            "layer": "F.Cu",
+            "minimum_box_distance_mm": 4.964119932072753,
+            "visited_states": 52002
+          },
+          {
+            "layer": "In2.Cu",
+            "minimum_box_distance_mm": 5.11767661639557,
+            "visited_states": 36325
+          },
+          {
+            "layer": "F.Cu",
+            "minimum_box_distance_mm": 4.964119932072753,
+            "visited_states": 52002
+          }
+        ],
+        "grid_mm": 0.05,
+        "maximum_nodes": 300000,
+        "expanded_nodes": 89923,
+        "source_points": 2,
+        "via_probes": 38373,
+        "clear_via_probes": 26785,
+        "rejected_candidates": [],
+        "outcome": "bounded_graph_exhausted",
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/wide-stack-row-access-front-return-complete.json",
+      "sha256": "cd0077cd6671e2cdaf3468c37bd7feb734d15e33367209bfc5aa39918f890fec",
+      "script_sha256": "ce09427ab48eee7e76911224b7a87521de35dc2cd10bf95daff91d4928d77bea",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "frontier_diagnostic": [
+          {
+            "layer": "F.Cu",
+            "minimum_box_distance_mm": 1.599999,
+            "visited_states": 45433
+          },
+          {
+            "layer": "In2.Cu",
+            "minimum_box_distance_mm": 1.4267521333441209,
+            "visited_states": 31514
+          },
+          {
+            "layer": "F.Cu",
+            "minimum_box_distance_mm": 1.599999,
+            "visited_states": 45433
+          }
+        ],
+        "grid_mm": 0.05,
+        "maximum_nodes": 300000,
+        "expanded_nodes": 78080,
+        "source_points": 2,
+        "via_probes": 36036,
+        "clear_via_probes": 20033,
+        "rejected_candidates": [],
+        "outcome": "bounded_graph_exhausted",
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/alternate-wide-stack-row-access-front-return-complete.json",
+      "sha256": "7ccf0c9c9cb8a254de9915cd351760db822486495f5380d84dacf4567ce4de2f",
+      "script_sha256": "3f82f14dabac020611ccb2575e17ff0567558a2d79149f751975dd345932f553",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "frontier_diagnostic": [
+          {
+            "layer": "F.Cu",
+            "minimum_box_distance_mm": 4.964119932072753,
+            "visited_states": 49781
+          },
+          {
+            "layer": "In2.Cu",
+            "minimum_box_distance_mm": 5.11767661639557,
+            "visited_states": 36325
+          },
+          {
+            "layer": "F.Cu",
+            "minimum_box_distance_mm": 4.964119932072753,
+            "visited_states": 49781
+          }
+        ],
+        "grid_mm": 0.05,
+        "maximum_nodes": 300000,
+        "expanded_nodes": 87378,
+        "source_points": 2,
+        "via_probes": 37278,
+        "clear_via_probes": 26166,
+        "rejected_candidates": [],
+        "outcome": "bounded_graph_exhausted",
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false
+      }
+    }
+  ],
+  "checkpoint_validation": {
+    "commit": "e2ec49cf87540e16bb2ddc6f8684629b27b0ad4f",
+    "hosted_checks": [
+      {
+        "url": "https://github.com/mulbc/rgb-badge/actions/runs/45433221821",
+        "conclusion": "success"
+      },
+      {
+        "url": "https://github.com/mulbc/rgb-badge/actions/runs/45433196605",
+        "conclusion": "success"
+      }
+    ],
+    "selected_source_changed": false
+  }
 }

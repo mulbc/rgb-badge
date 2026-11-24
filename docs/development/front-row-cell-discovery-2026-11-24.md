@@ -11,7 +11,7 @@ The zero-open objective remains unfinished.
 The [discovery record](../../mechanical/review/front-row-cell-discovery.json)
 contains frozen geometry, typed prospective retirements, original external
 contacts, explicit incomplete-group counts and local evidence fingerprints.
-ADRs0271–0291 and the corresponding requirements additions bound the studies.
+ADRs0271–0299 and the corresponding requirements additions bound the studies.
 
 ## Fixed supplies and bottom-side routing pockets
 
@@ -127,6 +127,51 @@ partial state from the public record and independently repeats the native
 Cu/hole/refill/group checks. That replay passes; it never writes a PCB.
 Its local result is `front-pair05/public-selector-replay.json` under the
 ignored PAIR03 build directory.
+
+## Alternate cell and wider corridor
+
+The early single In2 graph exhausts70844 states. Adding one supported
+mechanically drilled In2/In3 transition exhausts71176 states. Three
+In1/In2 variants stop at their64-rejected-candidate bounds; each completed
+candidate loses the real six-pad supply group. These are candidate limits,
+not exhausted-graph or global impossibility claims. The diagnostic retains
+the exact six-/34-pad memberships and actual proposed transitions.
+
+An alternate coordinated placement passes native source/mutual Cu,
+courtyards, unchanged full hole policy and independent absolute transforms:
+PAIR05 F83.4,12.7/90°, R10 F83.7,10.7/180°, R26 F83.1,14.7/180°.
+It uses the same exact111 prospective omissions and preserves every other
+part/source item. Its initial state again preserves208 of210 old groups,
+GND197/VLED40/gate4/no orphans, with row and selector explicitly pending.
+
+A real alternate selector joins after1446 states using1.354064158 mm of
+new ordinary track and one supported F/In1 microvia at84.300,14.700 mm.
+The public checker with `--alternate-cell --restore-selector` independently
+replays and passes the same21-open/209-group state with only ROW04 split.
+The alternate geometry and selector rows each have separately frozen hashes.
+Neither replay is a selected21-open board.
+
+Wider F/In2/In3 row studies use real aligned supported outer captures and
+an optional supported mechanical centre transition, avoiding In1 tracks.
+Their0.025 mm passes each hit100000 nodes. The0.050 mm passes exhaust
+49156/55920 states; the fine continuation exhausts123796/118777 states within the
+same18 mm conductor/corridor/source/native acceptance requirements.
+No new centre microvia, current setting, clearance or hole exception is used.
+
+A supported bottom-return variant exhausts49678/57222 coarse states.
+A supported F/In2/F return exhausts78079/89923 coarse states. Full-cell
+searches now include the respective frozen selector before building Cu
+and hole collision caches, so an accepted row cannot cross its conductors.
+The bounded supported-exchange continuation permits only existing supported
+outer spans and the specified mechanically drilled centre, with no more
+than eight real new holes. Every completed candidate must pass20 matching
+opens and every210 original group; no shortcut or net-label count qualifies.
+
+The saved discovery commit `e2ec49cf87540e16bb2ddc6f8684629b27b0ad4f`
+passes both hosted checks:
+[Host software](https://github.com/mulbc/rgb-badge/actions/runs/45433221821)
+and [Host software](https://github.com/mulbc/rgb-badge/actions/runs/45433196605).
+Both original and alternate repository selector replays pass locally.
 
 Only a complete20-open cell with all210 original groups, retained source
 copper, zero orphans and the full gate/row/selector memberships may proceed
