@@ -1300,3 +1300,94 @@ ADR0271 permits fixed-PAIR05/07/09 additive supply discovery from source22,
 with actual VLED39 contact and all210 original groups/all19367 source Cu
 preserved. A combined RAM-only19-open/VLED42 trial requires all three
 full joins and all new/source hole checks; full qualification remains separate.
+
+ADR0272 permits conservative native configuration-space inspection for
+fixed PAIR05/09 using exact source Cu and unchanged0.20 mm routing rules.
+Any derived conductor needs native screening/full source preservation;
+no global no-path or fabrication/electrical acceptance is inferred.
+
+ADR0273 permits the exact three-item PAIR05 ground-leaf gateway study,
+restoring every retained outside contact/group/Cu and GND197 at22 opens.
+No partial supply, further retirement or qualification/fabrication release.
+
+ADR0274 permits a shorter PAIR05 ground capture at the exact retained
+trunk corridor, with no zero-length segments and unchanged three-item
+cohort/full source preservation. Return capacity remains unqualified.
+
+ADR0275 permits one supported0.50/0.30 mm In2/In3 mechanical capture
+for fixed PAIR07 with explicit source/mutual hole rules and full original
+connection/Cu preservation. No unsupported new centre via or release.
+
+ADR0276 permits read-only coordinated F-side PAIR05/R10 placement
+discovery, with exact parts/pins and actual plane contacts, supported
+outer access and unchanged physical rules. No source retirement or
+partial module selection; full original-group/Cu qualification remains.
+
+ADR0277 permits bounded real F row/selector access and source-contact
+backed private-leaf graph cataloguing, without source adoption or PCB write.
+All physical/hole rules and complete-module qualification remain unchanged.
+
+ADR0278 expands the read-only front cell to exact R26 ERJ2RKF1003X,
+100k1%, preserving its ground/default-off topology, and permits bounded
+ROW04 F/In1 access with supported microvias. Native source cataloguing
+must reflect the actual PAIR05/R26 versus U2 split; no omitted fixed pad.
+
+ADR0279 freezes the exact111-item front-cell RAM restoration and three
+independently specified flips. Temporary ROW/selector splits cannot be
+selected regardless of open count; all210 prior groups and retained Cu
+must be restored in the full20-open candidate before PCB qualification.
+
+ADR0280 permits a bounded real F hop in the proposed ROW04 path to
+preserve the actual VLED40 plane connection, with source/mutual holes
+and all other original groups retained. A pending selector is still an
+unselected partial state; no source or fabrication boundary changes.
+
+ADR0281 permits F-only row search with actual source goals or a single
+later supported layer entry carrying the complete real In1 suffix.
+Source VLED40 and all original groups except pending selector must
+survive; no waypoint-only join or partial PCB selection is permitted.
+
+ADR0282 permits a real supported VLED surface bridge between the actual
+six- and34-pad groups after the proposed row cut. Source/new Cu, holes,
+all other original groups and VLED40 are mandatory; no current limit or
+source/fabrication boundary changes, and selector restoration remains.
+
+ADR0283 extends only the source-connected supply probe corridor and
+permits real existing F ports in the opposite proved supply group.
+No zone-label-only contact, extra source retirement, current change or
+partial selection; full source/group/Cu/hole boundaries remain mandatory.
+
+ADR0284 permits a bounded ordinary In2 or In3 supply bridge between
+actual existing source-connected ports, without new holes or source
+retirement. VLED40/GND197 and all other original groups/Cu must survive;
+existing unsupported transitions remain held and selector still pending.
+
+ADR0285 permits ordinary B or In4 supply bridging between actual
+nearest existing group ports, without new holes or source changes.
+Every original group except pending selector and all retained Cu must
+survive; a full20-open/all210-group cell still precedes qualification.
+
+ADR0286 permits bounded ordinary surface supply routing between the
+actual existing groups, with a calculated8 mm F bound and no new holes.
+Complete native continuity and all source/Cu/qualification boundaries
+remain mandatory; this is not electrical or fabrication acceptance.
+
+ADR0287 permits a bounded two-layer lower supply bridge using at most
+two supported B/In4 microvias. The source-hole cache may not waive an
+unsupported source hole, and every candidate must pass the original
+full native auditor plus all source/group/Cu continuity requirements.
+
+ADR0288 permits a bounded real front-cell selector join to the retained
+U2-side port, with at most one supported F/In1 microvia. A selector-only
+RAM state remains unselected; full row/supply restoration and all original
+source/group/Cu/hole/qualification boundaries precede any PCB prototype.
+
+ADR0289 permits bounded In2 row routing through supported aligned outer
+microvias to avoid severing the actual supply plane. All original groups
+except pending selector, source Cu and unchanged native Cu/hole boundaries
+must survive; no new centre/through transitions or partial selection.
+
+ADR0290 permits bounded supported F/In1 selector discovery after direct
+templates fail; ADR0291 permits bounded supported In1/In2 row discovery
+after the fixed aligned capture fails Cu clearance. Every original
+source/group/Cu/hole and complete-cell qualification boundary remains.

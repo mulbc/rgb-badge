@@ -1,0 +1,7579 @@
+{
+  "spdx_license_identifier": "CERN-OHL-S-2.0",
+  "selected": false,
+  "fabrication_release_allowed": false,
+  "geometry_sha256": "db91c5495a3b62cc592347452859dfab5c469b1775f04fb16396e9562b361ee8",
+  "geometry": {
+    "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+    "source_board": "hardware/coupon/rev-a/staging/led-pair03-supply-routing-trial-114mm.kicad_pcb",
+    "poses": {
+      "PAIR05": {
+        "position_iu": [
+          83400000,
+          13100000
+        ],
+        "orientation_degrees": 270,
+        "layer": "F.Cu",
+        "flip": "top-bottom"
+      },
+      "R10": {
+        "position_iu": [
+          83100000,
+          15100000
+        ],
+        "orientation_degrees": 0,
+        "layer": "F.Cu",
+        "flip": "top-bottom"
+      },
+      "R26": {
+        "position_iu": [
+          83700000,
+          10900000
+        ],
+        "orientation_degrees": 0,
+        "layer": "F.Cu",
+        "flip": "top-bottom"
+      }
+    },
+    "retired_copper": [
+      {
+        "uuid": "00093fa2-8c6b-5f49-b08c-13ca1174986a",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          74200000,
+          15100000,
+          74250000,
+          15100000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "003eaa32-81e0-556a-85eb-a839ab6d9b88",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          55100000,
+          12150000,
+          56000000,
+          12150000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "005c0644-012a-5744-9514-fe0d7dd69ad3",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          56000000,
+          12200000,
+          56850000,
+          12200000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "06f60c8b-b02c-5499-8750-9449c46ad565",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          61250000,
+          12500000,
+          62100000,
+          12500000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "0842a3f3-a0a5-58bc-b1cf-d3905888ef15",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          63850000,
+          12600000,
+          63850000,
+          12650000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "0d8b7bc3-a30c-5c80-a8e0-010135a91a84",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          74450000,
+          13300000,
+          75000000,
+          13300000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "0e2cd010-90f1-50e2-ad66-e87820ad12a1",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          60350000,
+          12400000,
+          60350000,
+          12450000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "0e3fb199-456b-547b-baf5-d545de49ebb1",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          66500000,
+          12800000,
+          67350000,
+          12800000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "0fb35538-b607-5212-90b3-1fc8d3bcfe9a",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          57750000,
+          12300000,
+          58600000,
+          12300000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "1140e499-19b1-56d0-8ed2-b91483e53ab4",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          58600000,
+          12350000,
+          59500000,
+          12350000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "14f7a5ed-12a2-5cfd-80e8-624df5a145c0",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          74250000,
+          15000000,
+          74950000,
+          15000000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "15abb6d9-94fd-5ec7-8af8-cb6bc39f25d6",
+        "signature": [
+          "via",
+          "ROW_SEL_04",
+          74200000,
+          15250000,
+          "In4.Cu",
+          "B.Cu",
+          300000,
+          100000
+        ],
+        "via_type": 1
+      },
+      {
+        "uuid": "1751f3fa-56b5-5541-b3eb-386ce1a482ef",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          59500000,
+          12400000,
+          60350000,
+          12400000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "183e69ff-c4d3-52e3-bd38-7966a0290185",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          77700000,
+          12250000,
+          77700000,
+          12300000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "1a82fe1a-d96f-5958-90ee-559d11639178",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          74250000,
+          15100000,
+          74250000,
+          15000000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "1cdac08a-61a9-5cf2-bb65-f668834e8215",
+        "signature": [
+          "track",
+          "ROW_GATE_04",
+          74825000,
+          11250000,
+          74825000,
+          10600000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "1d060897-5249-5a78-ae49-ed9bb43757b5",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          70000000,
+          13000000,
+          70850000,
+          13000000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "1ea2ca08-aa57-59f7-9391-4b6f6b1618d3",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          54100000,
+          8300000,
+          54100000,
+          8400000,
+          "In4.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "20aad481-619c-55be-adb1-984fcfa32d7c",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          73500000,
+          13150000,
+          73500000,
+          13200000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "20f8e629-6194-5697-b796-ddf47a8fe3dd",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          74200000,
+          15250000,
+          74200000,
+          15100000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "2363077f-8ad4-566d-a419-3824fa92b174",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          73500000,
+          13200000,
+          74300000,
+          13200000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "238e96b4-7770-5c8b-b2f2-7251c3053804",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          77750000,
+          12200000,
+          77750000,
+          12250000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "23fdc221-84ca-56b8-8563-709035904220",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          63000000,
+          12550000,
+          63000000,
+          12600000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "2589fd38-2bfb-526d-b557-ada2955133d0",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          77850000,
+          12050000,
+          77800000,
+          12050000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "276689b1-ccd9-597c-a0d9-f3febe7e37c7",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          80200000,
+          15000000,
+          84850000,
+          15000000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "292109a3-0912-5028-af68-36b4a661fe19",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          77800000,
+          12050000,
+          77800000,
+          12200000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "2a2bbc81-3d9c-50ad-a336-3e9ddac44699",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          74300000,
+          13250000,
+          74450000,
+          13250000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "2bc267b0-042a-5d5c-b609-bacd0e888afd",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          37750000,
+          7250000,
+          38600000,
+          7250000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "2c15071a-e5dc-5d99-8a12-2e65dbbfcfcb",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          40500000,
+          7250000,
+          40500000,
+          7750000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "35d91ccc-eaab-5d68-9dac-6ffcdd4a554b",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          54100000,
+          8400000,
+          54150000,
+          8400000,
+          "In4.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "369f217b-ec64-5b0c-87eb-433e93e762df",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          71750000,
+          13100000,
+          72600000,
+          13100000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "390545de-87e5-5761-a582-f99e0c6671c9",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          74200000,
+          12500000,
+          74200000,
+          15250000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "3b6d7907-a231-52b4-9516-6cd56ae957d4",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          76675000,
+          11250000,
+          76650000,
+          11250000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "3cdafcab-cc04-598e-a59f-3bc946f3e16e",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          62100000,
+          12550000,
+          63000000,
+          12550000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "3d63e0a6-fa13-546a-8c17-e4c46b543804",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          74950000,
+          15000000,
+          80200000,
+          15000000,
+          "In2.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "43c9fc20-b639-5c4c-a6f9-792467c20978",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          71750000,
+          13050000,
+          71750000,
+          13100000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "43ef272c-ba48-5303-97e7-42290c7828ac",
+        "signature": [
+          "via",
+          "ROW_SEL_04",
+          74950000,
+          15000000,
+          "In2.Cu",
+          "In3.Cu",
+          300000,
+          100000
+        ],
+        "via_type": 1
+      },
+      {
+        "uuid": "44c5a440-ec9d-558b-aec4-1e55c957019f",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          68250000,
+          12850000,
+          68250000,
+          12900000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "47ac9dcf-f4c8-5011-982c-c4c6337ad5c0",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          70000000,
+          12950000,
+          70000000,
+          13000000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "4d66a059-ab56-5d02-bcf3-5ffedf2d40bf",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          74450000,
+          13250000,
+          74450000,
+          13300000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "4e2e77a4-5af4-5a3a-b592-ae6bc8413b78",
+        "signature": [
+          "track",
+          "ROW_04_A",
+          76675000,
+          11900000,
+          77250000,
+          11900000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "4fd17e28-4944-5501-bbfb-3341d0fff6e5",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          75000000,
+          13350000,
+          75150000,
+          13350000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "51a5eb4e-3fef-5412-8de0-1391f24b255a",
+        "signature": [
+          "via",
+          "ROW_SEL_04",
+          54200000,
+          12100000,
+          "In2.Cu",
+          "In3.Cu",
+          300000,
+          100000
+        ],
+        "via_type": 1
+      },
+      {
+        "uuid": "581825b5-ddf3-5662-9c22-bc0c32f32d6b",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          62100000,
+          12500000,
+          62100000,
+          12550000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "583c32e7-3cd8-5508-a5a1-6839627583b5",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          77800000,
+          12200000,
+          77750000,
+          12200000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "5a14e970-2859-58f6-8c85-109fdeea3b18",
+        "signature": [
+          "via",
+          "ROW_SEL_04",
+          80200000,
+          15000000,
+          "In1.Cu",
+          "In2.Cu",
+          300000,
+          100000
+        ],
+        "via_type": 1
+      },
+      {
+        "uuid": "5d06fef0-9e20-559e-a93f-a89e3e0d486c",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          63850000,
+          12650000,
+          64750000,
+          12650000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "606bde92-9ff6-5707-ab53-b888d03ec621",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          54200000,
+          12100000,
+          55100000,
+          12100000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "697f14b4-9b79-5ae8-8599-bb83a4b42634",
+        "signature": [
+          "via",
+          "ROW_SEL_04",
+          75150000,
+          13400000,
+          "In2.Cu",
+          "In3.Cu",
+          300000,
+          100000
+        ],
+        "via_type": 1
+      },
+      {
+        "uuid": "6c2e4815-ab8b-57e6-853e-354d4e1311e1",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          54000000,
+          7250000,
+          54000000,
+          8199999,
+          "In4.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "70806735-19c7-559b-a9ee-d4d02ed178cc",
+        "signature": [
+          "via",
+          "ROW_SEL_04",
+          74200000,
+          15250000,
+          "In3.Cu",
+          "In4.Cu",
+          300000,
+          100000
+        ],
+        "via_type": 1
+      },
+      {
+        "uuid": "7093e413-c5aa-5346-8d08-d8fafb53a4ec",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          77600000,
+          12400000,
+          77550000,
+          12400000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "7a16992e-d59e-58a7-bc13-d0932628d9c1",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          57750000,
+          12250000,
+          57750000,
+          12300000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "7c8c664a-2545-5947-9999-8e9c3f45ffda",
+        "signature": [
+          "via",
+          "VLED",
+          47750000,
+          4250000,
+          "In4.Cu",
+          "B.Cu",
+          300000,
+          100000
+        ],
+        "via_type": 1
+      },
+      {
+        "uuid": "7db519b7-09a6-5709-9a0a-637b74054744",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          77550000,
+          12450000,
+          77400000,
+          12450000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "7e73fcfa-7f21-5351-99d6-e70c3eb40309",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          77550000,
+          12400000,
+          77550000,
+          12450000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "869cc00d-c3b5-5831-b739-bf0733c067d4",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          65599999,
+          12750000,
+          66500000,
+          12750000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "87fb1b9a-6736-5e4d-a9a5-208eed60f75d",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          40500000,
+          7750000,
+          44800000,
+          7750000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "8a58b703-9488-5827-806e-d2ac4d740afd",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          54050000,
+          8199999,
+          54050000,
+          8300000,
+          "In4.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "8a6e979a-4333-58a2-9408-3f4058fe88c9",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          70850000,
+          13000000,
+          70850000,
+          13050000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "8bde67c0-4ba3-5b35-9351-eb969e965fbd",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          77600000,
+          12350000,
+          77600000,
+          12400000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "8eb3b3f8-e81e-590b-8f0c-25d3ede4bbde",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          54000000,
+          8199999,
+          54050000,
+          8199999,
+          "In4.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "9148639c-2c68-5043-9ffe-81597941cc00",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          70850000,
+          13050000,
+          71750000,
+          13050000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "964732b6-1ac6-5d18-80ee-dd6b17d6b299",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          56850000,
+          12250000,
+          57750000,
+          12250000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "a17fa9d9-06a0-577d-a70d-7e570c218c1c",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          56850000,
+          12200000,
+          56850000,
+          12250000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "a3278da8-f893-5a29-b8c5-cf94f32fba35",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          54150000,
+          8400000,
+          54150000,
+          8450000,
+          "In4.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "a46796c1-6ec7-5970-b4ca-2d17718a8336",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          77650000,
+          12300000,
+          77650000,
+          12350000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "a793ea57-9d7d-5e90-a095-bae5ec825daa",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          54050000,
+          8300000,
+          54100000,
+          8300000,
+          "In4.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "aa224615-44e5-5ed5-95ea-9dfee82a431f",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          44800000,
+          7250000,
+          54000000,
+          7250000,
+          "In4.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "aa291aea-9e79-5613-a8b1-ebf16872f011",
+        "signature": [
+          "via",
+          "ROW_SEL_04",
+          54200000,
+          8750000,
+          "In3.Cu",
+          "In4.Cu",
+          300000,
+          100000
+        ],
+        "via_type": 1
+      },
+      {
+        "uuid": "aa633b26-c98e-5198-abfb-b0469af712fd",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          54150000,
+          8450000,
+          54200000,
+          8450000,
+          "In4.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "ac49e368-46d0-5ed9-8e77-6f84f929e766",
+        "signature": [
+          "track",
+          "ROW_GATE_04",
+          74825000,
+          10600000,
+          75750000,
+          10750000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "ac7f3602-466c-57b8-ae0e-5b42868913cb",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          69100000,
+          12950000,
+          70000000,
+          12950000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "b236e849-aa64-5698-9e0a-310866b83521",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          77650000,
+          12350000,
+          77600000,
+          12350000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "b9a21fa3-e44f-52a2-bd6a-a603af3b65b7",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          64750000,
+          12700000,
+          65599999,
+          12700000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "ba32d058-40ff-5012-b6ef-4bb6084b44b9",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          59500000,
+          12350000,
+          59500000,
+          12400000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "bcf073b4-d908-5588-bc52-1922b4a9b5ea",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          77400000,
+          12500000,
+          74200000,
+          12500000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "bf1226e6-8957-5453-a355-e19733a1f0ad",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          74300000,
+          13200000,
+          74300000,
+          13250000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "c31959c2-b49a-587a-b3a8-b3a8f6745e92",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          38600000,
+          7250000,
+          40500000,
+          7250000,
+          "In4.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "c3c8ad97-423d-5f77-937d-d7d39b4a4654",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          54200000,
+          8750000,
+          54200000,
+          12100000,
+          "In2.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "c491a668-8e7e-5f33-ae5c-95180c1ce1b2",
+        "signature": [
+          "track",
+          "ROW_04_A",
+          75750000,
+          11750000,
+          76675000,
+          11900000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "c6052eb3-2ded-5ab5-9eb1-833d82eeb985",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          67350000,
+          12850000,
+          68250000,
+          12850000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "c68b20d3-7aea-579e-9573-9beb53c4235b",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          68250000,
+          12900000,
+          69100000,
+          12900000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "c97229bd-0744-5f60-bd86-bfe40fd42b33",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          58600000,
+          12300000,
+          58600000,
+          12350000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "ca00c51a-11bf-50ab-aad9-c1e592619832",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          77400000,
+          12450000,
+          77400000,
+          12500000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "d05d078a-2565-507e-bab1-befeb9ee7937",
+        "signature": [
+          "via",
+          "ROW_SEL_04",
+          54200000,
+          8750000,
+          "In2.Cu",
+          "In3.Cu",
+          300000,
+          100000
+        ],
+        "via_type": 1
+      },
+      {
+        "uuid": "d09b301e-8ee3-529d-adab-84169685d06c",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          75200000,
+          13400000,
+          75200000,
+          15000000,
+          "In2.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "d5c51174-a6d9-5d02-9480-34de956fb95e",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          75000000,
+          13300000,
+          75000000,
+          13350000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "da013903-86a3-56c3-8d16-2a3ec2fcb6b6",
+        "signature": [
+          "via",
+          "ROW_SEL_04",
+          40500000,
+          7250000,
+          "In3.Cu",
+          "In4.Cu",
+          300000,
+          100000
+        ],
+        "via_type": 1
+      },
+      {
+        "uuid": "db7eac00-8276-5faa-b3b6-58f5ca9cbd19",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          64750000,
+          12650000,
+          64750000,
+          12700000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "de3ba297-7af6-5363-831b-8f202e5f5042",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          72600000,
+          13150000,
+          73500000,
+          13150000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "deb0f2b8-11d4-51ad-b36e-16ee947bd4e2",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          56000000,
+          12150000,
+          56000000,
+          12200000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "e088e584-48b0-5013-90da-91dc840a8f34",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          75150000,
+          13350000,
+          75150000,
+          13400000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "e54dcf37-423d-5feb-8e85-6dc705d56d4c",
+        "signature": [
+          "via",
+          "ROW_SEL_04",
+          38600000,
+          7250000,
+          "In4.Cu",
+          "B.Cu",
+          300000,
+          100000
+        ],
+        "via_type": 1
+      },
+      {
+        "uuid": "e60bef06-58ac-56fb-805a-7b97f8dcc661",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          72600000,
+          13100000,
+          72600000,
+          13150000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "ea8e1cf1-674c-52c5-8d66-b16c395d4f41",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          67350000,
+          12800000,
+          67350000,
+          12850000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "ec601763-5de1-576a-9995-a5a59699eab1",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          63000000,
+          12600000,
+          63850000,
+          12600000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "ed02d090-6421-5749-a6a6-80a056f8928d",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          76650000,
+          11250000,
+          77850000,
+          11250000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "ee59328b-7aa1-54cb-8e82-6a49a944a15f",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          69100000,
+          12900000,
+          69100000,
+          12950000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "ee62cf69-7950-50ae-86d3-bc7fb49c3787",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          75150000,
+          13400000,
+          75200000,
+          13400000,
+          "In2.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "f386bf95-cbbe-5806-807c-6dde05d5074b",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          77700000,
+          12300000,
+          77650000,
+          12300000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "f418400d-c9ca-5db7-80c1-c5e1563c879b",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          66500000,
+          12750000,
+          66500000,
+          12800000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "f5113b43-b444-5f49-8dde-9326a28e018e",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          77850000,
+          11250000,
+          77850000,
+          12050000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "f6908e04-dc73-52f8-99d0-eb9f590475e2",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          44800000,
+          7750000,
+          44800000,
+          7250000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "f6e764e8-c332-5794-88c7-bbda761c143f",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          61250000,
+          12450000,
+          61250000,
+          12500000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "f76f41c0-4665-57a7-83dc-81c23a39faf3",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          54200000,
+          8450000,
+          54200000,
+          8750000,
+          "In4.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "fa76eba0-38bc-581e-8d6d-fa398f242ae0",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          55100000,
+          12100000,
+          55100000,
+          12150000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "fac57670-5e1e-57cf-84e8-97a9b845f004",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          77750000,
+          12250000,
+          77700000,
+          12250000,
+          "B.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "fae944ab-7b75-5d88-9102-3588613cec5c",
+        "signature": [
+          "via",
+          "ROW_SEL_04",
+          44800000,
+          7250000,
+          "In3.Cu",
+          "In4.Cu",
+          300000,
+          100000
+        ],
+        "via_type": 1
+      },
+      {
+        "uuid": "fece0b97-f4e2-5934-8259-6e2e7922f7e4",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          65599999,
+          12700000,
+          65599999,
+          12750000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "uuid": "ffe9ae76-f1d0-51ae-bb9a-e2fa4763a2b8",
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          60350000,
+          12450000,
+          61250000,
+          12450000,
+          "In3.Cu",
+          200000
+        ],
+        "via_type": null
+      }
+    ],
+    "source_retirement_external_contacts": {
+      "00093fa2-8c6b-5f49-b08c-13ca1174986a": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "003eaa32-81e0-556a-85eb-a839ab6d9b88": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "005c0644-012a-5744-9514-fe0d7dd69ad3": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "06f60c8b-b02c-5499-8750-9449c46ad565": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "0842a3f3-a0a5-58bc-b1cf-d3905888ef15": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "0d8b7bc3-a30c-5c80-a8e0-010135a91a84": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "0e2cd010-90f1-50e2-ad66-e87820ad12a1": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "0e3fb199-456b-547b-baf5-d545de49ebb1": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "0fb35538-b607-5212-90b3-1fc8d3bcfe9a": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "1140e499-19b1-56d0-8ed2-b91483e53ab4": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "14f7a5ed-12a2-5cfd-80e8-624df5a145c0": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "15abb6d9-94fd-5ec7-8af8-cb6bc39f25d6": {
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        },
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "1751f3fa-56b5-5541-b3eb-386ce1a482ef": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "183e69ff-c4d3-52e3-bd38-7966a0290185": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "1a82fe1a-d96f-5958-90ee-559d11639178": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "1cdac08a-61a9-5cf2-bb65-f668834e8215": {
+        "B.Cu": {
+          "copper_and_pads": [
+            {
+              "uuid": "6923fab3-3fa1-5a1f-a067-ecfcf260fefc",
+              "pad": [
+                "PAIR05",
+                "5"
+              ]
+            },
+            {
+              "uuid": "dcc7af0f-e9e7-5e01-a8c7-bf4917455245",
+              "pad": [
+                "PAIR05",
+                "6"
+              ]
+            }
+          ],
+          "filled_polygons": []
+        }
+      },
+      "1d060897-5249-5a78-ae49-ed9bb43757b5": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "1ea2ca08-aa57-59f7-9391-4b6f6b1618d3": {
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "20aad481-619c-55be-adb1-984fcfa32d7c": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "20f8e629-6194-5697-b796-ddf47a8fe3dd": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "2363077f-8ad4-566d-a419-3824fa92b174": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "238e96b4-7770-5c8b-b2f2-7251c3053804": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "23fdc221-84ca-56b8-8563-709035904220": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "2589fd38-2bfb-526d-b557-ada2955133d0": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "276689b1-ccd9-597c-a0d9-f3febe7e37c7": {
+        "In1.Cu": {
+          "copper_and_pads": [
+            {
+              "uuid": "7c230c90-28aa-5a4c-a462-1ff328f288fd",
+              "signature": [
+                "via",
+                "ROW_SEL_04",
+                84850000,
+                15000000,
+                "In1.Cu",
+                "In2.Cu",
+                300000,
+                100000
+              ]
+            }
+          ],
+          "filled_polygons": []
+        }
+      },
+      "292109a3-0912-5028-af68-36b4a661fe19": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "2a2bbc81-3d9c-50ad-a336-3e9ddac44699": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "2bc267b0-042a-5d5c-b609-bacd0e888afd": {
+        "B.Cu": {
+          "copper_and_pads": [
+            {
+              "uuid": "8a0cda1c-a2e8-5304-b9e4-4b41d1eec3a2",
+              "pad": [
+                "R26",
+                "1"
+              ]
+            }
+          ],
+          "filled_polygons": []
+        }
+      },
+      "2c15071a-e5dc-5d99-8a12-2e65dbbfcfcb": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "35d91ccc-eaab-5d68-9dac-6ffcdd4a554b": {
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "369f217b-ec64-5b0c-87eb-433e93e762df": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "390545de-87e5-5761-a582-f99e0c6671c9": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "3b6d7907-a231-52b4-9516-6cd56ae957d4": {
+        "B.Cu": {
+          "copper_and_pads": [
+            {
+              "uuid": "c24f34e4-cd06-519a-91b2-2f1bf53f1231",
+              "pad": [
+                "PAIR05",
+                "2"
+              ]
+            }
+          ],
+          "filled_polygons": []
+        }
+      },
+      "3cdafcab-cc04-598e-a59f-3bc946f3e16e": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "3d63e0a6-fa13-546a-8c17-e4c46b543804": {
+        "In2.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "43c9fc20-b639-5c4c-a6f9-792467c20978": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "43ef272c-ba48-5303-97e7-42290c7828ac": {
+        "In2.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        },
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "44c5a440-ec9d-558b-aec4-1e55c957019f": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "47ac9dcf-f4c8-5011-982c-c4c6337ad5c0": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "4d66a059-ab56-5d02-bcf3-5ffedf2d40bf": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "4e2e77a4-5af4-5a3a-b592-ae6bc8413b78": {
+        "B.Cu": {
+          "copper_and_pads": [
+            {
+              "uuid": "627758bf-8374-5a03-b92d-141515d23afc",
+              "pad": [
+                "PAIR05",
+                "3"
+              ]
+            },
+            {
+              "uuid": "642e420b-6171-523e-af5e-ae5a512f8a23",
+              "signature": [
+                "via",
+                "ROW_04_A",
+                77250000,
+                11900000,
+                "F.Cu",
+                "B.Cu",
+                500000,
+                300000
+              ]
+            }
+          ],
+          "filled_polygons": []
+        }
+      },
+      "4fd17e28-4944-5501-bbfb-3341d0fff6e5": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "51a5eb4e-3fef-5412-8de0-1391f24b255a": {
+        "In2.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        },
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "581825b5-ddf3-5662-9c22-bc0c32f32d6b": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "583c32e7-3cd8-5508-a5a1-6839627583b5": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "5a14e970-2859-58f6-8c85-109fdeea3b18": {
+        "In1.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        },
+        "In2.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "5d06fef0-9e20-559e-a93f-a89e3e0d486c": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "606bde92-9ff6-5707-ab53-b888d03ec621": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "697f14b4-9b79-5ae8-8599-bb83a4b42634": {
+        "In2.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        },
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "6c2e4815-ab8b-57e6-853e-354d4e1311e1": {
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "70806735-19c7-559b-a9ee-d4d02ed178cc": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        },
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "7093e413-c5aa-5346-8d08-d8fafb53a4ec": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "7a16992e-d59e-58a7-bc13-d0932628d9c1": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "7c8c664a-2545-5947-9999-8e9c3f45ffda": {
+        "In4.Cu": {
+          "copper_and_pads": [
+            {
+              "uuid": "4235edd3-378b-57d8-b6be-6357976fcd1a",
+              "signature": [
+                "track",
+                "VLED",
+                47750000,
+                5150000,
+                47750000,
+                4450000,
+                "In4.Cu",
+                200000
+              ]
+            },
+            {
+              "uuid": "77f9cb70-e61f-5c0e-9448-992b50298c12",
+              "signature": [
+                "via",
+                "VLED",
+                47750000,
+                4250000,
+                "In3.Cu",
+                "In4.Cu",
+                300000,
+                100000
+              ]
+            },
+            {
+              "uuid": "ecb354c5-3bbc-53b2-9095-55fb25ec18a6",
+              "signature": [
+                "via",
+                "VLED",
+                47750000,
+                4450000,
+                "In3.Cu",
+                "In4.Cu",
+                300000,
+                100000
+              ]
+            }
+          ],
+          "filled_polygons": []
+        },
+        "B.Cu": {
+          "copper_and_pads": [
+            {
+              "uuid": "6bdb6961-0f03-5d2a-93b0-b609a937f5de",
+              "pad": [
+                "R10",
+                "1"
+              ]
+            }
+          ],
+          "filled_polygons": []
+        }
+      },
+      "7db519b7-09a6-5709-9a0a-637b74054744": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "7e73fcfa-7f21-5351-99d6-e70c3eb40309": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "869cc00d-c3b5-5831-b739-bf0733c067d4": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "87fb1b9a-6736-5e4d-a9a5-208eed60f75d": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "8a58b703-9488-5827-806e-d2ac4d740afd": {
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "8a6e979a-4333-58a2-9408-3f4058fe88c9": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "8bde67c0-4ba3-5b35-9351-eb969e965fbd": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "8eb3b3f8-e81e-590b-8f0c-25d3ede4bbde": {
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "9148639c-2c68-5043-9ffe-81597941cc00": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "964732b6-1ac6-5d18-80ee-dd6b17d6b299": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "a17fa9d9-06a0-577d-a70d-7e570c218c1c": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "a3278da8-f893-5a29-b8c5-cf94f32fba35": {
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "a46796c1-6ec7-5970-b4ca-2d17718a8336": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "a793ea57-9d7d-5e90-a095-bae5ec825daa": {
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "aa224615-44e5-5ed5-95ea-9dfee82a431f": {
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "aa291aea-9e79-5613-a8b1-ebf16872f011": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        },
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "aa633b26-c98e-5198-abfb-b0469af712fd": {
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "ac49e368-46d0-5ed9-8e77-6f84f929e766": {
+        "B.Cu": {
+          "copper_and_pads": [
+            {
+              "uuid": "956efc22-d22c-5f43-9dcf-5e9ab7df3fe5",
+              "pad": [
+                "PAIR05",
+                "6"
+              ]
+            },
+            {
+              "uuid": "dcc7af0f-e9e7-5e01-a8c7-bf4917455245",
+              "pad": [
+                "PAIR05",
+                "6"
+              ]
+            }
+          ],
+          "filled_polygons": []
+        }
+      },
+      "ac7f3602-466c-57b8-ae0e-5b42868913cb": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "b236e849-aa64-5698-9e0a-310866b83521": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "b9a21fa3-e44f-52a2-bd6a-a603af3b65b7": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "ba32d058-40ff-5012-b6ef-4bb6084b44b9": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "bcf073b4-d908-5588-bc52-1922b4a9b5ea": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "bf1226e6-8957-5453-a355-e19733a1f0ad": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "c31959c2-b49a-587a-b3a8-b3a8f6745e92": {
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "c3c8ad97-423d-5f77-937d-d7d39b4a4654": {
+        "In2.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "c491a668-8e7e-5f33-ae5c-95180c1ce1b2": {
+        "B.Cu": {
+          "copper_and_pads": [
+            {
+              "uuid": "627758bf-8374-5a03-b92d-141515d23afc",
+              "pad": [
+                "PAIR05",
+                "3"
+              ]
+            },
+            {
+              "uuid": "bf43d51b-d1b5-56bd-8185-b5ecea2103f7",
+              "pad": [
+                "PAIR05",
+                "3"
+              ]
+            }
+          ],
+          "filled_polygons": []
+        }
+      },
+      "c6052eb3-2ded-5ab5-9eb1-833d82eeb985": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "c68b20d3-7aea-579e-9573-9beb53c4235b": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "c97229bd-0744-5f60-bd86-bfe40fd42b33": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "ca00c51a-11bf-50ab-aad9-c1e592619832": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "d05d078a-2565-507e-bab1-befeb9ee7937": {
+        "In2.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        },
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "d09b301e-8ee3-529d-adab-84169685d06c": {
+        "In2.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "d5c51174-a6d9-5d02-9480-34de956fb95e": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "da013903-86a3-56c3-8d16-2a3ec2fcb6b6": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        },
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "db7eac00-8276-5faa-b3b6-58f5ca9cbd19": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "de3ba297-7af6-5363-831b-8f202e5f5042": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "deb0f2b8-11d4-51ad-b36e-16ee947bd4e2": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "e088e584-48b0-5013-90da-91dc840a8f34": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "e54dcf37-423d-5feb-8e85-6dc705d56d4c": {
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        },
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "e60bef06-58ac-56fb-805a-7b97f8dcc661": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "ea8e1cf1-674c-52c5-8d66-b16c395d4f41": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "ec601763-5de1-576a-9995-a5a59699eab1": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "ed02d090-6421-5749-a6a6-80a056f8928d": {
+        "B.Cu": {
+          "copper_and_pads": [
+            {
+              "uuid": "c24f34e4-cd06-519a-91b2-2f1bf53f1231",
+              "pad": [
+                "PAIR05",
+                "2"
+              ]
+            }
+          ],
+          "filled_polygons": []
+        }
+      },
+      "ee59328b-7aa1-54cb-8e82-6a49a944a15f": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "ee62cf69-7950-50ae-86d3-bc7fb49c3787": {
+        "In2.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "f386bf95-cbbe-5806-807c-6dde05d5074b": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "f418400d-c9ca-5db7-80c1-c5e1563c879b": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "f5113b43-b444-5f49-8dde-9326a28e018e": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "f6908e04-dc73-52f8-99d0-eb9f590475e2": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "f6e764e8-c332-5794-88c7-bbda761c143f": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "f76f41c0-4665-57a7-83dc-81c23a39faf3": {
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "fa76eba0-38bc-581e-8d6d-fa398f242ae0": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "fac57670-5e1e-57cf-84e8-97a9b845f004": {
+        "B.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "fae944ab-7b75-5d88-9102-3588613cec5c": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        },
+        "In4.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "fece0b97-f4e2-5934-8259-6e2e7922f7e4": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      },
+      "ffe9ae76-f1d0-51ae-bb9a-e2fa4763a2b8": {
+        "In3.Cu": {
+          "copper_and_pads": [],
+          "filled_polygons": []
+        }
+      }
+    },
+    "added_copper": [
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          82750000,
+          12175000,
+          82900000,
+          13100000,
+          "F.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_GATE_04",
+          84050000,
+          14025000,
+          83900000,
+          13100000,
+          "F.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_GATE_04",
+          83400000,
+          14025000,
+          84050000,
+          14025000,
+          "F.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "via",
+          "VLED",
+          82750000,
+          14025000,
+          "F.Cu",
+          "In1.Cu",
+          300000,
+          100000
+        ],
+        "via_type": 1
+      },
+      {
+        "signature": [
+          "via",
+          "GND",
+          84050000,
+          12175000,
+          "F.Cu",
+          "In1.Cu",
+          300000,
+          100000
+        ],
+        "via_type": 1
+      },
+      {
+        "signature": [
+          "via",
+          "GND",
+          84050000,
+          12175000,
+          "In1.Cu",
+          "In2.Cu",
+          300000,
+          100000
+        ],
+        "via_type": 1
+      },
+      {
+        "signature": [
+          "track",
+          "VLED",
+          82600000,
+          15100000,
+          82750000,
+          14025000,
+          "F.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_GATE_04",
+          83600000,
+          15100000,
+          83400000,
+          14025000,
+          "F.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_SEL_04",
+          83200000,
+          10900000,
+          83400000,
+          12175000,
+          "F.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "GND",
+          84200000,
+          10900000,
+          84050000,
+          12175000,
+          "F.Cu",
+          200000
+        ],
+        "via_type": null
+      }
+    ]
+  },
+  "initial_ram_validation": {
+    "native_opens": 22,
+    "physical_opens": 22,
+    "original_groups": 210,
+    "prior_groups_preserved": 208,
+    "temporarily_split_original_groups": [
+      "ROW_04_A",
+      "ROW_SEL_04"
+    ],
+    "retained_attached_source_copper": 19256,
+    "main_ground_pads": 197,
+    "main_vled_pads": 40,
+    "gate_pads": 4,
+    "row_pads": 2,
+    "selector_pads": 2,
+    "orphan_copper": 0
+  },
+  "complete_candidate_required": {
+    "native_opens": 20,
+    "physical_opens": 20,
+    "all_original_groups_preserved": 210,
+    "retained_attached_source_copper": 19256,
+    "main_ground_pads": 197,
+    "main_vled_pads": 40,
+    "gate_pads": 4,
+    "row_pads": 18,
+    "selector_pads": 3,
+    "orphan_copper": 0
+  },
+  "evidence": [
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/fixed-pair05/fixed-pair05-supply-route.json",
+      "sha256": "731adf3baf12c5746b6f0fcb8108a707eb4f9c4e044dec931aa664df4fcc035c",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "expanded_nodes": 166,
+        "edge_checks": 741,
+        "via_candidates": 166,
+        "via_copper_failures": 166,
+        "hole_failures": 0,
+        "clear_vias": 0,
+        "route": null,
+        "outcome": "bounded_graph_exhausted",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "base_gateway": {
+          "native_opens": 22,
+          "physical_opens": 22,
+          "prior_groups_preserved": 210,
+          "current_groups": 210,
+          "retained_attached_source_copper": 19367,
+          "main_ground_pads": 197,
+          "main_vled_pads": 39,
+          "main_usb_pads": 32,
+          "orphan_copper": 0
+        }
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/fixed-pair05/ground-gateway.json",
+      "sha256": "6e60589810f0e54ccce85539d0437a1803d8af69c0dc99d82901d6d326236974",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "gateway": null,
+        "outcome": "bounded_templates_exhausted",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "counts": {
+          "copper_fail": 221
+        }
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/fixed-pair05/native-boundary-actors.json",
+      "sha256": "856e6b616af72e6b6d048bf03aed1d691f715cdbebda1fbdad503c7963af0caf",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "source_pad_uuid": "9731f59e-69d7-50dc-962b-1c72e51bc0d8",
+        "routing_radius_and_clearance_iu": 300250,
+        "max_outside_error_iu": 250,
+        "selected": false,
+        "read_only": true,
+        "fabrication_release_allowed": false,
+        "source_components": [
+          {
+            "bounds_iu": [
+              74624565,
+              11745249,
+              74899751,
+              12099750
+            ],
+            "touches_roi": false,
+            "boundary_vertices": 16
+          }
+        ]
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/fixed-pair05/native-boundary.json",
+      "sha256": "deb3188c5d3954317460f10b0f6292e71fb0404cfbf068320a7186e8ddabbb86",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "source_pad_uuid": "9731f59e-69d7-50dc-962b-1c72e51bc0d8",
+        "routing_radius_and_clearance_iu": 300250,
+        "max_outside_error_iu": 250,
+        "selected": false,
+        "read_only": true,
+        "fabrication_release_allowed": false,
+        "source_components": [
+          {
+            "bounds_iu": [
+              74624565,
+              11745249,
+              74899751,
+              12099750
+            ],
+            "touches_roi": false,
+            "boundary_vertices": 16
+          }
+        ]
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/fixed-pair05/short-ground-gateway.json",
+      "sha256": "048b281fdc2e6ed2fcd3069e69b7bbe806a68728c0cf41a7610359f2e5e27ee7",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "gateway": null,
+        "outcome": "bounded_templates_exhausted",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "counts": {
+          "hole_fail": 5,
+          "copper_fail": 292
+        }
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/fixed-pair07/centre-supply-route.json",
+      "sha256": "948080d4b69bd706df26cc8e38fb7012c6adac60ae9709b62a1b63e139f45b0f",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "expanded_nodes": 18806,
+        "edge_checks": 19807,
+        "via_candidates": 4740,
+        "via_copper_failures": 3575,
+        "hole_failures": 0,
+        "clear_vias": 1165,
+        "route": null,
+        "outcome": "bounded_graph_exhausted",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "base_gateway": {
+          "native_opens": 22,
+          "physical_opens": 22,
+          "prior_groups_preserved": 210,
+          "current_groups": 210,
+          "retained_attached_source_copper": 19367,
+          "main_ground_pads": 197,
+          "main_vled_pads": 39,
+          "main_usb_pads": 32,
+          "orphan_copper": 0
+        }
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/fixed-pair07/fixed-pair07-supply-route.json",
+      "sha256": "ff160b6dcf08c9ea0070d622d6af334cbde112a6ebf347ba1fd79946e1e5ca06",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "expanded_nodes": 18831,
+        "edge_checks": 19807,
+        "via_candidates": 2767,
+        "via_copper_failures": 1602,
+        "hole_failures": 0,
+        "clear_vias": 1165,
+        "route": null,
+        "outcome": "bounded_graph_exhausted",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "base_gateway": {
+          "native_opens": 22,
+          "physical_opens": 22,
+          "prior_groups_preserved": 210,
+          "current_groups": 210,
+          "retained_attached_source_copper": 19367,
+          "main_ground_pads": 197,
+          "main_vled_pads": 39,
+          "main_usb_pads": 32,
+          "orphan_copper": 0
+        }
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/fixed-pair09/fixed-pair09-supply-route.json",
+      "sha256": "962a93822e1d5c766032b41d2ae8569c4732a8361a91ce3ef811b8d38c7225b7",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "expanded_nodes": 145,
+        "edge_checks": 628,
+        "via_candidates": 140,
+        "via_copper_failures": 140,
+        "hole_failures": 0,
+        "clear_vias": 0,
+        "route": null,
+        "outcome": "bounded_graph_exhausted",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "base_gateway": {
+          "native_opens": 22,
+          "physical_opens": 22,
+          "prior_groups_preserved": 210,
+          "current_groups": 210,
+          "retained_attached_source_copper": 19367,
+          "main_ground_pads": 197,
+          "main_vled_pads": 39,
+          "main_usb_pads": 32,
+          "orphan_copper": 0
+        }
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/fixed-pair09/native-boundary-actors.json",
+      "sha256": "e96e46674678aa900acce2fc301311a247f71ffc0ad4a9edb1c48d4d5442330a",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "source_pad_uuid": "e0be1d17-b986-509d-9a99-f36239fc9d82",
+        "routing_radius_and_clearance_iu": 300250,
+        "max_outside_error_iu": 250,
+        "selected": false,
+        "read_only": true,
+        "fabrication_release_allowed": false,
+        "source_components": [
+          {
+            "bounds_iu": [
+              74650250,
+              19245249,
+              74899751,
+              19549750
+            ],
+            "touches_roi": false,
+            "boundary_vertices": 10
+          }
+        ]
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/fixed-pair09/native-boundary.json",
+      "sha256": "fd88c957b266eae5adc1bc1443dbeda0569350f5f23cde32ef4b3ced7d962dbf",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "source_pad_uuid": "e0be1d17-b986-509d-9a99-f36239fc9d82",
+        "routing_radius_and_clearance_iu": 300250,
+        "max_outside_error_iu": 250,
+        "selected": false,
+        "read_only": true,
+        "fabrication_release_allowed": false,
+        "source_components": [
+          {
+            "bounds_iu": [
+              74650250,
+              19245249,
+              74899751,
+              19549750
+            ],
+            "touches_roi": false,
+            "boundary_vertices": 10
+          }
+        ]
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/access-template.json",
+      "sha256": "9b99aca8b4ac0e5dbc26be2b1afb41d21058aff1ab703e5895718e0d7cb12ec0",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "access_template": null,
+        "outcome": "bounded_templates_exhausted",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "counts": {
+          "no_row_access": 140
+        }
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/cell-base.json",
+      "sha256": "f6ff63eaae5314a7a0c84c71469eabd1478410940a16eeac6f81ee47072afb76",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false,
+        "base": {
+          "native_opens": 22,
+          "physical_opens": 22,
+          "original_groups": 210,
+          "prior_groups_preserved": 208,
+          "temporarily_split_original_groups": [
+            "ROW_04_A",
+            "ROW_SEL_04"
+          ],
+          "retained_attached_source_copper": 19256,
+          "main_ground_pads": 197,
+          "main_vled_pads": 40,
+          "gate_pads": 4,
+          "row_pads": 2,
+          "selector_pads": 2,
+          "orphan_copper": 0
+        }
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/modules.json",
+      "sha256": "b5c0d4ed73680066bb73cc623dffc6fe87a5df0f7593126f318f51c104f212d9",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "counts": {
+          "tested_resistor_poses": 361216,
+          "resistor_pad_fail": 106860,
+          "mutual_courtyard_fail": 220800,
+          "lead_fail": 28582,
+          "qualified_resistor_module": 4058,
+          "mutual_lead_fail": 916
+        }
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/poses.json",
+      "sha256": "541e9c08644455d6bf4a235ee8620d990e682a771965e05970a7512af562f162",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "tested_poses": 125244,
+        "read_only": true,
+        "selected": false,
+        "fabrication_release_allowed": false,
+        "counts": {
+          "courtyard_fail": 105472,
+          "pad_copper_fail": 19624,
+          "access_copper_fail": 116,
+          "qualified_plane_pose": 32
+        }
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/private-leaf-catalog.json",
+      "sha256": "c6177b1a9bab4cb3b691f880c482c361cc36af4ea887c863be285914c6138936",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "selector_retirement_count": 106,
+        "gate_retirement_count": 2,
+        "row_retirement_count": 2,
+        "resistor_retirement_count": 1,
+        "selected": false,
+        "read_only": true,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/three-part-cell.json",
+      "sha256": "ab22766a5f0a756ae65b29b8a1c7008b4a2379f31dd05ab6fd11ff101070dd0b",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "outcome": "clear_cell_template",
+        "selected": false,
+        "read_only": true,
+        "fabrication_release_allowed": false,
+        "counts": {
+          "tested_pull_poses": 1,
+          "clear_three_part_cell": 1
+        }
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/row-plane-rejection.json",
+      "sha256": "d8f5d5697fa33cd4b8f4f904af15fe9037c2183e439828498361f6c62ecec0a1",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])",
+        "expanded_nodes": 14521,
+        "native_opens": 22,
+        "selected": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/row-diagnostic.json",
+      "sha256": "4605ef5860cf6f2a18e297a8690f14b48c627553ac818359261d61f3ee4c88ba",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "expanded_nodes": 14521,
+        "via_candidates": 7310,
+        "clear_vias": 2024,
+        "row_access": null,
+        "outcome": "diagnostic_rejection",
+        "read_only": true,
+        "selected": false,
+        "pcb_written": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/public-replay.json",
+      "sha256": "f663a3a09605a5694942157ef0820877ce3179a1153571e642a27f14ca8293f1",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "geometry_sha256": "db91c5495a3b62cc592347452859dfab5c469b1775f04fb16396e9562b361ee8",
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/row-hop.json",
+      "sha256": "1dc0a96f161f84b056c2e217f814f01a1dd8033dcc5c80bc83301c77aaf6ec3d",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "eligible_endpoints": 38,
+        "qualified_pairs": 0,
+        "row_access": null,
+        "outcome": "bounded_hops_exhausted",
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false
+      }
+    }
+  ],
+  "repository_replay": {
+    "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/public-replay.json",
+    "sha256": "f663a3a09605a5694942157ef0820877ce3179a1153571e642a27f14ca8293f1",
+    "passed": true,
+    "pcb_written": false
+  },
+  "rejected_row_supply_split": {
+    "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+    "reason": "('Prior group splits', ['VLED', 'ROW_SEL_04'])",
+    "expanded_nodes": 14521,
+    "vled_groups": [
+      {
+        "pads": [
+          [
+            "C46",
+            "1"
+          ],
+          [
+            "C47",
+            "1"
+          ],
+          [
+            "C48",
+            "1"
+          ],
+          [
+            "C49",
+            "1"
+          ],
+          [
+            "PAIR05",
+            "4"
+          ],
+          [
+            "PAIR06",
+            "4"
+          ],
+          [
+            "PAIR08",
+            "4"
+          ],
+          [
+            "PAIR10",
+            "4"
+          ],
+          [
+            "PAIR11",
+            "4"
+          ],
+          [
+            "PAIR12",
+            "4"
+          ],
+          [
+            "PAIR13",
+            "4"
+          ],
+          [
+            "PAIR14",
+            "4"
+          ],
+          [
+            "PAIR15",
+            "4"
+          ],
+          [
+            "PAIR16",
+            "4"
+          ],
+          [
+            "R10",
+            "1"
+          ],
+          [
+            "R109",
+            "1"
+          ],
+          [
+            "R111",
+            "1"
+          ],
+          [
+            "R113",
+            "1"
+          ],
+          [
+            "R12",
+            "1"
+          ],
+          [
+            "R13",
+            "1"
+          ],
+          [
+            "R14",
+            "1"
+          ],
+          [
+            "R15",
+            "1"
+          ],
+          [
+            "R16",
+            "1"
+          ],
+          [
+            "R17",
+            "1"
+          ],
+          [
+            "R18",
+            "1"
+          ],
+          [
+            "R19",
+            "1"
+          ],
+          [
+            "R20",
+            "1"
+          ],
+          [
+            "R21",
+            "1"
+          ],
+          [
+            "R7",
+            "1"
+          ],
+          [
+            "R8",
+            "1"
+          ],
+          [
+            "R84",
+            "1"
+          ],
+          [
+            "R9",
+            "1"
+          ],
+          [
+            "U37",
+            "4"
+          ],
+          [
+            "U37",
+            "5"
+          ]
+        ],
+        "copper_count": 347
+      },
+      {
+        "pads": [
+          [
+            "PAIR01",
+            "4"
+          ],
+          [
+            "PAIR02",
+            "4"
+          ],
+          [
+            "PAIR03",
+            "4"
+          ],
+          [
+            "PAIR04",
+            "4"
+          ],
+          [
+            "R11",
+            "1"
+          ],
+          [
+            "R6",
+            "1"
+          ]
+        ],
+        "copper_count": 53
+      },
+      {
+        "pads": [
+          [
+            "PAIR07",
+            "4"
+          ]
+        ],
+        "copper_count": 0
+      },
+      {
+        "pads": [
+          [
+            "PAIR09",
+            "4"
+          ]
+        ],
+        "copper_count": 0
+      }
+    ],
+    "new_copper": [
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          82750000,
+          12175000,
+          82725000,
+          12200000,
+          "F.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          82725000,
+          12200000,
+          82725000,
+          12725000,
+          "F.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "via",
+          "ROW_04_A",
+          82725000,
+          12725000,
+          "F.Cu",
+          "In1.Cu",
+          300000,
+          100000
+        ],
+        "via_type": 1
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          82725000,
+          12725000,
+          82250000,
+          13200000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          82250000,
+          13200000,
+          82250000,
+          13925000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          82250000,
+          13925000,
+          82225000,
+          13950000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          82225000,
+          13950000,
+          82225000,
+          13975000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          82225000,
+          13975000,
+          82200000,
+          14000000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          82200000,
+          14000000,
+          82200000,
+          14075000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          82200000,
+          14075000,
+          82175000,
+          14100000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          82175000,
+          14100000,
+          82175000,
+          14125000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          82175000,
+          14125000,
+          82150000,
+          14150000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          82150000,
+          14150000,
+          82150000,
+          14175000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          82150000,
+          14175000,
+          81775000,
+          14550000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          81775000,
+          14550000,
+          81750000,
+          14550000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          81750000,
+          14550000,
+          81725000,
+          14575000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          81725000,
+          14575000,
+          81700000,
+          14575000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          81700000,
+          14575000,
+          81675000,
+          14600000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          81675000,
+          14600000,
+          81600000,
+          14600000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          81600000,
+          14600000,
+          81575000,
+          14625000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          81575000,
+          14625000,
+          81550000,
+          14625000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          81550000,
+          14625000,
+          81525000,
+          14650000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          81525000,
+          14650000,
+          81275000,
+          14650000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          81275000,
+          14650000,
+          81250000,
+          14675000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          81250000,
+          14675000,
+          81200000,
+          14675000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          81200000,
+          14675000,
+          81175000,
+          14700000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          81175000,
+          14700000,
+          80925000,
+          14700000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          80925000,
+          14700000,
+          80900000,
+          14675000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          80900000,
+          14675000,
+          80850000,
+          14675000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          80850000,
+          14675000,
+          80800000,
+          14625000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          80800000,
+          14625000,
+          80775000,
+          14625000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          80775000,
+          14625000,
+          78975000,
+          12825000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          78975000,
+          12825000,
+          78975000,
+          12425000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          78975000,
+          12425000,
+          78950000,
+          12400000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          78950000,
+          12400000,
+          78950000,
+          12350000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          78950000,
+          12350000,
+          78900000,
+          12300000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          78900000,
+          12300000,
+          78900000,
+          12275000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          78900000,
+          12275000,
+          78750000,
+          12125000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          78750000,
+          12125000,
+          78750000,
+          11975000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          78750000,
+          11975000,
+          78725000,
+          11950000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          78725000,
+          11950000,
+          78725000,
+          11900000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          78725000,
+          11900000,
+          78675000,
+          11850000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          78675000,
+          11850000,
+          78675000,
+          11825000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          78675000,
+          11825000,
+          78575000,
+          11725000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          78575000,
+          11725000,
+          78550000,
+          11725000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          78550000,
+          11725000,
+          78500000,
+          11675000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          78500000,
+          11675000,
+          78450000,
+          11675000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          78450000,
+          11675000,
+          78425000,
+          11650000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          78425000,
+          11650000,
+          77700000,
+          11650000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      },
+      {
+        "signature": [
+          "track",
+          "ROW_04_A",
+          77700000,
+          11650000,
+          77575000,
+          11775000,
+          "In1.Cu",
+          200000
+        ],
+        "via_type": null
+      }
+    ],
+    "path": [
+      [
+        0,
+        82750000,
+        12175000,
+        0
+      ],
+      [
+        0,
+        82725000,
+        12200000,
+        0
+      ],
+      [
+        0,
+        82725000,
+        12225000,
+        0
+      ],
+      [
+        0,
+        82725000,
+        12250000,
+        0
+      ],
+      [
+        0,
+        82725000,
+        12275000,
+        0
+      ],
+      [
+        0,
+        82725000,
+        12300000,
+        0
+      ],
+      [
+        0,
+        82725000,
+        12325000,
+        0
+      ],
+      [
+        0,
+        82725000,
+        12350000,
+        0
+      ],
+      [
+        0,
+        82725000,
+        12375000,
+        0
+      ],
+      [
+        0,
+        82725000,
+        12400000,
+        0
+      ],
+      [
+        0,
+        82725000,
+        12425000,
+        0
+      ],
+      [
+        0,
+        82725000,
+        12450000,
+        0
+      ],
+      [
+        0,
+        82725000,
+        12475000,
+        0
+      ],
+      [
+        0,
+        82725000,
+        12500000,
+        0
+      ],
+      [
+        0,
+        82725000,
+        12525000,
+        0
+      ],
+      [
+        0,
+        82725000,
+        12550000,
+        0
+      ],
+      [
+        0,
+        82725000,
+        12575000,
+        0
+      ],
+      [
+        0,
+        82725000,
+        12600000,
+        0
+      ],
+      [
+        0,
+        82725000,
+        12625000,
+        0
+      ],
+      [
+        0,
+        82725000,
+        12650000,
+        0
+      ],
+      [
+        0,
+        82725000,
+        12675000,
+        0
+      ],
+      [
+        0,
+        82725000,
+        12700000,
+        0
+      ],
+      [
+        0,
+        82725000,
+        12725000,
+        0
+      ],
+      [
+        4,
+        82725000,
+        12725000,
+        1
+      ],
+      [
+        4,
+        82700000,
+        12750000,
+        1
+      ],
+      [
+        4,
+        82675000,
+        12775000,
+        1
+      ],
+      [
+        4,
+        82650000,
+        12800000,
+        1
+      ],
+      [
+        4,
+        82625000,
+        12825000,
+        1
+      ],
+      [
+        4,
+        82600000,
+        12850000,
+        1
+      ],
+      [
+        4,
+        82575000,
+        12875000,
+        1
+      ],
+      [
+        4,
+        82550000,
+        12900000,
+        1
+      ],
+      [
+        4,
+        82525000,
+        12925000,
+        1
+      ],
+      [
+        4,
+        82500000,
+        12950000,
+        1
+      ],
+      [
+        4,
+        82475000,
+        12975000,
+        1
+      ],
+      [
+        4,
+        82450000,
+        13000000,
+        1
+      ],
+      [
+        4,
+        82425000,
+        13025000,
+        1
+      ],
+      [
+        4,
+        82400000,
+        13050000,
+        1
+      ],
+      [
+        4,
+        82375000,
+        13075000,
+        1
+      ],
+      [
+        4,
+        82350000,
+        13100000,
+        1
+      ],
+      [
+        4,
+        82325000,
+        13125000,
+        1
+      ],
+      [
+        4,
+        82300000,
+        13150000,
+        1
+      ],
+      [
+        4,
+        82275000,
+        13175000,
+        1
+      ],
+      [
+        4,
+        82250000,
+        13200000,
+        1
+      ],
+      [
+        4,
+        82250000,
+        13225000,
+        1
+      ],
+      [
+        4,
+        82250000,
+        13250000,
+        1
+      ],
+      [
+        4,
+        82250000,
+        13275000,
+        1
+      ],
+      [
+        4,
+        82250000,
+        13300000,
+        1
+      ],
+      [
+        4,
+        82250000,
+        13325000,
+        1
+      ],
+      [
+        4,
+        82250000,
+        13350000,
+        1
+      ],
+      [
+        4,
+        82250000,
+        13375000,
+        1
+      ],
+      [
+        4,
+        82250000,
+        13400000,
+        1
+      ],
+      [
+        4,
+        82250000,
+        13425000,
+        1
+      ],
+      [
+        4,
+        82250000,
+        13450000,
+        1
+      ],
+      [
+        4,
+        82250000,
+        13475000,
+        1
+      ],
+      [
+        4,
+        82250000,
+        13500000,
+        1
+      ],
+      [
+        4,
+        82250000,
+        13525000,
+        1
+      ],
+      [
+        4,
+        82250000,
+        13550000,
+        1
+      ],
+      [
+        4,
+        82250000,
+        13575000,
+        1
+      ],
+      [
+        4,
+        82250000,
+        13600000,
+        1
+      ],
+      [
+        4,
+        82250000,
+        13625000,
+        1
+      ],
+      [
+        4,
+        82250000,
+        13650000,
+        1
+      ],
+      [
+        4,
+        82250000,
+        13675000,
+        1
+      ],
+      [
+        4,
+        82250000,
+        13700000,
+        1
+      ],
+      [
+        4,
+        82250000,
+        13725000,
+        1
+      ],
+      [
+        4,
+        82250000,
+        13750000,
+        1
+      ],
+      [
+        4,
+        82250000,
+        13775000,
+        1
+      ],
+      [
+        4,
+        82250000,
+        13800000,
+        1
+      ],
+      [
+        4,
+        82250000,
+        13825000,
+        1
+      ],
+      [
+        4,
+        82250000,
+        13850000,
+        1
+      ],
+      [
+        4,
+        82250000,
+        13875000,
+        1
+      ],
+      [
+        4,
+        82250000,
+        13900000,
+        1
+      ],
+      [
+        4,
+        82250000,
+        13925000,
+        1
+      ],
+      [
+        4,
+        82225000,
+        13950000,
+        1
+      ],
+      [
+        4,
+        82225000,
+        13975000,
+        1
+      ],
+      [
+        4,
+        82200000,
+        14000000,
+        1
+      ],
+      [
+        4,
+        82200000,
+        14025000,
+        1
+      ],
+      [
+        4,
+        82200000,
+        14050000,
+        1
+      ],
+      [
+        4,
+        82200000,
+        14075000,
+        1
+      ],
+      [
+        4,
+        82175000,
+        14100000,
+        1
+      ],
+      [
+        4,
+        82175000,
+        14125000,
+        1
+      ],
+      [
+        4,
+        82150000,
+        14150000,
+        1
+      ],
+      [
+        4,
+        82150000,
+        14175000,
+        1
+      ],
+      [
+        4,
+        82125000,
+        14200000,
+        1
+      ],
+      [
+        4,
+        82100000,
+        14225000,
+        1
+      ],
+      [
+        4,
+        82075000,
+        14250000,
+        1
+      ],
+      [
+        4,
+        82050000,
+        14275000,
+        1
+      ],
+      [
+        4,
+        82025000,
+        14300000,
+        1
+      ],
+      [
+        4,
+        82000000,
+        14325000,
+        1
+      ],
+      [
+        4,
+        81975000,
+        14350000,
+        1
+      ],
+      [
+        4,
+        81950000,
+        14375000,
+        1
+      ],
+      [
+        4,
+        81925000,
+        14400000,
+        1
+      ],
+      [
+        4,
+        81900000,
+        14425000,
+        1
+      ],
+      [
+        4,
+        81875000,
+        14450000,
+        1
+      ],
+      [
+        4,
+        81850000,
+        14475000,
+        1
+      ],
+      [
+        4,
+        81825000,
+        14500000,
+        1
+      ],
+      [
+        4,
+        81800000,
+        14525000,
+        1
+      ],
+      [
+        4,
+        81775000,
+        14550000,
+        1
+      ],
+      [
+        4,
+        81750000,
+        14550000,
+        1
+      ],
+      [
+        4,
+        81725000,
+        14575000,
+        1
+      ],
+      [
+        4,
+        81700000,
+        14575000,
+        1
+      ],
+      [
+        4,
+        81675000,
+        14600000,
+        1
+      ],
+      [
+        4,
+        81650000,
+        14600000,
+        1
+      ],
+      [
+        4,
+        81625000,
+        14600000,
+        1
+      ],
+      [
+        4,
+        81600000,
+        14600000,
+        1
+      ],
+      [
+        4,
+        81575000,
+        14625000,
+        1
+      ],
+      [
+        4,
+        81550000,
+        14625000,
+        1
+      ],
+      [
+        4,
+        81525000,
+        14650000,
+        1
+      ],
+      [
+        4,
+        81500000,
+        14650000,
+        1
+      ],
+      [
+        4,
+        81475000,
+        14650000,
+        1
+      ],
+      [
+        4,
+        81450000,
+        14650000,
+        1
+      ],
+      [
+        4,
+        81425000,
+        14650000,
+        1
+      ],
+      [
+        4,
+        81400000,
+        14650000,
+        1
+      ],
+      [
+        4,
+        81375000,
+        14650000,
+        1
+      ],
+      [
+        4,
+        81350000,
+        14650000,
+        1
+      ],
+      [
+        4,
+        81325000,
+        14650000,
+        1
+      ],
+      [
+        4,
+        81300000,
+        14650000,
+        1
+      ],
+      [
+        4,
+        81275000,
+        14650000,
+        1
+      ],
+      [
+        4,
+        81250000,
+        14675000,
+        1
+      ],
+      [
+        4,
+        81225000,
+        14675000,
+        1
+      ],
+      [
+        4,
+        81200000,
+        14675000,
+        1
+      ],
+      [
+        4,
+        81175000,
+        14700000,
+        1
+      ],
+      [
+        4,
+        81150000,
+        14700000,
+        1
+      ],
+      [
+        4,
+        81125000,
+        14700000,
+        1
+      ],
+      [
+        4,
+        81100000,
+        14700000,
+        1
+      ],
+      [
+        4,
+        81075000,
+        14700000,
+        1
+      ],
+      [
+        4,
+        81050000,
+        14700000,
+        1
+      ],
+      [
+        4,
+        81025000,
+        14700000,
+        1
+      ],
+      [
+        4,
+        81000000,
+        14700000,
+        1
+      ],
+      [
+        4,
+        80975000,
+        14700000,
+        1
+      ],
+      [
+        4,
+        80950000,
+        14700000,
+        1
+      ],
+      [
+        4,
+        80925000,
+        14700000,
+        1
+      ],
+      [
+        4,
+        80900000,
+        14675000,
+        1
+      ],
+      [
+        4,
+        80875000,
+        14675000,
+        1
+      ],
+      [
+        4,
+        80850000,
+        14675000,
+        1
+      ],
+      [
+        4,
+        80825000,
+        14650000,
+        1
+      ],
+      [
+        4,
+        80800000,
+        14625000,
+        1
+      ],
+      [
+        4,
+        80775000,
+        14625000,
+        1
+      ],
+      [
+        4,
+        80750000,
+        14600000,
+        1
+      ],
+      [
+        4,
+        80725000,
+        14575000,
+        1
+      ],
+      [
+        4,
+        80700000,
+        14550000,
+        1
+      ],
+      [
+        4,
+        80675000,
+        14525000,
+        1
+      ],
+      [
+        4,
+        80650000,
+        14500000,
+        1
+      ],
+      [
+        4,
+        80625000,
+        14475000,
+        1
+      ],
+      [
+        4,
+        80600000,
+        14450000,
+        1
+      ],
+      [
+        4,
+        80575000,
+        14425000,
+        1
+      ],
+      [
+        4,
+        80550000,
+        14400000,
+        1
+      ],
+      [
+        4,
+        80525000,
+        14375000,
+        1
+      ],
+      [
+        4,
+        80500000,
+        14350000,
+        1
+      ],
+      [
+        4,
+        80475000,
+        14325000,
+        1
+      ],
+      [
+        4,
+        80450000,
+        14300000,
+        1
+      ],
+      [
+        4,
+        80425000,
+        14275000,
+        1
+      ],
+      [
+        4,
+        80400000,
+        14250000,
+        1
+      ],
+      [
+        4,
+        80375000,
+        14225000,
+        1
+      ],
+      [
+        4,
+        80350000,
+        14200000,
+        1
+      ],
+      [
+        4,
+        80325000,
+        14175000,
+        1
+      ],
+      [
+        4,
+        80300000,
+        14150000,
+        1
+      ],
+      [
+        4,
+        80275000,
+        14125000,
+        1
+      ],
+      [
+        4,
+        80250000,
+        14100000,
+        1
+      ],
+      [
+        4,
+        80225000,
+        14075000,
+        1
+      ],
+      [
+        4,
+        80200000,
+        14050000,
+        1
+      ],
+      [
+        4,
+        80175000,
+        14025000,
+        1
+      ],
+      [
+        4,
+        80150000,
+        14000000,
+        1
+      ],
+      [
+        4,
+        80125000,
+        13975000,
+        1
+      ],
+      [
+        4,
+        80100000,
+        13950000,
+        1
+      ],
+      [
+        4,
+        80075000,
+        13925000,
+        1
+      ],
+      [
+        4,
+        80050000,
+        13900000,
+        1
+      ],
+      [
+        4,
+        80025000,
+        13875000,
+        1
+      ],
+      [
+        4,
+        80000000,
+        13850000,
+        1
+      ],
+      [
+        4,
+        79975000,
+        13825000,
+        1
+      ],
+      [
+        4,
+        79950000,
+        13800000,
+        1
+      ],
+      [
+        4,
+        79925000,
+        13775000,
+        1
+      ],
+      [
+        4,
+        79900000,
+        13750000,
+        1
+      ],
+      [
+        4,
+        79875000,
+        13725000,
+        1
+      ],
+      [
+        4,
+        79850000,
+        13700000,
+        1
+      ],
+      [
+        4,
+        79825000,
+        13675000,
+        1
+      ],
+      [
+        4,
+        79800000,
+        13650000,
+        1
+      ],
+      [
+        4,
+        79775000,
+        13625000,
+        1
+      ],
+      [
+        4,
+        79750000,
+        13600000,
+        1
+      ],
+      [
+        4,
+        79725000,
+        13575000,
+        1
+      ],
+      [
+        4,
+        79700000,
+        13550000,
+        1
+      ],
+      [
+        4,
+        79675000,
+        13525000,
+        1
+      ],
+      [
+        4,
+        79650000,
+        13500000,
+        1
+      ],
+      [
+        4,
+        79625000,
+        13475000,
+        1
+      ],
+      [
+        4,
+        79600000,
+        13450000,
+        1
+      ],
+      [
+        4,
+        79575000,
+        13425000,
+        1
+      ],
+      [
+        4,
+        79550000,
+        13400000,
+        1
+      ],
+      [
+        4,
+        79525000,
+        13375000,
+        1
+      ],
+      [
+        4,
+        79500000,
+        13350000,
+        1
+      ],
+      [
+        4,
+        79475000,
+        13325000,
+        1
+      ],
+      [
+        4,
+        79450000,
+        13300000,
+        1
+      ],
+      [
+        4,
+        79425000,
+        13275000,
+        1
+      ],
+      [
+        4,
+        79400000,
+        13250000,
+        1
+      ],
+      [
+        4,
+        79375000,
+        13225000,
+        1
+      ],
+      [
+        4,
+        79350000,
+        13200000,
+        1
+      ],
+      [
+        4,
+        79325000,
+        13175000,
+        1
+      ],
+      [
+        4,
+        79300000,
+        13150000,
+        1
+      ],
+      [
+        4,
+        79275000,
+        13125000,
+        1
+      ],
+      [
+        4,
+        79250000,
+        13100000,
+        1
+      ],
+      [
+        4,
+        79225000,
+        13075000,
+        1
+      ],
+      [
+        4,
+        79200000,
+        13050000,
+        1
+      ],
+      [
+        4,
+        79175000,
+        13025000,
+        1
+      ],
+      [
+        4,
+        79150000,
+        13000000,
+        1
+      ],
+      [
+        4,
+        79125000,
+        12975000,
+        1
+      ],
+      [
+        4,
+        79100000,
+        12950000,
+        1
+      ],
+      [
+        4,
+        79075000,
+        12925000,
+        1
+      ],
+      [
+        4,
+        79050000,
+        12900000,
+        1
+      ],
+      [
+        4,
+        79025000,
+        12875000,
+        1
+      ],
+      [
+        4,
+        79000000,
+        12850000,
+        1
+      ],
+      [
+        4,
+        78975000,
+        12825000,
+        1
+      ],
+      [
+        4,
+        78975000,
+        12800000,
+        1
+      ],
+      [
+        4,
+        78975000,
+        12775000,
+        1
+      ],
+      [
+        4,
+        78975000,
+        12750000,
+        1
+      ],
+      [
+        4,
+        78975000,
+        12725000,
+        1
+      ],
+      [
+        4,
+        78975000,
+        12700000,
+        1
+      ],
+      [
+        4,
+        78975000,
+        12675000,
+        1
+      ],
+      [
+        4,
+        78975000,
+        12650000,
+        1
+      ],
+      [
+        4,
+        78975000,
+        12625000,
+        1
+      ],
+      [
+        4,
+        78975000,
+        12600000,
+        1
+      ],
+      [
+        4,
+        78975000,
+        12575000,
+        1
+      ],
+      [
+        4,
+        78975000,
+        12550000,
+        1
+      ],
+      [
+        4,
+        78975000,
+        12525000,
+        1
+      ],
+      [
+        4,
+        78975000,
+        12500000,
+        1
+      ],
+      [
+        4,
+        78975000,
+        12475000,
+        1
+      ],
+      [
+        4,
+        78975000,
+        12450000,
+        1
+      ],
+      [
+        4,
+        78975000,
+        12425000,
+        1
+      ],
+      [
+        4,
+        78950000,
+        12400000,
+        1
+      ],
+      [
+        4,
+        78950000,
+        12375000,
+        1
+      ],
+      [
+        4,
+        78950000,
+        12350000,
+        1
+      ],
+      [
+        4,
+        78925000,
+        12325000,
+        1
+      ],
+      [
+        4,
+        78900000,
+        12300000,
+        1
+      ],
+      [
+        4,
+        78900000,
+        12275000,
+        1
+      ],
+      [
+        4,
+        78875000,
+        12250000,
+        1
+      ],
+      [
+        4,
+        78850000,
+        12225000,
+        1
+      ],
+      [
+        4,
+        78825000,
+        12200000,
+        1
+      ],
+      [
+        4,
+        78800000,
+        12175000,
+        1
+      ],
+      [
+        4,
+        78775000,
+        12150000,
+        1
+      ],
+      [
+        4,
+        78750000,
+        12125000,
+        1
+      ],
+      [
+        4,
+        78750000,
+        12100000,
+        1
+      ],
+      [
+        4,
+        78750000,
+        12075000,
+        1
+      ],
+      [
+        4,
+        78750000,
+        12050000,
+        1
+      ],
+      [
+        4,
+        78750000,
+        12025000,
+        1
+      ],
+      [
+        4,
+        78750000,
+        12000000,
+        1
+      ],
+      [
+        4,
+        78750000,
+        11975000,
+        1
+      ],
+      [
+        4,
+        78725000,
+        11950000,
+        1
+      ],
+      [
+        4,
+        78725000,
+        11925000,
+        1
+      ],
+      [
+        4,
+        78725000,
+        11900000,
+        1
+      ],
+      [
+        4,
+        78700000,
+        11875000,
+        1
+      ],
+      [
+        4,
+        78675000,
+        11850000,
+        1
+      ],
+      [
+        4,
+        78675000,
+        11825000,
+        1
+      ],
+      [
+        4,
+        78650000,
+        11800000,
+        1
+      ],
+      [
+        4,
+        78625000,
+        11775000,
+        1
+      ],
+      [
+        4,
+        78600000,
+        11750000,
+        1
+      ],
+      [
+        4,
+        78575000,
+        11725000,
+        1
+      ],
+      [
+        4,
+        78550000,
+        11725000,
+        1
+      ],
+      [
+        4,
+        78525000,
+        11700000,
+        1
+      ],
+      [
+        4,
+        78500000,
+        11675000,
+        1
+      ],
+      [
+        4,
+        78475000,
+        11675000,
+        1
+      ],
+      [
+        4,
+        78450000,
+        11675000,
+        1
+      ],
+      [
+        4,
+        78425000,
+        11650000,
+        1
+      ],
+      [
+        4,
+        78400000,
+        11650000,
+        1
+      ],
+      [
+        4,
+        78375000,
+        11650000,
+        1
+      ],
+      [
+        4,
+        78350000,
+        11650000,
+        1
+      ],
+      [
+        4,
+        78325000,
+        11650000,
+        1
+      ],
+      [
+        4,
+        78300000,
+        11650000,
+        1
+      ],
+      [
+        4,
+        78275000,
+        11650000,
+        1
+      ],
+      [
+        4,
+        78250000,
+        11650000,
+        1
+      ],
+      [
+        4,
+        78225000,
+        11650000,
+        1
+      ],
+      [
+        4,
+        78200000,
+        11650000,
+        1
+      ],
+      [
+        4,
+        78175000,
+        11650000,
+        1
+      ],
+      [
+        4,
+        78150000,
+        11650000,
+        1
+      ],
+      [
+        4,
+        78125000,
+        11650000,
+        1
+      ],
+      [
+        4,
+        78100000,
+        11650000,
+        1
+      ],
+      [
+        4,
+        78075000,
+        11650000,
+        1
+      ],
+      [
+        4,
+        78050000,
+        11650000,
+        1
+      ],
+      [
+        4,
+        78025000,
+        11650000,
+        1
+      ],
+      [
+        4,
+        78000000,
+        11650000,
+        1
+      ],
+      [
+        4,
+        77975000,
+        11650000,
+        1
+      ],
+      [
+        4,
+        77950000,
+        11650000,
+        1
+      ],
+      [
+        4,
+        77925000,
+        11650000,
+        1
+      ],
+      [
+        4,
+        77900000,
+        11650000,
+        1
+      ],
+      [
+        4,
+        77875000,
+        11650000,
+        1
+      ],
+      [
+        4,
+        77850000,
+        11650000,
+        1
+      ],
+      [
+        4,
+        77825000,
+        11650000,
+        1
+      ],
+      [
+        4,
+        77800000,
+        11650000,
+        1
+      ],
+      [
+        4,
+        77775000,
+        11650000,
+        1
+      ],
+      [
+        4,
+        77750000,
+        11650000,
+        1
+      ],
+      [
+        4,
+        77725000,
+        11650000,
+        1
+      ],
+      [
+        4,
+        77700000,
+        11650000,
+        1
+      ],
+      [
+        4,
+        77675000,
+        11675000,
+        1
+      ],
+      [
+        4,
+        77650000,
+        11700000,
+        1
+      ],
+      [
+        4,
+        77625000,
+        11725000,
+        1
+      ],
+      [
+        4,
+        77600000,
+        11750000,
+        1
+      ],
+      [
+        4,
+        77575000,
+        11775000,
+        1
+      ]
+    ],
+    "selected": false
+  },
+  "row_hop_bounds": {
+    "counts": {
+      "endpoint_copper_fail": 152
+    },
+    "eligible_endpoints": 38,
+    "qualified_pairs": 0,
+    "peak_position_iu": [
+      81050000,
+      14700000
+    ],
+    "eligible_endpoint_positions_iu": [
+      {
+        "position_iu": [
+          82700000,
+          12750000
+        ],
+        "arc_from_peak_mm": -2.970279579551074
+      },
+      {
+        "position_iu": [
+          82675000,
+          12775000
+        ],
+        "arc_from_peak_mm": -2.9349242404917466
+      },
+      {
+        "position_iu": [
+          82650000,
+          12800000
+        ],
+        "arc_from_peak_mm": -2.8995689014324193
+      },
+      {
+        "position_iu": [
+          82625000,
+          12825000
+        ],
+        "arc_from_peak_mm": -2.864213562373092
+      },
+      {
+        "position_iu": [
+          80000000,
+          13850000
+        ],
+        "arc_from_peak_mm": 1.4020815280171368
+      },
+      {
+        "position_iu": [
+          79975000,
+          13825000
+        ],
+        "arc_from_peak_mm": 1.4374368670764646
+      },
+      {
+        "position_iu": [
+          79950000,
+          13800000
+        ],
+        "arc_from_peak_mm": 1.472792206135792
+      },
+      {
+        "position_iu": [
+          79925000,
+          13775000
+        ],
+        "arc_from_peak_mm": 1.5081475451951198
+      },
+      {
+        "position_iu": [
+          79900000,
+          13750000
+        ],
+        "arc_from_peak_mm": 1.5435028842544476
+      },
+      {
+        "position_iu": [
+          79875000,
+          13725000
+        ],
+        "arc_from_peak_mm": 1.5788582233137753
+      },
+      {
+        "position_iu": [
+          79850000,
+          13700000
+        ],
+        "arc_from_peak_mm": 1.614213562373103
+      },
+      {
+        "position_iu": [
+          79825000,
+          13675000
+        ],
+        "arc_from_peak_mm": 1.6495689014324308
+      },
+      {
+        "position_iu": [
+          79800000,
+          13650000
+        ],
+        "arc_from_peak_mm": 1.6849242404917586
+      },
+      {
+        "position_iu": [
+          79775000,
+          13625000
+        ],
+        "arc_from_peak_mm": 1.7202795795510863
+      },
+      {
+        "position_iu": [
+          79750000,
+          13600000
+        ],
+        "arc_from_peak_mm": 1.755634918610414
+      },
+      {
+        "position_iu": [
+          79725000,
+          13575000
+        ],
+        "arc_from_peak_mm": 1.7909902576697418
+      },
+      {
+        "position_iu": [
+          79700000,
+          13550000
+        ],
+        "arc_from_peak_mm": 1.8263455967290694
+      },
+      {
+        "position_iu": [
+          79675000,
+          13525000
+        ],
+        "arc_from_peak_mm": 1.8617009357883971
+      },
+      {
+        "position_iu": [
+          79650000,
+          13500000
+        ],
+        "arc_from_peak_mm": 1.8970562748477249
+      },
+      {
+        "position_iu": [
+          79625000,
+          13475000
+        ],
+        "arc_from_peak_mm": 1.9324116139070526
+      },
+      {
+        "position_iu": [
+          79600000,
+          13450000
+        ],
+        "arc_from_peak_mm": 1.9677669529663804
+      },
+      {
+        "position_iu": [
+          79575000,
+          13425000
+        ],
+        "arc_from_peak_mm": 2.003122292025708
+      },
+      {
+        "position_iu": [
+          79325000,
+          13175000
+        ],
+        "arc_from_peak_mm": 2.3566756826189854
+      },
+      {
+        "position_iu": [
+          79300000,
+          13150000
+        ],
+        "arc_from_peak_mm": 2.392031021678313
+      },
+      {
+        "position_iu": [
+          79275000,
+          13125000
+        ],
+        "arc_from_peak_mm": 2.427386360737641
+      },
+      {
+        "position_iu": [
+          79250000,
+          13100000
+        ],
+        "arc_from_peak_mm": 2.4627416997969687
+      },
+      {
+        "position_iu": [
+          79225000,
+          13075000
+        ],
+        "arc_from_peak_mm": 2.4980970388562964
+      },
+      {
+        "position_iu": [
+          79200000,
+          13050000
+        ],
+        "arc_from_peak_mm": 2.533452377915624
+      },
+      {
+        "position_iu": [
+          79175000,
+          13025000
+        ],
+        "arc_from_peak_mm": 2.568807716974952
+      },
+      {
+        "position_iu": [
+          79150000,
+          13000000
+        ],
+        "arc_from_peak_mm": 2.6041630560342797
+      },
+      {
+        "position_iu": [
+          79125000,
+          12975000
+        ],
+        "arc_from_peak_mm": 2.6395183950936074
+      },
+      {
+        "position_iu": [
+          79100000,
+          12950000
+        ],
+        "arc_from_peak_mm": 2.674873734152935
+      },
+      {
+        "position_iu": [
+          79075000,
+          12925000
+        ],
+        "arc_from_peak_mm": 2.710229073212263
+      },
+      {
+        "position_iu": [
+          79050000,
+          12900000
+        ],
+        "arc_from_peak_mm": 2.7455844122715902
+      },
+      {
+        "position_iu": [
+          79025000,
+          12875000
+        ],
+        "arc_from_peak_mm": 2.780939751330918
+      },
+      {
+        "position_iu": [
+          79000000,
+          12850000
+        ],
+        "arc_from_peak_mm": 2.8162950903902457
+      },
+      {
+        "position_iu": [
+          78975000,
+          12825000
+        ],
+        "arc_from_peak_mm": 2.8516504294495735
+      },
+      {
+        "position_iu": [
+          78975000,
+          12800000
+        ],
+        "arc_from_peak_mm": 2.876650429449574
+      }
+    ]
+  },
+  "bounded_continuations": [
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/row-late-entry.json",
+      "sha256": "d7bb604203c5705d0430dd307a4ccfe6fe1c4fa7024ef682d26f739097682b34",
+      "script_sha256": "7ecea34bee844e66b00a89c58250bc014374094b9154146d10ed66494f9438d2",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "expanded_nodes": 2778,
+        "rejected_candidates": [],
+        "original_later_targets": 34,
+        "row_access": null,
+        "outcome": "bounded_graph_exhausted",
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/supply-bridge.json",
+      "sha256": "19c56f5515293cc96f9cc283b2c8fbb85369be8a2c6021a4a166188b4824d3d5",
+      "script_sha256": "cfcde8cd23b6c952843c5952a7d416df0770a74af4d36d333093508691846597",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "counts": {
+          "outside_actual_plane": 391,
+          "via_copper_fail": 189,
+          "classified_actual_group": 133
+        },
+        "candidate_counts": {
+          "6": 0,
+          "34": 133
+        },
+        "rejected_bridges": [],
+        "outcome": "bounded_bridges_exhausted",
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/wide-supply-bridge.json",
+      "sha256": "a15929a6344bbd134bb10163b54def7ce072798a002ff3ffe016a4bb4a7e98a7",
+      "script_sha256": "8f6ffb69430b0a5c4e08178359192d95c762c96f528ff3d7bb195c1a795f70d6",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "counts": {
+          "outside_actual_plane": 2569,
+          "via_copper_fail": 1737,
+          "classified_actual_group": 652,
+          "via_hole_fail": 83
+        },
+        "candidate_counts": {
+          "6": 223,
+          "34": 429
+        },
+        "rejected_bridges": [],
+        "outcome": "bounded_bridges_exhausted",
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/inner-supply-bridge.json",
+      "sha256": "342025d9de675d4f81cc059feb82ff8c5f5abb62c0af10c88820c130ef7a6824",
+      "script_sha256": "2bebd3388d2a5cfe2091e9815cd0239822cf1a2c7c61deace8c31a0790b357ea",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "studies": [
+          {
+            "layer": "In2.Cu",
+            "expanded_nodes": 3563,
+            "source_points": 2,
+            "goal_objects": 92,
+            "outcome": "bounded_graph_exhausted"
+          },
+          {
+            "layer": "In3.Cu",
+            "expanded_nodes": 1843,
+            "source_points": 1,
+            "goal_objects": 87,
+            "outcome": "bounded_graph_exhausted"
+          }
+        ],
+        "rejected_candidates": [],
+        "outcome": "bounded_graphs_exhausted",
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/outer-supply-direct.json",
+      "sha256": "24ac14798b542281e1a7eaee5813d7bec7aa852fa8030ea32a764ba19fa9543b",
+      "script_sha256": "b2c3c7e1390400bfc933bcd32d063c0e26f4372448a62e5935beac91b116249e",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "counts": {
+          "direct_l_copper_fail": 7
+        },
+        "rejected_candidates": [],
+        "outcome": "direct_l_templates_exhausted",
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/surface-supply-bridge.json",
+      "sha256": "748fb4f2780adcbe1e7a1a112669f4e89608b448a4f660c875a9f57eb1ced1fc",
+      "script_sha256": "3b8298d8de61ab32825bc52c69d38477bc2b99f8037c32fb4e50a0b64b5d59d1",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "studies": [
+          {
+            "layer": "B.Cu",
+            "expanded_nodes": 30223,
+            "source_points": 19,
+            "goal_objects": 119,
+            "outcome": "bounded_graph_exhausted"
+          },
+          {
+            "layer": "F.Cu",
+            "expanded_nodes": 12143,
+            "source_points": 6,
+            "goal_objects": 4,
+            "outcome": "bounded_graph_exhausted"
+          },
+          {
+            "layer": "In4.Cu",
+            "expanded_nodes": 2781,
+            "source_points": 3,
+            "goal_objects": 165,
+            "outcome": "bounded_graph_exhausted"
+          }
+        ],
+        "rejected_candidates": [],
+        "outcome": "bounded_graphs_exhausted",
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/lower-supply-bridge.json",
+      "sha256": "03caf03a2ceb7088f724533374519ef65fcbbe9f950bd401423ff804317c5720",
+      "script_sha256": "22d86f3f98d48087e10fc3987ff78aeb0fba550e77062cf411fc289230eecf21",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "expanded_nodes": 33783,
+        "source_points": 22,
+        "via_probes": 18068,
+        "clear_via_probes": 554,
+        "rejected_candidates": [],
+        "outcome": "bounded_graph_exhausted",
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/selector-restore.json",
+      "sha256": "1426c07b075daca11839aeca631ad4e4f4a84fe1f34c42cf1802a995dac73a25",
+      "script_sha256": "6d078b6b8aa057ad0147046b85920d801aac9dd07cad1e10bd9f42c7951c61ce",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "counts": {
+          "copper_fail": 101978,
+          "length_fail": 82
+        },
+        "rejected_candidates": [],
+        "outcome": "bounded_templates_exhausted",
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false
+      }
+    },
+    {
+      "path": "hardware/coupon/rev-a/build/pair03-supply-routing/front-pair05/selector-layer-access.json",
+      "sha256": "2c252328b3d520b086ca9542289072e259165c7d3fbe44c88fbdddc979b6f73f",
+      "script_sha256": "de718afd51c2585127e024d2f526e3279b6635dc8cdf72f184fbb2a9b9bd73ce",
+      "metrics": {
+        "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+        "expanded_nodes": 310,
+        "source_points": 2,
+        "via_probes": 146,
+        "clear_via_probes": 84,
+        "rejected_candidates": [],
+        "outcome": "selector_restored_row_pending",
+        "selected": false,
+        "read_only": true,
+        "pcb_written": false,
+        "fabrication_release_allowed": false
+      }
+    }
+  ],
+  "selector_only_restoration": {
+    "source_sha256": "03e74104c51811a18d558cdc7bd28513f9f1fcb5058ef8a7c7f62f612d8a252d",
+    "expanded_nodes": 310,
+    "source_points": 2,
+    "via_probes": 146,
+    "clear_via_probes": 84,
+    "rejected_candidates": [],
+    "supply_bridge": {
+      "source_witness_uuid": "c24f34e4-cd06-519a-91b2-2f1bf53f1231",
+      "goal_witness_uuid": "7c230c90-28aa-5a4c-a462-1ff328f288fd",
+      "conductor_mm": 3.405409754248578,
+      "new_microvias": 1,
+      "filled_bridge": {
+        "native_opens": 21,
+        "physical_opens": 21,
+        "original_groups": 210,
+        "prior_groups_preserved": 209,
+        "temporarily_split_original_groups": [
+          "ROW_04_A"
+        ],
+        "retained_attached_source_copper": 19256,
+        "main_ground_pads": 197,
+        "main_vled_pads": 40,
+        "gate_pads": 4,
+        "row_pads": 2,
+        "selector_pads": 3,
+        "orphan_copper": 0
+      },
+      "hole_audit": {
+        "disjoint_supported_close_pairs": [],
+        "aligned_adjacent_stacks": [
+          {
+            "uuids": [
+              "b027a28a-4f67-5591-bead-75785b621011",
+              "b4df1be6-fd66-50ce-af4c-271a37bbaace"
+            ],
+            "first_uuid": "b027a28a-4f67-5591-bead-75785b621011",
+            "first_span": [
+              "In1.Cu",
+              "In2.Cu"
+            ],
+            "second_span": [
+              "F.Cu",
+              "In1.Cu"
+            ],
+            "first_position_iu": [
+              84050000,
+              12175000
+            ],
+            "second_position_iu": [
+              84050000,
+              12175000
+            ]
+          }
+        ],
+        "other_close_pairs": 0,
+        "minimum_unchanged_hole_clearance_mm": 0.25,
+        "fabrication_qualified": false
+      },
+      "new_copper": [
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83400000,
+            12175000,
+            83425000,
+            12200000,
+            "F.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "via",
+            "ROW_SEL_04",
+            83425000,
+            12200000,
+            "F.Cu",
+            "In1.Cu",
+            300000,
+            100000
+          ],
+          "via_type": 1
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83425000,
+            12200000,
+            83450000,
+            12225000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83450000,
+            12225000,
+            83475000,
+            12250000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83475000,
+            12250000,
+            83500000,
+            12275000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83500000,
+            12275000,
+            83525000,
+            12300000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83525000,
+            12300000,
+            83550000,
+            12325000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83550000,
+            12325000,
+            83575000,
+            12350000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83575000,
+            12350000,
+            83600000,
+            12375000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83600000,
+            12375000,
+            83625000,
+            12400000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83625000,
+            12400000,
+            83650000,
+            12425000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83650000,
+            12425000,
+            83675000,
+            12450000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83675000,
+            12450000,
+            83700000,
+            12475000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83700000,
+            12475000,
+            83725000,
+            12500000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83725000,
+            12500000,
+            83750000,
+            12525000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83750000,
+            12525000,
+            83775000,
+            12550000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83775000,
+            12550000,
+            83800000,
+            12575000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83800000,
+            12575000,
+            83825000,
+            12600000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83825000,
+            12600000,
+            83850000,
+            12625000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83850000,
+            12625000,
+            83875000,
+            12650000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83875000,
+            12650000,
+            83900000,
+            12675000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83900000,
+            12675000,
+            83925000,
+            12700000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83925000,
+            12700000,
+            83950000,
+            12725000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83950000,
+            12725000,
+            83975000,
+            12750000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            83975000,
+            12750000,
+            84000000,
+            12775000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84000000,
+            12775000,
+            84025000,
+            12800000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84025000,
+            12800000,
+            84050000,
+            12825000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84050000,
+            12825000,
+            84050000,
+            12850000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84050000,
+            12850000,
+            84050000,
+            12875000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84050000,
+            12875000,
+            84075000,
+            12900000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84075000,
+            12900000,
+            84075000,
+            12925000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84075000,
+            12925000,
+            84075000,
+            12950000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84075000,
+            12950000,
+            84100000,
+            12975000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84100000,
+            12975000,
+            84100000,
+            13000000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84100000,
+            13000000,
+            84100000,
+            13025000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84100000,
+            13025000,
+            84100000,
+            13050000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84100000,
+            13050000,
+            84125000,
+            13075000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84125000,
+            13075000,
+            84125000,
+            13100000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84125000,
+            13100000,
+            84125000,
+            13125000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84125000,
+            13125000,
+            84150000,
+            13150000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84150000,
+            13150000,
+            84150000,
+            13175000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84150000,
+            13175000,
+            84150000,
+            13200000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84150000,
+            13200000,
+            84150000,
+            13225000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84150000,
+            13225000,
+            84175000,
+            13250000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84175000,
+            13250000,
+            84175000,
+            13275000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84175000,
+            13275000,
+            84175000,
+            13300000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84175000,
+            13300000,
+            84200000,
+            13325000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84200000,
+            13325000,
+            84200000,
+            13350000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84200000,
+            13350000,
+            84200000,
+            13375000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84200000,
+            13375000,
+            84200000,
+            13400000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84200000,
+            13400000,
+            84225000,
+            13425000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84225000,
+            13425000,
+            84225000,
+            13450000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84225000,
+            13450000,
+            84225000,
+            13475000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84225000,
+            13475000,
+            84250000,
+            13500000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84250000,
+            13500000,
+            84250000,
+            13525000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84250000,
+            13525000,
+            84250000,
+            13550000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84250000,
+            13550000,
+            84250000,
+            13575000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84250000,
+            13575000,
+            84275000,
+            13600000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84275000,
+            13600000,
+            84275000,
+            13625000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84275000,
+            13625000,
+            84275000,
+            13650000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84275000,
+            13650000,
+            84300000,
+            13675000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84300000,
+            13675000,
+            84300000,
+            13700000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84300000,
+            13700000,
+            84300000,
+            13725000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84300000,
+            13725000,
+            84325000,
+            13750000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84325000,
+            13750000,
+            84325000,
+            13775000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84325000,
+            13775000,
+            84325000,
+            13800000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84325000,
+            13800000,
+            84325000,
+            13825000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84325000,
+            13825000,
+            84350000,
+            13850000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84350000,
+            13850000,
+            84350000,
+            13875000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84350000,
+            13875000,
+            84350000,
+            13900000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84350000,
+            13900000,
+            84375000,
+            13925000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84375000,
+            13925000,
+            84375000,
+            13950000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84375000,
+            13950000,
+            84375000,
+            13975000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84375000,
+            13975000,
+            84375000,
+            14000000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84375000,
+            14000000,
+            84400000,
+            14025000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84400000,
+            14025000,
+            84400000,
+            14050000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84400000,
+            14050000,
+            84400000,
+            14075000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84400000,
+            14075000,
+            84425000,
+            14100000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84425000,
+            14100000,
+            84425000,
+            14125000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84425000,
+            14125000,
+            84425000,
+            14150000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84425000,
+            14150000,
+            84425000,
+            14175000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84425000,
+            14175000,
+            84450000,
+            14200000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84450000,
+            14200000,
+            84450000,
+            14225000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84450000,
+            14225000,
+            84450000,
+            14250000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84450000,
+            14250000,
+            84475000,
+            14275000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84475000,
+            14275000,
+            84475000,
+            14300000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84475000,
+            14300000,
+            84475000,
+            14325000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84475000,
+            14325000,
+            84475000,
+            14350000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84475000,
+            14350000,
+            84500000,
+            14375000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84500000,
+            14375000,
+            84500000,
+            14400000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84500000,
+            14400000,
+            84500000,
+            14425000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84500000,
+            14425000,
+            84525000,
+            14450000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84525000,
+            14450000,
+            84525000,
+            14475000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84525000,
+            14475000,
+            84525000,
+            14500000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84525000,
+            14500000,
+            84525000,
+            14525000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84525000,
+            14525000,
+            84550000,
+            14550000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84550000,
+            14550000,
+            84550000,
+            14575000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84550000,
+            14575000,
+            84575000,
+            14600000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84575000,
+            14600000,
+            84600000,
+            14625000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84600000,
+            14625000,
+            84625000,
+            14650000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84625000,
+            14650000,
+            84650000,
+            14675000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84650000,
+            14675000,
+            84675000,
+            14700000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84675000,
+            14700000,
+            84700000,
+            14725000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84700000,
+            14725000,
+            84725000,
+            14750000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84725000,
+            14750000,
+            84750000,
+            14775000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        },
+        {
+          "signature": [
+            "track",
+            "ROW_SEL_04",
+            84750000,
+            14775000,
+            84850000,
+            15000000,
+            "In1.Cu",
+            200000
+          ],
+          "via_type": null
+        }
+      ]
+    },
+    "outcome": "selector_restored_row_pending",
+    "selected": false,
+    "read_only": true,
+    "pcb_written": false,
+    "fabrication_release_allowed": false
+  },
+  "selector_route_sha256": "a251ec65094ca128045753ce7b11c0d169ca0373406d8f54cc0e32930f02cc52"
+}
